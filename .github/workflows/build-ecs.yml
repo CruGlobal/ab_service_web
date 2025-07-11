@@ -17,4 +17,4 @@ jobs:
     uses: CruGlobal/.github/.github/workflows/build-ecs.yml@support-microservices
     with:
       workflow-ref: support-microservices
-      role-arn: arn:aws:iam::056154071827:role/appbuilder-stage-TaskRole
+      microservice-app: appbuilder
