@@ -62,7 +62,7 @@ jobs:
   call-run-cy-test:
     name: Test
     needs: call-update-files
-    uses: CruGlobal/.github/.github/workflows/cypress-e2e-tests.yml@master
+    uses: CruGlobal/.github/.github/workflows/cypress-e2e-tests.yml@main
     with:
       ref: ${{ needs.call-update-files.outputs.branch }}
 
@@ -82,7 +82,7 @@ jobs:
   call-merge-release:
     name: Merge
     needs: [ call-update-files, call-bump-version ]
-    uses: CruGlobal/.github/.github/workflows/branch-merge-release.yml@master
+    uses: CruGlobal/.github/.github/workflows/branch-merge-release.yml@main
     with: 
       branch: ${{ needs.call-update-files.outputs.branch }}
       tag: v${{ needs.call-bump-version.outputs.new_version }}
@@ -103,8 +103,8 @@ jobs:
 
   call-dispatch-update:
     needs: [ call-docker-build, call-bump-version ]
-    if: ${{ inputs.branch == 'master' }}
-    uses: CruGlobal/.github/.github/workflows/dispatch-update.yml@master
+    if: ${{ inputs.branch == 'main' }}
+    uses: CruGlobal/.github/.github/workflows/dispatch-update.yml@main
     with:
       version: ${{ needs.call-bump-version.outputs.new_version }}
       type: patch
@@ -116,7 +116,7 @@ jobs:
     name: Tests Failed
     needs: [ call-update-files, call-run-cy-test ]
     if: ${{ failure() && inputs.type != 'major' }}
-    uses: CruGlobal/.github/.github/workflows/open-pr.yml@master
+    uses: CruGlobal/.github/.github/workflows/open-pr.yml@main
     with: 
       branch: ${{ needs.call-update-files.outputs.branch }}
       title: Update ${{ inputs.webpack_repo_short }} to ${{ inputs.version }} (from GitHub Actions Workflow)
@@ -128,7 +128,7 @@ jobs:
     name: Major Change
     needs: [ call-update-files ]
     if: ${{ inputs.type == 'major' }}
-    uses: CruGlobal/.github/.github/workflows/open-pr.yml@master
+    uses: CruGlobal/.github/.github/workflows/open-pr.yml@main
     with: 
       branch: ${{ needs.call-update-files.outputs.branch }}
       title: Update ${{ inputs.webpack_repo_short }} to ${{ inputs.version }} (from GitHub Actions Workflow)
