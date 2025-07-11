@@ -1,0 +1,20 @@
+name: Build ECS
+
+on:
+  push:
+    branches:
+      # Automatically build master and develop. Additional branches may be added.
+      # - master
+      # - develop
+      - build-ecs
+  workflow_dispatch:
+    # Allows manual build and deploy of any branch/ref
+
+jobs:
+  # Build and push container image to ECR. Builds occur in the project repository.
+  build:
+    name: Build
+    uses: CruGlobal/.github/.github/workflows/build-ecs.yml@support-microservices
+    with:
+      workflow-ref: support-microservices
+      role-arn: arn:aws:iam::056154071827:role/appbuilder-stage-TaskRole
