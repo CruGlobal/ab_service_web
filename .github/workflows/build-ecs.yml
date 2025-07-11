@@ -4,9 +4,8 @@ on:
   push:
     branches:
       # Automatically build master and develop. Additional branches may be added.
-      # - master
-      # - develop
-      - build-ecs
+      - master
+      - develop
   workflow_dispatch:
     # Allows manual build and deploy of any branch/ref
 
@@ -14,7 +13,6 @@ jobs:
   # Build and push container image to ECR. Builds occur in the project repository.
   build:
     name: Build
-    uses: CruGlobal/.github/.github/workflows/build-ecs.yml@support-microservices
+    uses: CruGlobal/.github/.github/workflows/build-ecs.yml@v1
     with:
-      workflow-ref: support-microservices
       microservice-app: appbuilder
