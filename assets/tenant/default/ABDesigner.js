@@ -119846,6 +119846,7 @@ __webpack_require__.r(__webpack_exports__);
 
       select(dc) {
          if (dc == null) DataCollectionWorkspace.clearWorkspace();
+         dc?.init();
          DataCollectionWorkspace.datacollectionLoad(dc);
          DataCollectionWorkspace.populateWorkspace(dc);
       }
@@ -122096,7 +122097,7 @@ __webpack_require__.r(__webpack_exports__);
 
          const followCursor = $followCursor.getValue();
 
-         if (followCursor) {
+         if (settings.followDatacollectionID && followCursor) {
             $linkDatacollection.hide();
             $linkField.hide();
             $filterPanel.hide();
