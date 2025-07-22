@@ -3580,7 +3580,8 @@ class PortalAuthLoginResetRequest extends _ClassUI_js__WEBPACK_IMPORTED_MODULE_0
                                              ),
                                              validateEvent: "blur",
                                              attributes: {
-                                                "data-cy": "portal_reset_request_email",
+                                                "data-cy":
+                                                   "portal_reset_request_email",
                                              },
                                           },
                                           {
@@ -3631,7 +3632,9 @@ class PortalAuthLoginResetRequest extends _ClassUI_js__WEBPACK_IMPORTED_MODULE_0
                                                    },
                                                    on: {
                                                       onAfterRender() {
-                                                         _ClassUI_js__WEBPACK_IMPORTED_MODULE_0__["default"].CYPRESS_REF(this);
+                                                         _ClassUI_js__WEBPACK_IMPORTED_MODULE_0__["default"].CYPRESS_REF(
+                                                            this
+                                                         );
                                                       },
                                                    },
                                                 },
@@ -6686,7 +6689,7 @@ class PortalWork extends _ClassUI_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
       const queryParams = new URLSearchParams(window.location.search);
       if (queryParams.has("app") && queryParams.has("page")) {
          const appParam = queryParams.get("app");
-         // Check its a real appID to address: https://github.com/digi-serve/ab_platform_web/security/code-scanning/630
+         // Check its a real appID to address: https://github.com/CruGlobal/ab_platform_web/security/code-scanning/630
          const app = this.AB.applicationByID(appParam);
          if (!app) {
             console.error(`Trying to Navigate to unknown app ${appParam}`);
@@ -8287,7 +8290,11 @@ class PortalWorkTaskUserForm extends _ClassUI_js__WEBPACK_IMPORTED_MODULE_0__["d
 
    show() {
       const $popup = $$(this.ids.component);
-      $popup?.show();
+      try {
+         $popup?.show();
+      } catch {
+         // Catch the error i.render is not function.
+      }
    }
 
    hide() {
@@ -9949,7 +9956,7 @@ try {
    /* global WEBPACK_MODE SENTRY_DSN VERSION */
    webpackMode = "development";
    dsn = undefined;
-   version = "1.15.0";
+   version = "1.15.1";
 } catch (err) {
    console.warn(
       "Error reading from webpack, check the DefinePlugin is working correctly",
@@ -10500,4 +10507,4 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 /******/ var __webpack_exports__ = __webpack_require__.O();
 /******/ }
 ]);
-//# sourceMappingURL=app.8d05fb726fddd6a5b1c9.js.map
+//# sourceMappingURL=app.1e12ce1c39c4f4ae724f.js.map

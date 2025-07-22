@@ -38896,7 +38896,7 @@ module.exports = class ABProcess extends ABProcessCore {
     * @return {Promise}
     *						.resolve( {this} )
     */
-   save() {
+   save(skipElements = false) {
       // if this is an update:
       // if (this.id) {
       // 	return ABDefinition.update(this.id, this.toDefinition());
@@ -38907,10 +38907,12 @@ module.exports = class ABProcess extends ABProcessCore {
 
       // make sure all our tasks have save()ed.
       var allSaves = [];
-      var allTasks = this.elements();
-      allTasks.forEach((t) => {
-         allSaves.push(t.save());
-      });
+      if (!skipElements) {
+         var allTasks = this.elements();
+         allTasks.forEach((t) => {
+            allSaves.push(t.save());
+         });
+      }
       return Promise.all(allSaves).then(() => {
          // now we can save our Process definition
          return this.toDefinition()
@@ -38943,7 +38945,7 @@ module.exports = class ABProcess extends ABProcessCore {
                });
 
                if (needSave) {
-                  return this.save();
+                  return this.save(true);
                }
             });
       });
@@ -49626,6 +49628,9 @@ module.exports = class ABProcessGatewayExclusive extends (
       // a condition:
       let numCondWithOne = 0;
       myOutgoingConnections.forEach((c) => {
+         this.conditions[c.id] = this.conditions[c.id] ?? {};
+         this.conditions[c.id].filterValue = this.conditions[c.id]
+            .filterValue ?? { glue: "and", rules: [] };
          if ((this.conditions[c.id]?.filterValue.rules?.length ?? 0) == 0) {
             numCondWithOne++;
          }
@@ -51429,6 +51434,7 @@ module.exports = class CalculateTask extends CalculateTaskCore {
       if (this.formulaText) {
          const hash = {};
          (this.process.processDataFields(this) || []).forEach((item) => {
+            if (!item) return;
             hash[`{${item.label}}`] = item;
          });
 
@@ -84472,7 +84478,21 @@ class ABCustomFormBuilderBuilder extends (_lazyComponent_js__WEBPACK_IMPORTED_MO
    parseDataFields(fields) {
       const components = {};
       fields?.forEach(({ field, key, label }) => {
-         if (!field) return;
+         if (!field) {
+            components[key] = {
+               title: label,
+               key,
+               schema: {
+                  label: label.split("->")[1],
+                  disabled: true,
+                  key,
+                  _key: key,
+                  type: "textarea",
+                  input: true,
+               },
+            };
+            return;
+         }
 
          const schema = {
             abFieldID: field.id,
@@ -85307,4 +85327,4 @@ module.exports = class ABCustomEditList {
 /***/ })
 
 }]);
-//# sourceMappingURL=AB.a967e7eaf30231be6d6f.js.map
+//# sourceMappingURL=AB.0ae89f7a634fe8e5be13.js.map
