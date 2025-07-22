@@ -27737,7 +27737,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "@keyframes pulseDark {\n   0% {\n      /* color: darkorange; */\n      transform: scale(1);\n      text-shadow: 0 0 1px rgba(0, 0, 0, 0.4);\n   }\n   50% {\n      /* color: orange; */\n   }\n   100% {\n      /* color: darkorange; */\n      transform: scale(1.25);\n      text-shadow: 0 3px 3px rgba(0, 0, 0, 0.4);\n   }\n}\n@keyframes pulseLight {\n   0% {\n      /* color: darkorange; */\n      transform: scale(1);\n      text-shadow: 0 0 1px rgba(0, 0, 0, 0.1);\n   }\n   50% {\n      /* color: orange; */\n   }\n   100% {\n      /* color: darkorange; */\n      transform: scale(1.25);\n      text-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);\n   }\n}\n.pulseDark {\n   animation-name: pulseDark;\n   animation-duration: 1s;\n   animation-timing-function: ease-out;\n   animation-direction: alternate;\n   animation-iteration-count: infinite;\n   animation-play-state: running;\n   color: orange !important;\n}\n.pulseLight {\n   animation-name: pulseLight;\n   animation-duration: 1s;\n   animation-timing-function: ease-out;\n   animation-direction: alternate;\n   animation-iteration-count: infinite;\n   animation-play-state: running;\n   color: orange !important;\n}\n.smalltext {\n   font-size: small !important;\n}\n.ab-object-list-item .webix_sidebar_dir_icon {\n   margin-right: 20px;\n}\n.ab-datacollection-list-item .webix_sidebar_dir_icon {\n   margin-right: 20px;\n}\n.ab-interface-list-item .webix_sidebar_dir_icon {\n   margin-right: 20px;\n}\n.darkorange .webix_button {\n   background-color: darkorange !important;\n}\n.warningtext {\n   color: orange;\n}\n.warningslist {\n   list-style-type: none;\n   margin: 0;\n   padding: 0;\n   line-height: 28px;\n   background-color: transparent;\n   color: white;\n}\n.warningslist li {\n   border-bottom: 1px solid rgba(0, 0, 0, 0.2);\n}\n.webix_theme_dark {\n   background-color: #4a4e58;\n}\n.lighten {\n   opacity: 0.4;\n}\n.app_form_window {\n   border-radius: 8px;\n}\n.app_form_window .webix_win_head {\n   background-color: #b8b8b8;\n}\n.app_form_window div.webix_view.webix_control.webix_el_icon.alert {\n   padding: 0px;\n}\n/* main view background (transparent by default) */\n.app_form_window .alert {\n   background-color: transparent;\n}\n/* main font color */\n.app_form_window .alert .webix_icon {\n   color: #eed202;\n}\n/* circle background (hover) */\n.app_form_window .alert .webix_icon_button:hover:before {\n   opacity: 0.8;\n}\n/* hover: font color */\n.app_form_window .alert .webix_icon_button:hover .webix_icon {\n   color: #d6bd01;\n}\n.app_form_window .webix_template {\n   font-size: 18px;\n   background-color: #b8b8b8;\n}\n.app_form_window .webix_label_right {\n   font-weight: 500;\n   color: rgb(49, 49, 49);\n   width: 340px;\n   padding-left: 10px;\n}\n.app_form_window .webix_scroll_cont .npr_smallLabels .webix_el_box {\n   font-size: 16px;\n   font-weight: 500;\n   color: #33b5e5;\n   text-align: right;\n}\n.app_form_window .webix_multicombo {\n   border: 2px solid #eee;\n   border-radius: 6px;\n}\n.app_form_window .webix_view .webix_layout_form {\n   border: 1px solid #eee;\n   border-radius: 6px;\n}\n.app_form_window div.webix_view.webix_form.no-margin.webix_layout_form {\n   background-color: #eee;\n}\n.app_form_window .webix_button {\n   border-radius: 6px;\n}\n.app_form_window_2 {\n   border-radius: 6px;\n}\n.app_form_window_2 .webix_win_head {\n   background-color: #b8b8b8;\n}\n.app_form_window_2 .webix_template {\n   font-size: 18px;\n   background-color: #b8b8b8;\n}\n/* Tab editing */\n.ab-tab-back:hover,\n.ab-tab-next:hover,\n.ab-tab-up:hover,\n.ab-tab-down:hover {\n   cursor: e-resize;\n   opacity: 1;\n}\n.ab-tab-back:hover {\n   cursor: w-resize;\n}\n.ab-tab-up:hover {\n   cursor: n-resize;\n   opacity: 1;\n}\n.ab-tab-down:hover {\n   cursor: s-resize;\n}\n.ab-tab-back,\n.ab-tab-next,\n.ab-tab-up,\n.ab-tab-down {\n   float: left;\n   margin-left: 10px;\n   background: #1ca1c1;\n   opacity: 0.8;\n   width: 20px;\n   height: 20px;\n   border-radius: 10px;\n   line-height: 20px !important;\n   padding-right: 2px;\n   color: white;\n}\n.fa-pencil-square.ab-tab-edit {\n   opacity: 0.4;\n}\n.fa-pencil.ab-tab-edit {\n   opacity: 0;\n   position: absolute;\n   left: 12px;\n   top: 12px;\n   background: #1ca1c1;\n   width: 20px;\n   height: 20px;\n   text-align: center;\n   line-height: 20px !important;\n   border-radius: 100%;\n   font-size: 11px;\n}\n.ab-tab-edit:hover {\n   opacity: 1;\n   transform: scale(1.2);\n}\n.webix_tree_item:hover .fa-pencil.ab-tab-edit {\n   opacity: 1;\n}\n.ab-tab-next {\n   float: right;\n   margin-right: 10px;\n   padding-left: 6px;\n}\n.ab-tab-up,\n.ab-tab-down {\n   /*   float: right;*/\n   /*   margin: 12px -2px 12px 15px;*/\n   /*   padding-left: 6px;*/\n   opacity: 0.2;\n   border-radius: 0 !important;\n   position: absolute;\n   right: 1px;\n   top: 0;\n   line-height: 22px !important;\n   width: 22px;\n   height: 21px;\n   text-align: center;\n   margin: 0;\n}\n.ab-tab-down {\n   top: 22px;\n}\n.webix_tree_item {\n   position: relative;\n   cursor: grab;\n}\n.webix_all_tabs div:nth-child(1) .ab-tab-back {\n   display: none;\n}\n.webix_all_tabs div:nth-last-child(1) .ab-tab-next {\n   display: none;\n}\n\n\n/* PWA Designer */\n\n.dragme {\n   display:inline-block;\n   color: #CCC;\n   padding: 5px 7px;\n   float: right;\n   cursor: grab;\n}\n.webix_drag_zone .fa {\n   display: none;\n}\n.circleme {\n   background: #AAA;\n   color: #FFF;\n   font-size:8px;\n   width: 15px;\n   height: 15px;\n   text-align: center;\n   line-height: 15px;\n   border-radius: 15px;\n   vertical-align: text-top;\n}\n\n.webix_tree_leaves {\n   display: block !important;\n}", "",{"version":3,"sources":["webpack://./styles/Designer.css"],"names":[],"mappings":"AAAA;GACG;MACG,uBAAuB;MACvB,mBAAmB;MACnB,uCAAuC;GAC1C;GACA;MACG,mBAAmB;GACtB;GACA;MACG,uBAAuB;MACvB,sBAAsB;MACtB,yCAAyC;GAC5C;AACH;AACA;GACG;MACG,uBAAuB;MACvB,mBAAmB;MACnB,uCAAuC;GAC1C;GACA;MACG,mBAAmB;GACtB;GACA;MACG,uBAAuB;MACvB,sBAAsB;MACtB,yCAAyC;GAC5C;AACH;AACA;GACG,yBAAyB;GACzB,sBAAsB;GACtB,mCAAmC;GACnC,8BAA8B;GAC9B,mCAAmC;GACnC,6BAA6B;GAC7B,wBAAwB;AAC3B;AACA;GACG,0BAA0B;GAC1B,sBAAsB;GACtB,mCAAmC;GACnC,8BAA8B;GAC9B,mCAAmC;GACnC,6BAA6B;GAC7B,wBAAwB;AAC3B;AACA;GACG,2BAA2B;AAC9B;AACA;GACG,kBAAkB;AACrB;AACA;GACG,kBAAkB;AACrB;AACA;GACG,kBAAkB;AACrB;AACA;GACG,uCAAuC;AAC1C;AACA;GACG,aAAa;AAChB;AACA;GACG,qBAAqB;GACrB,SAAS;GACT,UAAU;GACV,iBAAiB;GACjB,6BAA6B;GAC7B,YAAY;AACf;AACA;GACG,2CAA2C;AAC9C;AACA;GACG,yBAAyB;AAC5B;AACA;GACG,YAAY;AACf;AACA;GACG,kBAAkB;AACrB;AACA;GACG,yBAAyB;AAC5B;AACA;GACG,YAAY;AACf;AACA,kDAAkD;AAClD;GACG,6BAA6B;AAChC;AACA,oBAAoB;AACpB;GACG,cAAc;AACjB;AACA,8BAA8B;AAC9B;GACG,YAAY;AACf;AACA,sBAAsB;AACtB;GACG,cAAc;AACjB;AACA;GACG,eAAe;GACf,yBAAyB;AAC5B;AACA;GACG,gBAAgB;GAChB,sBAAsB;GACtB,YAAY;GACZ,kBAAkB;AACrB;AACA;GACG,eAAe;GACf,gBAAgB;GAChB,cAAc;GACd,iBAAiB;AACpB;AACA;GACG,sBAAsB;GACtB,kBAAkB;AACrB;AACA;GACG,sBAAsB;GACtB,kBAAkB;AACrB;AACA;GACG,sBAAsB;AACzB;AACA;GACG,kBAAkB;AACrB;AACA;GACG,kBAAkB;AACrB;AACA;GACG,yBAAyB;AAC5B;AACA;GACG,eAAe;GACf,yBAAyB;AAC5B;AACA,gBAAgB;AAChB;;;;GAIG,gBAAgB;GAChB,UAAU;AACb;AACA;GACG,gBAAgB;AACnB;AACA;GACG,gBAAgB;GAChB,UAAU;AACb;AACA;GACG,gBAAgB;AACnB;AACA;;;;GAIG,WAAW;GACX,iBAAiB;GACjB,mBAAmB;GACnB,YAAY;GACZ,WAAW;GACX,YAAY;GACZ,mBAAmB;GACnB,4BAA4B;GAC5B,kBAAkB;GAClB,YAAY;AACf;AACA;GACG,YAAY;AACf;AACA;GACG,UAAU;GACV,kBAAkB;GAClB,UAAU;GACV,SAAS;GACT,mBAAmB;GACnB,WAAW;GACX,YAAY;GACZ,kBAAkB;GAClB,4BAA4B;GAC5B,mBAAmB;GACnB,eAAe;AAClB;AACA;GACG,UAAU;GACV,qBAAqB;AACxB;AACA;GACG,UAAU;AACb;AACA;GACG,YAAY;GACZ,kBAAkB;GAClB,iBAAiB;AACpB;AACA;;GAEG,mBAAmB;GACnB,kCAAkC;GAClC,wBAAwB;GACxB,YAAY;GACZ,2BAA2B;GAC3B,kBAAkB;GAClB,UAAU;GACV,MAAM;GACN,4BAA4B;GAC5B,WAAW;GACX,YAAY;GACZ,kBAAkB;GAClB,SAAS;AACZ;AACA;GACG,SAAS;AACZ;AACA;GACG,kBAAkB;GAClB,YAAY;AACf;AACA;GACG,aAAa;AAChB;AACA;GACG,aAAa;AAChB;;;AAGA,iBAAiB;;AAEjB;GACG,oBAAoB;GACpB,WAAW;GACX,gBAAgB;GAChB,YAAY;GACZ,YAAY;AACf;AACA;GACG,aAAa;AAChB;AACA;GACG,gBAAgB;GAChB,WAAW;GACX,aAAa;GACb,WAAW;GACX,YAAY;GACZ,kBAAkB;GAClB,iBAAiB;GACjB,mBAAmB;GACnB,wBAAwB;AAC3B;;AAEA;GACG,yBAAyB;AAC5B","sourcesContent":["@keyframes pulseDark {\n   0% {\n      /* color: darkorange; */\n      transform: scale(1);\n      text-shadow: 0 0 1px rgba(0, 0, 0, 0.4);\n   }\n   50% {\n      /* color: orange; */\n   }\n   100% {\n      /* color: darkorange; */\n      transform: scale(1.25);\n      text-shadow: 0 3px 3px rgba(0, 0, 0, 0.4);\n   }\n}\n@keyframes pulseLight {\n   0% {\n      /* color: darkorange; */\n      transform: scale(1);\n      text-shadow: 0 0 1px rgba(0, 0, 0, 0.1);\n   }\n   50% {\n      /* color: orange; */\n   }\n   100% {\n      /* color: darkorange; */\n      transform: scale(1.25);\n      text-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);\n   }\n}\n.pulseDark {\n   animation-name: pulseDark;\n   animation-duration: 1s;\n   animation-timing-function: ease-out;\n   animation-direction: alternate;\n   animation-iteration-count: infinite;\n   animation-play-state: running;\n   color: orange !important;\n}\n.pulseLight {\n   animation-name: pulseLight;\n   animation-duration: 1s;\n   animation-timing-function: ease-out;\n   animation-direction: alternate;\n   animation-iteration-count: infinite;\n   animation-play-state: running;\n   color: orange !important;\n}\n.smalltext {\n   font-size: small !important;\n}\n.ab-object-list-item .webix_sidebar_dir_icon {\n   margin-right: 20px;\n}\n.ab-datacollection-list-item .webix_sidebar_dir_icon {\n   margin-right: 20px;\n}\n.ab-interface-list-item .webix_sidebar_dir_icon {\n   margin-right: 20px;\n}\n.darkorange .webix_button {\n   background-color: darkorange !important;\n}\n.warningtext {\n   color: orange;\n}\n.warningslist {\n   list-style-type: none;\n   margin: 0;\n   padding: 0;\n   line-height: 28px;\n   background-color: transparent;\n   color: white;\n}\n.warningslist li {\n   border-bottom: 1px solid rgba(0, 0, 0, 0.2);\n}\n.webix_theme_dark {\n   background-color: #4a4e58;\n}\n.lighten {\n   opacity: 0.4;\n}\n.app_form_window {\n   border-radius: 8px;\n}\n.app_form_window .webix_win_head {\n   background-color: #b8b8b8;\n}\n.app_form_window div.webix_view.webix_control.webix_el_icon.alert {\n   padding: 0px;\n}\n/* main view background (transparent by default) */\n.app_form_window .alert {\n   background-color: transparent;\n}\n/* main font color */\n.app_form_window .alert .webix_icon {\n   color: #eed202;\n}\n/* circle background (hover) */\n.app_form_window .alert .webix_icon_button:hover:before {\n   opacity: 0.8;\n}\n/* hover: font color */\n.app_form_window .alert .webix_icon_button:hover .webix_icon {\n   color: #d6bd01;\n}\n.app_form_window .webix_template {\n   font-size: 18px;\n   background-color: #b8b8b8;\n}\n.app_form_window .webix_label_right {\n   font-weight: 500;\n   color: rgb(49, 49, 49);\n   width: 340px;\n   padding-left: 10px;\n}\n.app_form_window .webix_scroll_cont .npr_smallLabels .webix_el_box {\n   font-size: 16px;\n   font-weight: 500;\n   color: #33b5e5;\n   text-align: right;\n}\n.app_form_window .webix_multicombo {\n   border: 2px solid #eee;\n   border-radius: 6px;\n}\n.app_form_window .webix_view .webix_layout_form {\n   border: 1px solid #eee;\n   border-radius: 6px;\n}\n.app_form_window div.webix_view.webix_form.no-margin.webix_layout_form {\n   background-color: #eee;\n}\n.app_form_window .webix_button {\n   border-radius: 6px;\n}\n.app_form_window_2 {\n   border-radius: 6px;\n}\n.app_form_window_2 .webix_win_head {\n   background-color: #b8b8b8;\n}\n.app_form_window_2 .webix_template {\n   font-size: 18px;\n   background-color: #b8b8b8;\n}\n/* Tab editing */\n.ab-tab-back:hover,\n.ab-tab-next:hover,\n.ab-tab-up:hover,\n.ab-tab-down:hover {\n   cursor: e-resize;\n   opacity: 1;\n}\n.ab-tab-back:hover {\n   cursor: w-resize;\n}\n.ab-tab-up:hover {\n   cursor: n-resize;\n   opacity: 1;\n}\n.ab-tab-down:hover {\n   cursor: s-resize;\n}\n.ab-tab-back,\n.ab-tab-next,\n.ab-tab-up,\n.ab-tab-down {\n   float: left;\n   margin-left: 10px;\n   background: #1ca1c1;\n   opacity: 0.8;\n   width: 20px;\n   height: 20px;\n   border-radius: 10px;\n   line-height: 20px !important;\n   padding-right: 2px;\n   color: white;\n}\n.fa-pencil-square.ab-tab-edit {\n   opacity: 0.4;\n}\n.fa-pencil.ab-tab-edit {\n   opacity: 0;\n   position: absolute;\n   left: 12px;\n   top: 12px;\n   background: #1ca1c1;\n   width: 20px;\n   height: 20px;\n   text-align: center;\n   line-height: 20px !important;\n   border-radius: 100%;\n   font-size: 11px;\n}\n.ab-tab-edit:hover {\n   opacity: 1;\n   transform: scale(1.2);\n}\n.webix_tree_item:hover .fa-pencil.ab-tab-edit {\n   opacity: 1;\n}\n.ab-tab-next {\n   float: right;\n   margin-right: 10px;\n   padding-left: 6px;\n}\n.ab-tab-up,\n.ab-tab-down {\n   /*   float: right;*/\n   /*   margin: 12px -2px 12px 15px;*/\n   /*   padding-left: 6px;*/\n   opacity: 0.2;\n   border-radius: 0 !important;\n   position: absolute;\n   right: 1px;\n   top: 0;\n   line-height: 22px !important;\n   width: 22px;\n   height: 21px;\n   text-align: center;\n   margin: 0;\n}\n.ab-tab-down {\n   top: 22px;\n}\n.webix_tree_item {\n   position: relative;\n   cursor: grab;\n}\n.webix_all_tabs div:nth-child(1) .ab-tab-back {\n   display: none;\n}\n.webix_all_tabs div:nth-last-child(1) .ab-tab-next {\n   display: none;\n}\n\n\n/* PWA Designer */\n\n.dragme {\n   display:inline-block;\n   color: #CCC;\n   padding: 5px 7px;\n   float: right;\n   cursor: grab;\n}\n.webix_drag_zone .fa {\n   display: none;\n}\n.circleme {\n   background: #AAA;\n   color: #FFF;\n   font-size:8px;\n   width: 15px;\n   height: 15px;\n   text-align: center;\n   line-height: 15px;\n   border-radius: 15px;\n   vertical-align: text-top;\n}\n\n.webix_tree_leaves {\n   display: block !important;\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "@keyframes pulseDark {\n   0% {\n      /* color: darkorange; */\n      transform: scale(1);\n      text-shadow: 0 0 1px rgba(0, 0, 0, 0.4);\n   }\n   50% {\n      /* color: orange; */\n   }\n   100% {\n      /* color: darkorange; */\n      transform: scale(1.25);\n      text-shadow: 0 3px 3px rgba(0, 0, 0, 0.4);\n   }\n}\n@keyframes pulseLight {\n   0% {\n      /* color: darkorange; */\n      transform: scale(1);\n      text-shadow: 0 0 1px rgba(0, 0, 0, 0.1);\n   }\n   50% {\n      /* color: orange; */\n   }\n   100% {\n      /* color: darkorange; */\n      transform: scale(1.25);\n      text-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);\n   }\n}\n.pulseDark {\n   animation-name: pulseDark;\n   animation-duration: 1s;\n   animation-timing-function: ease-out;\n   animation-direction: alternate;\n   animation-iteration-count: infinite;\n   animation-play-state: running;\n   color: orange !important;\n}\n.pulseLight {\n   animation-name: pulseLight;\n   animation-duration: 1s;\n   animation-timing-function: ease-out;\n   animation-direction: alternate;\n   animation-iteration-count: infinite;\n   animation-play-state: running;\n   color: orange !important;\n}\n.smalltext {\n   font-size: small !important;\n}\n.ab-object-list-item .webix_sidebar_dir_icon {\n   margin-right: 20px;\n}\n.ab-datacollection-list-item .webix_sidebar_dir_icon {\n   margin-right: 20px;\n}\n.ab-interface-list-item .webix_sidebar_dir_icon {\n   margin-right: 20px;\n}\n.darkorange .webix_button {\n   background-color: darkorange !important;\n}\n.warningtext {\n   color: orange;\n}\n.warningslist {\n   list-style-type: none;\n   margin: 0;\n   padding: 0;\n   line-height: 28px;\n   background-color: transparent;\n   color: white;\n}\n.warningslist li {\n   border-bottom: 1px solid rgba(0, 0, 0, 0.2);\n}\n.webix_theme_dark {\n   background-color: #4a4e58;\n}\n.lighten {\n   opacity: 0.4;\n}\n.app_form_window {\n   border-radius: 8px;\n}\n.app_form_window .webix_win_head {\n   background-color: #b8b8b8;\n}\n.app_form_window div.webix_view.webix_control.webix_el_icon.alert {\n   padding: 0px;\n}\n/* main view background (transparent by default) */\n.app_form_window .alert {\n   background-color: transparent;\n}\n/* main font color */\n.app_form_window .alert .webix_icon {\n   color: #eed202;\n}\n/* circle background (hover) */\n.app_form_window .alert .webix_icon_button:hover:before {\n   opacity: 0.8;\n}\n/* hover: font color */\n.app_form_window .alert .webix_icon_button:hover .webix_icon {\n   color: #d6bd01;\n}\n.app_form_window .webix_template {\n   font-size: 18px;\n   background-color: #b8b8b8;\n}\n.app_form_window .webix_label_right {\n   font-weight: 500;\n   color: rgb(49, 49, 49);\n   width: 340px;\n   padding-left: 10px;\n}\n.app_form_window .webix_scroll_cont .npr_smallLabels .webix_el_box {\n   font-size: 16px;\n   font-weight: 500;\n   color: #33b5e5;\n   text-align: right;\n}\n.app_form_window .webix_multicombo {\n   border: 2px solid #eee;\n   border-radius: 6px;\n}\n.app_form_window .webix_view .webix_layout_form {\n   border: 1px solid #eee;\n   border-radius: 6px;\n}\n.app_form_window div.webix_view.webix_form.no-margin.webix_layout_form {\n   background-color: #eee;\n}\n.app_form_window .webix_button {\n   border-radius: 6px;\n}\n.app_form_window_2 {\n   border-radius: 6px;\n}\n.app_form_window_2 .webix_win_head {\n   background-color: #b8b8b8;\n}\n.app_form_window_2 .webix_template {\n   font-size: 18px;\n   background-color: #b8b8b8;\n}\n/* Tab editing */\n.ab-tab-back:hover,\n.ab-tab-next:hover,\n.ab-tab-up:hover,\n.ab-tab-down:hover {\n   cursor: e-resize;\n   opacity: 1;\n}\n.ab-tab-back:hover {\n   cursor: w-resize;\n}\n.ab-tab-up:hover {\n   cursor: n-resize;\n   opacity: 1;\n}\n.ab-tab-down:hover {\n   cursor: s-resize;\n}\n.ab-tab-back,\n.ab-tab-next,\n.ab-tab-up,\n.ab-tab-down {\n   float: left;\n   margin-left: 10px;\n   background: #1ca1c1;\n   opacity: 0.8;\n   width: 20px;\n   height: 20px;\n   border-radius: 10px;\n   line-height: 20px !important;\n   padding-right: 2px;\n   color: white;\n}\n.fa-pencil-square.ab-tab-edit {\n   opacity: 0.4;\n}\n.fa-pencil.ab-tab-edit {\n   opacity: 0;\n   position: absolute;\n   left: 12px;\n   top: 12px;\n   background: #1ca1c1;\n   width: 20px;\n   height: 20px;\n   text-align: center;\n   line-height: 20px !important;\n   border-radius: 100%;\n   font-size: 11px;\n}\n.ab-tab-edit:hover {\n   opacity: 1;\n   transform: scale(1.2);\n}\n.webix_tree_item:hover .fa-pencil.ab-tab-edit {\n   opacity: 1;\n}\n.ab-tab-next {\n   float: right;\n   margin-right: 10px;\n   padding-left: 6px;\n}\n.ab-tab-up,\n.ab-tab-down {\n   /*   float: right;*/\n   /*   margin: 12px -2px 12px 15px;*/\n   /*   padding-left: 6px;*/\n   opacity: 0.2;\n   border-radius: 0 !important;\n   position: absolute;\n   right: 1px;\n   top: 0;\n   line-height: 22px !important;\n   width: 22px;\n   height: 21px;\n   text-align: center;\n   margin: 0;\n}\n.ab-tab-down {\n   top: 22px;\n}\n.webix_tree_item {\n   position: relative;\n   cursor: grab;\n}\n.webix_all_tabs div:nth-child(1) .ab-tab-back {\n   display: none;\n}\n.webix_all_tabs div:nth-last-child(1) .ab-tab-next {\n   display: none;\n}\n\n\n/* PWA Designer */\n\n.dragme {\n   display:inline-block;\n   color: #CCC;\n   padding: 5px 7px;\n   float: right;\n   cursor: grab;\n}\n.webix_drag_zone .fa {\n   display: none;\n}\n.circleme {\n   background: #AAA;\n   color: #FFF;\n   font-size:8px;\n   width: 15px;\n   height: 15px;\n   text-align: center;\n   line-height: 15px;\n   border-radius: 15px;\n   vertical-align: text-top;\n}\n\n.webix_tree_leaves {\n   display: block !important;\n}\n\n.monospace > div > textarea,\n.monospace input,\n.monospace .webix_text_highlight_value {\n   word-break: break-all;\n   font-family: monospace;\n}\n", "",{"version":3,"sources":["webpack://./styles/Designer.css"],"names":[],"mappings":"AAAA;GACG;MACG,uBAAuB;MACvB,mBAAmB;MACnB,uCAAuC;GAC1C;GACA;MACG,mBAAmB;GACtB;GACA;MACG,uBAAuB;MACvB,sBAAsB;MACtB,yCAAyC;GAC5C;AACH;AACA;GACG;MACG,uBAAuB;MACvB,mBAAmB;MACnB,uCAAuC;GAC1C;GACA;MACG,mBAAmB;GACtB;GACA;MACG,uBAAuB;MACvB,sBAAsB;MACtB,yCAAyC;GAC5C;AACH;AACA;GACG,yBAAyB;GACzB,sBAAsB;GACtB,mCAAmC;GACnC,8BAA8B;GAC9B,mCAAmC;GACnC,6BAA6B;GAC7B,wBAAwB;AAC3B;AACA;GACG,0BAA0B;GAC1B,sBAAsB;GACtB,mCAAmC;GACnC,8BAA8B;GAC9B,mCAAmC;GACnC,6BAA6B;GAC7B,wBAAwB;AAC3B;AACA;GACG,2BAA2B;AAC9B;AACA;GACG,kBAAkB;AACrB;AACA;GACG,kBAAkB;AACrB;AACA;GACG,kBAAkB;AACrB;AACA;GACG,uCAAuC;AAC1C;AACA;GACG,aAAa;AAChB;AACA;GACG,qBAAqB;GACrB,SAAS;GACT,UAAU;GACV,iBAAiB;GACjB,6BAA6B;GAC7B,YAAY;AACf;AACA;GACG,2CAA2C;AAC9C;AACA;GACG,yBAAyB;AAC5B;AACA;GACG,YAAY;AACf;AACA;GACG,kBAAkB;AACrB;AACA;GACG,yBAAyB;AAC5B;AACA;GACG,YAAY;AACf;AACA,kDAAkD;AAClD;GACG,6BAA6B;AAChC;AACA,oBAAoB;AACpB;GACG,cAAc;AACjB;AACA,8BAA8B;AAC9B;GACG,YAAY;AACf;AACA,sBAAsB;AACtB;GACG,cAAc;AACjB;AACA;GACG,eAAe;GACf,yBAAyB;AAC5B;AACA;GACG,gBAAgB;GAChB,sBAAsB;GACtB,YAAY;GACZ,kBAAkB;AACrB;AACA;GACG,eAAe;GACf,gBAAgB;GAChB,cAAc;GACd,iBAAiB;AACpB;AACA;GACG,sBAAsB;GACtB,kBAAkB;AACrB;AACA;GACG,sBAAsB;GACtB,kBAAkB;AACrB;AACA;GACG,sBAAsB;AACzB;AACA;GACG,kBAAkB;AACrB;AACA;GACG,kBAAkB;AACrB;AACA;GACG,yBAAyB;AAC5B;AACA;GACG,eAAe;GACf,yBAAyB;AAC5B;AACA,gBAAgB;AAChB;;;;GAIG,gBAAgB;GAChB,UAAU;AACb;AACA;GACG,gBAAgB;AACnB;AACA;GACG,gBAAgB;GAChB,UAAU;AACb;AACA;GACG,gBAAgB;AACnB;AACA;;;;GAIG,WAAW;GACX,iBAAiB;GACjB,mBAAmB;GACnB,YAAY;GACZ,WAAW;GACX,YAAY;GACZ,mBAAmB;GACnB,4BAA4B;GAC5B,kBAAkB;GAClB,YAAY;AACf;AACA;GACG,YAAY;AACf;AACA;GACG,UAAU;GACV,kBAAkB;GAClB,UAAU;GACV,SAAS;GACT,mBAAmB;GACnB,WAAW;GACX,YAAY;GACZ,kBAAkB;GAClB,4BAA4B;GAC5B,mBAAmB;GACnB,eAAe;AAClB;AACA;GACG,UAAU;GACV,qBAAqB;AACxB;AACA;GACG,UAAU;AACb;AACA;GACG,YAAY;GACZ,kBAAkB;GAClB,iBAAiB;AACpB;AACA;;GAEG,mBAAmB;GACnB,kCAAkC;GAClC,wBAAwB;GACxB,YAAY;GACZ,2BAA2B;GAC3B,kBAAkB;GAClB,UAAU;GACV,MAAM;GACN,4BAA4B;GAC5B,WAAW;GACX,YAAY;GACZ,kBAAkB;GAClB,SAAS;AACZ;AACA;GACG,SAAS;AACZ;AACA;GACG,kBAAkB;GAClB,YAAY;AACf;AACA;GACG,aAAa;AAChB;AACA;GACG,aAAa;AAChB;;;AAGA,iBAAiB;;AAEjB;GACG,oBAAoB;GACpB,WAAW;GACX,gBAAgB;GAChB,YAAY;GACZ,YAAY;AACf;AACA;GACG,aAAa;AAChB;AACA;GACG,gBAAgB;GAChB,WAAW;GACX,aAAa;GACb,WAAW;GACX,YAAY;GACZ,kBAAkB;GAClB,iBAAiB;GACjB,mBAAmB;GACnB,wBAAwB;AAC3B;;AAEA;GACG,yBAAyB;AAC5B;;AAEA;;;GAGG,qBAAqB;GACrB,sBAAsB;AACzB","sourcesContent":["@keyframes pulseDark {\n   0% {\n      /* color: darkorange; */\n      transform: scale(1);\n      text-shadow: 0 0 1px rgba(0, 0, 0, 0.4);\n   }\n   50% {\n      /* color: orange; */\n   }\n   100% {\n      /* color: darkorange; */\n      transform: scale(1.25);\n      text-shadow: 0 3px 3px rgba(0, 0, 0, 0.4);\n   }\n}\n@keyframes pulseLight {\n   0% {\n      /* color: darkorange; */\n      transform: scale(1);\n      text-shadow: 0 0 1px rgba(0, 0, 0, 0.1);\n   }\n   50% {\n      /* color: orange; */\n   }\n   100% {\n      /* color: darkorange; */\n      transform: scale(1.25);\n      text-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);\n   }\n}\n.pulseDark {\n   animation-name: pulseDark;\n   animation-duration: 1s;\n   animation-timing-function: ease-out;\n   animation-direction: alternate;\n   animation-iteration-count: infinite;\n   animation-play-state: running;\n   color: orange !important;\n}\n.pulseLight {\n   animation-name: pulseLight;\n   animation-duration: 1s;\n   animation-timing-function: ease-out;\n   animation-direction: alternate;\n   animation-iteration-count: infinite;\n   animation-play-state: running;\n   color: orange !important;\n}\n.smalltext {\n   font-size: small !important;\n}\n.ab-object-list-item .webix_sidebar_dir_icon {\n   margin-right: 20px;\n}\n.ab-datacollection-list-item .webix_sidebar_dir_icon {\n   margin-right: 20px;\n}\n.ab-interface-list-item .webix_sidebar_dir_icon {\n   margin-right: 20px;\n}\n.darkorange .webix_button {\n   background-color: darkorange !important;\n}\n.warningtext {\n   color: orange;\n}\n.warningslist {\n   list-style-type: none;\n   margin: 0;\n   padding: 0;\n   line-height: 28px;\n   background-color: transparent;\n   color: white;\n}\n.warningslist li {\n   border-bottom: 1px solid rgba(0, 0, 0, 0.2);\n}\n.webix_theme_dark {\n   background-color: #4a4e58;\n}\n.lighten {\n   opacity: 0.4;\n}\n.app_form_window {\n   border-radius: 8px;\n}\n.app_form_window .webix_win_head {\n   background-color: #b8b8b8;\n}\n.app_form_window div.webix_view.webix_control.webix_el_icon.alert {\n   padding: 0px;\n}\n/* main view background (transparent by default) */\n.app_form_window .alert {\n   background-color: transparent;\n}\n/* main font color */\n.app_form_window .alert .webix_icon {\n   color: #eed202;\n}\n/* circle background (hover) */\n.app_form_window .alert .webix_icon_button:hover:before {\n   opacity: 0.8;\n}\n/* hover: font color */\n.app_form_window .alert .webix_icon_button:hover .webix_icon {\n   color: #d6bd01;\n}\n.app_form_window .webix_template {\n   font-size: 18px;\n   background-color: #b8b8b8;\n}\n.app_form_window .webix_label_right {\n   font-weight: 500;\n   color: rgb(49, 49, 49);\n   width: 340px;\n   padding-left: 10px;\n}\n.app_form_window .webix_scroll_cont .npr_smallLabels .webix_el_box {\n   font-size: 16px;\n   font-weight: 500;\n   color: #33b5e5;\n   text-align: right;\n}\n.app_form_window .webix_multicombo {\n   border: 2px solid #eee;\n   border-radius: 6px;\n}\n.app_form_window .webix_view .webix_layout_form {\n   border: 1px solid #eee;\n   border-radius: 6px;\n}\n.app_form_window div.webix_view.webix_form.no-margin.webix_layout_form {\n   background-color: #eee;\n}\n.app_form_window .webix_button {\n   border-radius: 6px;\n}\n.app_form_window_2 {\n   border-radius: 6px;\n}\n.app_form_window_2 .webix_win_head {\n   background-color: #b8b8b8;\n}\n.app_form_window_2 .webix_template {\n   font-size: 18px;\n   background-color: #b8b8b8;\n}\n/* Tab editing */\n.ab-tab-back:hover,\n.ab-tab-next:hover,\n.ab-tab-up:hover,\n.ab-tab-down:hover {\n   cursor: e-resize;\n   opacity: 1;\n}\n.ab-tab-back:hover {\n   cursor: w-resize;\n}\n.ab-tab-up:hover {\n   cursor: n-resize;\n   opacity: 1;\n}\n.ab-tab-down:hover {\n   cursor: s-resize;\n}\n.ab-tab-back,\n.ab-tab-next,\n.ab-tab-up,\n.ab-tab-down {\n   float: left;\n   margin-left: 10px;\n   background: #1ca1c1;\n   opacity: 0.8;\n   width: 20px;\n   height: 20px;\n   border-radius: 10px;\n   line-height: 20px !important;\n   padding-right: 2px;\n   color: white;\n}\n.fa-pencil-square.ab-tab-edit {\n   opacity: 0.4;\n}\n.fa-pencil.ab-tab-edit {\n   opacity: 0;\n   position: absolute;\n   left: 12px;\n   top: 12px;\n   background: #1ca1c1;\n   width: 20px;\n   height: 20px;\n   text-align: center;\n   line-height: 20px !important;\n   border-radius: 100%;\n   font-size: 11px;\n}\n.ab-tab-edit:hover {\n   opacity: 1;\n   transform: scale(1.2);\n}\n.webix_tree_item:hover .fa-pencil.ab-tab-edit {\n   opacity: 1;\n}\n.ab-tab-next {\n   float: right;\n   margin-right: 10px;\n   padding-left: 6px;\n}\n.ab-tab-up,\n.ab-tab-down {\n   /*   float: right;*/\n   /*   margin: 12px -2px 12px 15px;*/\n   /*   padding-left: 6px;*/\n   opacity: 0.2;\n   border-radius: 0 !important;\n   position: absolute;\n   right: 1px;\n   top: 0;\n   line-height: 22px !important;\n   width: 22px;\n   height: 21px;\n   text-align: center;\n   margin: 0;\n}\n.ab-tab-down {\n   top: 22px;\n}\n.webix_tree_item {\n   position: relative;\n   cursor: grab;\n}\n.webix_all_tabs div:nth-child(1) .ab-tab-back {\n   display: none;\n}\n.webix_all_tabs div:nth-last-child(1) .ab-tab-next {\n   display: none;\n}\n\n\n/* PWA Designer */\n\n.dragme {\n   display:inline-block;\n   color: #CCC;\n   padding: 5px 7px;\n   float: right;\n   cursor: grab;\n}\n.webix_drag_zone .fa {\n   display: none;\n}\n.circleme {\n   background: #AAA;\n   color: #FFF;\n   font-size:8px;\n   width: 15px;\n   height: 15px;\n   text-align: center;\n   line-height: 15px;\n   border-radius: 15px;\n   vertical-align: text-top;\n}\n\n.webix_tree_leaves {\n   display: block !important;\n}\n\n.monospace > div > textarea,\n.monospace input,\n.monospace .webix_text_highlight_value {\n   word-break: break-all;\n   font-family: monospace;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -71927,6 +71927,7 @@ var PropertyMgr = null;
          __webpack_require__(/*! ./process/ABProcessTaskServiceAccountingFPClose.js */ "./src/rootPages/Designer/properties/process/ABProcessTaskServiceAccountingFPClose.js"),
          __webpack_require__(/*! ./process/ABProcessTaskServiceAccountingFPYearClose.js */ "./src/rootPages/Designer/properties/process/ABProcessTaskServiceAccountingFPYearClose.js"),
          __webpack_require__(/*! ./process/ABProcessTaskServiceAccountingJEArchive.js */ "./src/rootPages/Designer/properties/process/ABProcessTaskServiceAccountingJEArchive.js"),
+         __webpack_require__(/*! ./process/ABProcessTaskServiceApi.js */ "./src/rootPages/Designer/properties/process/ABProcessTaskServiceApi.js"),
          __webpack_require__(/*! ./process/ABProcessTaskServiceCalculate.js */ "./src/rootPages/Designer/properties/process/ABProcessTaskServiceCalculate.js"),
          __webpack_require__(/*! ./process/ABProcessTaskServiceGetResetPasswordUrl.js */ "./src/rootPages/Designer/properties/process/ABProcessTaskServiceGetResetPasswordUrl.js"),
          __webpack_require__(/*! ./process/ABProcessTaskServiceInsertRecord.js */ "./src/rootPages/Designer/properties/process/ABProcessTaskServiceInsertRecord.js"),
@@ -85718,6 +85719,11 @@ __webpack_require__.r(__webpack_exports__);
                      },
                      {
                         view: "button",
+                        label: L("Api Request"),
+                        click: () => this.switchTo("Api"),
+                     },
+                     {
+                        view: "button",
                         label: L("Query Task"),
                         click: () => {
                            this.switchTo("TaskServiceQuery");
@@ -87410,6 +87416,424 @@ __webpack_require__.r(__webpack_exports__);
    }
 
    return ABProcessTaskServiceAccountingJEArchive;
+}
+
+
+/***/ }),
+
+/***/ "./src/rootPages/Designer/properties/process/ABProcessTaskServiceApi.js":
+/*!******************************************************************************!*\
+  !*** ./src/rootPages/Designer/properties/process/ABProcessTaskServiceApi.js ***!
+  \******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* export default binding */ __WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _ui_class__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../ui_class */ "./src/rootPages/Designer/ui_class.js");
+/*
+ * UIProcessTaskServiceApi
+ *
+ * Display the form for entering the properties for a new
+ * ServiceApi Task
+ *
+ * @return {ClassUI} The Class Definition for this UI widget.
+ */
+
+
+/* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__(AB) {
+   const UIClass = (0,_ui_class__WEBPACK_IMPORTED_MODULE_0__["default"])(AB);
+   const L = UIClass.L();
+   const uiConfig = AB.Config.uiSettings();
+
+   class UIProcessServiceApi extends UIClass {
+      constructor() {
+         super("properties_process_service_api", {
+            body: "",
+            form: "",
+            headers: "",
+            secrets: "",
+            suggest: "",
+         });
+
+         this.element = null;
+         // A webix datacollection - used to load process data into our mention suggest
+         this.suggestData = new AB.Webix.DataCollection({});
+         this.templateRgx = /<%= (.+?) %>/g;
+         this.hint = L("Use <%= ... %> to add process data / secrets");
+      }
+
+      static get key() {
+         return "Api";
+      }
+
+      ui() {
+         const ids = this.ids;
+         this.AB.Webix.ui({
+            id: ids.suggest,
+            view: "mentionsuggest",
+            symbol: "<",
+            template: "%= #value# %>",
+            data: this.suggestData,
+         });
+         return {
+            rows: [
+               {
+                  id: ids.form,
+                  view: "form",
+                  elementsConfig: {
+                     labelWidth: uiConfig.labelWidthLarge,
+                  },
+                  elements: [
+                     {
+                        view: "text",
+                        name: "name",
+                        label: L("Name"),
+                     },
+                     {
+                        view: "texthighlight",
+                        name: "url",
+                        label: L("Url"),
+                        highlight: (t) => this.highlight(t),
+                        suggest: this.ids.suggest,
+                        placeholder: this.hint,
+                        css: "monospace",
+                     },
+                     {
+                        view: "combo",
+                        name: "method",
+                        label: L("Method"),
+                        options: ["GET", "POST", "PUT", "DELETE"],
+                        on: {
+                           onChange: (val) => {
+                              val == "GET"
+                                 ? $$(ids.body).disable()
+                                 : $$(ids.body).enable();
+                           },
+                        },
+                     },
+                     {
+                        cols: [
+                           {
+                              view: "label",
+                              label: L("Headers"),
+                              autowidth: true,
+                           },
+                           {
+                              view: "icon",
+                              icon: "fa fa-plus",
+                              width: 50,
+                              on: { onItemClick: () => this.addHeader() },
+                           },
+                           {},
+                        ],
+                     },
+                     { id: ids.headers, rows: [] },
+                     {
+                        view: "texthighlight",
+                        name: "body",
+                        id: ids.body,
+                        height: 200,
+                        label: L("Request Body"),
+                        labelPosition: "top",
+                        type: "textarea",
+                        placeholder: this.hint,
+                        css: "monospace",
+                        highlight: (t) => this.highlight(t),
+                        suggest: this.ids.suggest,
+                     },
+                     {
+                        cols: [
+                           {
+                              view: "label",
+                              label: L("Secrets"),
+                              autowidth: true,
+                           },
+                           {
+                              view: "icon",
+                              icon: "fa fa-plus",
+                              width: 50,
+                              on: { onItemClick: () => this.addSecret() },
+                           },
+                           {},
+                        ],
+                     },
+                     { id: ids.secrets, rows: [] },
+                     /**
+                      * TODO: Allow the response to be decoded and saved for
+                      * future process tasks
+                     {
+                        view: "switch",
+                        name: "responseJson",
+                        value: 1,
+                        label: L("Response as"),
+                        onLabel: L("JSON"),
+                        offLabel: L("Text"),
+                     },
+                     */
+                  ],
+               },
+            ],
+         };
+      }
+
+      populate(element) {
+         // Reset our suggest data
+         this.suggestData.clearAll();
+         this.suggestData.parse(
+            element.storedSecrets?.map((s) => ({
+               value: `Secret: ${s}`,
+               key: `Secret: ${s}`,
+            }))
+         );
+         const processData = element.process.processDataFields(element) ?? [];
+         this.suggestData.parse(
+            processData
+               .filter((i) => !!i)
+               .map?.((i) => ({ value: i.label, key: i.key }))
+         );
+         let { name, url, method, body, responseJson } = element;
+         // These might have process value placeholders, display the label
+         // instead of ids
+         body = this.convertIDToLabel(body);
+         url = this.convertIDToLabel(url);
+
+         $$(this.ids.form).setValues({ name, url, method, body, responseJson });
+
+         element.headers?.forEach?.((header) => {
+            header.value = this.convertIDToLabel(header.value);
+            this.addHeader(header);
+         });
+         element.storedSecrets?.forEach?.((secret) => this.addSecret(secret));
+      }
+
+      values() {
+         const values = {};
+         let form = {};
+         form = $$(this.ids.form).getValues();
+         Object.keys(form).forEach((key) => {
+            key.includes("headers") || key.includes("secrets")
+               ? nestValue(key, form[key], values)
+               : (values[key] = form[key]);
+         });
+         // Convert headers to an array
+         if (values.headers) {
+            const headers = [];
+            Object.keys(values.headers).forEach((key) =>
+               headers.push(values.headers[key])
+            );
+            values.headers = headers;
+         }
+         // These might contain process value placeholders, convert the label to
+         // actuall ids before saving
+         values.body = this.convertLabelToID(values.body);
+         values.url = this.convertLabelToID(values.url);
+         values.headers?.forEach(
+            (h) => (h.value = this.convertLabelToID(h.value))
+         );
+         // Convert secrets to an array
+         if (values.secrets) {
+            const secrets = [];
+            Object.keys(values.secrets).forEach((secret) =>
+               secrets.push(values.secrets[secret])
+            );
+            values.secrets = secrets;
+         }
+         if (this.deleteSecrets) {
+            values.deleteSecrets = this.deleteSecrets;
+            delete this.deleteSecrets;
+         }
+         
+         return values;
+      }
+
+      /**
+       * Add fields to the form for a header
+       * @param {object} [header={}]
+       * @param {string} [header.key]
+       * @param {string} [header.value]
+       */
+      addHeader(header = {}) {
+         const uid = AB.Webix.uid(); //this is unique to the page
+         const row = {
+            id: uid,
+            cols: [
+               {
+                  view: "text",
+                  name: `headers.${uid}.key`,
+                  placeholder: L("header"),
+                  value: header.key,
+               },
+               {
+                  view: "texthighlight",
+                  name: `headers.${uid}.value`,
+                  placeholder: `${L("value")} (${this.hint})`,
+                  value: header.value,
+                  gravity: 2,
+                  highlight: (t) => this.highlight(t),
+                  suggest: this.ids.suggest,
+                  css: "monospace",
+               },
+               {
+                  view: "icon",
+                  icon: "wxi-trash",
+                  width: "50",
+                  on: {
+                     onItemClick: () => $$(this.ids.headers).removeView(uid),
+                  },
+               },
+            ],
+         };
+         $$(this.ids.headers).addView(row);
+      }
+
+      /**
+       * Add fields to the form for a secret
+       * @param {string} secret name of an existing secret
+       */
+      addSecret(secret) {
+         const alreadySaved = !!secret;
+         // If the secret is already saved in the db we only allow deleting.
+         // Since secrets aren't saved in the definition, we don't need to send
+         // existing secrets to the server. New one will get encrypted and saved
+         const uid = secret ?? AB.Webix.uid(); //this is unique to the page
+         const self = this;
+         const row = {
+            id: uid,
+            cols: [
+               {
+                  view: "text",
+                  name: alreadySaved ? undefined : `secrets.${uid}.name`,
+                  placeholder: L("Name"),
+                  disabled: alreadySaved,
+                  value: secret,
+                  invalidMessage: L("Secret names must be unique!"),
+                  validate: (val) => {
+                     // Check that the secret name is unique
+                     const opts = this.suggestData.find({
+                        key: `Secret: ${val}`,
+                     });
+                     return opts.length === 1;
+                  },
+                  on: {
+                     onChange: function(n, o) {
+                        if (n == o) return;
+                        // Add the secret to the suggest data
+                        const suggest = {
+                           id: uid,
+                           key: `Secret: ${n}`,
+                           value: `Secret: ${n}`,
+                        };
+                        if (o == "") self.suggestData.parse(suggest);
+                        else self.suggestData.updateItem(uid, suggest);
+                        this.validate();
+                     },
+                  },
+               },
+               {
+                  view: "text",
+                  type: "password",
+                  name: alreadySaved ? undefined : `secrets.${uid}.value`,
+                  placeholder: "Value",
+                  disabled: alreadySaved,
+                  // We don't actually get the existing secret values back
+                  // so we'll just mock a value.
+                  value: alreadySaved ? ".........." : undefined,
+                  gravity: 2,
+               },
+               {
+                  view: "icon",
+                  icon: "wxi-trash",
+                  width: "50",
+                  on: {
+                     onItemClick: () => {
+                        $$(this.ids.secret).removeView(uid);
+                        if (alreadySaved) {
+                           this.deleteSecrets = this.deleteSecrets ?? [];
+                           this.deleteSecrets.push(secret);
+                        }
+                     },
+                  },
+               },
+            ],
+         };
+         $$(this.ids.secrets).addView(row);
+      }
+
+      /**
+       * Highlight function for webix texthighlight elements. Highlights secret and
+       * process data in the text.
+       */
+      highlight(text) {
+         // text = text.replaceAll(" ", `<span style="color:#d5d5d5">·</span>`);
+         text = text.replace(this.templateRgx, (match, value) => {
+            const data = this.suggestData.find({ value }, true);
+            let color = "#FF8C00"; //Not matched - highlight orange
+            let background = "#FFE0B2";
+            if (data) {
+               if (/^Secret:/.test(value)) {
+                  color = "#008C8C"; // Matches secret - highlight cyan
+                  background = "#A0D7D7";
+               } else {
+                  color = "#388E3C"; // Matches process value - highlight green
+                  background = "#C4EDC6";
+               }
+            }
+            return `<span style="background:${background};color:${color};font-weight:bold;">${match}</span>`;
+         });
+         return text;
+      }
+
+      /**
+       * Replace process value labels with ids. Used before saving templates.
+       */
+      convertLabelToID(template) {
+         if (!template) return;
+         return template.replace(this.templateRgx, (match, value) => {
+            const data = this.suggestData.find({ value }, true);
+            if (!data) return match;
+            return `<%= ${data.key} %>`;
+         });
+      }
+
+      /**
+       * Replace process value ids with labels. Used before displaying
+       * templates.
+       */
+      convertIDToLabel(template) {
+         if (!template) return;
+         return template.replace(this.templateRgx, (match, key) => {
+            const data = this.suggestData.find({ key }, true);
+            if (!data) return match;
+            return `<%= ${data.value} %>`;
+         });
+      }
+   }
+
+   return UIProcessServiceApi;
+}
+
+/**
+ * Recursively nests a value within an object based on a dot-separated key.
+ *
+ * @param {string} key - The dot-separated key specifying the nested path.
+ * @param {*} value - The value to assign at the final nested level.
+ * @param {object} [obj={}] - The object to modify (or a new object if not provided).
+ * @returns {object} The modified object with the nested value.
+ */
+function nestValue(key, value, obj = {}) {
+   const [firstKey, ...remainingKeys] = key.split(".");
+
+   if (remainingKeys.length === 0) {
+      obj[firstKey] = value;
+   } else {
+      obj[firstKey] = obj[firstKey] ?? {};
+      nestValue(remainingKeys.join("."), value, obj[firstKey]);
+   }
+
+   return obj;
 }
 
 
@@ -127041,12 +127465,13 @@ __webpack_require__.r(__webpack_exports__);
 
       _addFieldItem(key, type) {
          const uiItem = this._fieldItem(key, type);
-         $$(this.ids.connections).addView(uiItem);
+         $$(this.ids.fields).addView(uiItem);
       }
 
       _clearFieldItems() {
-         const $connections = $$(this.ids.connections);
-         AB.Webix.ui([], $connections);
+         const $fields = $$(this.ids.connections);
+         if (!$fields) return;
+         AB.Webix.ui([], $fields);
       }
 
       _populateDataKeys() {
@@ -140966,7 +141391,7 @@ function isInSubProcess(element) {
          Object.keys(values).forEach((k) => {
             objVals[k] = values[k];
          });
-         if (!thisObj.name) objVals.name = values.label;
+         if (!objVals.name) objVals.name = values.label;
          thisObj.fromValues(objVals);
          thisObj.warningsEval(); // resets the warnings
 
