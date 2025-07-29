@@ -103,7 +103,7 @@ jobs:
 
   call-dispatch-update:
     needs: [ call-docker-build, call-bump-version ]
-    if: ${{ inputs.branch == 'main' }}
+    if: ${{ inputs.branch == 'master' }}
     uses: CruGlobal/.github/.github/workflows/dispatch-update.yml@main
     with:
       version: ${{ needs.call-bump-version.outputs.new_version }}

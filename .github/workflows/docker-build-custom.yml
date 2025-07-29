@@ -19,5 +19,5 @@ jobs:
       base_tag: ${{ inputs.base_tag }}
       tags: ${{ inputs.tags }}
     secrets: 
-      DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+      DOCKER_USERNAME: ${{ vars.DOCKER_USERNAME }}
       DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}

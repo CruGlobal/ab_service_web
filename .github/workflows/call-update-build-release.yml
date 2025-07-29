@@ -19,7 +19,7 @@ jobs:
     uses: ./.github/workflows/update-build-release.yml
     secrets:
       app_secret: ${{ secrets.GS_DEV_APP_PK }}
-      DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+      DOCKER_USERNAME: ${{ vars.DOCKER_USERNAME }}
       DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
       SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
     with: 
@@ -48,7 +48,7 @@ jobs:
     uses: ./.github/workflows/update-build-release.yml
     secrets:
       app_secret: ${{ secrets.GS_DEV_APP_PK }}
-      DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+      DOCKER_USERNAME: ${{ vars.DOCKER_USERNAME }}
       DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
     with: 
       app_id: ${{ vars.GS_DEV_APP_ID }}
@@ -76,7 +76,7 @@ jobs:
     uses: ./.github/workflows/update-build-release.yml
     secrets:
       app_secret: ${{ secrets.GS_DEV_APP_PK }}
-      DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+      DOCKER_USERNAME: ${{ vars.DOCKER_USERNAME }}
       DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
       SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
     with: 
