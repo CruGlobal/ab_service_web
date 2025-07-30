@@ -62,7 +62,7 @@ jobs:
       webpack_command: ${{ matrix.webpack }}
       build_meta_prefix: d
   call-update-platform_pwa:
-    if: ${{ github.event.client_payload.repo == 'test_pwa' }}
+    if: ${{ github.event.client_payload.repo == 'appbuilder_platform_pwa' }}
     strategy:
       fail-fast: false
       matrix:
@@ -85,9 +85,9 @@ jobs:
       type: ${{ github.event.client_payload.type }}
       pre_release: ${{ matrix.pre_release }}
       branch: ${{ matrix.branch }}
-      webpack_repo: test_pwa
+      webpack_repo: appbuilder_platform_pwa
       webpack_repo_short: platform_pwa
-      webpack_path: test_pwa
+      webpack_path: appbuilder_platform_pwa
       webpack_command: ${{ matrix.webpack }}
       build_meta_prefix: p
   
