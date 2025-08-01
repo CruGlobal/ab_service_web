@@ -89692,6 +89692,8 @@ __webpack_require__.r(__webpack_exports__);
                body: {
                   id: ids.formBuilder,
                   view: "formiobuilder",
+                  dataFields: this.dataFields,
+                  isCommonForm: true,
                   formComponents: this.formIOComponents,
                },
             };
@@ -89769,6 +89771,7 @@ __webpack_require__.r(__webpack_exports__);
        */
       processComponents() {
          const ids = this.ids;
+         this.dataFields = this.element.process.processDataFields(this.element);
          this.formIOComponents = this.formBuilder;
 
          const $preview = $$(ids.formPreview).getParentView();
