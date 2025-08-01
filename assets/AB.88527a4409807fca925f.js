@@ -43661,10 +43661,7 @@ module.exports = class ABFieldConnect extends ABFieldConnectCore {
    }
 
    formComponentMobile() {
-      if (this.settings.linkType == "many") {
-         return super.formComponent("mobile-selectmultiple");
-      }
-      return super.formComponent("mobile-selectsingle");
+      return super.formComponent("mobile-connect");
    }
 
    detailComponent() {
@@ -84415,15 +84412,19 @@ class ABCustomFormBuilderBuilder extends (_lazyComponent_js__WEBPACK_IMPORTED_MO
             autofit: true,
          },
          $init: async function (config) {
-            let comp, defaultComponent;
-
-            if (config.dataFields) {
-               comp = this.parseDataFields(config.dataFields);
-               defaultComponent = comp.approveButton.schema;
-            } else {
-               comp = _this.inputComponents();
+            let comp = {},
+               defaultComponent;
+            if (config.dataFields)
+               Object.assign(
+                  comp,
+                  this.parseDataFields(config.dataFields, {
+                     isCommonForm: config.isCommonForm,
+                  })
+               );
+            if (config.isCommonForm) {
+               Object.assign(comp, _this.inputComponents());
                defaultComponent = comp.saveButton.schema;
-            }
+            } else defaultComponent = comp.approveButton.schema;
 
             const formComponents = config.formComponents
                ? config.formComponents
@@ -84475,7 +84476,7 @@ class ABCustomFormBuilderBuilder extends (_lazyComponent_js__WEBPACK_IMPORTED_MO
     * @param {object[]} fields {field: ABField, key, label, object: ABObject}
     * @returns {object} each key is a formio component
     */
-   parseDataFields(fields) {
+   parseDataFields(fields, { isCommonForm } = { isCommonForm: true }) {
       const components = {};
       fields?.forEach(({ field, key, label }) => {
          if (!field) {
@@ -84594,57 +84595,60 @@ class ABCustomFormBuilderBuilder extends (_lazyComponent_js__WEBPACK_IMPORTED_MO
          };
       });
 
-      components["approveButton"] = {
-         title: this.label("Approve Button"),
-         key: "approve",
-         icon: "check-square",
-         schema: {
-            label: this.label("Approve"),
-            type: "button",
+      if (!isCommonForm) {
+         components["approveButton"] = {
+            title: this.label("Approve Button"),
             key: "approve",
-            event: "approve",
-            block: true,
-            size: "lg",
-            input: false,
-            leftIcon: "fa fa-thumbs-up",
-            action: "event",
-            theme: "success",
-         },
-      };
-      components["denyButton"] = {
-         title: this.label("Deny Button"),
-         key: "deny",
-         icon: "ban",
-         schema: {
-            label: this.label("Deny"),
-            type: "button",
+            icon: "check-square",
+            schema: {
+               label: this.label("Approve"),
+               type: "button",
+               key: "approve",
+               event: "approve",
+               block: true,
+               size: "lg",
+               input: false,
+               leftIcon: "fa fa-thumbs-up",
+               action: "event",
+               theme: "success",
+            },
+         };
+         components["denyButton"] = {
+            title: this.label("Deny Button"),
             key: "deny",
-            event: "deny",
-            block: true,
-            size: "lg",
-            input: false,
-            leftIcon: "fa fa-thumbs-down",
-            action: "event",
-            theme: "danger",
-         },
-      };
-      components["customButton"] = {
-         title: this.label("Custom Action Button"),
-         key: "custom",
-         icon: "cog",
-         schema: {
-            label: this.label("Custom Name"),
-            type: "button",
+            icon: "ban",
+            schema: {
+               label: this.label("Deny"),
+               type: "button",
+               key: "deny",
+               event: "deny",
+               block: true,
+               size: "lg",
+               input: false,
+               leftIcon: "fa fa-thumbs-down",
+               action: "event",
+               theme: "danger",
+            },
+         };
+         components["customButton"] = {
+            title: this.label("Custom Action Button"),
             key: "custom",
-            event: "yourEvent",
-            block: true,
-            size: "lg",
-            input: false,
-            leftIcon: "fa fa-cog",
-            action: "event",
-            theme: "primary",
-         },
-      };
+            icon: "cog",
+            schema: {
+               label: this.label("Custom Name"),
+               type: "button",
+               key: "custom",
+               event: "yourEvent",
+               block: true,
+               size: "lg",
+               input: false,
+               leftIcon: "fa fa-cog",
+               action: "event",
+               theme: "primary",
+            },
+         };
+      }
+
       return components;
    }
 
@@ -85327,4 +85331,4 @@ module.exports = class ABCustomEditList {
 /***/ })
 
 }]);
-//# sourceMappingURL=AB.0ae89f7a634fe8e5be13.js.map
+//# sourceMappingURL=AB.88527a4409807fca925f.js.map

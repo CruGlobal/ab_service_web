@@ -8236,7 +8236,8 @@ class PortalWorkTaskUserForm extends _ClassUI_js__WEBPACK_IMPORTED_MODULE_0__["d
       processId,
       taskId,
       instanceId,
-      formComponents = { components: [] }
+      formComponents = { components: [] },
+      formData
    ) {
       const ids = this.ids;
       const _this = this;
@@ -8248,6 +8249,7 @@ class PortalWorkTaskUserForm extends _ClassUI_js__WEBPACK_IMPORTED_MODULE_0__["d
          taskId,
          instanceId,
          formComponents: formComponents,
+         formData,
          onButton: function () {
             _this.submitData(this.processId, this.taskId, this.instanceId);
          },
@@ -8258,14 +8260,16 @@ class PortalWorkTaskUserForm extends _ClassUI_js__WEBPACK_IMPORTED_MODULE_0__["d
       processId,
       taskId,
       instanceId,
-      formComponents = { components: [] }
+      formComponents = { components: [] },
+      formData
    ) {
       const ids = this.ids;
       const formIoDef = this.uiFormIO(
          processId,
          taskId,
          instanceId,
-         formComponents
+         formComponents,
+         formData
       );
 
       this.AB.Webix.ui(formIoDef, $$(ids.formIO));
@@ -8282,7 +8286,8 @@ class PortalWorkTaskUserForm extends _ClassUI_js__WEBPACK_IMPORTED_MODULE_0__["d
             data.processId,
             data.taskId,
             data.instanceId,
-            data.formio
+            data.formio,
+            data.formData
          );
          this.show();
       });
@@ -9956,7 +9961,7 @@ try {
    /* global WEBPACK_MODE SENTRY_DSN VERSION */
    webpackMode = "development";
    dsn = undefined;
-   version = "1.15.1";
+   version = "1.15.2";
 } catch (err) {
    console.warn(
       "Error reading from webpack, check the DefinePlugin is working correctly",
@@ -10507,4 +10512,4 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 /******/ var __webpack_exports__ = __webpack_require__.O();
 /******/ }
 ]);
-//# sourceMappingURL=app.1e12ce1c39c4f4ae724f.js.map
+//# sourceMappingURL=app.fbfc500c9a8bf79c4b52.js.map
