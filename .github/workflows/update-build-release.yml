@@ -29,8 +29,12 @@ on:
       build_meta_prefix:
         type: string
         required: true
+      app_id:
+        description: GitHub APP ID for Auth (of Client ID)
+        type: string
     secrets:
-      TOKEN:
+      app_secret:
+        description: GitHub APP Client Secret for Auth
         required: true
       DOCKER_USERNAME:
         required: true
@@ -43,9 +47,10 @@ jobs:
     name: Update Files
     uses: ./.github/workflows/update-web-files.yml
     secrets:
-      TOKEN: ${{ secrets.TOKEN }}
+      app_secret: ${{ secrets.app_secret}}
       SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
     with:
+      app_id: ${{ inputs.app_id }}
       web_ref: ${{ inputs.branch }}
       repository: ${{ inputs.webpack_repo }}
       short_name: ${{ inputs.webpack_repo_short }}
@@ -57,7 +62,7 @@ jobs:
   call-run-cy-test:
     name: Test
     needs: call-update-files
-    uses: digi-serve/.github/.github/workflows/cypress-e2e-tests.yml@master
+    uses: CruGlobal/.github/.github/workflows/cypress-e2e-tests.yml@main
     with:
       ref: ${{ needs.call-update-files.outputs.branch }}
 
@@ -77,7 +82,7 @@ jobs:
   call-merge-release:
     name: Merge
     needs: [ call-update-files, call-bump-version ]
-    uses: digi-serve/.github/.github/workflows/branch-merge-release.yml@master
+    uses: CruGlobal/.github/.github/workflows/branch-merge-release.yml@main
     with: 
       branch: ${{ needs.call-update-files.outputs.branch }}
       tag: v${{ needs.call-bump-version.outputs.new_version }}
@@ -96,22 +101,22 @@ jobs:
       ref: ${{ inputs.branch }}
       tags: ${{ inputs.branch }},${{ needs.call-bump-version.outputs.new_version }}
 
-  call-dispatch-runtime-update:
-    name: Dispatch
+  call-dispatch-update:
     needs: [ call-docker-build, call-bump-version ]
     if: ${{ inputs.branch == 'master' }}
-    uses: ./.github/workflows/dispatch-runtime-update.yml
+    uses: CruGlobal/.github/.github/workflows/dispatch-update.yml@main
     with:
       version: ${{ needs.call-bump-version.outputs.new_version }}
       type: patch
+      app_id: ${{ inputs.app_id }}
     secrets:
-      TOKEN: ${{ secrets.TOKEN }}
+      app_secret: ${{ secrets.app_secret}}
 
   call-open-pr-fail:
     name: Tests Failed
     needs: [ call-update-files, call-run-cy-test ]
     if: ${{ failure() && inputs.type != 'major' }}
-    uses: digi-serve/.github/.github/workflows/open-pr.yml@master
+    uses: CruGlobal/.github/.github/workflows/open-pr.yml@main
     with: 
       branch: ${{ needs.call-update-files.outputs.branch }}
       title: Update ${{ inputs.webpack_repo_short }} to ${{ inputs.version }} (from GitHub Actions Workflow)
@@ -123,7 +128,7 @@ jobs:
     name: Major Change
     needs: [ call-update-files ]
     if: ${{ inputs.type == 'major' }}
-    uses: digi-serve/.github/.github/workflows/open-pr.yml@master
+    uses: CruGlobal/.github/.github/workflows/open-pr.yml@main
     with: 
       branch: ${{ needs.call-update-files.outputs.branch }}
       title: Update ${{ inputs.webpack_repo_short }} to ${{ inputs.version }} (from GitHub Actions Workflow)
