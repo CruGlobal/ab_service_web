@@ -4128,6 +4128,12 @@ module.exports = class ABDataCollectionCore extends ABMLClass {
 
                      this.__dataCollection.remove(id);
 
+                     // NOTE: Preserve the current cursor after item removal.
+                     // Webix v.10.1 automatically clears the cursor when an item is removed from the collection.
+                     if (currData && currData.id != id) {
+                        this.__dataCollection.setCursor(currData.id);
+                     }
+
                      // TODO: update tree list
                      // if (this.__treeCollection) {
                      //  this.__treeCollection.remove(id);
@@ -4287,6 +4293,30 @@ module.exports = class ABDataCollectionCore extends ABMLClass {
                            f.getRelationValue(values);
                      }
                   });
+
+                  // Refresh Formula Fields when the connected fields are populated
+                  if (this.settings?.populate) {
+                     obj.fields(
+                        (fld) =>
+                           fld &&
+                           fld.key == "formula" &&
+                           connectedFields.filter((conFld) => {
+                              return (
+                                 conFld.id == fld.settings.field &&
+                                 // Populate all connect fields
+                                 (this.settings?.populate == true ||
+                                    // Populate specific connect fields
+                                    (Array.isArray(this.settings?.populate) &&
+                                       this.settings?.populate.indexOf(
+                                          conFld.id
+                                       ) > -1))
+                              );
+                           }).length > 0
+                     ).forEach((formulaField) => {
+                        updateItemData[formulaField.columnName] =
+                           formulaField.format(updateItemData, true);
+                     });
+                  }
 
                   // If this item needs to update
                   // meaning there is > 1 key in the object (we always have .id)
@@ -4566,7 +4596,8 @@ module.exports = class ABDataCollectionCore extends ABMLClass {
                // NOTE: we can clear data here to update UI display, then data will be fetched when webix.dataFeed event
                if (
                   !this.settings?.loadAll &&
-                  currentCursor?.id != linkDC.previousCursorId
+                  linkDC.previousCursorId != null &&
+                  linkDC.previousCursorId != currentCursor?.id
                )
                   this.clearAll();
 
@@ -11989,7 +12020,7 @@ var queryPreviousTasks = (
 
          // value = task[method].apply(task, param);
 
-         if (value === null) value = [];
+         if (value == null) value = [];
          responses = _concat(responses, value);
 
          // add any previous tasks to our list
@@ -12732,9 +12763,9 @@ module.exports = class FilterComplexCore extends ABComponent {
    dateValid(value, rule, compareValue) {
       let result = false;
 
-      if (!(value instanceof Date)) value = new Date(value);
+      if (value && !(value instanceof Date)) value = new Date(value);
 
-      if (!(compareValue instanceof Date))
+      if (compareValue && !(compareValue instanceof Date))
          compareValue = new Date(compareValue);
       switch (rule) {
          case "less":
@@ -12749,21 +12780,29 @@ module.exports = class FilterComplexCore extends ABComponent {
          case "greater_or_equal":
             result = value >= compareValue;
             break;
+         case "less_current":
+            result = value.setHours?.(0, 0, 0, 0) < (new Date()).setHours(0, 0, 0, 0);
+            break;
+         case "greater_current":
+            result = value.setHours?.(0, 0, 0, 0) > (new Date()).setHours(0, 0, 0, 0);
+            break;
+         case "less_or_equal_current":
+            result = value.setHours?.(0, 0, 0, 0) <= (new Date()).setHours(0, 0, 0, 0);
+            break;
+         case "greater_or_equal_current":
+            result = value.setHours?.(0, 0, 0, 0) >= (new Date()).setHours(0, 0, 0, 0);
+            break
          case "is_current_date":
             result =
-               value.setHours(0, 0, 0, 0) == compareValue.setHours(0, 0, 0, 0);
+               value.setHours?.(0, 0, 0, 0) == compareValue.setHours(0, 0, 0, 0);
             break;
+         case "is_null":
          case "is_empty":
             result = !value;
             break;
+         case "is_not_null":
          case "is_not_empty":
             result = !!value;
-            break;
-         case "is_null":
-            result = value == null;
-            break;
-         case "is_not_null":
-            result = value != null;
             break;
          default:
             result = this.queryFieldValid(value, rule, compareValue);
@@ -13396,8 +13435,8 @@ module.exports = class FilterComplexCore extends ABComponent {
       });
 
       // !!! Process Fields of ABProcess
-      // https://github.com/digi-serve/appbuilder_class_core/blob/master/FilterComplexCore.js#L636
-      // https://github.com/digi-serve/appbuilder_class_core/blob/master/FilterComplexCore.js#L564
+      // https://github.com/CruGlobal/appbuilder_class_core/blob/master/FilterComplexCore.js#L636
+      // https://github.com/CruGlobal/appbuilder_class_core/blob/master/FilterComplexCore.js#L564
       // (this._ProcessFields || [])
       //    // if there is no .field, it is probably an embedded special field
       //    .filter((pField) => pField.field == null)
@@ -23294,6 +23333,7 @@ var AllProcessElements = [
    __webpack_require__(/*! ../../platform/process/tasks/ABProcessTaskServiceAccountingFPClose */ 4002),
    __webpack_require__(/*! ../../platform/process/tasks/ABProcessTaskServiceAccountingFPYearClose */ 32893),
    __webpack_require__(/*! ../../platform/process/tasks/ABProcessTaskServiceAccountingJEArchive */ 67441),
+   __webpack_require__(/*! ../../platform/process/tasks/ABProcessTaskServiceApi */ 8691),
    __webpack_require__(/*! ../../platform/process/tasks/ABProcessTaskServiceCalculate */ 36719),
    __webpack_require__(/*! ../../platform/process/tasks/ABProcessTaskServiceInsertRecord */ 39895),
    __webpack_require__(/*! ../../platform/process/tasks/ABProcessTaskServiceQuery */ 78655),
@@ -25031,6 +25071,92 @@ module.exports = class AccountingJEArchiveCore extends ABProcessElement {
 
 /***/ }),
 
+/***/ 11204:
+/*!**********************************************************************!*\
+  !*** ./AppBuilder/core/process/tasks/ABProcessTaskServiceApiCore.js ***!
+  \**********************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+const ABProcessElement = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 54919);
+
+let ApiDefaults = {
+   category: null,
+   // category: {string} | null
+   // if this Element should show up on one of the popup replace menus, then
+   // specify one of the categories of elements it should be an option for.
+   // Available choices: [ "start", "gateway", "task", "end" ].
+   //
+   // if it shouldn't show up under the popup menu, then leave this null
+
+   icon: "exchange", // font-awesome icon reference.  (without the 'fa-').  so 'user'  to reference 'fa-user'
+   // icon: {string}
+   // font-awesome icon reference.  (without the 'fa-').  so 'user'  to reference 'fa-user'
+
+   instanceValues: [],
+   // instanceValues: {array}
+   // a list of values this element tracks as it is operating in a process.
+
+   key: "Api",
+   // key: {string}
+   // unique key to reference this specific Task
+
+   settings: [
+      "url",
+      "method",
+      "headers",
+      "body",
+      "responseJson",
+      "storedSecrets",
+   ],
+   responseJson: 1,
+   headers: [],
+};
+
+module.exports = class ApiTaskCore extends ABProcessElement {
+   constructor(attributes, process, AB) {
+      attributes.type = attributes.type || "process.task.service.api";
+      super(attributes, process, AB, ApiDefaults);
+   }
+
+   // return the default values for this DataField
+   static defaults() {
+      return ApiDefaults;
+   }
+
+   static DiagramReplace() {
+      return null;
+   }
+
+   /**
+    * processDataFields()
+    * return an array of avaiable data fields that this element
+    * can provide to other ProcessElements.
+    * Different Process Elements can make data available to other
+    * process Elements.
+    * @return {array} | null
+    */
+   processDataFields() {
+      const label = `${this.label}->rawResponse`;
+      if (!this._fakeField) {
+         this._fakeObj = this.AB.objectNew({});
+         this._fakeField = this.AB.fieldNew(
+            { key: "string", name: label, label },
+            this._fakeObj,
+         );
+      }
+      return [
+         {
+            key: `${this.id}.rawResponse`,
+            label,
+            field: this._fakeField,
+         },
+      ];
+   }
+};
+
+
+/***/ }),
+
 /***/ 92328:
 /*!****************************************************************************!*\
   !*** ./AppBuilder/core/process/tasks/ABProcessTaskServiceCalculateCore.js ***!
@@ -26357,7 +26483,7 @@ module.exports = class ABProcessTaskUserApprovalCore extends ABProcessElement {
 
       // NOTE: We are pretending our response is a type of ABFieldList. But our
       // ABField objects no longer allow "." in our columnNames:
-      //    ( https://github.com/digi-serve/appbuilder_class_core/blob/212cf5fa1c1d5c959aa246c730582ed50809ee0f/dataFields/ABFieldCore.js#L262 )
+      //    ( https://github.com/CruGlobal/appbuilder_class_core/blob/212cf5fa1c1d5c959aa246c730582ed50809ee0f/dataFields/ABFieldCore.js#L262 )
       // But our Process tasks really will be expecting it there so lets put
       // it back:
       listField.columnName = `${myID}.userFormResponse`;
@@ -51398,6 +51524,96 @@ module.exports = class AccountingJEArchive extends AccountingJEArchiveCore {
             this[s] = $$(ids.fieldsMatch).getValues();
          } else {
             this[s] = this.property(ids[s]);
+         }
+      });
+   }
+};
+
+
+/***/ }),
+
+/***/ 8691:
+/*!**********************************************************************!*\
+  !*** ./AppBuilder/platform/process/tasks/ABProcessTaskServiceApi.js ***!
+  \**********************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+const ApiTaskCore = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskServiceApiCore.js */ 11204);
+
+// let L = (...params) => AB.Multilingual.label(...params);
+
+module.exports = class ApiTask extends ApiTaskCore {
+   static defaults() {
+      return { key: "Api" };
+   }
+
+   fromValues(values) {
+      super.fromValues(values);
+      // These are raw values on the client, need to be saved so we can update
+      // the server. There they will be encrypted and stored seperate from our
+      // definition.
+      this.secrets = values.secrets;
+   }
+
+   toObj() {
+      const obj = super.toObj();
+      obj.secrets = this.secrets;
+      return obj;
+   }
+
+   ////
+   //// Process Instance Methods
+   ////
+
+   warningsEval() {
+      super.warningsEval();
+
+      ["url", "method"].forEach(
+         (prop) => !this[prop] && this.warningMessage(`is missing a ${prop}`)
+      );
+
+      // Verify secrets / process data patterns are valid
+      const dataPattern = /<%= (.+?) %>/g;
+      const dataToCheck = [];
+      ["body", "url"].forEach((prop) => {
+         if (!this[prop]) return;
+         const matches = (this[prop].match(dataPattern) ?? []).map((m) => ({
+            location: prop,
+            match: m,
+         }));
+         dataToCheck.push(...matches);
+      });
+      if (this.headers) {
+         this.headers.forEach(({ value }) => {
+            const matches = (value.match(dataPattern) ?? []).map((m) => ({
+               location: "header",
+               match: m,
+            }));
+            dataToCheck.push(...matches);
+         });
+      }
+      if (dataToCheck.length == 0) return;
+      const processData = this.process
+         .processDataFields(this)
+         .filter((i) => i)
+         .map((i) => i.key);
+      const secrets = this.storedSecrets ?? [];
+      this.secrets?.forEach((s) => secrets.push(s.name));
+      dataToCheck.forEach(({ location, match }) => {
+         const [, secret] = /<%= Secret: (.+?) %>/.exec(match) ?? [];
+         if (secret) {
+            if (!secrets.includes(secret)) {
+               this.warningMessage(
+                  `is missing secret '${secret}' in ${location}.`
+               );
+            }
+         } else {
+            const [, data] = /<%= (.+?) %>/.exec(match) ?? [];
+            if (!processData.includes(data)) {
+               this.warningMessage(
+                  `references unkown data field '${data}' in ${location}`
+               );
+            }
          }
       });
    }
@@ -85331,4 +85547,4 @@ module.exports = class ABCustomEditList {
 /***/ })
 
 }]);
-//# sourceMappingURL=AB.88527a4409807fca925f.js.map
+//# sourceMappingURL=AB.552cda9b35ccddc49efb.js.map
