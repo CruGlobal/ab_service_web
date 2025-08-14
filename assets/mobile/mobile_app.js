@@ -11,23 +11,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ F7ViewForm)
 /* harmony export */ });
-/* harmony import */ var framework7__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! framework7 */ 73449);
+/* harmony import */ var framework7__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! framework7 */ 73449);
 /* harmony import */ var _formButton_f7_jsx__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./formButton.f7.jsx */ 32864);
 /* harmony import */ var _formCheckbox_f7_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./formCheckbox.f7.jsx */ 91298);
 /* harmony import */ var _formConnect_f7_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./formConnect.f7.jsx */ 15210);
-/* harmony import */ var _formCustom_f7_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./formCustom.f7.jsx */ 79481);
-/* harmony import */ var _formDatepicker_f7_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./formDatepicker.f7.jsx */ 11487);
-/* harmony import */ var _formJSON_f7_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./formJSON.f7.jsx */ 959);
-/* harmony import */ var _formNumber_f7_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./formNumber.f7.jsx */ 67670);
-/* harmony import */ var _formReadonly_f7_jsx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./formReadonly.f7.jsx */ 84572);
-/* harmony import */ var _formSelectMultiple_f7_jsx__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./formSelectMultiple.f7.jsx */ 72124);
-/* harmony import */ var _formSelectSingle_f7_jsx__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./formSelectSingle.f7.jsx */ 68220);
-/* harmony import */ var _formTextbox_f7_jsx__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./formTextbox.f7.jsx */ 14377);
-/* harmony import */ var _formTree_f7_jsx__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./formTree.f7.jsx */ 163);
+/* harmony import */ var _formDatepicker_f7_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./formDatepicker.f7.jsx */ 11487);
+/* harmony import */ var _formJSON_f7_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./formJSON.f7.jsx */ 959);
+/* harmony import */ var _formNumber_f7_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./formNumber.f7.jsx */ 67670);
+/* harmony import */ var _formSelectMultiple_f7_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./formSelectMultiple.f7.jsx */ 72124);
+/* harmony import */ var _formSelectSingle_f7_jsx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./formSelectSingle.f7.jsx */ 68220);
+/* harmony import */ var _formTextbox_f7_jsx__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./formTextbox.f7.jsx */ 14377);
 /** @jsx $jsx */
-
-
-
 
 
 
@@ -72,24 +66,18 @@ class F7ViewForm {
           return new _formCheckbox_f7_jsx__WEBPACK_IMPORTED_MODULE_1__["default"](AB, this, definition);
         case "connect":
           return new _formConnect_f7_jsx__WEBPACK_IMPORTED_MODULE_2__["default"](AB, this, definition);
-        case "fieldcustom":
-          return new _formCustom_f7_jsx__WEBPACK_IMPORTED_MODULE_3__["default"](AB, this, definition);
         case "datepicker":
-          return new _formDatepicker_f7_jsx__WEBPACK_IMPORTED_MODULE_4__["default"](AB, this, definition);
+          return new _formDatepicker_f7_jsx__WEBPACK_IMPORTED_MODULE_3__["default"](AB, this, definition);
         case "json":
-          return new _formJSON_f7_jsx__WEBPACK_IMPORTED_MODULE_5__["default"](AB, this, definition);
+          return new _formJSON_f7_jsx__WEBPACK_IMPORTED_MODULE_4__["default"](AB, this, definition);
         case "numberbox":
-          return new _formNumber_f7_jsx__WEBPACK_IMPORTED_MODULE_6__["default"](AB, this, definition);
-        case "fieldreadonly":
-          return new _formReadonly_f7_jsx__WEBPACK_IMPORTED_MODULE_7__["default"](AB, this, definition);
+          return new _formNumber_f7_jsx__WEBPACK_IMPORTED_MODULE_5__["default"](AB, this, definition);
         case "selectmultiple":
-          return new _formSelectMultiple_f7_jsx__WEBPACK_IMPORTED_MODULE_8__["default"](AB, this, definition);
+          return new _formSelectMultiple_f7_jsx__WEBPACK_IMPORTED_MODULE_6__["default"](AB, this, definition);
         case "selectsingle":
-          return new _formSelectSingle_f7_jsx__WEBPACK_IMPORTED_MODULE_9__["default"](AB, this, definition);
-        case "formtree":
-          return new _formTree_f7_jsx__WEBPACK_IMPORTED_MODULE_11__["default"](AB, this, definition);
+          return new _formSelectSingle_f7_jsx__WEBPACK_IMPORTED_MODULE_7__["default"](AB, this, definition);
         default:
-          return new _formTextbox_f7_jsx__WEBPACK_IMPORTED_MODULE_10__["default"](AB, this, definition);
+          return new _formTextbox_f7_jsx__WEBPACK_IMPORTED_MODULE_8__["default"](AB, this, definition);
       }
     });
   }
@@ -202,7 +190,7 @@ class F7ViewForm {
   */
 
   async init() {
-    const ab = this.#AB;
+    const AB = this.#AB;
     const record = this.record = this.datacollection.getCursor();
     if (record == null) return;
 
@@ -217,7 +205,9 @@ class F7ViewForm {
         case "date":
           {
             const date = record[view.definition.field];
-            parsedRecord[view.definition.field] = `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
+            if (date) {
+              parsedRecord[view.definition.field] = `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
+            }
           }
           break;
         case "datetime":
@@ -238,15 +228,15 @@ class F7ViewForm {
     });
 
     //fill in form
-    ab.$f7.form.fillFromData(`#${this.id}`, parsedRecord);
+    AB.$f7.form.fillFromData(`#${this.id}`, parsedRecord);
 
     // // listen for when we remove the preloader on the smart select then set the value to the select
     // // this is just a hack to get the value of the smart select set we may be able to take this out
-    // if (ab.$f7.$(".smartSelectCountry .item-after .preloader").length) {
-    //    ab.$(
+    // if (AB.$f7.$(".smartSelectCountry .item-after .preloader").length) {
+    //    AB.$(
     //       ".smartSelectCountry .item-after .preloader"
     //    )[0].addEventListener("DOMNodeRemoved", () => {
-    //       ab.$f7
+    //       AB.$f7
     //          .$(
     //             "select[name='Country'] option[value='" +
     //                this.#record.Country +
@@ -264,7 +254,7 @@ class F7ViewForm {
       if (view.definition.fieldType == null) {
         if (view instanceof _formButton_f7_jsx__WEBPACK_IMPORTED_MODULE_0__["default"]) {
           const renderedFieldElements = [...fields];
-          if (fields.length > 0) allResults.push(() => (0,framework7__WEBPACK_IMPORTED_MODULE_12__["default"])("ul", null, renderedFieldElements));
+          if (fields.length > 0) allResults.push(() => (0,framework7__WEBPACK_IMPORTED_MODULE_9__["default"])("ul", null, renderedFieldElements));
           allResults.push(view.html());
           fields = [];
         }
@@ -272,21 +262,21 @@ class F7ViewForm {
       }
       switch (view.definition.fieldType) {
         case "LongText":
-          fields.push((0,framework7__WEBPACK_IMPORTED_MODULE_12__["default"])("li", {
+          fields.push((0,framework7__WEBPACK_IMPORTED_MODULE_9__["default"])("li", {
             class: "align-top"
           }, view.html()()));
           break;
         default:
-          fields.push((0,framework7__WEBPACK_IMPORTED_MODULE_12__["default"])("li", null, view.html()()));
+          fields.push((0,framework7__WEBPACK_IMPORTED_MODULE_9__["default"])("li", null, view.html()()));
           break;
       }
     });
-    if (fields.length > 0) allResults.push(() => (0,framework7__WEBPACK_IMPORTED_MODULE_12__["default"])("ul", null, fields.map(r => r())));
+    if (fields.length > 0) allResults.push(() => (0,framework7__WEBPACK_IMPORTED_MODULE_9__["default"])("ul", null, fields.map(r => r())));
     return allResults.map(r => r()); // render each jsx template
   }
 
   html() {
-    return () => (0,framework7__WEBPACK_IMPORTED_MODULE_12__["default"])("form", {
+    return () => (0,framework7__WEBPACK_IMPORTED_MODULE_9__["default"])("form", {
       class: "list list-inset list-strong-ios list-dividers-ios list-outline-ios",
       id: this.id
     }, this.viewHTML());
@@ -320,48 +310,34 @@ class F7ViewFormButton extends _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_0__["de
     this.#form = form;
   }
   async #save() {
-    const ab = this.#AB;
+    const AB = this.#AB;
     const form = this.#form;
     const definition = this.definition;
-    ab.$(`#${definition.id}`).addClass("button-loading");
-    const formData = ab.$f7.form.convertToData(`#${form.id}`);
-    if (!ab.$f7.input.validateInputs(`#${form.id}`)) {
-      ab.$(`#${definition.id}`).removeClass("button-loading");
-      return;
-    }
+    AB.$(`#${definition.id}`).addClass("button-loading");
+    const formData = AB.$f7.form.convertToData(`#${form.id}`);
     const parsedFormData = {};
     form.views.forEach(view => {
       const field = view.definition.field;
-      switch (view.definition.fieldType) {
-        case "boolean":
-          if (formData[field].length === 0) {
-            parsedFormData[field] = 0;
-            break;
-          }
-          parsedFormData[field] = 1;
-          break;
-        case "datetime":
-          parsedFormData[field] = new Date(formData[field]).toISOString();
-          break;
-        case "number":
-          parsedFormData[field] = parseInt(formData[field]);
-          break;
-        default:
-          parsedFormData[field] = formData[field];
-          break;
-      }
+      parsedFormData[field] = view.parseFormData(formData[field]);
     });
+    if (!AB.$f7.input.validateInputs(`#${form.id}`)) {
+      AB.$(`#${definition.id}`).removeClass("button-loading");
+      return;
+    }
     const dc = form.datacollection;
     try {
       if (form.record == null) await dc.model.create(parsedFormData);else await dc.model.update(form.record[dc.datasource.PK()], parsedFormData);
-
-      // on success, go back to list page
-      ab.$f7.views.current.router.back();
+      if (definition.afterSubmitView == null) {
+        AB.$f7.views.current.router.back();
+        return;
+      }
+      const afterSubmitView = this.application.pageByID(definition.afterSubmitView.id);
+      afterSubmitView.openView(definition.afterSubmitView.props);
     } catch (e) {
       console.error(e);
 
       // TODO: popup here:
-      const L = ab.Label();
+      const L = AB.Label();
       let text = L("Save Failed");
 
       // @TODO: instead of stuffing errors into popup message, find the input controls
@@ -377,25 +353,15 @@ class F7ViewFormButton extends _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_0__["de
           text = `${text}<br>${valError.name}: ${valError.message}`;
         });
       }
-      ab.$f7.toast.create({
+      AB.$f7.toast.create({
         icon: '<i class="material-icons">error</i>',
         text,
         position: "center",
         closeTimeout: 2000
       }).open();
     }
-    ab.$(`#${definition.id}`).removeClass("button-loading");
-
-    // this.$store.dispatch("updateRecord", {
-    //    dcID: "faa9905e-dea8-4c7f-8eb4-98f1e6e66506",
-    //    recordID: form.record.uuid,
-    //    record: parsedFormData,
-    // });
-    // setTimeout(() => {
-    //    this.$("#" + btn).removeClass("button-loading");
-    // }, 1000);
+    AB.$(`#${definition.id}`).removeClass("button-loading");
   }
-
   html() {
     const definition = this.definition;
     return () => (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
@@ -437,6 +403,9 @@ class F7ViewFormCheckbox extends _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_0__["
     this.#AB = AB;
     this.#form = form;
   }
+  parseFormData(value) {
+    return super.parseFormData(value).length === 0 ? 0 : 1;
+  }
   html() {
     const definition = this.definition;
     return () => (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
@@ -449,12 +418,7 @@ class F7ViewFormCheckbox extends _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_0__["
       class: "item-after"
     }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("label", {
       class: "toggle toggle-init"
-    }, definition.settings.required === 1 ? (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("input", {
-      name: definition.field,
-      type: "checkbox",
-      required: true,
-      validate: true
-    }) : (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("input", {
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("input", {
       name: definition.field,
       type: "checkbox"
     }), (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("i", {
@@ -477,7 +441,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ F7ViewFormConnect)
 /* harmony export */ });
 /* harmony import */ var _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./formItem.f7.jsx */ 66382);
+/* harmony import */ var _formSelectMultiple_f7_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./formSelectMultiple.f7.jsx */ 72124);
+/* harmony import */ var _formSelectSingle_f7_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./formSelectSingle.f7.jsx */ 68220);
 /** @jsx $jsx */
+
+
 
 
 class F7ViewFormConnect extends _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_0__["default"] {
@@ -488,39 +456,19 @@ class F7ViewFormConnect extends _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_0__["d
     this.#AB = AB;
     this.#form = form;
   }
-  html() {
-    const connectedType = "selectsingle" || 0;
-    return () => {};
-  }
-}
-
-/***/ }),
-
-/***/ 79481:
-/*!****************************************!*\
-  !*** ./src/js/views/formCustom.f7.jsx ***!
-  \****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ F7ViewFormCustom)
-/* harmony export */ });
-/* harmony import */ var _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./formItem.f7.jsx */ 66382);
-/** @jsx $jsx */
-
-
-class F7ViewFormCustom extends _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_0__["default"] {
-  #AB;
-  #form;
-  constructor(AB, form, definition) {
-    super(definition);
-    this.#AB = AB;
-    this.#form = form;
+  parseFormData(value) {
+    if (this.definition.settings.linkType === "many") return this.#AB.$(`#${this.#form.id}`).find(`select[name="${this.definition.field}"]`).val();
+    return super.parseFormData(value);
   }
   html() {
-    return () => {};
+    const definition = this.definition;
+    const definitionCopy = Object.assign({}, definition, {
+      settings: Object.assign({
+        options: [] // conected object's records,
+      }, definition.settings)
+    });
+    const formComponent = definition.settings.linkType !== "one" ? new _formSelectSingle_f7_jsx__WEBPACK_IMPORTED_MODULE_2__["default"](this.#AB, this.#form, definitionCopy) : new _formSelectMultiple_f7_jsx__WEBPACK_IMPORTED_MODULE_1__["default"](this.#AB, this.#form, definitionCopy);
+    return formComponent.html();
   }
 }
 
@@ -549,6 +497,10 @@ class F7ViewFormDatepicker extends _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_0__
     super(definition);
     this.#AB = AB;
     this.#form = form;
+  }
+  parseFormData(value) {
+    if (this.definition.fieldType === "datetime") return new Date(value).toISOString();
+    return super.parseFormData(value);
   }
   viewHTML() {
     const definition = this.definition;
@@ -618,10 +570,21 @@ __webpack_require__.r(__webpack_exports__);
 class F7ViewFormItem {
   #definition;
   constructor(definition) {
+    // definition.*
+    // .id {uuid} the ID of our ABViewForm*.
+    // .key {string} the key of ABViewForm*.
+    // .field {string} the input.name of the form element that contains this value.
+    // .fieldType {string} The keys of ABField*. So, some field types reuse the same form component views. We can classify this.
+    // .placeholder {string} the default display if no value is set.
+    // .label {string} the label for this component.
+    // .settings {object} the same default settings of ABFied*Core in ABDesigner.
     this.#definition = definition;
   }
   get definition() {
     return this.#definition;
+  }
+  parseFormData(value) {
+    return value;
   }
   html() {
     return () => {};
@@ -641,6 +604,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ F7ViewFormJSON)
 /* harmony export */ });
+/* harmony import */ var framework7__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! framework7 */ 73449);
 /* harmony import */ var _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./formItem.f7.jsx */ 66382);
 /** @jsx $jsx */
 
@@ -653,8 +617,39 @@ class F7ViewFormJSON extends _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_0__["defa
     this.#AB = AB;
     this.#form = form;
   }
+  parseFormData(value) {
+    const AB = this.#AB;
+    const $inputElements = AB.$(`#${this.#form.id}`).find(`textarea[name="${this.definition.field}"]`);
+    try {
+      $inputElements[0].setCustomValidity("");
+      JSON.parse(value);
+    } catch (err) {
+      $inputElements[0].setCustomValidity(AB.Label()("Invalid JSON!"));
+      $inputElements[0].checkValidity();
+    }
+    return super.parseFormData(value);
+  }
   html() {
-    return () => {};
+    const definition = this.definition;
+    return () => (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+      class: "item-content item-input"
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+      class: "item-inner"
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+      class: "item-title item-label"
+    }, definition.label), (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+      class: "item-input-wrap"
+    }, definition.settings.required === 1 ? (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("textarea", {
+      name: definition.field,
+      placeholder: definition.placeholder,
+      class: "resizable",
+      required: true,
+      validate: true
+    }) : (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("textarea", {
+      name: definition.field,
+      placeholder: definition.placeholder,
+      class: "resizable"
+    }))));
   }
 }
 
@@ -684,9 +679,12 @@ class F7ViewFormNumber extends _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_0__["de
     this.#AB = AB;
     this.#form = form;
   }
+  parseFormData(value) {
+    return parseInt(super.parseFormData(value));
+  }
   html() {
     const definition = this.definition;
-    const errorMessage = this.#AB.Label("Only numbers please!");
+    const errorMessage = this.#AB.Label()("Only numbers please!");
     return () => (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
       class: "item-content item-input"
     }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
@@ -724,36 +722,6 @@ class F7ViewFormNumber extends _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_0__["de
 
 /***/ }),
 
-/***/ 84572:
-/*!******************************************!*\
-  !*** ./src/js/views/formReadonly.f7.jsx ***!
-  \******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ F7ViewFormReadonly)
-/* harmony export */ });
-/* harmony import */ var _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./formItem.f7.jsx */ 66382);
-/** @jsx $jsx */
-
-
-class F7ViewFormReadonly extends _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_0__["default"] {
-  #AB;
-  #form;
-  constructor(AB, form, definition) {
-    super(definition);
-    this.#AB = AB;
-    this.#form = form;
-  }
-  html() {
-    return () => {};
-  }
-}
-
-/***/ }),
-
 /***/ 72124:
 /*!************************************************!*\
   !*** ./src/js/views/formSelectMultiple.f7.jsx ***!
@@ -777,6 +745,9 @@ class F7ViewFormSelectMultiple extends _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE
     super(definition);
     this.#AB = AB;
     this.#form = form;
+  }
+  parseFormData(value) {
+    return this.#AB.$(`#${this.#form.id}`).find(`select[name="${this.definition.field}"]`).val();
   }
   html() {
     const definition = this.definition;
@@ -931,36 +902,6 @@ class F7ViewFormTextbox extends _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_0__["d
 
 /***/ }),
 
-/***/ 163:
-/*!**************************************!*\
-  !*** ./src/js/views/formTree.f7.jsx ***!
-  \**************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ F7ViewFormTree)
-/* harmony export */ });
-/* harmony import */ var _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./formItem.f7.jsx */ 66382);
-/** @jsx $jsx */
-
-
-class F7ViewFormTree extends _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_0__["default"] {
-  #AB;
-  #form;
-  constructor(AB, form, definition) {
-    super(definition);
-    this.#AB = AB;
-    this.#form = form;
-  }
-  html() {
-    return () => {};
-  }
-}
-
-/***/ }),
-
 /***/ 83186:
 /*!**********************************!*\
   !*** ./src/js/views/list.f7.jsx ***!
@@ -981,6 +922,7 @@ class F7ViewList {
   constructor(AB, settings) {
     this.#AB = AB;
     this.#settings = settings;
+    this.application = AB.applications()[0];
   }
   get id() {
     return this.#settings.id;
@@ -992,11 +934,13 @@ class F7ViewList {
   itemSelected(item) {
     // if there is a detailPage set, then transition there:
     if (this.#settings.detailPage) {
+      // const DetailPage = this.application.pageByID(
+      //    this.#settings.detailPage
+      // );
+
       this.#AB.$f7.view.main.router.navigate("/form", {
-        props: {
-          isEditMode: true
-        },
-        ignoreCache: true
+        data: item,
+        isEditMode: true
       });
     }
 
@@ -1008,11 +952,9 @@ class F7ViewList {
   }
 
   // NOTE: this now means OPEN THIS VIEW.
-  openView(data) {
-    this.#AB.$f7.view.main.router.navigate("/list", {
-      props: {
-        data: data
-      },
+  openView(props) {
+    this.#AB.$f7.view.main.router.navigate(this.settings.route, {
+      props,
       ignoreCache: true
     });
   }
@@ -1030,6 +972,7 @@ class F7ViewList {
     }
   }
   viewHTML() {
+    const L = this.#AB.Label();
     return this.#AB.$store.getters[this.#settings.dcID].value.map(item => (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("li", {
       id: item.uuid,
       class: "swipeout deleted-callback"
@@ -1045,8 +988,8 @@ class F7ViewList {
     }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("a", {
       href: "#",
       class: "swipeout-delete",
-      "data-confirm": "Are you sure want to delete this item?",
-      "data-confirm-title": "Delete?"
+      "data-confirm": L("Are you sure want to delete this item?"),
+      "data-confirm-title": L("Delete?")
     }, "Delete"))));
   }
   html() {
@@ -1082,7 +1025,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var framework7__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! framework7 */ 73449);
 /** @jsx $jsx */
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (() => {
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AB => {
+  const L = AB.Label();
   return () => {
     return () => (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "page"
@@ -1101,13 +1045,13 @@ __webpack_require__.r(__webpack_exports__);
       class: "icon icon-back"
     }), (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("span", {
       class: "if-not-md"
-    }, "Back"))), (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
+    }, L("Back")))), (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "title"
-    }, "Not found"))), (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
+    }, L("Not found")))), (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "page-content"
     }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "block block-strong inset"
-    }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("center", null, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("h1", null, "Sorry"), (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("p", null, "Requested content not found.")))));
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("center", null, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("h1", null, L("Sorry")), (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("p", null, L("Requested content not found."))))));
   };
 });
 
@@ -1143,13 +1087,19 @@ __webpack_require__.r(__webpack_exports__);
     let defaultPath = "/";
     let username = "";
     let password = "";
-    let versionNumber = Application.version;
+    let versionNumber = Application?.version;
     let showingUpdate = false;
     let apiUrl = document?.location?.origin ?? "http://localhost:8080";
     // process.env.NODE_ENV === "production"
     //    ? "https://design.digiserve.org"
     //    : "http://localhost:8010/proxy";
 
+    // check for a specified Route:
+    let params = new URL(document.location).searchParams;
+    let route = params.get("route");
+    if (route) {
+      defaultPath = `/${route}`;
+    }
     $store.dispatch("getVersion");
     $on("pageInit", () => {
       // checkForUpdate();
@@ -1219,7 +1169,7 @@ __webpack_require__.r(__webpack_exports__);
       } catch (err) {
         $f7.toast.create({
           icon: '<i class="material-icons">error</i>',
-          text: `Login Failed`,
+          text: L("Login Failed"),
           position: "center",
           closeTimeout: 2000
         }).open();
@@ -1238,12 +1188,12 @@ __webpack_require__.r(__webpack_exports__);
     };
     async function checkForUpdate() {
       if (!showingUpdate) {
-        let getVersionPath = `${apiUrl}${Application.urlCurrentVersion}`;
+        let getVersionPath = `${apiUrl}${Application?.urlCurrentVersion}`;
         const response = await AB.Network.get({
           url: getVersionPath
         });
         const version = response?.version ?? "0.0.0";
-        const currVersion = Application.version;
+        const currVersion = Application?.version;
         console.log("getVersionPath: ", version);
         console.log("getCurrVersion: ", currVersion);
         if (currVersion.trim() != version.trim()) {
@@ -1290,6 +1240,7 @@ __webpack_require__.r(__webpack_exports__);
         }
       }
     }
+    let pagesMenu = Application?.pages(p => p.menuType == "menu") ?? [];
     return () => (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       id: "app"
     }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
@@ -1306,7 +1257,7 @@ __webpack_require__.r(__webpack_exports__);
       class: "navbar-inner"
     }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "title"
-    }, Application.label ?? L("PWA")))), (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
+    }, Application?.label ?? L("PWA")))), (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "page-content"
     }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "block text-align-center no-margin-bottom"
@@ -1327,7 +1278,7 @@ __webpack_require__.r(__webpack_exports__);
       class: "item-inner"
     }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "item-title"
-    }, L("List of People"))))), Application.pages().map(p => {
+    }, L("List of People"))))), pagesMenu.map(p => {
       return (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("li", null, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("a", {
         href: `/${p.route}`,
         class: "item-link item-content panel-close"
@@ -1676,13 +1627,19 @@ __webpack_require__.r(__webpack_exports__);
   const init = async () => {
     if (!AB.isInitialized) {
       try {
-        const user = await AB.Network.get({
-          url: "/mobile/whoami"
-        });
+        // const user = await AB.Network.get({ url: "/mobile/whoami" });
+        // perform Inbox Lookup now?
+
         AB.isInitialized = true;
-        AB.$f7.view.main.router.navigate("/list", {
-          transition: "f7-fade"
-        });
+
+        // now we route to our Default Page:
+        const Application = AB.applications()[0];
+        let DefaultPage = Application.pageByID(Application.pageDefault, true);
+        if (!DefaultPage) {
+          DefaultPage = Application.pages()[0]; // just pick 1st one:
+        }
+
+        DefaultPage.show();
       } catch (e) {
         // NOTE: this will catch errors OTHER than the "Reauth" notification
         // errors.  Those will be caught by listening to the AB.Network object
@@ -1715,6 +1672,238 @@ __webpack_require__.r(__webpack_exports__);
     }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "preloader vertical-center"
     })));
+  };
+});
+
+/***/ }),
+
+/***/ 48800:
+/*!********************************!*\
+  !*** ./src/pages/inbox.f7.jsx ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var framework7__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! framework7 */ 73449);
+/* harmony import */ var _componants_FormioToF7_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./componants/FormioToF7.js */ 7882);
+/** @jsx $jsx */
+
+// import { Formio } from "formiojs";
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AB => {
+  const L = AB.Label();
+  // let lang = AB.Account.language();
+  let inboxMeta = {}; // to store inboxMeta
+  let inboxItems = {}; // to store inbox items
+  let isLoading = true; // flag to track loading state
+
+  async function loadInbox() {
+    try {
+      const inboxData = await AB.Network.get({
+        url: "/config/inbox"
+      });
+      inboxMeta = inboxData.inboxMeta || [];
+      const inbox = inboxData.inbox || [];
+      inboxItems = {};
+      inboxMeta.forEach(meta => {
+        inboxItems[meta.id] = {};
+        meta.processes.forEach(process => {
+          // select items only match definition = process.id
+          inboxItems[meta.id][process.id] = inbox.filter(item => item.definition === process.id);
+        });
+      });
+      // this._inboxData = inboxData;
+    } catch (err) {
+      console.error("Failed to load inbox:", err);
+      inboxMeta = {};
+      inboxItems = {};
+    } finally {
+      isLoading = false;
+      // $jsx.instance.$update();
+    }
+  }
+
+  async function openFormioPopup(itemsInProcess, startIndex, $f7) {
+    const popup = document.getElementById("formio-popup");
+    $f7.popup.open(popup);
+    const container = document.getElementById("formio-form-container");
+    container.innerHTML = "";
+
+    // Render Swiper HTML
+    const swiperHtml = `
+      <div class="swiper">
+         <div class="swiper-wrapper">
+            ${itemsInProcess.map((item, i) => `
+               <div class="swiper-slide" data-index="${i}">
+                  <div class="formio-slide-container" id="formio-slide-${i}">
+                     ${i === startIndex ? "Loading form..." : ""}
+                  </div>
+               </div>
+            `).join("")}
+         </div>
+      </div>
+      <div class="swiper-pagination-label margin-top margin-bottom text-align-center">
+         <span id="pagination-info"></span>
+      </div>
+      <div class="swiper-controls text-align-center margin-top">
+         <button id="prev-btn" class="button button-outline">Prev</button>
+         <button id="next-btn" class="button button-outline">Next</button>
+      </div>
+   `;
+    container.innerHTML = swiperHtml;
+
+    // Initialize Swiper using F7
+    const swiper = $f7.swiper.create(".swiper", {
+      initialSlide: startIndex,
+      on: {
+        slideChange: async function () {
+          const newIndex = this.activeIndex;
+          const newItem = itemsInProcess[newIndex];
+          const target = document.getElementById(`formio-slide-${newIndex}`);
+          if (!target || target.dataset.loaded) return;
+          try {
+            target.innerHTML = "";
+            const schema = newItem?.ui || [];
+            const data = newItem?.data || {};
+
+            // const form = Formio.createForm(target, schema, {
+            //    readOnly: false,
+            // });
+            // form.submission = { data: schema };
+            // target.dataset.loaded = "true";
+
+            // Render Formio form using FormioToF7
+            const form = new _componants_FormioToF7_js__WEBPACK_IMPORTED_MODULE_0__.FormioToF7(schema, data);
+            const formEl = form.render();
+            target.appendChild(formEl);
+          } catch (e) {
+            target.innerHTML = `<div class="text-color-red text-align-center">Error loading form</div>`;
+          }
+          updateNavButtons(this);
+        }
+      }
+    });
+
+    // Attach click handlers AFTER HTML is injected
+    const prevBtn = document.getElementById("prev-btn");
+    const nextBtn = document.getElementById("next-btn");
+    prevBtn.onclick = () => swiper.slidePrev();
+    nextBtn.onclick = () => swiper.slideNext();
+
+    // Update Prev/Next button disabled state
+    function updateNavButtons(swiperInstance) {
+      prevBtn.disabled = swiperInstance.isBeginning;
+      nextBtn.disabled = swiperInstance.isEnd;
+      const paginationInfo = document.getElementById("pagination-info");
+      if (paginationInfo) {
+        paginationInfo.textContent = `Item ${swiperInstance.activeIndex + 1} of ${itemsInProcess.length}`;
+      }
+    }
+
+    // Trigger first form load
+    swiper.emit("slideChange");
+    updateNavButtons(swiper);
+  }
+
+  // Call once when component loads
+  loadInbox();
+  return (props, {
+    $f7
+  }) => {
+    // const inboxId = $f7route?.params?.id;
+    // console.log("Route param ID:", inboxId);
+    return () => (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+      class: "page"
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+      class: "navbar"
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+      class: "navbar-bg"
+    }), (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+      class: "navbar-inner sliding"
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+      class: "left"
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("a", {
+      href: "#",
+      class: "link back"
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("i", {
+      class: "icon icon-back"
+    }), (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("span", {
+      class: "if-not-md"
+    }, L("Back")))), (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+      class: "title"
+    }, L("Inbox")))), (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+      class: "page-content"
+    }, isLoading ? (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+      class: "block text-align-center"
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("p", null, "Loading inbox...")) : inboxMeta.length > 0 ? (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+      class: "list list-strong accordion-list"
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("ul", null, inboxMeta.map(meta => (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("li", {
+      class: "accordion-item accordion-item-opened",
+      key: meta.id
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("a", {
+      class: "item-link item-content"
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+      class: "item-inner"
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+      class: "item-title"
+    }, meta.translations.find(t => t.language_code === "en")?.label || meta.label))), (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+      class: "accordion-item-content"
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+      class: "block"
+    }, meta.processes.map(process => (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+      key: process.id
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("h3", null, process.translations.find(t => t.language_code === "en")?.label || process.label), (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+      class: "list"
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("ul", null, (() => {
+      const itemsInProcess = inboxItems[meta.id]?.[process.id] || [];
+      const badgeCount = itemsInProcess.length;
+      if (badgeCount === 0) return null;
+      const ItemName = itemsInProcess[0].name;
+      return (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("li", {
+        key: process.id
+      }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("a", {
+        class: "item-link",
+        href: "#",
+        onClick: () => openFormioPopup(itemsInProcess, 0, $f7)
+      }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+        class: "item-content"
+      }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+        class: "item-inner"
+      }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+        class: "item-title"
+      }, ItemName), (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+        class: "item-after"
+      }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("span", {
+        class: "badge color-red"
+      }, badgeCount))))));
+    })())))))))))) : (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+      class: "block text-align-center"
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("p", null, "No inbox available."))), (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+      class: "popup tablet-fullscreen",
+      id: "formio-popup"
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+      class: "page"
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+      class: "navbar"
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+      class: "navbar-inner"
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+      class: "title"
+    }, "Inbox item"), (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+      class: "right"
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("a", {
+      href: "#",
+      class: "link popup-close"
+    }, "Close")))), (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+      class: "page-content"
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+      id: "formio-form-container",
+      style: "padding: 10px; height:100%"
+    })))));
   };
 });
 
@@ -1902,7 +2091,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "/* Your app custom styles here */\n/* login */\n.md .item-input-focused .item-label,\n.md .item-input-focused .item-floating-label {\n  color: inherit;\n}\n.version {\n  font-family: roboto mono, source code pro, Menlo, Monaco, Consolas,\n\t\tcourier new, monospace;\n  font-size: 10px;\n}\n.list-translucent {\n  background-color: rgba(var(--f7-navbar-bg-color-rgb, var(--f7-bars-bg-color-rgb)), var(--f7-bars-translucent-opacity)) !important;\n  -webkit-backdrop-filter: saturate(180%) blur(var(--f7-bars-translucent-blur)) !important;\n  backdrop-filter: saturate(180%) blur(var(--f7-bars-translucent-blur)) !important;\n}\n.list-translucent ul {\n  background-color: transparent !important;\n}\n/* Change Autocomplete styles in Chrome*/\ninput:autofill,\ninput:-webkit-autofill-strong-password,\ninput:-webkit-autofill-strong-password-viewable,\ninput:-webkit-autofill-and-obscured,\ninput:-webkit-autofill,\ninput:-webkit-autofill:hover,\ninput:-webkit-autofill:focus,\ntextarea:-webkit-autofill,\ntextarea:-webkit-autofill:hover,\ntextarea:-webkit-autofill:focus,\nselect:-webkit-autofill,\nselect:-webkit-autofill:hover,\nselect:-webkit-autofill:focus {\n  border: 0;\n  -webkit-text-fill-color: #f0582b;\n  -webkit-box-shadow: 0 0 0px 1000px #366889 inset;\n  -webkit-transition: background-color 5000s ease-in-out 0s;\n  transition: background-color 5000s ease-in-out 0s;\n}\n.vertical-container {\n  position: relative;\n  height: 100vh;\n}\n.vertical-center {\n  margin: 0;\n  position: absolute;\n  top: 50%;\n  -ms-transform: translateY(-50%);\n  transform: translateY(-50%);\n}\n", "",{"version":3,"sources":["webpack://./src/css/app.less"],"names":[],"mappings":"AAAA,gCAAgC;AAChC,UAAU;AACV;;EAEC,cAAA;AACD;AACA;EACC;wBAAA;EAEA,eAAA;AACD;AACA;EACC,iIAAA;EAIA,wFAAA;EAEA,gFAAA;AAHD;AAKA;EACC,wCAAA;AAHD;AACA,wCAAwC;AAKxC;;;;;;;;;;;;;EAaC,SAAA;EACA,gCAAA;EACA,gDAAA;EACA,yDAAA;EACA,iDAAA;AAHD;AAKA;EACC,kBAAA;EACA,aAAA;AAHD;AAKA;EACC,SAAA;EACA,kBAAA;EACA,QAAA;EACA,+BAAA;EACA,2BAAA;AAHD","sourcesContent":["/* Your app custom styles here */\n/* login */\n.md .item-input-focused .item-label,\n.md .item-input-focused .item-floating-label {\n\tcolor: inherit;\n}\n.version {\n\tfont-family: roboto mono, source code pro, Menlo, Monaco, Consolas,\n\t\tcourier new, monospace;\n\tfont-size: 10px;\n}\n.list-translucent {\n\tbackground-color: rgba(\n\t\tvar(--f7-navbar-bg-color-rgb, var(--f7-bars-bg-color-rgb)),\n\t\tvar(--f7-bars-translucent-opacity)\n\t) !important;\n\t-webkit-backdrop-filter: saturate(180%)\n\t\tblur(var(--f7-bars-translucent-blur)) !important;\n\tbackdrop-filter: saturate(180%) blur(var(--f7-bars-translucent-blur)) !important;\n}\n.list-translucent ul {\n\tbackground-color: transparent !important;\n}\n/* Change Autocomplete styles in Chrome*/\ninput:autofill,\ninput:-webkit-autofill-strong-password,\ninput:-webkit-autofill-strong-password-viewable,\ninput:-webkit-autofill-and-obscured,\ninput:-webkit-autofill,\ninput:-webkit-autofill:hover,\ninput:-webkit-autofill:focus,\ntextarea:-webkit-autofill,\ntextarea:-webkit-autofill:hover,\ntextarea:-webkit-autofill:focus,\nselect:-webkit-autofill,\nselect:-webkit-autofill:hover,\nselect:-webkit-autofill:focus {\n\tborder: 0;\n\t-webkit-text-fill-color: #f0582b;\n\t-webkit-box-shadow: 0 0 0px 1000px #366889 inset;\n\t-webkit-transition: background-color 5000s ease-in-out 0s;\n\ttransition: background-color 5000s ease-in-out 0s;\n}\n.vertical-container {\n\tposition: relative;\n\theight: 100vh;\n}\n.vertical-center {\n\tmargin: 0;\n\tposition: absolute;\n\ttop: 50%;\n\t-ms-transform: translateY(-50%);\n\ttransform: translateY(-50%);\n}\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "/* Your app custom styles here */\n/* login */\n.md .item-input-focused .item-label,\n.md .item-input-focused .item-floating-label {\n  color: inherit;\n}\n.version {\n  font-family: roboto mono, source code pro, Menlo, Monaco, Consolas,\n\t\tcourier new, monospace;\n  font-size: 10px;\n}\n.list-translucent {\n  background-color: rgba(var(--f7-navbar-bg-color-rgb, var(--f7-bars-bg-color-rgb)), var(--f7-bars-translucent-opacity)) !important;\n  -webkit-backdrop-filter: saturate(180%) blur(var(--f7-bars-translucent-blur)) !important;\n  backdrop-filter: saturate(180%) blur(var(--f7-bars-translucent-blur)) !important;\n}\n.list-translucent ul {\n  background-color: transparent !important;\n}\n/* Change Autocomplete styles in Chrome*/\ninput:autofill,\ninput:-webkit-autofill-strong-password,\ninput:-webkit-autofill-strong-password-viewable,\ninput:-webkit-autofill-and-obscured,\ninput:-webkit-autofill,\ninput:-webkit-autofill:hover,\ninput:-webkit-autofill:focus,\ntextarea:-webkit-autofill,\ntextarea:-webkit-autofill:hover,\ntextarea:-webkit-autofill:focus,\nselect:-webkit-autofill,\nselect:-webkit-autofill:hover,\nselect:-webkit-autofill:focus {\n  border: 0;\n  -webkit-text-fill-color: #f0582b;\n  -webkit-box-shadow: 0 0 0px 1000px #366889 inset;\n  -webkit-transition: background-color 5000s ease-in-out 0s;\n  transition: background-color 5000s ease-in-out 0s;\n}\n.vertical-container {\n  position: relative;\n  height: 100vh;\n}\n.vertical-center {\n  margin: 0;\n  position: absolute;\n  top: 50%;\n  -ms-transform: translateY(-50%);\n  transform: translateY(-50%);\n}\n/*ABMobileViewFormFile File Upload*/\n.fileUpload {\n  position: relative;\n  overflow: hidden;\n}\n.fileUpload input.upload {\n  position: absolute;\n  top: 0;\n  right: 0;\n  margin: 0;\n  padding: 0;\n  font-size: 20px;\n  cursor: pointer;\n  opacity: 0;\n  filter: alpha(opacity=0);\n}\n.ico_upload {\n  padding-left: 8px;\n  font-size: 25px;\n}\n", "",{"version":3,"sources":["webpack://./src/css/app.less"],"names":[],"mappings":"AAAA,gCAAgC;AAChC,UAAU;AACV;;EAEC,cAAA;AACD;AACA;EACC;wBAAA;EAEA,eAAA;AACD;AACA;EACC,iIAAA;EAIA,wFAAA;EAEA,gFAAA;AAHD;AAKA;EACC,wCAAA;AAHD;AACA,wCAAwC;AAKxC;;;;;;;;;;;;;EAaC,SAAA;EACA,gCAAA;EACA,gDAAA;EACA,yDAAA;EACA,iDAAA;AAHD;AAKA;EACC,kBAAA;EACA,aAAA;AAHD;AAKA;EACC,SAAA;EACA,kBAAA;EACA,QAAA;EACA,+BAAA;EACA,2BAAA;AAHD;AACA,mCAAmC;AAOnC;EAEI,kBAAA;EACA,gBAAA;AANJ;AASA;EAEI,kBAAA;EACA,MAAA;EACA,QAAA;EACA,SAAA;EACA,UAAA;EACA,eAAA;EACA,eAAA;EACA,UAAA;EACA,wBAAA;AARJ;AAWA;EAEE,iBAAA;EAAmB,eAAA;AATrB","sourcesContent":["/* Your app custom styles here */\n/* login */\n.md .item-input-focused .item-label,\n.md .item-input-focused .item-floating-label {\n\tcolor: inherit;\n}\n.version {\n\tfont-family: roboto mono, source code pro, Menlo, Monaco, Consolas,\n\t\tcourier new, monospace;\n\tfont-size: 10px;\n}\n.list-translucent {\n\tbackground-color: rgba(\n\t\tvar(--f7-navbar-bg-color-rgb, var(--f7-bars-bg-color-rgb)),\n\t\tvar(--f7-bars-translucent-opacity)\n\t) !important;\n\t-webkit-backdrop-filter: saturate(180%)\n\t\tblur(var(--f7-bars-translucent-blur)) !important;\n\tbackdrop-filter: saturate(180%) blur(var(--f7-bars-translucent-blur)) !important;\n}\n.list-translucent ul {\n\tbackground-color: transparent !important;\n}\n/* Change Autocomplete styles in Chrome*/\ninput:autofill,\ninput:-webkit-autofill-strong-password,\ninput:-webkit-autofill-strong-password-viewable,\ninput:-webkit-autofill-and-obscured,\ninput:-webkit-autofill,\ninput:-webkit-autofill:hover,\ninput:-webkit-autofill:focus,\ntextarea:-webkit-autofill,\ntextarea:-webkit-autofill:hover,\ntextarea:-webkit-autofill:focus,\nselect:-webkit-autofill,\nselect:-webkit-autofill:hover,\nselect:-webkit-autofill:focus {\n\tborder: 0;\n\t-webkit-text-fill-color: #f0582b;\n\t-webkit-box-shadow: 0 0 0px 1000px #366889 inset;\n\t-webkit-transition: background-color 5000s ease-in-out 0s;\n\ttransition: background-color 5000s ease-in-out 0s;\n}\n.vertical-container {\n\tposition: relative;\n\theight: 100vh;\n}\n.vertical-center {\n\tmargin: 0;\n\tposition: absolute;\n\ttop: 50%;\n\t-ms-transform: translateY(-50%);\n\ttransform: translateY(-50%);\n}\n\n\n /*ABMobileViewFormFile File Upload*/\n.fileUpload \n{\n    position: relative;\n    overflow: hidden;           \n}\n\n.fileUpload input.upload \n{\n    position: absolute;\n    top: 0;\n    right: 0;\n    margin: 0;\n    padding: 0;\n    font-size: 20px;\n    cursor: pointer;\n    opacity: 0;\n    filter: alpha(opacity=0);\n}\n\n.ico_upload\n{\n  padding-left: 8px; font-size:25px\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1929,7 +2118,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "/* Material Icons Font (for MD theme) */\n@font-face {\n  font-family: 'Material Icons';\n  font-style: normal;\n  font-weight: 400;\n  src: local('Material Icons'), local('MaterialIcons-Regular'),\n    url(/assets/mobile/fonts/material-icons.woff2) format('woff2'),\n    url(/assets/mobile/fonts/material-icons.woff) format('woff');\n}\n.material-icons {\n  font-family: 'Material Icons';\n  font-weight: normal;\n  font-style: normal;\n  font-size: 24px;\n  display: inline-block;\n  line-height: 1;\n  text-transform: none;\n  letter-spacing: normal;\n  word-wrap: normal;\n  white-space: nowrap;\n  direction: ltr;\n  -webkit-font-smoothing: antialiased;\n  text-rendering: optimizeLegibility;\n  -moz-osx-font-smoothing: grayscale;\n  font-feature-settings: 'liga';\n}\n\n/* Framework7 Icons Font (for iOS theme) */\n@font-face {\n  font-family: 'Framework7 Icons';\n  font-style: normal;\n  font-weight: 400;\n  src: url('/assets/mobile/fonts/Framework7Icons-Regular.woff2') format('woff2'),\n    url('/assets/mobile/fonts/Framework7Icons-Regular.woff') format('woff');\n}\n.f7-icons {\n  font-family: 'Framework7 Icons';\n  font-weight: normal;\n  font-style: normal;\n  font-size: 28px;\n  line-height: 1;\n  letter-spacing: normal;\n  text-transform: none;\n  display: inline-block;\n  white-space: nowrap;\n  word-wrap: normal;\n  direction: ltr;\n  -webkit-font-smoothing: antialiased;\n  text-rendering: optimizeLegibility;\n  -moz-osx-font-smoothing: grayscale;\n  -webkit-font-feature-settings: 'liga';\n  -moz-font-feature-settings: 'liga=1';\n  -moz-font-feature-settings: 'liga';\n  font-feature-settings: 'liga';\n  text-align: center;\n}\n", "",{"version":3,"sources":["webpack://./src/css/icons.css"],"names":[],"mappings":"AAAA,uCAAuC;AACvC;EACE,6BAA6B;EAC7B,kBAAkB;EAClB,gBAAgB;EAChB;;gEAE8D;AAChE;AACA;EACE,6BAA6B;EAC7B,mBAAmB;EACnB,kBAAkB;EAClB,eAAe;EACf,qBAAqB;EACrB,cAAc;EACd,oBAAoB;EACpB,sBAAsB;EACtB,iBAAiB;EACjB,mBAAmB;EACnB,cAAc;EACd,mCAAmC;EACnC,kCAAkC;EAClC,kCAAkC;EAClC,6BAA6B;AAC/B;;AAEA,0CAA0C;AAC1C;EACE,+BAA+B;EAC/B,kBAAkB;EAClB,gBAAgB;EAChB;2EACyE;AAC3E;AACA;EACE,+BAA+B;EAC/B,mBAAmB;EACnB,kBAAkB;EAClB,eAAe;EACf,cAAc;EACd,sBAAsB;EACtB,oBAAoB;EACpB,qBAAqB;EACrB,mBAAmB;EACnB,iBAAiB;EACjB,cAAc;EACd,mCAAmC;EACnC,kCAAkC;EAClC,kCAAkC;EAClC,qCAAqC;EACrC,oCAAoC;EACpC,kCAAkC;EAClC,6BAA6B;EAC7B,kBAAkB;AACpB","sourcesContent":["/* Material Icons Font (for MD theme) */\n@font-face {\n  font-family: 'Material Icons';\n  font-style: normal;\n  font-weight: 400;\n  src: local('Material Icons'), local('MaterialIcons-Regular'),\n    url(/assets/mobile/fonts/material-icons.woff2) format('woff2'),\n    url(/assets/mobile/fonts/material-icons.woff) format('woff');\n}\n.material-icons {\n  font-family: 'Material Icons';\n  font-weight: normal;\n  font-style: normal;\n  font-size: 24px;\n  display: inline-block;\n  line-height: 1;\n  text-transform: none;\n  letter-spacing: normal;\n  word-wrap: normal;\n  white-space: nowrap;\n  direction: ltr;\n  -webkit-font-smoothing: antialiased;\n  text-rendering: optimizeLegibility;\n  -moz-osx-font-smoothing: grayscale;\n  font-feature-settings: 'liga';\n}\n\n/* Framework7 Icons Font (for iOS theme) */\n@font-face {\n  font-family: 'Framework7 Icons';\n  font-style: normal;\n  font-weight: 400;\n  src: url('/assets/mobile/fonts/Framework7Icons-Regular.woff2') format('woff2'),\n    url('/assets/mobile/fonts/Framework7Icons-Regular.woff') format('woff');\n}\n.f7-icons {\n  font-family: 'Framework7 Icons';\n  font-weight: normal;\n  font-style: normal;\n  font-size: 28px;\n  line-height: 1;\n  letter-spacing: normal;\n  text-transform: none;\n  display: inline-block;\n  white-space: nowrap;\n  word-wrap: normal;\n  direction: ltr;\n  -webkit-font-smoothing: antialiased;\n  text-rendering: optimizeLegibility;\n  -moz-osx-font-smoothing: grayscale;\n  -webkit-font-feature-settings: 'liga';\n  -moz-font-feature-settings: 'liga=1';\n  -moz-font-feature-settings: 'liga';\n  font-feature-settings: 'liga';\n  text-align: center;\n}\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "/* Material Icons Font (for MD theme) */\n@font-face {\n  font-family: 'Material Icons';\n  font-style: normal;\n  font-weight: 400;\n  src: local('Material Icons'), local('MaterialIcons-Regular'),\n    url('/assets/mobile/fonts/material-icons.woff2') format('woff2'),\n    url('/assets/mobile/fonts/material-icons.woff') format('woff');\n}\n.material-icons {\n  font-family: 'Material Icons';\n  font-weight: normal;\n  font-style: normal;\n  font-size: 24px;\n  display: inline-block;\n  line-height: 1;\n  text-transform: none;\n  letter-spacing: normal;\n  word-wrap: normal;\n  white-space: nowrap;\n  direction: ltr;\n  -webkit-font-smoothing: antialiased;\n  text-rendering: optimizeLegibility;\n  -moz-osx-font-smoothing: grayscale;\n  font-feature-settings: 'liga';\n}\n\n/* Framework7 Icons Font (for iOS theme) */\n@font-face {\n  font-family: 'Framework7 Icons';\n  font-style: normal;\n  font-weight: 400;\n  src: url('/assets/mobile/fonts/Framework7Icons-Regular.woff2') format('woff2'),\n    url('/assets/mobile/fonts/Framework7Icons-Regular.woff') format('woff');\n}\n.f7-icons {\n  font-family: 'Framework7 Icons';\n  font-weight: normal;\n  font-style: normal;\n  font-size: 28px;\n  line-height: 1;\n  letter-spacing: normal;\n  text-transform: none;\n  display: inline-block;\n  white-space: nowrap;\n  word-wrap: normal;\n  direction: ltr;\n  -webkit-font-smoothing: antialiased;\n  text-rendering: optimizeLegibility;\n  -moz-osx-font-smoothing: grayscale;\n  -webkit-font-feature-settings: 'liga';\n  -moz-font-feature-settings: 'liga=1';\n  -moz-font-feature-settings: 'liga';\n  font-feature-settings: 'liga';\n  text-align: center;\n}\n", "",{"version":3,"sources":["webpack://./src/css/icons.css"],"names":[],"mappings":"AAAA,uCAAuC;AACvC;EACE,6BAA6B;EAC7B,kBAAkB;EAClB,gBAAgB;EAChB;;kEAEgE;AAClE;AACA;EACE,6BAA6B;EAC7B,mBAAmB;EACnB,kBAAkB;EAClB,eAAe;EACf,qBAAqB;EACrB,cAAc;EACd,oBAAoB;EACpB,sBAAsB;EACtB,iBAAiB;EACjB,mBAAmB;EACnB,cAAc;EACd,mCAAmC;EACnC,kCAAkC;EAClC,kCAAkC;EAClC,6BAA6B;AAC/B;;AAEA,0CAA0C;AAC1C;EACE,+BAA+B;EAC/B,kBAAkB;EAClB,gBAAgB;EAChB;2EACyE;AAC3E;AACA;EACE,+BAA+B;EAC/B,mBAAmB;EACnB,kBAAkB;EAClB,eAAe;EACf,cAAc;EACd,sBAAsB;EACtB,oBAAoB;EACpB,qBAAqB;EACrB,mBAAmB;EACnB,iBAAiB;EACjB,cAAc;EACd,mCAAmC;EACnC,kCAAkC;EAClC,kCAAkC;EAClC,qCAAqC;EACrC,oCAAoC;EACpC,kCAAkC;EAClC,6BAA6B;EAC7B,kBAAkB;AACpB","sourcesContent":["/* Material Icons Font (for MD theme) */\n@font-face {\n  font-family: 'Material Icons';\n  font-style: normal;\n  font-weight: 400;\n  src: local('Material Icons'), local('MaterialIcons-Regular'),\n    url('/assets/mobile/fonts/material-icons.woff2') format('woff2'),\n    url('/assets/mobile/fonts/material-icons.woff') format('woff');\n}\n.material-icons {\n  font-family: 'Material Icons';\n  font-weight: normal;\n  font-style: normal;\n  font-size: 24px;\n  display: inline-block;\n  line-height: 1;\n  text-transform: none;\n  letter-spacing: normal;\n  word-wrap: normal;\n  white-space: nowrap;\n  direction: ltr;\n  -webkit-font-smoothing: antialiased;\n  text-rendering: optimizeLegibility;\n  -moz-osx-font-smoothing: grayscale;\n  font-feature-settings: 'liga';\n}\n\n/* Framework7 Icons Font (for iOS theme) */\n@font-face {\n  font-family: 'Framework7 Icons';\n  font-style: normal;\n  font-weight: 400;\n  src: url('/assets/mobile/fonts/Framework7Icons-Regular.woff2') format('woff2'),\n    url('/assets/mobile/fonts/Framework7Icons-Regular.woff') format('woff');\n}\n.f7-icons {\n  font-family: 'Framework7 Icons';\n  font-weight: normal;\n  font-style: normal;\n  font-size: 28px;\n  line-height: 1;\n  letter-spacing: normal;\n  text-transform: none;\n  display: inline-block;\n  white-space: nowrap;\n  word-wrap: normal;\n  direction: ltr;\n  -webkit-font-smoothing: antialiased;\n  text-rendering: optimizeLegibility;\n  -moz-osx-font-smoothing: grayscale;\n  -webkit-font-feature-settings: 'liga';\n  -moz-font-feature-settings: 'liga=1';\n  -moz-font-feature-settings: 'liga';\n  font-feature-settings: 'liga';\n  text-align: center;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2314,20 +2503,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! moment */ 30381);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var nanoid__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! nanoid */ 53416);
-/* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! uuid */ 55877);
-/* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(uuid__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _platform_FilterComplex__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./platform/FilterComplex */ 10758);
-/* harmony import */ var _definitions_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../definitions.js */ 49670);
-/* harmony import */ var _resources_Config_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../resources/Config.js */ 77269);
-/* harmony import */ var _resources_Account_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../resources/Account.js */ 12968);
-/* harmony import */ var _resources_Multilingual_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../resources/Multilingual.js */ 28917);
-/* harmony import */ var _resources_Network_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../resources/Network.js */ 93360);
-/* harmony import */ var _resources_Storage_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../resources/Storage.js */ 35397);
-/* harmony import */ var _core_ABViewManagerCore__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./core/ABViewManagerCore */ 85642);
-/* harmony import */ var _resources_Tenant_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../resources/Tenant.js */ 75342);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_core_ABFactoryCore__WEBPACK_IMPORTED_MODULE_0__, _core_ABViewManagerCore__WEBPACK_IMPORTED_MODULE_11__]);
-([_core_ABFactoryCore__WEBPACK_IMPORTED_MODULE_0__, _core_ABViewManagerCore__WEBPACK_IMPORTED_MODULE_11__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
+/* harmony import */ var nanoid__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! nanoid */ 53416);
+/* harmony import */ var papaparse__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! papaparse */ 57460);
+/* harmony import */ var papaparse__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(papaparse__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! uuid */ 55877);
+/* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(uuid__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _platform_FilterComplex__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./platform/FilterComplex */ 10758);
+/* harmony import */ var _definitions_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../definitions.js */ 49670);
+/* harmony import */ var _resources_Config_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../resources/Config.js */ 77269);
+/* harmony import */ var _resources_Account_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../resources/Account.js */ 12968);
+/* harmony import */ var _resources_Multilingual_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../resources/Multilingual.js */ 28917);
+/* harmony import */ var _resources_Network_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../resources/Network.js */ 93360);
+/* harmony import */ var _resources_Storage_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../resources/Storage.js */ 35397);
+/* harmony import */ var _core_ABViewManagerCore__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./core/ABViewManagerCore */ 85642);
+/* harmony import */ var _resources_Tenant_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../resources/Tenant.js */ 75342);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_core_ABFactoryCore__WEBPACK_IMPORTED_MODULE_0__, _core_ABViewManagerCore__WEBPACK_IMPORTED_MODULE_12__]);
+([_core_ABFactoryCore__WEBPACK_IMPORTED_MODULE_0__, _core_ABViewManagerCore__WEBPACK_IMPORTED_MODULE_12__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
 // const ABFactoryCore = require("./core/ABFactoryCore");
 
 
@@ -2335,6 +2526,7 @@ var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_cor
 
 
 // @TODO: what is F7 method of working with dates?  can we swap libraries with moment?
+
 
 
 
@@ -2434,27 +2626,27 @@ class ABFactory extends _core_ABFactoryCore__WEBPACK_IMPORTED_MODULE_0__["defaul
       super(definitions);
 
       // Common Reference to Configuration Values
-      this.Config = _resources_Config_js__WEBPACK_IMPORTED_MODULE_6__["default"];
+      this.Config = _resources_Config_js__WEBPACK_IMPORTED_MODULE_7__["default"];
       let appDiv = document.querySelector("#app");
       this.Config.settingsFromDiv(appDiv);
 
       //
       // Resources
       //
-      this.Account = _resources_Account_js__WEBPACK_IMPORTED_MODULE_7__["default"];
+      this.Account = _resources_Account_js__WEBPACK_IMPORTED_MODULE_8__["default"];
       // this.Dialog = Dialog;
-      this.Multilingual = _resources_Multilingual_js__WEBPACK_IMPORTED_MODULE_8__["default"];
-      this.Network = _resources_Network_js__WEBPACK_IMPORTED_MODULE_9__["default"];
-      this.Storage = _resources_Storage_js__WEBPACK_IMPORTED_MODULE_10__["default"];
-      this.Tenant = _resources_Tenant_js__WEBPACK_IMPORTED_MODULE_12__["default"];
+      this.Multilingual = _resources_Multilingual_js__WEBPACK_IMPORTED_MODULE_9__["default"];
+      this.Network = _resources_Network_js__WEBPACK_IMPORTED_MODULE_10__["default"];
+      this.Storage = _resources_Storage_js__WEBPACK_IMPORTED_MODULE_11__["default"];
+      this.Tenant = _resources_Tenant_js__WEBPACK_IMPORTED_MODULE_13__["default"];
       // this.Webix = Webix;
 
       // Plugin Classes
       // this.ClassUI = ClassUI;
 
       // additional Class definitions
-      this.Class.FilterComplex = _platform_FilterComplex__WEBPACK_IMPORTED_MODULE_4__["default"];
-      this.Class.ABViewManager = _core_ABViewManagerCore__WEBPACK_IMPORTED_MODULE_11__["default"];
+      this.Class.FilterComplex = _platform_FilterComplex__WEBPACK_IMPORTED_MODULE_5__["default"];
+      this.Class.ABViewManager = _core_ABViewManagerCore__WEBPACK_IMPORTED_MODULE_12__["default"];
 
       // Temp placeholders until Resources are implemented:
       this.Analytics = {
@@ -2835,7 +3027,9 @@ class ABFactory extends _core_ABFactoryCore__WEBPACK_IMPORTED_MODULE_0__["defaul
           *
           * @return {Date}
           */
-         subtractDate: (date, number, unit) => {
+         subtractDate: (date, number, unit = "hours") => {
+            // Prevent Depreciation warning:
+            if (unit == "") unit = "hours";
             return moment__WEBPACK_IMPORTED_MODULE_2___default()(date).subtract(number, unit).toDate();
          },
 
@@ -2848,7 +3042,9 @@ class ABFactory extends _core_ABFactoryCore__WEBPACK_IMPORTED_MODULE_0__["defaul
           *
           * @return {Date}
           */
-         addDate: (date, number, unit) => {
+         addDate: (date, number, unit = "hours") => {
+            // Prevent Depreciation warning:
+            if (unit == "") unit = "hours";
             return moment__WEBPACK_IMPORTED_MODULE_2___default()(date).add(number, unit).toDate();
          },
       };
@@ -3225,7 +3421,7 @@ class ABFactory extends _core_ABFactoryCore__WEBPACK_IMPORTED_MODULE_0__["defaul
    }
 
    jobID() {
-      return (0,nanoid__WEBPACK_IMPORTED_MODULE_13__.nanoid)();
+      return (0,nanoid__WEBPACK_IMPORTED_MODULE_14__.nanoid)();
    }
 
    Label() {
@@ -3250,6 +3446,15 @@ class ABFactory extends _core_ABFactoryCore__WEBPACK_IMPORTED_MODULE_0__["defaul
       rest.forEach((r) => {
          console.log(r);
       });
+   }
+
+   isEmail(value) {
+      const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+      return lodash__WEBPACK_IMPORTED_MODULE_1___default().matches(value, emailRegex);
+   }
+
+   isNil(value) {
+      return lodash__WEBPACK_IMPORTED_MODULE_1___default().isNil(value);
    }
 
    /**
@@ -3299,7 +3504,7 @@ class ABFactory extends _core_ABFactoryCore__WEBPACK_IMPORTED_MODULE_0__["defaul
    }
 
    uuid() {
-      return (0,uuid__WEBPACK_IMPORTED_MODULE_3__.v4)();
+      return (0,uuid__WEBPACK_IMPORTED_MODULE_4__.v4)();
    }
 
    warn(message, ...rest) {
@@ -3312,9 +3517,21 @@ class ABFactory extends _core_ABFactoryCore__WEBPACK_IMPORTED_MODULE_0__["defaul
    isString(...params) {
       return lodash__WEBPACK_IMPORTED_MODULE_1___default().isString(params);
    }
+
+   csvToJson(csvData) {
+      return papaparse__WEBPACK_IMPORTED_MODULE_3___default().parse(csvData, {
+         header: true,
+         skipEmptyLines: true,
+      });
+   }
+
+   jsonToCsv(jsonData) {
+      return papaparse__WEBPACK_IMPORTED_MODULE_3___default().unparse(jsonData);
+   }
 }
-const AB = new ABFactory(_definitions_js__WEBPACK_IMPORTED_MODULE_5__["default"].definitions);
-AB.Config.config(Window.__ab_config);
+await window.__AB_preload;
+const AB = new ABFactory(window.__ab_definitions.definitions);
+AB.Config.config(window.__ab_config);
 await AB.init();
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AB);
@@ -3875,16 +4092,21 @@ class ABApplicationCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_1__
 
       // find into sub-pages recursively
       if (filter && deep) {
-         result = this._pages.filter(filter);
+         // function searchDeep(curr) {
+         //    let resultsCurr = curr._pages.filter(filter);
 
-         if (result.length < 1) {
-            this._pages.forEach((p) => {
-               var subPages = p.pages(filter, deep);
-               if (subPages && subPages.length > 0) {
-                  result = subPages;
-               }
-            });
-         }
+         //    for (let p of curr._pages) {
+         //       let resultsP = searchDeep(p);
+         //       if (resultsP.length) {
+         //          resultsCurr = resultsCurr.concat(resultsP);
+         //       }
+         //    }
+         //    // if we get here, end
+         //    return resultsCurr;
+         // }
+
+         // result = searchDeep(this);
+         result = this._searchDeep(this, "_pages", filter);
       }
       // find root pages
       else {
@@ -3892,6 +4114,33 @@ class ABApplicationCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_1__
       }
 
       return result;
+   }
+
+   /**
+    * @method _searchDeep()
+    * search each node of a tree and return all matches that pass the provided
+    * filter.
+    * @param {AB*} curr
+    *        An object that contains a tree structure.
+    * @param {string} key
+    *        The curr[key] reference of the array of items to search
+    * @param {function} filter
+    *        The curr[key].filter(filter) that returns true/false if a node is
+    *        to be included in the result.
+    * @return {array}
+    */
+   _searchDeep(curr, key, filter) {
+      let items = curr[key] ?? [];
+      let resultsCurr = items.filter?.(filter) ?? [];
+
+      for (let p of items) {
+         let resultsP = this._searchDeep(p, key, filter);
+         if (resultsP.length) {
+            resultsCurr = resultsCurr.concat(resultsP);
+         }
+      }
+
+      return resultsCurr;
    }
 
    ///
@@ -4223,6 +4472,16 @@ class ABApplicationCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_1__
       return this.urlPointer(acrossApp) + "_queries/";
    }
 
+   /**
+    * @method version()
+    * return the current version of this Application.
+    * Version information is in format "{Major}.{Minor}.{patch}"
+    * @return {string}
+    */
+   get version() {
+      return this.json?.versionData?.versionNumber ?? "0.0.0";
+   }
+
    ///
    ///   Object List Settings
    ///
@@ -4286,10 +4545,12 @@ class ABApplicationCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_1__
     * return pages from the given {id}
     * @param {string} id
     *        the uuid of the page to return.
+    * @param {bool} deep
+    *        should this search deep (through all our children's children)
     * @return {ABViewPage}
     */
-   pageByID(id) {
-      return this.pages((f) => f.id == id)[0];
+   pageByID(id, deep = true) {
+      return this.pages((f) => f.id == id, deep)[0];
    }
 
    get urlCurrentVersion() {
@@ -4342,9 +4603,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABApplicationMobileCore)
 /* harmony export */ });
-/* harmony import */ var _platform_ABApplication__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../platform/ABApplication */ 10285);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_platform_ABApplication__WEBPACK_IMPORTED_MODULE_0__]);
-_platform_ABApplication__WEBPACK_IMPORTED_MODULE_0__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
+/* harmony import */ var _platform_ABViewManagerMobile__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../platform/ABViewManagerMobile */ 15656);
+/* harmony import */ var _platform_ABApplication__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../platform/ABApplication */ 10285);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_platform_ABApplication__WEBPACK_IMPORTED_MODULE_1__]);
+_platform_ABApplication__WEBPACK_IMPORTED_MODULE_1__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
 /**
  * ABApplicationMobileCore
  *
@@ -4354,14 +4616,18 @@ _platform_ABApplication__WEBPACK_IMPORTED_MODULE_0__ = (__webpack_async_dependen
 
 // webpack can handle 'require()' statements, but node can't handle import
 // so let's use require():
-const ABViewManagerMobile = __webpack_require__(/*! ../platform/ABViewManager */ 67348);
 
 
-class ABApplicationMobileCore extends _platform_ABApplication__WEBPACK_IMPORTED_MODULE_0__["default"] {
+
+class ABApplicationMobileCore extends _platform_ABApplication__WEBPACK_IMPORTED_MODULE_1__["default"] {
    constructor(attributes, AB) {
       super(attributes, AB);
       this.appType = "mobile"; // Just making sure.
       this.networkType = attributes.networkType;
+
+      this.pageDefault = attributes.pageDefault;
+      // {uuid}
+      // the {ABMobilePage}.uuid of the page that is our default Page.
    }
 
    ///
@@ -4376,7 +4642,7 @@ class ABApplicationMobileCore extends _platform_ABApplication__WEBPACK_IMPORTED_
    ///
 
    get ViewManager() {
-      return ABViewManagerMobile;
+      return _platform_ABViewManagerMobile__WEBPACK_IMPORTED_MODULE_0__["default"];
    }
 
    pageNew(def) {
@@ -4399,6 +4665,8 @@ class ABApplicationMobileCore extends _platform_ABApplication__WEBPACK_IMPORTED_
       var json = super.toObj();
       json.appType = "mobile";
       json.networkType = this.networkType;
+
+      json.pageDefault = this.pageDefault;
 
       return json;
    }
@@ -4526,6 +4794,11 @@ class ABDataCollectionCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_
       // {QueryCondition}
       // A passed in Query Condition for filtering our DataCollection.
       // This value is ANDed with our normal filter conditions.
+
+      this.__model = null;
+      // {ABModel}
+      // An instance of the ABModel used for this DataCollection to
+      // access data on the server.
    }
 
    /**
@@ -4569,15 +4842,21 @@ class ABDataCollectionCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_
       this.settings.linkDatacollectionID =
          values.settings.linkDatacollectionID ||
          DefaultValues.settings.linkDatacollectionID;
-      // {string} .settings.linkDaacollectionID
+      // {string} .settings.linkDatacollectionID
       // the uuid of another ABDataCollection that provides the link/trigger
       // for filtering the values of this ABDataCollection.
 
       this.settings.linkFieldID =
          values.settings.linkFieldID || DefaultValues.settings.linkFieldID;
       // {string} .settings.linkFieldID
-      // the uuid of the ABDataField of the .linkDatacollection ABObject
-      // whose value is the trigger value for this ABDataCollection
+      // this.fieldLink is intended to be the way to connect to the column in
+      // the datacollectionLink that we are following.  However this field
+      // is the field in this.datasource that connects to the field in
+      // datacollectionLink that has the value we are linked to.
+      // So, If this DC(ObjB), and our datacollectionLink (ObjA)
+      // then this.fieldLink = ObjB->FieldB
+      // To find the corresponding field in ObjA, we do:
+      // this.fieldLink.fieldLink  (ObjA->FieldA)
 
       this.settings.followDatacollectionID =
          values.settings.followDatacollectionID ||
@@ -4869,9 +5148,12 @@ class ABDataCollectionCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_
     * @return ABModel
     */
    get model() {
-      let object = this.datasource; // already notified
+      if (!this.__model) {
+         let object = this.datasource; // already notified
 
-      return object ? object.model() : null;
+         this.__model = object ? object.model() : null;
+      }
+      return this.__model;
    }
 
    get dataStatusFlag() {
@@ -4891,7 +5173,7 @@ class ABDataCollectionCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_
    }
 
    dataInitialized() {
-      this.dataStatus = this.dataStatusFlag.initialized;
+      this._dataStatus = this.dataStatusFlag.initialized;
    }
 
    ///
@@ -4921,6 +5203,9 @@ class ABDataCollectionCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_
 
       let dc = this.__dataCollection;
       if (dc) {
+         // Store the old cursor id
+         this.__previousCursorId = dc.getCursor();
+
          // clear cursor
          if (itemId == null) {
             dc.setCursor(null);
@@ -5014,8 +5299,23 @@ class ABDataCollectionCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_
     *    If the data collection is bound to another and it is the child connection
     *    it finds it's parents current set cursor and then filters its data
     *    based off of the cursor.
+    *
+    *    In cases where a DC has set .loadAll, our job is to filter existing data
+    *    that is already loaded in the internal __dataCollection.
+    *
+    *    Otherwise this is not the place to trigger a data refresh.  We depend
+    *    on other mechanisms (.reloadData(), datacollection .select()) to trigger
+    *    an update.
     */
-   refreshLinkCursor() {
+   refreshLinkCursor(force = false) {
+      // our filter conditions need to know there was an updated cursor.
+      // some of our filters are based upon our linked data.
+      this.refreshFilterConditions();
+
+      // NOTE: If DC does not set load all data, then it does not need to filter by the parent DC.
+      // because it fetch data when the cursor of the parent DC changes.
+      if (!this.settings.loadAll && !force) return;
+
       // do not set the filter unless this dc is initialized "dataStatusFlag==2"
       // if (this.dataStatus != this.dataStatusFlag.initialized) return;
 
@@ -5030,8 +5330,14 @@ class ABDataCollectionCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_
       }
 
       let filterData = (rowData) => {
-         // if link dc cursor is null, then show all data
-         if (linkCursor == null) return true;
+         // This row is not loaded yet. It will be loaded when scrolling.
+         if (rowData == null) return true;
+
+         // if link dc cursor is null:
+         // ... if there's no parent show all data
+         // ... if we have a parent hide all data - address cases where user see
+         //     unexpected data (ns_app#318) - should this be a DC setting?
+         if (!linkCursor) return dvLink ? false : true;
          else return this.isParentFilterValid(rowData);
       };
 
@@ -5103,6 +5409,14 @@ class ABDataCollectionCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_
                // if (rowId) {
                this.__dataCollection.setCursor(rowId || null);
 
+               // NOTE: differnece between ab_platform_web and ab_platform_pwa
+               if (
+                  this.__dataCollection.data?.count?.() == 0 ||
+                  this.__dataCollection.data?.length == 0
+               ) {
+                  this.emit("collectionEmpty", {});
+               }
+
                this.setCursorTree(rowId);
                // }
             }
@@ -5118,6 +5432,12 @@ class ABDataCollectionCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_
          const rowId = this.__dataCollection.getFirstId();
          this.setCursor(rowId || null);
          this.setCursorTree(rowId || null);
+
+         // If no data but the parent DC set cursor, then this should be reload data.
+         const dcFollow = this.datacollectionFollow;
+         if (!rowId && dcFollow?.getCursor()) {
+            this.loadData();
+         }
       }
    }
 
@@ -5162,8 +5482,11 @@ class ABDataCollectionCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_
 
       // events
       this.on("ab.datacollection.create", (data) => {
-         // If this DC is following cursor for other DC, then it should not add the new item to their list.
-         if (this.isCursorFollow) return;
+         // NOTE: UPDATing this process to add another check.
+         // .isCursorFollow only invalidates the 1st half of the routine.
+         // .isCursorFollow STILL needs to follow the 2nd half of the routine
+         // // If this DC is following cursor for other DC, then it should not add the new item to their list.
+         // if (this.isCursorFollow) return;
 
          let obj = this.datasource;
          if (!obj) return;
@@ -5173,260 +5496,468 @@ class ABDataCollectionCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_
          let needAdd = false;
          let updatedVals = [];
 
-         Promise.resolve()
-            .then(() => {
-               return new Promise((next, bad) => {
-                  // Query
-                  if (obj instanceof this.AB.Class.ABObjectQuery) {
-                     let objList =
-                        obj.objects((o) => o.id == data.objectId) || [];
+         // Don't do First Step if .isCursorFollow
+         if (!this.isCursorFollow) {
+            // First Step
+            // Does this new entry need to be part of the data we are currently
+            // tracking?  If so, add it.
+            Promise.resolve()
+               .then(() => {
+                  return new Promise((next, bad) => {
+                     // Query
+                     if (obj instanceof this.AB.Class.ABObjectQuery) {
+                        let objList =
+                           obj.objects((o) => o.id == data.objectId) || [];
 
-                     needAdd = objList.length > 0;
+                        needAdd = objList.length > 0;
 
-                     if (!needAdd) return next();
+                        if (!needAdd) return next();
 
-                     let where = {
-                        glue: "or",
-                        rules: [],
-                     };
+                        let where = {
+                           glue: "or",
+                           rules: [],
+                        };
 
-                     objList.forEach((o) => {
-                        let newDataId = data.data[`${o.PK()}`];
-                        if (!newDataId) return;
+                        objList.forEach((o) => {
+                           let newDataId = data.data[`${o.PK()}`];
+                           if (!newDataId) return;
 
-                        where.rules.push({
-                           key: `${o.alias || obj.objectAlias(o.id)}.${o.PK()}`,
-                           rule: "equals",
-                           value: newDataId,
+                           where.rules.push({
+                              key: `${
+                                 o.alias || obj.objectAlias(o.id)
+                              }.${o.PK()}`,
+                              rule: "equals",
+                              value: newDataId,
+                           });
                         });
-                     });
 
-                     obj.model()
-                        .findAll({
-                           where: where,
-                        })
-                        .then((newQueryData) => {
-                           updatedVals = newQueryData.data || [];
-                           updatedVals.forEach((v) => {
-                              delete v.id;
-                           });
+                        obj.model()
+                           .findAll({
+                              where: where,
+                           })
+                           .then((newQueryData) => {
+                              updatedVals = newQueryData.data || [];
+                              updatedVals.forEach((v) => {
+                                 delete v.id;
+                              });
 
-                           next();
-                        })
-                        .catch(bad);
-                  }
-                  // Object
-                  else {
-                     needAdd = obj.id == data.objectId;
-                     updatedVals = [data.data];
-                     next();
-                  }
-               });
-            })
-            .then(() => {
-               if (needAdd) {
-                  // normalize data before add to data collection
-                  var model = obj.model();
-
-                  // UPDATE: this should already have happened in NetworkRestSocket
-                  // when the initial data is received.
-                  //model.normalizeData(updatedVals);
-
-                  (updatedVals || []).forEach((updatedV) => {
-                     // filter condition before add
-                     if (!this.isValidData(updatedV)) return;
-
-                     // check to see if item already exisits in data collection
-                     // and check to see that we are not loading the data serverside from cursor
-                     if (
-                        !this.__dataCollection.exists(
-                           updatedV[`${obj.PK()}`]
-                        ) &&
-                        !this.__reloadWheres
-                     ) {
-                        this.__dataCollection.add(updatedV, 0);
-                        this.emit("create", updatedV);
-                        // this.__dataCollection.setCursor(rowData.id);
-                     } else if (
-                        !this.__dataCollection.exists(
-                           updatedV[`${obj.PK()}`]
-                        ) &&
-                        this.__reloadWheres
-                     ) {
-                        // debugger;
-                        if (this.isParentFilterValid(updatedV)) {
-                           // we track bound components and flexlayout components
-                           var attachedComponents =
-                              this.__bindComponentIds.concat(
-                                 this.__flexComponentIds
-                              );
-                           attachedComponents.forEach((bcids) => {
-                              // if the reload button already exisits move on
-                              if ($$(bcids + "_reloadView")) {
-                                 return false;
-                              }
-
-                              // find the position of the data view
-                              var pos = 0;
-                              var parent = $$(bcids).getParentView();
-                              if ($$(bcids).getParentView().index) {
-                                 pos = $$(bcids)
-                                    .getParentView()
-                                    .index($$(bcids));
-                              } else if (
-                                 $$(bcids).getParentView().getParentView().index
-                              ) {
-                                 // this is a data view and it is inside a
-                                 // scroll view that is inside an accodion
-                                 // so we need to go deeper to add the button
-                                 parent = $$(bcids)
-                                    .getParentView()
-                                    .getParentView();
-                                 pos = $$(bcids)
-                                    .getParentView()
-                                    .getParentView()
-                                    .index($$(bcids).getParentView());
-                              }
-
-                              // store the datacollection so we can pass it to the button later
-                              var DC = this;
-                              // add a button that reloads the view when clicked
-                              if (parent.addView) {
-                                 var L = this.AB.Label();
-                                 parent.addView(
-                                    {
-                                       id: bcids + "_reloadView",
-                                       view: "button",
-                                       value: L(
-                                          "New data available. Click to reload."
-                                       ),
-                                       css: "webix_primary webix_warn",
-                                       click: function (id, event) {
-                                          DC.reloadData();
-                                          $$(id).getParentView().removeView(id);
-                                       },
-                                    },
-                                    pos
-                                 );
-                              }
-                           });
-                           // this.emit("create", updatedV);
-                        }
+                              next();
+                           })
+                           .catch(bad);
+                     }
+                     // Object
+                     else {
+                        needAdd = obj.id == data.objectId;
+                        updatedVals = [data.data];
+                        next();
                      }
                   });
+               })
+               .then(() => {
+                  if (needAdd) {
+                     (updatedVals || []).forEach((updatedV) => {
+                        // If this DC uses a query, it pulls refreshed data from the server in the previous step,
+                        // so there is no need to recheck the query's filter.
+                        const skipDatasourceFilter =
+                           obj instanceof this.AB.Class.ABObjectQuery;
 
-                  if (
-                     this.__treeCollection // && this.__treeCollection.exists(updatedVals.id)
-                  ) {
-                     this.parseTreeCollection({
-                        data: updatedVals,
+                        // filter condition before add
+                        if (!this.isValidData(updatedV, skipDatasourceFilter))
+                           return;
+
+                        // filter the cursor of parent DC
+                        const dcLink = this.datacollectionLink;
+                        if (dcLink && !this.isParentFilterValid(updatedV))
+                           return;
+
+                        // check to see if item already exisits in data collection
+                        // and check to see that we are not loading the data serverside from cursor
+                        if (
+                           !this.__dataCollection.exists(
+                              updatedV[`${obj.PK()}`]
+                           ) &&
+                           !this.__reloadWheres
+                        ) {
+                           this.__dataCollection.add(updatedV, 0);
+                           this.emit("create", updatedV);
+                           // this.__dataCollection.setCursor(rowData.id);
+                        } else if (
+                           !this.__dataCollection.exists(
+                              updatedV[`${obj.PK()}`]
+                           ) &&
+                           this.__reloadWheres
+                        ) {
+                           // debugger;
+                           if (this.isParentFilterValid(updatedV)) {
+                              // we track bound components and flexlayout components
+                              var attachedComponents =
+                                 this.__bindComponentIds.concat(
+                                    this.__flexComponentIds
+                                 );
+                              attachedComponents.forEach((bcids) => {
+                                 // if the reload button already exisits move on
+                                 if ($$(bcids + "_reloadView")) {
+                                    return false;
+                                 }
+
+                                 // find the position of the data view
+                                 var pos = 0;
+                                 var parent = $$(bcids).getParentView();
+                                 if ($$(bcids).getParentView().index) {
+                                    pos = $$(bcids)
+                                       .getParentView()
+                                       .index($$(bcids));
+                                 } else if (
+                                    $$(bcids).getParentView().getParentView()
+                                       .index
+                                 ) {
+                                    // this is a data view and it is inside a
+                                    // scroll view that is inside an accodion
+                                    // so we need to go deeper to add the button
+                                    parent = $$(bcids)
+                                       .getParentView()
+                                       .getParentView();
+                                    pos = $$(bcids)
+                                       .getParentView()
+                                       .getParentView()
+                                       .index($$(bcids).getParentView());
+                                 }
+
+                                 // store the datacollection so we can pass it to the button later
+                                 var DC = this;
+                                 // add a button that reloads the view when clicked
+                                 if (parent.addView) {
+                                    var L = this.AB.Label();
+                                    parent.addView(
+                                       {
+                                          id: bcids + "_reloadView",
+                                          view: "button",
+                                          value: L(
+                                             "New data available. Click to reload."
+                                          ),
+                                          css: "webix_primary webix_warn",
+                                          click: function (id, event) {
+                                             DC.reloadData();
+                                             $$(id)
+                                                .getParentView()
+                                                .removeView(id);
+                                          },
+                                       },
+                                       pos
+                                    );
+                                 }
+                              });
+                              // this.emit("create", updatedV);
+                           }
+                        }
                      });
-                  }
-               }
 
-               // ABObject only
-               if (!(obj instanceof this.AB.Class.ABObjectQuery)) {
-                  // if it is a linked object
-                  let connectedFields = this.datasource.connectFields(
-                     (f) =>
-                        f.datasourceLink && f.datasourceLink.id == data.objectId
-                  );
-
-                  // It should always be only one item for ABObject
-                  updatedVals = updatedVals[0];
-
-                  // update relation data
-                  if (
-                     updatedVals &&
-                     connectedFields &&
-                     connectedFields.length > 0
-                  ) {
-                     // various PK name
-                     let PK = connectedFields[0].object.PK();
-                     if (!updatedVals.id && PK != "id")
-                        updatedVals.id = updatedVals[PK];
-
-                     this.__dataCollection.find({}).forEach((d) => {
-                        let updateItemData = {};
-
-                        connectedFields.forEach((f) => {
-                           var updateRelateVal = {};
-                           if (f && f.fieldLink) {
-                              updateRelateVal =
-                                 updatedVals[f.fieldLink.relationName()] || {};
-                           }
-
-                           let rowRelateVal = d[f.relationName()] || {};
-
-                           let valIsRelated = isRelated(
-                              updateRelateVal,
-                              d.id,
-                              PK
-                           );
-
-                           // Relate data
-                           if (
-                              Array.isArray(rowRelateVal) &&
-                              rowRelateVal.filter(
-                                 (v) =>
-                                    v == updatedVals.id ||
-                                    v.id == updatedVals.id ||
-                                    v[PK] == updatedVals.id
-                              ).length < 1 &&
-                              valIsRelated
-                           ) {
-                              rowRelateVal.push(updatedVals);
-
-                              updateItemData[f.relationName()] = rowRelateVal;
-                              updateItemData[f.columnName] = updateItemData[
-                                 f.relationName()
-                              ].map((v) => v.id || v[PK] || v);
-                           } else if (
-                              !Array.isArray(rowRelateVal) &&
-                              (rowRelateVal != updatedVals.id ||
-                                 rowRelateVal.id != updatedVals.id ||
-                                 rowRelateVal[PK] != updatedVals.id) &&
-                              valIsRelated
-                           ) {
-                              updateItemData[f.relationName()] = updatedVals;
-                              updateItemData[f.columnName] =
-                                 updatedVals.id || updatedVals;
-                           }
+                     if (
+                        this.__treeCollection // && this.__treeCollection.exists(updatedVals.id)
+                     ) {
+                        this.parseTreeCollection({
+                           data: updatedVals,
                         });
+                     }
+                  }
 
-                        // If this item needs to update
-                        if (Object.keys(updateItemData).length > 0) {
-                           // normalize data before add to data collection
-                           var model = obj.model();
+                  // ABObject only
+                  if (!(obj instanceof this.AB.Class.ABObjectQuery)) {
+                     // if it is a linked object
+                     let connectedFields = this.datasource.connectFields(
+                        (f) =>
+                           f.datasourceLink &&
+                           f.datasourceLink.id == data.objectId
+                     );
 
-                           // UPDATE: this should already have happened in NetworkRestSocket
-                           // when the initial data is received.
-                           // model.normalizeData(updateItemData);
+                     // It should always be only one item for ABObject
+                     updatedVals = updatedVals[0];
 
-                           this.__dataCollection.updateItem(
-                              d.id,
-                              updateItemData
-                           );
+                     // update relation data
+                     if (
+                        updatedVals &&
+                        connectedFields &&
+                        connectedFields.length > 0
+                     ) {
+                        // various PK name
+                        let PK = connectedFields[0].object.PK();
+                        if (!updatedVals.id && PK != "id")
+                           updatedVals.id = updatedVals[PK];
 
-                           if (this.__treeCollection)
-                              this.__treeCollection.updateItem(
+                        this.__dataCollection.find({}).forEach((d) => {
+                           let updateItemData = {};
+
+                           connectedFields.forEach((f) => {
+                              var updateRelateVal = {};
+                              if (f && f.fieldLink) {
+                                 updateRelateVal =
+                                    updatedVals[f.fieldLink.relationName()] ||
+                                    {};
+                              }
+
+                              let rowRelateVal = d[f.relationName()] || {};
+
+                              let valIsRelated = isRelated(
+                                 updateRelateVal,
+                                 d.id,
+                                 PK
+                              );
+
+                              // Relate data
+                              if (
+                                 Array.isArray(rowRelateVal) &&
+                                 rowRelateVal.filter(
+                                    (v) =>
+                                       v == updatedVals.id ||
+                                       v.id == updatedVals.id ||
+                                       v[PK] == updatedVals.id
+                                 ).length < 1 &&
+                                 valIsRelated
+                              ) {
+                                 rowRelateVal.push(updatedVals);
+
+                                 updateItemData[f.relationName()] =
+                                    rowRelateVal;
+                                 updateItemData[f.columnName] = updateItemData[
+                                    f.relationName()
+                                 ].map((v) => v.id || v[PK] || v);
+                              } else if (
+                                 !Array.isArray(rowRelateVal) &&
+                                 (rowRelateVal != updatedVals.id ||
+                                    rowRelateVal.id != updatedVals.id ||
+                                    rowRelateVal[PK] != updatedVals.id) &&
+                                 valIsRelated
+                              ) {
+                                 updateItemData[f.relationName()] = updatedVals;
+                                 updateItemData[f.columnName] =
+                                    updatedVals.id || updatedVals;
+                              }
+                           });
+
+                           // If this item needs to update
+                           if (Object.keys(updateItemData).length > 0) {
+                              this.__dataCollection.updateItem(
                                  d.id,
                                  updateItemData
                               );
 
-                           this.emit(
-                              "update",
-                              this.__dataCollection.getItem(d.id)
+                              if (this.__treeCollection)
+                                 this.__treeCollection.updateItem(
+                                    d.id,
+                                    updateItemData
+                                 );
+
+                              this.emit(
+                                 "update",
+                                 this.__dataCollection.getItem(d.id)
+                              );
+                           }
+                        });
+                     }
+                  }
+
+                  this.updateRelationalDataFromLinkDC(data.objectId, data.data);
+                  // filter link data collection's cursor
+                  this.refreshLinkCursor();
+                  this.setStaticCursor();
+               });
+         }
+
+         // SECOND Step:
+         // Try to detect if this newly created entry connects to one of the
+         // values this DC is currently managing.  If so, than add this value
+         // to the connection.
+
+         let incomingObj = this.AB.objectByID(data.objectId);
+         if (!incomingObj) return;
+
+         // find any of incomingObj connections that are tied to my object:
+         let connectedFields = incomingObj
+            .connectFields((f) => f.datasourceLink?.id == obj.id)
+            .filter((f) => f); // <-- safety check, no undefined or nulls
+         if (connectedFields.length == 0) return;
+
+         let iPK = incomingObj.PK();
+         let PK = obj.PK();
+         let newData = this.AB.cloneDeep(data.data);
+
+         let currCursor = this.getCursor();
+         let needsRefresh = false;
+
+         connectedFields.forEach((f) => {
+            // pull the values in this connected fields
+            let values = data.data[f.columnName]; // just need the PK
+
+            if (!Array.isArray(values))
+               values = [values].filter((v) => !this.AB.isNil(v));
+
+            values.forEach((v) => {
+               v = v[PK] || v; // just in case this was an {} and not the {uuid}
+
+               // if this is one of the items we are managing
+               if (this.__dataCollection.exists(v)) {
+                  let localField = f.fieldLink;
+                  if (localField) {
+                     let row = this.__dataCollection.getItem(v);
+                     let colName = localField.columnName;
+                     let relName = localField.relationName();
+
+                     if (localField.linkType() == "many") {
+                        if (!Array.isArray(row[colName])) {
+                           row[colName] = [row[colName]].filter(
+                              (r) => !this.AB.isNil(r)
                            );
                         }
-                     });
+                        // if it isn't already in the array, add it
+                        let rval = localField.getRelationValue(newData);
+                        if (row[colName].indexOf(rval) == -1) {
+                           row[colName].push(rval);
+                        }
+
+                        if (!Array.isArray(row[relName])) {
+                           row[relName] = [row[relName]].filter(
+                              (r) => !this.AB.isNil(r)
+                           );
+                        }
+                        if (
+                           row[relName].filter((r) => r[iPK] == newData[iPK])
+                              .length == 0
+                        ) {
+                           row[relName].push(newData);
+                        }
+                     } else {
+                        row[colName] = localField.getRelationValue(newData);
+                        row[relName] = newData;
+                     }
+
+                     // pass updated data back into DC:
+                     this.__dataCollection.updateItem(v, row);
+
+                     if (this.__treeCollection)
+                        this.__treeCollection.updateItem(v, row);
+
+                     this.emit("update", this.__dataCollection.getItem(v));
+
+                     // if we just updated our Current Cursor, we need to
+                     // let our connected DC's know to refresh.
+                     if (currCursor?.id == v) {
+                        needsRefresh = true;
+                     }
                   }
                }
-
-               // filter link data collection's cursor
-               this.refreshLinkCursor();
-               this.setStaticCursor();
             });
+         });
+
+         if (needsRefresh) {
+            this.emit("cursorStale", null);
+         }
+      });
+
+      this.on("ab.datacollection.connection-added", (data) => {
+         // This event notifies us of a specific relation being created between
+         // two records. In this case the source object that was originally
+         // operated on, is sent along in data.data.
+         //
+         // eg: if this was a `create` operation, the newly created value is
+         //     included in data.data.
+         // eg: if this was an `update` operation, the row that was modified
+         //     is included.
+         //
+         // {json} data
+         // incoming socket payload:
+         // data.objectID {string}
+         //      the ABObject this connection is being added to
+         // data.fieldID  {string}
+         //      which connect Field in this ABObject the value is added to
+         // data.rowID    {string}
+         //      which specific row/entry this is being added to
+         // data.data     {json}
+         //      The value being added.
+         //
+
+         let obj = this.datasource;
+         if (!obj) return;
+
+         if (!data.rowID) return;
+
+         // ABObject only
+         if (!(obj instanceof this.AB.Class.ABObjectQuery)) {
+            // if this is the object we are managing
+            if (obj.id === data.objectID) {
+               let field = obj.fieldByID(data.fieldID);
+               if (field) {
+                  // figure out if we actually have the value that was changed:
+                  let isExists = this.__dataCollection.exists(data.rowID);
+                  if (isExists) {
+                     let newData = this.AB.cloneDeep(data.data);
+                     let row = this.__dataCollection.getItem(data.rowID);
+
+                     let colName = field.columnName;
+                     let relName = field.relationName();
+
+                     if (field.linkType() == "many") {
+                        if (!Array.isArray(row[colName])) {
+                           // in case row[col]:{obj} this will make sure it
+                           // is included as an [ {obj} ], but will also prevent
+                           // [ undefined ] if row[col] isn't set:
+                           row[colName] = [row[colName]].filter(
+                              (r) => !this.AB.isNil(r)
+                           );
+                        }
+                        row[colName].push(field.getRelationValue(newData));
+
+                        if (!Array.isArray(row[relName])) {
+                           row[relName] = [row[relName]].filter(
+                              (r) => !this.AB.isNil(r)
+                           );
+                        }
+                        row[relName].push(newData);
+                     } else {
+                        row[colName] = field.getRelationValue(newData);
+                        row[relName] = newData;
+                     }
+
+                     // pass updated data back into DC:
+                     this.__dataCollection.updateItem(data.rowID, row);
+
+                     if (this.__treeCollection)
+                        this.__treeCollection.updateItem(data.rowID, row);
+
+                     this.emit(
+                        "update",
+                        this.__dataCollection.getItem(data.rowID)
+                     );
+                  }
+               }
+            }
+         } else if (obj instanceof this.AB.Class.ABObjectQuery) {
+            // ABQuery
+
+            // NOTE: that in this case, if this change is about one of the
+            // objects we track, we will most likely have to reload the data
+            // to make sure we are displaying proper data.
+
+            // This will follow the same logic as in "ab.datacollection.create"
+            // so instead of repeating that here, let's call our "create"
+            // handler instead:
+
+            ///// LEFT OFF HERE:
+            // need to pull out the data in data.data that represents the
+            // connection to data.objectId
+
+            //// WAIT!!!!!!
+            //// Instead, of this "connection-added", lets add the logic in
+            //// a "created" handler to detect if we should add the new entry
+            //// into A value we currently track.
+            //// ===> This way we only have to send out "Created" messages
+            ////
+
+            let newPacket = {
+               objectId: data.objectId,
+               data: this.AB.cloneDeep(data.data),
+            };
+            this.emit("ab.datacollection.create", newPacket);
+         }
       });
 
       this.on("ab.datacollection.update", (data) => {
@@ -5435,7 +5966,6 @@ class ABDataCollectionCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_
          // data.objectId {string} uuid of the ABObject that was updated
          // data.data {json} the new updated value of that row entry.
 
-         // debugger;
          let obj = this.datasource;
          if (!obj) return;
 
@@ -5443,15 +5973,18 @@ class ABDataCollectionCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_
          let values = data.data;
          if (!values) return;
 
+         // #Johnny: removing this check.  A DC that is following another cursor
+         // still has a value that might need updating.
          // DC who is following cursor should update only current cursor.
-         if (
-            this.isCursorFollow &&
-            this.getCursor()?.id != (values[obj.PK()] ?? values.id)
-         ) {
-            return;
-         }
+         // if (
+         //    this.isCursorFollow &&
+         //    this.getCursor()?.id != (values[obj.PK()] ?? values.id)
+         // ) {
+         //    return;
+         // }
 
          let needUpdate = false;
+         let skipDatasourceFilter = false;
          let isExists = false;
          let updatedIds = [];
          // {array}
@@ -5461,11 +5994,23 @@ class ABDataCollectionCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_
          let updatedTreeIds = [];
          let updatedVals = {};
 
+         //
+         // Case 1: This DC contains the value that was updated
+         // In this case, we want to replace our current entry with
+         // the new one passed in.
+         // EX: This is a DC of Users, and the incoming Entry is a User
+         // that we are already displaying.
+         //
+
          // Query
          if (obj instanceof this.AB.Class.ABObjectQuery) {
             let objList = obj.objects((o) => o.id == data.objectId) || [];
             needUpdate = objList.length > 0;
             if (needUpdate) {
+               // NOTE: Data needs to be updated in the query even if it doesn't match the filter conditions.
+               skipDatasourceFilter =
+                  obj instanceof this.AB.Class.ABObjectQuery;
+
                (objList || []).forEach((o) => {
                   updatedIds = updatedIds.concat(
                      this.__dataCollection
@@ -5521,13 +6066,11 @@ class ABDataCollectionCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_
          // if it is the source object
          if (needUpdate) {
             if (isExists) {
-               if (this.isValidData(updatedVals)) {
-                  // NOTE: this is now done in NetworkRestSocket before
-                  // we start the update events.
-                  // normalize data before update data collection
-                  // var model = obj.model();
-                  // model.normalizeData(updatedVals);
-
+               if (this.isValidData(updatedVals, skipDatasourceFilter)) {
+                  // only spread around cloned copies because some objects (I'm
+                  // looking at you ABFieldUser) will modify some data for local
+                  // usage.
+                  updatedVals = this.AB.cloneDeep(updatedVals);
                   if (this.__dataCollection) {
                      updatedIds = this.AB.uniq(updatedIds);
                      updatedIds.forEach((itemId) => {
@@ -5547,20 +6090,21 @@ class ABDataCollectionCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_
 
                   // If the update item is current cursor, then should tell components to update.
                   let currData = this.getCursor();
-                  if (currData && currData.id == updatedVals.id) {
-                     this.emit("changeCursor", currData);
+                  if (currData?.id == updatedVals.id) {
+                     this.emit("cursorStale", currData);
                   }
                } else {
                   // Johnny: Here we are simply removing the DataCollection Entries that are
                   // no longer valid.
                   // Just cycle through the collected updatedIds and remove them.
+                  let currData = this.getCursor();
                   updatedIds.forEach((id) => {
                      // If the item is current cursor, then the current cursor should be cleared.
-                     let currData = this.getCursor();
-                     if (currData && currData.id == id)
-                        this.emit("changeCursor", null);
+
+                     if (currData?.id == id) this.emit("cursorStale", null);
 
                      this.__dataCollection.remove(id);
+                     this.__totalCount--;
 
                      // TODO: update tree list
                      // if (this.__treeCollection) {
@@ -5573,20 +6117,36 @@ class ABDataCollectionCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_
             }
             // filter before add new record
             else if (this.isValidData(updatedVals)) {
-               // this means the updated record was not loaded yet so we are adding it to the top of the grid
-               // the placement will probably change on the next load of the data
-               this.__dataCollection.add(updatedVals, 0);
+               // OK we have a value, that COULD be in our DC
+               // before we add it, let's make sure we are not limited in our selection of items:
+               if (!this.isCursorFollow && !this.settings.fixSelect) {
+                  // this means the updated record was not loaded yet so we are adding it to the top of the grid
+                  // the placement will probably change on the next load of the data
+                  this.__dataCollection.add(updatedVals, 0);
 
-               if (this.__treeCollection)
-                  this.parseTreeCollection({
-                     data: [updatedVals],
-                  });
+                  if (this.__treeCollection)
+                     this.parseTreeCollection({
+                        data: [updatedVals],
+                     });
 
-               this.emit("create", updatedVals);
+                  this.emit("create", updatedVals);
+               }
             }
          }
 
+         //
+         // Case 2: This DC has entries that CONNECT to the updated value.
+         // We need to make sure our connections, properly reflect the
+         // current state of the incoming data.
+         //
+         // EG: This DC is a list of Roles that connect to User, and an updated
+         // User is passed in.
+
+         let currCursor = this.getCursor();
+         let updateCursor = null;
+
          // if it is a linked object
+         // look for connected fields that link to the incoming objectId
          let connectedFields = obj.connectFields(
             (f) => f.datasourceLink && f.datasourceLink.id == data.objectId
          );
@@ -5594,11 +6154,12 @@ class ABDataCollectionCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_
          // update relation data
          if (
             obj instanceof this.AB.Class.ABObject &&
-            connectedFields &&
-            connectedFields.length > 0
+            connectedFields?.length > 0
          ) {
             // various PK name
-            let PK = connectedFields[0].object.PK();
+            // webix datacollections require an .id value, so make sure
+            // this incoming value has an .id set
+            let PK = obj.PK();
             if (!values.id && PK != "id") values.id = values[PK];
 
             if (this.__dataCollection.count() > 0) {
@@ -5617,9 +6178,11 @@ class ABDataCollectionCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_
                         updateRelateVal =
                            values[f.fieldLink.relationName()] || {};
 
+                     // check to see if we are supposed to be related to this
                      let valIsRelated = isRelated(updateRelateVal, d.id, PK);
 
-                     // Unrelate data
+                     // If NO, then make sure we Unrelate data
+                     // if this is an array -> filter out the entry
                      if (
                         Array.isArray(rowRelateVal) &&
                         rowRelateVal.filter(
@@ -5631,12 +6194,16 @@ class ABDataCollectionCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_
                         !valIsRelated
                      ) {
                         updateItemData[f.relationName()] = rowRelateVal.filter(
-                           (v) => (v.id || v[PK] || v) != values.id
+                           // NOTE: Special case: the incoming value.id will be .uuid
+                           // however in case of User Fields, v.id == username and not .uuid
+                           // so we put our default check to be v[PK] here to play nice
+                           (v) => (v[PK] || v.id || v) != values.id
                         );
                         updateItemData[f.columnName] = updateItemData[
                            f.relationName()
                         ].map((v) => v.id || v[PK] || v);
                      } else if (
+                        // this is not an array so set link to null
                         !Array.isArray(rowRelateVal) &&
                         (rowRelateVal == values.id ||
                            rowRelateVal.id == values.id ||
@@ -5647,7 +6214,12 @@ class ABDataCollectionCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_
                         updateItemData[f.columnName] = null;
                      }
 
-                     // Relate data or Update
+                     // However, if we are supposed to be related => make sure we are
+                     // If this is an array, then add to list
+                     // AND YES: make sure it is cloned
+                     if (valIsRelated) {
+                        values = this.AB.cloneDeep(values);
+                     }
                      if (Array.isArray(rowRelateVal) && valIsRelated) {
                         // update relate data
                         if (
@@ -5658,6 +6230,8 @@ class ABDataCollectionCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_
                                  v[PK] == values.id
                            ).length > 0
                         ) {
+                           // just update the one entry in my array with the new
+                           // value
                            rowRelateVal.forEach((v, index) => {
                               if (
                                  v == values.id ||
@@ -5675,7 +6249,9 @@ class ABDataCollectionCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_
                         updateItemData[f.relationName()] = rowRelateVal;
                         updateItemData[f.columnName] = updateItemData[
                            f.relationName()
-                        ].map((v) => v.id || v[PK] || v);
+                        ].map(
+                           (v) => f.getRelationValue(v) /*v.id || v[PK] || v*/
+                        );
                      } else if (
                         !Array.isArray(rowRelateVal) &&
                         (rowRelateVal != values.id ||
@@ -5684,12 +6260,15 @@ class ABDataCollectionCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_
                         valIsRelated
                      ) {
                         updateItemData[f.relationName()] = values;
-                        updateItemData[f.columnName] = values.id || values;
+                        // make ConnectedField use .getRelationValue() here!
+                        updateItemData[f.columnName] =
+                           f.getRelationValue(values);
                      }
                   });
 
                   // If this item needs to update
-                  if (Object.keys(updateItemData).length > 0) {
+                  // meaning there is > 1 key in the object (we always have .id)
+                  if (Object.keys(updateItemData).length > 1) {
                      // normalize data before add to data collection
                      // UPDATE: this should already have happened in NetworkRestSocket
                      // when the initial data is received.
@@ -5715,13 +6294,27 @@ class ABDataCollectionCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_
                            "update",
                            this.__dataCollection.getItem(d.id)
                         );
+                        if (currCursor?.id == dcItem.id) {
+                           updateCursor = dcItem;
+                        }
                      }
                   }
                });
             }
          }
 
+         //
+         // Case 3: Our DC is linked to a DC that was effected by this update.
+         //
+         // We will approach it from another direction, if the current DC made
+         // an update to it's current Cursor, then we will emit a "cursorStale"
+         // event, so our linked DCs will update themselves with the new value:
+         if (updateCursor) {
+            this.emit("cursorStale", null);
+         }
+         // this.updateRelationalDataFromLinkDC(data.objectId, values);
          this.refreshLinkCursor();
+
          this.setStaticCursor();
       });
 
@@ -5753,7 +6346,7 @@ class ABDataCollectionCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_
          // DC who is following cursor should update only current cursor.
          if (
             this.isCursorFollow &&
-            this.getCursor()?.[PK] != (values[PK] ?? values.id)
+            this.getCursor()?.[PK] != (values[PK] ?? values?.id)
          ) {
             return;
          }
@@ -5786,16 +6379,17 @@ class ABDataCollectionCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_
 
                      // If the update item is current cursor, then should tell components to update.
                      var currData = this.getCursor();
-                     if (currData && currData[PK] == values[PK]) {
-                        this.emit("changeCursor", currData);
+                     if (currData?.[PK] == values[PK]) {
+                        this.emit("cursorStale", currData);
                      }
                   } else {
                      // If there is no data in the object then it was deleted...lets clean things up
                      // If the deleted item is current cursor, then the current cursor should be cleared.
                      var currId = this.getCursor();
-                     if (currId == values[PK]) this.emit("changeCursor", null);
+                     if (currId == values[PK]) this.emit("cursorStale", null);
 
                      this.__dataCollection.remove(values[PK]);
+                     this.__totalCount--;
                      this.emit("delete", values[PK]);
                   }
                });
@@ -5816,10 +6410,6 @@ class ABDataCollectionCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_
          let needDelete = false;
          let deletedIds = [];
          let deletedTreeIds = [];
-
-         if (this.isCursorFollow && this.getCursor()?.id != deleteId) {
-            return;
-         }
 
          // Query
          if (obj instanceof this.AB.Class.ABObjectQuery) {
@@ -5860,17 +6450,19 @@ class ABDataCollectionCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_
             var currData = this.getCursor();
 
             deletedIds.forEach((delId) => {
-               if (currData && currData[obj.PK()] == delId)
-                  this.emit("changeCursor", null);
+               if (currData?.[obj.PK()] == delId)
+                  this.emit("cursorStale", null);
 
                if (this.__dataCollection.exists(delId))
                   this.__dataCollection.remove(delId);
+               this.__totalCount--;
             });
 
             if (this.__treeCollection) {
                deletedTreeIds.forEach((delId) => {
                   if (this.__treeCollection.exists(delId))
                      this.__treeCollection.remove(delId);
+                  this.__totalCount--;
                });
             }
 
@@ -5945,12 +6537,170 @@ class ABDataCollectionCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_
       });
 
       // add listeners when cursor of link data collection is changed
-      let linkDv = this.datacollectionLink;
-      if (linkDv && this.settings.loadAll) {
+      const linkDC = this.datacollectionLink;
+      // if (linkDC && this.settings.loadAll) {
+      if (linkDC) {
          this.eventAdd({
-            emitter: linkDv,
+            emitter: linkDC,
             eventName: "changeCursor",
-            listener: () => {
+            listener: (currentCursor) => {
+               // NOTE: we can clear data here to update UI display, then data will be fetched when webix.dataFeed event
+               if (
+                  !this.settings?.loadAll &&
+                  currentCursor?.id != linkDC.previousCursorId
+               )
+                  this.clearAll();
+
+               this.refreshLinkCursor();
+               this.setStaticCursor();
+            },
+         });
+
+         this.eventAdd({
+            emitter: linkDC,
+            eventName: "cursorStale",
+            listener: (currentCursor) => {
+               // cursorStale : the current cursor hasn't CHANGED, but the data
+               // of that value has changed.
+               // This is triggered by one of our socket updates that detects
+               // changes to the cursor data.
+
+               // if don't have .loadAll set,  we'll need to update our data:
+               if (!this.settings?.loadAll) {
+                  // What I do here depends on what my linked DC has set for
+                  // it's .loadConnections (shouldPopulate) value
+                  let dvLink = this.datacollectionLink;
+                  let isMyDataThere = dvLink.shouldPopulate;
+                  if (Array.isArray(isMyDataThere)) {
+                     // if this was an array: it should be an array of columnNames
+                     // of the dvLink that are being populated.
+
+                     // the column I'm interested in:
+                     let colName = this.fieldLink.fieldLink.columnName;
+
+                     // is it there?
+                     isMyDataThere = isMyDataThere.indexOf(colName) > -1;
+                  }
+                  if (!isMyDataThere) {
+                     // If it didn't populate it's data, then I can't be
+                     // efficient about how to update my data.
+                     // we'll just have to reload:
+
+                     // find out how many entries we have already loaded and try to
+                     // load at least that many again.:
+                     let count = 20;
+                     if (this.__dataCollection.count() > count)
+                        count = this.__dataCollection.count();
+                     if (this.__treeCollection?.count() > count)
+                        count = this.__treeCollection.count();
+
+                     let currCursor = this.__dataCollection.getCursor();
+                     this.clearAll();
+                     this.reloadData(0, count).then(() => {
+                        this.__dataCollection.setCursor(currCursor);
+                        this.emit("cursorSelect", currCursor);
+                     });
+                  } else {
+                     // if the linked DC does have my data populated:
+
+                     // the values I currently contain can fall into 1 of 3 categories:
+                     // 1) A value I currently have that I need to Keep
+                     // 2) A value I currently have that I need to remove
+                     // 3) A value I don't have, but need to Add
+
+                     // the current value of the cursor should have the ID references
+                     // to what SHOULD be in my display
+
+                     // get the current cursor of our linked DC
+                     let linkCursor;
+
+                     if (dvLink) {
+                        linkCursor = dvLink.getCursor();
+                     }
+                     if (!linkCursor) {
+                        // if linkCursor is no longer set, then we should clear()
+                        this.clearAll();
+                        return;
+                     }
+
+                     let PK = this.datasource.PK();
+
+                     // lets start by assuming all the current values in cursor are #3
+                     // -> all the values into valuesToAdd:
+
+                     let colName = this.fieldLink?.fieldLink?.relationName?.();
+                     let valuesToAdd = {};
+                     let valuesIn = colName ? linkCursor[colName] || [] : [];
+                     if (!Array.isArray(valuesIn)) valuesIn = [valuesIn];
+                     valuesIn = valuesIn.filter((v) => v);
+                     valuesIn.forEach((v) => {
+                        valuesToAdd[v[PK]] = v;
+                     });
+
+                     let valuesToRemove = [];
+                     // step through all the values I currently have
+                     let currValues = this.__dataCollection.find(() => true);
+                     currValues.forEach((value) => {
+                        // if value is in valuesToAdd
+                        if (valuesToAdd[value[PK]]) {
+                           // we already have it so turns out we don't need to add
+                           // it after all
+                           delete valuesToAdd[value[PK]];
+                        } else {
+                           // the current state of the Link Cursor value doesn't have
+                           // this value, so we need to remove it:
+                           valuesToRemove.push(value[PK]);
+                        }
+                     });
+
+                     // now remove the items we don't want:
+                     this.__dataCollection.remove(valuesToRemove);
+
+                     // then we have to ask for the values we need to add:
+                     valuesToAdd = Object.keys(valuesToAdd); // convert to []
+                     // NOTE: .staleRefresh() is designed to handle a single requst
+                     // that will be compiled with other requests to be more efficient
+                     // so we need to make 1 .staleRefresh() at a time and then
+                     // compile those results into our data collection.
+                     let prmsAllRefreshes = [];
+                     let allAdds = [];
+                     (valuesToAdd || []).forEach((v) => {
+                        let cond = { where: {} };
+                        cond.where[PK] = v;
+                        // NOTE: we are using the abbreviated condition syntax here.
+
+                        // NOTE: staleRefresh() has some buffering capabilities
+                        // that combine multiple calls into 1 more efficient call:
+                        prmsAllRefreshes.push(
+                           this.model.staleRefresh(cond).then((res) => {
+                              // check to make sure there is data to work with
+                              if (Array.isArray(res.data) && res.data.length) {
+                                 res.data.forEach((d) => {
+                                    allAdds.push(d);
+                                 });
+                              } else {
+                                 if (res.data) {
+                                    allAdds.push(res.data);
+                                 }
+                              }
+                           })
+                        );
+                     });
+                     Promise.all(prmsAllRefreshes).then(() => {
+                        allAdds.forEach((d) => {
+                           if (this.isValidData(d)) {
+                              if (!this.__dataCollection.exists(d[PK])) {
+                                 this.__dataCollection.add(d);
+                              }
+                           }
+                        });
+                     });
+                  }
+
+                  return;
+               }
+
+               // Otherwise, we need to refilter our data:
                this.refreshLinkCursor();
                this.setStaticCursor();
             },
@@ -5964,6 +6714,30 @@ class ABDataCollectionCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_
             emitter: followDC,
             eventName: "changeCursor",
             listener: () => {
+               const followCursor = followDC.getCursor();
+               const currentCursor = this.getCursor();
+
+               // If the cursor is not the new, then it should not reload.
+               if (
+                  followCursor?.[followDC.datasource.PK()] ==
+                  currentCursor?.[this.datasource.PK()]
+               )
+                  return;
+
+               this.clearAll();
+               this.loadData();
+            },
+         });
+
+         this.eventAdd({
+            emitter: followDC,
+            eventName: "cursorStale",
+            listener: () => {
+               // cursorStale : the current cursor hasn't CHANGED, but the data
+               // of that value has changed.
+               // This is triggered by one of our socket updates that detects
+               // changes to the cursor data.
+
                this.clearAll();
                this.loadData();
             },
@@ -5981,8 +6755,11 @@ class ABDataCollectionCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_
     *      the DC this datacollection depends on.
     * @returns {Promise}
     */
-   waitForDataCollectionToInitialize(DC, msg) {
+   async waitForDataCollectionToInitialize(DC, msg) {
+      DC.init();
+
       return new Promise((resolve, reject) => {
+         /* eslint-disable no-fallthrough */
          switch (DC.dataStatus) {
             // if that DC hasn't started initializing yet, start it!
             case DC.dataStatusFlag.notInitial:
@@ -5990,11 +6767,12 @@ class ABDataCollectionCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_
             // no break;
 
             // once in the process of initializing
-            /* eslint-disable no-fallthrough*/
+
             case DC.dataStatusFlag.initializing:
                /* eslint-enable no-fallthrough*/
                // listen for "initializedData" event from the DC
                // then we can continue.
+               this.eventRemove("initializedData", DC);
                this.eventAdd({
                   emitter: DC,
                   eventName: "initializedData",
@@ -6015,64 +6793,96 @@ class ABDataCollectionCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_
                resolve();
                break;
          }
+         /* eslint-enable no-fallthrough */
       });
    }
 
-   loadData(start, limit) {
-      // mark data status is initializing
-      if (this._dataStatus == this.dataStatusFlag.notInitial) {
-         this._dataStatus = this.dataStatusFlag.initializing;
-         this.emit("initializingData", {});
-      }
+   // /**
+   //  * @method whereCleanUp()
+   //  * Parse through the current where condition and remove any null or
+   //  * empty logical blocks.
+   //  * @param {obj} curr
+   //  *        1) The current where condition in ABQuery Format:
+   //  *        {
+   //  *           glue: [AND, OR],
+   //  *           rules: [ {rule} ]
+   //  *        }
+   //  *        or 2) The current {rule} to validate
+   //  *        {
+   //  *          key:{string},
+   //  *          rule:{string},
+   //  *          vlaue:{mixed}
+   //  *        }
+   //  * @return {ABQuery.where} / { Rule }
+   //  */
+   // whereCleanUp(curr) {
+   //    if (curr) {
+   //       if (curr.glue && curr.rules) {
+   //          // this is a logical Block (AND, OR)
+   //          // we need to filter the children
+   //          let newValue = { glue: curr.glue, rules: [] };
+   //          curr.rules.forEach((r) => {
+   //             let cleanRule = this.whereCleanUp(r);
+   //             // don't add values that didn't pass
+   //             if (cleanRule) {
+   //                newValue.rules.push(cleanRule);
+   //             }
+   //          });
 
-      var obj = this.datasource;
-      if (obj == null) {
-         this._dataStatus = this.dataStatusFlag.initialized;
-         return Promise.resolve([]);
-      }
+   //          // if we have a non empty block, then return it:
+   //          if (newValue.rules.length > 0) {
+   //             return newValue;
+   //          }
 
-      var model = obj.model();
-      if (model == null) {
-         this._dataStatus = this.dataStatusFlag.initialized;
-         return Promise.resolve([]);
-      }
+   //          // this isn't really a valid conditional, so null
+   //          return null;
+   //       }
 
-      // pull the defined sort values
-      var sorts = this.settings.objectWorkspace.sortFields || [];
+   //       // This is a specific rule, that isn't null so:
+   //       return curr;
+   //    }
+   //    return null;
+   // }
 
+   /**
+    * @method getWhereClause()
+    * Return the current where condition for the datacollection.
+    * The where condition might change depending if we are following
+    * another datacollection or not.
+    *
+    * NOTE: start and limit might be effected by some of our settings
+    * so we include them here and then return those values as well.
+    *
+    * @param {int} start
+    * @param {int} limit
+    * @returns [ wheres, start, limit ]
+    */
+   getWhereClause(start, limit) {
       // pull filter conditions
       let wheres = this.AB.cloneDeep(
-         this.settings.objectWorkspace.filterConditions ?? null
+         this.settings.objectWorkspace.filterConditions ?? {}
       );
       // if we pass new wheres with a reload use them instead
       if (this.__reloadWheres) {
          wheres = this.__reloadWheres;
       }
+      wheres.glue = wheres.glue || "and";
+      wheres.rules = wheres.rules || [];
 
       const __additionalWheres = {
          glue: "and",
          rules: [],
       };
 
-      if (this.__filterCond) {
+      // add the filterCond if there are rules to add
+      if (this.__filterCond?.rules?.length > 0) {
          __additionalWheres.rules.push(this.__filterCond);
       }
 
       // Filter by a selected cursor of a link DC
-      const dataCollectionLink = this.datacollectionLink;
-      const fieldLink = this.fieldLink;
-      if (!this.settings.loadAll && dataCollectionLink && fieldLink) {
-         const linkCursorId = dataCollectionLink?.getCursor()?.id;
-         if (linkCursorId) {
-            __additionalWheres.rules.push({
-               alias: fieldLink.alias, // ABObjectQuery
-               key: fieldLink.id,
-               rule: fieldLink.alias ? "contains" : "equals", // NOTE: If object is query, then use "contains" because ABOBjectQuery return JSON
-               value: fieldLink.getRelationValue(
-                  dataCollectionLink.__dataCollection.getItem(linkCursorId)
-               ),
-            });
-         }
+      let linkRule = this.ruleLinkedData();
+      if (!this.settings.loadAll && linkRule) {
+         __additionalWheres.rules.push(linkRule);
       }
       // pull data rows following the follow data collection
       else if (this.datacollectionFollow) {
@@ -6116,12 +6926,122 @@ class ABDataCollectionCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_
 
       // Combine setting & program filters
       if (__additionalWheres.rules.length) {
-         __additionalWheres.rules.unshift(wheres);
+         if (wheres.rules.length) {
+            __additionalWheres.rules.unshift(wheres);
+         }
          wheres = __additionalWheres;
       }
 
       // remove any null in the .rules
-      if (wheres?.rules?.filter) wheres.rules = wheres.rules.filter((r) => r);
+      // if (wheres?.rules?.filter) wheres.rules = wheres.rules.filter((r) => r);
+      wheres = this.datasource.whereCleanUp(wheres);
+
+      return [wheres, start, limit];
+   }
+
+   async loadData(start, limit) {
+      // mark data status is initializing
+      if (this._dataStatus == this.dataStatusFlag.notInitial) {
+         this._dataStatus = this.dataStatusFlag.initializing;
+         this.emit("initializingData", {});
+      }
+
+      var obj = this.datasource;
+      if (obj == null) {
+         this.dataInitialized();
+         return Promise.resolve([]);
+      }
+
+      var model = obj.model();
+      if (model == null) {
+         this.dataInitialized();
+         return Promise.resolve([]);
+      }
+
+      // pull the defined sort values
+      var sorts = this.settings.objectWorkspace.sortFields || [];
+
+      let [wheres, s2, l2] = this.getWhereClause(start, limit);
+      start = s2;
+      limit = l2;
+
+      // // pull filter conditions
+      // let wheres = this.AB.cloneDeep(
+      //    this.settings.objectWorkspace.filterConditions ?? {}
+      // );
+      // // if we pass new wheres with a reload use them instead
+      // if (this.__reloadWheres) {
+      //    wheres = this.__reloadWheres;
+      // }
+      // wheres.glue = wheres.glue || "and";
+      // wheres.rules = wheres.rules || [];
+
+      // const __additionalWheres = {
+      //    glue: "and",
+      //    rules: [],
+      // };
+
+      // // add the filterCond if there are rules to add
+      // if (this.__filterCond?.rules?.length > 0) {
+      //    __additionalWheres.rules.push(this.__filterCond);
+      // }
+
+      // // Filter by a selected cursor of a link DC
+      // let linkRule = this.ruleLinkedData();
+      // if (!this.settings.loadAll && linkRule) {
+      //    __additionalWheres.rules.push(linkRule);
+      // }
+      // // pull data rows following the follow data collection
+      // else if (this.datacollectionFollow) {
+      //    const followCursor = this.datacollectionFollow.getCursor();
+      //    // store the PK as a variable
+      //    let PK = this.datasource.PK();
+      //    // if the datacollection we are following is a query
+      //    // add "BASE_OBJECT." to the PK so we can select the
+      //    // right value to report the cursor change to
+      //    if (this.datacollectionFollow.settings.isQuery) {
+      //       PK = "BASE_OBJECT." + PK;
+      //    }
+      //    if (followCursor) {
+      //       start = 0;
+      //       limit = null;
+      //       wheres = {
+      //          glue: "and",
+      //          rules: [
+      //             {
+      //                key: this.datasource.PK(),
+      //                rule: "equals",
+      //                value: followCursor[PK],
+      //             },
+      //          ],
+      //       };
+      //    }
+      //    // Set no return rows
+      //    else {
+      //       wheres = {
+      //          glue: "and",
+      //          rules: [
+      //             {
+      //                key: this.datasource.PK(),
+      //                rule: "equals",
+      //                value: "NO RESULT ROW",
+      //             },
+      //          ],
+      //       };
+      //    }
+      // }
+
+      // // Combine setting & program filters
+      // if (__additionalWheres.rules.length) {
+      //    if (wheres.rules.length) {
+      //       __additionalWheres.rules.unshift(wheres);
+      //    }
+      //    wheres = __additionalWheres;
+      // }
+
+      // // remove any null in the .rules
+      // // if (wheres?.rules?.filter) wheres.rules = wheres.rules.filter((r) => r);
+      // wheres = obj.whereCleanUp(wheres);
 
       // set query condition
       var cond = {
@@ -6129,9 +7049,7 @@ class ABDataCollectionCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_
          // limit: limit || 20,
          skip: start || 0,
          sort: sorts,
-         populate:
-            this.settings.populate ??
-            (this.settings.preventPopulate ? false : true),
+         populate: this.shouldPopulate,
       };
 
       //// NOTE: we no longer set a default limit on loadData() but
@@ -6145,75 +7063,55 @@ class ABDataCollectionCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_
          delete cond.limit;
       }
 
-      return (
-         Promise.resolve()
-            //
-            // Step 1: make sure any DataCollections we are linked to are
-            // initialized first.  Then proceed with our initialization.
-            //
-            .then(() => {
-               // If we are linked to another datacollection then wait for it
-               let linkDc = this.datacollectionLink;
-               if (!linkDc) return Promise.resolve(); // TODO: refactor in v2
+      //
+      // Step 1: make sure any DataCollections we are linked to are
+      // initialized first.  Then proceed with our initialization.
+      //
+      const parentDc = this.datacollectionLink ?? this.datacollectionFollow;
+      // If we are linked to another datacollection then wait for it
+      if (parentDc) {
+         await this.waitForDataCollectionToInitialize(parentDc);
+      }
 
-               return this.waitForDataCollectionToInitialize(linkDc);
-            })
-            //
-            // Step 2: if we have any filter rules that depend on other DataCollections,
-            // then wait for them to be initialized first.
-            // eg: "(not_)in_data_collection" rule filters
-            .then(() => {
-               return new Promise((resolve, reject) => {
-                  if (
-                     wheres == null ||
-                     wheres.rules == null ||
-                     !wheres.rules.length
-                  )
-                     return resolve();
+      //
+      // Step 2: if we have any filter rules that depend on other DataCollections,
+      // then wait for them to be initialized first.
+      // eg: "(not_)in_data_collection" rule filters
+      if (wheres?.rules?.length) {
+         const dcFilters = [];
 
-                  var dcFilters = [];
+         wheres.rules.forEach((rule) => {
+            // if this collection is filtered by data collections we need to load them in case we need to validate from them later
+            if (
+               rule.rule == "in_data_collection" ||
+               rule.rule == "not_in_data_collection"
+            ) {
+               const dv = this.AB.datacollectionByID(rule.value);
+               if (dv) {
+                  dcFilters.push(this.waitForDataCollectionToInitialize(dv));
+               }
+            }
+         });
 
-                  wheres.rules.forEach((rule) => {
-                     // if this collection is filtered by data collections we need to load them in case we need to validate from them later
-                     if (
-                        rule.rule == "in_data_collection" ||
-                        rule.rule == "not_in_data_collection"
-                     ) {
-                        var dv = this.AB.datacollectionByID(rule.value);
-                        if (dv) {
-                           dcFilters.push(
-                              this.waitForDataCollectionToInitialize(dv)
-                           );
-                        }
-                     }
-                  });
+         await Promise.all(dcFilters);
+      }
 
-                  Promise.all(dcFilters)
-                     .then(() => {
-                        resolve();
-                     })
-                     .catch(reject);
-               });
-            })
+      //
+      // Step 3: pull data to data collection
+      // we will keep track of the resolve, reject for this
+      // operation.
+      // the actual resolve() should happen in the
+      // .processIncomingData() after the  data is processed.
+      return new Promise((resolve, reject) => {
+         this._pendingLoadDataResolve = {
+            resolve: resolve,
+            reject: reject,
+         };
 
-            // pull data to data collection
-            .then(() => {
-               return new Promise((resolve, reject) => {
-                  // we will keep track of the resolve, reject for this
-                  // operation.
-                  // the actual resolve() should happen in the
-                  // .processIncomingData() after the  data is processed.
-                  this._pendingLoadDataResolve = {
-                     resolve: resolve,
-                     reject: reject,
-                  };
-
-                  this.platformFind(model, cond).catch((err) => {
-                     reject(err);
-                  });
-               });
-            })
-      );
+         this.platformFind(model, cond).catch((err) => {
+            reject(err);
+         });
+      });
    }
 
    platformFind(model, cond) {
@@ -6228,6 +7126,20 @@ class ABDataCollectionCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_
          // parse out the total and figure out if we need to track loading more:
          return this.processIncomingData(data);
       });
+   }
+
+   /**
+    * @method shouldPopulate()
+    * Return our populate status. We now want to query this info outside this
+    * object.
+    * @return {bool|Array}
+    *         true/false,  or an array of columnNames that are being populated.
+    */
+   get shouldPopulate() {
+      return (
+         this.settings.populate ??
+         (this.settings.preventPopulate ? false : true)
+      );
    }
 
    /**
@@ -6250,7 +7162,8 @@ class ABDataCollectionCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_
 
       let nextData;
       if (data.length > 250) {
-         let pos = this.__dataCollection.count();
+         // let pos = this.__dataCollection.count();
+         let pos = this.__dataCollection.find({}).length;
          let remain = data.splice(250);
          nextData = {
             data: remain,
@@ -6269,8 +7182,12 @@ class ABDataCollectionCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_
       return new Promise((resolve) => {
          setTimeout(async () => {
             await this.queuedParse(nextData);
-            cb?.();
-            resolve();
+
+            // Introduce a delay to ensure the UI has fully rendered the list before proceeding
+            setTimeout(async () => {
+               cb?.();
+               resolve();
+            }, 50);
          }, 15);
       });
    }
@@ -6305,11 +7222,9 @@ class ABDataCollectionCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_
 
             // In order to get the total_count updated I had to use .load()
             this.__dataCollection.load(async () => {
-               if (this.settings.loadAll) {
-                  setTimeout(() => {
-                     this.refreshLinkCursor();
-                  }, 250);
-               }
+               setTimeout(() => {
+                  this.refreshLinkCursor();
+               }, 250);
 
                return {
                   // NOTE: return a empty array to prevent render items in DataTable twice. (Items are rendered in .queuedParse function)
@@ -6349,7 +7264,7 @@ class ABDataCollectionCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_
 
             // mark initialized data
             if (this._dataStatus != this.dataStatusFlag.initialized) {
-               this._dataStatus = this.dataStatusFlag.initialized;
+               this.dataInitialized();
                this.emit("initializedData", {});
             }
          }, 100);
@@ -6596,6 +7511,48 @@ class ABDataCollectionCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_
    }
 
    /**
+    * @method ruleLinkedData()
+    * return a QueryFilter rule that also checks that incoming data is linked
+    * to our .datacollectionLink (if it exists).
+    * @return {obj} {QueryFilterRule}
+    */
+   ruleLinkedData() {
+      let rule = null;
+      const dataCollectionLink = this.datacollectionLink;
+      const fieldLink = this.fieldLink;
+      if (dataCollectionLink && fieldLink) {
+         const linkCursorId = dataCollectionLink?.getCursor()?.id;
+         if (linkCursorId) {
+            const linkType = `${fieldLink.linkType()}:${fieldLink.linkViaType()}`;
+
+            let filterRule;
+            // NOTE: If object is query, then use "contains" because ABOBjectQuery return JSON
+            if (fieldLink.alias) {
+               filterRule = "contains";
+            }
+            // M:1
+            else if (linkType == "many:one") {
+               filterRule = "have_relation";
+            }
+            // 1:M
+            else {
+               filterRule = "equals";
+            }
+
+            rule = {
+               alias: fieldLink.alias, // ABObjectQuery
+               key: fieldLink.id,
+               rule: filterRule,
+               value: fieldLink.getRelationValue(
+                  dataCollectionLink.__dataCollection.getItem(linkCursorId)
+               ),
+            };
+         }
+      }
+      return rule;
+   }
+
+   /**
     * @method refreshFilterConditions()
     * This is called in two primary cases:
     *    - on initialization of a DC to setup our filters.
@@ -6663,16 +7620,57 @@ class ABDataCollectionCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_
          this.datasource ? this.datasource.fields() : []
       );
 
+      // if we pass in wheres, then Save that value to our internal .filterConditions
       if (wheres) this.settings.objectWorkspace.filterConditions = wheres;
 
-      if (
-         this.settings &&
-         this.settings.objectWorkspace &&
-         this.settings.objectWorkspace.filterConditions
-      ) {
-         this.__filterDatacollection.setValue(
-            this.settings.objectWorkspace.filterConditions
-         );
+      let filter = this.AB.cloneDeep(
+         this.settings.objectWorkspace?.filterConditions ?? {
+            glue: "and",
+            rules: [],
+         }
+      );
+      // sanity checks:
+      // I've learned not to trust: this.settings.objectWorkspace
+      filter.glue = filter.glue || "and";
+      filter.rules = filter.rules || [];
+
+      // if there is a linkRule, add it to filter
+      let linkRule = this.ruleLinkedData(); // returns a rule if we are linked
+      if (linkRule) {
+         // NOTE: linkRule was originally designed to produce a rule for the
+         // loadData() routine.  In SQL, our linkRule might have an "equals"
+         // rule, to match.  But in this context if our linktype is "many"
+         // we need to change the rule to "contains":
+         // QUESTION: If this is still required, consider moving it into the `ruleLinkedData` function for maintainability. ??
+         // if (this.fieldLink?.linkType() == "many") {
+         //    linkRule.rule = "contains";
+         // }
+
+         // if linkRule not already IN filter:
+         let isAlreadyThere = false;
+         let keys = Object.keys(linkRule);
+         (filter.rules || []).forEach((r) => {
+            if (isAlreadyThere) return;
+            let allMatch = true;
+            keys.forEach((k) => {
+               if (r[k] != linkRule[k]) {
+                  allMatch = false;
+               }
+            });
+            isAlreadyThere = allMatch;
+         });
+         if (!isAlreadyThere) {
+            // link Rule needs to be ANDed to our current Rules:
+            if (filter.glue == "and") {
+               filter.rules.push(linkRule);
+            } else {
+               filter = { glue: "and", rules: [filter, linkRule] };
+            }
+         }
+      }
+
+      if ((filter.rules || []).length > 0 && !this.isCursorFollow) {
+         this.__filterDatacollection.setValue(filter);
       } else {
          this.__filterDatacollection.setValue(
             DefaultValues.settings.objectWorkspace.filterConditions
@@ -6772,11 +7770,11 @@ class ABDataCollectionCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_
 
    parseTreeCollection(data = {}) {
       // TODO all this does is log "is missing?"
-      if (data === {}) {
-         console.log(
-            "Platform.ABDataCollection.parseTreeCollection() missing!"
-         );
-      }
+      // if (false) {
+      //    console.log(
+      //       "Platform.ABDataCollection.parseTreeCollection() missing!"
+      //    );
+      // }
    }
    // parseTreeCollection(data = {}) {
 
@@ -6911,12 +7909,12 @@ class ABDataCollectionCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_
       return updatedVals;
    }
 
-   isValidData(rowData) {
+   isValidData(rowData, skipDatasourceFilter = false) {
       let result = true;
 
       // NOTE: should we use filter of the current view of object to filter
       //        if yes, update .wheres condition in .loadData too
-      if (this.__filterDatasource)
+      if (this.__filterDatasource && !skipDatasourceFilter)
          result = result && this.__filterDatasource.isValid(rowData);
 
       if (this.__filterDatacollection)
@@ -6926,6 +7924,38 @@ class ABDataCollectionCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_
          result = result && this.__filterScope.isValid(rowData);
 
       return result;
+   }
+
+   updateRelationalDataFromLinkDC(objectId, rowData) {
+      const dcLink = this.datacollectionLink;
+      const cursorLink = dcLink?.getCursor();
+
+      // Add the new data that just relate to the Link DC
+      if (
+         dcLink?.datasource.id == objectId &&
+         cursorLink &&
+         cursorLink.id == rowData?.id
+      ) {
+         const obj = this.datasource;
+         const linkedField = this.fieldLink;
+         let relatedData = rowData[linkedField.fieldLink.relationName()];
+         if (relatedData && !Array.isArray(relatedData))
+            relatedData = [relatedData];
+
+         (relatedData ?? []).forEach((item) => {
+            if (item == null) return;
+
+            if (!this.__dataCollection.exists(item[obj.PK()])) {
+               // QUESTION: Should we .find to get fully info here ?
+               const newItem = this.AB.cloneDeep(item);
+               newItem[linkedField.relationName()] = [rowData];
+               this.__dataCollection.add(newItem);
+            }
+         });
+
+         // trigger to components to know there are updated data.
+         this.emit("warnRefresh");
+      }
    }
 
    // Clone
@@ -7060,6 +8090,24 @@ class ABDataCollectionCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_
       }
    }
 
+   /**
+    * @method eventRemove()
+    * unsubscribe a event.
+    *
+    * @param {string} eventName - Name of the event
+    * @param {object} emitter - Emitter object
+    */
+   eventRemove(eventName, emitter = null) {
+      if (this.__events?.length > 0 && eventName) {
+         this.__events.forEach((e) => {
+            if (eventName == e.eventName && (!emitter || emitter == e.emitter))
+               e.emitter.removeListener(e.eventName, e.listener);
+         });
+
+         this.__events = this.__events.filter((e) => e.eventName != eventName);
+      }
+   }
+
    get userScopes() {
       return [];
    }
@@ -7077,6 +8125,25 @@ class ABDataCollectionCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_
       return (this.AB ?? AB).datacollectionByID(
          this.settings.followDatacollectionID
       );
+   }
+
+   get previousCursorId() {
+      return this.__previousCursorId;
+   }
+
+   waitReady() {
+      // if (this.dataStatus == this.dataStatusFlag.initialized) {
+      //    return Promise.resolve();
+      // }
+      // console.log(`DC[${this.label}] waiting for initializedData.`);
+      // return new Promise((resolve /*, reject */) => {
+      //    this.once("initializedData", ()=>{
+      //       resolve();
+      //    })
+
+      // })
+
+      return this.waitForDataCollectionToInitialize(this);
    }
 }
 
@@ -7209,22 +8276,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _platform_ABObject__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../platform/ABObject */ 83311);
 /* harmony import */ var _platform_ABObjectExternal__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../platform/ABObjectExternal */ 18700);
 /* harmony import */ var _platform_ABObjectImport__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../platform/ABObjectImport */ 94910);
-/* harmony import */ var _platform_ABDataCollection__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../platform/ABDataCollection */ 98383);
-/* harmony import */ var _platform_ABObjectQuery__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../platform/ABObjectQuery */ 59545);
-/* harmony import */ var _platform_ABHint__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../platform/ABHint */ 5701);
-/* harmony import */ var _platform_ABProcess__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../platform/ABProcess */ 33046);
-/* harmony import */ var _platform_process_ABProcessParticipant__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../platform/process/ABProcessParticipant */ 74843);
-/* harmony import */ var _platform_process_ABProcessLane__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../platform/process/ABProcessLane */ 23479);
-/* harmony import */ var _process_ABProcessTaskManager__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./process/ABProcessTaskManager */ 83316);
-/* harmony import */ var _platform_ABStep__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../platform/ABStep */ 81410);
-/* harmony import */ var _platform_views_ABViewDetailItem__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../platform/views/ABViewDetailItem */ 48172);
-/* harmony import */ var _platform_views_ABViewFormItem__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../platform/views/ABViewFormItem */ 9247);
-/* harmony import */ var _platform_RowFilter__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../platform/RowFilter */ 84470);
-/* harmony import */ var _platform_FilterComplex__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../platform/FilterComplex */ 10758);
-/* harmony import */ var _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../platform/ABMLClass */ 46148);
-/* harmony import */ var _platform_ABEmitter__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ../platform/ABEmitter */ 4025);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_platform_ABApplication__WEBPACK_IMPORTED_MODULE_0__, _platform_ABApplicationMobile__WEBPACK_IMPORTED_MODULE_1__, _ABFieldManager__WEBPACK_IMPORTED_MODULE_4__, _process_ABProcessTaskManager__WEBPACK_IMPORTED_MODULE_15__]);
-([_platform_ABApplication__WEBPACK_IMPORTED_MODULE_0__, _platform_ABApplicationMobile__WEBPACK_IMPORTED_MODULE_1__, _ABFieldManager__WEBPACK_IMPORTED_MODULE_4__, _process_ABProcessTaskManager__WEBPACK_IMPORTED_MODULE_15__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
+/* harmony import */ var _platform_ABObjectApi__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../platform/ABObjectApi */ 9611);
+/* harmony import */ var _platform_ABObjectApiNetsuite__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../platform/ABObjectApiNetsuite */ 65506);
+/* harmony import */ var _platform_ABDataCollection__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../platform/ABDataCollection */ 98383);
+/* harmony import */ var _platform_ABObjectQuery__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../platform/ABObjectQuery */ 59545);
+/* harmony import */ var _platform_ABHint__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../platform/ABHint */ 5701);
+/* harmony import */ var _platform_ABProcess__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../platform/ABProcess */ 33046);
+/* harmony import */ var _platform_process_ABProcessParticipant__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../platform/process/ABProcessParticipant */ 74843);
+/* harmony import */ var _platform_process_ABProcessLane__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../platform/process/ABProcessLane */ 23479);
+/* harmony import */ var _process_ABProcessTaskManager__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./process/ABProcessTaskManager */ 83316);
+/* harmony import */ var _platform_ABStep__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../platform/ABStep */ 81410);
+/* harmony import */ var _platform_views_ABViewDetailItem__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../platform/views/ABViewDetailItem */ 48172);
+/* harmony import */ var _platform_views_ABViewFormItem__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../platform/views/ABViewFormItem */ 9247);
+/* harmony import */ var _platform_mobile_ABMobileViewFormItem__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../platform/mobile/ABMobileViewFormItem */ 3199);
+/* harmony import */ var _platform_RowFilter__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ../platform/RowFilter */ 84470);
+/* harmony import */ var _platform_FilterComplex__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ../platform/FilterComplex */ 10758);
+/* harmony import */ var _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ../platform/ABMLClass */ 46148);
+/* harmony import */ var _platform_ABEmitter__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ../platform/ABEmitter */ 4025);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_platform_ABApplication__WEBPACK_IMPORTED_MODULE_0__, _platform_ABApplicationMobile__WEBPACK_IMPORTED_MODULE_1__, _ABFieldManager__WEBPACK_IMPORTED_MODULE_4__, _process_ABProcessTaskManager__WEBPACK_IMPORTED_MODULE_17__]);
+([_platform_ABApplication__WEBPACK_IMPORTED_MODULE_0__, _platform_ABApplicationMobile__WEBPACK_IMPORTED_MODULE_1__, _ABFieldManager__WEBPACK_IMPORTED_MODULE_4__, _process_ABProcessTaskManager__WEBPACK_IMPORTED_MODULE_17__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
 /*
  * ABFactoryCore
  * an object that contains the definitions and references for a single tenant.
@@ -7257,9 +8327,17 @@ var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_pla
 
 // const ABObjectExternal = require("../platform/ABObjectExternal");
 
+
 // const ABObjectImport = require("../platform/ABObjectImport");
 
+
+// const ABObjectApi = require("../platform/ABObjectApi");
+
+
+
+
 // const ABDataCollection = require("../platform/ABDataCollection");
+
 
 // const ABObjectQuery = require("../platform/ABObjectQuery");
 
@@ -7288,6 +8366,9 @@ var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_pla
 // const ABViewFormItem = require("../platform/views/ABViewFormItem");
 
 
+// const ABMobileViewFormItem = require("../platform/mobile/ABMobileViewFormItem");
+
+
 // const ABObjectWorkspaceViewGrid = require("../platform/workspaceViews/ABObjectWorkspaceViewGrid");
 // const ABObjectWorkspaceViewKanban = require("../platform/workspaceViews/ABObjectWorkspaceViewKanban");
 // const ABObjectWorkspaceViewGantt = require("../platform/workspaceViews/ABObjectWorkspaceViewGantt");
@@ -7304,7 +8385,7 @@ var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_pla
 // const EventEmitter = require("../platform/ABEmitter");
 
 
-class ABFactory extends _platform_ABEmitter__WEBPACK_IMPORTED_MODULE_22__["default"] {
+class ABFactory extends _platform_ABEmitter__WEBPACK_IMPORTED_MODULE_25__["default"] {
    constructor(definitions) {
       /**
        * @param {hash} definitions
@@ -7361,22 +8442,25 @@ class ABFactory extends _platform_ABEmitter__WEBPACK_IMPORTED_MODULE_22__["defau
          ABDefinition: _platform_ABDefinition__WEBPACK_IMPORTED_MODULE_2__["default"],
          ABFieldManager: _ABFieldManager__WEBPACK_IMPORTED_MODULE_4__["default"],
          ABIndex: _platform_ABIndex__WEBPACK_IMPORTED_MODULE_5__["default"],
-         ABMLClass: _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_21__["default"],
+         ABMLClass: _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_24__["default"],
          ABObject: _platform_ABObject__WEBPACK_IMPORTED_MODULE_6__["default"],
          ABObjectExternal: _platform_ABObjectExternal__WEBPACK_IMPORTED_MODULE_7__["default"],
          ABObjectImport: _platform_ABObjectImport__WEBPACK_IMPORTED_MODULE_8__["default"],
-         ABObjectQuery: _platform_ABObjectQuery__WEBPACK_IMPORTED_MODULE_10__["default"],
-         ABProcessParticipant: _platform_process_ABProcessParticipant__WEBPACK_IMPORTED_MODULE_13__["default"],
+         ABObjectApi: _platform_ABObjectApi__WEBPACK_IMPORTED_MODULE_9__["default"],
+         ABObjectApiNetsuite: _platform_ABObjectApiNetsuite__WEBPACK_IMPORTED_MODULE_10__["default"],
+         ABObjectQuery: _platform_ABObjectQuery__WEBPACK_IMPORTED_MODULE_12__["default"],
+         ABProcessParticipant: _platform_process_ABProcessParticipant__WEBPACK_IMPORTED_MODULE_15__["default"],
          // ABRole      // Do we need this anymore?
 
          // ABObjectWorkspaceViewGrid,
          // ABObjectWorkspaceViewKanban,
          // ABObjectWorkspaceViewGantt,
 
-         ABProcessTaskManager: _process_ABProcessTaskManager__WEBPACK_IMPORTED_MODULE_15__["default"],
+         ABProcessTaskManager: _process_ABProcessTaskManager__WEBPACK_IMPORTED_MODULE_17__["default"],
 
-         ABViewDetailItem: _platform_views_ABViewDetailItem__WEBPACK_IMPORTED_MODULE_17__["default"],
-         ABViewFormItem: _platform_views_ABViewFormItem__WEBPACK_IMPORTED_MODULE_18__["default"],
+         ABViewDetailItem: _platform_views_ABViewDetailItem__WEBPACK_IMPORTED_MODULE_19__["default"],
+         ABViewFormItem: _platform_views_ABViewFormItem__WEBPACK_IMPORTED_MODULE_20__["default"],
+         ABMobileViewFormItem: _platform_mobile_ABMobileViewFormItem__WEBPACK_IMPORTED_MODULE_21__["default"],
       };
 
       //
@@ -7829,7 +8913,7 @@ class ABFactory extends _platform_ABEmitter__WEBPACK_IMPORTED_MODULE_22__["defau
     * @return {ABDatacollection}
     */
    datacollectionNew(values) {
-      var dc = new _platform_ABDataCollection__WEBPACK_IMPORTED_MODULE_9__["default"](values, this);
+      var dc = new _platform_ABDataCollection__WEBPACK_IMPORTED_MODULE_11__["default"](values, this);
       dc.on("destroyed", () => {
          // make sure it is no longer in our internal list
          this._allDatacollections = this._allDatacollections.filter(
@@ -7935,6 +9019,9 @@ class ABFactory extends _platform_ABEmitter__WEBPACK_IMPORTED_MODULE_22__["defau
          newObj = new _platform_ABObjectExternal__WEBPACK_IMPORTED_MODULE_7__["default"](values, this);
       else if (values.isImported == true)
          newObj = new _platform_ABObjectImport__WEBPACK_IMPORTED_MODULE_8__["default"](values, this);
+      else if (values.isNetsuite == true)
+         newObj = new _platform_ABObjectApiNetsuite__WEBPACK_IMPORTED_MODULE_10__["default"](values, this);
+      else if (values.isAPI == true) newObj = new _platform_ABObjectApi__WEBPACK_IMPORTED_MODULE_9__["default"](values, this);
       else newObj = new _platform_ABObject__WEBPACK_IMPORTED_MODULE_6__["default"](values, this);
 
       /*
@@ -7954,6 +9041,10 @@ class ABFactory extends _platform_ABEmitter__WEBPACK_IMPORTED_MODULE_22__["defau
 
    objectLanguage() {
       return this.objectByID("d84cd351-d96c-490f-9afb-2a0b880ca0ec");
+   }
+
+   objectProcessDefinition() {
+      return this.objectByID("af91fc75-fb73-4d71-af14-e22832eb5915");
    }
 
    objectProcessForm() {
@@ -7978,6 +9069,14 @@ class ABFactory extends _platform_ABEmitter__WEBPACK_IMPORTED_MODULE_22__["defau
 
    objectUser() {
       return this.objectByID("228e3d91-5e42-49ec-b37c-59323ae433a1");
+   }
+
+   objectKey() {
+      return this.objectByID("d734fe8c-b615-446c-8a5f-793ddece19f9");
+   }
+
+   objectSecret() {
+      return this.objectByID("db5b3b26-5300-4c92-bc73-8ce4f4696992");
    }
 
    //
@@ -8016,7 +9115,7 @@ class ABFactory extends _platform_ABEmitter__WEBPACK_IMPORTED_MODULE_22__["defau
     * @return {ABHint}
     */
    hintNew(values) {
-      var newHint = new _platform_ABHint__WEBPACK_IMPORTED_MODULE_11__["default"](values, this);
+      var newHint = new _platform_ABHint__WEBPACK_IMPORTED_MODULE_13__["default"](values, this);
 
       return newHint;
    }
@@ -8059,7 +9158,7 @@ class ABFactory extends _platform_ABEmitter__WEBPACK_IMPORTED_MODULE_22__["defau
    stepNew(id, hintID) {
       var stepDef = this.definitionByID(id);
       if (stepDef) {
-         var getStep = new _platform_ABStep__WEBPACK_IMPORTED_MODULE_16__["default"](stepDef, this);
+         var getStep = new _platform_ABStep__WEBPACK_IMPORTED_MODULE_18__["default"](stepDef, this);
          return getStep;
       } else {
          var params = {
@@ -8067,9 +9166,11 @@ class ABFactory extends _platform_ABEmitter__WEBPACK_IMPORTED_MODULE_22__["defau
                hint: hintID,
             },
          };
-         var newStep = new _platform_ABStep__WEBPACK_IMPORTED_MODULE_16__["default"](params, this);
+         var newStep = new _platform_ABStep__WEBPACK_IMPORTED_MODULE_18__["default"](params, this);
          return newStep;
       }
+
+      // return null;
    }
 
    //
@@ -8108,7 +9209,7 @@ class ABFactory extends _platform_ABEmitter__WEBPACK_IMPORTED_MODULE_22__["defau
     * @return {ABProcess}
     */
    processNew(values) {
-      return new _platform_ABProcess__WEBPACK_IMPORTED_MODULE_12__["default"](values, this);
+      return new _platform_ABProcess__WEBPACK_IMPORTED_MODULE_14__["default"](values, this);
    }
 
    /**
@@ -8125,17 +9226,17 @@ class ABFactory extends _platform_ABEmitter__WEBPACK_IMPORTED_MODULE_22__["defau
       var taskDef = this.definitionByID(id);
       if (taskDef) {
          switch (taskDef.type) {
-            case _platform_process_ABProcessParticipant__WEBPACK_IMPORTED_MODULE_13__["default"].defaults().type:
-               return new _platform_process_ABProcessParticipant__WEBPACK_IMPORTED_MODULE_13__["default"](taskDef, process, this);
+            case _platform_process_ABProcessParticipant__WEBPACK_IMPORTED_MODULE_15__["default"].defaults().type:
+               return new _platform_process_ABProcessParticipant__WEBPACK_IMPORTED_MODULE_15__["default"](taskDef, process, this);
             // break;
 
-            case _platform_process_ABProcessLane__WEBPACK_IMPORTED_MODULE_14__["default"].defaults().type:
-               return new _platform_process_ABProcessLane__WEBPACK_IMPORTED_MODULE_14__["default"](taskDef, process, this);
+            case _platform_process_ABProcessLane__WEBPACK_IMPORTED_MODULE_16__["default"].defaults().type:
+               return new _platform_process_ABProcessLane__WEBPACK_IMPORTED_MODULE_16__["default"](taskDef, process, this);
             // break;
 
             default:
                // default to a Task
-               return _process_ABProcessTaskManager__WEBPACK_IMPORTED_MODULE_15__["default"].newTask(taskDef, process, this);
+               return _process_ABProcessTaskManager__WEBPACK_IMPORTED_MODULE_17__["default"].newTask(taskDef, process, this);
             // break;
          }
       }
@@ -8157,17 +9258,17 @@ class ABFactory extends _platform_ABEmitter__WEBPACK_IMPORTED_MODULE_22__["defau
 
       switch (element.type) {
          case "bpmn:Participant":
-            newElement = new _platform_process_ABProcessParticipant__WEBPACK_IMPORTED_MODULE_13__["default"]({}, process, this);
+            newElement = new _platform_process_ABProcessParticipant__WEBPACK_IMPORTED_MODULE_15__["default"]({}, process, this);
             break;
 
          case "bpmn:Lane":
-            newElement = new _platform_process_ABProcessLane__WEBPACK_IMPORTED_MODULE_14__["default"]({}, process, this);
+            newElement = new _platform_process_ABProcessLane__WEBPACK_IMPORTED_MODULE_16__["default"]({}, process, this);
             break;
 
          default:
-            var defaultDef = _process_ABProcessTaskManager__WEBPACK_IMPORTED_MODULE_15__["default"].definitionForElement(element);
+            var defaultDef = _process_ABProcessTaskManager__WEBPACK_IMPORTED_MODULE_17__["default"].definitionForElement(element);
             if (defaultDef) {
-               newElement = _process_ABProcessTaskManager__WEBPACK_IMPORTED_MODULE_15__["default"].newTask(
+               newElement = _process_ABProcessTaskManager__WEBPACK_IMPORTED_MODULE_17__["default"].newTask(
                   defaultDef,
                   process,
                   this
@@ -8224,7 +9325,7 @@ class ABFactory extends _platform_ABEmitter__WEBPACK_IMPORTED_MODULE_22__["defau
     * @return {ABObjectQuery}
     */
    queryNew(values) {
-      return new _platform_ABObjectQuery__WEBPACK_IMPORTED_MODULE_10__["default"](values, this);
+      return new _platform_ABObjectQuery__WEBPACK_IMPORTED_MODULE_12__["default"](values, this);
    }
 
    /**
@@ -8237,7 +9338,7 @@ class ABFactory extends _platform_ABEmitter__WEBPACK_IMPORTED_MODULE_22__["defau
       if (App) {
          console.error("!! Who is calling this with an App?");
       }
-      return new _platform_RowFilter__WEBPACK_IMPORTED_MODULE_19__["default"](App || this._App, idBase, this);
+      return new _platform_RowFilter__WEBPACK_IMPORTED_MODULE_22__["default"](App || this._App, idBase, this);
    }
 
    /**
@@ -8247,7 +9348,7 @@ class ABFactory extends _platform_ABEmitter__WEBPACK_IMPORTED_MODULE_22__["defau
     * @return {FilterComplex}
     */
    filterComplexNew(idBase, options = {}) {
-      return new _platform_FilterComplex__WEBPACK_IMPORTED_MODULE_20__["default"](idBase, this, options);
+      return new _platform_FilterComplex__WEBPACK_IMPORTED_MODULE_23__["default"](idBase, this, options);
    }
 
    /**
@@ -8395,26 +9496,26 @@ __webpack_require__.r(__webpack_exports__);
 var Fields = {};
 
 var AllFieldClasses = [
-   await Promise.all(/*! import() */[__webpack_require__.e("vendor"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldString */ 56675)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendor"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldLongText */ 33482)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendor"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldNumber */ 66242)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendor"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldDate */ 42405)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendor"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldDateTime */ 68246)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendor"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldBoolean */ 23126)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendor"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldList */ 23122)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendor"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldTree */ 32001)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendor"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldEmail */ 19387)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendor"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldFile */ 5833)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendor"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldImage */ 34688)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendor"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldUser */ 21391)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendor"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldConnect */ 30289)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendor"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldCalculate */ 15308)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendor"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldTextFormula */ 62817)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendor"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldFormula */ 54953)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendor"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldAutoIndex */ 99341)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendor"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldJson */ 7101)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendor"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldCombine */ 71331)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendor"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldSelectivity */ 55522)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldString */ 56675)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldLongText */ 33482)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldNumber */ 66242)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldDate */ 42405)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldDateTime */ 68246)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldBoolean */ 23126)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldList */ 23122)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldTree */ 32001)),
+   await Promise.resolve(/*! import() */).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldEmail */ 19387)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldFile */ 5833)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldImage */ 34688)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldUser */ 21391)),
+   await Promise.resolve(/*! import() */).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldConnect */ 30289)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldCalculate */ 15308)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldTextFormula */ 62817)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldFormula */ 54953)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldAutoIndex */ 99341)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldJson */ 7101)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldCombine */ 71331)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldSelectivity */ 55522)),
 ];
 
 AllFieldClasses.forEach((FIELD) => {
@@ -8531,6 +9632,7 @@ class ABHintCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_0__["defau
       }
     }
     */
+
       let active = attributes?.settings?.active ?? "1";
 
       this.id = attributes?.id || "";
@@ -9125,7 +10227,7 @@ class ABModelCore {
       }
    }
 
-   request(method, params) {
+   request(/* method, params */) {
       console.error(
          "!!! ABModelCore.request() should be overridden by platform."
       );
@@ -9261,7 +10363,8 @@ class ABModelCore {
       };
       return this.request("get", params)
          .then((numberOfRows) => {
-            resolve(numberOfRows);
+            // resolve(numberOfRows);
+            return numberOfRows;
          })
          .catch((err) => {
             // TODO: this should be done in platform/ABModel
@@ -9338,7 +10441,7 @@ class ABModelCore {
       var responseHash = {
          /* id : [{entry}] */
       };
-      var cond = { where: {} };
+      var cond = { where: {}, populate: true };
       cond.where[PK] = [];
 
       console.log(
@@ -9389,7 +10492,13 @@ class ABModelCore {
             );
          }
          allKeys.forEach((key) => {
-            var resolve = responseHash[key].resolve;
+            let entry = responseHash[key];
+            let resolve;
+            if (Array.isArray(entry)) {
+               resolve = entry[0].resolve;
+            } else {
+               resolve = entry.resolve;
+            }
             resolve({ data: [] });
             delete responseHash[key];
          });
@@ -9481,7 +10590,7 @@ class ABModelCore {
                if (fields.length == 1) {
                   let data =
                      myObj[
-                        fields[0].replace(/[^a-z0-9\.]/gi, "") + "__relation"
+                        fields[0].replace(/[^a-z0-9.]/gi, "") + "__relation"
                      ];
                   if (!data) return resolve([]);
 
@@ -9504,7 +10613,7 @@ class ABModelCore {
                var returnData = {};
                fields.forEach((colName) => {
                   returnData[colName] =
-                     myObj[colName.replace(/[^a-z0-9\.]/gi, "") + "__relation"];
+                     myObj[colName.replace(/[^a-z0-9.]/gi, "") + "__relation"];
                });
 
                resolve(returnData);
@@ -9733,6 +10842,356 @@ class ABModelCore {
       // return this.request("put", params);
    }
 
+   /**
+    * @method isCsvPacked
+    * check if the data is packed in a csv format
+    * @param {json} data  the json condition statement.
+    * @return {boolean} true if the data is packed in a csv format
+    *                   false if the data is not packed in a csv format
+    */
+   isCsvPacked(data) {
+      if (data.csv_packed) {
+         return true;
+      }
+      return false;
+   }
+
+   /**
+    * @method csvPack
+    * pack the data into a csv format
+    * @param {json} data
+    *               The original data format.
+    *              {
+    *                data: [{obj1}, {obj2}, ... {objN}],
+    *                total_bytes:xx,
+    *              }
+    * @return {json} the csv packed data
+    *                {
+    *                  csv_packed:{
+    *                    data: "<csv data>",
+    *                    relations: {
+    *                      {connectionID}: "<csv data>",
+    *                      {connectionID}: "<csv data>",
+    *                      ...
+    *                    },
+    *                  },
+    *                  total_bytes:xx,
+    *                }
+    */
+   csvPack(data) {
+      // data should be the original json data packet we want to send
+      // {
+      //   data: [{obj1}, {obj2}, ... {objN}],
+      //   total_bytes:xx,
+      // }
+      // we want to convert this to:
+      // {
+      //   csv_packed:{
+      //     data: "csv data",
+      //     relations: {
+      //       {connectionID}: "csv data", // each entry has entry._csvID, that is the lookup
+      //       {connectionID}: "csv data",
+      //       ...
+      //   }
+      //   total_bytes:xx,
+      // }
+      let packedData = { data: "", relations: {} };
+      let myObject = this.object;
+
+      let content = data.data;
+      let returnType = "array";
+      if (!Array.isArray(content)) {
+         returnType = "single";
+         content = [content];
+      }
+      content = content.filter((row) => !this.AB.isNil(row));
+
+      // stringify any potential json data
+      // starting with List data
+      let keys = ["list", "json"];
+      let stringifyFields = myObject.fields((f) => keys.indexOf(f.key) > -1);
+      stringifyFields.forEach((f) => {
+         for (let I = 0; I < content.length; I++) {
+            let row = content[I];
+            if (row[f.columnName]) {
+               row[f.columnName] = JSON.stringify(row[f.columnName]);
+            }
+         }
+      });
+
+      // break out and compact the connected data
+      let connections = myObject.connectFields();
+      connections.forEach((connField) => {
+         let connHash = {};
+         let relationName = connField.relationName();
+         let connPK = connField.datasourceLink.PK();
+
+         // gather all the connected data for this field
+         for (let I = 0; I < content.length; I++) {
+            let row = content[I];
+            if (row[relationName]) {
+               if (Array.isArray(row[relationName])) {
+                  row[relationName].forEach((r) => {
+                     if (!connHash[r.id]) {
+                        connHash[r.id] = r;
+                     }
+                  });
+               } else {
+                  let r = row[relationName];
+                  if (!connHash[r.id]) {
+                     connHash[r.id] = r;
+                  }
+               }
+            }
+         }
+
+         // assign a smaller id value
+         Object.keys(connHash).forEach((id, indx) => {
+            connHash[id]._csvID = indx;
+         });
+
+         // now reencode the connection data to reference the new _csvID
+         for (let I = 0; I < content.length; I++) {
+            let row = content[I];
+            let ids = [];
+            let hasRelationData = false;
+            if (row[relationName]) {
+               hasRelationData = true;
+               if (Array.isArray(row[relationName])) {
+                  row[relationName].forEach((r) => {
+                     ids.push(connHash[r.id]._csvID);
+                  });
+               } else {
+                  let r = row[relationName];
+                  ids.push(connHash[r.id]._csvID);
+               }
+            }
+            // only make an update if it did have relation data
+            if (hasRelationData) {
+               row[connField.columnName] = JSON.stringify(ids);
+               delete row[relationName];
+            }
+         }
+
+         let connData = Object.values(connHash);
+         connData.forEach((c) => {
+            if (c.id == c[connPK]) {
+               delete c.id;
+            }
+
+            // if translations are present return them to an object
+            if (c.translations) {
+               c.translations = JSON.stringify(c.translations);
+            }
+         });
+         let connDataCsv = this.AB.jsonToCsv(connData);
+         packedData.relations[connField.id] = connDataCsv;
+      });
+
+      // final data preparations for csv encoding
+      for (let I = 0; I < content.length; I++) {
+         let row = content[I];
+         // client side .normalizeData() should repopulate .id
+         delete row.id;
+
+         // we don't use .properties anymore, right?
+         delete row.properties;
+
+         // make sure embedded translations are stringified.
+         if (row.translations) {
+            row.translations = JSON.stringify(row.translations);
+         }
+
+         // special case for relations that are empty
+         connections.forEach((connField) => {
+            let relationName = connField.relationName();
+            if (row[relationName] === null) {
+               delete row[relationName];
+            }
+         });
+      }
+
+      // now convert the data to CSV
+      packedData.data = this.AB.jsonToCsv(content);
+      packedData.type = returnType; // single or array
+
+      let newData = {};
+      Object.keys(data).forEach((key) => {
+         if (key != "data") {
+            newData[key] = data[key];
+         }
+      });
+      newData.csv_packed = packedData;
+      return newData;
+   }
+
+   /**
+    * @method csvUnpack
+    * unpack the data from our csv format
+    * @param {json} data
+    *              The csv packed data format.
+    * @return {json} the unpacked data
+    */
+   csvUnpack(data) {
+      // data should be a data packet returned from the server
+      // {
+      //   csv_packed:{
+      //     data: "csv data",
+      //     relations: {
+      //       {connectionID}: "csv data", // each entry has entry._csvID, that is the lookup
+      //       {connectionID}: "csv data",
+      //       ...
+      //   }
+      //   total_bytes:xx,
+      // }
+      // we want to convert this to:
+      // {
+      //   data: [{obj1}, {obj2}, ... {objN}],
+      //   total_bytes:xx,
+      // }
+
+      let myObject = this.object;
+      let parseResult = this.AB.csvToJson(data.csv_packed.data);
+      // parseResult = { data: [], errors:[], meta:{}}
+
+      let returnType = data.csv_packed.type;
+
+      if (parseResult.errors?.length) {
+         // ignore common error when .data is ""
+         if (data.csv_packed.data !== "") {
+            console.error("Error parsing CSV data:", parseResult.errors);
+            console.error("Original CSV data:");
+            console.error(data.csv_packed.data);
+            console.error("result:");
+            console.error(parseResult.data);
+         }
+      }
+      let jsonData = parseResult.data;
+
+      let keyFields = ["list", "boolean", "number", "json"];
+      let parseFields = myObject.fields((f) => keyFields.indexOf(f.key) > -1);
+      jsonData.forEach((row) => {
+         // unstringify any list,bool,number fields
+         parseFields.forEach((f) => {
+            let val = row[f.columnName];
+            if (val && typeof val == "string") {
+               try {
+                  row[f.columnName] = JSON.parse(val);
+               } catch (e) {
+                  console.error(
+                     "Error parsing JSON data for column: " + f.columnName,
+                     val,
+                     e
+                  );
+               }
+            }
+         });
+
+         // if translations are present return them to an object
+         if (row.translations) {
+            row.translations = JSON.parse(row.translations);
+         }
+      });
+
+      let connections = myObject.connectFields();
+      connections.forEach((connField) => {
+         let relationName = connField.relationName();
+
+         if (data.csv_packed.relations[connField.id]) {
+            let connDataParseResult = this.AB.csvToJson(
+               data.csv_packed.relations[connField.id]
+            );
+            let connData = connDataParseResult.data;
+
+            let connHash = {};
+            let connPK = connField.datasourceLink.PK();
+            connData.forEach((c) => {
+               if (!c.id) {
+                  c.id = c[connPK];
+               }
+               connHash[c._csvID] = c;
+            });
+
+            jsonData.forEach((row) => {
+               let ids = [];
+               let populatedData = [];
+               let entries = [];
+               try {
+                  // ok, we know this is a possibility, so just skip it
+                  if (row[connField.columnName] !== "") {
+                     entries = JSON.parse(row[connField.columnName]);
+                  }
+               } catch (e) {
+                  if (row[connField.columnName] == "") {
+                     // not a problem, just no data
+                  } else {
+                     // this might be a situation on the server where
+                     // row[columnName] has a value, but row[relationName] is empty.
+                     if (typeof row[relationName] == "undefined") {
+                        row[relationName] = null;
+                     }
+                     // console.error(
+                     //    "Error parsing JSON data for column: " +
+                     //       connField.columnName,
+                     //    e
+                     // );
+                  }
+               }
+               if (!Array.isArray(entries)) {
+                  entries = [entries];
+               }
+               entries.forEach((id) => {
+                  if (connHash[id]) {
+                     let connEntry = connHash[id];
+                     ids.push(connField.getRelationValue(connEntry));
+                     // Alternatively, we could remove the row[columnName] and let
+                     // normalizeData() repopulate it.
+                     populatedData.push(connEntry);
+                  }
+               });
+               if (connField.linkType() == "many") {
+                  row[connField.columnName] = ids;
+                  row[connField.relationName()] = populatedData;
+               } else {
+                  row[connField.columnName] = ids[0];
+                  row[connField.relationName()] = populatedData[0];
+               }
+            });
+
+            // now clear the ._csvID from the data
+            Object.keys(connHash).forEach((id) => {
+               delete connHash[id]._csvID;
+            });
+         }
+      });
+
+      // final pass to clear up stringified relation data
+      jsonData.forEach((row) => {
+         connections.forEach((connField) => {
+            // many connections must be an array, not "[]"
+            if (connField.linkType() == "many") {
+               let val = row[connField.columnName];
+               if (val && typeof val == "string") {
+                  row[connField.columnName] = JSON.parse(val);
+               }
+            }
+         });
+      });
+
+      let returnData = {};
+      Object.keys(data).forEach((key) => {
+         if (key != "csv_packed") {
+            returnData[key] = data[key];
+         }
+      });
+      returnData.data = jsonData;
+
+      if (returnType == "single" && Array.isArray(returnData.data)) {
+         returnData.data = returnData.data[0];
+      }
+      return returnData;
+   }
+
    normalizeData(data) {
       // convert to array
       if (!(data instanceof Array)) data = [data];
@@ -9765,6 +11224,17 @@ class ABModelCore {
 
             // if (d[c.columnName] == null)
             //  d[c.columnName] = '';
+
+            // Our client side tools need to know that this value is null if it
+            // isn't provided:
+            if (
+               typeof d[relationName] == "undefined" &&
+               typeof d[c.columnName] == "undefined"
+            ) {
+               d[relationName] = null;
+               d[c.columnName] = null;
+               return;
+            }
 
             // if there is no data we can exit now
             if (d[relationName] == null) return;
@@ -9800,6 +11270,10 @@ class ABModelCore {
 
             // set .id to relation columns
             let objectLink = c.datasourceLink;
+
+            // if we didn't get the linked object, just return.
+            if (!objectLink) return;
+
             let olPK = objectLink.PK();
             var relatedMlFields = objectLink.multilingualFields();
 
@@ -9943,6 +11417,289 @@ class ABModelCore {
          });
       });
    }
+}
+
+
+/***/ }),
+
+/***/ 31549:
+/*!***************************************************!*\
+  !*** ./src/js/AppBuilder/core/ABObjectApiCore.js ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABObjectApiCore)
+/* harmony export */ });
+/* harmony import */ var _platform_ABObject__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../platform/ABObject */ 83311);
+/* harmony import */ var _platform_ABModelApi__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../platform/ABModelApi */ 70558);
+
+
+
+class ABObjectApiCore extends _platform_ABObject__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   constructor(attributes, AB) {
+      super(attributes, AB);
+
+      this.isAPI = true;
+
+      this.fromValues(attributes);
+   }
+
+   ///
+   /// Instance Methods
+   ///
+
+   /// ABApplication data methods
+
+   fromValues(attributes) {
+      super.fromValues(attributes);
+
+      this.readonly = parseInt(attributes.readonly) || 0;
+      this.apiType = attributes.apiType || "Read";
+      this.request = attributes.request ?? {};
+      this.request.headers = attributes.request?.headers ?? [];
+      this.response = attributes.response ?? {};
+      this.response.fields = attributes.response?.fields ?? [];
+      this.isFetched = attributes.isFetched ?? false;
+   }
+
+   /**
+    * @method toObj()
+    *
+    * properly compile the current state of this ABObjectQuery instance
+    * into the values needed for saving to the DB.
+    *
+    * @return {json}
+    */
+   toObj() {
+      const result = super.toObj();
+
+      result.isAPI = this.isAPI;
+      result.readonly = this.readonly;
+      result.apiType = this.apiType;
+      result.request = this.request ?? {};
+      result.request.headers = this.request?.headers ?? [];
+      result.response = this.response ?? {};
+      result.response.fields = this.response?.fields ?? [];
+      result.isFetched = this.isFetched;
+
+      return result;
+   }
+
+   /**
+    * @method model
+    * return a Model object that will allow you to interact with the data for
+    * this ABObjectQuery.
+    */
+   model() {
+      var model = new _platform_ABModelApi__WEBPACK_IMPORTED_MODULE_1__["default"](this);
+
+      // default the context of this model's operations to this object
+      model.contextKey(this.constructor.contextKey());
+      model.contextValues({ id: this.id }); // the datacollection.id
+
+      return model;
+   }
+
+   /**
+    * @function getPagingValues()
+    *
+    * @return {Object} - {
+    *                       start: "Property name of the API for start index",
+    *                       limit: "Property name of the API for limit return the item number"
+    *                     }
+    */
+   getPagingValues({ skip, limit }) {
+      const result = {};
+      const pagingSettings = this.request?.paging ?? {};
+
+      if (pagingSettings.start && skip != null) {
+         result[pagingSettings.start] = skip;
+      }
+      if (pagingSettings.limit && limit != null) {
+         result[pagingSettings.limit] = limit;
+      }
+
+      return result;
+   }
+
+   dataFromKey(data) {
+      let result = [];
+
+      if (!Array.isArray(data)) data = [data];
+
+      data.forEach((item) => {
+         // Clone item
+         let itemResult = { ...item };
+
+         // Pull data from `Data key` of the API object
+         // FORMAT: "Property.Name.Value"
+         (this.response.dataKey ?? "").split(".").forEach((key) => {
+            if (key == "" || key == null) return;
+            itemResult = itemResult?.[key];
+         });
+
+         if (Array.isArray(itemResult)) {
+            result = result.concat(itemResult);
+         } else if (itemResult) {
+            result.push(itemResult);
+         }
+      });
+
+      return result;
+   }
+
+   get headers() {
+      const headers = {};
+
+      (this.request.headers ?? []).forEach((header) => {
+         if (header?.value == null) return;
+
+         headers[header.key] = header.value;
+      });
+
+      return headers;
+   }
+}
+
+
+/***/ }),
+
+/***/ 55336:
+/*!***********************************************************!*\
+  !*** ./src/js/AppBuilder/core/ABObjectApiNetsuiteCore.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABObjectApiNetsuiteCore)
+/* harmony export */ });
+/* harmony import */ var _platform_ABObjectApi__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../platform/ABObjectApi */ 9611);
+/* harmony import */ var _platform_ABModelApiNetsuite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../platform/ABModelApiNetsuite */ 19901);
+
+
+
+class ABObjectApiNetsuiteCore extends _platform_ABObjectApi__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   constructor(attributes, AB) {
+      super(attributes, AB);
+
+      this.isNetsuite = true;
+
+      this.fromValues(attributes);
+   }
+
+   ///
+   /// Instance Methods
+   ///
+
+   /// ABApplication data methods
+
+   fromValues(attributes) {
+      super.fromValues(attributes);
+
+      this.credentials = attributes.credentials ?? {};
+      this.columnRef = attributes.columnRef ?? {};
+   }
+
+   /**
+    * @method toObj()
+    *
+    * properly compile the current state of this ABObjectQuery instance
+    * into the values needed for saving to the DB.
+    *
+    * @return {json}
+    */
+   toObj() {
+      const result = super.toObj();
+
+      result.isNetsuite = true;
+      result.credentials = this.credentials;
+      result.columnRef = this.columnRef;
+
+      return result;
+   }
+
+   /**
+    * @method model
+    * return a Model object that will allow you to interact with the data for
+    * this ABObjectQuery.
+    */
+   model() {
+      var model = new _platform_ABModelApiNetsuite__WEBPACK_IMPORTED_MODULE_1__["default"](this);
+
+      // default the context of this model's operations to this object
+      model.contextKey(this.constructor.contextKey());
+      model.contextValues({ id: this.id }); // the datacollection.id
+
+      return model;
+   }
+
+   /**
+    * @function getPagingValues()
+    *
+    * @return {Object} - {
+    *                       start: "Property name of the API for start index",
+    *                       limit: "Property name of the API for limit return the item number"
+    *                     }
+    */
+   /*
+   getPagingValues({ skip, limit }) {
+      const result = {};
+      const pagingSettings = this.request?.paging ?? {};
+
+      if (pagingSettings.start && skip != null) {
+         result[pagingSettings.start] = skip;
+      }
+      if (pagingSettings.limit && limit != null) {
+         result[pagingSettings.limit] = limit;
+      }
+
+      return result;
+   }
+
+   dataFromKey(data) {
+      let result = [];
+
+      if (!Array.isArray(data)) data = [data];
+
+      data.forEach((item) => {
+         // Clone item
+         let itemResult = { ...item };
+
+         // Pull data from `Data key` of the API object
+         // FORMAT: "Property.Name.Value"
+         (this.response.dataKey ?? "").split(".").forEach((key) => {
+            if (key == "" || key == null) return;
+            itemResult = itemResult?.[key];
+         });
+
+         if (Array.isArray(itemResult)) {
+            result = result.concat(itemResult);
+         } else if (itemResult) {
+            result.push(itemResult);
+         }
+      });
+
+      return result;
+   }
+
+   get headers() {
+      const headers = {};
+
+      (this.request.headers ?? []).forEach((header) => {
+         if (header?.value == null) return;
+
+         headers[header.key] = header.value;
+      });
+
+      return headers;
+   }
+
+   */
 }
 
 
@@ -10685,7 +12442,7 @@ class ABObjectCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_1__["def
     * @return {string}
     */
    urlRestCount() {
-      return `/app_builder/model/count/${this.id}`;
+      return `/app_builder/model/${this.id}/count`;
    }
 
    ///
@@ -10763,7 +12520,7 @@ class ABObjectCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_1__["def
     * @return {boolean}
     */
    get isReadOnly() {
-      return this.isImported || this.isExternal;
+      return this.isImported || this.isExternal || this.readonly;
    }
 
    /**
@@ -10893,6 +12650,11 @@ class ABObjectCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_1__["def
             fields.push(field.columnName);
          });
       }
+      // Default defining label
+      else {
+         const defaultFld = this.fields((f) => f.fieldUseAsLabel())[0];
+         if (defaultFld) fields.push(defaultFld.columnName);
+      }
 
       // System requires to include number field values
       // because they are used on Formula/Calculate fields on client side
@@ -10939,6 +12701,11 @@ class ABObjectCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_1__["def
       // ['{colId1}', ..., '{colIdN}']
       var colIds = labelData.match(/\{[^}]+\}/g);
 
+      // Using rawString to catch actual values we are pulling out.
+      // the label data might have additional characters "-" and such that will
+      // remain, and doing a .trim() on that wont catch that the label data
+      // is actually empty.
+      let rawString = "";
       if (colIds && colIds.forEach) {
          colIds.forEach((colId) => {
             var colIdNoBracket = colId.replace("{", "").replace("}", "");
@@ -10946,12 +12713,14 @@ class ABObjectCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_1__["def
             var field = this.fieldByID(colIdNoBracket);
             if (field == null) return;
 
-            labelData = labelData.replace(colId, field.format(rowData) || "");
+            let valField = field.format(rowData) || "";
+            labelData = labelData.replace(colId, valField);
+            rawString = `${rawString}${valField}`;
          });
       }
 
       // if label is empty, then show .id
-      if (!labelData.trim()) {
+      if (!rawString.trim()) {
          let labelSettings = this.labelSettings || {};
          if (labelSettings && labelSettings.isNoLabelDisplay) {
             labelData = L(labelSettings.noLabelText || "[No Label]");
@@ -10964,6 +12733,72 @@ class ABObjectCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_1__["def
       }
 
       return labelData;
+   }
+
+   /**
+    * @method whereCleanUp()
+    * Parse through the current where condition and remove any null or
+    * empty logical blocks.
+    * @param {obj} curr
+    *        1) The current where condition in ABQuery Format:
+    *        {
+    *           glue: [AND, OR],
+    *           rules: [ {rule} ]
+    *        }
+    *        or 2) The current {rule} to validate
+    *        {
+    *          key:{string},
+    *          rule:{string},
+    *          vlaue:{mixed}
+    *        }
+    * @return {ABQuery.where} / { Rule }
+    */
+   whereCleanUp(curr) {
+      if (curr) {
+         if (curr.glue && curr.rules) {
+            // SENTRY Error AB-APPBUILDER-4H
+            // "curr.rules.forEach is not a function"
+            // curr.rules is supposed to be an array. If we are not
+            // getting that, then let's send an alert to figure out what
+            // is happening here:
+            if (!Array.isArray(curr.rules)) {
+               // what is this entry?
+               let err = new Error(
+                  `ABObjectCore.whereCleanUP(): Sentry Error: AB-APPBUILDER-4H: current rule is not properly formed: ${JSON.stringify(
+                     curr
+                  )}`
+               );
+               this.AB.notify.developer(err, { curr });
+            }
+
+            // this is a logical Block (AND, OR)
+            // we need to filter the children
+            let newValue = { glue: curr.glue, rules: [] };
+            curr.rules.forEach((r) => {
+               let cleanRule = this.whereCleanUp(r);
+               // don't add values that didn't pass
+               if (cleanRule) {
+                  newValue.rules.push(cleanRule);
+               }
+            });
+
+            // if we have a non empty block, then return it:
+            if (newValue.rules.length > 0) {
+               return newValue;
+            }
+
+            // this isn't really a valid conditional, so null
+            return null;
+         }
+
+         // This is a specific rule, that isn't null so:
+         // if it isn't {}, then return it
+         if (Object.keys(curr).length > 0) return curr;
+
+         // otherwise we skip this as well
+         return null;
+      }
+      return null;
    }
 }
 
@@ -11460,10 +13295,10 @@ class ABObjectQueryCore extends _platform_ABObject__WEBPACK_IMPORTED_MODULE_0__[
          });
       };
 
+      this.__linkProblems = this.__linkProblems ?? [];
+
       let processJoin = (baseObject, joins) => {
          if (!baseObject) return;
-
-         this.__linkProblems = this.__linkProblems ?? [];
 
          (joins || []).forEach((link) => {
             // Convert our saved settings:
@@ -12098,7 +13933,7 @@ class ABProcessCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_0__["de
       //       : values[0]
       //    : null;
 
-      var tasksToAsk = this.allPreviousTasks(currElement)
+      var tasksToAsk = this.allPreviousTasks(currElement);
       var values = queryPreviousTasks(tasksToAsk, "processData", params, this);
       return values.length > 0
          ? values.length > 1
@@ -12126,6 +13961,13 @@ class ABProcessCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_0__["de
          null,
          this
       );
+      // Include data from the main process as well
+      if (this.key === "SubProcess") {
+         const parentFields = this.process.processDataFields(this);
+         if (parentFields) {
+            fields.push(...parentFields);
+         }
+      }
       return fields.length > 0 ? fields : null;
    }
 
@@ -12477,10 +14319,6 @@ __webpack_require__.r(__webpack_exports__);
 
 var AllViews = [
    // require("../platform/views/ABView"),
-   /////
-   ///// LEFT OFF HERRE:
-   /////
-   /// TODO: test this out:
    await Promise.resolve(/*! import() */).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/views/ABView */ 69459)),
    // require("../platform/views/ABViewCarousel"),
    // require("../platform/views/ABViewChart"),
@@ -12495,6 +14333,7 @@ var AllViews = [
    // require("../platform/views/ABViewCSVExporter"),
    // require("../platform/views/ABViewCSVImporter"),
    // require("../platform/views/ABViewDataFilter"),
+   // require("../platform/views/ABViewDataSelect"),
    // require("../platform/views/ABViewDataview"),
    // require("../platform/views/ABViewDocxBuilder"),
    // require("../platform/views/ABViewGrid"),
@@ -12503,6 +14342,7 @@ var AllViews = [
    // require("../platform/views/ABViewLayout"),
    // require("../platform/views/ABViewList"),
    // require("../platform/views/ABViewMenu"),
+   // require("../platform/views/ABViewOrgChart"),
    // require("../platform/views/ABViewPage"),
    // require("../platform/views/ABViewPDFImporter"),
    // require("../platform/views/ABViewPivot"),
@@ -12591,11 +14431,13 @@ class ABViewManagerCore {
       //		if ((values.key) && (Views[values.key])) {
       if (values.key) {
          if (!Views[values.key]) {
-            console.error(
-               "!! View[" +
-                  values.key +
-                  "] not yet defined.  Have an ABView instead:"
-            );
+            if (!isPlugin(values.key)) {
+               console.error(
+                  "!! View[" +
+                     values.key +
+                     "] not yet defined.  Have an ABView instead:"
+               );
+            }
             return new Views["view"](values, application, parent);
          }
 
@@ -12619,10 +14461,133 @@ class ABViewManagerCore {
       console.error(`Unknown View Key[${key}]`);
       return;
    }
+
+   static addViewClass(View) {
+      Views[View.common().key] = View;
+   }
+}
+
+/**
+ * Check if the key starts with plugin_
+ */
+function isPlugin(key) {
+   return key.split("_")[0] === "plugin";
 }
 
 __webpack_async_result__();
 } catch(e) { __webpack_async_result__(e); } }, 1);
+
+/***/ }),
+
+/***/ 40080:
+/*!***********************************************************!*\
+  !*** ./src/js/AppBuilder/core/ABViewManagerMobileCore.js ***!
+  \***********************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+/*
+ * ABViewManagerMobile
+ *
+ * An interface for managing the different ABViews available in our AppBuilder.
+ *
+ */
+
+/*
+ * Views
+ * A name => ABView  hash of the different ABViews available.
+ */
+var Views = {};
+[
+   __webpack_require__(/*! ../platform/mobile/ABMobilePage */ 77831),
+   __webpack_require__(/*! ../platform/mobile/ABMobileView */ 53349),
+   __webpack_require__(/*! ../platform/mobile/ABMobileViewCustom */ 95609),
+   __webpack_require__(/*! ../platform/mobile/ABMobileViewForm */ 55805),
+   __webpack_require__(/*! ../platform/mobile/ABMobileViewFormButton */ 50037),
+   __webpack_require__(/*! ../platform/mobile/ABMobileViewFormCheckbox */ 92092),
+   __webpack_require__(/*! ../platform/mobile/ABMobileViewFormConnect */ 2493),
+   __webpack_require__(/*! ../platform/mobile/ABMobileViewFormDate */ 37272),
+   __webpack_require__(/*! ../platform/mobile/ABMobileViewFormDatetime */ 43717),
+   __webpack_require__(/*! ../platform/mobile/ABMobileViewFormEmail */ 46722),
+   __webpack_require__(/*! ../platform/mobile/ABMobileViewFormFile */ 94298),
+   __webpack_require__(/*! ../platform/mobile/ABMobileViewFormFormula */ 92696),
+   __webpack_require__(/*! ../platform/mobile/ABMobileViewFormImage */ 14241),
+   __webpack_require__(/*! ../platform/mobile/ABMobileViewFormNumber */ 95729),
+   __webpack_require__(/*! ../platform/mobile/ABMobileViewFormReadonly */ 95620),
+   __webpack_require__(/*! ../platform/mobile/ABMobileViewFormSelectMultiple */ 77614),
+   __webpack_require__(/*! ../platform/mobile/ABMobileViewFormSelectSingle */ 88001),
+   __webpack_require__(/*! ../platform/mobile/ABMobileViewFormTextbox */ 36959),
+   __webpack_require__(/*! ../platform/mobile/ABMobileViewLabel */ 84205),
+   __webpack_require__(/*! ../platform/mobile/ABMobileViewList */ 78261),
+   __webpack_require__(/*! ../platform/mobile/ABMobileViewTimeline */ 15103),
+].forEach((v) => {
+   if (v.default?.common) {
+      v = v.default;
+   }
+   Views[v.common().key] = v;
+});
+
+module.exports = class ABViewManagerCore {
+   /**
+    * @function allViews
+    * return all the currently defined ABViews in an array.
+    * @return [{ABView},...]
+    */
+   static allViews(fn = () => true) {
+      var views = [];
+      for (var v in Views) {
+         var V = Views[v];
+         if (fn(V)) {
+            views.push(V);
+         }
+      }
+      return views;
+   }
+
+   /**
+    * @function newView
+    * return an instance of an ABView based upon the values.key value.
+    * @return {ABView}
+    */
+   static newView(values, application, parent) {
+      parent = parent || null;
+
+      if (values.key == "detailselectivity") {
+         values.key = "detailconnect";
+      }
+
+      //		if ((values.key) && (Views[values.key])) {
+      if (values.key) {
+         if (!Views[values.key]) {
+            console.error(
+               "!! View[" +
+                  values.key +
+                  "] not yet defined.  Have an ABView instead:"
+            );
+            return new Views["mobile-view"](values, application, parent);
+         }
+
+         return new Views[values.key](values, application, parent);
+      } else {
+         var err = new Error(`Unknown view key [${values.key}]`);
+         console.error(err); // show the stack.
+         console.error({
+            error: err,
+            values: values,
+            application: application,
+         });
+         return null;
+      }
+   }
+
+   static viewClass(key) {
+      if (Views[key]) {
+         return Views[key];
+      }
+      console.error(`Unknown View Key[${key}]`);
+      return;
+   }
+};
+
 
 /***/ }),
 
@@ -12658,6 +14623,13 @@ function getFieldVal(rowData, field) {
       value = rowData[columnName];
    }
 
+   // pull relation data
+   if (value == null && field.relationName) {
+      const relationName = field.relationName();
+      const pureRelationName = relationName.split(".")[1]; // support [BASE_OBJECT.columnName] field name of ABQuery
+      value = rowData[relationName] || rowData[pureRelationName];
+   }
+
    if (value != null && !isNaN(value)) {
       return value;
    }
@@ -12683,24 +14655,32 @@ function getFieldVal(rowData, field) {
 function getConnectFieldValue(rowData, field) {
    let connectedVal = "";
 
-   if (rowData) {
-      let relationName = field.relationName();
-      if (rowData[relationName]) {
-         connectedVal =
+   const extractVal = (itemData) => {
+      let val;
+      const relationName = field.relationName();
+      if (itemData[relationName]) {
+         val =
             (field.indexField
-               ? rowData[relationName][field.indexField.columnName]
+               ? itemData[relationName][field.indexField.columnName]
                : null) ?? // custom index
             (field.indexField2
-               ? rowData[relationName][field.indexField2.columnName]
+               ? itemData[relationName][field.indexField2.columnName]
                : null) ?? // custom index 2
-            rowData[relationName].id ??
-            rowData[relationName];
+            itemData[relationName].id ??
+            itemData[relationName];
       } else {
-         let fieldVal = getFieldVal(rowData, field);
+         let fieldVal = getFieldVal(itemData, field);
          if (fieldVal != null) {
-            connectedVal = fieldVal;
+            val = fieldVal;
          }
       }
+      return val;
+   };
+
+   if (Array.isArray(rowData)) {
+      connectedVal = rowData.map((data) => extractVal(data));
+   } else if (rowData) {
+      connectedVal = extractVal(rowData);
    }
    return connectedVal;
 }
@@ -12783,7 +14763,7 @@ class FilterComplexCore extends _platform_ABComponent__WEBPACK_IMPORTED_MODULE_0
             return;
          }
          // Skip incomplete filter condition
-         else if (!filter.key || !filter.rule) return;
+         else if (!filter || !filter.key || !filter.rule) return;
 
          const fieldInfo = (this._Fields || []).filter(
             (f) => f.id == filter.key || f.columnName == filter.key
@@ -12929,7 +14909,6 @@ class FilterComplexCore extends _platform_ABComponent__WEBPACK_IMPORTED_MODULE_0
 
       if (!(compareValue instanceof Date))
          compareValue = new Date(compareValue);
-
       switch (rule) {
          case "less":
             result = value < compareValue;
@@ -12943,11 +14922,26 @@ class FilterComplexCore extends _platform_ABComponent__WEBPACK_IMPORTED_MODULE_0
          case "greater_or_equal":
             result = value >= compareValue;
             break;
+         case "is_current_date":
+            result =
+               value.setHours(0, 0, 0, 0) == compareValue.setHours(0, 0, 0, 0);
+            break;
+         case "is_empty":
+            result = !value;
+            break;
+         case "is_not_empty":
+            result = !!value;
+            break;
+         case "is_null":
+            result = value == null;
+            break;
+         case "is_not_null":
+            result = value != null;
+            break;
          default:
             result = this.queryFieldValid(value, rule, compareValue);
             break;
       }
-
       return result;
    }
 
@@ -13012,8 +15006,15 @@ class FilterComplexCore extends _platform_ABComponent__WEBPACK_IMPORTED_MODULE_0
       let result = false;
 
       switch (rule) {
-         case "equals":
-            result = value == compareValue;
+         case "checked":
+            result = value == true || value > 0 || value == "true";
+            break;
+         case "unchecked":
+            result =
+               value == false ||
+               value <= 0 ||
+               value == "false" ||
+               value == null;
             break;
          default:
             result = this.queryFieldValid(value, rule, compareValue);
@@ -13024,42 +15025,46 @@ class FilterComplexCore extends _platform_ABComponent__WEBPACK_IMPORTED_MODULE_0
    }
 
    userValid(value, rule, compareValue) {
-      if (!value) return false;
+      if (!value || !value?.length) return false;
       let result = false;
 
-      // if (Array.isArray(value)) value = [value];
+      if (!Array.isArray(value)) value = [value];
 
+      /* eslint-disable no-fallthrough */
       switch (rule) {
          case "is_current_user":
-            result = value == this.Account.username;
-            break;
-         case "is_not_current_user":
-            result = value != this.Account.username;
-            break;
-         case "contain_current_user":
-            if (!Array.isArray(value)) value = [value];
-
             result =
-               value.filter((v) => (v.username || v) == this.Account.username)
+               value.filter((v) => (v?.username || v) == this.Account.username)
                   .length > 0;
             break;
-         case "not_contain_current_user":
-            if (!Array.isArray(value)) value = [value];
-
+         case "is_not_current_user":
             result =
-               value.filter((v) => (v.username || v) == this.Account.username)
-                  .length < 1;
+               value.filter((v) => (v?.username || v) != this.Account.username)
+                  .length > 0;
             break;
+         case "contain_current_user":
+            compareValue = this.Account.username;
+         // break;  <-- NO BREAK HERE: fall through to "equals"
+
          case "equals":
-            result = value.indexOf(compareValue) > -1;
+            result =
+               value.filter((v) => (v?.username || v) == compareValue).length >
+               0;
             break;
+         case "not_contain_current_user":
+            compareValue = this.Account.username;
+         // break;  <-- NO BREAK HERE: fall through to "not_equals"
+
          case "not_equal":
-            result = value.indexOf(compareValue) < 0;
+            result =
+               value.filter((v) => (v?.username || v) == compareValue).length <
+               1;
             break;
          default:
             result = this.queryFieldValid(value, rule, compareValue);
             break;
       }
+      /* eslint-enable no-fallthrough */
 
       return result;
    }
@@ -13158,20 +15163,30 @@ class FilterComplexCore extends _platform_ABComponent__WEBPACK_IMPORTED_MODULE_0
 
       let connectedVal = "";
 
+      let linkType = field.linkType();
+
       if (rowData) {
          if (rowData[relationName]) {
-            connectedVal = (
-               (field.indexField
-                  ? rowData[relationName][field.indexField.columnName]
-                  : null) ?? // custom index
-               (field.indexField2
-                  ? rowData[relationName][field.indexField2.columnName]
-                  : null) ?? // custom index 2
-               rowData[relationName].id ??
-               rowData[relationName]
-            )
-               .toString()
-               .toLowerCase();
+            if (linkType == "many") {
+               // lets get an array of connected ids => stringified()
+               connectedVal = JSON.stringify(
+                  getConnectFieldValue(rowData, field).map((i) => i.id || i)
+               );
+            } else {
+               // connectedVal = (
+               //    (field.indexField
+               //       ? rowData[relationName][field.indexField.columnName]
+               //       : null) ?? // custom index
+               //    (field.indexField2
+               //       ? rowData[relationName][field.indexField2.columnName]
+               //       : null) ?? // custom index 2
+               //    rowData[relationName].id ??
+               //    rowData[relationName]
+               // )
+               connectedVal = getConnectFieldValue(rowData, field)
+                  .toString()
+                  .toLowerCase();
+            }
          } else {
             let fieldVal = getFieldVal(rowData, field);
             if (fieldVal != null) {
@@ -13183,15 +15198,39 @@ class FilterComplexCore extends _platform_ABComponent__WEBPACK_IMPORTED_MODULE_0
       // If value will be the connected object, then pull value (string)
       if (typeof connectedVal == "object") {
          connectedVal =
-            connectedVal[field.indexField.columnName] ??
-            connectedVal[field.indexField2.columnName] ??
+            (field.indexField
+               ? connectedVal[field.indexField.columnName]
+               : null) ??
+            (field.indexField2
+               ? connectedVal[field.indexField2.columnName]
+               : null) ??
             connectedVal[field.columnName] ??
+            connectedVal.id ??
             connectedVal;
       }
 
-      let compareValueLowercase = (compareValue || "").toLowerCase();
+      // Compare value isn't always a string?
+      // https://appdev-designs.sentry.io/issues/5056850389/
+      let compareValueLowercase =
+         typeof compareValue === "string"
+            ? compareValue.toLowerCase?.()
+            : compareValue;
 
-      switch (rule) {
+      // NOTE: if linkType == many, and rule is equals/not_equal,
+      // these will be interpreted as "contains/not_contains"
+      let ruleSafe = rule;
+      if (linkType == "many") {
+         switch (rule) {
+            case "equals":
+               ruleSafe = "contains";
+               break;
+            case "not_equal":
+               ruleSafe = "not_contains";
+               break;
+         }
+      }
+
+      switch (ruleSafe) {
          case "contains":
             return connectedVal.toString().indexOf(compareValueLowercase) > -1;
          case "not_contains":
@@ -13385,18 +15424,29 @@ class FilterComplexCore extends _platform_ABComponent__WEBPACK_IMPORTED_MODULE_0
 
                   // Add filter options to Custom index
                   if (
-                     f.settings.isCustomFK &&
                      // 1:M
-                     ((f.settings.linkType == "one" &&
+                     (f.settings.linkType == "one" &&
                         f.settings.linkViaType == "many") ||
-                        // 1:1 isSource = true
-                        (f.settings.linkType == "one" &&
-                           f.settings.linkViaType == "one" &&
-                           f.settings.isSource))
+                     // 1:1 isSource = true
+                     (f.settings.linkType == "one" &&
+                        f.settings.linkViaType == "one" &&
+                        f.settings.isSource)
                   ) {
-                     const stringResults = this.fieldsAddFiltersString(f);
-
+                     const stringResults = this.fieldsAddFiltersString(
+                        f
+                     ).filter(
+                        (opt) =>
+                           f.settings.isCustomFK ||
+                           // If this connect field does not use custom FK, then allow just `is empty` and `is not empty` filter options
+                           opt.id == "is_empty" ||
+                           opt.id == "is_not_empty"
+                     );
                      conditions = stringResults.concat(conditions);
+
+                     // By Query Field
+                     conditions = conditions.concat(
+                        this.fieldsAddFiltersQuery(f, true)
+                     );
                   }
 
                   hasQueryField = false;
@@ -13546,6 +15596,7 @@ class FilterComplexCore extends _platform_ABComponent__WEBPACK_IMPORTED_MODULE_0
          greater: this.labels.component.afterCondition,
          less_or_equal: this.labels.component.onOrBeforeCondition,
          greater_or_equal: this.labels.component.onOrAfterCondition,
+         is_current_date: this.labels.component.isCurrentDateCondition,
          less_current: this.labels.component.beforeCurrentCondition,
          greater_current: this.labels.component.afterCurrentCondition,
          less_or_equal_current:
@@ -13554,19 +15605,45 @@ class FilterComplexCore extends _platform_ABComponent__WEBPACK_IMPORTED_MODULE_0
             this.labels.component.onOrAfterCurrentCondition,
          last_days: this.labels.component.onLastDaysCondition,
          next_days: this.labels.component.onNextDaysCondition,
+         is_empty: this.labels.component.isEmpty,
+         is_not_empty: this.labels.component.isNotEmpty,
       };
 
       let result = [];
 
-      for (let condKey in dateConditions) {
-         result.push({
-            id: condKey,
-            value: dateConditions[condKey],
-            batch: "datepicker",
-            handler: (a, b) => this.dateValid(a, condKey, b),
-         });
-      }
-
+      for (let condKey in dateConditions)
+         switch (condKey) {
+            case "is_current_date":
+            case "less_current":
+            case "greater_current":
+            case "less_or_equal_current":
+            case "greater_or_equal_current":
+            case "is_empty":
+            case "is_not_empty":
+               result.push({
+                  id: condKey,
+                  value: dateConditions[condKey],
+                  batch: "none",
+                  handler: (a, b) => this.dateValid(a, condKey, b),
+               });
+               break;
+            case "last_days":
+               result.push({
+                  id: condKey,
+                  value: dateConditions[condKey],
+                  batch: "text",
+                  handler: (a, b) => this.dateValid(a, condKey, b),
+               });
+               break;
+            default:
+               result.push({
+                  id: condKey,
+                  value: dateConditions[condKey],
+                  batch: "datepicker",
+                  handler: (a, b) => this.dateValid(a, condKey, b),
+               });
+               break;
+         }
       return result;
    }
 
@@ -13658,7 +15735,8 @@ class FilterComplexCore extends _platform_ABComponent__WEBPACK_IMPORTED_MODULE_0
 
    fieldsAddFiltersBoolean(field) {
       let booleanConditions = {
-         equals: this.labels.component.equalListCondition,
+         checked: this.labels.component.checkedCondition,
+         unchecked: this.labels.component.notCheckedCondition,
       };
 
       let result = [];
@@ -13667,7 +15745,7 @@ class FilterComplexCore extends _platform_ABComponent__WEBPACK_IMPORTED_MODULE_0
          result.push({
             id: condKey,
             value: booleanConditions[condKey],
-            batch: "boolean",
+            batch: "none",
             handler: (a, b) => this.booleanValid(a, condKey, b),
          });
       }
@@ -13948,6 +16026,11 @@ class FilterComplexCore extends _platform_ABComponent__WEBPACK_IMPORTED_MODULE_0
          "not_contain_current_user",
          "same_as_user",
          "not_same_as_user",
+         "is_empty",
+         "is_not_empty",
+         "checked",
+         "unchecked",
+         "is_current_date",
       ];
 
       const isCompleteRules = (rules = []) => {
@@ -15322,7 +17405,14 @@ class ABFieldCalculateCore extends _platform_dataFields_ABField__WEBPACK_IMPORTE
     * @param {integer} place
     * @param {string} alias [Optional]
     */
-   static convertToJs(object, formula, rowData, place, alias = null) {
+   static convertToJs(
+      object,
+      formula,
+      rowData,
+      place,
+      alias = null,
+      recalculate = false
+   ) {
       if (!formula) return "";
 
       // replace with current date
@@ -15351,7 +17441,7 @@ class ABFieldCalculateCore extends _platform_dataFields_ABField__WEBPACK_IMPORTE
          }
          // calculate and formula fields
          else if (f.key == "calculate" || f.key == "formula") {
-            let calVal = f.format(rowData) || 0;
+            let calVal = f.format(rowData, recalculate) || 0;
 
             // pull number only
             if (typeof calVal == "string")
@@ -15365,7 +17455,7 @@ class ABFieldCalculateCore extends _platform_dataFields_ABField__WEBPACK_IMPORTE
             );
          }
          // date fields
-         else if (f.key == "date") {
+         else if (f.key == "date" || f.key == "datetime") {
             const dateVal = `"${data || ""}"`; // "date"
             formula = formula.replace(
                new RegExp("{" + colName + "}", "g"),
@@ -15403,7 +17493,7 @@ class ABFieldCalculateCore extends _platform_dataFields_ABField__WEBPACK_IMPORTE
       delete values[this.columnName];
    }
 
-   format(rowData) {
+   format(rowData, recalculate = false) {
       let place = 0;
       if (this.settings.decimalSign != "none") {
          place = this.settings.decimalPlaces;
@@ -15415,7 +17505,8 @@ class ABFieldCalculateCore extends _platform_dataFields_ABField__WEBPACK_IMPORTE
             this.settings.formula,
             rowData,
             place,
-            this.alias
+            this.alias,
+            recalculate
          );
 
          if (typeof result == "string")
@@ -15554,6 +17645,58 @@ class ABFieldCombineCore extends _platform_dataFields_ABField__WEBPACK_IMPORTED_
    defaultValue(values) {
       // Remove every values, then we will use AUTO_INCREMENT of MySQL
       delete values[this.columnName];
+   }
+
+   /**
+    * @method getCombinedFields
+    * Retrieve the fields used to combine and generate a specific value
+    *
+    * @return {Array}
+    */
+   getCombinedFields() {
+      const result = [];
+
+      (this.settings?.combinedFields ?? "").split(",").forEach((fieldId) => {
+         const fld = this.object.fields((f) => f.id == fieldId)[0];
+         if (!fld) return;
+
+         result.push(fld);
+      });
+
+      return result;
+   }
+
+   /**
+    * @method format
+    * Convert the value of a connected field (without a custom index) to display the label of the linked object
+    *
+    * @param {Object} rowData
+    * @returns {String}
+    */
+   format(rowData) {
+      let val = rowData[this.columnName] ?? "";
+
+      this.getCombinedFields().forEach((f, index) => {
+         if (
+            f.key != "connectObject" ||
+            f.settings.indexField ||
+            f.settings.indexField2
+         )
+            return;
+
+         let connectVal = rowData[f.relationName()];
+         if (!connectVal) return;
+
+         if (!Array.isArray(connectVal)) connectVal = [connectVal];
+
+         const connectLabel = connectVal
+            .map((item) => item.text ?? f.datasourceLink.displayData(item))
+            .join("|");
+
+         val = val.replace(rowData[f.columnName], connectLabel);
+      });
+
+      return val;
    }
 }
 
@@ -15853,11 +17996,21 @@ class ABFieldConnectCore extends _platform_dataFields_ABField__WEBPACK_IMPORTED_
             .join(", ");
       // string
       else if (val) {
-         if (val.text == null) return linkedObject.displayData(rowData) || "";
+         if (val.text == null) return linkedObject.displayData(val) || "";
          else if (val.text) return val.text || "";
       }
       // empty string
       else return "";
+   }
+
+   /**
+    * @method LinkString()
+    * A string representation of the type of link this represents.
+    * "one:many", "many:one", "one:one", etc...
+    * @return {string}
+    */
+   get LinkString() {
+      return `${this.settings.linkType}:${this.settings.linkViaType}`;
    }
 
    /**
@@ -15895,7 +18048,7 @@ class ABFieldConnectCore extends _platform_dataFields_ABField__WEBPACK_IMPORTED_
       if (!this.settings.isCustomFK || !this.settings.indexField) {
          return null;
       }
-      const linkType = `${this.settings.linkType}:${this.settings.linkViaType}`;
+      const linkType = this.LinkString; // `${this.settings.linkType}:${this.settings.linkViaType}`;
       // 1:M
       if (linkType === "one:many") {
          return this.datasourceLink.fieldByID(this.settings.indexField);
@@ -15969,7 +18122,7 @@ class ABFieldConnectCore extends _platform_dataFields_ABField__WEBPACK_IMPORTED_
       const indexField = this.indexField;
       const datasourceLink = this.datasourceLink;
 
-      const linkType = `${this.settings.linkType}:${this.settings.linkViaType}`;
+      const linkType = this.LinkString; // `${this.settings.linkType}:${this.settings.linkViaType}`;
 
       // custom index
       // M:N
@@ -15999,9 +18152,7 @@ class ABFieldConnectCore extends _platform_dataFields_ABField__WEBPACK_IMPORTED_
          if (options.forUpdate) {
             colName = datasourceLink.PK();
          } else {
-            colName = indexField
-               ? indexField.columnName
-               : this.fieldLink.columnName;
+            colName = indexField ? indexField.columnName : datasourceLink.PK();
          }
       }
       // NO CUSTOM INDEX
@@ -16421,6 +18572,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+/*function L(key, altText) {
+   // TODO:git 
+   // return altText; // AD.lang.label.getLabel(key) || altText;
+}*/
+
 const ABFieldDateDefaults = {
    key: "date",
    // unique key to reference this specific DataField
@@ -16567,15 +18723,21 @@ class ABFieldDateCore extends _platform_dataFields_ABField__WEBPACK_IMPORTED_MOD
     */
    isValidData(data, validator) {
       super.isValidData(data, validator);
-      let L = this.AB.Label();
+      var L = this.AB.Label();
+
+      const currentDate = new Date();
+      currentDate.setHours(0, 0, 0, 0);
 
       if (data[this.columnName]) {
          let value = data[this.columnName];
 
          if (!(value instanceof Date)) {
+            console.log(`value:[${value}]`);
             value = this.AB.rules.toDate(value);
             // value = new Date(this.convertToMoment(value));
          }
+
+         let L = this.AB.Label();
 
          // verify we didn't end up with an InValid Date result.
          if (
@@ -16711,6 +18873,30 @@ class ABFieldDateCore extends _platform_dataFields_ABField__WEBPACK_IMPORTED_MOD
                            L("Should before or equal {0}", [startDateDisplay])
                         );
                      break;
+                  case "lessCurrentDate":
+                     isValid =
+                        value.getTime &&
+                        value.getTime() < currentDate.getTime();
+                     if (!isValid)
+                        validator.addError(
+                           this.columnName,
+                           L("Should before {0}", [
+                              this.getDateDisplay(currentDate),
+                           ])
+                        );
+                     break;
+                  case "lessEqualCurrentDate":
+                     isValid =
+                        value.getTime &&
+                        value.getTime() <= currentDate.getTime();
+                     if (!isValid)
+                        validator.addError(
+                           this.columnName,
+                           L("Should before or equal {0}", [
+                              this.getDateDisplay(currentDate),
+                           ])
+                        );
+                     break;
                }
             }
 
@@ -16744,10 +18930,9 @@ class ABFieldDateCore extends _platform_dataFields_ABField__WEBPACK_IMPORTED_MOD
    getFormat() {
       let dateFormatString = "";
 
-      const dateFormat =
-         this.settings && this.settings.dateFormat
-            ? this.settings.dateFormat
-            : "";
+      const dateFormat = this.settings?.dateFormat
+         ? this.settings.dateFormat
+         : "";
 
       switch (dateFormat) {
          //Ignore Date
@@ -16872,7 +19057,7 @@ const ABFieldDateDefaults = {
    // if a {fn} is provided, it will be called with the ABField as a parameter:
    //  (field) => field.setting.something == true
 
-   isSortable: false,
+   isSortable: true,
    // {bool} / {fn}
    // determines if the current ABField can be used to Sort data.
    // if a {fn} is provided, it will be called with the ABField as a parameter:
@@ -17029,7 +19214,10 @@ class ABFieldDateTimeCore extends _ABFieldDateCore__WEBPACK_IMPORTED_MODULE_0__[
          return "";
       }
 
-      return webix.Date.dateToStr(datetimeFormat)(dateObj);
+      if (this.AB.Webix)
+         return this.AB.Webix.Date.dateToStr(datetimeFormat)(dateObj);
+      else
+         return dateObj?.toISOString() ?? "";
    }
 
    getTimeFormat() {
@@ -17393,8 +19581,16 @@ class ABFieldFileCore extends _platform_dataFields_ABField__WEBPACK_IMPORTED_MOD
 
       // if we have our default empty object, then remove the entry
       // and let the DB insert a null value.
-      if (myParameter?.[this.columnName] == "{}") {
+      let val = myParameter?.[this.columnName];
+      if (val == "{}" || val == "") {
          delete myParameter[this.columnName];
+      }
+      if ("string" === typeof val) {
+         try {
+            myParameter[this.columnName] = JSON.parse(val);
+         } catch (e) {
+            /* ignore */
+         }
       }
 
       return myParameter;
@@ -18755,7 +20951,7 @@ class ABFieldNumberCore extends _platform_dataFields_ABField__WEBPACK_IMPORTED_M
    format(rowData) {
       if (
          rowData?.[this.columnName] == null ||
-         (rowData[this.columnName] != 0 && rowData[this.columnName] == "")
+         (rowData[this.columnName] !== 0 && rowData[this.columnName] == "")
       )
          return "";
 
@@ -18847,20 +21043,13 @@ class ABFieldNumberCore extends _platform_dataFields_ABField__WEBPACK_IMPORTED_M
          integerValue = integerStr;
       }
 
-      let result = "";
+      // Integer
+      let result = `${negativeSign}${integerValue}`;
 
       // Decimal
-      if (options.decimalDelimiter && options.decimalSize) {
-         result = `${negativeSign}${integerValue}${
-            decimalStr
-               ? options.decimalDelimiter +
-                 decimalStr.toString().substr(0, options.decimalSize)
-               : ""
-         }`;
-      }
-      // Integer
-      else {
-         result = `${negativeSign}${integerValue}`;
+      if (decimalStr && options.decimalDelimiter && options.decimalSize) {
+         const decimalVal = data.toFixed(options.decimalSize).split(".")[1];
+         result += `${options.decimalDelimiter}${decimalVal}`;
       }
 
       return result;
@@ -19071,13 +21260,8 @@ class ABFieldStringCore extends _platform_dataFields_ABField__WEBPACK_IMPORTED_M
    isValidData(data, validator) {
       super.isValidData(data, validator);
 
-      const L = this.AB.Label();
-
-      if (
-         data &&
-         data[this.columnName] &&
-         data[this.columnName].length > MAX_CHAR_LENGTH
-      ) {
+      if (data?.[this.columnName]?.length > MAX_CHAR_LENGTH) {
+         const L = this.AB.Label();
          validator.addError(
             this.columnName,
             L("should NOT be longer than {0} characters", [MAX_CHAR_LENGTH])
@@ -20101,6 +22285,13 @@ const defaultValues = {
 class ABFieldUserCore extends _platform_dataFields_ABFieldConnect__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(values, object) {
       super(values, object, ABFieldUserDefaults);
+
+      this.isUser = true;
+      // {bool}
+      // is this an ABFieldUser type of field.
+      // this is a simplified helper to identify if an ABField is a type
+      // of User field.  Since this is the only place it is defined,
+      // all other field types will be falsy
    }
 
    // return the default values for this DataField
@@ -20178,13 +22369,30 @@ __webpack_require__.r(__webpack_exports__);
 
 const ABMobilePageDefaults = {
    key: "mobile-page", // unique key identifier for this ABView
-   icon: "file", // icon reference: (without 'fa-' )
+   icon: "file", // icon reference: (without 'fa-'  )
 };
 
 const ABPropertyComponentDefaults = {
    type: "page",
    // {string}
    // What type of "Page" this is: ['page', 'popup', 'reportPage']
+
+   defaultPage: 0,
+   // {bool} 1|0
+   // is this the default page for the Mobile App? If so, this is the initial
+   // Page that is displayed when the App is loaded.
+   // NOTE: there can be only 1 page defined in the app as .defaultPage
+
+   hideTitle: 0,
+   // {bool} 1|0
+   // By default we will display this.label as our Title. Set this to 1 to not
+   // show the tile on the page.
+
+   hideTabs: 0,
+   // {bool} 1|0
+   // By default, pages will show any Tab options on their display.  Set this
+   // to 1 to not show the tab options for this Page. (good for pages that
+   // are linkedPages with forms )
 };
 
 class ABMobilePageCore extends _platform_mobile_ABMobileView__WEBPACK_IMPORTED_MODULE_0__["default"] {
@@ -20240,6 +22448,8 @@ class ABMobilePageCore extends _platform_mobile_ABMobileView__WEBPACK_IMPORTED_M
 
       obj.menuType = this.menuType;
 
+      obj.defaultPage = this.defaultPage;
+
       // icon of popup page
       if (this.settings.type == "popup") obj.icon = "clone";
 
@@ -20261,7 +22471,10 @@ class ABMobilePageCore extends _platform_mobile_ABMobileView__WEBPACK_IMPORTED_M
    fromValues(values) {
       super.fromValues(values);
 
-      this.route = values.route || this.name.replaceAll(" ", "_");
+      const DV = ABPropertyComponentDefaults;
+
+      this.route =
+         values.route || (this.name || this.label).replaceAll(" ", "_");
 
       // icon of popup page
       if (values.settings.type == "popup") this.icon = "clone";
@@ -20279,6 +22492,27 @@ class ABMobilePageCore extends _platform_mobile_ABMobileView__WEBPACK_IMPORTED_M
       // {string}  ["menu", "tab"]
       // indicates if this Page was added as a Mobile App's "menu" or "Tab"
 
+      this.defaultPage = values.defaultPage || 0;
+      // {bool}  1|0
+      // indicates if this is the default page that is loaded when the mobile app
+      // is started.
+      // NOTE: only 1 Page in a Mobile App can have this setting = 1.
+
+      this.settings.hideTitle = parseInt(
+         values.settings.hideTitle ?? DV.hideTitle
+      );
+      // {bool} 1|0
+      // By default an ABMobilePage will display it's this.label for a title
+      // on the page.  Setting this to TRUE (1) will hide the title.
+
+      this.settings.hideTabs = parseInt(
+         values.settings.hideTabs ?? DV.hideTabs
+      );
+      // {bool} 1|0
+      // By default, pages will show any Tab options on their display.  Set this
+      // to 1 to not show the tab options for this Page. (good for pages that
+      // are linkedPages with forms )
+
       // now properly handle our sub pages.
       var pages = [];
       (values.pageIDs || []).forEach((id) => {
@@ -20286,8 +22520,14 @@ class ABMobilePageCore extends _platform_mobile_ABMobileView__WEBPACK_IMPORTED_M
          if (def) {
             pages.push(this.pageNew(def));
          } else {
-            this.AB.error(
-               `App[${this.application.name}][${this.application.id}]->Page[${this.name}][${this.id}] referenced an unknown Page[${id}]`
+            this.emit(
+               "warning",
+               `App[${this.application.name}][${this.application.id}]->Page[${this.name}][${this.id}] referenced an unknown Page[${id}]`,
+               {
+                  appID: this.application.id,
+                  pageID: this.id,
+                  missingPageID: id,
+               }
             );
          }
       });
@@ -20356,8 +22596,28 @@ class ABMobilePageCore extends _platform_mobile_ABMobileView__WEBPACK_IMPORTED_M
             return parent.pageInsert(this);
          })
          .then(() => {
+            // make sure .defaultPage is properly set
+            if (this.defaultPage) {
+               return this.application.setPageDefault(this);
+            }
+         })
+         .then(() => {
             return this;
          });
+   }
+
+   /**
+    * @method refreshInstance()
+    * This returns a NEW instance of a ABMobilePage based upon the latest
+    * version of it's Definition.  It also resolves any current listeners
+    * this copy currently has and prepare this to discard itself.
+    */
+   refreshInstance() {
+      console.warn(
+         "This version of ABMobilePage hasn't updated it's refreshInstance()",
+         this
+      );
+      return this;
    }
 
    ///
@@ -20380,18 +22640,19 @@ class ABMobilePageCore extends _platform_mobile_ABMobileView__WEBPACK_IMPORTED_M
 
       // find into sub-pages recursively
       if (filter && deep) {
-         if (this._pages && this._pages.length > 0) {
-            result = this._pages.filter(filter);
+         // if (this._pages && this._pages.length > 0) {
+         //    result = this._pages.filter(filter);
 
-            if (result.length < 1) {
-               this._pages.forEach((p) => {
-                  var subPages = p.pages(filter, deep);
-                  if (subPages && subPages.length > 0) {
-                     result = subPages;
-                  }
-               });
-            }
-         }
+         //    if (result.length < 1) {
+         //       this._pages.forEach((p) => {
+         //          var subPages = p.pages(filter, deep);
+         //          if (subPages && subPages.length > 0) {
+         //             result = subPages;
+         //          }
+         //       });
+         //    }
+         // }
+         result = this.application._searchDeep(this, "_pages", filter);
       }
       // find root pages
       else {
@@ -20777,7 +23038,10 @@ class ABMobileViewCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_0__[
       // default value for our label
       if (this.label == "?label?") {
          if (this.parent) {
-            this.label = this.parent.label + "." + this.defaults.key;
+            this.label =
+               this.parent.label +
+               "." +
+               (this.field?.()?.columnName ?? this.defaults.key);
          }
       }
 
@@ -20923,11 +23187,11 @@ class ABMobileViewCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_0__[
       var form = null;
 
       var curr = this;
-      while (curr.key != "form" && !curr.isRoot() && curr.parent) {
+      while (curr.key != "mobile-form" && !curr.isRoot() && curr.parent) {
          curr = curr.parent;
       }
 
-      if (curr.key == "form") {
+      if (curr.key == "mobile-form") {
          form = curr;
       }
 
@@ -20943,11 +23207,11 @@ class ABMobileViewCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_0__[
       var detail = null;
 
       var curr = this;
-      while (curr.key != "detail" && !curr.isRoot() && curr.parent) {
+      while (curr.key != "mobile-detail" && !curr.isRoot() && curr.parent) {
          curr = curr.parent;
       }
 
-      if (curr.key == "detail") {
+      if (curr.key == "mobile-detail") {
          detail = curr;
       }
 
@@ -20965,7 +23229,7 @@ class ABMobileViewCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_0__[
       var parentPage = this.parent;
       while (
          parentPage &&
-         (parentPage.key != "page" || !filterFn(parentPage))
+         (parentPage.key != "mobile-page" || !filterFn(parentPage))
       ) {
          parentPage = parentPage.parent;
       }
@@ -20993,12 +23257,18 @@ class ABMobileViewCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_0__[
       let dataviewID = (this.settings || {}).dataviewID;
       if (!dataviewID) {
          if (
-            ["form", "grid", "line", "area", "bar", "gantt", "kanban"].indexOf(
-               this.key
-            ) > -1
+            [
+               "mobile-form",
+               "grid",
+               "line",
+               "area",
+               "bar",
+               "gantt",
+               "kanban",
+            ].indexOf(this.key) > -1
          ) {
             // NOTE: ignore kanban side forms where this is the case:
-            if (this.key == "form" && this._currentObject) return null;
+            if (this.key == "mobile-form" && this._currentObject) return null;
 
             if (this.warningsSilent) return null;
 
@@ -21012,9 +23282,13 @@ class ABMobileViewCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_0__[
          } else {
             // These views shouldn't matter if they don't have a datacollection.
             if (
-               ["button", "label", "page", "tab", "viewcontainer"].indexOf(
-                  this.key
-               ) == -1
+               [
+                  "button",
+                  "label",
+                  "mobile-page",
+                  "tab",
+                  "viewcontainer",
+               ].indexOf(this.key) == -1
             ) {
                console.warn(
                   `TODO: figure out which ABView* require a .dataviewID: ${this.key}?`
@@ -21084,19 +23358,34 @@ class ABMobileViewCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_0__[
 
       // find into recursively
       if (filter && deep) {
-         result = result.concat(this._views.filter(filter));
+         // result = result.concat(this._views.filter(filter));
 
-         this._views.forEach((v) => {
-            var subViews = v.views(filter, deep);
-            if (subViews && subViews.length > 0) {
-               result = result.concat(subViews);
-            }
-         });
+         // this._views.forEach((v) => {
+         //    var subViews = v.views(filter, deep);
+         //    if (subViews && subViews.length > 0) {
+         //       result = result.concat(subViews);
+         //    }
+         // });
+         result = this.application._searchDeep(this, "_views", filter);
       } else {
          result = this._views.filter(filter);
       }
 
       return result;
+   }
+
+   /**
+    * @method viewByID()
+    *
+    * return the specific View referenced by the given ID.
+    *
+    * @param {uuid} ID
+    *        the {ABMobileView}.id of the child view we are requesting
+    *
+    * @return {ABMobileView || undefined}
+    */
+   viewByID(ID) {
+      return this.views((v) => v.id == ID, true)[0];
    }
 
    /**
@@ -21255,6 +23544,18 @@ class ABMobileViewCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_0__[
          .then(() => {
             return this;
          });
+   }
+
+   /**
+    * @method wantsAdd()
+    * Some widgets can indicate to their containing ABMobilePage that
+    * it wants to provide an [Add] feature.
+    * @return {bool}
+    */
+   get wantsAdd() {
+      // the default widget doesn't.
+      // only those that actually do, should override this.
+      return false;
    }
 
    ///
@@ -21439,7 +23740,7 @@ class ABMobileViewCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_0__[
       }
 
       // page's name should not be duplicate
-      if (this.key == "page") {
+      if (this.key == "mobile-page") {
          result.name =
             options?.newName ||
             `${result.name}_copied_${this.AB.uuid().slice(0, 3)}`;
@@ -21513,6 +23814,1569 @@ class ABMobileViewCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_0__[
          .then(() => {
             return result;
          });
+   }
+}
+
+
+/***/ }),
+
+/***/ 25538:
+/*!*****************************************************************!*\
+  !*** ./src/js/AppBuilder/core/mobile/ABMobileViewCustomCore.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewCustomCore)
+/* harmony export */ });
+/* harmony import */ var _platform_mobile_ABMobileView__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileView */ 53349);
+
+
+const ABViewCustomPropertyComponentDefaults = {
+   dataviewID: null,
+   field: null,
+   height: 0,
+   hideTitle: 0,
+   hideTabs: 0,
+};
+
+const ABViewDefaults = {
+   key: "mobile-custom", // {string} unique key for this view
+   icon: "palette", // {string} fa-[icon] reference for this view
+   labelKey: "Custom", // {string} the multilingual label key for the class label
+};
+
+class ABViewCustomCore extends _platform_mobile_ABMobileView__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   constructor(values, application, parent, defaultValues) {
+      super(values, application, parent, defaultValues || ABViewDefaults);
+   }
+
+   static common() {
+      return ABViewDefaults;
+   }
+
+   static defaultValues() {
+      return ABViewCustomPropertyComponentDefaults;
+   }
+
+   /**
+    * @method componentList
+    * return the list of components available on this view to display in the editor.
+    */
+   componentList() {
+      return [];
+   }
+
+   // field() {
+   //    var dv = this.datacollection;
+   //    if (!dv) return null;
+
+   //    var object = dv.datasource;
+   //    if (!object) return null;
+
+   //    return object.fieldByID(this.settings.field);
+   // }
+
+   /**
+    * @method wantsAdd()
+    * Some widgets can indicate to their containing ABMobilePage that
+    * it wants to provide an [Add] feature.
+    * @return {bool}
+    */
+   get wantsAdd() {
+      // we do if we have a setting for linkPageAdd
+      return this.settings.wantsAdd ?? false;
+   }
+}
+
+
+/***/ }),
+
+/***/ 74455:
+/*!*********************************************************************!*\
+  !*** ./src/js/AppBuilder/core/mobile/ABMobileViewFormButtonCore.js ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormButtonCore)
+/* harmony export */ });
+/* harmony import */ var _platform_mobile_ABMobileView__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileView */ 53349);
+
+
+const ABViewFormButtonPropertyComponentDefaults = {
+   includeSave: true,
+   saveLabel: "",
+   includeCancel: false,
+   cancelLabel: "",
+   includeReset: false,
+   resetLabel: "",
+   afterCancel: null,
+   alignment: "right",
+   isDefault: false, // mark default button of form widget
+};
+
+const ABViewFormButtonDefaults = {
+   key: "mobile-button",
+   // {string} unique key for this view
+
+   icon: "square",
+   // {string} fa-[icon] reference for this view
+
+   labelKey: "button",
+   // {string} the multilingual label key for the class label
+};
+
+class ABMobileViewFormButtonCore extends _platform_mobile_ABMobileView__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   constructor(values, application, parent, defaultValues) {
+      super(
+         values,
+         application,
+         parent,
+         defaultValues || ABViewFormButtonDefaults
+      );
+   }
+
+   static common() {
+      return ABViewFormButtonDefaults;
+   }
+
+   static defaultValues() {
+      return ABViewFormButtonPropertyComponentDefaults;
+   }
+
+   ///
+   /// Instance Methods
+   ///
+
+   toObj() {
+      // labels are multilingual values:
+      let labels = [];
+
+      if (this.settings.saveLabel) labels.push("saveLabel");
+
+      if (this.settings.cancelLabel) labels.push("cancelLabel");
+
+      if (this.settings.resetLabel) labels.push("resetLabel");
+
+      this.unTranslate(this.settings, this.settings, labels);
+
+      let result = super.toObj();
+
+      return result;
+   }
+
+   /**
+    * @property datacollection
+    * return data source
+    * NOTE: this view doesn't track a DataCollection.
+    * @return {ABDataCollection}
+    */
+   get datacollection() {
+      return null;
+   }
+
+   fromValues(values) {
+      super.fromValues(values);
+
+      // labels are multilingual values:
+      let labels = [];
+
+      if (this.settings.saveLabel) labels.push("saveLabel");
+
+      if (this.settings.cancelLabel) labels.push("cancelLabel");
+
+      if (this.settings.resetLabel) labels.push("resetLabel");
+
+      this.unTranslate(this.settings, this.settings, labels);
+
+      Object.keys(ABViewFormButtonPropertyComponentDefaults).forEach((k) => {
+         let val =
+            this.settings[k] ?? ABViewFormButtonPropertyComponentDefaults[k];
+         try {
+            val = JSON.parse(val);
+         } catch (e) {
+            // just ignore the error and save val
+         }
+         this.settings[k] = val;
+      });
+
+      // this.settings.includeSave = JSON.parse(
+      //    this.settings.includeSave ||
+      //       ABViewFormButtonPropertyComponentDefaults.includeSave
+      // );
+      // this.settings.includeCancel = JSON.parse(
+      //    this.settings.includeCancel ||
+      //       ABViewFormButtonPropertyComponentDefaults.includeCancel
+      // );
+      // this.settings.includeReset = JSON.parse(
+      //    this.settings.includeReset ||
+      //       ABViewFormButtonPropertyComponentDefaults.includeReset
+      // );
+
+      // this.settings.isDefault = JSON.parse(
+      //    this.settings.isDefault ||
+      //       ABViewFormButtonPropertyComponentDefaults.isDefault
+      // );
+   }
+}
+
+
+/***/ }),
+
+/***/ 52670:
+/*!***********************************************************************!*\
+  !*** ./src/js/AppBuilder/core/mobile/ABMobileViewFormCheckboxCore.js ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormCheckboxCore)
+/* harmony export */ });
+/* harmony import */ var _platform_mobile_ABMobileViewFormItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem */ 3199);
+
+
+const ABMobileViewFormCheckboxPropertyComponentDefaults = {};
+
+const ABMobileViewFormCheckboxDefaults = {
+   key: "mobile-checkbox", // {string} unique key for this view
+   icon: "check-square-o", // {string} fa-[icon] reference for this view
+   labelKey: "checkbox", // {string} the multilingual label key for the class label
+};
+
+class ABMobileViewFormCheckboxCore extends _platform_mobile_ABMobileViewFormItem__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   constructor(values, application, parent, defaultValues) {
+      super(
+         values,
+         application,
+         parent,
+         defaultValues || ABMobileViewFormCheckboxDefaults
+      );
+   }
+
+   static common() {
+      return ABMobileViewFormCheckboxDefaults;
+   }
+
+   static defaultValues() {
+      return ABMobileViewFormCheckboxPropertyComponentDefaults;
+   }
+}
+
+
+/***/ }),
+
+/***/ 55866:
+/*!**********************************************************************!*\
+  !*** ./src/js/AppBuilder/core/mobile/ABMobileViewFormConnectCore.js ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormConnectCore)
+/* harmony export */ });
+/* harmony import */ var _platform_mobile_ABMobileViewFormItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem */ 3199);
+
+
+const ABMobileViewFormConnectPropertyComponentDefaults = {
+   formView: "", // id of form to add new data
+   filterConditions: {
+      glue: "and",
+      rules: [],
+   },
+   sortFields: [],
+   popupWidth: 700,
+   popupHeight: 450,
+};
+
+const ABMobileViewFormConnectDefaults = {
+   key: "mobile-connect", // {string} unique key for this view
+   icon: "list-ul", // {string} fa-[icon] reference for this view
+   labelKey: "Connect", // {string} the multilingual label key for the class label
+};
+
+class ABMobileViewFormConnectCore extends _platform_mobile_ABMobileViewFormItem__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   constructor(values, application, parent, defaultValues) {
+      super(
+         values,
+         application,
+         parent,
+         defaultValues || ABMobileViewFormConnectDefaults
+      );
+   }
+
+   static common() {
+      return ABMobileViewFormConnectDefaults;
+   }
+
+   static defaultValues() {
+      return ABMobileViewFormConnectPropertyComponentDefaults;
+   }
+
+   ///
+   /// Instance Methods
+   ///
+
+   /**
+    * @method fromValues()
+    *
+    * initialze this object with the given set of values.
+    * @param {obj} values
+    */
+   fromValues(values) {
+      super.fromValues(values);
+
+      this.settings.filterConditions =
+         this.settings.filterConditions ||
+         ABMobileViewFormConnectPropertyComponentDefaults.filterConditions;
+   }
+}
+
+
+/***/ }),
+
+/***/ 97835:
+/*!***************************************************************!*\
+  !*** ./src/js/AppBuilder/core/mobile/ABMobileViewFormCore.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormCore)
+/* harmony export */ });
+/* harmony import */ var _platform_mobile_ABMobileView__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileView */ 53349);
+/* harmony import */ var _rules_ABViewRuleListFormRecordRules__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../rules/ABViewRuleListFormRecordRules */ 35924);
+/* harmony import */ var _rules_ABViewRuleListFormSubmitRules__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../rules/ABViewRuleListFormSubmitRules */ 48828);
+
+// const ABMobileViewFormItem = require("../../platform/mobile/ABMobileViewFormItem");
+
+
+
+
+const ABViewFormDefaults = {
+   key: "mobile-form", // unique key identifier for this ABMobileViewForm
+   icon: "list-alt", // icon reference: (without 'fa-' )
+   labelKey: "Form", // {string} the multilingual label key for the class label
+};
+
+const ABViewFormPropertyComponentDefaults = {
+   dataviewID: null,
+   showLabel: true,
+   labelPosition: "left",
+   labelWidth: 120,
+   height: 200,
+   clearOnLoad: false,
+   clearOnSave: false,
+   displayRules: [],
+   editForm: "none", // The url pointer of ABViewForm
+
+   //	[{
+   //		action: {string},
+   //		when: [
+   //			{
+   //				fieldId: {UUID},
+   //				comparer: {string},
+   //				value: {string}
+   //			}
+   //		],
+   //		values: [
+   //			{
+   //				fieldId: {UUID},
+   //				value: {object}
+   //			}
+   //		]
+   //	}]
+   recordRules: [],
+
+   //	[{
+   //		action: {string},
+   //		when: [
+   //			{
+   //				fieldId: {UUID},
+   //				comparer: {string},
+   //				value: {string}
+   //			}
+   //		],
+   //		value: {string}
+   //	}]
+   submitRules: [],
+};
+
+class ABMobileViewFormCore extends _platform_mobile_ABMobileView__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   constructor(values, application, parent, defaultValues) {
+      super(values, application, parent, defaultValues || ABViewFormDefaults);
+   }
+
+   static common() {
+      return ABViewFormDefaults;
+   }
+
+   static defaultValues() {
+      return ABViewFormPropertyComponentDefaults;
+   }
+
+   ///
+   /// Instance Methods
+   ///
+
+   /**
+    * @method fromValues()
+    *
+    * initialze this object with the given set of values.
+    * @param {obj} values
+    */
+   fromValues(values) {
+      super.fromValues(values);
+
+      this.settings.labelPosition =
+         this.settings.labelPosition ||
+         ABViewFormPropertyComponentDefaults.labelPosition;
+
+      // convert from "0" => true/false
+      this.settings.showLabel = JSON.parse(
+         this.settings.showLabel != null
+            ? this.settings.showLabel
+            : ABViewFormPropertyComponentDefaults.showLabel
+      );
+      this.settings.clearOnLoad = JSON.parse(
+         this.settings.clearOnLoad != null
+            ? this.settings.clearOnLoad
+            : ABViewFormPropertyComponentDefaults.clearOnLoad
+      );
+      this.settings.clearOnSave = JSON.parse(
+         this.settings.clearOnSave != null
+            ? this.settings.clearOnSave
+            : ABViewFormPropertyComponentDefaults.clearOnSave
+      );
+
+      // convert from "0" => 0
+      this.settings.labelWidth = parseInt(
+         this.settings.labelWidth == null
+            ? ABViewFormPropertyComponentDefaults.labelWidth
+            : this.settings.labelWidth
+      );
+      this.settings.height = parseInt(
+         this.settings.height == null
+            ? ABViewFormPropertyComponentDefaults.height
+            : this.settings.height
+      );
+   }
+
+   // Use this function in kanban
+   objectLoad(object) {
+      this._currentObject = object;
+   }
+
+   /**
+    * @method componentList
+    * return the list of components available on this view to display in the editor.
+    */
+   componentList() {
+      var viewsToAllow = ["mobile-label", "mobile-button", "mobile-text"],
+         allComponents = this.application.viewAll();
+
+      return allComponents.filter((c) => {
+         return viewsToAllow.indexOf(c.common().key) > -1;
+      });
+   }
+
+   /**
+    * @method fieldComponents()
+    * return an array of all the ABViewFormField children
+    * @param {fn} filter
+    *        a filter fn to return a set of ABViewFormField that this fn
+    *	       returns true for.
+    * @return {array} 	array of ABViewFormField
+    */
+   fieldComponents(filter) {
+      const flattenComponents = (views) => {
+         let components = [];
+
+         views.forEach((v) => {
+            if (v == null) return;
+
+            components.push(v);
+
+            if (v._views?.length) {
+               components = components.concat(flattenComponents(v._views));
+            }
+         });
+
+         return components;
+      };
+
+      if (this._views?.length) {
+         const allComponents = flattenComponents(this._views);
+
+         if (filter == null) {
+            filter = (comp) =>
+               comp instanceof this.AB.Class.ABMobileViewFormItem;
+         }
+
+         return allComponents.filter(filter);
+      } else {
+         return [];
+      }
+   }
+
+   /**
+    * @method addFieldToForm()
+    * Create a New Form Item on this Form from a given ABFieldXXX object.
+    * @param {ABFieldXXX} field
+    * @param {int} yPosition
+    * @return {ABMobileViewFormXXX}
+    */
+   addFieldToForm(field, yPosition) {
+      if (field == null) return;
+
+      // TODO: figure out how to decode the Data Field and return a form
+      // element.
+
+      var fieldComponent = field.formComponentMobile();
+      if (fieldComponent == null) return;
+
+      var newView = fieldComponent.newInstance(this.application, this);
+      if (newView == null) return;
+
+      // set settings to component
+      newView.settings = newView.settings || {};
+      newView.settings.fieldId = field.id;
+      // TODO : Default settings
+
+      if (yPosition != null) newView.position.y = yPosition;
+
+      // add a new component
+      this._views.push(newView);
+
+      return newView;
+   }
+
+   get RecordRule() {
+      let object = this.datacollection.datasource;
+
+      if (this._recordRule == null) {
+         this._recordRule = new _rules_ABViewRuleListFormRecordRules__WEBPACK_IMPORTED_MODULE_1__["default"]();
+      }
+
+      this._recordRule.formLoad(this);
+      this._recordRule.fromSettings(this.settings.recordRules);
+      this._recordRule.objectLoad(object);
+
+      return this._recordRule;
+   }
+
+   /**
+    * @method recordRulesReady()
+    * This returns a Promise that gets resolved when all record rules report
+    * that they are ready.
+    * @return {Promise}
+    */
+   async recordRulesReady() {
+      return this.RecordRule.rulesReady();
+   }
+
+   doRecordRulesPre(rowData) {
+      return this.RecordRule.processPre({ data: rowData, form: this });
+   }
+
+   doRecordRules(rowData) {
+      // validate for record rules
+      if (rowData) {
+         let object = this.datacollection.datasource;
+         let ruleValidator = object.isValidData(rowData);
+         let isUpdatedDataValid = ruleValidator.pass();
+         if (!isUpdatedDataValid) {
+            console.error("Updated data is invalid.", { rowData: rowData });
+            return Promise.reject(new Error("Updated data is invalid."));
+         }
+      }
+
+      return this.RecordRule.process({ data: rowData, form: this });
+   }
+
+   doSubmitRules(rowData) {
+      var object = this.datacollection.datasource;
+
+      var SubmitRules = new _rules_ABViewRuleListFormSubmitRules__WEBPACK_IMPORTED_MODULE_2__["default"]();
+      SubmitRules.formLoad(this);
+      SubmitRules.fromSettings(this.settings.submitRules);
+      SubmitRules.objectLoad(object);
+
+      return SubmitRules.process({ data: rowData, form: this });
+   }
+}
+
+
+/***/ }),
+
+/***/ 37089:
+/*!*********************************************************************!*\
+  !*** ./src/js/AppBuilder/core/mobile/ABMobileViewFormCustomCore.js ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormCustomCore)
+/* harmony export */ });
+/* harmony import */ var _platform_mobile_ABMobileViewFormItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem */ 3199);
+
+
+const ABViewFormCustomPropertyComponentDefaults = {};
+
+const ABViewFormCustomDefaults = {
+   key: "mobile-fieldcustom",
+   // {string} unique key for this view
+   icon: "object-group",
+   // {string} fa-[icon] reference for this view
+   labelKey: "custom",
+   // {string} the multilingual label key for the class label
+};
+
+class ABMobileViewFormCustomCore extends _platform_mobile_ABMobileViewFormItem__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   constructor(values, application, parent, defaultValues) {
+      super(
+         values,
+         application,
+         parent,
+         defaultValues || ABViewFormCustomDefaults
+      );
+   }
+
+   static common() {
+      return ABViewFormCustomDefaults;
+   }
+
+   static defaultValues() {
+      return ABViewFormCustomPropertyComponentDefaults;
+   }
+}
+
+
+/***/ }),
+
+/***/ 30483:
+/*!*******************************************************************!*\
+  !*** ./src/js/AppBuilder/core/mobile/ABMobileViewFormDateCore.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormDatepickerCore)
+/* harmony export */ });
+/* harmony import */ var _platform_mobile_ABMobileViewFormItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem */ 3199);
+
+
+const ABMobileViewFormDatepickerPropertyComponentDefaults = {
+   timepicker: false,
+};
+
+const ABMobileViewFormDatepickerDefaults = {
+   key: "mobile-date", // {string} unique key for this view
+   icon: "calendar", // {string} fa-[icon] reference for this view
+   labelKey: "datepicker", // {string} the multilingual label key for the class label
+};
+
+class ABMobileViewFormDatepickerCore extends _platform_mobile_ABMobileViewFormItem__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   constructor(values, application, parent, defaultValues) {
+      super(
+         values,
+         application,
+         parent,
+         defaultValues || ABMobileViewFormDatepickerDefaults
+      );
+   }
+
+   static common() {
+      return ABMobileViewFormDatepickerDefaults;
+   }
+
+   static defaultValues() {
+      return ABMobileViewFormDatepickerPropertyComponentDefaults;
+   }
+
+   ///
+   /// Instance Methods
+   ///
+}
+
+
+/***/ }),
+
+/***/ 41098:
+/*!***********************************************************************!*\
+  !*** ./src/js/AppBuilder/core/mobile/ABMobileViewFormDatetimeCore.js ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormDatetimeCore)
+/* harmony export */ });
+/* harmony import */ var _platform_mobile_ABMobileViewFormItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem */ 3199);
+
+
+const ABMobileViewFormDatetimePropertyComponentDefaults = {
+   timepicker: false,
+};
+
+const ABMobileViewFormDatetimeDefaults = {
+   key: "mobile-datetime", // {string} unique key for this view
+   icon: "calendar", // {string} fa-[icon] reference for this view
+   labelKey: "Date and Time", // {string} the multilingual label key for the class label
+};
+
+class ABMobileViewFormDatetimeCore extends _platform_mobile_ABMobileViewFormItem__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   constructor(values, application, parent, defaultValues) {
+      super(
+         values,
+         application,
+         parent,
+         defaultValues || ABMobileViewFormDatetimeDefaults
+      );
+   }
+
+   static common() {
+      return ABMobileViewFormDatetimeDefaults;
+   }
+
+   static defaultValues() {
+      return ABMobileViewFormDatetimePropertyComponentDefaults;
+   }
+
+   ///
+   /// Instance Methods
+   ///
+}
+
+
+/***/ }),
+
+/***/ 31508:
+/*!********************************************************************!*\
+  !*** ./src/js/AppBuilder/core/mobile/ABMobileViewFormEmailCore.js ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormEmailCore)
+/* harmony export */ });
+/* harmony import */ var _platform_mobile_ABMobileViewFormItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem */ 3199);
+
+
+const ABMobileViewFormEmailPropertyComponentDefaults = {
+   timepicker: false,
+};
+
+const ABMobileViewFormEmailDefaults = {
+   key: "mobile-email", // {string} unique key for this view
+   icon: "envelope", // {string} fa-[icon] reference for this view
+   labelKey: "Email", // {string} the multilingual label key for the class label
+};
+
+class ABMobileViewFormEmailCore extends _platform_mobile_ABMobileViewFormItem__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   constructor(values, application, parent, defaultValues) {
+      super(
+         values,
+         application,
+         parent,
+         defaultValues || ABMobileViewFormEmailDefaults
+      );
+   }
+
+   static common() {
+      return ABMobileViewFormEmailDefaults;
+   }
+
+   static defaultValues() {
+      return ABMobileViewFormEmailPropertyComponentDefaults;
+   }
+
+   ///
+   /// Instance Methods
+   ///
+}
+
+
+/***/ }),
+
+/***/ 37206:
+/*!*******************************************************************!*\
+  !*** ./src/js/AppBuilder/core/mobile/ABMobileViewFormFileCore.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormFileCore)
+/* harmony export */ });
+/* harmony import */ var _platform_mobile_ABMobileViewFormItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem */ 3199);
+
+
+const ABViewFormFilePropertyComponentDefaults = {};
+
+const ABViewFormFileDefaults = {
+   key: "mobile-file",
+   // {string} unique key for this view
+   icon: "file",
+   // {string} fa-[icon] reference for this view
+   labelKey: "file",
+   // {string} the multilingual label key for the class label
+};
+
+class ABMobileViewFormFileCore extends _platform_mobile_ABMobileViewFormItem__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   constructor(values, application, parent, defaultValues) {
+      super(
+         values,
+         application,
+         parent,
+         defaultValues || ABViewFormFileDefaults
+      );
+   }
+
+   static common() {
+      return ABViewFormFileDefaults;
+   }
+
+   static defaultValues() {
+      return ABViewFormFilePropertyComponentDefaults;
+   }
+}
+
+
+/***/ }),
+
+/***/ 9462:
+/*!**********************************************************************!*\
+  !*** ./src/js/AppBuilder/core/mobile/ABMobileViewFormFormulaCore.js ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormFormulaCore)
+/* harmony export */ });
+/* harmony import */ var _platform_mobile_ABMobileViewFormItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem */ 3199);
+
+
+const ABViewFormFormulaPropertyComponentDefaults = {};
+
+const ABViewFormFormulaDefaults = {
+   key: "mobile-formula",
+   // {string} unique key for this view
+   icon: "circle-o-notch",
+   // {string} fa-[icon] reference for this view
+   labelKey: "Formula",
+   // {string} the multilingual label key for the class label
+};
+
+class ABMobileViewFormFormulaCore extends _platform_mobile_ABMobileViewFormItem__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   constructor(values, application, parent, defaultValues) {
+      super(
+         values,
+         application,
+         parent,
+         defaultValues || ABViewFormFormulaDefaults
+      );
+   }
+
+   static common() {
+      return ABViewFormFormulaDefaults;
+   }
+
+   static defaultValues() {
+      return ABViewFormFormulaPropertyComponentDefaults;
+   }
+}
+
+
+/***/ }),
+
+/***/ 37238:
+/*!********************************************************************!*\
+  !*** ./src/js/AppBuilder/core/mobile/ABMobileViewFormImageCore.js ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormImageCore)
+/* harmony export */ });
+/* harmony import */ var _platform_mobile_ABMobileViewFormFile__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormFile */ 94298);
+
+
+const ABViewFormImagePropertyComponentDefaults = {};
+
+const ABViewImageFileDefaults = {
+   key: "mobile-image",
+   // {string} unique key for this view
+   icon: "file-image-o",
+   // {string} fa-[icon] reference for this view
+   labelKey: "Image",
+   // {string} the multilingual label key for the class label
+};
+
+class ABMobileViewFormImageCore extends _platform_mobile_ABMobileViewFormFile__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   constructor(values, application, parent, defaultValues) {
+      super(
+         values,
+         application,
+         parent,
+         defaultValues || ABViewImageFileDefaults
+      );
+   }
+
+   static common() {
+      return ABViewImageFileDefaults;
+   }
+
+   static defaultValues() {
+      return ABViewFormImagePropertyComponentDefaults;
+   }
+}
+
+
+/***/ }),
+
+/***/ 95927:
+/*!*******************************************************************!*\
+  !*** ./src/js/AppBuilder/core/mobile/ABMobileViewFormItemCore.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormItemCore)
+/* harmony export */ });
+/* harmony import */ var _platform_mobile_ABMobileView__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileView */ 53349);
+
+
+const ABViewFormFieldPropertyComponentDefaults = {
+   required: 0,
+   disable: 0,
+};
+
+class ABMobileViewFormItemCore extends _platform_mobile_ABMobileView__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   // constructor(values, application, parent, defaultValues) {
+   //    super(values, application, parent, defaultValues);
+   // }
+
+   static defaultValues() {
+      return ABViewFormFieldPropertyComponentDefaults;
+   }
+
+   /**
+    * @property datacollection
+    * return data source
+    * NOTE: this view doesn't track a DataCollection.
+    * @return {ABDataCollection}
+    */
+   get datacollection() {
+      let form = this.parentFormComponent();
+      if (form == null) return null;
+
+      let datacollection = form.datacollection;
+      if (datacollection == null) return null;
+
+      return datacollection;
+   }
+
+   field() {
+      if (this.settings.objectId) {
+         let object = this.AB.objectByID(this.settings.objectId);
+         if (!object) return null;
+
+         return object.fieldByID(this.settings.fieldId);
+      } else {
+         let form = this.parentFormComponent();
+         if (form == null) return null;
+
+         let object;
+         if (form._currentObject) {
+            object = form._currentObject;
+         } else {
+            let datacollection = form.datacollection;
+            if (datacollection == null) return null;
+
+            object = datacollection.datasource;
+         }
+
+         if (object == null) return null;
+
+         let field = object.fieldByID(this.settings.fieldId);
+         return field;
+      }
+   }
+}
+
+
+/***/ }),
+
+/***/ 75410:
+/*!*********************************************************************!*\
+  !*** ./src/js/AppBuilder/core/mobile/ABMobileViewFormNumberCore.js ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormNumberCore)
+/* harmony export */ });
+/* harmony import */ var _platform_mobile_ABMobileViewFormItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem */ 3199);
+
+
+const ABMobileViewFormNumberPropertyComponentDefaults = {
+   isStepper: 0,
+};
+
+const ABMobileViewFormNumberDefaults = {
+   key: "mobile-numberbox", // {string} unique key for this view
+   icon: "hashtag", // {string} fa-[icon] reference for this view
+   labelKey: "number", // {string} the multilingual label key for the class label
+};
+
+class ABMobileViewFormNumberCore extends _platform_mobile_ABMobileViewFormItem__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   constructor(values, application, parent, defaultValues) {
+      super(
+         values,
+         application,
+         parent,
+         defaultValues || ABMobileViewFormNumberDefaults
+      );
+   }
+
+   static common() {
+      return ABMobileViewFormNumberDefaults;
+   }
+
+   static defaultValues() {
+      return ABMobileViewFormNumberPropertyComponentDefaults;
+   }
+
+   ///
+   /// Instance Methods
+   ///
+
+   /**
+    * @method toObj()
+    *
+    * properly compile the current state of this ABViewFormText instance
+    * into the values needed for saving.
+    *
+    * @return {json}
+    */
+   toObj() {
+      this.unTranslate(this, this, ["label", "formLabel"]);
+
+      var obj = super.toObj();
+      obj.views = []; // no subviews
+      return obj;
+   }
+
+   /**
+    * @method fromValues()
+    *
+    * initialze this object with the given set of values.
+    * @param {obj} values
+    */
+   fromValues(values) {
+      super.fromValues(values);
+
+      // if this is being instantiated on a read from the Property UI,
+      this.settings.isStepper =
+         this.settings.isStepper ||
+         ABMobileViewFormNumberPropertyComponentDefaults.isStepper;
+
+      // convert from "0" => 0
+      this.settings.isStepper = parseInt(this.settings.isStepper);
+   }
+}
+
+
+/***/ }),
+
+/***/ 43002:
+/*!***********************************************************************!*\
+  !*** ./src/js/AppBuilder/core/mobile/ABMobileViewFormReadonlyCore.js ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormReadonly)
+/* harmony export */ });
+/* harmony import */ var _platform_mobile_ABMobileViewFormCustom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormCustom */ 88358);
+
+
+const ABMobileViewFormReadonlyPropertyComponentDefaults = {};
+
+const ABMobileViewFormReadonlyDefaults = {
+   key: "mobile-fieldreadonly", // {string} unique key for this view
+   icon: "calculator", // {string} fa-[icon] reference for this view
+   labelKey: "readonly", // {string} the multilingual label key for the class label
+};
+
+class ABMobileViewFormReadonly extends _platform_mobile_ABMobileViewFormCustom__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   constructor(values, application, parent, defaultValues) {
+      super(
+         values,
+         application,
+         parent,
+         defaultValues || ABMobileViewFormReadonlyDefaults
+      );
+   }
+
+   static common() {
+      return ABMobileViewFormReadonlyDefaults;
+   }
+
+   static defaultValues() {
+      return ABMobileViewFormReadonlyPropertyComponentDefaults;
+   }
+}
+
+
+/***/ }),
+
+/***/ 18061:
+/*!*****************************************************************************!*\
+  !*** ./src/js/AppBuilder/core/mobile/ABMobileViewFormSelectMultipleCore.js ***!
+  \*****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormSelectMultipleCore)
+/* harmony export */ });
+/* harmony import */ var _platform_mobile_ABMobileViewFormSelectSingle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormSelectSingle */ 88001);
+
+
+const ABMobileViewFormSelectMultiplePropertyComponentDefaults = {
+   type: "richselect", // 'richselect' or 'radio'
+};
+
+const ABMobileViewFormSelectMultipleDefaults = {
+   key: "mobile-selectmultiple", // {string} unique key for this view
+   icon: "list-ul", // {string} fa-[icon] reference for this view
+   labelKey: "selectmultiple", // {string} the multilingual label key for the class label
+};
+
+class ABMobileViewFormSelectMultipleCore extends _platform_mobile_ABMobileViewFormSelectSingle__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   constructor(values, application, parent, defaultValues) {
+      super(
+         values,
+         application,
+         parent,
+         defaultValues || ABMobileViewFormSelectMultipleDefaults
+      );
+   }
+
+   static common() {
+      return ABMobileViewFormSelectMultipleDefaults;
+   }
+
+   static defaultValues() {
+      return ABMobileViewFormSelectMultiplePropertyComponentDefaults;
+   }
+}
+
+
+/***/ }),
+
+/***/ 10807:
+/*!***************************************************************************!*\
+  !*** ./src/js/AppBuilder/core/mobile/ABMobileViewFormSelectSingleCore.js ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormSelectSingleCore)
+/* harmony export */ });
+/* harmony import */ var _platform_mobile_ABMobileViewFormItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem */ 3199);
+
+
+const ABMobileViewFormSelectSinglePropertyComponentDefaults = {
+   type: "richselect", // 'richselect' or 'radio'
+};
+
+const ABMobileViewFormSelectSingleDefaults = {
+   key: "mobile-selectsingle", // {string} unique key for this view
+   icon: "list-ul", // {string} fa-[icon] reference for this view
+   labelKey: "selectsingle", // {string} the multilingual label key for the class label
+};
+
+class ABMobileViewFormSelectSingleCore extends _platform_mobile_ABMobileViewFormItem__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   constructor(values, application, parent, defaultValues) {
+      super(
+         values,
+         application,
+         parent,
+         defaultValues || ABMobileViewFormSelectSingleDefaults
+      );
+   }
+
+   static common() {
+      return ABMobileViewFormSelectSingleDefaults;
+   }
+
+   static defaultValues() {
+      return ABMobileViewFormSelectSinglePropertyComponentDefaults;
+   }
+}
+
+
+/***/ }),
+
+/***/ 10048:
+/*!**********************************************************************!*\
+  !*** ./src/js/AppBuilder/core/mobile/ABMobileViewFormTextboxCore.js ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormTextboxCore)
+/* harmony export */ });
+/* harmony import */ var _platform_mobile_ABMobileViewFormItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem */ 3199);
+
+
+const ABViewFormTextboxPropertyComponentDefaults = {
+   type: "single", // 'single', 'multiple' or 'rich'
+   placeholder: "", // default placeholder text
+};
+
+const ABViewFormTextboxDefaults = {
+   key: "mobile-textbox", // {string} unique key for this view
+   icon: "i-cursor", // {string} fa-[icon] reference for this view
+   labelKey: "textbox", // {string} the multilingual label key for the class label
+};
+
+class ABMobileViewFormTextboxCore extends _platform_mobile_ABMobileViewFormItem__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   constructor(values, application, parent, defaultValues) {
+      super(
+         values,
+         application,
+         parent,
+         defaultValues || ABViewFormTextboxDefaults
+      );
+   }
+
+   static common() {
+      return ABViewFormTextboxDefaults;
+   }
+
+   static defaultValues() {
+      return ABViewFormTextboxPropertyComponentDefaults;
+   }
+
+   toObj() {
+      // placeholder is a multilingual value:
+      this.unTranslate(this.settings, this.settings, ["placeholder"]);
+
+      return super.toObj();
+   }
+
+   fromValues(values) {
+      super.fromValues(values);
+
+      // placeholder is a multilingual value:
+      this.unTranslate(this.settings, this.settings, ["placeholder"]);
+   }
+}
+
+
+/***/ }),
+
+/***/ 35272:
+/*!****************************************************************!*\
+  !*** ./src/js/AppBuilder/core/mobile/ABMobileViewLabelCore.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewLabelCore)
+/* harmony export */ });
+/* harmony import */ var _platform_mobile_ABMobileView__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileView */ 53349);
+
+
+const ABViewLabelPropertyComponentDefaults = {
+   text: "",
+   format: 0, // 0 - normal, 1 - title, 2 - description
+   alignment: "left",
+};
+
+const ABViewDefaults = {
+   key: "mobile-label", // {string} unique key for this view
+   icon: "font", // {string} fa-[icon] reference for this view
+   labelKey: "Label", // {string} the multilingual label key for the class label
+};
+
+class ABMobileViewLabelCore extends _platform_mobile_ABMobileView__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   /**
+    * @param {obj} values  key=>value hash of ABView values
+    * @param {ABApplication} application the application object this view is under
+    * @param {ABViewWidget} parent the ABViewWidget this view is a child of. (can be null)
+    */
+   constructor(values, application, parent, defaultValues) {
+      super(values, application, parent, defaultValues || ABViewDefaults);
+   }
+
+   static common() {
+      return ABViewDefaults;
+   }
+
+   static defaultValues() {
+      return ABViewLabelPropertyComponentDefaults;
+   }
+
+   ///
+   /// Instance Methods
+   ///
+
+   /**
+    * @method toObj()
+    *
+    * properly compile the current state of this ABViewLabel instance
+    * into the values needed for saving.
+    *
+    * @return {json}
+    */
+   toObj() {
+      this.unTranslate(this, this, ["label", "text"]);
+
+      var obj = super.toObj();
+      obj.viewIDs = [];
+      return obj;
+   }
+
+   /**
+    * @method fromValues()
+    *
+    * initialze this object with the given set of values.
+    * @param {obj} values
+    */
+   fromValues(values) {
+      super.fromValues(values); // <-- this performs the translations
+
+      // if this is being instantiated on a read from the Property UI,
+      // .text is coming in under .settings.label
+      this.text = values.text || values.settings.text || "*text";
+
+      this.settings.format =
+         this.settings.format || ABViewLabelPropertyComponentDefaults.format;
+      this.settings.alignment =
+         this.settings.alignment ||
+         ABViewLabelPropertyComponentDefaults.alignment;
+
+      // we are not allowed to have sub views:
+      this._views = [];
+
+      // convert from "0" => 0
+      this.settings.format = parseInt(this.settings.format);
+
+      this.translate(this, this, ["label", "text"]);
+   }
+
+   //// Allow external interface to manipulate our settings:
+
+   /**
+    * @method formatNormal
+    * display text in the normal format.
+    */
+   formatNormal() {
+      this.settings.format = 0;
+   }
+
+   /**
+    * @method formatTitle
+    * display text as a Title.
+    */
+   formatTitle() {
+      this.settings.format = 1;
+   }
+
+   /**
+    * @method formatDescription
+    * display text as a description.
+    */
+   formatDescription() {
+      this.settings.format = 2;
+   }
+}
+
+
+/***/ }),
+
+/***/ 26218:
+/*!***************************************************************!*\
+  !*** ./src/js/AppBuilder/core/mobile/ABMobileViewListCore.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewListCore)
+/* harmony export */ });
+/* harmony import */ var _platform_mobile_ABMobileView__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileView */ 53349);
+
+
+const ABViewListPropertyComponentDefaults = {
+   dataviewID: null,
+   field: null,
+   height: 0,
+   hideTitle: 0,
+   hideTabs: 0,
+};
+
+const ABViewDefaults = {
+   key: "mobile-list", // {string} unique key for this view
+   icon: "list-ul", // {string} fa-[icon] reference for this view
+   labelKey: "List", // {string} the multilingual label key for the class label
+};
+
+class ABViewListCore extends _platform_mobile_ABMobileView__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   constructor(values, application, parent, defaultValues) {
+      super(values, application, parent, defaultValues || ABViewDefaults);
+   }
+
+   static common() {
+      return ABViewDefaults;
+   }
+
+   static defaultValues() {
+      return ABViewListPropertyComponentDefaults;
+   }
+
+   /**
+    * @method componentList
+    * return the list of components available on this view to display in the editor.
+    */
+   componentList() {
+      return [];
+   }
+
+   field() {
+      var dv = this.datacollection;
+      if (!dv) return null;
+
+      var object = dv.datasource;
+      if (!object) return null;
+
+      return object.fieldByID(this.settings.field);
+   }
+
+   /**
+    * @method wantsAdd()
+    * Some widgets can indicate to their containing ABMobilePage that
+    * it wants to provide an [Add] feature.
+    * @return {bool}
+    */
+   get wantsAdd() {
+      // we do if we have a setting for linkPageAdd
+      return this.settings.linkPageAdd != "";
+   }
+}
+
+
+/***/ }),
+
+/***/ 63445:
+/*!*******************************************************************!*\
+  !*** ./src/js/AppBuilder/core/mobile/ABMobileViewTimelineCore.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewTimelineCore)
+/* harmony export */ });
+/* harmony import */ var _platform_mobile_ABMobileView__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileView */ 53349);
+
+
+const ABViewTimelinePropertyComponentDefaults = {
+   dataviewID: null,
+   field: null,
+   height: 0,
+   hideTitle: 0,
+   hideTabs: 0,
+};
+
+const ABViewDefaults = {
+   key: "mobile-timeline", // {string} unique key for this view
+   icon: "timeline", // {string} fa-[icon] reference for this view
+   labelKey: "Timeline", // {string} the multilingual label key for the class label
+};
+
+class ABViewTimelineCore extends _platform_mobile_ABMobileView__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   constructor(values, application, parent, defaultValues) {
+      super(values, application, parent, defaultValues || ABViewDefaults);
+   }
+
+   static common() {
+      return ABViewDefaults;
+   }
+
+   static defaultValues() {
+      return ABViewTimelinePropertyComponentDefaults;
+   }
+
+   /**
+    * @method componentList
+    * return the list of components available on this view to display in the editor.
+    */
+   componentList() {
+      return [];
+   }
+
+   field() {
+      var dv = this.datacollection;
+      if (!dv) return null;
+
+      var object = dv.datasource;
+      if (!object) return null;
+
+      return object.fieldByID(this.settings.field);
+   }
+
+   /**
+    * @method wantsAdd()
+    * Some widgets can indicate to their containing ABMobilePage that
+    * it wants to provide an [Add] feature.
+    * @return {bool}
+    */
+   get wantsAdd() {
+      // we do if we have a setting for linkPageAdd
+      return this.settings.linkPageAdd != "";
    }
 }
 
@@ -21822,25 +25686,26 @@ var Tasks = {};
 var DEFINITIONTYPES = {};
 
 var AllProcessElements = [
-   await Promise.all(/*! import() */[__webpack_require__.e("vendor"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessEnd */ 76975)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendor"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessGatewayExclusive */ 33401)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendor"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskEmail */ 21297)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendor"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskService */ 66859)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendor"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskServiceAccountingBatchProcessing */ 55048)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendor"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskServiceAccountingFPClose */ 29084)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendor"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskServiceAccountingFPYearClose */ 26575)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendor"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskServiceAccountingJEArchive */ 87512)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendor"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskServiceCalculate */ 77855)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendor"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskServiceInsertRecord */ 22641)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendor"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskServiceQuery */ 76061)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendor"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskServiceGetResetPasswordUrl */ 47995)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessEnd */ 76975)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessGatewayExclusive */ 33401)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskEmail */ 21297)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskService */ 66859)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskServiceAccountingBatchProcessing */ 55048)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskServiceAccountingFPClose */ 29084)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskServiceAccountingFPYearClose */ 26575)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskServiceAccountingJEArchive */ 87512)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskServiceCalculate */ 77855)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskServiceInsertRecord */ 22641)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskServiceQuery */ 76061)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskServiceGetResetPasswordUrl */ 47995)),
    await Promise.resolve(/*! import() */).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskSubProcess */ 75175)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendor"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskUser */ 67429)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendor"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskUserApproval */ 70852)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendor"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskUserExternal */ 82659)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendor"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTrigger */ 50135)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendor"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTriggerLifecycle */ 82712)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendor"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTriggerTimer */ 63807)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskUser */ 67429)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskUserApproval */ 70852)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskUserExternal */ 82659)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskUserForm */ 89476)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTrigger */ 50135)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTriggerLifecycle */ 82712)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTriggerTimer */ 63807)),
 ];
 
 AllProcessElements.forEach((ELEMENT) => {
@@ -22241,7 +26106,7 @@ class ABProcessTaskCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_0__
                   nextTasks.push(targetTask);
                }
             } else {
-               var error = new Error(
+               let error = new Error(
                   `Configuration Error: No ProcessTask instance for diagramID[${tid}]`
                );
                this.AB.notify.builder(error, { task: this });
@@ -24573,10 +28438,10 @@ class SubProcessCore extends _platform_process_tasks_ABProcessElement_js__WEBPAC
       // Filter none data items
       if (Array.isArray(data)) data = data.filter((d) => d != null);
 
-      if (data == null || !data.length)
+      if (data == null || data.length == 0)
          data = this.process.processData.call(this, currElement, params);
 
-      if (data == null || !data.length)
+      if (data == null || data.length == 0)
          data = this.process.processData(this, params);
 
       return data;
@@ -24988,6 +28853,13 @@ class ABProcessTaskUserApprovalCore extends _platform_process_tasks_ABProcessEle
          myObj
       );
 
+      // NOTE: We are pretending our response is a type of ABFieldList. But our
+      // ABField objects no longer allow "." in our columnNames:
+      //    ( https://github.com/digi-serve/appbuilder_class_core/blob/212cf5fa1c1d5c959aa246c730582ed50809ee0f/dataFields/ABFieldCore.js#L262 )
+      // But our Process tasks really will be expecting it there so lets put
+      // it back:
+      listField.columnName = `${myID}.userFormResponse`;
+
       return [
          {
             key: `${myID}.userFormResponse`,
@@ -25233,6 +29105,114 @@ class ABProcessTaskUserExternalCore extends _platform_process_tasks_ABProcessEle
             label: `${this.label}->Response`,
          },
       ];
+   }
+}
+
+
+/***/ }),
+
+/***/ 53205:
+/*!***************************************************************************!*\
+  !*** ./src/js/AppBuilder/core/process/tasks/ABProcessTaskUserFormCore.js ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABProcessTaskUserFormCore)
+/* harmony export */ });
+/* harmony import */ var _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 50138);
+
+
+const ABProcessTaskUserFormDefaults = {
+   category: null,
+   // category: {string} | null
+   // if this Element should show up on one of the popup replace menus, then
+   // specify one of the categories of elements it should be an option for.
+   // Available choices: [ "start", "gateway", "task", "end" ].
+   //
+   // if it shouldn't show up under the popup menu, then leave this null
+
+   icon: "form", // font-awesome icon reference.  (without the 'fa-').  so 'user'  to reference 'fa-user'
+   // icon: {string}
+   // font-awesome icon reference.  (without the 'fa-').  so 'user'  to reference 'fa-user'
+
+   instanceValues: [""],
+   // instanceValues: {array}
+   // a list of values this element tracks as it is operating in a process.
+
+   key: "Form",
+   // key: {string}
+   // unique key to reference this specific Task
+
+   settings: ["formBuilder"],
+   // settings: {array}
+   // a list of internal setting values this Element tracks. These are the
+   // values set by the platform .propertiesStash()
+};
+
+const settings = {};
+
+class ABProcessTaskUserFormCore extends _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   constructor(attributes, process, AB) {
+      for (const key in settings)
+         attributes[key] = attributes[key] ?? settings[key];
+      super(
+         Object.assign(
+            {
+               type: "process.task.service.form",
+            },
+            attributes
+         ),
+         process,
+         AB,
+         ABProcessTaskUserFormDefaults
+      );
+
+      // listen
+   }
+
+   // return the default values for this DataField
+   static defaults() {
+      return ABProcessTaskUserFormDefaults;
+   }
+
+   static DiagramReplace() {
+      return null;
+   }
+
+   /**
+    * processDataFields()
+    * return an array of avaiable data fields that this element
+    * can provide to other ProcessElements.
+    * Different Process Elements can make data available to other
+    * process Elements.
+    * @return {array} | null
+    */
+   processDataFields() {
+      return (this.formBuilder?.components ?? [])
+         .filter((comp) => comp.type != "button")
+         .map((comp) => {
+            return {
+               key: comp.key,
+               label: `${this.label}->${comp.label}`,
+            };
+         });
+   }
+
+   /**
+    * processData()
+    * return the current value requested for the given data key.
+    * @param {obj} instance
+    * @return {mixed} | null
+    */
+   processData(instance, key) {
+      if (!key) return null;
+
+      const myState = this.myState(instance);
+
+      return myState[key];
    }
 }
 
@@ -25509,9 +29489,16 @@ class ABProcessTriggerLifecycle extends _platform_process_tasks_ABProcessTrigger
             } else if (parts[1] == "uuid") {
                return myState["data"]["uuid"];
             } else {
+               ///
+               /// Questioning the validity of this section of code.
+               /// In order to get here, we tried to find field, and it
+               /// didn't exist.
+               /// then we turn around and REPEAT the same attempt
+               /// and check for field again.
+               /*
                // parts[1] should be a field.id
-               var object = this.AB.objectByID(this.objectID);
-               var field = object.fields((f) => {
+               object = this.AB.objectByID(this.objectID);
+               field = object.fields((f) => {
                   return f.id == parts[1];
                })[0];
                if (field) {
@@ -25522,6 +29509,7 @@ class ABProcessTriggerLifecycle extends _platform_process_tasks_ABProcessTrigger
                      return myState["data"][field.columnName];
                   }
                }
+               */
             }
          }
       }
@@ -26101,7 +30089,7 @@ class ABQLObjectCore extends _platform_ql_ABQL_js__WEBPACK_IMPORTED_MODULE_0__["
    ///
    /// Instance Methods
    ///
-   initObject(attributes) {
+   initObject(/* attributes */) {
       if (!this.object && this.params) {
          const objNameDef = this.parameterDefinitions.find((pDef) => {
             return pDef.type === "objectName";
@@ -26113,7 +30101,8 @@ class ABQLObjectCore extends _platform_ql_ABQL_js__WEBPACK_IMPORTED_MODULE_0__["
          }
 
          if (!this.object) {
-            this.warningMessage("has no object set.", {
+            // This function exists on platform_web but not platform_service
+            this.warningMessage?.("has no object set.", {
                objectID: this.objectID,
             });
          }
@@ -26395,9 +30384,9 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ([
-   await Promise.all(/*! import() */[__webpack_require__.e("vendor"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/ql/ABQLSetFirst.js */ 1454)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendor"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/ql/ABQLSetPluck.js */ 66966)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendor"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/ql/ABQLSetSave.js */ 68879)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/ql/ABQLSetFirst.js */ 1454)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/ql/ABQLSetPluck.js */ 66966)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/ql/ABQLSetSave.js */ 68879)),
 ]);
 
 __webpack_async_result__();
@@ -28167,6 +32156,20 @@ class ABViewPageCore extends _platform_views_ABViewContainer__WEBPACK_IMPORTED_M
          });
    }
 
+   /**
+    * @method refreshInstance()
+    * This returns a NEW instance of a ABViewPage based upon the latest
+    * version of it's Definition.  It also resolves any current listeners
+    * this copy currently has and prepare this to discard itself.
+    */
+   refreshInstance() {
+      console.warn(
+         "This version of ABViewPage hasn't updated it's refreshInstance()",
+         this
+      );
+      return this;
+   }
+
    ///
    /// Pages
    ///
@@ -29158,6 +33161,12 @@ class ABDataCollection extends _core_ABDataCollectionCore__WEBPACK_IMPORTED_MODU
    constructor(attributes, AB) {
       super(attributes, AB);
       this.setMaxListeners(0);
+      this.blacklistLoadData = {};
+      // { key : ?? }
+      // keep track of previous loadData() calls that might not
+      // have fully completed yet. We don't want to get in a
+      // race condition where we keep trying to load the same frame
+      // over and over again.
 
       this.$state = null;
       // {Framework7.store} The shared F7 data store
@@ -29193,6 +33202,25 @@ class ABDataCollection extends _core_ABDataCollectionCore__WEBPACK_IMPORTED_MODU
       }
 
       return (this.__totalCount || 0) > this.$state[this.id].length;
+   }
+
+   initStore(defStore) {
+      let id = this.id;
+      defStore.state[id] = [];
+      defStore.getters[id] = function ({ state }) {
+         return state[id];
+      };
+
+      // now check all the fields we are managing and see if they
+      // need to initStore()
+      let obj = this.datasource;
+      if (obj) {
+         obj.fields().forEach((f) => {
+            if (f.isConnection) {
+               f.initStore(defStore);
+            }
+         });
+      }
    }
 
    init() {
@@ -29267,9 +33295,13 @@ class ABDataCollection extends _core_ABDataCollectionCore__WEBPACK_IMPORTED_MODU
       return super.loadData(start, limit).catch((err) => {
          // hideProgressOfComponents() is a platform specific action.
          this.hideProgressOfComponents();
+         this.emit("loadData", {});
 
          // propagate the error here:
          if (err) {
+            this.AB.notify.developer(err, {
+               context: "ABDataCollection.loadData()",
+            });
             throw err;
          }
       });
@@ -29437,8 +33469,24 @@ class ABDataCollection extends _core_ABDataCollectionCore__WEBPACK_IMPORTED_MODU
                         if (component.showProgress)
                            component.showProgress({ type: "icon" });
 
-                        // load more data to the data collection
-                        dc.loadNext(count, start);
+                        if (start < 0) start = 0;
+
+                        // // load more data to the data collection
+                        // dc.loadNext(count, start);
+
+                        // since the where clause can change if we are following
+                        // another cursor, include the where as part of the key:
+                        let [where] = this.getWhereClause(start, 0);
+                        let key = `${JSON.stringify(where)}-${start}-${count}`;
+                        if (this.blacklistLoadData[key]) {
+                           return false;
+                        }
+                        this.blacklistLoadData[key] = true;
+
+                        this.loadData(start, count).finally(() => {
+                           // remove from blacklist
+                           delete this.blacklistLoadData[key];
+                        });
 
                         return false; // <-- prevent the default "onDataRequest"
                      }
@@ -29506,8 +33554,12 @@ class ABDataCollection extends _core_ABDataCollectionCore__WEBPACK_IMPORTED_MODU
    }
 
    hideProgressOfComponents() {
+      // @TODO: do we simply .emit("loading.complete") and have components
+      // listen for that event?
+      console.warn(".hideProgressOfComponents() not implemented yet.");
       this.__bindComponentIds.forEach((comId) => {
-         if ($$(comId) && $$(comId).hideProgress) $$(comId).hideProgress();
+         // @TODO: this is webix code.
+         // if ($$(comId) && $$(comId).hideProgress) $$(comId).hideProgress();
       });
    }
 
@@ -29530,7 +33582,7 @@ class ABDataCollection extends _core_ABDataCollectionCore__WEBPACK_IMPORTED_MODU
          DC: this,
       });
 
-      this._extendCollection(dc);
+      // this._extendCollection(dc);
 
       return dc;
    }
@@ -29551,58 +33603,58 @@ class ABDataCollection extends _core_ABDataCollectionCore__WEBPACK_IMPORTED_MODU
       return treeStore;
    }
 
-   _extendCollection(dataStore) {
-      console.error(
-         "TODO: ABDataCollection._extendCollection(): remove this call!"
-      );
-      return;
+   // _extendCollection(dataStore) {
+   //    console.error(
+   //       "TODO: ABDataCollection._extendCollection(): remove this call!"
+   //    );
+   //    return;
 
-      // Apply this data collection to support multi-selection
-      // https://docs.webix.com/api__refs__selectionmodel.html
-      webix.extend(dataStore, webix.SelectionModel);
+   //    // Apply this data collection to support multi-selection
+   //    // https://docs.webix.com/api__refs__selectionmodel.html
+   //    webix.extend(dataStore, webix.SelectionModel);
 
-      dataStore.___AD = dataStore.___AD || {};
+   //    dataStore.___AD = dataStore.___AD || {};
 
-      // Implement .onDataRequest for paging loading
-      if (!this.settings.loadAll) {
-         if (!dataStore.___AD.onDataRequestEvent) {
-            dataStore.___AD.onDataRequestEvent = dataStore.attachEvent(
-               "onDataRequest",
-               (start, count) => {
-                  if (start < 0) start = 0;
+   //    // Implement .onDataRequest for paging loading
+   //    if (!this.settings.loadAll) {
+   //       if (!dataStore.___AD.onDataRequestEvent) {
+   //          dataStore.___AD.onDataRequestEvent = dataStore.attachEvent(
+   //             "onDataRequest",
+   //             (start, count) => {
+   //                if (start < 0) start = 0;
 
-                  // load more data to the data collection
-                  this.loadData(start, count);
+   //                // load more data to the data collection
+   //                this.loadData(start, count);
 
-                  return false; // <-- prevent the default "onDataRequest"
-               }
-            );
-         }
+   //                return false; // <-- prevent the default "onDataRequest"
+   //             }
+   //          );
+   //       }
 
-         if (!dataStore.___AD.onAfterLoadEvent) {
-            dataStore.___AD.onAfterLoadEvent = dataStore.attachEvent(
-               "onAfterLoad",
-               () => {
-                  this.emit("loadData", {});
-               }
-            );
-         }
-      }
+   //       if (!dataStore.___AD.onAfterLoadEvent) {
+   //          dataStore.___AD.onAfterLoadEvent = dataStore.attachEvent(
+   //             "onAfterLoad",
+   //             () => {
+   //                this.emit("loadData", {});
+   //             }
+   //          );
+   //       }
+   //    }
 
-      // override unused functions of selection model
-      dataStore.addCss = function () {};
-      dataStore.removeCss = function () {};
-      dataStore.render = function () {};
+   //    // override unused functions of selection model
+   //    dataStore.addCss = function () {};
+   //    dataStore.removeCss = function () {};
+   //    dataStore.render = function () {};
 
-      if (!dataStore.___AD.onAfterLoad) {
-         dataStore.___AD.onAfterLoad = dataStore.attachEvent(
-            "onAfterLoad",
-            () => {
-               this.hideProgressOfComponents();
-            }
-         );
-      }
-   }
+   //    if (!dataStore.___AD.onAfterLoad) {
+   //       dataStore.___AD.onAfterLoad = dataStore.attachEvent(
+   //          "onAfterLoad",
+   //          () => {
+   //             this.hideProgressOfComponents();
+   //          }
+   //       );
+   //    }
+   // }
 
    parseTreeCollection(data = {}) {
       if (
@@ -30368,7 +34420,7 @@ dc.define("dataFeed", (value, params) => {
    }
 
    stateValues() {
-      if (!this.DC.$state) return [];
+      if (!this.DC.$state) return (this.DC.$state = []);
       return this.DC.$state[this.DC.id];
    }
 
@@ -30387,7 +34439,7 @@ dc.define("dataFeed", (value, params) => {
    }
 
    count() {
-      return this.stateValues().length();
+      return this.stateValues().length;
    }
 
    exists(ID) {
@@ -30465,6 +34517,8 @@ dc.define("dataFeed", (value, params) => {
    getItem(id) {
       var PK = this.PK;
       var allValues = this.stateValues();
+      if (id == null || allValues == null || allValues.length === 0 )
+         return null;
       return allValues.find((v) => this.id(v) == id);
    }
 
@@ -30507,7 +34561,13 @@ dc.define("dataFeed", (value, params) => {
       let pos = data.pos || 0;
       let tc = data.total_count || 0;
 
-      if (Array.isArray(dataIn) && dataIn.length == 0) return;
+      if (Array.isArray(dataIn) && dataIn.length == 0) {
+         if (tc == 0) {
+            // this is an actual empty data set.
+            this.clearAll();
+         }
+         return;
+      }
 
       if (pos == 0) {
          this.setValues(dataIn);
@@ -30573,7 +34633,6 @@ dc.define("dataFeed", (value, params) => {
    /*
 
    attachEvent(str, fn() ) // onAfterCursorChange
-   
    updateItem(d.id,updateItemData);
 
    loadNext(count, start);
@@ -30694,11 +34753,51 @@ class ABModel extends _core_ABModelCore__WEBPACK_IMPORTED_MODULE_0__["default"] 
             context.reject?.(err);
             return;
          }
+
+         if (this.isCsvPacked(data)) {
+            let lengthPacked = JSON.stringify(data).length;
+            data = this.csvUnpack(data);
+
+            // JOHNNY: getting "RangeError: Invalid string length"
+            // when data.data is too large. So we are just going
+            // to .stringify() the rows individually and count the
+            // length of each one.
+
+            let lengthUnpacked = 0;
+            if (Array.isArray(data.data)) {
+               for (var d = 0; d < data.data.length; d++) {
+                  lengthUnpacked += JSON.stringify(data.data[d]).length;
+               }
+            } else {
+               lengthUnpacked += JSON.stringify(data.data).length;
+            }
+
+            Object.keys(data)
+               .filter((k) => k != "data")
+               .map((k) => {
+                  lengthUnpacked += `${k}:${data[k]},`.length;
+               });
+
+            lengthUnpacked += 5; // for the brackets
+
+            console.log(
+               `CSV Pack: ${lengthUnpacked} -> ${lengthPacked} (${(
+                  (lengthPacked / lengthUnpacked) *
+                  100
+               ).toFixed(2)}%)`
+            );
+         }
+
          if (key) {
             // on "update" & "create" we want to normalizeData()
             if (key.indexOf("delete") == -1) {
+               // on anything with a key, we shouldn't have data.data
+               data = data.data || data;
+
                this.normalizeData(data);
             } else {
+               // triggers to ab.datacollection.delete need to send the .id
+               // of the item deleted:
                data = data.data || context.id;
             }
          } else {
@@ -31160,6 +35259,178 @@ class ABModel extends _core_ABModelCore__WEBPACK_IMPORTED_MODULE_0__["default"] 
             //    resolve(true);
             // })
             .catch(reject);
+      });
+   }
+}
+
+
+/***/ }),
+
+/***/ 70558:
+/*!**************************************************!*\
+  !*** ./src/js/AppBuilder/platform/ABModelApi.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABModelAPI)
+/* harmony export */ });
+/* harmony import */ var _ABModel__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABModel */ 41637);
+//
+// ABModelAPI
+//
+// Represents the Data interface for an ABObjectQuery data.
+
+
+
+class ABModelAPI extends _ABModel__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   ///
+   /// Instance Methods
+   ///
+
+   /**
+    * @method findAll
+    * performs a data find with the provided condition.
+    */
+   async findAll(cond = {}) {
+      cond.isAPI = true;
+      cond.url = this.object?.request?.url;
+
+      return super.findAll(cond);
+   }
+
+   /**
+    * @method batchCreate
+    * update model values on the server.
+    */
+   batchCreate(values) {
+      const error = new Error(
+         "ABObjectApi.ABModelAPI.batchCreate() does not be implemented."
+      );
+      return Promise.reject(error);
+   }
+
+   /**
+    * @method create
+    * update model values on the server.
+    */
+   async create(values) {
+      const error = new Error(
+         "ABObjectApi.ABModelAPI.create() does not be implemented."
+      );
+      return Promise.reject(error);
+   }
+
+   /**
+    * @method delete
+    * remove this model instance from the server
+    * @param {integer|UUID} id  the .id of the instance to remove.
+    * @return {Promise}
+    */
+   delete(id) {
+      const error = new Error(
+         "ABObjectApi.ABModelAPI.delete() does not be implemented."
+      );
+      return Promise.reject(error);
+   }
+
+   /**
+    * @method update
+    * update model values on the server.
+    */
+   update(id, values) {
+      const error = new Error(
+         "ABObjectApi.ABModelAPI.update() does not be implemented."
+      );
+      return Promise.reject(error);
+   }
+
+   /**
+    * @method batchUpdate
+    * update value to many rows on the server.
+    */
+   batchUpdate({ rowIds, values }) {
+      const error = new Error(
+         "ABObjectApi.ABModelAPI.batchUpdate() does not be implemented."
+      );
+      return Promise.reject(error);
+   }
+}
+
+
+/***/ }),
+
+/***/ 19901:
+/*!**********************************************************!*\
+  !*** ./src/js/AppBuilder/platform/ABModelApiNetsuite.js ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABModelAPINetsuite)
+/* harmony export */ });
+/* harmony import */ var _ABModel__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABModel */ 41637);
+//
+// ABModelAPINetsuite
+//
+// Represents the Data interface for a connection to Netsuite.
+
+
+
+class ABModelAPINetsuite extends _ABModel__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   ///
+   /// Instance Methods
+   ///
+
+   /**
+    * @method normalizeData()
+    * For a Netsuite object, there are additional steps we need to handle
+    * to normalize our data.
+    */
+   normalizeData(data) {
+      super.normalizeData(data);
+
+      if (!Array.isArray(data)) {
+         data = [data];
+      }
+
+      var boolFields = this.object.fields((f) => f.key == "boolean");
+      let allFields = this.object.fields();
+
+      data.forEach((d) => {
+         // Netsuite sometimes keeps keys all lowercase
+         // which might not match up with what it told us in the meta-catalog
+         // which we need:
+         for (var i = 0; i < allFields.length; i++) {
+            let actualColumn = allFields[i].columnName;
+            let lcColumn = actualColumn.toLowerCase();
+
+            if (
+               typeof d[actualColumn] == "undefined" &&
+               typeof d[lcColumn] != "undefined"
+            ) {
+               d[actualColumn] = d[lcColumn];
+               delete d[lcColumn];
+            }
+         }
+
+         // Netsuite Booleans are "T" or "F"
+         boolFields.forEach((bField) => {
+            let val = d[bField.columnName];
+            // just how many ways can a DB indicate True/False?
+            if (typeof val == "string") {
+               val = val.toLowerCase();
+
+               if (val === "t") val = true;
+               else val = false;
+
+               d[bField.columnName] = val;
+            }
+         });
       });
    }
 }
@@ -32044,6 +36315,58 @@ class ABObject extends _core_ABObjectCore__WEBPACK_IMPORTED_MODULE_0__["default"
       return this.AB.isUUID(text);
    }
 }
+
+
+/***/ }),
+
+/***/ 9611:
+/*!***************************************************!*\
+  !*** ./src/js/AppBuilder/platform/ABObjectApi.js ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABObjectApi)
+/* harmony export */ });
+/* harmony import */ var _core_ABObjectApiCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/ABObjectApiCore */ 31549);
+
+
+/**
+ * ABObjectApi
+ * These are ABObjects that were Imported from existing Tables in the
+ * system.
+ *
+ * NOTE: on the web client, these should function just like ABObjects
+ */
+class ABObjectApi extends _core_ABObjectApiCore__WEBPACK_IMPORTED_MODULE_0__["default"] {}
+
+
+/***/ }),
+
+/***/ 65506:
+/*!***********************************************************!*\
+  !*** ./src/js/AppBuilder/platform/ABObjectApiNetsuite.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABObjectApiNetsuite)
+/* harmony export */ });
+/* harmony import */ var _core_ABObjectApiNetsuiteCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/ABObjectApiNetsuiteCore */ 55336);
+
+
+/**
+ * ABObjectApiNetsuite
+ * These are ABObjects that were Imported from existing Tables in the
+ * system.
+ *
+ * NOTE: on the web client, these should function just like ABObjects
+ */
+class ABObjectApiNetsuite extends _core_ABObjectApiNetsuiteCore__WEBPACK_IMPORTED_MODULE_0__["default"] {}
 
 
 /***/ }),
@@ -32975,6 +37298,26 @@ __webpack_async_result__();
 
 /***/ }),
 
+/***/ 15656:
+/*!***********************************************************!*\
+  !*** ./src/js/AppBuilder/platform/ABViewManagerMobile.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewManagerMobile)
+/* harmony export */ });
+/* harmony import */ var _core_ABViewManagerMobileCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/ABViewManagerMobileCore */ 40080);
+/* harmony import */ var _core_ABViewManagerMobileCore__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_core_ABViewManagerMobileCore__WEBPACK_IMPORTED_MODULE_0__);
+
+
+class ABViewManagerMobile extends (_core_ABViewManagerMobileCore__WEBPACK_IMPORTED_MODULE_0___default()) {}
+
+
+/***/ }),
+
 /***/ 10758:
 /*!*****************************************************!*\
   !*** ./src/js/AppBuilder/platform/FilterComplex.js ***!
@@ -33238,6 +37581,8 @@ class FilterComplex extends _core_FilterComplexCore__WEBPACK_IMPORTED_MODULE_0__
 
       super.init(options);
 
+      console.error("@TODO: Filtercomplex and more webix references");
+      /*
       const el = $$(this.ids.querybuilder);
 
       if (el) {
@@ -33260,6 +37605,7 @@ class FilterComplex extends _core_FilterComplexCore__WEBPACK_IMPORTED_MODULE_0__
          }
          this._initComplete = true;
       }
+      */
    }
 
    /**
@@ -36309,6 +40655,22 @@ class ABFieldConnect extends _core_dataFields_ABFieldConnectCore__WEBPACK_IMPORT
     *
     * @return {Promise}
     */
+
+   initStore(store) {
+      let id = this.id;
+      store.state[id] = [];
+      store.getters[id] = function ({ state }) {
+         return state[id];
+      };
+   }
+
+   options(...params) {
+      return this.getOptions(...params).then((options) => {
+         this.AB.$store.state[this.id] = options || [];
+         return options;
+      });
+   }
+
    getOptions(whereClause, term, sort, editor) {
       const theEditor = editor;
       return new Promise((resolve, reject) => {
@@ -36337,16 +40699,17 @@ class ABFieldConnect extends _core_dataFields_ABFieldConnectCore__WEBPACK_IMPORT
          // Prepare Where clause
 
          const where = this.AB.cloneDeep(whereClause || {});
-         sort = sort || [];
-
          if (!where.glue) where.glue = "and";
-
          if (!where.rules) where.rules = [];
 
          term = term || "";
+         sort = sort || [];
 
          // check if linked object value is not define, should return a empty array
-         if (!this.settings.linkObject) return [];
+         if (!this.settings.linkObject) {
+            respond([]);
+            return;
+         }
 
          // if options was cached
          // if (this._options != null) return resolve(this._options);
@@ -36364,11 +40727,11 @@ class ABFieldConnect extends _core_dataFields_ABFieldConnectCore__WEBPACK_IMPORT
          // Get linked object model
          const linkedModel = linkedObj.model();
 
+         const linkType = this.LinkString; // `${this.settings.linkType}:${this.settings.linkViaType}`;
+
          // M:1 - get data that's only empty relation value
          if (
-            this.settings.linkType == "many" &&
-            this.settings.linkViaType == "one" &&
-            editor?.config?.showAllOptions != true
+            "many:one" == linkType // && editor?.config?.showAllOptions != true
          ) {
             where.rules.push({
                key: linkedCol.id,
@@ -36378,9 +40741,7 @@ class ABFieldConnect extends _core_dataFields_ABFieldConnectCore__WEBPACK_IMPORT
          }
          // 1:1
          else if (
-            this.settings.linkType == "one" &&
-            this.settings.linkViaType == "one" &&
-            editor?.config?.showAllOptions != true
+            "one:one" == linkType // && editor?.config?.showAllOptions != true
          ) {
             // 1:1 - get data is not match link id that we have
             if (this.settings.isSource == true) {
@@ -36684,22 +41045,22 @@ class ABFieldConnect extends _core_dataFields_ABFieldConnectCore__WEBPACK_IMPORT
       });
    }
 
-   populateOptions(theEditor, data, field, form, addCy) {
-      if (theEditor == null || theEditor.$destructed) return;
+   // populateOptions(theEditor, data, field, form, addCy) {
+   //    if (theEditor == null || theEditor.$destructed) return;
 
-      theEditor.blockEvent();
-      theEditor.getList().clearAll();
-      theEditor.getList().define("data", data);
-      if (addCy) {
-         this.populateOptionsDataCy(theEditor, field, form);
-      }
-      if (theEditor.getValue && theEditor.getValue()) {
-         theEditor.setValue(theEditor.getValue());
-         // } else if (this._selectedData && this._selectedData.length) {
-         //    theEditor.setValue(this.editFormat(this._selectedData));
-      }
-      theEditor.unblockEvent();
-   }
+   //    theEditor.blockEvent();
+   //    theEditor.getList().clearAll();
+   //    theEditor.getList().define("data", data);
+   //    if (addCy) {
+   //       this.populateOptionsDataCy(theEditor, field, form);
+   //    }
+   //    if (theEditor.getValue && theEditor.getValue()) {
+   //       theEditor.setValue(theEditor.getValue());
+   //       // } else if (this._selectedData && this._selectedData.length) {
+   //       //    theEditor.setValue(this.editFormat(this._selectedData));
+   //    }
+   //    theEditor.unblockEvent();
+   // }
 
    populateOptionsDataCy(theEditor, field, form) {
       if (theEditor?.$destructed) return;
@@ -36985,30 +41346,32 @@ class ABFieldDate extends _core_dataFields_ABFieldDateCore__WEBPACK_IMPORTED_MOD
    }
 
    dateToString(dateFormat, dateData) {
-      return webix.Date.dateToStr(dateFormat)(dateData);
+      if (!dateData) return "";
+
+      return this.AB.rules.toDateFormat(dateData, { format: dateFormat }); // webix.Date.dateToStr(dateFormat)(dateData);
    }
 
    // Overwrite core.format to use webix locales.
-   format(rowData) {
-      if (!window.webixLocale) return super.format(rowData);
-      const d = this.dataValue(rowData);
+   // format(rowData) {
+   //    if (!window.webixLocale) return super.format(rowData);
+   //    const d = this.dataValue(rowData);
 
-      if (d == "" || d == null) {
-         return "";
-      }
-      const dateObj = this.AB.rules.toDate(d);
+   //    if (d == "" || d == null) {
+   //       return "";
+   //    }
+   //    const dateObj = this.AB.rules.toDate(d);
 
-      const dateFormat = this.settings.dateFormat;
-      // @const {int} dateFormat AB Date Format
-      // 1 - ignore, 2 - dd/mm/yyyy, 3 - mm/dd/yyyy, 4 - M D, yyyy, 5 - D M, yyyy
+   //    const dateFormat = this.settings.dateFormat;
+   //    // @const {int} dateFormat AB Date Format
+   //    // 1 - ignore, 2 - dd/mm/yyyy, 3 - mm/dd/yyyy, 4 - M D, yyyy, 5 - D M, yyyy
 
-      // Return longdate if option 4 or 5
-      if (dateFormat >= 4) {
-         return webix.i18n.longDateFormatStr(dateObj);
-      } else {
-         return webix.i18n.dateFormatStr(dateObj);
-      }
-   }
+   //    // Return longdate if option 4 or 5
+   //    if (dateFormat >= 4) {
+   //       return webix.i18n.longDateFormatStr(dateObj);
+   //    } else {
+   //       return webix.i18n.dateFormatStr(dateObj);
+   //    }
+   // }
 }
 
 
@@ -38428,7 +42791,7 @@ class ABFieldImage extends _core_dataFields_ABFieldImageCore__WEBPACK_IMPORTED_M
     *        Is this url being used by a webix component?
     * @return {string}
     */
-   urlUpload(isWebix = true) {
+   urlUpload(isWebix = false) {
       return `/file/upload/${this.object.id}/${this.id}/${isWebix ? "1" : "0"}`;
    }
 }
@@ -39632,30 +43995,6 @@ class ABFieldString extends _core_dataFields_ABFieldStringCore__WEBPACK_IMPORTED
       }
    }
 
-   /**
-    * @method isValidData
-    * Parse through the given data and return an error if this field's
-    * data seems invalid.
-    * @param {obj} data  a key=>value hash of the inputs to parse.
-    * @param {OPValidator} validator  provided Validator fn
-    * @return {array}
-    */
-   isValidData(data, validator) {
-      super.isValidData(data, validator);
-
-      if (data && data[this.columnName]) {
-         const max_length = this.constructor.defaults().MAX_CHAR_LENGTH;
-
-         if (data[this.columnName].length > max_length) {
-            const L = this.AB.Label();
-            validator.addError(
-               this.columnName,
-               L("should NOT be longer than {0} characters", [max_length])
-            );
-         }
-      }
-   }
-
    /*
     * @property isMultilingual
     * does this field represent multilingual data?
@@ -39674,23 +44013,23 @@ class ABFieldString extends _core_dataFields_ABFieldStringCore__WEBPACK_IMPORTED
     * However, what is returned here, needs to be able to create an instance of
     * the component that will be stored with the ABViewForm.
     */
-   formComponent() {
-      // NOTE: what is being returned here needs to mimic an ABView CLASS.
-      // primarily the .common() and .newInstance() methods.
-      const formComponentSetting = super.formComponent();
+   // formComponent() {
+   //    // NOTE: what is being returned here needs to mimic an ABView CLASS.
+   //    // primarily the .common() and .newInstance() methods.
+   //    const formComponentSetting = super.formComponent();
 
-      // .common() is used to create the display in the list
-      formComponentSetting.common = () => {
-         return {
-            key: "textbox",
-            settings: {
-               type: "single",
-            },
-         };
-      };
+   //    // .common() is used to create the display in the list
+   //    formComponentSetting.common = () => {
+   //       return {
+   //          key: "textbox",
+   //          settings: {
+   //             type: "single",
+   //          },
+   //       };
+   //    };
 
-      return formComponentSetting;
-   }
+   //    return formComponentSetting;
+   // }
 
    detailComponent() {
       const detailComponentSetting = super.detailComponent();
@@ -40505,6 +44844,17 @@ class ABFieldUser extends _core_dataFields_ABFieldUserCore__WEBPACK_IMPORTED_MOD
          return result;
       });
    }
+
+   options(...params) {
+      return this.getOptions(...params).then((options) => {
+         // User values need to keep the .username as the .id
+         (options || []).forEach((o) => {
+            o.id = o.username ?? o.text;
+         });
+         this.AB.$store.state[this.id] = options || [];
+         return options;
+      });
+   }
 }
 
 
@@ -40539,12 +44889,56 @@ class ABMobilePage extends _core_mobile_ABMobilePageCore__WEBPACK_IMPORTED_MODUL
    //    });
    // }
 
+   show(showBack = false) {
+      // TODO: figure out the different Page display options
+      // and update this call to properly intro the page:
+
+      let route = `/${this.route}`;
+      if (this.menuType == "tab") {
+         route = `/tabs/${this.route}`;
+      }
+      this.AB.$f7.view.main.router.navigate(route, {
+         props: {
+            /* This shows up as [props] in our .component definition */
+            showBack,
+            // data: item,
+            // isEditMode: true,
+            // transition: "f7-fade", // Q? Should we offer transition Options on a Page?
+         },
+         ignoreCache: true,
+      });
+   }
+   hide() {
+      // TODO Does this need more?
+      this.AB.$f7.view.main.router.back();
+   }
+
+   viewHTML($h) {
+      let allResults = [];
+
+      this.views().forEach((v) => {
+         allResults.push(v.html($h));
+      });
+
+      return allResults.map((r) => r()); // render each jsx template
+   }
+
    routeComponent() {
       return {
          path: `/${this.route}`,
+         id: this.route,
          component: (props, { $, $h, $f7, $on, $store, $update }) => {
+            const L = this.AB.Label();
             const title = this.label;
             let allGetters = {};
+            // this.inboxBadge = 0;
+
+            // NOTE: this can be redundant, but on the ABDesigner we
+            // will load a specific page directly and doing this will
+            // make sure the ABFactory is properly populated:
+            this.AB.$ = $;
+            this.AB.$f7 = $f7;
+            this.AB.$store = $store;
 
             // NOTE: Programming Quirk:
             // We seem to need to access our getters for this Page from
@@ -40552,6 +44946,7 @@ class ABMobilePage extends _core_mobile_ABMobilePageCore__WEBPACK_IMPORTED_MODUL
             // it registers the components that need to be redrawn when the
             // related state is updated.
             let allViews = this.views();
+
             allViews.forEach((v) => {
                let dc = v.datacollection;
                if (dc) {
@@ -40559,6 +44954,14 @@ class ABMobilePage extends _core_mobile_ABMobilePageCore__WEBPACK_IMPORTED_MODUL
                   allGetters[dc.id] = $store.getters[dc.id];
                }
             });
+
+            const loadInboxBadge = async () => {
+               const inboxConfig = await this.AB.Network.get({
+                  url: "/config/inbox",
+               });
+               this.inboxBadge = (inboxConfig.inbox || []).length;
+               $update();
+            };
 
             $on("pageInit", async (e, page) => {
                const pendingInit = [];
@@ -40568,22 +44971,17 @@ class ABMobilePage extends _core_mobile_ABMobilePageCore__WEBPACK_IMPORTED_MODUL
 
                   const viewInit = async (v, callback) => {
                      await v.init();
-
                      callback();
                   };
                   const init = () =>
                      new Promise((resolve) => {
+                        // wait for DC to be initialized before
+                        // initializing the view.
                         if (dc && !dc.isDataInitialized) {
+                           dc.on("initializedData", () => {
+                              viewInit(v, resolve);
+                           });
                            $store.dispatch("getAppBuilderData", dc.id);
-
-                           const waitDCInit = setInterval(async () => {
-                              if (dc.isDataInitialized) {
-                                 clearInterval(waitDCInit);
-
-                                 await viewInit(v, resolve);
-                              }
-                           }, 500);
-
                            return;
                         }
 
@@ -40593,123 +44991,142 @@ class ABMobilePage extends _core_mobile_ABMobilePageCore__WEBPACK_IMPORTED_MODUL
                   pendingInit.push(init());
                });
 
+               pendingInit.push(loadInboxBadge());
+
                await Promise.all(pendingInit);
-
-               // $("#add-data-form-submit").on("click", async () => {
-               //    const formData = $f7.form.convertToData("#add-data-form");
-
-               //    console.log(formData);
-               //    // await addItem(formData)
-               // });
-
-               // $(".deleted-callback").on(
-               //    "swipeout:deleted",
-               //    async function (value) {
-               //       await delItem(this.getAttribute("id"));
-               //    }
-               // );
             });
 
-            // let views = [
-            //    {
-            //       key: "list",
-            //       dcID: "0e9f5f6f-cd0b-4b93-b0c8-d51bd9852322",
-            //       detailPage: "ABPage.id",
-            //    },
-            // ];
-            function viewHTML() {
-               let allResults = [];
-
+            $on("pageBeforeRemove", () => {
                allViews.forEach((v) => {
-                  allResults.push(v.html());
+                  v.destroy();
                });
+            });
 
-               // views.forEach((view) => {
-               //    switch (view.key) {
-               //       case "list":
-               //          var list = new List(view, { Application }, AB);
-               //          allResults.push(list.html());
-               //          allViews.push(list);
-               //          break;
-               //       default:
-               //       // code block
-               //    }
-               // });
+            ///
+            /// Add Button
+            ///
 
-               return allResults.map((r) => r()); // render each jsx template
-            }
+            //             const viewAddButton = () => {
+            //                // Decide wether or not to display the Add button.
 
-            // async function addItem() {
-            //    let DC = allViews[0].datacollection;
-            //    let firstItem = DC.getFirstRecord();
-            //    console.log(firstItem);
-            //    let removeThese = ["uuid", "created_at", "updated_at", "id"];
-            //    let newItem = {};
-            //    Object.keys(firstItem).forEach((k) => {
-            //       if (removeThese.indexOf(k) == -1) {
-            //          newItem[k] = firstItem[k];
-            //       }
-            //    });
+            //                if (!widgetAdd) return ``;
 
-            //    newItem.Name = `${newItem.Name}-${AB.jobID()}`;
-            //    console.log(newItem);
+            //                return $h`
+            //                <div class="right">
+            //                      <a
+            //                         href="#"
+            //                         data-panel=".panel-right"
+            //                         class="link icon-only"
+            //                         onclick=${() => {
+            //                            // tell the widget to open it's ADD page.
+            //                            widgetAdd.openAddPage();
+            //                            // this.AB.$f7.view.main.router.navigate("/form", {
+            //                            //    props: {
+            //                            //       isEditMode: false,
+            //                            //    },
+            //                            //    ignoreCache: true,
+            //                            // });
+            //                         }}
+            //                      >
+            //                         <i class="icon f7-icons if-not-md">plus</i>
+            //                         <i class="icon material-icons md-only">add</i>
+            //                      </a>
+            //                   </div>
+            // `;
+            //             };
 
-            //    try {
-            //       await DC.datasource.model().create(newItem);
-            //    } catch (e) {
-            //       console.error(e);
-            //    }
-            // }
+            ///
+            /// Tabs
+            ///
 
-            // async function delItem(id) {
-            //    let DC = allViews[0].datacollection;
-            //    let item = id ? DC.$dc.getItem(id) : DC.getCursor();
-            //    if (!item) {
-            //       item = DC.getFirstRecord();
-            //    }
+            let pagesTabs = this.application.pages((p) => p.menuType == "tab");
+            // {array} {ABMobilePage}
+            // The pages that are defined as Tabs in this application.
 
-            //    console.log("record to delete:", item);
-            //    try {
-            //       await DC.datasource
-            //          .model()
-            //          .delete(item[DC.datasource.PK()] || item.id || item.uuid);
-            //    } catch (e) {
-            //       console.error(e);
-            //    }
-            // }
+            let tabContent = (p) => {
+               // return the link for a Tab
+               // @param {ABMobilePage} that represents the Tab Page
+               return $h`<a href="/tabs/${p.route}" class="tab-link" data-route-tab-id="${p.route}">${p.name}</a>`;
+            };
 
-            //
-            return () => $h`
-         <div class="page">
-            <div class="navbar">
-               <div class="navbar-bg"></div>
-               <div class="navbar-inner">
-                  <div class="left">
-                     <a
+            let viewTabs = () => {
+               // return the block of HTML for the Tabs on the bottom of a Page
+               // if there are no tabs, then this is empty.
+               if (pagesTabs.length == 0 || this.settings.hideTabs) return "";
+
+               return $h`<div class="toolbar tabbar toolbar-bottom">
+                   <div class="toolbar-inner">
+                   ${pagesTabs.map((p) => tabContent(p))}
+                   </div>
+                 </div>`;
+            };
+
+            ///
+            /// Menu or Back
+            ///
+            const menu = () => {
+               if (!props.showBack) {
+                  return $h`<a
                         href="#"
                         data-panel=".panel-left"
                         class="link icon-only panel-open"
                      >
                         <i class="icon material-icons">menu</i>
-                     </a>
-                  </div>
-                  <div class="title">${title}</div>
+                     </a>`;
+               }
+
+               return $h`<a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="if-not-md">${L("Back")}</span>
+                     </a>`;
+            };
+
+            ///
+            /// Title
+            ///
+
+            const pageTitle = () => {
+               // An ABMobilePage can optionally NOT display a title.
+
+               if (this.settings.hideTitle) {
+                  return "";
+               }
+
+               return $h`<div class="title">${title}</div>
                   <div class="title-large">
                      <div class="title-large-text">${title}</div>
+                  </div>`;
+            };
+            ///
+            /// Inbox
+            ///
+            const inbox = () => {
+               if (this.inboxBadge > 0) {
+                  return $h`<a href="/inbox" class="link icon-only">
+                        <i class="icon material-icons">mail<span class="badge color-red">${this.inboxBadge}</span></i>
+                     </a>`;
+               }
+               return $h`<a href="/inbox" class="link icon-only"><i class="icon material-icons">mail</i></a>`;
+            };
+
+            return () => $h`
+         <div class="page" data-name="${this.route}">
+            <div class="navbar">
+               <div class="navbar-bg"></div>
+               <div class="navbar-inner">
+                  <div class="left">
+                     ${menu()}
                   </div>
+                  ${pageTitle()}
                   <div class="right">
-                     <a
-                        href="#"
-                        data-panel=".panel-right"
-                        class="link icon-only panel-open"
-                     >
-                        <i class="icon f7-icons if-not-md">plus</i>
-                        <i class="icon material-icons md-only">add</i>
-                     </a>
+                    ${inbox()}
                   </div>
                </div>
             </div>
-            ${viewHTML()}
+            <div class="page-content">
+            ${this.viewHTML($h)}
+            </div>
+            ${viewTabs()}
          </div>
       `;
          },
@@ -40794,6 +45211,20 @@ class ABMobileView extends _core_mobile_ABMobileViewCore_js__WEBPACK_IMPORTED_MO
       return allowedComponents;
    }
 
+   /**
+    * @method init()
+    * perform any actions to prepare a view after HTML is ready
+    * happens during  $on("pageInit", ()=>{});
+    */
+   async init() {}
+
+   /**
+    * @method destroy()
+    * perform any actions to clean up during a destroy/page removal
+    * happens during $on("pageBeforeRemove", ()=>{})
+    */
+   destroy() {}
+
    warningsAll() {
       // report both OUR warnings, and any warnings from any of our sub views
       var allWarnings = super.warningsAll();
@@ -40835,6 +45266,2773 @@ class ABMobileView extends _core_mobile_ABMobileViewCore_js__WEBPACK_IMPORTED_MO
    warningsMessage(msg, data = {}) {
       let message = `${this.key}[${this.name}]: ${msg}`;
       this._warnings.push({ message, data });
+   }
+}
+
+
+/***/ }),
+
+/***/ 95609:
+/*!*****************************************************************!*\
+  !*** ./src/js/AppBuilder/platform/mobile/ABMobileViewCustom.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewCustom)
+/* harmony export */ });
+/* harmony import */ var _core_mobile_ABMobileViewCustomCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewCustomCore.js */ 25538);
+/**
+ * ABMobileViewCustom
+ * This view allows a developer to create a custom view for their mobile app.
+ */
+
+
+
+class ABMobileViewCustom extends _core_mobile_ABMobileViewCustomCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   constructor(...params) {
+      super(...params);
+
+      // now make sure our custom init() and html() methods are defined
+      if (this.settings.initCode) {
+         this._init = new Function(
+            "$AB",
+            "$DC",
+            `return (async () => { 
+               ${this.settings.initCode}
+            })()`
+         );
+      } else {
+         this._init = new Function(
+            "$AB",
+            "$DC",
+            `return (async () => { console.log("no initCode provided."); })()`
+         );
+      }
+
+      if (this.settings.htmlCode) {
+         this._html = new Function(
+            "$AB",
+            "$h",
+            "$DC",
+            `return (() => { 
+               ${this.settings.htmlCode} 
+            })()`
+         );
+      } else {
+         this._html = new Function(
+            "$AB",
+            "$h",
+            "$DC",
+            `return $h\`<b>${this.label}: No HTML code provided.</b>\`;`
+         );
+      }
+
+      this.$DC = {};
+      Object.keys(this.settings.datacollections ?? {}).forEach((label) => {
+         let id = this.settings.datacollections[label];
+         let dc = this.AB.datacollectionByID(id);
+         this.$DC[label] = dc;
+      });
+   }
+
+   async init() {
+      // prepare our DataCollections
+      // For Framework7's templates to recoginze updates to the data,
+      // the store.dispatch() needs to be called during the template
+      // rendering process.
+      // So we will do that here and make sure the DCs are loaded before
+      // entering the init() routine.
+      let promises = [];
+      Object.keys(this.$DC).forEach((key) => {
+         let dc = this.$DC[key];
+         promises.push(this.AB.$store.dispatch("getAppBuilderData", dc.id));
+      });
+      await Promise.all(promises);
+
+      // Call the custom init function if it exists
+      if (this._init) {
+         await this._init(this.AB, this.$DC);
+      }
+   }
+
+   html($h) {
+      // Call the custom html function if it exists
+      if (this._html) {
+         return () => $h`${this._html(this.AB, $h, this.$DC)}`;
+      }
+   }
+}
+
+
+/***/ }),
+
+/***/ 55805:
+/*!***************************************************************!*\
+  !*** ./src/js/AppBuilder/platform/mobile/ABMobileViewForm.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewForm)
+/* harmony export */ });
+/* harmony import */ var _core_mobile_ABMobileViewFormCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormCore.js */ 97835);
+/**
+ * ABMobileViewForm
+ * The view that displays a form on the screen.
+ */
+
+
+
+class ABMobileViewForm extends _core_mobile_ABMobileViewFormCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   // constructor(...params) {
+   //    super(...params);
+   // }
+
+   async init() {
+      let allInits = [];
+      this.views().forEach((v) => {
+         allInits.push(v.init());
+      });
+      await Promise.all(allInits);
+
+      const dc = this.datacollection;
+      if (dc && !this.settings.clearOnLoad) {
+         let rowData = dc.getCursor() || {};
+         this.views().forEach((v) => {
+            v.valueLoad?.(rowData);
+         });
+         let id = this.idID;
+         this.$form.prepend(`<input
+                       id="${id}"
+                       name="id"
+                       readonly
+                       type="hidden"
+                       placeholder=""
+                    />`);
+         let input = this.$form.find(`#${id}`);
+         input.val(rowData.id);
+      } else {
+         // clear the form
+         this.formClear();
+      }
+   }
+
+   formClear() {
+      const dc = this.datacollection;
+      // clear the form
+      dc?.setCursor(null); // clear the DC too?
+      this.views().forEach((v) => {
+         v.valueClear?.();
+      });
+   }
+
+   /**
+    * @method destroy()
+    * perform any actions to clean up during a destroy/page removal
+    */
+   destroy() {
+      this.views().forEach((v) => {
+         v.destroy();
+      });
+   }
+   buttonsNotViews(fn = () => true) {
+      return this.views((v) => v.key == "mobile-button").filter(fn);
+   }
+   viewsNotButtons(fn = () => true) {
+      return this.views((v) => v.key != "mobile-button").filter(fn);
+   }
+
+   itemsNotButtons($h) {
+      let rows = [];
+      this.viewsNotButtons().forEach((v) => {
+         let align = "";
+         // @TODO: figure out which form items need alignment:
+         // if (v.key == "mobile-textbox") {
+         //    align = "align-top";
+         // }
+         rows.push($h`<li class="${align}" >${v.html($h)}</li>`);
+      });
+      return rows;
+   }
+
+   buttons($h) {
+      var rows = [];
+      this.buttonsNotViews().forEach((v) => {
+         rows.push(v.html($h));
+      });
+      return rows;
+   }
+
+   formItems($h) {
+      // OK, we are going to align our Form Item in a <ul> list,
+      // but tack on the Buttons at the bottom:
+      return $h`
+         <ul>
+         ${this.itemsNotButtons($h)}
+         </ul>
+         ${this.buttons($h)}
+      `;
+   }
+
+   get idID() {
+      return `id_${this.id}`;
+   }
+
+   get idForm() {
+      return `Form_${this.id}`;
+   }
+
+   html($h) {
+      // // return () =>
+      // //    $h`<div class="${this.style} ${this.alignment}">${this.text}</div>`;
+
+      // let dc = this.datacollection;
+
+      // if (!dc || this.AB.$store.getters[dc.id].value.length === 0)
+      //    return () => $h`
+      //          ${this.listTitle($h)}
+      //          <div class="list links-list list-outline list-strong list-dividers skeleton-text skeleton-effect-fade">
+      //             <ul>
+      //                ${[...Array(20)].map(
+      //                   (/* x, i */) => $h`
+      //                   <li>
+      //                      <a href="#">Skeleton text will go here</a>
+      //                   </li>`
+      //                )}
+      //             </ul>
+      //          </div>
+
+      //    `;
+
+      // return () => $h`
+      //    ${this.listTitle($h)}
+      //    ${this.searchBar($h)}
+      //    <div
+      //       class="infinite-scroll-content"
+      //       onInfinite=${() => this.loadMore()}
+      //    >
+      //       <div class="list links-list list-outline list-strong list-dividers">
+      //          <ul>${this.listItems($h)}</ul>
+      //       </div>
+      //       ${this.hasMore($h)}
+      //    </div>`;
+
+      return () => $h`
+         <form
+            class="list list-inset list-strong-ios list-dividers-ios list-outline-ios"
+            id=${this.idForm}
+         >
+            ${this.formItems($h)}
+         </form>`;
+   }
+
+   //
+   // Form Actions:
+   //
+
+   busy() {
+      // this.AB.$f7.preloader.show();
+      this.buttonsNotViews().forEach((b) => {
+         b.busy();
+      });
+   }
+
+   get $form() {
+      return this.AB.$(`#${this.idForm}`);
+   }
+
+   ready() {
+      // this.AB.$f7.preloader.hide();
+
+      this.buttonsNotViews().forEach((b) => {
+         b.ready();
+      });
+   }
+
+   // Save
+   /**
+    * @method saveData
+    * save data in to database
+    * @param $formView - webix's form element
+    *
+    * @return {Promise}
+    */
+   async save() {
+      // get ABDatacollection
+      const dv = this.datacollection;
+      if (dv == null) return;
+
+      // get ABObject
+      const obj = dv.datasource;
+      if (obj == null) return;
+
+      // get ABModel
+      const model = dv.model;
+      if (model == null) return;
+
+      // show progress icon
+      this.buttonsNotViews().forEach((b) => {
+         b.busy();
+      });
+
+      // give each form item a chance to Prepare their data:
+      // ex: File fields need to upload their file and get back
+      // their ID
+
+      let allUpdates = [];
+      (this.viewsNotButtons() || []).forEach((v) => {
+         allUpdates.push(v.valuePrepare());
+      });
+      await Promise.all(allUpdates);
+
+      // get update data
+      const formVals = this.getFormValues(obj, dv, dv.datacollectionLink);
+
+      // form ready function
+      const formReady = (newFormVals) => {
+         // clear cursor after saving.
+         if (dv) {
+            if (this.settings.clearOnSave) {
+               // dv.setCursor(null);  // <== happens in .formClear()
+               this.formClear();
+            } else {
+               if (newFormVals && newFormVals.id) dv.setCursor(newFormVals.id);
+            }
+         }
+
+         // show progress icon
+
+         this.ready();
+
+         // if there was saved data pass it up to the onSaveData callback
+         if (newFormVals) this.emit("saved", newFormVals);
+      };
+
+      const formError = (err) => {
+         let L = this.AB.Label();
+
+         // mark error
+         if (err) {
+            if (err.invalidAttributes) {
+               for (const attr in err.invalidAttributes) {
+                  let invalidAttrs = err.invalidAttributes[attr];
+                  if (invalidAttrs && invalidAttrs[0])
+                     invalidAttrs = invalidAttrs[0];
+
+                  this.markInvalid(attr, invalidAttrs.message);
+               }
+            } else if (err.sqlMessage) {
+               this.AB.$f7.dialog.alert(err.sqlMessage, L("Error Received:"));
+            } else {
+               this.AB.$f7.dialog.alert(
+                  L("System could not save your data"),
+                  L("Error")
+               );
+               this.AB.notify.developer(err, {
+                  message: "Could not save your data",
+                  view: this.toObj(),
+               });
+            }
+         }
+
+         this.buttonsNotViews().forEach((b) => {
+            b.ready();
+         });
+
+         this.ready();
+      };
+
+      // wait for our Record Rules to be ready before we continue.
+      await this.recordRulesReady();
+
+      // update value from the record rule (pre-update)
+      this.doRecordRulesPre(formVals);
+
+      // validate data
+      if (!this.validateData(obj, formVals)) {
+         // console.warn("Data is invalid.");
+         return;
+      }
+
+      let newFormVals;
+      // {obj}
+      // The fully populated values returned back from service call
+      // We use this in our post processing Rules
+
+      try {
+         // is this an update or create?
+         if (formVals.id) {
+            newFormVals = await model.update(formVals.id, formVals);
+         } else {
+            newFormVals = await model.create(formVals);
+         }
+      } catch (err) {
+         formError(err.data);
+         throw err;
+      }
+
+      /*
+      // OLD CODE:
+      try {
+         await this.doRecordRules(newFormVals);
+         // make sure any updates from RecordRules get passed along here.
+         this.doSubmitRules(newFormVals);
+         formReady(newFormVals);
+         return newFormVals;
+      } catch (err) {
+         this.AB.notify.developer(err, {
+            message: "Error processing Record Rules.",
+            view: this.toObj(),
+            newFormVals: newFormVals,
+         });
+         // Question:  how do we respond to an error?
+         // ?? just keep going ??
+         this.doSubmitRules(newFormVals);
+         formReady(newFormVals);
+         return;
+      }
+      */
+
+      try {
+         await this.doRecordRules(newFormVals);
+      } catch (err) {
+         this.AB.notify.developer(err, {
+            message: "Error processing Record Rules.",
+            view: this.toObj(),
+            newFormVals: newFormVals,
+         });
+      }
+
+      // make sure any updates from RecordRules get passed along here.
+      try {
+         this.doSubmitRules(newFormVals);
+      } catch (errs) {
+         this.AB.notify.developer(errs, {
+            message: "Error processing Submit Rules.",
+            view: this.toObj(),
+            newFormVals: newFormVals,
+         });
+      }
+
+      formReady(newFormVals);
+      return newFormVals;
+   }
+
+   /**
+    * @method getFormValues
+    *
+    * @param {webix form} formView
+    * @param {ABObject} obj
+    * @param {ABDatacollection} dc
+    * @param {ABDatacollection} dcLink [optional]
+    */
+   getFormValues(obj, dc, dcLink) {
+      // get the fields that are on this form
+      /*     const visibleFields = ["id"]; // we always want the id so we can udpate records
+      formView.getValues(function (obj) {
+         visibleFields.push(obj.config.name);
+      });
+
+      // only get data passed from form
+      const allVals = formView.getValues();
+      const formVals = {};
+      visibleFields.forEach((val) => {
+         formVals[val] = allVals[val];
+      });
+*/
+      const formVals = {};
+      this.viewsNotButtons().forEach((v) => {
+         v.valueGet(formVals);
+      });
+
+      let input = this.$form.find(`#${this.idID}`);
+      if (input) {
+         formVals.id = input.val();
+      }
+
+      // get custom values
+      // this.fieldComponents(
+      //    (comp) =>
+      //       comp instanceof ABViewFormCustom ||
+      //       comp instanceof ABViewFormConnect ||
+      //       comp instanceof ABViewFormDatepicker ||
+      //       comp instanceof ABViewFormSelectMultiple ||
+      //       (comp instanceof ABViewFormJson && comp.settings.type == "filter")
+      // ).forEach((f) => {
+      //    const vComponent = this.viewComponents[f.id];
+      //    if (vComponent == null) return;
+
+      //    const field = f.field();
+      //    if (field) {
+      //       const getValue = vComponent.getValue ?? vComponent.logic.getValue;
+      //       if (getValue)
+      //          formVals[field.columnName] = getValue.call(vComponent, formVals);
+      //    }
+      // });
+
+      // // remove connected fields if they were not on the form and they are present in the formVals because it is a datacollection
+      // obj.connectFields().forEach((f) => {
+      //    if (
+      //       visibleFields.indexOf(f.columnName) == -1 &&
+      //       formVals[f.columnName]
+      //    ) {
+      //       delete formVals[f.columnName];
+      //       delete formVals[f.relationName()];
+      //    }
+      // });
+
+      // clear undefined values or empty arrays
+      for (const prop in formVals) {
+         if (
+            formVals[prop] == "" ||
+            formVals[prop] == null ||
+            formVals[prop].length == 0
+         )
+            delete formVals[prop];
+      }
+
+      // Add parent's data collection cursor when a connect field does not show
+      let linkValues;
+
+      if (dcLink) {
+         linkValues = dcLink.getCursor();
+      }
+
+      if (linkValues) {
+         const objectLink = dcLink.datasource;
+
+         const connectFields = obj.connectFields();
+         connectFields.forEach((f) => {
+            const formFieldCom = this.viewsNotButtons(
+               (fComp) => fComp?.field?.()?.id === f?.id
+            );
+
+            if (
+               objectLink.id == f.settings.linkObject &&
+               formFieldCom.length < 1 && // check field does not show
+               formVals[f.columnName] === undefined
+            ) {
+               const linkColName = f.indexField
+                  ? f.indexField.columnName
+                  : objectLink.PK();
+
+               formVals[f.columnName] = {};
+               formVals[f.columnName][linkColName] =
+                  linkValues[linkColName] ?? linkValues.id;
+            }
+         });
+      }
+
+      // NOTE: need to pull data of current cursor to calculate Calculate & Formula fields
+      // .formVals variable does not include data that does not display in the Form widget
+      const cursorFormVals = Object.assign(dc.getCursor() ?? {}, formVals);
+
+      // Set value of calculate or formula fields to use in record rule
+      obj.fields((f) => f.key == "calculate" || f.key == "formula").forEach(
+         (f) => {
+            if (
+               formVals[f.columnName] == null ||
+               formVals[f.columnName] === ""
+            ) {
+               let reCalculate = true;
+
+               // WORKAROUND: If "Formula" field will have Filter conditions,
+               // Then it is not able to re-calculate on client side
+               // because relational data is not full data so FilterComplex will not have data to check
+               if (f.key == "formula" && f.settings?.where?.rules?.length > 0) {
+                  reCalculate = false;
+               }
+
+               formVals[f.columnName] = f.format(cursorFormVals, reCalculate);
+            }
+         }
+      );
+
+      // if (allVals.translations?.length > 0)
+      //    formVals.translations = allVals.translations;
+
+      return formVals;
+   }
+
+   /**
+    * @method validateData
+    *
+    * @param {ABObject} object
+    * @param {object} formVals
+    *
+    * @return {boolean} isValid
+    */
+   validateData(object, formVals) {
+      let isValid = true;
+
+      // validate required fields
+      const requiredFields = this.viewsNotButtons(
+         (fComp) =>
+            fComp?.field?.().settings?.required == true ||
+            fComp?.settings?.required == true
+      ).map((fComp) => fComp.field());
+
+      // validate data
+      // This checks to see if the Object thinks the provided
+      // data is actually valid.
+      let validator = object.isValidData(formVals);
+      isValid = validator.pass();
+
+      // Now make sure the form Elements think the data is valid.
+      let form = document.getElementById(this.idForm);
+      if (!form.checkValidity()) {
+         isValid = false;
+         var list = form.querySelectorAll(":invalid");
+         list[0]?.focus();
+      }
+
+      // Display required messages
+      // requiredFields.forEach((f) => {
+      //    if (!f) return;
+
+      //    const fieldVal = formVals[f.columnName];
+      //    if (fieldVal == "" || fieldVal == null || fieldVal.length < 1) {
+      //       $formView.markInvalid(f.columnName, L("This is a required field."));
+      //       isValid = false;
+
+      //       // Fix position of invalid message
+      //       const $forminput = $formView.elements[f.columnName];
+      //       if ($forminput) {
+      //          // Y position
+      //          const height = $forminput.$height;
+      //          if (height < 56) {
+      //             $forminput.define("height", 60);
+      //             $forminput.resize();
+      //          }
+
+      //          // X position
+      //          const domInvalidMessage =
+      //             $forminput.$view.getElementsByClassName(
+      //                "webix_inp_bottom_label"
+      //             )[0];
+      //          if (!domInvalidMessage?.style["margin-left"]) {
+      //             domInvalidMessage.style.marginLeft = `${
+      //                this.settings.labelWidth ??
+      //                ABViewFormPropertyComponentDefaults.labelWidth
+      //             }px`;
+      //          }
+      //       }
+      //    }
+      // });
+
+      // if data is invalid
+      // if (!isValid) {
+      //    const saveButton = $formView.queryView({
+      //       view: "button",
+      //       type: "form",
+      //    });
+
+      //    // error message
+      //    if (validator?.errors?.length) {
+      //       validator.errors.forEach((err) => {
+      //          $formView.markInvalid(err.name, err.message);
+      //       });
+
+      //       saveButton?.disable();
+      //    } else {
+      //       saveButton?.enable();
+      //    }
+      // }
+
+      return isValid;
+   }
+}
+
+
+/***/ }),
+
+/***/ 50037:
+/*!*********************************************************************!*\
+  !*** ./src/js/AppBuilder/platform/mobile/ABMobileViewFormButton.js ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormButton)
+/* harmony export */ });
+/* harmony import */ var _core_mobile_ABMobileViewFormButtonCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormButtonCore.js */ 74455);
+/**
+ * ABMobileViewFormButton
+ * The view that displays a row of form buttons.
+ */
+
+
+
+class ABMobileViewFormButton extends _core_mobile_ABMobileViewFormButtonCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   // constructor(...params) {
+   //    super(...params);
+   // }
+
+   async init() {}
+
+   get isSave() {
+      return this.settings.includeSave;
+   }
+
+   cancel() {
+      console.warn("TODO: Cancel this form.");
+   }
+
+   reset() {
+      console.warn("TODO: Reset this form.");
+   }
+
+   save() {
+      this.busy();
+      this.parent.save();
+   }
+
+   buttonCancel($h) {
+      if (!this.settings.includeCancel) return "";
+
+      let label = this.settings.cancelLabel
+         ? this.settings.cancelLabel
+         : this.AB.Label()("Cancel");
+
+      return $h`
+         <a
+            onClick=${() => this.cancel()}
+            id=${this.idCancel}
+            class="button button-small button-fill button-preloader"
+            href="#"
+         >
+            <span class="preloader"></span>
+            <span>${label}</span>
+         </a>
+      `;
+   }
+
+   buttonReset($h) {
+      if (!this.settings.includeReset) return "";
+
+      let label = this.settings.resetLabel
+         ? this.settings.resetLabel
+         : this.AB.Label()("Reset");
+
+      return $h`
+         <a
+            onClick=${() => this.reset()}
+            id=${this.idReset}
+            class="button button-large button-fill button-preloader"
+            href="#"
+         >
+            <span class="preloader"></span>
+            <span>${label}</span>
+         </a>
+      `;
+   }
+
+   buttonSave($h) {
+      if (!this.isSave) return "";
+
+      let label = this.settings.saveLabel
+         ? this.settings.saveLabel
+         : this.AB.Label()("Save");
+
+      return $h`
+         <a
+            onClick=${() => this.save()}
+            id=${this.idSave}
+            class="button button-large button-fill button-preloader"
+            href="#"
+         >
+            <span class="preloader"></span>
+            <span>${label}</span>
+         </a>
+      `;
+   }
+
+   html($h) {
+      return $h`
+         <div class="block">
+            ${this.buttonCancel($h)}
+            ${this.buttonReset($h)}
+            ${this.buttonSave($h)}
+         </div>
+      `;
+   }
+
+   get idCancel() {
+      return `Cancel_${this.id}`;
+   }
+   get idReset() {
+      return `Reset_${this.id}`;
+   }
+   get idSave() {
+      return `Save_${this.id}`;
+   }
+
+   busy() {
+      this.AB.$(`#${this.idSave}`)
+         .addClass("button-loading")
+         .addClass("disabled");
+   }
+
+   ready() {
+      this.AB.$(`#${this.idSave}`)
+         .removeClass("button-loading")
+         .removeClass("disabled");
+   }
+}
+
+
+/***/ }),
+
+/***/ 92092:
+/*!***********************************************************************!*\
+  !*** ./src/js/AppBuilder/platform/mobile/ABMobileViewFormCheckbox.js ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormCheckbox)
+/* harmony export */ });
+/* harmony import */ var _core_mobile_ABMobileViewFormCheckboxCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormCheckboxCore */ 52670);
+
+
+class ABMobileViewFormCheckbox extends _core_mobile_ABMobileViewFormCheckboxCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   async init() {}
+
+   valueClear() {
+      const myInput = this.myField;
+      if (myInput) {
+         myInput.checked = false;
+      }
+   }
+
+   valueLoad(rowData) {
+      const myInput = this.myField;
+      if (myInput) {
+         let field = this.field();
+         let val = rowData[field.columnName] || false;
+         if (typeof val === "string") val = JSON.parse(val);
+         myInput.checked = val;
+      }
+   }
+
+   valueGet(rowData) {
+      const myField = this.myField;
+      if (myField) {
+         const field = this.field();
+         rowData[field.columnName] = myField.checked ? 1 : 0;
+      }
+   }
+
+   inputElement($h) {
+      let field = this.field();
+      let $inputElement = $h`
+         <input 
+            id=${this.idFormElement}
+            name=${field.columnName} 
+            type="checkbox" 
+            ${this.settings.disable ? 'disabled="disabled"' : ""}
+         />
+      `;
+      this.updateProperties($inputElement);
+
+      return $inputElement;
+   }
+
+   html($h) {
+      return $h`
+         <div class="item-content">
+            <div class="item-inner">
+               <div class="item-title">${this.label}</div>
+               <div class="item-after">
+                  <label class="toggle toggle-init">
+                     ${this.inputElement($h)}
+                     <i class="toggle-icon"></i>
+                  </label>
+               </div>
+            </div>
+         </div>
+         `;
+   }
+}
+
+
+/***/ }),
+
+/***/ 2493:
+/*!**********************************************************************!*\
+  !*** ./src/js/AppBuilder/platform/mobile/ABMobileViewFormConnect.js ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormConnect)
+/* harmony export */ });
+/* harmony import */ var _core_mobile_ABMobileViewFormConnectCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormConnectCore.js */ 55866);
+/* harmony import */ var _ViewFormSelectMultiple_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ViewFormSelectMultiple.js */ 53691);
+/* harmony import */ var _ViewFormSelectSingle_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ViewFormSelectSingle.js */ 61554);
+/**
+ * ABMobileViewFormConnect
+ * The view that displays a form textbox on the screen.
+ */
+
+
+
+
+
+class ABMobileViewFormConnect extends _core_mobile_ABMobileViewFormConnectCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   // constructor(...params) {
+   //    super(...params);
+   // }
+
+   async init() {}
+
+   html($h) {
+      let field = this.field();
+      const formComponent =
+         field.settings.linkType === "one"
+            ? new _ViewFormSelectSingle_js__WEBPACK_IMPORTED_MODULE_2__["default"](this.AB, field)
+            : new _ViewFormSelectMultiple_js__WEBPACK_IMPORTED_MODULE_1__["default"](this.AB, field);
+
+      return formComponent.html($h);
+   }
+}
+
+
+/***/ }),
+
+/***/ 88358:
+/*!*********************************************************************!*\
+  !*** ./src/js/AppBuilder/platform/mobile/ABMobileViewFormCustom.js ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormCustom)
+/* harmony export */ });
+/* harmony import */ var _core_mobile_ABMobileViewFormCustomCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormCustomCore */ 37089);
+
+class ABMobileViewFormCustom extends _core_mobile_ABMobileViewFormCustomCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   // html($h) {
+   //    return "ABMobileViewFormCustom Content";
+   // }
+}
+
+
+/***/ }),
+
+/***/ 37272:
+/*!*******************************************************************!*\
+  !*** ./src/js/AppBuilder/platform/mobile/ABMobileViewFormDate.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormDate)
+/* harmony export */ });
+/* harmony import */ var _core_mobile_ABMobileViewFormDateCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormDateCore.js */ 30483);
+/**
+ * ABMobileViewFormTextbox
+ * The view that displays a form textbox on the screen.
+ */
+
+
+
+class ABMobileViewFormDate extends _core_mobile_ABMobileViewFormDateCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   // constructor(...params) {
+   //    super(...params);
+   // }
+
+   async init() {
+      this.formDatepicker = this.AB.$f7.calendar.create({
+         inputEl: `#${this.idFormElement}`, // ".form-datepicker-date",
+      });
+   }
+
+   destroy() {
+      this.formDatepicker?.destroy();
+   }
+
+   inputElement($h) {
+      let field = this.field();
+      let placeholder = this.settings.placeholder ?? "";
+
+      let $inputElement = $h`
+               <input
+                  type="text"
+                  id=${this.idFormElement}
+                  name=${field.columnName}
+                  class="form-datepicker-date"
+                  placeholder=${placeholder}
+                  readonly="readonly"
+               />
+            `;
+
+      this.updateProperties($inputElement);
+
+      return $inputElement;
+   }
+}
+
+
+/***/ }),
+
+/***/ 43717:
+/*!***********************************************************************!*\
+  !*** ./src/js/AppBuilder/platform/mobile/ABMobileViewFormDatetime.js ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormDatetime)
+/* harmony export */ });
+/* harmony import */ var _core_mobile_ABMobileViewFormDatetimeCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormDatetimeCore.js */ 41098);
+/**
+ * ABMobileViewFormDatetime
+ * The view that displays a form textbox on the screen.
+ */
+
+
+
+class ABMobileViewFormDatetime extends _core_mobile_ABMobileViewFormDatetimeCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   // constructor(...params) {
+   //    super(...params);
+   // }
+
+   async init() {
+      this.formDatepicker = this.AB.$f7.calendar.create({
+         inputEl: `#${this.idFormElement}`, // ".form-datepicker-datetime",
+         timePicker: true,
+         dateFormat: {
+            month: "numeric",
+            day: "numeric",
+            year: "numeric",
+            hour: "numeric",
+            minute: "numeric",
+         },
+      });
+   }
+
+   destroy() {
+      this.formDatepicker?.destroy();
+   }
+
+   valueLoad() {
+      console.error("TODO: finish this");
+   }
+
+   inputElement($h) {
+      let field = this.field();
+      let placeholder = this.settings.placeholder ?? "";
+      let $inputElement = $h`
+         <input
+            type="text"
+            id=${this.idFormElement}
+            name=${field.columnName}
+            class="form-datepicker-datetime"
+            placeholder=${placeholder}
+            readonly="readonly"
+         />
+      `;
+
+      this.updateProperties($inputElement);
+
+      return $inputElement;
+   }
+}
+
+
+/***/ }),
+
+/***/ 46722:
+/*!********************************************************************!*\
+  !*** ./src/js/AppBuilder/platform/mobile/ABMobileViewFormEmail.js ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormEmail)
+/* harmony export */ });
+/* harmony import */ var _core_mobile_ABMobileViewFormEmailCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormEmailCore.js */ 31508);
+/**
+ * ABMobileViewFormEmail
+ * The view that displays a form textbox on the screen.
+ */
+
+
+
+class ABMobileViewFormEmail extends _core_mobile_ABMobileViewFormEmailCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   // constructor(...params) {
+   //    super(...params);
+   // }
+
+   async init() {}
+
+   inputElement($h) {
+      let field = this.field();
+      let placeholder = this.settings.placeholder ?? "";
+      let $inputElement = $h`
+         <input
+            type="email"
+            id=${this.idFormElement}
+            name=${field.columnName}
+            placeholder=${placeholder}
+         />
+      `;
+
+      this.updateProperties($inputElement);
+
+      return $inputElement;
+   }
+}
+
+
+/***/ }),
+
+/***/ 94298:
+/*!*******************************************************************!*\
+  !*** ./src/js/AppBuilder/platform/mobile/ABMobileViewFormFile.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormFile)
+/* harmony export */ });
+/* harmony import */ var _core_mobile_ABMobileViewFormFileCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormFileCore.js */ 37206);
+/**
+ * ABMobileViewFormFile
+ * The view that displays a form textbox on the screen.
+ */
+
+
+
+class ABMobileViewFormFile extends _core_mobile_ABMobileViewFormFileCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   // constructor(...params) {
+   //    super(...params);
+   // }
+
+   async init() {
+      const _this = this;
+      const $$ = this.AB.$;
+
+      $$(`#${this.idUpload}`).on("change", async (ev) => {
+         // update the name field:
+         let name = ($$(`#${this.idUpload}`).val() ?? "").split("\\").pop();
+         if (name != "") {
+            $$(`#${this.idFileName}`).html(`<b>${name}</b>`);
+         }
+      });
+   }
+
+   destroy() {}
+
+   valueLoad() {
+      console.error("TODO: finish this");
+   }
+
+   // valueGet(rowData) {
+   //    const myField = this.myField;
+   //    if (myField) {
+   //       const field = this.field();
+   //       let value = myField.value;
+   //       try {
+   //          value = JSON.parse(value);
+   //       } catch (e) {}
+   //       rowData[field.columnName] = value;
+   //    }
+   // }
+
+   /**
+    * @method valuePrepare()
+    * Prepare our value for the Form Submission.  This means we need to
+    * upload the file to the Site, and then store the .uuid with this
+    * field.
+    * @return {Promise}
+    */
+   async valuePrepare() {
+      let field = this.field();
+      let formElement = document.getElementById(this.idForm);
+      let formData = new FormData(formElement);
+
+      // don't upload when not selected.
+      let file = formData.get("file");
+      if (file == undefined || file == null) return;
+      if (file.name == "" && file.size == 0) return;
+
+      try {
+         let response = await this.AB.Network.post({
+            url: field.urlUpload(false),
+            data: formData,
+         });
+         this.AB.$(`#${this.idFormElement}`).val(
+            JSON.stringify({
+               uuid: response.uuid,
+               filename: file.name,
+            })
+         );
+      } catch (e) {
+         this.AB.notify.developer(e, {
+            context:
+               "ABMobileViewFormFile.value(): unable to upload File to site",
+         });
+         // TODO: update Visible Form Element with Validation Error.
+      }
+   }
+
+   inputFormElement($h) {
+      let field = this.field();
+
+      return $h`<form 
+         id=${this.idForm} 
+         method="POST" 
+         enctype="multipart/form-data"
+      >
+      ${this.inputElementUpload($h)}
+      </form>`;
+   }
+
+   inputElementUpload($h) {
+      let field = this.field();
+      // let placeholder = this.settings.placeholder ?? "";
+      let $inputElement = $h`
+         <input 
+            id=${this.idUpload} 
+            type="file"
+            name="file"
+            class="upload"
+         />
+      `;
+
+      this.updateProperties($inputElement);
+
+      return $inputElement;
+   }
+
+   get idForm() {
+      return `Form_${this.id}`;
+   }
+
+   get idUpload() {
+      return `Upload_${this.id}`;
+   }
+
+   get idFileName() {
+      return `file_${this.id}`;
+   }
+
+   html($h) {
+      let field = this.field();
+      return $h`
+         <div class="list-block inputs-list">
+            <div class="item-content">
+                <div class="item-media button button-raised button-fill fileUpload">
+                    <span class="ico_upload"><i class="fa fa-paperclip" aria-hidden="true"></i></span>
+                    ${this.inputFormElement($h)}
+                </div>
+                <div class="item-inner">
+                  <div class="item-title floating-label">${this.label}</div>
+                  <div class="item-input">
+                    <input 
+                       id=${this.idFormElement} 
+                       name=${field.columnName} 
+                       readonly 
+                       type="hidden" 
+                       placeholder=""
+                    />
+                    <div id=${this.idFileName}></div>
+                  </div>
+                </div>
+            </div>
+         </div>`;
+   }
+}
+
+
+/***/ }),
+
+/***/ 92696:
+/*!**********************************************************************!*\
+  !*** ./src/js/AppBuilder/platform/mobile/ABMobileViewFormFormula.js ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormFormula)
+/* harmony export */ });
+/* harmony import */ var _core_mobile_ABMobileViewFormFormulaCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormFormulaCore.js */ 9462);
+/**
+ * ABMobileViewFormFormula
+ * The view that displays a form textbox on the screen.
+ */
+
+
+
+class ABMobileViewFormFormula extends _core_mobile_ABMobileViewFormFormulaCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   // constructor(...params) {
+   //    super(...params);
+   // }
+
+   async init() {}
+
+   // destroy() {
+
+   // }
+
+   inputElement($h) {
+      let field = this.field();
+      let placeholder = this.settings.placeholder ?? "";
+
+      let $inputElement = $h`
+               <input
+                  type="text"
+                  id=${this.idFormElement}
+                  name=${field.columnName}
+                  readonly="readonly"
+                  disabled="disabled"
+               />
+            `;
+
+      // this.updateProperties($inputElement);
+
+      return $inputElement;
+   }
+}
+
+
+/***/ }),
+
+/***/ 14241:
+/*!********************************************************************!*\
+  !*** ./src/js/AppBuilder/platform/mobile/ABMobileViewFormImage.js ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormImage)
+/* harmony export */ });
+/* harmony import */ var _core_mobile_ABMobileViewFormImageCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormImageCore.js */ 37238);
+/**
+ * ABMobileViewFormImage
+ * The view that displays a form textbox on the screen.
+ */
+
+
+
+class ABMobileViewFormImage extends _core_mobile_ABMobileViewFormImageCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   // constructor(...params) {
+   //    super(...params);
+   // }
+
+   async init() {}
+
+   /**
+    * @method valuePrepare()
+    * Prepare our value for the Form Submission.  This means we need to
+    * upload the file to the Site, and then store the .uuid with this
+    * field.
+    * @return {Promise}
+    */
+   // async valuePrepare() {
+   //    let field = this.field();
+   //    let formElement = document.getElementById(this.id);
+   //    let formData = new FormData(formElement);
+
+   //    try {
+   //       let response = await this.AB.Network.post({
+   //          url: field.urlUpload(false),
+   //          data: formData,
+   //       });
+   //       this.AB.$(`#${this.idFileID}`).val(response.uuid);
+   //    } catch (e) {
+   //       this.AB.notify.developer(e, {
+   //          context:
+   //             "ABMobileViewFormFile.value(): unable to upload File to site",
+   //       });
+   //       // TODO: update Visible Form Element with Validation Error.
+   //    }
+   // }
+
+   valueGet(rowData) {
+      super.valueGet(rowData);
+
+      // Images just store .uuid, so pull out the file.uuid info
+      // and return that.
+      const field = this.field();
+      if (rowData[field.columnName]) {
+         try {
+            let val = JSON.parse(rowData[field.columnName]);
+            val = val?.uuid ?? val;
+            rowData[field.columnName] = val;
+         } catch (e) {}
+      }
+   }
+
+   inputElementUpload($h) {
+      let $inputElement = $h`
+      <input 
+         id=${this.idUpload} 
+         name="file"
+         accept="image/*"
+         type="file"
+         placeholder=""
+      />`;
+
+      this.updateProperties($inputElement);
+
+      return $inputElement;
+   }
+}
+
+
+/***/ }),
+
+/***/ 3199:
+/*!*******************************************************************!*\
+  !*** ./src/js/AppBuilder/platform/mobile/ABMobileViewFormItem.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormItem)
+/* harmony export */ });
+/* harmony import */ var _core_mobile_ABMobileViewFormItemCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormItemCore */ 95927);
+
+
+class ABMobileViewFormItem extends _core_mobile_ABMobileViewFormItemCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   // constructor(values, application, parent, defaultValues) {
+   //    super(values, application, parent, defaultValues);
+   // }
+   // warningsEval() {
+   //    super.warningsEval();
+   //    let allViews = this.views();
+   //    if (allViews.length == 0) {
+   //       this.warningsMessage("has no sub views");
+   //    }
+   //    (this.pages() || []).forEach((p) => {
+   //       p.warningsEval();
+   //    });
+   // }
+
+   get idFormElement() {
+      return `F${this.id}`;
+   }
+
+   get myField() {
+      return document.getElementById(this.idFormElement);
+   }
+
+   valueClear() {
+      const myField = this.myField;
+      if (myField) {
+         myField.value = "";
+      }
+   }
+
+   valueLoad(rowData) {
+      const myField = this.myField;
+      if (myField) {
+         const field = this.field();
+         myField.value = rowData[field.columnName] || "";
+      }
+   }
+
+   valueGet(rowData) {
+      const myField = this.myField;
+      if (myField) {
+         const field = this.field();
+         rowData[field.columnName] = myField.value;
+      }
+   }
+
+   updateProperties($inputElement) {
+      // NOTE: the $h returns an object that we can update with
+      // the properties.
+      // I have been unable to get the following approach to work:
+      // $inputElement = $h`
+      //    <input
+      //       name=${field.columnName}
+      //       placeholder=${placeholder}
+      //       type="text"
+      //       ${ this.settings.required: "required" : "" }
+      //       ${ this.settings.required: "validate" : "" }
+      //       ${ this.settings.disable: `disabled="disabled"` : "" }
+      //    />
+      // `;
+      // So I am updating the object directly:
+      // $inputElement.props[]
+
+      if (this.settings.required) {
+         $inputElement.props["required"] = "";
+         $inputElement.props["validate"] = "";
+      }
+
+      if (this.settings.disable) {
+         $inputElement.props["disabled"] = "disabled";
+      }
+   }
+
+   /**
+    * @method valuePrepare()
+    * Before a Form reads in it's values, we will first allow any FormItem to
+    * prepare it's data for submit.
+    * @return {Promise}
+    */
+   async valuePrepare() {}
+
+   html($h) {
+      return $h`
+         <div class="item-content item-input">
+            <div class="item-inner">
+               <div class="item-title item-label">${this.label}</div>
+               <div class="item-input-wrap">${this.inputElement($h)}</div>
+            </div>
+         </div>`;
+   }
+}
+
+
+/***/ }),
+
+/***/ 95729:
+/*!*********************************************************************!*\
+  !*** ./src/js/AppBuilder/platform/mobile/ABMobileViewFormNumber.js ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormNumber)
+/* harmony export */ });
+/* harmony import */ var _core_mobile_ABMobileViewFormNumberCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormNumberCore.js */ 75410);
+/**
+ * ABMobileViewFormTextbox
+ * The view that displays a form textbox on the screen.
+ */
+
+
+
+class ABMobileViewFormNumber extends _core_mobile_ABMobileViewFormNumberCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   // constructor(...params) {
+   //    super(...params);
+   // }
+
+   // async init() {
+   //    this.formDatepicker = this.AB.$f7.calendar.create({
+   //       inputEl: `#${this.id}`, // ".form-datepicker-date",
+   //    });
+   // }
+
+   // destroy() {
+   //    this.formDatepicker?.destroy();
+   // }
+
+   inputElement($h) {
+      let field = this.field();
+      let placeholder = this.settings.placeholder ?? "";
+      const errorMessage = this.AB.Label()("Only numbers please.");
+
+      let $inputElement = $h`
+               <input
+                  type="number"
+                  id=${this.idFormElement}
+                  name=${field.columnName}
+                  placeholder=${placeholder}
+                  pattern="[0-9]*"
+                  data-error-message=${errorMessage}
+               />
+            `;
+
+      this.updateProperties($inputElement);
+
+      return $inputElement;
+   }
+}
+
+
+/***/ }),
+
+/***/ 95620:
+/*!***********************************************************************!*\
+  !*** ./src/js/AppBuilder/platform/mobile/ABMobileViewFormReadonly.js ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormReadonly)
+/* harmony export */ });
+/* harmony import */ var _core_mobile_ABMobileViewFormReadonlyCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormReadonlyCore */ 43002);
+
+
+class ABMobileViewFormReadonly extends _core_mobile_ABMobileViewFormReadonlyCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   inputElement($h) {
+      let field = this.field();
+      let placeholder = this.settings.placeholder ?? "";
+
+      let $inputElement = $h`
+               <input
+                  type="text"
+                  id=${this.idFormElement}
+                  name=${field.columnName}
+                  placeholder=${placeholder}
+                  disabled="disabled"
+               />
+            `;
+
+      // this.updateProperties($inputElement);
+
+      return $inputElement;
+   }
+}
+
+
+/***/ }),
+
+/***/ 77614:
+/*!*****************************************************************************!*\
+  !*** ./src/js/AppBuilder/platform/mobile/ABMobileViewFormSelectMultiple.js ***!
+  \*****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormSelectMultiple)
+/* harmony export */ });
+/* harmony import */ var _core_mobile_ABMobileViewFormSelectMultipleCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormSelectMultipleCore.js */ 18061);
+/**
+ * ABMobileViewFormSelectMultiple
+ * The view that displays a list that can only have 1 selection.
+ */
+
+
+
+class ABMobileViewFormSelectMultiple extends _core_mobile_ABMobileViewFormSelectMultipleCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   // constructor(...params) {
+   //    super(...params);
+
+   //    this.options = [
+   //       /* {id, text} */
+   //       // { id: 1, text: "one" },
+   //       // { id: 2, text: "two" },
+   //       // { id: 3, text: "three" },
+   //    ];
+
+   //    this.field.options().forEach((opt) => {
+   //       // opt = { id, text, hex, translations }
+   //       this.options.push({ id: opt.id, text: opt.text });
+   //    });
+   //    this.value = null;
+   // }
+
+   // setOptions(values, k = "id", t = "text") {
+   //    this.options = [];
+   //    (values || []).forEach((v) => {
+   //       this.options.push({ id: v[k], text: v[t] });
+   //    });
+   // }
+
+   // setValue(vid) {
+   //    this.value = vid;
+   // }
+
+   // inputElement($h, item) {
+   //    let $inputElement = $h`<option value=${item.id}>${item.text}</option>`;
+   //    if (this.value == item.id) {
+   //       $inputElement.props.selected = "";
+   //    }
+   //    return $inputElement;
+   // }
+
+   valueGet(rowData) {
+      const myField = this.myField;
+      if (myField) {
+         const field = this.field();
+         rowData[field.columnName] = this.AB.$(`#${this.idFormElement}`).val();
+      }
+   }
+
+   html($h) {
+      let value = this.options.find((o) => o.id == this.value)?.text;
+      let field = this.field();
+      return $h`
+         <a href="#" class="item-link smart-select smart-select-init">
+            <select
+               id=${this.idFormElement} 
+               name=${field?.columnName}
+               multiple
+            >
+               ${this.options.map((item) => this.inputElement($h, item))}
+            </select>
+            <div class="item-content">
+               <div class="item-inner">
+                  <div class="item-title">${field?.label}</div>
+                  <div class="item-after">${value || "Value"}</div>
+               </div>
+            </div>
+         </a>
+         `;
+   }
+}
+
+
+/***/ }),
+
+/***/ 88001:
+/*!***************************************************************************!*\
+  !*** ./src/js/AppBuilder/platform/mobile/ABMobileViewFormSelectSingle.js ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormSelectSingle)
+/* harmony export */ });
+/* harmony import */ var _core_mobile_ABMobileViewFormSelectSingleCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormSelectSingleCore.js */ 10807);
+/**
+ * ABMobileViewFormSelectSingle
+ * The view that displays a list that can only have 1 selection.
+ */
+
+
+
+class ABMobileViewFormSelectSingle extends _core_mobile_ABMobileViewFormSelectSingleCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   constructor(...params) {
+      super(...params);
+
+      this.options = [
+         /* {id, text} */
+         // { id: 1, text: "one" },
+         // { id: 2, text: "two" },
+         // { id: 3, text: "three" },
+      ];
+
+      this.value = null;
+   }
+
+   async init() {
+      this.options = [];
+      await this.optionsLoad();
+   }
+
+   idState() {
+      return this.id;
+   }
+
+   async optionsLoad() {
+      let field = this.field();
+      if (field) {
+         // We can support different types of fields: Connections and Lists
+         if (field.isConnection) {
+            let options = await field.options();
+            this.options = [];
+            options.forEach((o) => {
+               this.options.push({
+                  id: o.id,
+                  text: o.text,
+                  value: field.getRelationValue(o),
+               });
+            });
+            // let obj = field.datasourceLink;
+            // if (obj) {
+            //    let PK = obj.PK();
+            //    let response = await obj.model().findAll();
+            //    (response.data || []).forEach((d) => {
+            //       this.options.push({
+            //          id: d[PK],
+            //          text: obj.displayData(d),
+            //       });
+            //    });
+            // this.AB.$store.state[field.id] = this.options || []; // response.data || [];
+            // }
+            return;
+         }
+
+         // List fields:
+         field.options().forEach((opt) => {
+            // opt = { id, text, hex, translations }
+            this.options.push({ id: opt.id, text: opt.text });
+         });
+      }
+   }
+   // setOptions(values, k = "id", t = "text") {
+   //    this.options = [];
+   //    (values || []).forEach((v) => {
+   //       this.options.push({ id: v[k], text: v[t] });
+   //    });
+   // }
+   valueClear() {
+      const mySelect = this.myField;
+      if (mySelect) {
+         mySelect.selectedIndex = 0;
+      }
+      this.options.forEach((o) => {
+         this.AB.$(`#${this.idOption(o)}`)?.prop("selected", "");
+      });
+   }
+
+   valueLoad() {
+      console.error("TODO: finish this");
+   }
+
+   setValue(vid) {
+      this.value = vid;
+   }
+
+   idOption(o) {
+      return `O${o.id.replaceAll(" ", "_")}`;
+   }
+
+   inputElement($h, item) {
+      let $inputElement = $h`<option id=${this.idOption(item)} value=${
+         item.value ?? item.id
+      }>${item.text}</option>`;
+      if (this.value == item.id) {
+         $inputElement.props.selected = "";
+      }
+      return $inputElement;
+   }
+
+   html($h) {
+      // NOTE: Async/$store lookups need to be initiated WITHIN the html()
+      // action for Framework7 to register the UI to update once the data is
+      // updated.
+      let field = this.field();
+      if (field.isConnection) {
+         let myVal = this.AB.$store.getters[field.id]?.value;
+      }
+
+      return $h`
+         <div class="item-content item-input">
+            <div class="item-inner">
+               <div class="item-title item-label">${field?.label}</div>
+               <div class="item-input-wrap">
+                  <select id=${this.idFormElement} name=${field?.columnName}>
+                     ${this.options.map((item) => this.inputElement($h, item))}
+                  </select>
+               </div>
+            </div>
+         </div>
+         `;
+   }
+}
+
+
+/***/ }),
+
+/***/ 36959:
+/*!**********************************************************************!*\
+  !*** ./src/js/AppBuilder/platform/mobile/ABMobileViewFormTextbox.js ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormTextbox)
+/* harmony export */ });
+/* harmony import */ var _core_mobile_ABMobileViewFormTextboxCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormTextboxCore.js */ 10048);
+/**
+ * ABMobileViewFormTextbox
+ * The view that displays a form textbox on the screen.
+ */
+
+
+
+class ABMobileViewFormTextbox extends _core_mobile_ABMobileViewFormTextboxCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   // constructor(...params) {
+   //    super(...params);
+   // }
+
+   async init() {}
+
+   inputElement($h) {
+      let $inputElement = "";
+      let field = this.field();
+      let placeholder = this.settings.placeholder ?? "";
+
+      switch (this.settings.type) {
+         case "multiple":
+            $inputElement = $h`
+               <textarea
+                  id=${this.idFormElement}
+                  name=${field.columnName}
+                  placeholder=${placeholder}
+                  class="resizable"
+               ></textarea>
+            `;
+            break;
+
+         // case "email":
+         //    $inputElement =
+         //       definition.settings.required === 1 ? (
+         //          <input
+         //             type="email"
+         //             name={definition.field}
+         //             placeholder={definition.placeholder}
+         //             required
+         //             validate
+         //          ></input>
+         //       ) : (
+         //          <input
+         //             type="email"
+         //             name={definition.field}
+         //             placeholder={definition.placeholder}
+         //             required
+         //             validate
+         //          ></input>
+         //       );
+
+         //    break;
+
+         default:
+            // "single"
+            // "rich"
+            $inputElement = $h`
+               <input
+                  id=${this.idFormElement}
+                  name=${field.columnName}
+                  placeholder=${placeholder}
+                  type="text"
+               />
+            `;
+            break;
+      }
+
+      this.updateProperties($inputElement);
+
+      return $inputElement;
+   }
+}
+
+
+/***/ }),
+
+/***/ 84205:
+/*!****************************************************************!*\
+  !*** ./src/js/AppBuilder/platform/mobile/ABMobileViewLabel.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewLabel)
+/* harmony export */ });
+/* harmony import */ var _core_mobile_ABMobileViewLabelCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewLabelCore.js */ 35272);
+/**
+ * ABMobileViewLabel
+ * The view that displays a label on the screen.
+ */
+
+
+
+class ABMobileViewLabel extends _core_mobile_ABMobileViewLabelCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   // constructor(...params) {
+   //    super(...params);
+   // }
+
+   async init() {}
+
+   get style() {
+      let style = "";
+      switch (this.settings.format) {
+         case 0:
+         case "0": // normal
+            style = "";
+            break;
+
+         case 1:
+         case "1": // title
+            style = "title-large-text";
+            break;
+
+         case 2:
+         case "2": // description
+            style = "description";
+            break;
+      }
+      return style;
+   }
+
+   get alignment() {
+      let align = "";
+      switch (this.settings.alignment) {
+         case "left":
+            align = "text-align-left";
+            break;
+
+         case "right":
+            align = "text-align-right";
+            break;
+
+         case "center":
+            align = "text-align-center";
+            break;
+      }
+      return align;
+   }
+
+   html($h) {
+      return () =>
+         $h`<div class="${this.style} ${this.alignment}">${this.text}</div>`;
+   }
+}
+
+
+/***/ }),
+
+/***/ 78261:
+/*!***************************************************************!*\
+  !*** ./src/js/AppBuilder/platform/mobile/ABMobileViewList.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewList)
+/* harmony export */ });
+/* harmony import */ var _core_mobile_ABMobileViewListCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewListCore.js */ 26218);
+/**
+ * ABMobileViewList
+ * The view that displays a list on the screen.
+ */
+
+
+
+class ABMobileViewList extends _core_mobile_ABMobileViewListCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   // constructor(...params) {
+   //    super(...params);
+   // }
+
+   async init() {
+      this.isSwipeout = {};
+      // {hash} { item.uuid : bool }
+      // keeps track of which item was in the process of a swipeout.
+      // This prevents the click events from triggering an .itemSelected()
+      // during a swipeout event.
+
+      this.AB.$(`#${this.idList}`)
+         .find(".swipeout")
+         .on("swipeout:open", (e) => {
+            let id = this.AB.$(e.target).data("id");
+            this.isSwipeout[id] = true;
+         });
+
+      this.AB.$(`#${this.idList}`)
+         .find(".swipeout")
+         .on("swipeout:closed", (e) => {
+            let id = this.AB.$(e.target).data("id");
+            this.isSwipeout[id] = false;
+         });
+
+      this.AB.$(`#${this.idList}`)
+         .find(".swipeout")
+         .on("swipeout:delete", async (e) => {
+            let id = this.AB.$(e.target).data("id");
+            this.isSwipeout[id] = false;
+
+            let success = await this.itemDeleted(id);
+            if (!success) {
+               e.preventDefault();
+            }
+         });
+
+      setTimeout(() => {
+         let dc = this.datacollection;
+         let allVals = dc.$state[dc.id];
+         dc.$state[dc.id] = allVals;
+      }, 30);
+
+      // let dc = this.datacollection;
+      // dc.once("initializedData", () => {
+      //    // this triggers a change in the F7 store and updates the display
+      //    // hopefully this gets rid of that lingering progress indicator
+      //    let allVals = dc.$state[dc.id];
+      //    dc.$state[dc.id] = allVals;
+      // });
+   }
+
+   async itemDeleted(id) {
+      let CurrentObject = this.datacollection.datasource;
+      try {
+         let response = await CurrentObject.model().delete(id);
+
+         if (response) {
+            // there should have been an ab.datacollection.delete trigger
+            // that takes care of removing the item from the DC.
+            // this.datacollection.
+            return true;
+         } else {
+            let L = this.AB.Label();
+            this.AB.$f7.dialog.alert(
+               L("No rows were effected.  This does not seem right."),
+               L("Error")
+            );
+            return false;
+         }
+      } catch (err) {
+         this.AB.notify.developer(err, {
+            context: "ABMobileViewList.itemDeleted()",
+            message: "Error deleting item",
+            obj: CurrentObject.toObj(),
+            id,
+         });
+         return false;
+      }
+   }
+
+   itemSelected(item) {
+      // prevent random clicks when processing a swipeout
+      if (this.isSwipeout[item.uuid]) return;
+
+      // Make sure our DC registers which item was just selected.
+      const dc = this.datacollection;
+
+      if (dc) {
+         dc.setCursor(item[dc.datasource.PK()] || item.id || item.uuid);
+      }
+
+      // if there is a detailPage set, then transition there:
+      if (this.settings.linkPageDetail) {
+         const DetailPage = this.application.pageByID(
+            this.settings.linkPageDetail
+         );
+
+         DetailPage.show(true);
+         // .show(showBack = true)
+      }
+   }
+
+   openAddPage() {
+      if (this.settings.linkPageAdd) {
+         const addPage = this.application.pageByID(this.settings.linkPageAdd);
+         if (addPage) {
+            addPage.show(true);
+            // .show(true) => show back button
+         }
+      }
+   }
+
+   loadMore() {
+      // if (this.$store.getters[this.#settings.dcID].value.hasMore) {
+      let dc = this.datacollection;
+      if (dc && dc.hasMore()) {
+         this.AB.$store.dispatch("getAppBuilderData", dc.id);
+      }
+   }
+
+   hasMore($h) {
+      if (this.datacollection.hasMore()) {
+         return $h`<div class="preloader infinite-scroll-preloader"></div>`;
+      }
+   }
+
+   template(item) {
+      let field = this.field();
+      if (field) {
+         return field.format(item);
+      }
+      return "";
+   }
+
+   get idList() {
+      return `L${this.id}`;
+   }
+   idItem(item) {
+      return `I${item.uuid}`;
+   }
+
+   listItems($h) {
+      const L = this.AB.Label();
+
+      return this.AB.$store.getters[this.datacollection.id].value.map(
+         (item) => $h`
+         <li id=${this.idItem(item)} data-id=${
+            item.uuid
+         } class="swipeout deleted-callback">
+            <div class="swipeout-content" >
+               <div 
+                  class="item-content"
+                  onClick=${() => this.itemSelected(item)}
+               >
+                  <div class="item-inner">
+                     <div class="item-title">${this.template(item)}</div>
+                  </div>
+               </div>
+            </div>
+            <div class="swipeout-actions-right">
+               <a
+                  href="#"
+                  class="swipeout-delete"
+                  data-confirm=${L("Are you sure want to delete this item?")}
+                  data-confirm-title=${L("Delete?")}
+               >
+                  ${L("Delete")}
+               </a>
+            </div>
+         </li>`
+      );
+   }
+
+   addButton($h) {
+      if (!this.settings.linkPageAdd) return "";
+
+      return $h`
+<div class="float-right">
+   <a 
+       href="#" 
+       class="link icon-only"
+       onclick=${() => {
+          this.openAddPage();
+       }}
+   >
+   <i class="icon f7-icons if-not-md">plus</i>
+   <i class="icon material-icons md-only">add</i>
+   </a>
+</div>`;
+   }
+
+   listTitle($h) {
+      // hide Title bar if nothing to display:
+      if (this.settings.hideTitle && !this.settings.linkPageAdd) {
+         return "";
+      }
+
+      return $h`
+<div class="block-title block-title-medium no-margin-after">
+  ${!this.settings.hideTitle ? this.label : ""}
+  ${this.addButton($h)}
+</div>
+      `;
+   }
+
+   /**
+    * @method searchBar()
+    * return the DOM for adding a searchbar
+    * @param {$h} $h
+    *        Framework7 Template tool
+    * @return $h Template
+    */
+   searchBar($h) {
+      return "";
+
+      // @TODO:
+      // - create a SearchFilterSort Bar Widget
+      // - check if this.settings.includeSearchBar is set
+      // - return the this.SearchFilterSort.html($h)
+
+      // Questions:
+      // does the SearchFilterSortBar update the data in the DC
+      // directly?  This seems how F7 will update the display.
+      // But it will effect anything that uses the same DC.
+   }
+
+   html($h) {
+      // return () =>
+      //    $h`<div class="${this.style} ${this.alignment}">${this.text}</div>`;
+
+      let dc = this.datacollection;
+
+      if (!dc || this.AB.$store.getters[dc.id].value.length === 0)
+         return () => $h`
+               ${this.listTitle($h)}
+               <div class="list links-list list-outline list-strong list-dividers skeleton-text skeleton-effect-fade">
+                  <ul>
+                     ${[...Array(20)].map(
+                        (/* x, i */) => $h`
+                        <li>
+                           <a href="#">Skeleton text will go here</a>
+                        </li>`
+                     )}
+                  </ul>
+               </div>
+           
+         `;
+
+      return () => $h`
+         ${this.listTitle($h)}
+         ${this.searchBar($h)}
+         <div
+            id=${this.idList}
+            class="infinite-scroll-content"
+            onInfinite=${() => this.loadMore()}
+         >
+            <div class="list links-list list-outline list-strong list-dividers">
+               <ul>${this.listItems($h)}</ul>
+            </div>
+            ${this.hasMore($h)}
+         </div>`;
+   }
+}
+
+
+/***/ }),
+
+/***/ 15103:
+/*!*******************************************************************!*\
+  !*** ./src/js/AppBuilder/platform/mobile/ABMobileViewTimeline.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewTimeline)
+/* harmony export */ });
+/* harmony import */ var _core_mobile_ABMobileViewTimelineCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewTimelineCore.js */ 63445);
+/**
+ * ABMobileViewTimeline
+ * The view that displays a timeline on the screen.
+ */
+
+
+class ABMobileViewTimeline extends _core_mobile_ABMobileViewTimelineCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   // constructor(...params) {
+   //    super(...params);
+   // }
+
+   async init() {
+      this.isSwipeout = {};
+      // {hash} { item.uuid : bool }
+      // keeps track of which item was in the process of a swipeout.
+      // This prevents the click events from triggering an .itemSelected()
+      // during a swipeout event.
+      this.AB.$(`#${this.idList}`)
+         .find(".swipeout")
+         .on("swipeout:open", (e) => {
+            let id = this.AB.$(e.target).data("id");
+            this.isSwipeout[id] = true;
+         });
+      this.AB.$(`#${this.idList}`)
+         .find(".swipeout")
+         .on("swipeout:closed", (e) => {
+            let id = this.AB.$(e.target).data("id");
+            this.isSwipeout[id] = false;
+         });
+      this.AB.$(`#${this.idList}`)
+         .find(".swipeout")
+         .on("swipeout:delete", async (e) => {
+            let id = this.AB.$(e.target).data("id");
+            this.isSwipeout[id] = false;
+            let success = await this.itemDeleted(id);
+            if (!success) {
+               e.preventDefault();
+            }
+         });
+      // this triggers a change in the F7 store and updates the display
+      // hopefully this gets rid of that lingering progress indicator
+      setTimeout(() => {
+         let dc = this.datacollection;
+         let allVals = dc.$state[dc.id];
+         dc.$state[dc.id] = allVals;
+      }, 30);
+      // let dc = this.datacollection;
+      // dc.once("initializedData", () => {
+      //    // this triggers a change in the F7 store and updates the display
+      //    // hopefully this gets rid of that lingering progress indicator
+      //    let allVals = dc.$state[dc.id];
+      //    dc.$state[dc.id] = allVals;
+      // });
+   }
+
+   async itemDeleted(id) {
+      let CurrentObject = this.datacollection.datasource;
+      try {
+         let response = await CurrentObject.model().delete(id);
+
+         if (response) {
+            // there should have been an ab.datacollection.delete trigger
+            // that takes care of removing the item from the DC.
+            // this.datacollection.
+            return true;
+         } else {
+            let L = this.AB.Label();
+            this.AB.$f7.dialog.alert(
+               L("No rows were effected.  This does not seem right."),
+               L("Error")
+            );
+            return false;
+         }
+      } catch (err) {
+         this.AB.notify.developer(err, {
+            context: "ABMobileViewList.itemDeleted()",
+            message: "Error deleting item",
+            obj: CurrentObject.toObj(),
+            id,
+         });
+         return false;
+      }
+   }
+
+   itemSelected(item) {
+      // prevent random clicks when processing a swipeout
+      if ( (typeof(this.isSwipeout) != "undefined") && this.isSwipeout[item.uuid]) return;
+
+      // Make sure our DC registers which item was just selected.
+      const dc = this.datacollection;
+
+      if (dc) {
+         dc.setCursor(item[dc.datasource.PK()] || item.id || item.uuid);
+      }
+
+      // if there is a detailPage set, then transition there:
+      if (this.settings.linkPageDetail) {
+         const DetailPage = this.application.pageByID(
+            this.settings.linkPageDetail
+         );
+
+         DetailPage.show(true);
+         // .show(showBack = true)
+      }
+   }
+
+   openAddPage() {
+      if (this.settings.linkPageAdd) {
+         const addPage = this.application.pageByID(this.settings.linkPageAdd);
+         if (addPage) {
+            addPage.show(true);
+            // .show(true) => show back button
+         }
+      }
+   }
+
+   loadMore() {
+      // if (this.$store.getters[this.#settings.dcID].value.hasMore) {
+      let dc = this.datacollection;
+      if (dc && dc.hasMore()) {
+         this.AB.$store.dispatch("getAppBuilderData", dc.id);
+      }
+   }
+
+   hasMore($h) {
+      if (this.datacollection.hasMore()) {
+         return $h`<div class="preloader infinite-scroll-preloader"></div>`;
+      }
+   }
+
+   template($h, item) {
+      var dv = this.datacollection;
+      if (!dv) return null;
+
+      var object = dv.datasource;
+      if (!object) return null;
+
+      let template = this.AB.cloneDeep(this.settings.templateItem);
+      if (template) {
+         object.fields().forEach((field) => {
+            let key = `{${field.id}}`;
+
+            template = template.replace(key, field.format(item));
+         });
+      }
+
+      template = `$h\`${template}\``;
+      return eval(template);
+   }
+
+   get idList() {
+      return `L${this.id}`;
+   }
+   idItem(item) {
+      return `I${item.uuid}`;
+   }
+
+   listItemDate($h, listItems) {
+      let L = this.AB.Label();
+
+      return listItems.map((item) => {
+         return $h`
+         <li id=${this.idItem(item)} data-id=${
+            item.uuid
+         } class="swipeout deleted-callback">
+
+            <div class="swipeout-content" >
+               <div 
+                  class="timeline-item-content"
+                  onClick=${() => this.itemSelected(item)}
+               >
+                  <div class="timeline-item-inner">
+                     ${this.template($h, item)}
+                  </div>
+               </div>
+            </div>
+            <div class="swipeout-actions-right">
+               <a
+                  href="#"
+                  class="swipeout-delete"
+                  data-confirm=${L("Are you sure want to delete this item?")}
+                  data-confirm-title=${L("Delete?")}
+               >
+                  <i class="fa fa-trash"></i>
+               </a>
+            </div>
+         </li>`;
+      });
+   }
+
+   listItems($h, dateHash) {
+      const L = this.AB.Label();
+
+      let keys = Object.keys(dateHash).sort();
+
+      return keys.map((date) => {
+         let dates = date.split(":");
+         let showDate = $h`${dates[1]} <small> ${dates[0]} </small>`;
+         return $h`
+            <div class="timeline-item">
+              <div class="timeline-item-date">${showDate}</div>
+              <div class="timeline-item-divider"></div>
+              <div class="timeline-item-content" list inset no-ios-edges>
+               <ul>
+                ${this.listItemDate($h, dateHash[date])}
+                </ul>
+              </div>
+            </div>`;
+      });
+   }
+
+   addButton($h) {
+      if (!this.settings.linkPageAdd) return "";
+
+      return $h`
+<div class="float-right">
+   <a 
+       href="#" 
+       class="link icon-only"
+       onclick=${() => {
+          this.openAddPage();
+       }}
+   >
+   <i class="icon f7-icons if-not-md">plus</i>
+   <i class="icon material-icons md-only">add</i>
+   </a>
+</div>`;
+   }
+
+   listTitle($h) {
+      // hide Title bar if nothing to display:
+      if (this.settings.hideTitle && !this.settings.linkPageAdd) {
+         return "";
+      }
+
+      return $h`
+<div class="block-title block-title-medium no-margin-after">
+  ${!this.settings.hideTitle ? this.label : ""}
+  ${this.addButton($h)}
+</div>
+      `;
+   }
+
+   /**
+    * @method searchBar()
+    * return the DOM for adding a searchbar
+    * @param {$h} $h
+    *        Framework7 Template tool
+    * @return $h Template
+    */
+   searchBar($h) {
+      return "";
+
+      // @TODO:
+      // - create a SearchFilterSort Bar Widget
+      // - check if this.settings.includeSearchBar is set
+      // - return the this.SearchFilterSort.html($h)
+
+      // Questions:
+      // does the SearchFilterSortBar update the data in the DC
+      // directly?  This seems how F7 will update the display.
+      // But it will effect anything that uses the same DC.
+   }
+
+   html($h) {
+      // return () =>
+      //    $h`<div class="${this.style} ${this.alignment}">${this.text}</div>`;
+
+      let dc = this.datacollection;
+
+      if (!dc || this.AB.$store.getters[dc.id].value.length === 0)
+         return () => $h`
+               ${this.listTitle($h)}
+               <div class="list links-list list-outline list-strong list-dividers skeleton-text skeleton-effect-fade">
+                  <ul>
+                     ${[...Array(20)].map(
+                        (/* x, i */) => $h`
+                        <li>
+                           <a href="#">Skeleton text will go here</a>
+                        </li>`
+                     )}
+                  </ul>
+               </div>
+           
+         `;
+
+      // build a date/hash of our current values
+      let dateHash = {
+         /* date : [ entries for this date ] */
+      };
+
+      let dateField = dc.datasource.fields(
+         (f) => f.id == this.settings.dateField
+      )[0];
+      if (dateField) {
+         let values = this.AB.$store.getters[dc.id].value;
+         values.forEach((row) => {
+            let date = row[dateField.columnName];
+            if (date) {
+               date = this.AB.rules.toDateFormat(date, {
+                  format: "MMM:DD:YYYY",
+               });
+               if (!dateHash[date]) {
+                  dateHash[date] = [];
+               }
+               dateHash[date].push(row);
+            }
+         });
+      }
+
+      return () => $h`
+         ${this.listTitle($h)}
+         ${this.searchBar($h)}
+         <div 
+            id=${this.idList}
+            class="timeline"
+         >
+            ${this.listItems($h, dateHash)}
+         </div>`;
+   }
+}
+
+
+/***/ }),
+
+/***/ 53691:
+/*!*********************************************************************!*\
+  !*** ./src/js/AppBuilder/platform/mobile/ViewFormSelectMultiple.js ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ViewFormSelectMultiple)
+/* harmony export */ });
+/* harmony import */ var _ViewFormSelectSingle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ViewFormSelectSingle */ 61554);
+
+
+class ViewFormSelectMultiple extends _ViewFormSelectSingle__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   html($h) {
+      let value = this.options.find((o) => o.id == this.value)?.text;
+      return $h`
+         <a href="#" class="item-link smart-select smart-select-init">
+            <select
+               name=${this.field.columnName}
+               multiple
+            >
+               ${this.options.map((item) => this.inputElement($h, item))}
+            </select>
+            <div class="item-content">
+               <div class="item-inner">
+                  <div class="item-title">${this.field.label}</div>
+                  <div class="item-after">${value || "Value"}</div>
+               </div>
+            </div>
+         </a>
+         `;
+   }
+}
+
+
+/***/ }),
+
+/***/ 61554:
+/*!*******************************************************************!*\
+  !*** ./src/js/AppBuilder/platform/mobile/ViewFormSelectSingle.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ViewFormSelectSingle)
+/* harmony export */ });
+class ViewFormSelectSingle {
+   constructor(AB, field, value = null) {
+      this.AB = AB;
+      this.field = field;
+
+      this.options = [
+         /* {id, text} */
+         // { id: 1, text: "one" },
+         // { id: 2, text: "two" },
+         // { id: 3, text: "three" },
+      ];
+
+      this.value = value;
+   }
+
+   setOptions(values, k = "id", t = "text") {
+      this.options = [];
+      (values || []).forEach((v) => {
+         this.options.push({ id: v[k], text: v[t] });
+      });
+   }
+
+   setValue(vid) {
+      this.value = vid;
+   }
+
+   inputElement($h, item) {
+      let $inputElement = $h`<option value=${item.id}>${item.text}</option>`;
+      if (this.value == item.id) {
+         $inputElement.props.selected = "";
+      }
+      return $inputElement;
+   }
+
+   html($h) {
+      return $h`
+         <div class="item-content item-input">
+            <div class="item-inner">
+               <div class="item-title item-label">${this.field.label}</div>
+               <div class="item-input-wrap">
+                  <select name=${this.field.columnName}>
+                     ${this.options.map((item) => this.inputElement($h, item))}
+                  </select>
+               </div>
+            </div>
+         </div>
+         `;
    }
 }
 
@@ -43821,6 +51019,25 @@ class ABProcessTaskUserExternal extends _core_process_tasks_ABProcessTaskUserExt
 
 /***/ }),
 
+/***/ 89476:
+/*!***************************************************************************!*\
+  !*** ./src/js/AppBuilder/platform/process/tasks/ABProcessTaskUserForm.js ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABProcessTaskUserForm)
+/* harmony export */ });
+/* harmony import */ var _core_process_tasks_ABProcessTaskUserFormCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskUserFormCore.js */ 53205);
+
+
+class ABProcessTaskUserForm extends _core_process_tasks_ABProcessTaskUserFormCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {}
+
+
+/***/ }),
+
 /***/ 50135:
 /*!**********************************************************************!*\
   !*** ./src/js/AppBuilder/platform/process/tasks/ABProcessTrigger.js ***!
@@ -46232,6 +53449,4621 @@ class ABViewContainerComponent extends _ABViewComponent__WEBPACK_IMPORTED_MODULE
 
 /***/ }),
 
+/***/ 26778:
+/*!***********************************************!*\
+  !*** ./src/js/AppBuilder/rules/ABViewRule.js ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewRule)
+/* harmony export */ });
+//
+// ABViewRule
+//
+// A component that manages an individual Rule in a Rule list.
+//
+// Each rule can manage a set of given Actions.  For each Rule, one Action
+// can be chosen, A condition for when that action is executed, and then
+// inputs for any additional data required by that action.
+//
+// In live apps, Rules are used when processing events and determining if an
+// action is to be performed:
+//
+//
+//
+// A Rule needs to save it's current state to an objects settings, and to
+// initialize itself from those settings.
+//
+// import ObjectQueryBuilder from "./ABViewQueryBuilderObjectFieldConditions";
+
+class ABViewRule {
+   /**
+    * @param {object} App
+    *      The shared App object that is created in OP.Component
+    * @param {string} idBase
+    *      Identifier for this component
+    */
+   constructor(listActions) {
+      this.listActions = listActions || []; // the list of Actions this Rule manages
+
+      // this.actionDropList = []; // the Webix UI droplist
+      // this.listActions.forEach((a) => {
+      //    this.actionDropList.push({ id: a.key, value: a.label });
+      // });
+
+      this.selectedAction = null; // the currently selected Action.key
+      // if (this.actionDropList.length > 0) {
+      //    this.selectedAction = this.actionDropList[0].id;
+      // }
+
+      // this.removable = true; // can I delete this rule?
+
+      this.currentObject = null; // What ABObject is this associated with
+      // NOTE: this is important for Actions.
+
+      // this.objectQB = null; // The QueryBuilder (QB) object
+
+      // this.currentForm = null;
+   }
+
+   // component(App, idBase) {
+   //    this.App = App;
+   //    this.idBase = idBase;
+
+   //    // this is different because multiple instances of this View can be displayed
+   //    // at the same time.  So make each instance Unique:
+   //    var uniqueInstanceID = webix.uid();
+   //    var myUnique = (key) => {
+   //       // return this.unique(idBase + key ) + '_' + uniqueInstanceID;
+   //       return `${idBase}_${key}_${uniqueInstanceID}`;
+   //    };
+
+   //    // internal list of Webix IDs to reference our UI components.
+   //    var ids = (this.ids = {
+   //       // each instance must be unique
+   //       component: myUnique("component"),
+
+   //       selectAction: myUnique("chooseAction"),
+
+   //       queryBuilder: myUnique("queryBuilder"),
+
+   //       valueDisplay: myUnique("valueArea"),
+   //    });
+
+   //    this.objectQB.label = L("When");
+   //    this.objectQB.component(this.App, this.idBase);
+   //    this.ui = this._generateUI();
+
+   //    // for setting up UI
+   //    this.init = (options) => {
+   //       // register callbacks:
+   //       for (var c in _logic.callbacks) {
+   //          _logic.callbacks[c] = options[c] || _logic.callbacks[c];
+   //       }
+
+   //       this.objectQB.init();
+
+   //       // make sure the current Action's value display is initialized:
+   //       var Action = this.currentAction();
+   //       if (Action) {
+   //          Action.component(this.App, this.idBase);
+   //          var comp = Action.valueDisplay(ids.valueDisplay);
+
+   //          _logic.replaceValueDisplay(comp);
+
+   //          // webix.ui(comp.ui, $$(this.ids.valueDisplay));
+   //          comp.init();
+   //       }
+   //    };
+
+   //    // internal business logic
+   //    var _logic = (this._logic = {
+   //       callbacks: {
+   //          onDelete: function () {
+   //             console.warn("NO onDelete()!");
+   //          },
+   //          onSave: function (field) {
+   //             console.warn("NO onSave()!");
+   //          },
+   //       },
+
+   //       replaceValueDisplay: (component) => {
+   //          // remove current content area:
+   //          var $ValueDisplay = $$(this.ids.valueDisplay);
+   //          if (!$ValueDisplay) return;
+
+   //          var children = $ValueDisplay.getChildViews();
+   //          var cloneChildren = [];
+   //          children.forEach((c) => {
+   //             cloneChildren.push(c);
+   //          });
+   //          cloneChildren.forEach((c) => {
+   //             $ValueDisplay.removeView(c);
+   //          });
+
+   //          $ValueDisplay.addView(component.ui);
+   //       },
+
+   //       selectAction: (newValue, oldVal) => {
+   //          if (newValue) {
+   //             $$(this.ids.component)
+   //                .getChildViews()
+   //                .forEach((views) => {
+   //                   views.show();
+   //                });
+   //          }
+   //          // bonus:  save current state of previous Action
+   //          var prevAction = this.getAction(oldVal);
+   //          if (prevAction) {
+   //             prevAction.stashCondition(this.objectQB.getValue());
+   //          }
+
+   //          // now switch to the new Action
+   //          this.selectedAction = newValue;
+   //          var currAction = this.currentAction();
+   //          if (currAction) {
+   //             // reset Condition filters.
+   //             this.objectQB.setValue(currAction.condition());
+
+   //             // have Action display it's values form
+   //             currAction.component(this.App, this.idBase);
+   //             var component = currAction.valueDisplay(ids.valueDisplay);
+   //             _logic.replaceValueDisplay(component);
+   //             component.init();
+   //             // currAction.valueDisplay(ids.valueDisplay);
+   //          }
+   //       },
+   //    });
+   // }
+
+   // // not intended to be called externally
+   // _generateUI() {
+   //    return {
+   //       id: this.ids.component,
+   //       view: "layout",
+   //       css: "ab-component-form-rules",
+   //       padding: 20,
+   //       // margin: 10,
+
+   //       // this should be a CSS setting: this.AB.Config.xxxx
+   //       // width: 680,
+   //       type: "line",
+   //       rows: [
+   //          {
+   //             view: "template",
+   //             css: "ab-component-form-rules-delete",
+   //             template: '<i class="fa fa-trash ab-component-remove"></i>',
+   //             height: 30,
+   //             borderless: true,
+   //             hidddatasourceen: this.removable == false,
+   //             onClick: {
+   //                "ab-component-remove": (e, id, trg) => {
+   //                   this._logic.callbacks.onDelete(this);
+   //                },
+   //             },
+   //          },
+   //          // Action
+   //          {
+   //             id: this.ids.selectAction,
+   //             view: "richselect",
+   //             label: L("Action"),
+   //             placeholder: L("Choose an action"),
+   //             labelWidth: this.AB.UISettings.config().labelWidthLarge,
+   //             options: this.actionDropList,
+   //             on: {
+   //                onChange: (newVal, oldVal) => {
+   //                   this._logic.selectAction(newVal, oldVal);
+   //                },
+   //             },
+   //          },
+
+   //          // Values
+   //          {
+   //             for: "values",
+   //             hidden: true,
+   //             cells: [
+   //                {
+   //                   view: "layout",
+   //                   cols: [
+   //                      {
+   //                         view: "label",
+   //                         label: L("Values"),
+   //                         css: "ab-text-bold",
+   //                         width: this.AB.UISettings.config().labelWidthLarge,
+   //                      },
+   //                      {
+   //                         id: this.ids.valueDisplay,
+   //                         view: "layout",
+   //                         rows: [
+   //                            {
+   //                               label: L(
+   //                                  " ABViewRule: This should be the Set Area"
+   //                               ),
+   //                               css: "ab-text-bold",
+   //                               height: 30,
+   //                            },
+   //                         ],
+   //                      },
+   //                   ],
+   //                },
+   //             ],
+   //          },
+
+   //          // When
+   //          this.objectQB.ui,
+   //       ],
+   //    };
+   // }
+
+   // return the QueryBuilder fields data for the currently selected Action.
+   conditionFields() {
+      var fields = [];
+
+      var selectedAction = this.currentAction();
+      if (selectedAction) {
+         fields = selectedAction.conditionFields();
+      }
+
+      return fields;
+   }
+
+   currentAction() {
+      return this.getAction(this.selectedAction);
+   }
+
+   getAction(key) {
+      return this.listActions.filter((a) => {
+         return a.key == key;
+      })[0];
+   }
+
+   objectLoad(object) {
+      this.currentObject = object;
+      this.listActions.forEach((a) => {
+         a.objectLoad(object);
+      });
+
+      // var label = L("When");
+
+      // this.objectQB = new ObjectQueryBuilder(label);
+      // this.objectQB.objectLoad(object);
+
+      // // regenerate our UI when a new object is loaded.
+      // if (this.ids) {
+      //    this.ui = this._generateUI();
+      // }
+      this.AB = object.AB;
+   }
+
+   formLoad(form) {
+      this.currentForm = form;
+      this.listActions.forEach((a) => {
+         a.formLoad(form);
+      });
+   }
+
+   processPre(options = {}) {
+      let isValid = this.isValid(options.data);
+      if (!isValid) return;
+
+      let currentAction = this.currentAction();
+      if (!currentAction) return;
+
+      currentAction.processUpdateObject({}, options.data);
+   }
+
+   // process
+   // Take the provided data and process this rule
+   // @param {obj} options
+   // @return {Promise}
+   process(options) {
+      var currentAction = this.currentAction();
+      if (!currentAction) return Promise.resolve();
+
+      let isValid = this.isValid(options.data);
+      if (isValid) {
+         return currentAction.process(options);
+      } else {
+         // else just resolve and continue on
+         return new Promise((resolve, reject) => {
+            resolve();
+         });
+      }
+   }
+
+   fromSettings(settings) {
+      settings = settings || {};
+
+      if (settings.selectedAction) {
+         // store our Query Rules
+         this.selectedAction = settings.selectedAction;
+         var selectedAction = this.currentAction();
+         if (!selectedAction) return;
+         selectedAction.stashCondition(settings.queryRules || {});
+
+         // // if our UI components are present, populate them properly:
+         // if (this.ids) {
+         //    // Trigger our UI to refresh with this selected Action:
+         //    // NOTE: this also populates the QueryBuilder
+         //    $$(this.ids.selectAction).setValue(this.selectedAction);
+         //    // this._logic.selectAction(this.selectedAction);
+         // }
+
+         // now continue with setting up our settings:
+         selectedAction.fromSettings(settings.actionSettings);
+      }
+   }
+
+   toSettings() {
+      console.error("ABViewRule should not be calling toSettings()");
+      var settings = {};
+
+      if (this.selectedAction) {
+         settings.selectedAction = this.selectedAction;
+         // settings.queryRules = this.objectQB.getValue();
+         let currentAction = this.currentAction();
+         if (currentAction) {
+            settings.actionSettings = currentAction.toSettings();
+         }
+      }
+
+      return settings;
+   }
+
+   // // NOTE: Querybuilder v5.2 has a bug where it won't display the [and/or]
+   // // choosers properly if it hasn't been shown before the .setValue() call.
+   // // so this work around allows us to refresh the display after the .show()
+   // // on the popup.
+   // // When they've fixed the bug, we'll remove this workaround:
+   // qbFixAfterShow() {
+   //    var currAction = this.currentAction();
+   //    if (currAction && this.objectQB) {
+   //       this.objectQB.setValue(currAction.condition());
+   //       currAction.qbFixAfterShow();
+   //    }
+   // }
+
+   /**
+    * @method isReady()
+    * returns a promise that gets resolved once our action is ready to work.
+    * @return {Promise}
+    */
+   async isReady() {
+      let currentAction = this.currentAction();
+      if (currentAction) {
+         return currentAction.isReady();
+      }
+      return Promise.resolve();
+   }
+
+   isValid(data = {}) {
+      const fields = this.currentObject.fields(),
+         currentAction = this.currentAction(),
+         QBCondition = currentAction.condition(),
+         query = QBCondition[0] ?? {};
+
+      const convertToNumber = (text = "") => {
+         // if we have multiple rules we need to check if value is already a number before converting.
+         if (typeof text == "number") return text;
+
+         return parseFloat(text.replace(/[^-0-9.]/g, ""));
+      };
+
+      // Fix string data in number type
+      // NOTE: "1000" > "99" = false    >_<!
+      fields
+         .filter(
+            (f) =>
+               f.key == "number" || f.key == "calculate" || f.key == "formula"
+         )
+         .forEach((f) => {
+            try {
+               // filter conditions
+               if (Array.isArray(query?.rules)) {
+                  query.rules.forEach((r) => {
+                     // NOTE: compatible with old settings
+                     if (r.key == f.id || r.key == f.columnName)
+                        r.value = convertToNumber(r.value);
+                  });
+               }
+
+               // row data
+               if (
+                  data[f.columnName] &&
+                  typeof data[f.columnName] === "string"
+               ) {
+                  data[f.columnName] = convertToNumber(data[f.columnName]);
+               }
+            } catch (e) {
+               // continue regardless of error
+            }
+         });
+
+      const hiddenFilter = (this.AB ?? AB).filterComplexNew(
+         `${this.idBase}_filter_complex`
+      );
+      hiddenFilter.fieldsLoad(fields, this.currentObject);
+      hiddenFilter.setValue(query);
+      hiddenFilter.init();
+
+      return hiddenFilter.isValid(data);
+
+      // var id = "hiddenQB_" + webix.uid();
+
+      // // if our data passes the QueryRules then tell Action to process
+      // var ui = {
+      //    id: id,
+      //    hidden: true,
+      //    view: "querybuilder",
+      // };
+      // var hiddenQB = webix.ui(ui);
+
+      // let currentAction = this.currentAction();
+      // var QBCondition = currentAction.condition();
+
+      // if (this.objectQB) {
+      //    this.objectQB.cleanRules(QBCondition[0], QBCondition[1], false);
+      // }
+
+      // let query = QBCondition[0] || {},
+      //    fields = QBCondition[1] || [];
+
+      // // hiddenQB.setValue(QBCondition);
+      // hiddenQB.setValue({
+      //    query: query,
+      //    fields: fields,
+      // });
+
+      // var QBHelper = hiddenQB.getFilterHelper();
+      // var isValid = QBHelper(data);
+
+      // hiddenQB.destructor(); // remove the QB
+
+      // return isValid;
+   }
+
+   get isPreProcess() {
+      let currentAction = this.currentAction();
+      return currentAction.isPreProcess || false;
+   }
+}
+
+
+/***/ }),
+
+/***/ 40804:
+/*!*****************************************************!*\
+  !*** ./src/js/AppBuilder/rules/ABViewRuleAction.js ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewRuleAction)
+/* harmony export */ });
+//
+// ABViewRuleAction
+//
+// A component that manages an individual Action in a Rule.
+//
+// Each Action is responsible for figuring out when it can run, and what to do.
+//
+// In live apps, Actions are used when processing events and determining if an
+// if and what is to be performed:
+//
+//
+//
+// An Action needs to save it's current state to an objects settings, and to
+// initialize itself from those settings.
+//
+
+class ABViewRuleAction {
+   /**
+    * @param {object} App
+    *      The shared App object that is created in OP.Component
+    * @param {string} idBase
+    *      Identifier for this component
+    * @param {ABViewForm} currentForm	the current form this Action is associated with.
+    */
+   constructor(App, idBase, currentForm) {
+      this.key = "ABViewRuleAction";
+
+      this.queryObject = null; // the current ABObject we use to create QueryBuilder information.
+
+      this.currentForm = null;
+
+      this.queryRules = {}; // default set of rules for the Query Builder condition
+
+      this.valueRules = {}; // the initial Value Rules for this Action
+      // The Action Subclass defines what this {} is.
+
+      this.currentForm = currentForm; // the ABViewForm object that this rule Action is tied to.
+   }
+   /*
+   component(App, idBase) {
+      this.App = App;
+      this.idBase = idBase;
+
+      this.label = L("generic abviewruleaction");
+
+      function myUnique(key) {
+         return App.unique(`${idBase}_${key}`);
+      }
+
+      // internal list of Webix IDs to reference our UI components.
+      var ids = (this.ids = {
+         // each instance must be unique
+         component: `${myUnique("component")}_${webix.uid()}`,
+      });
+
+      this._ui = null; // internally track our UI Component value Rules
+
+      // for setting up UI
+      this.init = (options) => {
+         // register callbacks:
+         for (var c in _logic.callbacks) {
+            _logic.callbacks[c] = options[c] || _logic.callbacks[c];
+         }
+      };
+
+      // internal business logic
+      var _logic = (this._logic = {
+         callbacks: {
+            onDelete: function () {
+               console.warn("NO onDelete()!");
+            },
+            onSave: function (field) {
+               console.warn("NO onSave()!");
+            },
+         },
+      });
+   }
+*/
+   // condition
+   // Return the querybuilder setup structure for this Action.
+   // @return {array}  of querybuilder setup
+   //					[
+   //						{rules},
+   //						[fields]
+   //					]
+   condition() {
+      return [this.conditionRules(), this.conditionFields()];
+   }
+
+   // stashCondition
+   // capture the current set of rules provided by the QB object.
+   // This doesn't guarantee these will be saved to the App settings.
+   // Instead it is a temporary stash. Only the selected Action's
+   // values will be persisited to the App settings.
+   // @param {obj/Array} rules  The QueryBuilder rule value returned from
+   //							 .getValue()
+   //							 note: it is the first entry .getValue()[0]
+   //
+   stashCondition(rules) {
+      // check to see if they sent us the raw QueryBuilder values and only
+      // pull off the rules if they did
+      if (Array.isArray(rules)) {
+         rules = rules[0];
+      }
+
+      // sanity check on glue value: don't update if null or not given.
+      if (rules) {
+         // sometimes .glue is undefined  so default to 'and'
+         if (rules.glue != "or") rules.glue = "and";
+
+         this.queryRules = rules;
+      }
+   }
+
+   // conditionFields()
+   // Return the list of fields we are able to update.
+   // @return {array} of querybuilder field definitions:
+   //					[
+   // 						{ id:"fname",   value:"First Name", type:"string" },
+   //					    { id:"lname",   value:"Last Name",  type:"string" },
+   //					    { id:"age",     value:"Age",        type:"number" },
+   //					    { id:"bdate",   value:"Birth Date", type:"date" }
+   //					]
+   conditionFields() {
+      var fieldTypes = ["string", "number", "date", "formula", "calculate"];
+
+      var currFields = [];
+
+      if (this.queryObject) {
+         this.queryObject.fields().forEach((f) => {
+            if (fieldTypes.indexOf(f.key) != -1) {
+               // NOTE: the .id value must match the obj[.id]  in the data set
+               // so if your object data looks like:
+               // 	{
+               //		name_first:'Neo',
+               //		name_last: 'The One'
+               //  },
+               // then the ids should be:
+               // { id:'name_first', value:'xxx', type:'string' }
+               currFields.push({
+                  id: f.columnName,
+                  value: f.label,
+                  type: f.key,
+               });
+            }
+         });
+      }
+
+      return currFields;
+   }
+
+   // conditionRules()
+   // Return the current rule definition object for this Action.
+   // @return {obj}
+   conditionRules() {
+      return this.queryRules;
+   }
+
+   // objectLoad
+   // save the current object this Action is associated with.
+   objectLoad(object) {
+      // this.currentObject = object;				// DO WE NEED THIS?
+      this.queryObjectLoad(object);
+   }
+
+   // queryObjectLoad
+   // save the current object this Action is using to build query rules.
+   queryObjectLoad(object) {
+      this.queryObject = object;
+   }
+
+   formLoad(form) {
+      this.currentForm = form;
+   }
+
+   // process
+   // gets called when a form is submitted and the data passes the Query Builder Rules.
+   // @param {obj} options
+   // @return {Promise}
+   process(options) {
+      console.error(
+         "!!! ABViewRuleAction.process() should be overridden by its child class."
+      );
+      return new Promise((resolve, reject) => {
+         reject(
+            new Error(
+               "ABViewRuleAction.process() should be overridden by its child class."
+            )
+         );
+      });
+   }
+
+   // // valueDisplay
+   // // create the form to collect the specific data this Action needs to function.
+   // // @param {string} webixID  the $$(webixID) of the area to insert our display.
+   // valueDisplay(webixID) {
+   //    return this.valueDisplayComponent(webixID);
+   // }
+
+   // // valueDisplayComponent
+   // // Return an ABView to display our values form.
+   // //
+   // valueDisplayComponent(idBase) {
+   //    return (this._ui = {
+   //       ui: {
+   //          template: "ABViewRuleAction.valueDisplayComponent",
+   //       },
+   //       init: (data) => {
+   //          console.error(
+   //             "!!! ABViewRuleAction.valueDisplayComponent() should be overridden."
+   //          );
+   //          console.warn(" --> passed in data:", data);
+   //       },
+   //    });
+   // }
+
+   // fromSettings
+   // initialize this Action from a given set of setting values.
+   // @param {obj}  settings
+   fromSettings(settings) {
+      // settings: {
+      //	valueRules:{}
+      // }
+      settings = settings ?? {};
+      this.valueRules = settings.valueRules ?? settings;
+   }
+
+   // toSettings
+   // return an object that represents the current state of this Action
+   // @return {obj}
+   toSettings() {
+      var settings = {};
+
+      // require the child to insert the valueRules
+      return settings;
+   }
+
+   /**
+    * @method isReady()
+    * returns a promise that gets resolved once our action is ready to work.
+    * @return {Promise}
+    */
+   isReady() {
+      return Promise.resolve();
+   }
+
+   // // NOTE: Querybuilder v5.2 has a bug where it won't display the [and/or]
+   // // choosers properly if it hasn't been shown before the .setValue() call.
+   // // so this work around allows us to refresh the display after the .show()
+   // // on the popup.
+   // // When they've fixed the bug, we'll remove this workaround:
+   // qbFixAfterShow() {
+   //    // our child classes can implement this if needed.
+   //    // 	- ABViewRuleActionFormRecordRuleUpdateConnected
+   // }
+}
+
+
+/***/ }),
+
+/***/ 55795:
+/*!***************************************************!*\
+  !*** ./src/js/AppBuilder/rules/ABViewRuleList.js ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewRuleList)
+/* harmony export */ });
+//
+// ABViewRuleList
+//
+// A UI component that is responsible for displaying a list of current "Rules"
+// for a given purpose.  Some examples are the
+//		Form -> Submit Rules,
+//		Form -> Display Rules
+// 		Form -> Record Rules.
+//
+
+// ABViewRuleList is the parent object that manages displaying the common popup,
+// list, adding a rule, removing rules, etc...
+//
+// It is intending to be subclassed by a Specific List object that will load
+// up a given set of Actions for their list.
+//
+// When using it in the AppBuilder Interface Builder, this object provides:
+// 	var PopupRecordList = new ABViewRuleList(App, idBase);
+//  PopupRecordList.fromSettings(CurrentObjectDefinition.rules); // populates List with current settings defined in CurrentObjectDefinition
+//  PopupRecordList.init({ onSave:()=>{}})	// displays the popup for IB
+//  CurrentObjectDefinition.rules = PopupRecordList.toSettings(); // save the settings to store in json config
+//
+// When using on a live running App:
+//  PopupRecordList = new ABViewRuleList();
+//  PopupRecordList.fromSettings();
+//
+//  onFormSubmit(data) {
+//		// note: this automatically validates and runs each rule:
+//		PopupRecordList.process({data:data, view:{ current ABViewForm object }})
+//		.then()
+//		.catch();
+//  }
+
+class ABViewRuleList {
+   /**
+    */
+   constructor(childSettings) {
+      this.listRules = [];
+      this.currentObject = null;
+
+      // ensure required values:
+      childSettings = childSettings || {};
+      childSettings.labels = childSettings.labels || {};
+      childSettings.labels.header =
+         childSettings.labels.header || "ab.components.form.ruleList";
+      childSettings.labels.headerDefault =
+         childSettings.labels.headerDefault || "*Rule List";
+      this.childSettings = childSettings;
+   }
+
+   // /**
+   //  * @method component
+   //  * initialize the UI display for this popup editor.
+   //  * @param {obj} App  The common UI App object shared among our UI components
+   //  * @param {string} idBase A unique Key used the the base of our unique ids
+   //  */
+   // component(App, idBase) {
+   //    this.App = this.App || App;
+   //    this.idBase = idBase;
+
+   //    App = App || this.App;
+
+   //    this.currentForm = null;
+
+   //    // internal list of Webix IDs to reference our UI components.
+   //    var ids = (this.ids = {
+   //       component: `${idBase}_component`,
+   //       rules: `${idBase}_rules`,
+   //       rulesScrollview: `${idBase}_rulesScrollview`,
+
+   //       action: `${idBase}_action`,
+   //       when: `${idBase}_when`,
+
+   //       values: `${idBase}_values`,
+   //       set: `${idBase}_set`,
+   //    });
+
+   //    // webix UI definition:
+   //    this.ui = {
+   //       view: "window",
+   //       id: ids.component,
+   //       modal: true,
+   //       position: "center",
+   //       resize: true,
+   //       width: 700,
+   //       height: 450,
+   //       css: "ab-main-container",
+   //       head: {
+   //          view: "toolbar",
+   //          css: "webix_dark",
+   //          cols: [
+   //             {
+   //                view: "label",
+   //                label: this.childSettings.labels.headerDefault,
+   //             },
+   //             {
+   //                view: "button",
+   //                css: "webix_primary",
+   //                icon: "fa fa-plus",
+   //                type: "iconButton",
+   //                label: L("Add new rule"),
+   //                width: 150,
+   //                click: () => {
+   //                   this.addRule();
+   //                   console.log($$(ids.rules).$height);
+   //                   $$(ids.rulesScrollview).scrollTo(0, $$(ids.rules).$height);
+   //                },
+   //             },
+   //          ],
+   //       },
+   //       body: {
+   //          type: "form",
+   //          rows: [
+   //             {
+   //                view: "scrollview",
+   //                id: ids.rulesScrollview,
+   //                scroll: "xy",
+   //                body: {
+   //                   view: "layout",
+   //                   id: ids.rules,
+   //                   margin: 20,
+   //                   padding: 10,
+   //                   rows: [],
+   //                },
+   //             },
+   //             // {
+   //             // 	css: { 'background-color': '#fff' },
+   //             // 	cols: [
+   //             // 		{
+   //             // 			view: "button",
+   //             // 			icon: "plus",
+   //             // 			type: "iconButton",
+   //             // 			label: labels.component.addNewRule,
+   //             // 			width: 150,
+   //             // 			click: () => {
+   //             // 				this.addRule();
+   //             // 			}
+   //             // 		},
+   //             // 		{ fillspace: true }
+   //             // 	]
+   //             // },
+   //             {
+   //                css: { "background-color": "#fff" },
+   //                cols: [
+   //                   { fillspace: true },
+   //                   {
+   //                      view: "button",
+   //                      name: "cancel",
+   //                      value: L("Cancel"),
+   //                      css: "ab-cancel-button",
+   //                      autowidth: true,
+   //                      click: function () {
+   //                         _logic.buttonCancel();
+   //                      },
+   //                   },
+   //                   {
+   //                      view: "button",
+   //                      css: "webix_primary",
+   //                      name: "save",
+   //                      label: L("Save"),
+   //                      type: "form",
+   //                      autowidth: true,
+   //                      click: function () {
+   //                         _logic.buttonSave();
+   //                      },
+   //                   },
+   //                   { fillspace: true },
+   //                ],
+   //             },
+   //          ],
+   //       },
+   //    };
+
+   //    // var _currentObject = null;
+   //    var _rules = [];
+
+   //    // for setting up UI
+   //    this.init = (options) => {
+   //       // register callbacks:
+   //       for (var c in _logic.callbacks) {
+   //          _logic.callbacks[c] = options[c] || _logic.callbacks[c];
+   //       }
+
+   //       webix.ui(this.ui);
+   //    };
+
+   //    // internal business logic
+   //    var _logic = (this._logic = {
+   //       buttonCancel: function () {
+   //          $$(ids.component).hide();
+   //       },
+
+   //       buttonSave: () => {
+   //          var results = this.toSettings();
+
+   //          _logic.callbacks.onSave(results);
+   //          _logic.hide();
+   //       },
+
+   //       callbacks: {
+   //          onCancel: function () {
+   //             console.warn("NO onCancel()!");
+   //          },
+   //          onSave: function (field) {
+   //             console.warn("NO onSave()!");
+   //          },
+   //       },
+
+   //       hide: function () {
+   //          $$(ids.component).hide();
+   //       },
+
+   //       show: function () {
+   //          $$(ids.component).show();
+   //       },
+   //    });
+
+   //    this.show = _logic.show;
+   //    this.setValue = _logic.setValue;
+   // }
+
+   /**
+    * @method addRule
+    * Instantiate a new Rule in our list.
+    * @param {obj} settings  The settings object from the Rule we created in .toSettings()
+    */
+   addRule(settings) {
+      var Rule = this.getRule();
+      if (!Rule) return;
+
+      this.listRules.push(Rule);
+
+      // // if we have tried to create our component:
+      // if (this.ids) {
+      //    // if our actually exists, then populate it:
+      //    var RulesUI = $$(this.ids.rules);
+      //    if (RulesUI) {
+      //       // make sure Rule.ui is created before calling .init()
+      //       Rule.component(this.App, this.idBase); // prepare the UI component
+      //       var viewId = RulesUI.addView(Rule.ui);
+
+      //       Rule.init({
+      //          onDelete: (deletedRule) => {
+      //             $$(this.ids.rules).removeView(Rule.ids.component);
+
+      //             var index = this.listRules.indexOf(deletedRule);
+      //             if (index !== -1) {
+      //                this.listRules.splice(index, 1);
+      //             }
+      //          },
+      //       });
+      //    }
+      // }
+
+      if (settings) {
+         Rule.fromSettings(settings);
+      }
+   }
+
+   /**
+    * @method fromSettings
+    * Create an initial set of default values based upon our settings object.
+    * @param {obj} settings  The settings object we created in .toSettings()
+    */
+   fromSettings(settings) {
+      // settings: [
+      //  { rule.settings },
+      //  { rule.settings }
+      // ]
+
+      // clear any existing Rules:
+      this.listRules = [];
+
+      if (settings) {
+         settings.forEach((ruleSettings) => {
+            this.addRule(ruleSettings);
+         });
+      }
+   }
+
+   /**
+    * @method objectLoad
+    * A rule is based upon a Form that was working with an Object.
+    * .objectLoad() is how we specify which object we are working with.
+    *
+    * @param {ABObject} The object that will be used to evaluate the Rules
+    */
+   objectLoad(object) {
+      this.currentObject = object;
+
+      // tell each of our rules about our object
+      this.listRules.forEach((r) => {
+         r.objectLoad(object);
+      });
+   }
+
+   processPre(options) {
+      (this.listRules || [])
+         .filter((rule) => rule.isPreProcess == true)
+         .forEach((rule) => {
+            rule.processPre(options, options.data);
+         });
+   }
+
+   /**
+    * @method process
+    * Take the provided data and process each of our rules.
+    * @param {obj} options
+    * @return {promise}
+    */
+   process(options) {
+      return new Promise((resolve, reject) => {
+         let listRules = (this.listRules || []).filter(
+            (rule) => !rule.isPreProcess
+         );
+
+         var numDone = 0;
+         var onDone = () => {
+            numDone++;
+            if (numDone >= listRules.length) {
+               resolve();
+            }
+         };
+
+         listRules.forEach((rule) => {
+            rule
+               .process(options)
+               .then(function () {
+                  onDone();
+               })
+               .catch((err) => {
+                  reject(err);
+               });
+         });
+
+         if (listRules.length == 0) {
+            resolve();
+         }
+      });
+   }
+
+   /**
+    * @method toSettings
+    * create a settings object to be persisted with the application.
+    * @return {array} of rule settings.
+    */
+   toSettings() {
+      var settings = [];
+      this.listRules.forEach((r) => {
+         settings.push(r.toSettings());
+      });
+      return settings;
+   }
+
+   getRule() {
+      console.error(
+         "!!! ABViewRuleList.getRule() should be overridded by a child object."
+      );
+      return null;
+   }
+
+   formLoad(form) {
+      this.currentForm = form;
+      this.App = this.App || form.App;
+   }
+
+   /**
+    * @method isReady()
+    * returns a promise that gets resolved once our action is ready to work.
+    * @return {Promise}
+    */
+   rulesReady() {
+      // This base class should be overwritten by any subclass that needs
+      // to prepare:
+      return Promise.resolve();
+   }
+
+   // NOTE: Querybuilder v5.2 has a bug where it won't display the [and/or]
+   // choosers properly if it hasn't been shown before the .setValue() call.
+   // so this work around allows us to refresh the display after the .show()
+   // on the popup.
+   // When they've fixed the bug, we'll remove this workaround:
+   qbFixAfterShow() {
+      this.listRules.forEach((r) => {
+         r.qbFixAfterShow();
+      });
+   }
+}
+
+
+/***/ }),
+
+/***/ 35924:
+/*!******************************************************************!*\
+  !*** ./src/js/AppBuilder/rules/ABViewRuleListFormRecordRules.js ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewRuleListFormRecordRules)
+/* harmony export */ });
+/* harmony import */ var _ABViewRuleList__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABViewRuleList */ 55795);
+/* harmony import */ var _ABViewRule__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ABViewRule */ 26778);
+/* harmony import */ var _ruleActions_ABViewRuleActionFormRecordRuleUpdate__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ruleActions/ABViewRuleActionFormRecordRuleUpdate */ 39218);
+/* harmony import */ var _ruleActions_ABViewRuleActionFormRecordRuleInsertConnected__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ruleActions/ABViewRuleActionFormRecordRuleInsertConnected */ 41294);
+/* harmony import */ var _ruleActions_ABViewRuleActionFormRecordRuleUpdateConnected__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ruleActions/ABViewRuleActionFormRecordRuleUpdateConnected */ 71820);
+/* harmony import */ var _ruleActions_ABViewRuleActionFormRecordRuleRemoveConnected__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ruleActions/ABViewRuleActionFormRecordRuleRemoveConnected */ 27645);
+/**
+ * @Class ABViewRuleListFormRecordRules
+ * On the ab_platform_service platform, the ABRecordRule is just
+ * a blank stub. These only operate on the WEB platform, but are
+ * referenced by our FORM components.
+ */
+
+
+
+
+
+
+
+
+class ABViewRuleListFormRecordRules extends _ABViewRuleList__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   constructor() {
+      var settings = {
+         labels: {
+            header: "ab.components.form.recordRules",
+            headerDefault: "Record Rules",
+         },
+      };
+      super(settings);
+   }
+
+   // warningsEval() {
+   //    super.warningsEval();
+   //    let allViews = this.views();
+   //    if (allViews.length == 0) {
+   //       this.warningsMessage("has no sub views");
+   //    }
+   //    (this.pages() || []).forEach((p) => {
+   //       p.warningsEval();
+   //    });
+   // }
+
+   /**
+    * @method isReady()
+    * returns a promise that gets resolved once our list of Rules is
+    * ready to work.
+    * @return {Promise}
+    */
+   async rulesReady() {
+      var allReady = (this.listRules || []).map((r) => r.isReady());
+      await Promise.all(allReady);
+   }
+
+   // must return the actual Rule object.
+   getRule() {
+      var listActions = [
+         new _ruleActions_ABViewRuleActionFormRecordRuleUpdate__WEBPACK_IMPORTED_MODULE_2__["default"](
+            this.App,
+            `${this.idBase}_ruleActionUpdate`,
+            this.currentForm
+         ),
+         new _ruleActions_ABViewRuleActionFormRecordRuleInsertConnected__WEBPACK_IMPORTED_MODULE_3__["default"](
+            this.App,
+            `${this.idBase}_ruleActionInsert`,
+            this.currentForm
+         ),
+         new _ruleActions_ABViewRuleActionFormRecordRuleUpdateConnected__WEBPACK_IMPORTED_MODULE_4__["default"](
+            this.App,
+            `${this.idBase}_ruleActionUpdateConnected`,
+            this.currentForm
+         ),
+         new _ruleActions_ABViewRuleActionFormRecordRuleRemoveConnected__WEBPACK_IMPORTED_MODULE_5__["default"](
+            this.App,
+            `${this.idBase}_ruleActionRemoveConnected`,
+            this.currentForm
+         ),
+      ];
+
+      var Rule = new _ABViewRule__WEBPACK_IMPORTED_MODULE_1__["default"](listActions);
+      if (this.currentObject) {
+         Rule.objectLoad(this.currentObject);
+      }
+      return Rule;
+   }
+}
+
+
+/***/ }),
+
+/***/ 48828:
+/*!******************************************************************!*\
+  !*** ./src/js/AppBuilder/rules/ABViewRuleListFormSubmitRules.js ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewRuleListFormSubmitRules)
+/* harmony export */ });
+/* harmony import */ var _ABViewRuleList__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABViewRuleList */ 55795);
+/* harmony import */ var _ABViewRule__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ABViewRule */ 26778);
+/* harmony import */ var _ruleActions_ABViewRuleActionFormSubmitRuleConfirmMessage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ruleActions/ABViewRuleActionFormSubmitRuleConfirmMessage */ 91538);
+/* harmony import */ var _ruleActions_ABViewRuleActionFormSubmitRuleExistPage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ruleActions/ABViewRuleActionFormSubmitRuleExistPage */ 90786);
+/* harmony import */ var _ruleActions_ABViewRuleActionFormSubmitRuleParentPage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ruleActions/ABViewRuleActionFormSubmitRuleParentPage */ 57973);
+/* harmony import */ var _ruleActions_ABViewRuleActionFormSubmitRuleClosePopup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ruleActions/ABViewRuleActionFormSubmitRuleClosePopup */ 98674);
+/* harmony import */ var _ruleActions_ABViewRuleActionFormSubmitRuleWebsite__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ruleActions/ABViewRuleActionFormSubmitRuleWebsite */ 19679);
+/* harmony import */ var _ruleActions_ABViewRuleActionFormSubmitRuleEmail__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./ruleActions/ABViewRuleActionFormSubmitRuleEmail */ 87278);
+/**
+ * @Class ABViewRuleListFormSubmitRules
+ * On the ab_platform_service platform, the ABRecordRule is just
+ * a blank stub. These only operate on the WEB platform, but are
+ * referenced by our FORM components.
+ */
+
+
+
+
+
+
+
+
+
+
+class ABViewRuleListFormSubmitRules extends _ABViewRuleList__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   constructor() {
+      var settings = {
+         labels: {
+            header: "ab.component.form.submitRule",
+            headerDefault: "Submit Rules",
+         },
+      };
+      super(settings);
+   }
+
+   // must return the actual Rule object.
+   getRule() {
+      var listActions = [
+         new _ruleActions_ABViewRuleActionFormSubmitRuleConfirmMessage__WEBPACK_IMPORTED_MODULE_2__["default"](
+            this.App,
+            `${this.idBase}_ruleActionConfirmMessage`
+         ),
+         new _ruleActions_ABViewRuleActionFormSubmitRuleExistPage__WEBPACK_IMPORTED_MODULE_3__["default"](this.App, `${this.idBase}_ruleActionExistPage`),
+         new _ruleActions_ABViewRuleActionFormSubmitRuleParentPage__WEBPACK_IMPORTED_MODULE_4__["default"](this.App, `${this.idBase}_ruleActionParentPage`),
+         new _ruleActions_ABViewRuleActionFormSubmitRuleClosePopup__WEBPACK_IMPORTED_MODULE_5__["default"](this.App, `${this.idBase}_ruleActionClosePopup`),
+         new _ruleActions_ABViewRuleActionFormSubmitRuleWebsite__WEBPACK_IMPORTED_MODULE_6__["default"](this.App, `${this.idBase}_ruleActionWebsite`),
+         new _ruleActions_ABViewRuleActionFormSubmitRuleEmail__WEBPACK_IMPORTED_MODULE_7__["default"](this.App, `${this.idBase}_ruleActionEmail`),
+      ];
+
+      var Rule = new _ABViewRule__WEBPACK_IMPORTED_MODULE_1__["default"](listActions);
+      if (this.currentObject) {
+         Rule.objectLoad(this.currentObject);
+      }
+      Rule.formLoad(this.currentForm);
+      return Rule;
+   }
+}
+
+
+/***/ }),
+
+/***/ 41294:
+/*!**********************************************************************************************!*\
+  !*** ./src/js/AppBuilder/rules/ruleActions/ABViewRuleActionFormRecordRuleInsertConnected.js ***!
+  \**********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewRuleActionFormRecordRuleInsertConnected)
+/* harmony export */ });
+/* harmony import */ var _ABViewRuleActionFormRecordRuleUpdateConnected__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABViewRuleActionFormRecordRuleUpdateConnected */ 71820);
+//
+// ABViewRuleActionFormRecordRuleInsertConnected
+//
+// An action that allows you to insert a connected object.
+//
+// NOTE: this is very similar to the Update Connected Rule, so we subclass that one and
+// modify it to only Insert data.
+//
+//
+
+
+class ABViewRuleActionFormRecordRuleInsertConnected extends _ABViewRuleActionFormRecordRuleUpdateConnected__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   /**
+    * @param {object} App
+    *      The shared App object that is created in OP.Component
+    * @param {string} idBase
+    *      Identifier for this component
+    */
+   constructor(App, idBase, currentForm) {
+      super(App, idBase, currentForm);
+
+      this.key = "ABViewRuleActionFormRecordRuleInsertConnected";
+      this.label = "Insert Connected Object";
+   }
+
+   /**
+    * valueDisplayChooser
+    * Our Values Display is a Select Box with a choice of connected fields.
+    * Once a field is chosen, then we display the Updater form.
+    * @param {string}  idBase  a unique webix id to base our sub components on.
+    */
+   // valueDisplayChooser(idBase) {
+   //    var Component = super.valueDisplayChooser(idBase);
+
+   //    // in our case, there are no additional QB conditions:
+   //    // so overwrite the .showQBIfNeeded() routine to not show anything:
+   //    Component._logic.showQBIfNeeded = function () {};
+
+   //    return Component;
+   // }
+
+   /**
+    * queryBuilderDisplay
+    * override our parent .queryBuilderDisplay to not create a new .objectQB
+    * @return {null}
+    */
+   queryBuilderDisplay() {
+      return null;
+   }
+
+   /**
+    * process
+    * gets called when a form is submitted and the data passes the Query Builder Rules.
+    * @param {obj} options
+    *				options.data : {obj} the key=>value of the data just entered by the form
+    *				options.form : {ABViewForm} the Form object that is processing this rule
+    * @return {Promise}
+    */
+   process(options) {
+      // get connected object
+      var connObj = this.connectedObject();
+      var model = connObj.model();
+
+      var connectionField = this.selectedField();
+
+      // var condition = null; // our lookup condition
+
+      // we are going to create a new instance of the connected object
+      // and make sure our .id is in the connected object's connectionField
+      // the server side will take care of making the proper relationship.
+
+      // first, create a new set of values:
+      var newObjectValues = {};
+
+      // update them according to our rules
+      this.processUpdateObject({}, newObjectValues);
+
+      if (newObjectValues.newRecords) {
+         // now add our .id to the proper field in newObjectValues
+         let connectedObjectField = connObj.fieldByID(
+            connectionField.settings.linkColumn
+         );
+
+         if (!connectedObjectField)
+            return Promise.reject("No connected object field");
+
+         newObjectValues.newRecords.forEach((r) => {
+            r[connectedObjectField.columnName] = options.data.id;
+            // perform the update/insert
+            return model.create(r);
+         });
+      } else {
+         // now add our .id to the proper field in newObjectValues
+         let connectedObjectField = connObj.fieldByID(
+            connectionField.settings.linkColumn
+         );
+
+         if (!connectedObjectField)
+            return Promise.reject("No connected object field");
+
+         newObjectValues[connectedObjectField.columnName] = options.data.id;
+
+         // perform the update/insert
+         return model.create(newObjectValues);
+      }
+   }
+
+   /**
+    * toSettings
+    * return an object that represents the current state of this Action
+    * @return {obj}
+    */
+   toSettings() {
+      // settings: {
+      // 	selectedFieldID: 'guid',
+      //	valueRules:{}		// from ABViewRuleActionObjectUpdater
+      // }
+
+      // let our parent store our QB settings
+      var settings = super.toSettings();
+
+      // we don't use .qpCondition
+      delete settings.qbCondition;
+
+      return settings;
+   }
+}
+
+
+/***/ }),
+
+/***/ 27645:
+/*!**********************************************************************************************!*\
+  !*** ./src/js/AppBuilder/rules/ruleActions/ABViewRuleActionFormRecordRuleRemoveConnected.js ***!
+  \**********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewRuleActionFormRecordRuleRemoveConnected)
+/* harmony export */ });
+/* harmony import */ var _ABViewRuleActionFormRecordRuleUpdateConnected__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABViewRuleActionFormRecordRuleUpdateConnected */ 71820);
+//
+// ABViewRuleActionFormRecordRuleRemoveConnected
+//
+// An action that allows you to update fields on an object that is connected to
+// the current object we just Added/Updated
+//
+//
+
+
+class ABViewRuleActionFormRecordRuleRemoveConnected extends _ABViewRuleActionFormRecordRuleUpdateConnected__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   constructor(App, idBase, currentForm) {
+      super(App, idBase, currentForm);
+
+      this.key = "ABViewRuleActionFormRecordRuleRemoveConnected";
+      this.label = "Remove Connected Record";
+
+      this.isUpdateValueDisabled = true; // disable update data of each fields
+   }
+
+   /**
+    * process
+    * gets called when a form is submitted and the data passes the Query Builder Rules.
+    * @param {obj} options
+    *				options.data : {obj} the key=>value of the data just entered by the form
+    *				options.form : {ABViewForm} the Form object that is processing this rule
+    * @return {Promise}
+    */
+   process(options) {
+      let selectedField = this.selectedField();
+      this._formData = options.data;
+
+      return new Promise((resolve, reject) => {
+         // get the model from the provided Form Obj:
+         let dc = options.form.datacollection;
+         if (!dc) return resolve();
+
+         let model = dc.model;
+         if (!model) return resolve();
+
+         let updatedVals = {};
+         updatedVals[selectedField.columnName] = "";
+
+         model
+            .update(options.data.id, updatedVals)
+            .then(resolve)
+            .catch((err) => {
+               this.AB.notify.developer(err, {
+                  message:
+                     "!!! ABViewRuleActionFormRecordRuleUpdate.process(): update error:",
+                  data: options.data,
+               });
+               reject(err);
+            });
+      });
+   }
+}
+
+
+/***/ }),
+
+/***/ 39218:
+/*!*************************************************************************************!*\
+  !*** ./src/js/AppBuilder/rules/ruleActions/ABViewRuleActionFormRecordRuleUpdate.js ***!
+  \*************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewRuleActionFormRecordRuleUpdate)
+/* harmony export */ });
+/* harmony import */ var _ABViewRuleActionObjectUpdater__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABViewRuleActionObjectUpdater */ 94109);
+//
+// ABViewRuleActionFormRecordRuleUpdate
+//
+// An action that allows you to update fields on an object that was currently
+// Added/Updated.
+//
+//
+
+
+class ABViewRuleActionFormRecordRuleUpdate extends _ABViewRuleActionObjectUpdater__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   /**
+    * @param {object} App
+    *      The shared App object that is created in OP.Component
+    * @param {string} idBase
+    *      Identifier for this component
+    */
+   constructor(App, idBase, currentForm) {
+      super(App, idBase, currentForm);
+
+      this.key = "ABViewRuleActionFormRecordRuleUpdate";
+      this.label = "Update Record";
+   }
+
+   get isPreProcess() {
+      return true;
+   }
+}
+
+
+/***/ }),
+
+/***/ 71820:
+/*!**********************************************************************************************!*\
+  !*** ./src/js/AppBuilder/rules/ruleActions/ABViewRuleActionFormRecordRuleUpdateConnected.js ***!
+  \**********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewRuleActionFormRecordRuleUpdateConnected)
+/* harmony export */ });
+/* harmony import */ var _ABViewRuleActionObjectUpdater__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABViewRuleActionObjectUpdater */ 94109);
+/* harmony import */ var _platform_dataFields_ABFieldConnect__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../platform/dataFields/ABFieldConnect */ 30289);
+//
+// ABViewRuleActionFormRecordRuleUpdateConnected
+//
+// An action that allows you to update fields on an object that is connected to
+// the current object we just Added/Updated
+//
+//
+
+
+// import ObjectQueryBuilder from "../ABViewQueryBuilderObjectFieldConditions";
+
+class ABViewRuleActionFormRecordRuleUpdateConnected extends _ABViewRuleActionObjectUpdater__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   constructor(App, idBase, currentForm) {
+      super(App, idBase, currentForm);
+
+      this.key = "ABViewRuleActionFormRecordRuleUpdateConnected";
+      this.label = "Update Connected Record";
+
+      this.baseObject = null; // the object the current form is working with.
+      // Use this to find our connected fields.
+
+      this.selectedFieldID = null; // the selected field ID in the .baseObject that is
+      // used for updating.  This should be one of the connection Fields.
+
+      this.fieldDropList = []; // the list of fields to offer based upon the current .baseObject.
+
+      this.objectQB = null; // the QueryBuilder used for offering conditions based upon our connected Object.
+      this.qbCondition = null; // the QB condition entered for selecting which remote object.
+   }
+
+   // field
+
+   /**
+    * objectLoad
+    * save the current object this Action is associated with.
+    * in the case of the UpdateConnected Action, assigning us
+    * this object only impacts the queryObject.
+    *
+    * The Updater form will use another object we select in
+    * the form dropdown.
+    *
+    * @param {object} object
+    *
+    */
+   objectLoad(object) {
+      this.queryObjectLoad(object);
+      this.baseObject = object;
+
+      // // now build our fieldDropList for the select
+      // var connectionFields = this.connectedFieldList();
+      // connectionFields.forEach((cf) => {
+      //    this.fieldDropList.push({
+      //       id: cf.id,
+      //       value: cf.label,
+      //    });
+      // });
+   }
+
+   /**
+    * connectedFieldList
+    * return the fields in our .baseObject that are connections to other objects.
+    * @return {array} of {ABField}
+    */
+   connectedFieldList() {
+      var connectKey = _platform_dataFields_ABFieldConnect__WEBPACK_IMPORTED_MODULE_1__["default"].defaults().key;
+      if (this.baseObject && this.baseObject.fields) {
+         return this.baseObject.fields((f) => {
+            return f.key == connectKey;
+         });
+      } else {
+         return [];
+      }
+   }
+
+   /**
+    * connectedObject
+    * return the ABObject associated with the selected connection field.
+    * @return {ABObject}
+    */
+   connectedObject() {
+      if (this.selectedFieldID) {
+         var selectedField = this.selectedField();
+         if (selectedField) {
+            return selectedField.datasourceLink;
+         }
+      }
+
+      return null;
+   }
+
+   /**
+    * selectedField
+    * return the selected {ABField} object.
+    * @return {ABField}
+    */
+   selectedField() {
+      return this.connectedFieldList().filter((f) => {
+         return f.id == this.selectedFieldID;
+      })[0];
+   }
+
+   /**
+    * valueDisplayComponent
+    * Return an ABView to display our values form.
+    * @param {string}  idBase  a unique webix id to base our sub components on.
+    */
+   valueDisplayComponent(idBase) {
+      if (this._uiChooser == null) {
+         this._uiChooser = this.valueDisplayChooser(idBase);
+      }
+
+      return this._uiChooser;
+   }
+
+   /**
+    * valueDisplayChooser
+    * Our Values Display is a Select Box with a choice of connected fields.
+    * Once a field is chosen, then we display the Updater form.
+    * @param {string}  idBase  a unique webix id to base our sub components on.
+    */
+   // valueDisplayChooser(idBase) {
+   //    var uniqueInstanceID = webix.uid();
+   //    var myUnique = (key) => {
+   //       // return idBase + '_' + key  + '_' + uniqueInstanceID;
+   //       return key + "_" + uniqueInstanceID;
+   //    };
+
+   //    var ids = {
+   //       component: myUnique("updateConnectedValues"),
+   //       updateForm: myUnique("updateChooser"),
+   //       selectConnectedField: myUnique("updateSelect"),
+   //       updateFieldsForm: myUnique("updateForm"),
+   //    };
+
+   //    var _ui = {
+   //       id: ids.component,
+   //       view: "layout",
+   //       css: "ab-component-form-rule",
+   //       rows: [
+   //          {
+   //             id: ids.selectConnectedField,
+   //             view: "richselect",
+   //             label: L("Select which connected object to update."),
+   //             labelWidth: 300,
+   //             value: this.selectedField,
+   //             options: this.fieldDropList,
+   //             on: {
+   //                onChange: (newVal, oldVal) => {
+   //                   _logic.selectAction(newVal, oldVal);
+   //                },
+   //             },
+   //          },
+   //       ],
+   //    };
+
+   //    var init = (valueRules) => {
+   //       valueRules = valueRules || this.valueRules;
+
+   //       // make sure our currently selected field is selected.
+   //       if (this.selectedFieldID) {
+   //          var select = $$(ids.selectConnectedField);
+   //          if (select) {
+   //             select.setValue(this.selectedFieldID);
+   //          }
+   //       }
+   //    };
+
+   //    var _logic = (this._logic = {
+   //       addDisplay: (view) => {
+   //          $$(ids.component).addView(view);
+   //       },
+
+   //       // removePreviousDisplays
+   //       // remove the previous components that reflected the conditions and
+   //       // update values of the previously selected field.
+   //       removePreviousDisplays: () => {
+   //          var allViews = $$(ids.component).getChildViews();
+   //          var cloneAllViews = [];
+   //          allViews.forEach((v) => {
+   //             cloneAllViews.push(v);
+   //          });
+   //          cloneAllViews.forEach((v) => {
+   //             // don't remove the field picker
+   //             if (v.config.id != ids.selectConnectedField) {
+   //                $$(ids.component).removeView(v);
+   //             }
+   //          });
+   //       },
+
+   //       selectAction: (newVal, oldVal) => {
+   //          _logic.removePreviousDisplays(); // of the Query Builder and Update form for old selection:
+
+   //          this.selectedFieldID = newVal;
+   //          var connectedObject = this.connectedObject();
+
+   //          if (connectedObject) {
+   //             // it is the remote object that we are allowed to Update fields on.
+   //             this.updateObjectLoad(connectedObject);
+   //             ///// NOTE: important to call super.valueDisplayComponent()
+   //             this.updateComponent = super.valueDisplayComponent(
+   //                ids.updateFieldsForm
+   //             ); // parent obj
+
+   //             _logic.showQBIfNeeded();
+
+   //             // create a new blank update form
+   //             _logic.addDisplay(this.updateComponent.ui);
+   //             this.updateComponent.init();
+
+   //             if (this.isUpdateValueDisabled) {
+   //                let $updateForm = $$(this.updateComponent.ui.id);
+   //                if ($updateForm) {
+   //                   $updateForm.disable();
+   //                   $updateForm.hide();
+   //                }
+   //             }
+   //          } else {
+   //             this.AB.notify.builder(new Error("No connectedObject found."), {
+   //                fieldID: this.selectedFieldID,
+   //             });
+   //          }
+   //       },
+
+   //       showQBIfNeeded: () => {
+   //          //// NOTE: we decided to go ahead and display the QB in ALL situations to give
+   //          //// the user the ability to set a condition on the update even if the field
+   //          //// is only a one to one.
+   //          //// If we want to remove the filter in case of a "one" linkType, then put
+   //          //// these conditions back in:
+
+   //          // var field = this.selectedField();
+
+   //          // // we don't need the QB if the destination object link type if 'one'.
+   //          // // there will only be one to get back, so no conditions needed.
+   //          // if (field.settings.linkType != 'one') {
+
+   //          var qbComponent = this.queryBuilderDisplay();
+
+   //          qbComponent.component(this.App, this.idBase);
+   //          _logic.addDisplay(qbComponent.ui);
+   //          qbComponent.init({});
+
+   //          // }
+   //       },
+
+   //       fromSettings: (settings) => {
+   //          // // first time through, be sure to set the connectedObject first
+   //          // this.selectedFieldID = settings.selectedFieldID;
+   //          // var connectedObject = this.connectedObject();
+
+   //          // this triggers the update of the display, creation of QB,
+   //          $$(ids.selectConnectedField).setValue(settings.selectedFieldID);
+
+   //          if (this.objectQB) {
+   //             this.objectQB.setValue(this.qbCondition);
+   //          }
+
+   //          if (this.updateComponent) {
+   //             this.updateComponent.fromSettings(settings);
+   //          }
+   //       },
+
+   //       toSettings: () => {
+   //          // valueRules = {
+   //          //	fieldOperations:[
+   //          //		{ fieldID:xxx, value:yyyy, type:zzz, op:aaa }
+   //          //	]
+   //          // }
+   //          var settings = { fieldOperations: [] };
+
+   //          // for each of our formRows, decode the propery {}
+   //          this.formRows.forEach((fr) => {
+   //             var rowSettings = fr.toSettings();
+   //             if (rowSettings) {
+   //                settings.fieldOperations.push(rowSettings);
+   //             }
+   //          });
+
+   //          return settings;
+   //       },
+   //    });
+
+   //    return {
+   //       ui: _ui,
+   //       init: init,
+   //       fromSettings: (settings) => {
+   //          _logic.fromSettings(settings);
+   //       },
+   //       toSettings: () => {
+   //          return _logic.toSettings();
+   //       },
+   //       _logic: _logic,
+   //    };
+   // }
+
+   /**
+    * queryBuilderDisplay
+    * returns our Query Builder object used in our display.
+    * It is called by the .showQBIfNeeded() method.
+    * @return {ABViewQueryBuilderObjectFieldConditions}
+    */
+   // queryBuilderDisplay() {
+   //    if (!this.objectQB) {
+   //       this.objectQB = new ObjectQueryBuilder(
+   //          "How to choose which object:"
+   //       );
+
+   //       var connObj = this.connectedObject();
+   //       if (connObj) this.objectQB.objectLoad(connObj);
+   //    }
+   //    return this.objectQB;
+   // }
+
+   /**
+    * process
+    * gets called when a form is submitted and the data passes the Query Builder Rules.
+    * @param {obj} options
+    *				options.data : {obj} the key=>value of the data just entered by the form
+    *				options.form : {ABViewForm} the Form object that is processing this rule
+    * @return {Promise}
+    */
+   process(options) {
+      this._formData = options.data;
+
+      // get connected object
+      var connObj = this.connectedObject();
+      var model = connObj.model();
+
+      var connectionField = this.selectedField();
+
+      var condition = null; // our lookup condition
+
+      // modifyCondition
+      // async fn() to fill out what the condition should be for limiting the remote
+      // objects to values in use by the current object.
+      // @param {fn} cb  the callback to use when we are finished:
+      //					cb(err, )
+      var modifyCondition = (cb) => {
+         // So, let's get a copy of our current data, with all it's connected items
+         // attached.
+         var thisModel = this.baseObject.model();
+         thisModel
+            .findConnected(connectionField.columnName, options.data)
+            .then((items) => {
+               // if we didn't get any results, then simply return
+               // NOTE: this will leave condition == null and cancel this update.
+               if (!items || items.length == 0) {
+                  cb();
+                  return;
+               }
+
+               // then use these to limit the connected data of our Action:
+
+               // get all the ids
+               var ids = items.map((i) => {
+                  return i.id;
+               });
+
+               // resulting condition: { id in [listIDs]} AND { QB Condition }
+               condition = {
+                  glue: "and",
+                  rules: [
+                     {
+                        key: `${connObj.tableName}.${connObj.PK()}`,
+                        rule: "in",
+                        value: ids,
+                     },
+                  ],
+               };
+
+               // check to make sure qbCondition actually has a condition before adding it
+               // to our condition:
+               if (Object.keys(this.qbCondition).length > 0) {
+                  condition.rules.push(this.qbCondition);
+               }
+
+               cb();
+            })
+            .catch(cb);
+      };
+
+      // .process() returns a Promise
+      return new Promise((resolve, reject) => {
+         // upateIt()
+         // updates a given item with our changes.
+         // @param {obj} item  the item to update
+         // @param {fn}  cb    a callback function when update is complete.
+         var updateIt = (item, cb) => {
+            let isUpdated = this.processUpdateObject({}, item);
+            if (!isUpdated) {
+               cb();
+            } else {
+               model
+                  .update(item.id, item)
+                  .then(() => {
+                     cb();
+                  })
+                  .catch((err) => {
+                     this.AB.notify.developer(err, {
+                        message:
+                           "!!! ABViewRuleActionFormRecordRuleUpdateConnected.process(): update error:",
+                        data: options.data,
+                     });
+                     cb(err);
+                  });
+            }
+         };
+
+         // now figure out which elements belong to this object
+         // done in modifyCondition()
+         modifyCondition((err) => {
+            if (err) {
+               AB.notify.developer(err, {
+                  message:
+                     "!!! ABViewRuleActionFormRecordRuleUpdateConnected.modifyCondition: error:",
+                  data: options.data,
+               });
+               reject(err);
+               return;
+            }
+
+            if (condition === null) {
+               // this is the case where we didn't have the proper data to complete our
+               // update.  So let's just fail gracefully, and continue on.
+
+               // QUESTION: is this the right way to handle it?
+               resolve();
+            } else {
+               // get all the entries that match our condition:
+               model
+                  .findAll({ where: condition })
+                  .then((list) => {
+                     var done = 0;
+
+                     // list : {data: Array(4), total_count: 4, pos: null, offset: null, limit: null}
+                     if (list && list.data) {
+                        list = list.data;
+                     }
+
+                     // for each entry, update it with our values:
+                     list.forEach((item) => {
+                        updateIt(item, (err) => {
+                           if (err) {
+                              return reject(err);
+                           }
+                           done++;
+                           if (done >= list.length) {
+                              // now they are all updated, so continue.
+                              resolve();
+                           }
+                        });
+                     });
+
+                     // if there were no entries to update -> continue
+                     if (list.length == 0) {
+                        resolve();
+                     }
+                  })
+                  .catch(reject);
+            }
+         }); // end modifyCondition()
+      }); // end Promise()
+   }
+
+   /**
+    * fromSettings
+    * initialize this Action = require(a given set of setting values.
+    * @param {obj} settings  the settings {} returned = require(toSettings()
+    */
+   fromSettings(settings) {
+      settings = settings || {};
+
+      this.selectedFieldID = settings.selectedFieldID || null;
+      this.qbCondition = settings.qbCondition || {};
+
+      super.fromSettings(settings);
+
+      // // if we have a display component, then populate it:
+      // if (this._uiChooser) {
+      //    this._logic.fromSettings(settings);
+      // }
+   }
+
+   /**
+    * toSettings
+    * return an object that represents the current state of this Action
+    * @return {obj}
+    */
+   toSettings() {
+      // settings: {
+      // 	selectedFieldID: 'guid',
+      //  qbCondition: [],
+      //	valueRules:{}		// = require(ABViewRuleActionObjectUpdater
+      // }
+
+      // let our parent store our QB settings
+      var settings = super.toSettings();
+
+      settings.selectedFieldID = this.selectedFieldID;
+
+      var qbCond = null;
+      if (this.objectQB) {
+         qbCond = this.objectQB.getValue();
+         if (Array.isArray(qbCond)) {
+            qbCond = qbCond[0];
+         }
+
+         // FIX: make sure qbCond root element has a 'glue'
+         if (qbCond) {
+            qbCond.glue = qbCond?.glue || "and";
+         }
+      }
+      settings.qbCondition = qbCond;
+
+      // // if we have a display component, then request our details = require(it:
+      // if (this._uiChooser) {
+      //    settings.valueRules = this._logic.toSettings();
+      // }
+
+      return settings;
+   }
+
+   // NOTE: Querybuilder v5.2 has a bug where it won't display the [and/or]
+   // choosers properly if it hasn't been shown before the .setValue() call.
+   // so this work around allows us to refresh the display after the .show()
+   // on the popup.
+   // When they've fixed the bug, we'll remove this workaround:
+   // qbFixAfterShow() {
+   //    if (this.objectQB) {
+   //       this.objectQB.setValue(this.qbCondition);
+   //    }
+   // }
+}
+
+
+/***/ }),
+
+/***/ 98674:
+/*!*****************************************************************************************!*\
+  !*** ./src/js/AppBuilder/rules/ruleActions/ABViewRuleActionFormSubmitRuleClosePopup.js ***!
+  \*****************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewRuleActionFormSubmitRuleClosePopup)
+/* harmony export */ });
+/* harmony import */ var _ABViewRuleAction__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ABViewRuleAction */ 40804);
+//
+// ABViewRuleActionFormSubmitRuleClosePopup
+//
+//
+//
+
+
+class ABViewRuleActionFormSubmitRuleClosePopup extends _ABViewRuleAction__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   /**
+    * @param {object} App
+    *      The shared App object that is created in OP.Component
+    * @param {string} idBase
+    *      Identifier for this component
+    */
+   constructor(App, idBase) {
+      super();
+
+      this.App = App;
+      this.key = "ABViewRuleActionFormSubmitRuleClosePopup";
+      this.label = "Close the current popup";
+
+      this.currentObject = null; // the object this Action is tied to.
+
+      this.formRows = []; // keep track of the Value Components being set
+      // [
+      //		{ fieldId: xxx, value:yyy, type:key['string', 'number', 'date',...]}
+      // ]
+   }
+
+   // conditionFields() {
+   //    var fieldTypes = ["string", "number", "date", "formula", "calculate"];
+
+   //    var currFields = [];
+
+   //    if (this.currentObject) {
+   //       this.currentObject.fields().forEach((f) => {
+   //          if (fieldTypes.indexOf(f.key) != -1) {
+   //             // NOTE: the .id value must match the obj[.id]  in the data set
+   //             // so if your object data looks like:
+   //             // 	{
+   //             //		name_first:'Neo',
+   //             //		name_last: 'The One'
+   //             //  },
+   //             // then the ids should be:
+   //             // { id:'name_first', value:'xxx', type:'string' }
+   //             currFields.push({
+   //                id: f.columnName,
+   //                value: f.label,
+   //                type: f.key
+   //             });
+   //          }
+   //       });
+   //    }
+
+   //    return currFields;
+   // }
+
+   // // valueDisplayComponent
+   // // Return an ABView to display our values form.
+   // //
+   // valueDisplayComponent(idBase) {
+   //    this._ui = {
+   //       ui: {
+   //          view: "layout",
+   //          rows: [],
+   //       },
+
+   //       init: () => {},
+   //    };
+
+   //    return this._ui;
+   // }
+
+   // process
+   // gets called when a form is submitted and the data passes the Query Builder Rules.
+   // @param {obj} options
+   process(options) {
+      return new Promise((resolve, reject) => {
+         let form = options.form;
+         if (!form) return;
+
+         let popup = form.pageParent((p) => p.settings.type == "popup");
+         if (!popup) return;
+
+         // get the dom id of page. it is dom id that is generated in ABLiveTool.js
+         // let pageDomId = ["ab_live_page", popup.application.id, popup.id].join(
+         //    "_"
+         // );
+
+         // close current popup
+         popup.hide();
+
+         // this clears the UI's record of the current form.
+         options.form.changePage(null);
+
+         resolve();
+      });
+   }
+}
+
+
+/***/ }),
+
+/***/ 91538:
+/*!*********************************************************************************************!*\
+  !*** ./src/js/AppBuilder/rules/ruleActions/ABViewRuleActionFormSubmitRuleConfirmMessage.js ***!
+  \*********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewRuleActionFormSubmitRuleConfirmMessage)
+/* harmony export */ });
+/* harmony import */ var _ABViewRuleAction__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ABViewRuleAction */ 40804);
+//
+// ABViewRuleActionFormSubmitRuleConfirmMessage
+//
+//
+//
+
+
+class ABViewRuleActionFormSubmitRuleConfirmMessage extends _ABViewRuleAction__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   /**
+    * @param {object} App
+    *      The shared App object that is created in OP.Component
+    * @param {string} idBase
+    *      Identifier for this component
+    */
+   constructor(App, idBase) {
+      super();
+
+      this.App = App;
+      this.key = "ABViewRuleActionFormSubmitRuleConfirmMessage";
+      this.label = "Show a confirmation message";
+
+      this.currentObject = null; // the object this Action is tied to.
+
+      this.formRows = []; // keep track of the Value Components being set
+      // [
+      //		{ fieldId: xxx, value:yyy, type:key['string', 'number', 'date',...]}
+      // ]
+   }
+
+   // conditionFields() {
+   //    var fieldTypes = ["string", "number", "date", "formula", "calculate"];
+
+   //    var currFields = [];
+
+   //    if (this.currentObject) {
+   //       this.currentObject.fields().forEach((f) => {
+   //          if (fieldTypes.indexOf(f.key) != -1) {
+   //             // NOTE: the .id value must match the obj[.id]  in the data set
+   //             // so if your object data looks like:
+   //             // 	{
+   //             //		name_first:'Neo',
+   //             //		name_last: 'The One'
+   //             //  },
+   //             // then the ids should be:
+   //             // { id:'name_first', value:'xxx', type:'string' }
+   //             currFields.push({
+   //                id: f.columnName,
+   //                value: f.label,
+   //                type: f.key
+   //             });
+   //          }
+   //       });
+   //    }
+
+   //    return currFields;
+   // }
+
+   // valueDisplayComponent
+   // Return an ABView to display our values form.
+   //
+   // valueDisplayComponent(idBase) {
+   //    var ids = {
+   //       message: `${idBase}_message`,
+   //    };
+
+   //    this._ui = {
+   //       ui: {
+   //          id: ids.message,
+   //          view: "textarea",
+   //          // label: this.labels.component.message,
+   //          // labelWidth: this.AB.UISettings.config().labelWidthLarge,
+   //          height: 130,
+   //       },
+
+   //       init: () => {},
+
+   //       _logic: _logic,
+
+   //       fromSettings: (valueRules) => {
+   //          _logic.fromSettings(valueRules);
+   //       },
+   //       toSettings: () => {
+   //          return _logic.toSettings();
+   //       },
+   //    };
+
+   //    var _logic = {
+   //       fromSettings: (valueRules) => {
+   //          valueRules = valueRules || {};
+
+   //          $$(ids.message).setValue(valueRules.message || "");
+   //       },
+
+   //       toSettings: () => {
+   //          // return the confirm message
+   //          return {
+   //             message: $$(ids.message).getValue() || "",
+   //          };
+   //       },
+   //    };
+
+   //    return this._ui;
+   // }
+
+   // process
+   // gets called when a form is submitted and the data passes the Query Builder Rules.
+   // @param {obj} options
+   process(options) {
+      return new Promise((resolve, reject) => {
+         var confirmMessage = this.valueRules.message || "";
+
+         this.AB.$f7.dialog.create({
+            text: confirmMessage,
+         });
+         // webix.message({
+         //    text: confirmMessage,
+         //    type: "info",
+         // });
+
+         resolve();
+      });
+   }
+
+   // fromSettings
+   // initialize this Action from a given set of setting values.
+   // @param {obj}  settings
+   fromSettings(settings = {}) {
+      super.fromSettings(settings); // let the parent handle the QB
+
+      // // if we have a display component, then populate it:
+      // if (this._ui) {
+      //    // now we handle our valueRules:{} object settings.
+      //    // pass the settings off to our DisplayList component:
+      //    this._ui.fromSettings(settings.valueRules);
+      // }
+   }
+
+   // toSettings
+   // return an object that represents the current state of this Action
+   // @return {obj}
+   // toSettings() {
+   //    // settings: {
+   //    //	message:''
+   //    // }
+
+   //    // let our parent store our QB settings
+   //    var settings = super.toSettings();
+
+   //    // settings.valueRules = this._ui.toSettings();
+
+   //    return settings;
+   // }
+}
+
+
+/***/ }),
+
+/***/ 87278:
+/*!************************************************************************************!*\
+  !*** ./src/js/AppBuilder/rules/ruleActions/ABViewRuleActionFormSubmitRuleEmail.js ***!
+  \************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewRuleActionFormSubmitRuleEmail)
+/* harmony export */ });
+/* harmony import */ var _ABViewRuleAction__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ABViewRuleAction */ 40804);
+/* harmony import */ var _platform_dataFields_ABFieldConnect__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../platform/dataFields/ABFieldConnect */ 30289);
+/* harmony import */ var _platform_dataFields_ABFieldEmail__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../platform/dataFields/ABFieldEmail */ 19387);
+//
+// ABViewRuleActionFormSubmitRuleWebsite
+//
+//
+//
+
+
+
+
+class ABViewRuleActionFormSubmitRuleEmail extends _ABViewRuleAction__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   /**
+    * @param {object} App
+    *      The shared App object that is created in OP.Component
+    * @param {string} idBase
+    *      Identifier for this component
+    */
+   constructor(App, idBase) {
+      super();
+
+      this.App = App;
+      this.key = "ABViewRuleActionFormSubmitRuleEmail";
+      this.label = "Send a custom email";
+
+      this.queryObject = null; // the object this Action is tied to.
+
+      this.formRows = []; // keep track of the Value Components being set
+      // [
+      //		{ fieldId: xxx, value:yyy, type:key['string', 'number', 'date',...]}
+      // ]
+   }
+
+   // conditionFields() {
+   //    var fieldTypes = ["string", "number", "date", "formula", "calculate"];
+
+   //    var currFields = [];
+
+   //    if (this.queryObject) {
+   //       this.queryObject.fields().forEach((f) => {
+   //          if (fieldTypes.indexOf(f.key) != -1) {
+   //             // NOTE: the .id value must match the obj[.id]  in the data set
+   //             // so if your object data looks like:
+   //             // 	{
+   //             //		name_first:'Neo',
+   //             //		name_last: 'The One'
+   //             //  },
+   //             // then the ids should be:
+   //             // { id:'name_first', value:'xxx', type:'string' }
+   //             currFields.push({
+   //                id: f.columnName,
+   //                value: f.label,
+   //                type: f.key
+   //             });
+   //          }
+   //       });
+   //    }
+
+   //    return currFields;
+   // }
+
+   // process
+   // gets called when a form is submitted and the data passes the Query Builder Rules.
+   // @param {obj} options - {
+   //							data: {obj} rowData,
+   //							form: {ABViewForm}
+   //						}
+   process(options) {
+      // validate sender's email is invalid
+      if (!this.AB.isEmail(this.valueRules.fromEmail)) {
+         return Promise.resolve();
+      }
+
+      var recipients = [];
+
+      return Promise.resolve()
+         .then(() => {
+            // Pull recipients data
+            return new Promise((resolve, reject) => {
+               var tasks = [];
+
+               this.valueRules.toEmails.forEach((rec) => {
+                  tasks.push(
+                     new Promise((next, err) => {
+                        // TODO: Cc, Bcc
+
+                        // field
+                        if (rec.emailType == "field") {
+                           var emailFieldUrl = rec.value.split("|")[1]; // linkFieldId|emailFieldUrl
+
+                           if (emailFieldUrl) {
+                              console.error(
+                                 "@TODO: SubmitRuleEmail: why are we using a URL to find a field? Tell Designer to stop storing that!"
+                              );
+                           }
+                           var emailField =
+                              this.queryObject.application.urlResolve(
+                                 emailFieldUrl
+                              );
+                           if (emailField) {
+                              // Pull email source object
+                              if (emailField.object.id == this.queryObject.id) {
+                                 var emailData =
+                                    options.data[emailField.columnName];
+                                 if (emailData)
+                                    recipients = recipients.concat(emailData);
+                              }
+                              // Pull emails from link object
+                              else {
+                                 let linkFieldId = rec.value.split("|")[0];
+                                 let linkFields = this.queryObject.fields(
+                                    (f) =>
+                                       f instanceof _platform_dataFields_ABFieldConnect__WEBPACK_IMPORTED_MODULE_1__["default"] &&
+                                       f.id == linkFieldId
+                                 );
+                                 linkFields.forEach((f) => {
+                                    var linkedData =
+                                       options.data[f.relationName()] || [];
+
+                                    // convert to an array
+                                    if (
+                                       linkedData &&
+                                       !Array.isArray(linkedData)
+                                    )
+                                       linkedData = [linkedData];
+
+                                    // pull email address
+                                    linkedData.forEach((d) => {
+                                       var email = d[emailField.columnName];
+                                       if (email)
+                                          recipients = recipients.concat(email);
+                                    });
+                                 });
+                              }
+
+                              next();
+                           } else {
+                              next();
+                           }
+                        }
+
+                        // query
+                        else if (rec.emailType == "query") {
+                           var dvIdAndFieldId = rec.value; // ABDatacollectionId|fieldId
+                           if (!dvIdAndFieldId) return next();
+
+                           var dcId = dvIdAndFieldId.split("|")[0];
+                           var fieldId = dvIdAndFieldId.split("|")[1];
+
+                           var dcQuery =
+                              this.currentForm.AB.datacollectionByID(dcId);
+                           if (!dcQuery) return next();
+
+                           var field = dcQuery.datasource.fieldByID(fieldId);
+                           if (!field) return next();
+
+                           // get data of data collection
+                           dcQuery.getData().forEach((data) => {
+                              var emailAddr = data[field.columnName];
+                              if (emailAddr) recipients.push(emailAddr);
+                           });
+
+                           next();
+                        }
+
+                        // email
+                        else {
+                           recipients.push(rec.value);
+                           next();
+                        }
+                     })
+                  );
+               });
+
+               Promise.all(tasks).catch(reject).then(resolve);
+            });
+         })
+         .then(() => {
+            // send out
+            return new Promise((resolve, reject) => {
+               recipients = this.AB.uniq(recipients).filter((r) => r);
+
+               if (!recipients || recipients.length < 1) return resolve();
+
+               // replace form value to template
+               var fromName = this.valueRules.fromName,
+                  subject = this.valueRules.subject,
+                  message = this.valueRules.message;
+
+               this.queryObject
+                  .fields((f) => f.fieldUseAsLabel())
+                  .forEach((f) => {
+                     var template = new RegExp(`{${f.label}}`, "g"),
+                        data = f.format(options.data);
+
+                     fromName = fromName.replace(template, data);
+                     subject = subject.replace(template, data);
+                     message = message.replace(template, data);
+                  });
+
+               // send a email
+               this.AB.Network.post({
+                  url: "/app_builder/email",
+                  params: {
+                     fromName: fromName,
+                     fromEmail: this.valueRules.fromEmail,
+                     subject: subject,
+                     message: message,
+                     recipients: this.AB.uniq(recipients),
+                  },
+               })
+                  .then(() => {
+                     resolve();
+                  })
+                  .catch(reject);
+            });
+         });
+   }
+
+   // // fromSettings
+   // // initialize this Action from a given set of setting values.
+   // // @param {obj}  settings
+   // fromSettings(settings) {
+   //    settings = settings || {};
+   //    super.fromSettings(settings); // let the parent handle the QB
+
+   //    // if we have a display component, then populate it:
+   //    if (this._ui) {
+   //       // now we handle our valueRules:{} object settings.
+   //       // pass the settings off to our DisplayList component:
+   //       this._ui.fromSettings(settings.valueRules);
+   //    }
+   // }
+
+   // // toSettings
+   // // return an object that represents the current state of this Action
+   // // @return {obj}
+   // toSettings() {
+   //    // settings: {
+   //    //	message:''
+   //    // }
+
+   //    // let our parent store our QB settings
+   //    var settings = super.toSettings();
+
+   //    settings.valueRules = this._ui.toSettings();
+
+   //    return settings;
+   // }
+}
+
+
+/***/ }),
+
+/***/ 90786:
+/*!****************************************************************************************!*\
+  !*** ./src/js/AppBuilder/rules/ruleActions/ABViewRuleActionFormSubmitRuleExistPage.js ***!
+  \****************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewRuleActionFormSubmitRuleExistPage)
+/* harmony export */ });
+/* harmony import */ var _ABViewRuleAction__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ABViewRuleAction */ 40804);
+//
+// ABViewRuleActionFormSubmitRuleExistPage
+//
+//
+//
+
+
+class ABViewRuleActionFormSubmitRuleExistPage extends _ABViewRuleAction__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   /**
+    * @param {object} App
+    *      The shared App object that is created in OP.Component
+    * @param {string} idBase
+    *      Identifier for this component
+    */
+   constructor(App, idBase) {
+      super();
+
+      this.App = App;
+      this.key = "ABViewRuleActionFormSubmitRuleExistPage";
+      this.label = "Redirect to an existing page";
+
+      this.currentObject = null; // the object this Action is tied to.
+
+      this.formRows = []; // keep track of the Value Components being set
+      // [
+      //		{ fieldId: xxx, value:yyy, type:key['string', 'number', 'date',...]}
+      // ]
+   }
+
+   // conditionFields() {
+   //    var fieldTypes = ["string", "number", "date", "formula", "calculate"];
+
+   //    var currFields = [];
+
+   //    if (this.currentObject) {
+   //       this.currentObject.fields().forEach((f) => {
+   //          if (fieldTypes.indexOf(f.key) != -1) {
+   //             // NOTE: the .id value must match the obj[.id]  in the data set
+   //             // so if your object data looks like:
+   //             // 	{
+   //             //		name_first:'Neo',
+   //             //		name_last: 'The One'
+   //             //  },
+   //             // then the ids should be:
+   //             // { id:'name_first', value:'xxx', type:'string' }
+   //             currFields.push({
+   //                id: f.columnName,
+   //                value: f.label,
+   //                type: f.key
+   //             });
+   //          }
+   //       });
+   //    }
+
+   //    return currFields;
+   // }
+
+   // valueDisplayComponent
+   // Return an ABView to display our values form.
+   //
+   // valueDisplayComponent(idBase) {
+   //    var ids = {
+   //       pagesAndTabs: `${idBase}_PagesAndTabs`,
+   //    };
+
+   //    this._ui = {
+   //       ui: { id: ids.pagesAndTabs, view: "richselect", options: [] },
+
+   //       init: () => {
+   //          _logic.populateOptions();
+   //       },
+
+   //       _logic: _logic,
+
+   //       fromSettings: (valueRules) => {
+   //          _logic.fromSettings(valueRules);
+   //       },
+   //       toSettings: () => {
+   //          return _logic.toSettings();
+   //       },
+   //    };
+
+   //    var _logic = {
+   //       populateOptions: () => {
+   //          // Pull page list to "Redirect to an existing page"
+   //          var _pageOptions = [];
+
+   //          /**
+   //           * @param pageOrTab	{Object}	- ABViewPage or ABViewTab
+   //           * @param indent	{integer}
+   //           * @param type		{string}	- 'page' or 'tab'
+   //           * @param pageId	{uuid}		- the id of page (only tab)
+   //           */
+   //          var addPage = (pageOrTab, indent, type, pageId) => {
+   //             indent = indent || "";
+
+   //             let icon = "fa fa-file-o";
+   //             if (type == "tab") icon = "fa fa-window-maximize";
+
+   //             let pageParent = pageOrTab.pageParent();
+
+   //             _pageOptions.push({
+   //                id: pageOrTab.id,
+   //                value: indent + pageOrTab.label,
+   //                type: type,
+   //                pageId: pageParent ? pageParent.id : null,
+
+   //                icon: icon,
+   //             });
+
+   //             if (type == "page" || type == "tab") {
+   //                if (pageOrTab.pages) {
+   //                   pageOrTab.pages().forEach(function (p) {
+   //                      addPage(p, indent + "-", "page");
+   //                   });
+   //                }
+
+   //                // add 'tab' options
+   //                if (pageOrTab.views) {
+   //                   pageOrTab
+   //                      .views((v) => v.key == "tab")
+   //                      .forEach((tab) => {
+   //                         // add 'tab view' to options
+   //                         tab.views().forEach((tabView) => {
+   //                            addPage(
+   //                               tabView,
+   //                               indent + "-",
+   //                               "tab",
+   //                               pageOrTab.id
+   //                            );
+   //                         });
+   //                      });
+   //                }
+   //             }
+   //          };
+
+   //          addPage(this.currentForm.pageRoot(), "", "page");
+
+   //          $$(ids.pagesAndTabs).define("options", _pageOptions);
+   //          $$(ids.pagesAndTabs).refresh();
+   //       },
+
+   //       fromSettings: (valueRules) => {
+   //          valueRules = valueRules || {};
+
+   //          $$(ids.pagesAndTabs).setValue(
+   //             valueRules.tabId || valueRules.pageId || ""
+   //          );
+   //       },
+
+   //       toSettings: () => {
+   //          var result = {};
+
+   //          var selectedId = $$(ids.pagesAndTabs).getValue();
+   //          var selectedItem = $$(ids.pagesAndTabs)
+   //             .getPopup()
+   //             .getList()
+   //             .config.data.filter((opt) => opt.id == selectedId)[0];
+   //          if (selectedItem) {
+   //             if (selectedItem.type == "tab") {
+   //                // store page id and tab id
+   //                result = {
+   //                   pageId: selectedItem.pageId,
+   //                   tabId: selectedId,
+   //                };
+   //             } else {
+   //                // store only page id
+   //                result = {
+   //                   pageId: selectedId,
+   //                };
+   //             }
+   //          }
+
+   //          // return the confirm message
+   //          return result;
+   //       },
+   //    };
+
+   //    return this._ui;
+   // }
+
+   // process
+   // gets called when a form is submitted and the data passes the Query Builder Rules.
+   // @param {obj} options
+   process(options) {
+      return new Promise((resolve, reject) => {
+         // redirect page
+         if (this.valueRules.pageId) {
+            options.form.changePage(this.valueRules.pageId);
+
+            if (this.valueRules.tabId) {
+               var curPage = options.form.application.pages(
+                  (p) => p.id == this.valueRules.pageId,
+                  true
+               )[0];
+               if (!curPage) return resolve();
+
+               // switch tab
+               var tabView = curPage.views(
+                  (v) => v.id == this.valueRules.tabId,
+                  true
+               )[0];
+               if (!tabView) return resolve();
+
+               var tab = tabView.parent;
+               if (!tab) return resolve();
+
+               var toggleParent = (element) => {
+                  if (!element.parent) return false;
+                  var parentElem = element.parent;
+                  if (!parentElem.parent) return false;
+                  parentElem.parent.emit("changeTab", parentElem.id);
+                  toggleParent(parentElem.parent);
+               };
+
+               toggleParent(tab);
+
+               tab.emit("changeTab", tabView.id);
+               // // @TODO: refactor this to move to Framework7
+               // let showIt = setInterval(function () {
+               //    console.error("REFACTOR FOR FRAMEWORK7");
+               //    // if ($$(tabView.id) && $$(tabView.id).isVisible()) {
+               //    //    clearInterval(showIt);
+               //    //    return;
+               //    // }
+               //    tab.emit("changeTab", tabView.id);
+               // }, 100);
+            }
+         }
+
+         resolve();
+      });
+   }
+
+   // fromSettings
+   // initialize this Action from a given set of setting values.
+   // @param {obj}  settings
+   fromSettings(settings) {
+      settings = settings || {};
+      super.fromSettings(settings); // let the parent handle the QB
+
+      // if we have a display component, then populate it:
+      if (this._ui) {
+         // now we handle our valueRules:{} object settings.
+         // pass the settings off to our DisplayList component:
+         this._ui.fromSettings(settings.valueRules);
+      }
+   }
+
+   // toSettings
+   // return an object that represents the current state of this Action
+   // @return {obj}
+   toSettings() {
+      // settings: {
+      //	message:''
+      // }
+
+      // let our parent store our QB settings
+      var settings = super.toSettings();
+
+      settings.valueRules = this._ui.toSettings();
+
+      return settings;
+   }
+}
+
+
+/***/ }),
+
+/***/ 57973:
+/*!*****************************************************************************************!*\
+  !*** ./src/js/AppBuilder/rules/ruleActions/ABViewRuleActionFormSubmitRuleParentPage.js ***!
+  \*****************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewRuleActionFormSubmitRuleParentPage)
+/* harmony export */ });
+/* harmony import */ var _ABViewRuleAction__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ABViewRuleAction */ 40804);
+//
+// ABViewRuleActionFormSubmitRuleParentPage
+//
+//
+//
+
+
+class ABViewRuleActionFormSubmitRuleParentPage extends _ABViewRuleAction__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   /**
+    * @param {object} App
+    *      The shared App object that is created in OP.Component
+    * @param {string} idBase
+    *      Identifier for this component
+    */
+   constructor(App, idBase) {
+      super();
+
+      this.App = App;
+      this.key = "ABViewRuleActionFormSubmitRuleParentPage";
+      this.label = "Redirect to the parent page";
+
+      this.currentObject = null; // the object this Action is tied to.
+
+      this.formRows = []; // keep track of the Value Components being set
+      // [
+      //		{ fieldId: xxx, value:yyy, type:key['string', 'number', 'date',...]}
+      // ]
+   }
+
+   // conditionFields() {
+   //    var fieldTypes = ["string", "number", "date", "formula", "calculate"];
+
+   //    var currFields = [];
+
+   //    if (this.currentObject) {
+   //       this.currentObject.fields().forEach((f) => {
+   //          if (fieldTypes.indexOf(f.key) != -1) {
+   //             // NOTE: the .id value must match the obj[.id]  in the data set
+   //             // so if your object data looks like:
+   //             // 	{
+   //             //		name_first:'Neo',
+   //             //		name_last: 'The One'
+   //             //  },
+   //             // then the ids should be:
+   //             // { id:'name_first', value:'xxx', type:'string' }
+   //             currFields.push({
+   //                id: f.columnName,
+   //                value: f.label,
+   //                type: f.key
+   //             });
+   //          }
+   //       });
+   //    }
+
+   //    return currFields;
+   // }
+
+   // // valueDisplayComponent
+   // // Return an ABView to display our values form.
+   // //
+   // valueDisplayComponent(idBase) {
+   //    this._ui = {
+   //       ui: {
+   //          view: "label",
+   //          label: this.label,
+   //       },
+
+   //       init: () => {},
+
+   //       _logic: _logic,
+   //    };
+
+   //    var _logic = {};
+
+   //    return this._ui;
+   // }
+
+   // process
+   // gets called when a form is submitted and the data passes the Query Builder Rules.
+   // @param {obj} options
+   process(options) {
+      return new Promise((resolve, reject) => {
+         var pageCurrent = options.form.pageParent();
+         var pageParent = pageCurrent.pageParent();
+
+         // redirect page
+         // options.form.changePage(pageParent);
+         pageParent.show();
+
+         resolve();
+      });
+   }
+}
+
+
+/***/ }),
+
+/***/ 19679:
+/*!**************************************************************************************!*\
+  !*** ./src/js/AppBuilder/rules/ruleActions/ABViewRuleActionFormSubmitRuleWebsite.js ***!
+  \**************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewRuleActionFormSubmitRuleWebsite)
+/* harmony export */ });
+/* harmony import */ var _ABViewRuleAction__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ABViewRuleAction */ 40804);
+//
+// ABViewRuleActionFormSubmitRuleWebsite
+//
+//
+//
+
+
+class ABViewRuleActionFormSubmitRuleWebsite extends _ABViewRuleAction__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   /**
+    * @param {object} App
+    *      The shared App object that is created in OP.Component
+    * @param {string} idBase
+    *      Identifier for this component
+    */
+   constructor(App, idBase) {
+      super();
+
+      this.App = App;
+      this.key = "ABViewRuleActionFormSubmitRuleWebsite";
+      this.label = "Redirect to another website URL";
+
+      this.currentObject = null; // the object this Action is tied to.
+
+      this.formRows = []; // keep track of the Value Components being set
+      // [
+      //		{ fieldId: xxx, value:yyy, type:key['string', 'number', 'date',...]}
+      // ]
+   }
+
+   // conditionFields() {
+   //    var fieldTypes = ["string", "number", "date", "formula", "calculate"];
+
+   //    var currFields = [];
+
+   //    if (this.currentObject) {
+   //       this.currentObject.fields().forEach((f) => {
+   //          if (fieldTypes.indexOf(f.key) != -1) {
+   //             // NOTE: the .id value must match the obj[.id]  in the data set
+   //             // so if your object data looks like:
+   //             // 	{
+   //             //		name_first:'Neo',
+   //             //		name_last: 'The One'
+   //             //  },
+   //             // then the ids should be:
+   //             // { id:'name_first', value:'xxx', type:'string' }
+   //             currFields.push({
+   //                id: f.columnName,
+   //                value: f.label,
+   //                type: f.key
+   //             });
+   //          }
+   //       });
+   //    }
+
+   //    return currFields;
+   // }
+
+   // // valueDisplayComponent
+   // // Return an ABView to display our values form.
+   // //
+   // valueDisplayComponent(idBase) {
+   //    var ids = {
+   //       website: `${idBase}_website`,
+   //    };
+
+   //    this._ui = {
+   //       ui: {
+   //          id: ids.website,
+   //          view: "text",
+   //       },
+
+   //       init: () => {},
+
+   //       _logic: _logic,
+
+   //       fromSettings: (valueRules) => {
+   //          _logic.fromSettings(valueRules);
+   //       },
+   //       toSettings: () => {
+   //          return _logic.toSettings();
+   //       },
+   //    };
+
+   //    var _logic = {
+   //       fromSettings: (valueRules) => {
+   //          valueRules = valueRules || {};
+
+   //          $$(ids.website).setValue(valueRules.website || "");
+   //       },
+
+   //       toSettings: () => {
+   //          // return the confirm message
+   //          return {
+   //             website: $$(ids.website).getValue() || "",
+   //          };
+   //       },
+   //    };
+
+   //    return this._ui;
+   // }
+
+   // process
+   // gets called when a form is submitted and the data passes the Query Builder Rules.
+   // @param {obj} options
+   process(options) {
+      return new Promise((resolve, reject) => {
+         // redirect to website
+         if (this.valueRules.website)
+            window.open(
+               `http://${this.valueRules.website.replace("http://", "")}`,
+               "_blank"
+            );
+
+         resolve();
+      });
+   }
+
+   // // fromSettings
+   // // initialize this Action from a given set of setting values.
+   // // @param {obj}  settings
+   // fromSettings(settings) {
+   //    settings = settings || {};
+   //    super.fromSettings(settings); // let the parent handle the QB
+
+   //    // if we have a display component, then populate it:
+   //    if (this._ui) {
+   //       // now we handle our valueRules:{} object settings.
+   //       // pass the settings off to our DisplayList component:
+   //       this._ui.fromSettings(settings.valueRules);
+   //    }
+   // }
+
+   // // toSettings
+   // // return an object that represents the current state of this Action
+   // // @return {obj}
+   // toSettings() {
+   //    // settings: {
+   //    //	message:''
+   //    // }
+
+   //    // let our parent store our QB settings
+   //    var settings = super.toSettings();
+
+   //    settings.valueRules = this._ui.toSettings();
+
+   //    return settings;
+   // }
+}
+
+
+/***/ }),
+
+/***/ 94109:
+/*!******************************************************************************!*\
+  !*** ./src/js/AppBuilder/rules/ruleActions/ABViewRuleActionObjectUpdater.js ***!
+  \******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewRuleActionObjectUpdater)
+/* harmony export */ });
+/* harmony import */ var _ABViewRuleAction__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ABViewRuleAction */ 40804);
+// ABViewRuleActionObjectUpdater
+//
+// An action that allows you to update fields on an object.
+//
+//
+
+
+var ABViewRuleActionObjectUpdaterDefaults = {
+   filterConditions: {
+      // array of filters to apply to the data table
+      glue: "and",
+      rules: [],
+   },
+};
+
+class ABViewRuleActionObjectUpdater extends _ABViewRuleAction__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   /**
+    * @param {object} App
+    *      The shared App object that is created in OP.Component
+    * @param {string} idBase
+    *      Identifier for this component
+    */
+   constructor(App, idBase, currentForm) {
+      super(App, idBase, currentForm);
+
+      this.key = "ABViewRuleActionFormRecordRuleUpdate";
+      this.label = "Update Record";
+
+      this.updateObject = null; // the object this Action will Update.
+
+      this.formRows = []; // keep track of the Value Components being set
+      // [
+      //		{ fieldId: xxx, value:yyy, type:key['string', 'number', 'date',...]}
+      // ]
+
+      this.stashRules = {}; // keep track of rule settings among our selected objects.
+   }
+
+   // valueDisplayComponent
+   // Return an ABView to display our values form.
+   //
+   valueDisplayComponent(idBase) {
+      if (this._uiUpdater == null) {
+         this._uiUpdater = this.valueDisplayList(idBase);
+      }
+
+      return this._uiUpdater;
+   }
+
+   // Our Values Display is a List of ValueRows
+   // Each ValueRow will display an additional set of [add] [delete] buttons.
+
+   // valueDisplayList(idBase) {
+   //    var uniqueInstanceID = webix.uid();
+   //    var myUnique = (key) => {
+   //       // return idBase + '_' + key  + '_' + uniqueInstanceID;
+   //       return `${idBase}_${key}_${uniqueInstanceID}`;
+   //    };
+   //    var ids = {
+   //       updateForm: myUnique("updateForm"),
+   //    };
+
+   //    var _ui = {
+   //       view: "form",
+   //       id: ids.updateForm,
+   //       elements: [],
+   //    };
+
+   //    var init = (valueRules) => {
+   //       valueRules = valueRules || this.valueRules;
+   //       _logic.setValues(valueRules);
+   //    };
+
+   //    var _logic = {
+   //       removeAddRow: () => {
+   //          // get our Form
+   //          var UpdateForm = _logic.formGet();
+   //          if (!UpdateForm) return;
+
+   //          // check row that's unselect a field
+   //          var rows = UpdateForm.getChildViews();
+
+   //          var addRow = rows.filter((r) => {
+   //             return r.queryView(function (view) {
+   //                return view.config.name == "field" && !view.getValue();
+   //             });
+   //          })[0];
+   //          if (!addRow) return;
+
+   //          UpdateForm.removeView(addRow);
+   //       },
+
+   //       // addRow
+   //       // add a new data entry to this form.
+   //       // @param {obj} data  (optional) initial values for this row.
+   //       addRow: (data) => {
+   //          // get our Form
+   //          var UpdateForm = _logic.formGet();
+   //          if (!UpdateForm) return;
+
+   //          // check row that's unselect a field
+   //          var rows = UpdateForm.getChildViews();
+   //          if (
+   //             data == null &&
+   //             rows.filter((r) => {
+   //                return r.queryView(function (view) {
+   //                   return view.config.name == "field" && !view.getValue();
+   //                });
+   //             }).length > 0
+   //          )
+   //             return;
+
+   //          // get a new Row Component
+   //          var row = this.valueDisplayRow(idBase);
+
+   //          // add row to Form
+   //          UpdateForm.addView(row.ui);
+
+   //          // initialize row with any provided data:
+   //          row.init({
+   //             onAdd: () => {
+   //                // add a new Row
+   //                _logic.addRow();
+   //             },
+   //             onDelete: (rowId) => {
+   //                // remove a row
+   //                _logic.delRow(rowId);
+   //             },
+   //             data: data,
+   //          });
+
+   //          // store this row
+   //          this.formRows.push(row);
+   //       },
+
+   //       delRow: (rowId) => {
+   //          // store this row
+   //          this.formRows.forEach((r, index) => {
+   //             if (r.ui.id == rowId) this.formRows.splice(index, 0);
+   //          });
+
+   //          // get our Form
+   //          var UpdateForm = _logic.formGet();
+   //          if (!UpdateForm) return;
+
+   //          // remove UI
+   //          UpdateForm.removeView($$(rowId));
+   //       },
+
+   //       formClear: () => {
+   //          var UpdateForm = _logic.formGet();
+   //          if (!UpdateForm) return;
+
+   //          var children = UpdateForm.getChildViews();
+
+   //          // NOTE: need to clone this array, because it is connected with the UpdatForm's
+   //          // internal array of items.  Once we start .removeView() the element actually
+   //          // is removed from the internal array, which then upset's the .forEach() from
+   //          // properly iterating through the structure.  It results in missed items from
+   //          // being sent to the .forEach().
+   //          // So Clone it and use that for .forEach()
+   //          var cloneChildren = [];
+   //          children.forEach((c) => {
+   //             cloneChildren.push(c);
+   //          });
+   //          cloneChildren.forEach((c) => {
+   //             UpdateForm.removeView(c);
+   //          });
+
+   //          // clear our stored .formRows
+   //          this.formRows = [];
+   //       },
+
+   //       formGet: () => {
+   //          var UpdateForm = $$(ids.updateForm);
+   //          if (!UpdateForm) {
+   //             // this is a problem!
+   //             this.currentForm.AB.notify.developer(
+   //                new Error("no webix form"),
+   //                {
+   //                   context:
+   //                      "ABViewRuleActionObjectUpdater:formGet  could not find webix form",
+   //                   id: ids.updateForm,
+   //                }
+   //             );
+   //             return null;
+   //          }
+
+   //          return UpdateForm;
+   //       },
+
+   //       setValues: (valueRules) => {
+   //          // valueRules = {
+   //          //	fieldOperations:[
+   //          //		{ fieldID:xxx, value:yyyy, type:zzz, op:aaa }
+   //          //	]
+   //          // }
+
+   //          valueRules = valueRules || {};
+   //          valueRules.fieldOperations = valueRules.fieldOperations || [];
+
+   //          // find the form
+   //          var UpdateForm = _logic.formGet();
+   //          if (!UpdateForm) return;
+
+   //          // clear form:
+   //          _logic.formClear();
+
+   //          // if there are values to
+   //          if (valueRules.fieldOperations.length > 0) {
+   //             valueRules.fieldOperations.forEach((r) => {
+   //                _logic.addRow(r);
+   //             });
+   //          }
+
+   //          // our default operation will cause an empty row to
+   //          // appear after our first value entry.
+   //          // let's remove that one, and then add a new one
+   //          // at the end:
+   //          _logic.removeAddRow();
+
+   //          // display an empty row
+   //          _logic.addRow();
+   //       },
+
+   //       fromSettings: (settings) => {
+   //          // Note: we just want the { valueRules:[] } here:
+   //          var mySettings = settings.valueRules || settings;
+
+   //          _logic.setValues(mySettings);
+   //       },
+
+   //       toSettings: () => {
+   //          // valueRules = {
+   //          //	fieldOperations:[
+   //          //		{ fieldID:xxx, value:yyyy, type:zzz, op:aaa }
+   //          //	]
+   //          // }
+   //          var settings = { fieldOperations: [] };
+
+   //          // for each of our formRows, decode the propery {}
+   //          this.formRows.forEach((fr) => {
+   //             var rowSettings = fr.toSettings();
+   //             if (rowSettings) {
+   //                settings.fieldOperations.push(fr.toSettings());
+   //             }
+   //          });
+
+   //          return settings;
+   //       },
+   //    };
+
+   //    return {
+   //       ui: _ui,
+   //       init: init,
+   //       fromSettings: (settings) => {
+   //          _logic.fromSettings(settings);
+   //       },
+   //       toSettings: () => {
+   //          return _logic.toSettings();
+   //       },
+   //       _logic: _logic,
+   //    };
+   // }
+
+   // valueDisplayRow(idBase) {
+   //    var uniqueInstanceID = webix.uid();
+   //    var myUnique = (key) => {
+   //       // return idBase + '_' + key  + '_' + uniqueInstanceID;
+   //       return key + "_" + uniqueInstanceID;
+   //    };
+
+   //    var ids = {
+   //       row: myUnique("row"),
+   //       updateForm: myUnique("updateFormRow"),
+   //       field: myUnique("field"),
+   //       value: myUnique("value"),
+   //       selectDc: myUnique("selectDc"),
+   //       selectBy: myUnique("selectBy"),
+   //       queryField: myUnique("queryField"),
+   //       multiview: myUnique("multiview"),
+   //       buttonAdd: myUnique("add"),
+   //       buttonDelete: myUnique("delete"),
+   //    };
+
+   //    var FilterComponent;
+
+   //    var _logic = {
+   //       callbacks: {
+   //          onAdd: () => {},
+   //          onDelete: () => {},
+   //       },
+
+   //       buttonsToggle: () => {
+   //          $$(ids.row).getChildViews()[0].getChildViews()[4].hide();
+   //          $$(ids.row).getChildViews()[0].getChildViews()[5].show();
+   //       },
+
+   //       getFieldList: (shouldFilter) => {
+   //          var options = [];
+   //          if (this.updateObject) {
+   //             options = (this.updateObject.fields() || []).map((f) => {
+   //                return {
+   //                   id: f.id,
+   //                   value: f.label,
+   //                };
+   //             });
+
+   //             // options = (this.updateObject.fields() || [])
+   //             // .filter(f => {
+   //             //
+   //             // 	if (f.key != 'connectObject') {
+   //             // 		return true;
+   //             // 	} else {
+   //             // 		// if this is a connection field, only return
+   //             // 		// fields that are 1:x  where this field is the
+   //             // 		// source:
+   //             // 		// return ((f.linkType() == 'one') && (f.isSource()))
+   //             //
+   //             // 		// 6-14-2018 Changing from only 1:x to support many
+   //             // 		// if this is a connected field, only return
+   //             // 		// fields that this is the source
+   //             // 		return (f.isSource())
+   //             // 	}
+   //             // })
+   //             // .map(f => {
+   //             // 	return {
+   //             // 		id: f.id,
+   //             // 		value: f.label
+   //             // 	};
+   //             // });
+
+   //             // Remove fields who are selected
+   //             if (shouldFilter) {
+   //                // store this row
+   //                var usedHash = {};
+   //                this.formRows.forEach((row) => {
+   //                   var rowView = $$(row.ui.id);
+   //                   if (rowView) {
+   //                      var field = rowView
+   //                         .getChildViews()[0]
+   //                         .getChildViews()[1];
+   //                      usedHash[field.getValue()] = true;
+   //                   }
+   //                });
+   //                options = options.filter((o) => {
+   //                   return !usedHash[o.id];
+   //                });
+   //             }
+   //          }
+   //          return options;
+   //       },
+
+   //       isValid: () => {
+   //          var validator = this.currentForm.AB.Validation.validator();
+   //          var valueField = $$(ids.row).getChildViews()[0].getChildViews()[3];
+   //          var FormView = valueField.getParentView().getParentView();
+
+   //          var field = this.getUpdateObjectField($$(ids.field).getValue());
+   //          if (field) {
+   //             var value = field.getValue(valueField, {});
+
+   //             // // if a standard component that supports .getValue()
+   //             // if (valueField.getValue) {
+   //             // 	value = valueField.getValue();
+   //             // } else {
+   //             // 	// else use for field.getValue();
+   //             // 	value = field.getValue(valueField, {});
+   //             // }
+
+   //             // our .isValidData() wants value in an object:
+   //             var obj = {};
+   //             obj[field.columnName] = value;
+
+   //             field.isValidData(obj, validator);
+
+   //             // if value is empty, this is also an error:
+   //             if (
+   //                value == "" ||
+   //                value == null ||
+   //                (Array.isArray(value) && value.length == 0)
+   //             ) {
+   //                validator.addError(
+   //                   field.columnName,
+   //                   L("A value is required")
+   //                );
+   //             }
+
+   //             // field.getParentView()  ->  row
+   //             // row.getParentView()  -> Form
+   //             FormView.clearValidation();
+   //             validator.updateForm(FormView);
+
+   //             return validator.pass();
+   //          } else {
+   //             // if we didn't find an associated field ... then this isn't good
+   //             // data.
+
+   //             //// TODO: display error for our field picker.  Note, it doesn't have a unique .name
+   //             // field.
+   //             var fieldField = $$(ids.row)
+   //                .getChildViews()[0]
+   //                .getChildViews()[1];
+   //             fieldField.define("invalidMessage", L("A value is required"));
+   //             fieldField.define("invalid", true);
+   //             fieldField.refresh();
+   //             // fieldField.markInvalid(this.labels.component.errorRequired);
+   //             return false;
+   //          }
+   //       },
+
+   //       selectField: (columnID) => {
+   //          var field = this.getUpdateObjectField(columnID);
+   //          if (!field) return;
+
+   //          var fieldComponent = field.formComponent(),
+   //             abView = fieldComponent.newInstance(field.object.application),
+   //             formFieldComponent = abView.component(this.App),
+   //             $componentView = formFieldComponent.ui,
+   //             $inputView;
+
+   //          $componentView.id = ids.value; // set our expected id
+
+   //          // find all the DataSources
+   //          var datasources = this.currentForm.AB.datacollections(
+   //             (dc) => dc.datasource
+   //          );
+
+   //          // create a droplist with those dataSources
+   //          var optionsDataSources = [];
+   //          datasources.forEach((dc) => {
+   //             optionsDataSources.push({ id: dc.id, value: dc.label });
+   //          });
+
+   //          // create a droplist with select options
+   //          var optionsSelectBy = [
+   //             { id: "select-one", value: L("Current selection") },
+   //             {
+   //                id: "filter-select-one",
+   //                value: L("Select first after filter by..."),
+   //             },
+   //          ];
+
+   //          var $optionUpdateExsits = {
+   //             type: "clean",
+   //             rows: [
+   //                {
+   //                   cols: [
+   //                      {
+   //                         id: ids.selectDc,
+   //                         view: "combo",
+   //                         options: optionsDataSources,
+   //                         placeholder: L("Choose a data source"),
+   //                         on: {
+   //                            onChange: (newv, oldv) => {
+   //                               var selectedDC =
+   //                                  this.currentForm.AB.datacollectionByID(
+   //                                     newv
+   //                                  );
+   //                               if (
+   //                                  selectedDC &&
+   //                                  (selectedDC.sourceType == "query" ||
+   //                                     !field.isConnection)
+   //                               ) {
+   //                                  var queryFieldOptions = [];
+   //                                  selectedDC.datasource
+   //                                     .fields()
+   //                                     .forEach((f) => {
+   //                                        queryFieldOptions.push({
+   //                                           id: f.id,
+   //                                           value: f.label,
+   //                                        });
+   //                                     });
+   //                                  $$(ids.queryField).define(
+   //                                     "options",
+   //                                     queryFieldOptions
+   //                                  );
+   //                                  $$(ids.queryField).refresh();
+   //                                  $$(ids.queryField).show();
+   //                               } else {
+   //                                  $$(ids.queryField).hide();
+   //                               }
+   //                            },
+   //                         },
+   //                      },
+   //                      // we will place a list of query fields if you choose a datasource that has a query source type
+   //                      {
+   //                         id: ids.queryField,
+   //                         view: "combo",
+   //                         hidden: true,
+   //                         placeholder: L("Choose value from..."),
+   //                         options: [{ id: 1, value: "figure this out" }],
+   //                      },
+   //                   ],
+   //                },
+   //                {
+   //                   id: ids.selectBy,
+   //                   view: "combo",
+   //                   options: optionsSelectBy,
+   //                   placeholder: L("Choose select option"),
+   //                   on: {
+   //                      onChange: (newv, oldv) => {
+   //                         var $row = $$(ids.row);
+   //                         $row.removeView($row.getChildViews()[1]);
+   //                         if (newv == "select-one") {
+   //                            $row.addView({}, 1);
+   //                         } else {
+   //                            var options =
+   //                               this.currentForm.datacollection.datasource
+   //                                  .fields()
+   //                                  .map(function (f) {
+   //                                     return {
+   //                                        id: f.id,
+   //                                        value: f.label,
+   //                                     };
+   //                                  });
+
+   //                            FilterComponent = this.AB.filterComplexNew(
+   //                               `${idBase}_filter`
+   //                            );
+   //                            // FilterComponent.applicationLoad(
+   //                            //    this.currentForm.application
+   //                            // );
+   //                            FilterComponent.init({
+   //                               isRecordRule: true,
+   //                               recordRuleFieldOptions: options,
+   //                            });
+   //                            FilterComponent.on("change", (val) => {
+   //                               _logic.onFilterChange(val);
+   //                            });
+
+   //                            $row.addView(FilterComponent.ui, 1);
+
+   //                            var dcId = $$(ids.selectDc).getValue();
+   //                            var dataCollection =
+   //                               this.currentForm.AB.datacollectionByID(dcId);
+   //                            if (dataCollection) {
+   //                               _logic.populateFilters(dataCollection);
+   //                            }
+   //                         }
+   //                      },
+   //                   },
+   //                },
+   //             ],
+   //          };
+
+   //          // WORKAROUND: add '[Current User]' option to the user data field
+   //          if (field.key == "user") {
+   //             $componentView.options = $componentView.options || [];
+   //             $componentView.options.unshift({
+   //                id: "ab-current-user",
+   //                value: L("[Current User]"),
+   //             });
+   //          }
+
+   //          // UPDATE: ok, in practice we have not had any use cases where
+   //          // we want individual values on connectedObject fields, but
+   //          // instead we want to insert the current selected element from
+   //          // a relevant data view.  So, replace the fieldComponet
+   //          // from a connectedObject field with a list of data views that
+   //          // are based upon the same object we are connected to:
+   //          if (field.isConnection) {
+   //             // find the ABObject this field connects to
+   //             var connectedObject = field.datasourceLink;
+
+   //             // find all the DataSources that are based upon this ABObject
+   //             // to do this, we find the root Page we are on, then ask that Page for datasources:
+   //             datasources = datasources.filter((dc) => {
+   //                return dc.datasource.id == connectedObject.id;
+   //             });
+
+   //             var dcQueries = this.currentForm.AB.datacollections((dc) => {
+   //                return (
+   //                   dc.sourceType == "query" &&
+   //                   dc.datasource &&
+   //                   dc.datasource.canFilterObject(connectedObject)
+   //                );
+   //                // return dc.datasource.id == connectedObject.id;
+   //             });
+
+   //             datasources = datasources.concat(dcQueries);
+
+   //             // refresh a droplist with those dataSources
+   //             optionsDataSources = [];
+   //             datasources.forEach((dc) => {
+   //                optionsDataSources.push({ id: dc.id, value: dc.label });
+   //             });
+
+   //             // add select an array value option
+   //             optionsSelectBy.push({
+   //                id: "filter-select-all",
+   //                value: L("Select all after filter by..."),
+   //             });
+
+   //             $inputView = $optionUpdateExsits;
+
+   //             // and the upcoming formFieldComponent.init()
+   //             // doesn't need to do anything:
+   //             formFieldComponent = {
+   //                init: function () {},
+   //             };
+
+   //             // and we reset field so it's customDisplay isn't called:
+   //             // field = {};
+   //          } else {
+   //             $inputView = {
+   //                id: ids.multiview,
+   //                view: "multiview",
+   //                cells: [
+   //                   {
+   //                      batch: "custom",
+   //                      rows: [
+   //                         $componentView,
+   //                         {
+   //                            view: "label",
+   //                            label: `<a>${L("Or exists value")}</a>`,
+   //                            on: {
+   //                               onItemClick: function () {
+   //                                  var $container = this.getParentView(),
+   //                                     $multiview = $container.getParentView();
+
+   //                                  $multiview.showBatch("exist");
+   //                               },
+   //                            },
+   //                         },
+   //                      ],
+   //                   },
+   //                   {
+   //                      // Update value from exists object
+   //                      batch: "exist",
+   //                      rows: [
+   //                         $optionUpdateExsits,
+   //                         {
+   //                            view: "label",
+   //                            label: `<a>${L("Or custom value")}</a>`,
+   //                            on: {
+   //                               onItemClick: function () {
+   //                                  var $container = this.getParentView(),
+   //                                     $multiview = $container.getParentView();
+
+   //                                  // clear filter view
+   //                                  $$(ids.selectBy).setValue("select-one");
+
+   //                                  $multiview.showBatch("custom");
+   //                               },
+   //                            },
+   //                         },
+   //                      ],
+   //                   },
+   //                ],
+   //             };
+   //          }
+
+   //          // Change component to display this field's form input
+   //          var $row = $$(ids.row).getChildViews()[0];
+   //          $row.removeView($row.getChildViews()[3]);
+   //          $row.addView($inputView, 3);
+
+   //          formFieldComponent.init();
+
+   //          // Show custom display of data field
+   //          if (!field.isConnection && field.customDisplay) {
+   //             // field.customDisplay(field, this.App, $row.getChildViews()[3].$view, {
+
+   //             var compNodeView = $$($componentView.id).$view;
+
+   //             // wait until render UI complete
+   //             setTimeout(() => {
+   //                field.customDisplay(field, this.App, compNodeView, {
+   //                   editable: true,
+
+   //                   // tree
+   //                   isForm: true,
+   //                });
+   //             }, 50);
+   //          }
+
+   //          // Show the remove button
+   //          var $buttonRemove = $row.getChildViews()[4];
+   //          $buttonRemove.show();
+
+   //          // Add a new row
+   //          if (columnID) _logic.callbacks.onAdd();
+   //       },
+
+   //       setValue: (data) => {
+   //          $$(ids.field).setValue(data.fieldID);
+   //          // note: this triggers our _logic.selectField() fn.
+   //          var field = this.getUpdateObjectField(data.fieldID);
+   //          if (field) {
+   //             var setValueFn = () => {
+   //                $$(ids.selectDc).setValue(data.value);
+   //                if (data.queryField) {
+   //                   $$(ids.queryField).setValue(data.queryField);
+   //                }
+   //                var selectBy = data.selectBy || "select-one";
+   //                $$(ids.selectBy).setValue(selectBy);
+
+   //                if (selectBy != "select-one") {
+   //                   var collectionId = data.value;
+   //                   var dataCollection =
+   //                      this.currentForm.AB.datacollectionByID(collectionId);
+   //                   if (dataCollection && data.filterConditions) {
+   //                      _logic.populateFilters(
+   //                         dataCollection,
+   //                         data.filterConditions
+   //                      );
+   //                   }
+   //                }
+   //             };
+
+   //             // now handle our special connectedObject case:
+   //             if (field.isConnection) {
+   //                setValueFn();
+   //             } else {
+   //                if (data.valueType == "exist") {
+   //                   $$(ids.multiview).showBatch("exist");
+
+   //                   setValueFn();
+   //                } else {
+   //                   $$(ids.multiview).showBatch("custom");
+
+   //                   // wait until render UI complete
+   //                   setTimeout(function () {
+   //                      // set value to custom field
+   //                      var rowData = {};
+   //                      rowData[field.columnName] = data.value;
+   //                      field.setValue($$(ids.value), rowData);
+   //                   }, 50);
+   //                }
+   //             }
+   //          }
+   //       },
+
+   //       populateFilters: (dataView, filterConditions) => {
+   //          filterConditions =
+   //             filterConditions ||
+   //             ABViewRuleActionObjectUpdaterDefaults.filterConditions;
+
+   //          // Populate data to popups
+   //          // FilterComponent.objectLoad(objectCopy);
+   //          FilterComponent.fieldsLoad(
+   //             dataView.datasource ? dataView.datasource.fields() : []
+   //          );
+   //          FilterComponent.setValue(filterConditions);
+   //       },
+
+   //       toSettings: () => {
+   //          // if this isn't the last entry row
+   //          // * a row with valid data has the [delete] button showing.
+   //          var buttonDelete = $$(ids.buttonDelete);
+   //          if (buttonDelete && buttonDelete.isVisible()) {
+   //             var data = {};
+   //             data.fieldID = $$(ids.field).getValue();
+
+   //             var $valueField = $$(ids.value);
+   //             var field = this.getUpdateObjectField(data.fieldID);
+
+   //             var getValueFn = () => {
+   //                data.value = $$(ids.selectDc).getValue();
+   //                data.queryField = $$(ids.queryField).getValue();
+   //                data.op = "set"; // possible to create other types of operations.
+   //                data.type = field.key;
+   //                data.selectBy = $$(ids.selectBy).getValue();
+   //                data.valueType = "exist";
+   //                if (FilterComponent) {
+   //                   data.filterConditions = FilterComponent.getValue();
+   //                }
+   //             };
+
+   //             // now handle our special connectedObject case:
+   //             if (field.isConnection) {
+   //                getValueFn();
+   //             } else {
+   //                if ($$(ids.multiview).config.visibleBatch == "exist") {
+   //                   getValueFn();
+   //                } else {
+   //                   data.value = field.getValue($valueField, {});
+   //                   data.op = "set"; // possible to create other types of operations.
+   //                   data.type = field.key;
+   //                   data.valueType = "custom";
+   //                }
+   //             }
+
+   //             return data;
+   //          } else {
+   //             return null;
+   //          }
+   //       },
+   //    };
+
+   //    var _ui = {
+   //       id: ids.row,
+   //       view: "layout",
+   //       rows: [
+   //          {
+   //             cols: [
+   //                {
+   //                   // Label
+   //                   view: "label",
+   //                   width: this.currentForm.AB.Config.labelWidthSmall,
+   //                   label: L("Set"),
+   //                },
+   //                {
+   //                   // Field list
+   //                   view: "combo",
+   //                   name: "field",
+   //                   placeholder: L("Choose a field"),
+   //                   id: ids.field,
+   //                   height: 32,
+   //                   options: _logic.getFieldList(true),
+   //                   on: {
+   //                      onChange: function (columnId) {
+   //                         _logic.selectField(columnId);
+   //                      },
+   //                   },
+   //                },
+   //                {
+   //                   // Label
+   //                   view: "label",
+   //                   width: this.currentForm.AB.Config.labelWidthSmall,
+   //                   label: L("To"),
+   //                },
+
+   //                // Field value
+   //                // NOTE: this view gets replaced each time a field is selected.
+   //                // We replace it with a component associated with the Field
+   //                {},
+
+   //                {
+   //                   // "Remove" button
+   //                   view: "button",
+   //                   css: "webix_danger",
+   //                   id: ids.buttonDelete,
+   //                   icon: "fa fa-trash",
+   //                   type: "icon",
+   //                   width: 30,
+   //                   hidden: true,
+   //                   click: function () {
+   //                      _logic.callbacks.onDelete(ids.row);
+   //                   },
+   //                },
+   //             ],
+   //          },
+   //          {}, // we will add filters here if we need them
+   //       ],
+   //    };
+
+   //    var init = (options) => {
+   //       for (var c in _logic.callbacks) {
+   //          _logic.callbacks[c] = options[c] || _logic.callbacks[c];
+   //       }
+
+   //       if (options.data) {
+   //          // options.data = { formID:xxx, value:yyy,  type:zzzz }
+   //          _logic.setValue(options.data);
+
+   //          // _logic.buttonsToggle();
+   //       }
+   //    };
+
+   //    return {
+   //       ui: _ui,
+   //       init: init,
+   //       toSettings: () => {
+   //          return _logic.toSettings();
+   //       },
+   //       _logic: _logic,
+   //    };
+   // }
+
+   getUpdateObjectField(fieldID) {
+      return (
+         this.queryObject?.fieldByID(fieldID) ??
+         this.updateObject?.fieldByID(fieldID) ??
+         this.currentForm.AB.fieldNew(
+            this.currentForm.AB.definitionByID(fieldID) ?? {},
+            this.currentForm.AB.objectNew({})
+         )
+      );
+   }
+
+   /**
+    * @method processUpdateObject
+    * Perform the specified update actions on the provided objectToUpdate
+    * @param {obj} options  Additional information required to make updates.
+    * @param {obj} objectToUpdate  The object to make the updates on.
+    * @return {boolean}   true if an update took place, false if no updates.
+    */
+   processUpdateObject(options, objectToUpdate) {
+      this._formData = objectToUpdate;
+      // return new Promise((resolve, reject) => {
+      var isUpdated = false;
+
+      this.valueRules = this.valueRules || {};
+      this.valueRules.fieldOperations = this.valueRules.fieldOperations || [];
+
+      // var allPromises = [];
+
+      // for each of our operations
+      this.valueRules.fieldOperations.forEach((op) => {
+         // op = {
+         // 	fieldID:'zzzzz',
+         //	value: 'xxx',
+         //	op: 'set',
+         //  type:'',
+         //  queryField: '', // id of ABField
+         //  selectBy:'',   ['select-one', 'filter-select-one', 'filter-select-all']
+         //  valueType: "", ['custom', 'exist']
+         // 	filterConditions: { // array of filters to apply to the data table
+         //		glue: 'and',
+         // 		rules: []
+         //  }
+         // }
+
+         var field = this.getUpdateObjectField(op.fieldID);
+         if (!field) return;
+
+         let value = op?.value?.id ?? op?.value;
+
+         switch (value) {
+            case "ab-current-user":
+               value = this.currentForm.AB.Account.username();
+               break;
+            case "ab-current-date":
+               value = new Date();
+               break;
+         }
+
+         // in the case of a connected Field, we use op.value to get the
+         // datacollection, and find it's currently selected value:
+         if ((field.isConnection && !field.isUser) || op.valueType == "exist") {
+            // NOTE: 30 May 2018 :current decision from Ric is to limit this
+            // to only handle 1:x connections where we update the current obj
+            // with the PK of the value from the DC.
+            //
+            // In the future, if we want to handle the other options,
+            // we need to modify this to handle the M:x connections where
+            // we insert our PK into the value from the DC.
+
+            // op.value is the ABDatacollection.id we need to find
+            const dataCollection = this.currentForm.AB.datacollectionByID(
+               op.value
+            );
+            if (!dataCollection) {
+               isUpdated = false;
+               return;
+            }
+
+            // we don't want to mess with the dataView directly since it might
+            // be used by other parts of the system and this refresh might reset
+            // it's cursor.
+            // var clonedDataCollection = dataView.filteredClone(op.filterConditions);
+
+            // loop through rules to find "same-as-field" or "not-same-as-field"
+            // adjust operator and switch key value to actual value when found
+            var filterConditions = this.currentForm.AB.cloneDeep(
+               op.filterConditions
+            );
+            if (filterConditions && filterConditions.rules) {
+               filterConditions.rules
+                  .filter((r) => {
+                     return (
+                        r.rule == "same_as_field" ||
+                        r.rule == "not_same_as_field"
+                     );
+                  })
+                  .forEach((item) => {
+                     var valueField =
+                        this.currentForm.datacollection.datasource.fieldByID(
+                           item.value
+                        );
+                     if (valueField.isConnection) {
+                        item.value = valueField.format(this._formData);
+                     } else {
+                        item.value = this._formData[valueField.columnName];
+                     }
+
+                     if (item.rule == "not_same_as_field") {
+                        item.rule = "not equals";
+                     } else {
+                        item.rule = "equals";
+                     }
+                  });
+            }
+
+            let clonedDataCollection =
+               dataCollection.filteredClone(filterConditions);
+
+            switch (op.selectBy) {
+               // the 'select-one' is getting the currently set cursor on this data collection
+               // and using that value.
+               // TODO: rename to 'select-cursor'
+               case "select-one":
+               default: // dataView.getItem(dataView.getCursor());
+                  value = clonedDataCollection.getCursor();
+
+                  if (value) {
+                     // NOTE: webix documentation issue: .getCursor() is supposed to return
+                     // the .id of the item.  However it seems to be returning the {obj}
+
+                     if (op.valueType == "exist") {
+                        let fieldWithValue =
+                           clonedDataCollection.datasource.fieldByID(
+                              op.queryField
+                           );
+
+                        if (fieldWithValue)
+                           value = value[fieldWithValue.columnName];
+                     } else if (value.id) {
+                        value = value.id;
+                     }
+                  }
+
+                  // QUESTION: if value returns undefined should we do something else?
+                  switch (op.op) {
+                     case "set":
+                        if (!value) break;
+
+                        if (field.isConnection) {
+                           // if we are setting a connection we do not want to pass the full object because
+                           // batch creates payload gets too large
+                           objectToUpdate[field.columnName] = {};
+                           objectToUpdate[field.columnName].id =
+                              value[field.datasourceLink.PK()];
+                           objectToUpdate[field.columnName][
+                              field.datasourceLink.PK()
+                           ] = value[field.datasourceLink.PK()];
+
+                           // If the connect field use the custom FK, then it requires to pass value of the custom FK.
+                           if (field.settings.isCustomFK) {
+                              if (field.indexField) {
+                                 objectToUpdate[field.columnName][
+                                    field.indexField.columnName
+                                 ] = value[field.indexField.columnName];
+                              }
+                              if (field.indexField2) {
+                                 objectToUpdate[field.columnName][
+                                    field.indexField2.columnName
+                                 ] = value[field.indexField2.columnName];
+                              }
+                           }
+
+                           field.datasourceLink
+                              .fields(
+                                 (f) =>
+                                    f.key == "combined" || f.key == "AutoIndex"
+                              )
+                              .forEach((f) => {
+                                 objectToUpdate[field.columnName][
+                                    f.columnName
+                                 ] = value[f.columnName];
+                              });
+                        } else {
+                           objectToUpdate[field.columnName] = value;
+                        }
+
+                        break;
+                  }
+                  break;
+
+               // attempt to filter this data collection by the given filterConditions
+               case "filter-select-all":
+                  var newValues = [];
+
+                  var currRow = clonedDataCollection.getFirstRecord();
+                  while (currRow) {
+                     // do something there
+
+                     switch (clonedDataCollection.sourceType) {
+                        // case: datacollection is an object
+                        // we want to set our field to this values
+                        case "object":
+                           newValues.push(currRow.id);
+                           break;
+
+                        // case: datacollection is a query
+                        // our field is a pointer to an object. we want to pull out that object
+                        // from the query data.
+                        case "query": {
+                           let fieldWithValue =
+                              clonedDataCollection.datasource.fieldByID(
+                                 op.queryField
+                              );
+
+                           var newValue = currRow[fieldWithValue.columnName];
+
+                           if (typeof newValue == "undefined") {
+                              newValue = currRow[fieldWithValue.relationName()];
+
+                              if (Array.isArray(newValue)) {
+                                 newValue = newValue.map((v) => {
+                                    return v.id ? v.id : v;
+                                 });
+                              } else if (newValue.id) {
+                                 newValue = newValue.id;
+                              }
+                           }
+
+                           newValues = this.currentForm.AB.uniq(
+                              newValues.concat(newValue)
+                           );
+
+                           break;
+                        }
+                     }
+
+                     currRow = clonedDataCollection.getNextRecord(currRow);
+                  }
+
+                  // QUESTION: if value returns undefined should we do something else?
+                  switch (op.op) {
+                     case "set":
+                        if (field.linkType() == "one") {
+                           var updates = [];
+                           newValues.forEach((v) => {
+                              var objectToUpdateClone =
+                                 this.currentForm.AB.cloneDeep(objectToUpdate);
+                              objectToUpdateClone[field.columnName] = v;
+                              updates.push(objectToUpdateClone);
+                           });
+                           objectToUpdate.newRecords = updates;
+                        } else {
+                           objectToUpdate[field.columnName] = newValues;
+                        }
+                        break;
+                  }
+                  break;
+
+               case "filter-select-one":
+                  newValues = [];
+
+                  value = clonedDataCollection.getFirstRecord();
+
+                  if (value) {
+                     // case: datacollection is a query
+                     // our field is a pointer to an object. we want to pull out that object
+                     // from the query data.
+                     if (
+                        clonedDataCollection.sourceType == "query" ||
+                        (op.valueType == "exist" && op.queryField)
+                     ) {
+                        let fieldWithValue =
+                           clonedDataCollection.datasource.fieldByID(
+                              op.queryField
+                           );
+
+                        newValue = value[fieldWithValue.columnName];
+
+                        if (typeof newValue == "undefined") {
+                           newValue = value[fieldWithValue.relationName()];
+                           if (Array.isArray(newValue)) {
+                              newValue = newValue[0];
+                           }
+                           if (newValue.id) newValue = newValue.id;
+                        }
+
+                        value = newValue;
+                     }
+                     // case: datacollection is an object
+                     // we want to set our field to this values
+                     else if (clonedDataCollection.sourceType == "object") {
+                        // NOTE: webix documentation issue: .getCursor() is supposed to return
+                        // the .id of the item.  However it seems to be returning the {obj}
+
+                        // we need to use the objects indexField(2) if there is one
+                        // otherwise default to the id
+                        var lookup;
+                        if (field.indexField) {
+                           lookup = field.indexField.columnName;
+                        } else if (field.indexField2) {
+                           lookup = field.indexField2.columnName;
+                        }
+                        if (lookup && value[lookup]) {
+                           value = value[lookup];
+                        } else if (value.id) {
+                           value = value.id;
+                        }
+                     }
+                  }
+
+                  // QUESTION: if value returns undefined should we do something else?
+                  switch (op.op) {
+                     case "set":
+                        objectToUpdate[field.columnName] = value;
+                        break;
+                  }
+                  break;
+            }
+
+            isUpdated = true;
+
+            // allPromises.push(connectedPromise);
+         } else {
+            // var setPromise = new Promise((resolve, reject) => {
+            switch (op.op) {
+               case "set":
+                  objectToUpdate[field.columnName] = value;
+                  break;
+            }
+
+            isUpdated = true;
+
+            //    resolve(isUpdated);
+            // });
+
+            // allPromises.push(setPromise);
+
+            // console.log("finished");
+         }
+      });
+
+      return isUpdated;
+      // Promise.all(allPromises).then(() => {
+      //    resolve(isUpdated);
+      // });
+      // });
+   }
+
+   // process
+   // gets called when a form is submitted and the data passes the Query Builder Rules.
+   // @param {obj} options
+   // @return {Promise}
+   process(options) {
+      this._formData = options.data;
+
+      return new Promise((resolve, reject) => {
+         let isUpdated = this.processUpdateObject({}, options.data);
+         if (!isUpdated) {
+            resolve();
+         } else {
+            // get the model from the provided Form Obj:
+            var dv = options.form.datacollection;
+            if (!dv) return resolve();
+
+            var model = dv.model;
+            model
+               .update(options.data.id, options.data)
+               .then(resolve)
+               .catch((err) => {
+                  this.currentForm.AB.notify.developer(err, {
+                     context:
+                        "ABViewRuleActionObjectUpdater:process  update error",
+                     id: options.data.id,
+                     data: options.data,
+                  });
+                  reject(err);
+               });
+         }
+      });
+   }
+
+   // objectLoad
+   // save the current object this Action is associated with.
+   objectLoad(object) {
+      super.objectLoad(object);
+      this.updateObjectLoad(object);
+   }
+
+   // updateObjectLoad
+   // save the given object as the object we will update.
+   updateObjectLoad(object) {
+      // stash rules for old object
+      if (this.updateObject) {
+         this.stashRules[this.updateObject.id] = this.valueRules;
+      }
+
+      this.updateObject = object;
+
+      // with a new updateObject, then reset our UI
+      // this._uiUpdater = null;
+
+      // reload any stashed rules, or set to {}
+      this.valueRules = this.stashRules[this.updateObject.id] || {};
+   }
+
+   // fromSettings
+   // initialize this Action from a given set of setting values.
+   // @param {obj}  settings
+   fromSettings(settings) {
+      settings = settings || {};
+
+      super.fromSettings(settings); // let the parent handle the QB
+
+      // make sure UI is updated:
+      // set our updateObject
+      if (settings.updateObjectID) {
+         this.updateObject = this.currentForm.AB.objectByID(
+            settings.updateObjectID
+         );
+      } else {
+         // DEPRECIATED method of resolving objects .urlResolve()
+         if (settings.updateObjectURL) {
+            var updateObject = this.currentForm.application.urlResolve(
+               settings.updateObjectURL
+            );
+            this.updateObject = updateObject;
+         }
+      }
+
+      // // if we have a display component, then populate it:
+      // if (this._uiUpdater) {
+      //    // now we handle our valueRules:{} object settings.
+      //    // pass the settings off to our DisplayList component:
+      //    this._uiUpdater.fromSettings(settings);
+      // }
+   }
+
+   // toSettings
+   // return an object that represents the current state of this Action
+   // @return {obj}
+   toSettings() {
+      // settings: {
+      //	valueRules:{}
+      // }
+
+      // let our parent store our QB settings
+      var settings = super.toSettings();
+
+      settings.valueRules = this._uiUpdater.toSettings();
+      settings.updateObjectURL = this.updateObject.urlPointer();
+
+      return settings;
+   }
+
+   /**
+    * @method isReady()
+    * returns a promise that gets resolved once our action is ready to work.
+    * Here we need to scan each of our field operations, and verify all
+    * related data collections are initialized before we can continue.
+    * @return {Promise}
+    */
+   isReady() {
+      var allReady = [];
+      let fieldOps = this.valueRules?.fieldOperations ?? [];
+      fieldOps.forEach((op) => {
+         let field = this.getUpdateObjectField(op.fieldID);
+         if (!field) return;
+         if (!field.isConnection && op.valueType !== "exist") return;
+
+         // this references a DC
+         let DC = this.currentForm.AB.datacollectionByID(op.value);
+         if (DC?.dataStatus === DC?.dataStatusFlag.initialized) return;
+
+         // not ready yet, so wait until the 'initializedData' event
+         allReady.push(
+            new Promise((resolve /*, reject */) => {
+               DC.on("initializedData", () => {
+                  resolve();
+               });
+            })
+         );
+      });
+      return Promise.all(allReady);
+   }
+}
+
+
+/***/ }),
+
 /***/ 62107:
 /*!***********************!*\
   !*** ./src/js/app.js ***!
@@ -46256,7 +58088,8 @@ _AppBuilder_ABFactory__WEBPACK_IMPORTED_MODULE_6__ = (__webpack_async_dependenci
 
 // Import Global Resources
 // import "./atomic.polyfills.min.js";
-var atomic = __webpack_require__(/*! ./atomic.polyfills.min.js */ 69170);
+var atomic = __webpack_require__(/*! ./atomic.js */ 21935);
+// var atomic = require("./atomic.polyfills.min.js");
 var sails = __webpack_require__(/*! ./sails.io.js */ 55730);
 Window.atomic = atomic;
 
@@ -46308,15 +58141,248 @@ __webpack_async_result__();
 
 /***/ }),
 
-/***/ 69170:
-/*!****************************************!*\
-  !*** ./src/js/atomic.polyfills.min.js ***!
-  \****************************************/
+/***/ 21935:
+/*!**************************!*\
+  !*** ./src/js/atomic.js ***!
+  \**************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! atomicjs v4.4.1 | (c) 2020 Chris Ferdinandi | MIT License | https://github.com/cferdinandi/atomic */
-!(function(t,e){ true?module.exports=e():0})(this,(function(){"use strict";function t(t){return"function"==typeof t}var e=Array.isArray?Array.isArray:function(t){return"[object Array]"===Object.prototype.toString.call(t)},n=0,r=void 0,o=void 0,i=function(t,e){h[n]=t,h[n+1]=e,2===(n+=2)&&(o?o(p):m())};var s="undefined"!=typeof window?window:void 0,u=s||{},a=u.MutationObserver||u.WebKitMutationObserver,c="undefined"==typeof self&&"undefined"!=typeof process&&"[object process]"==={}.toString.call(process),f="undefined"!=typeof Uint8ClampedArray&&"undefined"!=typeof importScripts&&"undefined"!=typeof MessageChannel;function l(){var t=setTimeout;return function(){return t(p,1)}}var h=new Array(1e3);function p(){for(var t=0;t<n;t+=2){(0,h[t])(h[t+1]),h[t]=void 0,h[t+1]=void 0}n=0}var d,v,y,_,m=void 0;function w(t,e){var n=this,r=new this.constructor(A);void 0===r[g]&&J(r);var o=n._state;if(o){var s=arguments[o-1];i((function(){return N(o,r,s,n._result)}))}else R(n,r,t,e);return r}function b(t){if(t&&"object"==typeof t&&t.constructor===this)return t;var e=new this(A);return P(e,t),e}c?m=function(){return process.nextTick(p)}:a?(v=0,y=new a(p),_=document.createTextNode(""),y.observe(_,{characterData:!0}),m=function(){_.data=v=++v%2}):f?((d=new MessageChannel).port1.onmessage=p,m=function(){return d.port2.postMessage(0)}):m=void 0===s&&"function"=="function"?(function(){try{var t=Function("return this")().require("vertx");return void 0!==(r=t.runOnLoop||t.runOnContext)?function(){r(p)}:l()}catch(t){return l()}})():l();var g=Math.random().toString(36).substring(2);function A(){}var T=void 0,j=1,x=2,S={error:null};function O(t){try{return t.then}catch(t){return S.error=t,S}}function C(e,n,r){n.constructor===e.constructor&&r===w&&n.constructor.resolve===b?(function(t,e){e._state===j?M(t,e._result):e._state===x?q(t,e._result):R(e,void 0,(function(e){return P(t,e)}),(function(e){return q(t,e)}))})(e,n):r===S?(q(e,S.error),S.error=null):void 0===r?M(e,n):t(r)?(function(t,e,n){i((function(t){var r=!1,o=(function(t,e,n,r){try{t.call(e,n,r)}catch(t){return t}})(n,e,(function(n){r||(r=!0,e!==n?P(t,n):M(t,n))}),(function(e){r||(r=!0,q(t,e))}),t._label);!r&&o&&(r=!0,q(t,o))}),t)})(e,n,r):M(e,n)}function P(t,e){var n,r;t===e?q(t,new TypeError("You cannot resolve a promise with itself")):(r=typeof(n=e),null===n||"object"!==r&&"function"!==r?M(t,e):C(t,e,O(e)))}function E(t){t._onerror&&t._onerror(t._result),F(t)}function M(t,e){t._state===T&&(t._result=e,t._state=j,0!==t._subscribers.length&&i(F,t))}function q(t,e){t._state===T&&(t._state=x,t._result=e,i(E,t))}function R(t,e,n,r){var o=t._subscribers,s=o.length;t._onerror=null,o[s]=e,o[s+j]=n,o[s+x]=r,0===s&&t._state&&i(F,t)}function F(t){var e=t._subscribers,n=t._state;if(0!==e.length){for(var r=void 0,o=void 0,i=t._result,s=0;s<e.length;s+=3)r=e[s],o=e[s+n],r?N(n,r,o,i):o(i);t._subscribers.length=0}}function N(e,n,r,o){var i=t(r),s=void 0,u=void 0,a=void 0,c=void 0;if(i){if((s=(function(t,e){try{return t(e)}catch(t){return S.error=t,S}})(r,o))===S?(c=!0,u=s.error,s.error=null):a=!0,n===s)return void q(n,new TypeError("A promises callback cannot return that same promise."))}else s=o,a=!0;n._state!==T||(i&&a?P(n,s):c?q(n,u):e===j?M(n,s):e===x&&q(n,s))}var H=0;function J(t){t[g]=H++,t._state=void 0,t._result=void 0,t._subscribers=[]}var L=(function(){function t(t,n){this._instanceConstructor=t,this.promise=new t(A),this.promise[g]||J(this.promise),e(n)?(this.length=n.length,this._remaining=n.length,this._result=new Array(this.length),0===this.length?M(this.promise,this._result):(this.length=this.length||0,this._enumerate(n),0===this._remaining&&M(this.promise,this._result))):q(this.promise,new Error("Array Methods must be provided an Array"))}return t.prototype._enumerate=function(t){for(var e=0;this._state===T&&e<t.length;e++)this._eachEntry(t[e],e)},t.prototype._eachEntry=function(t,e){var n=this._instanceConstructor,r=n.resolve;if(r===b){var o=O(t);if(o===w&&t._state!==T)this._settledAt(t._state,e,t._result);else if("function"!=typeof o)this._remaining--,this._result[e]=t;else if(n===U){var i=new n(A);C(i,t,o),this._willSettleAt(i,e)}else this._willSettleAt(new n(function(e){return e(t)}),e)}else this._willSettleAt(r(t),e)},t.prototype._settledAt=function(t,e,n){var r=this.promise;r._state===T&&(this._remaining--,t===x?q(r,n):this._result[e]=n),0===this._remaining&&M(r,this._result)},t.prototype._willSettleAt=function(t,e){var n=this;R(t,void 0,(function(t){return n._settledAt(j,e,t)}),(function(t){return n._settledAt(x,e,t)}))},t})();var U=(function(){function t(e){this[g]=H++,this._result=this._state=void 0,this._subscribers=[],A!==e&&("function"!=typeof e&&(function(){throw new TypeError("You must pass a resolver function as the first argument to the promise constructor")})(),this instanceof t?(function(t,e){try{e((function(e){P(t,e)}),(function(e){q(t,e)}))}catch(e){q(t,e)}})(this,e):(function(){throw new TypeError("Failed to construct 'Promise': Please use the 'new' operator, this object constructor cannot be called as a function.")})())}return t.prototype.catch=function(t){return this.then(null,t)},t.prototype.finally=function(t){var e=this.constructor;return this.then((function(n){return e.resolve(t()).then((function(){return n}))}),(function(n){return e.resolve(t()).then((function(){throw n}))}))},t})();return U.prototype.then=w,U.all=function(t){return new L(this,t).promise},U.race=function(t){var n=this;return e(t)?new n(function(e,r){for(var o=t.length,i=0;i<o;i++)n.resolve(t[i]).then(e,r)}):new n(function(t,e){return e(new TypeError("You must pass an array to race."))})},U.resolve=b,U.reject=function(t){var e=new this(A);return q(e,t),e},U._setScheduler=function(t){o=t},U._setAsap=function(t){i=t},U._asap=i,U.polyfill=function(){var t=void 0;if("undefined"!=typeof __webpack_require__.g)t=__webpack_require__.g;else if("undefined"!=typeof self)t=self;else try{t=Function("return this")()}catch(t){throw new Error("polyfill failed because global object is unavailable in this environment")}var e=t.Promise;if(e){var n=null;try{n=Object.prototype.toString.call(e.resolve())}catch(t){}if("[object Promise]"===n&&!e.cast)return}t.Promise=U},U.Promise=U,U})),(function(t,e){ true?!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = (function(){return e(t)}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
-		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)):0})("undefined"!=typeof __webpack_require__.g?__webpack_require__.g:"undefined"!=typeof window?window:this,(function(t){"use strict";var e,n={method:"GET",username:null,password:null,data:{},headers:{"Content-type":"application/x-www-form-urlencoded"},responseType:"text",timeout:null,withCredentials:!1},r=function(){for(var t={},e=function(e){for(var n in e)e.hasOwnProperty(n)&&("[object Object]"===Object.prototype.toString.call(e[n])?t[n]=r(t[n],e[n]):t[n]=e[n])},n=0;n<arguments.length;n++){e(arguments[n])}return t},o=function(t){var n=new XMLHttpRequest,r=new Promise(function(r,o){for(var i in n.onreadystatechange=function(){4===n.readyState&&n.status&&(n.status>=200&&n.status<300?r(function(t){var n;if("text"!==e.responseType&&""!==e.responseType)return{data:t.response,xhr:t};try{n=JSON.parse(t.responseText)}catch(e){n=t.responseText}return{data:n,xhr:t}}(n)):o({status:n.status,statusText:n.statusText,responseText:n.responseText}))},n.open(e.method,t,!0,e.username,e.password),n.responseType=e.responseType,e.headers)e.headers.hasOwnProperty(i)&&n.setRequestHeader(i,e.headers[i]);e.timeout&&(n.timeout=e.timeout,n.ontimeout=function(t){o({status:408,statusText:"Request timeout"})}),e.withCredentials&&(n.withCredentials=!0),n.send(function(t){if("string"==typeof t||"[object FormData]"===Object.prototype.toString.call(t))return t;if(/application\/json/i.test(e.headers["Content-type"])||"[object Array]"===Object.prototype.toString.call(t))return JSON.stringify(t);var n=[];for(var r in t)t.hasOwnProperty(r)&&n.push(encodeURIComponent(r)+"="+encodeURIComponent(t[r]));return n.join("&")}(e.data))});return r.cancel=function(){n.abort()},r};return function(i,s){if(!("XMLHttpRequest"in t&&"JSON"in t&&"Promise"in t))throw"Atomic: This browser does not support the methods used in this plugin.";return e=r(n,s||{}),o(i)}}));
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (root, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = (function () {
+			return factory(root);
+		}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else {}
+})(typeof __webpack_require__.g !== 'undefined' ? __webpack_require__.g : typeof window !== 'undefined' ? window : this, function (window) {
+
+	'use strict';
+
+	//
+	// Variables
+	//
+
+	var settings;
+
+	// Default settings
+	var defaults = {
+		method: 'GET',
+		username: null,
+		password: null,
+		data: {},
+		headers: {
+			'Content-type': 'application/x-www-form-urlencoded'
+		},
+		responseType: 'text',
+		timeout: null,
+		withCredentials: false
+	};
+
+
+	//
+	// Methods
+	//
+
+	/**
+	 * Feature test
+	 * @return {Boolean} If true, required methods and APIs are supported
+	 */
+	var supports = function () {
+		return 'XMLHttpRequest' in window && 'JSON' in window && 'Promise' in window;
+	};
+
+	/**
+	 * Merge two or more objects together.
+	 * @param   {Object}   objects  The objects to merge together
+	 * @returns {Object}            Merged values of defaults and options
+	 */
+	var extend = function () {
+
+		// Variables
+		var extended = {};
+
+		// Merge the object into the extended object
+		var merge = function (obj) {
+			for (var prop in obj) {
+				if (obj.hasOwnProperty(prop)) {
+					if (Object.prototype.toString.call(obj[prop]) === '[object Object]') {
+						extended[prop] = extend(extended[prop], obj[prop]);
+					} else {
+						extended[prop] = obj[prop];
+					}
+				}
+			}
+		};
+
+		// Loop through each object and conduct a merge
+		for (var i = 0; i < arguments.length; i++) {
+			var obj = arguments[i];
+			merge(obj);
+		}
+
+		return extended;
+
+	};
+
+	/**
+	 * Parse text response into JSON
+	 * @private
+	 * @param  {String} req The response
+	 * @return {Array}      A JSON Object of the responseText, plus the orginal response
+	 */
+	var parse = function (req) {
+		var result;
+		if (settings.responseType !== 'text' && settings.responseType !== '') {
+			return {data: req.response, xhr: req};
+		}
+		try {
+			result = JSON.parse(req.responseText);
+		} catch (e) {
+			result = req.responseText;
+		}
+		return {data: result, xhr: req};
+	};
+
+	var isFormData = function(obj) {
+		return Object.prototype.toString.call(obj) === '[object FormData]';
+	}
+
+	/**
+	 * Convert an object into a query string
+	 * @link   https://blog.garstasio.com/you-dont-need-jquery/ajax/
+	 * @param  {Object|Array|String} obj The object
+	 * @return {String}                  The query string
+	 */
+	var param = function (obj) {
+
+		// If already a string, or if a FormData object, return it as-is
+		if (typeof (obj) === 'string' || isFormData(obj)) return obj;
+
+		// If the content-type is set to JSON, stringify the JSON object
+		if (/application\/json/i.test(settings.headers['Content-type']) || Object.prototype.toString.call(obj) === '[object Array]') return JSON.stringify(obj);
+
+		// Otherwise, convert object to a serialized string
+		var encoded = [];
+		for (var prop in obj) {
+			if (obj.hasOwnProperty(prop)) {
+				encoded.push(encodeURIComponent(prop) + '=' + encodeURIComponent(obj[prop]));
+			}
+		}
+		return encoded.join('&');
+
+	};
+
+	/**
+	 * Make an XHR request, returned as a Promise
+	 * @param  {String} url The request URL
+	 * @return {Promise}    The XHR request Promise
+	 */
+	var makeRequest = function (url) {
+
+		// Create the XHR request
+		var request = new XMLHttpRequest();
+
+		// Setup the Promise
+		var xhrPromise = new Promise(function (resolve, reject) {
+
+			// Setup our listener to process completed requests
+			request.onreadystatechange = function () {
+
+				// Only run if the request is complete
+				if (request.readyState !== 4) return;
+
+				// Prevent timeout errors from being processed
+				if (!request.status) return;
+
+				// Process the response
+				if (request.status >= 200 && request.status < 300) {
+					// If successful
+					resolve(parse(request));
+				} else {
+					// If failed
+					reject({
+						status: request.status,
+						statusText: request.statusText,
+						responseText : request.responseText
+					});
+				}
+
+			};
+
+			// Setup our HTTP request
+			request.open(settings.method, url, true, settings.username, settings.password);
+			request.responseType = settings.responseType;
+
+			// Add headers
+			for (var header in settings.headers) {
+				if (settings.headers.hasOwnProperty(header)) {
+					request.setRequestHeader(header, settings.headers[header]);
+				}
+			}
+
+			// Set timeout
+			if (settings.timeout) {
+				request.timeout = settings.timeout;
+				request.ontimeout = function (e) {
+					reject({
+						status: 408,
+						statusText: 'Request timeout'
+					});
+				};
+			}
+
+			// Add withCredentials
+			if (settings.withCredentials) {
+				request.withCredentials = true;
+			}
+
+			// Send the request
+			request.send(param(settings.data));
+
+		});
+
+		// Cancel the XHR request
+		xhrPromise.cancel = function () {
+			request.abort();
+		};
+
+		// Return the request as a Promise
+		return xhrPromise;
+
+	};
+
+	/**
+	 * Instatiate Atomic
+	 * @param {String} url      The request URL
+	 * @param {Object} options  A set of options for the request [optional]
+	 */
+	var Atomic = function (url, options) {
+
+		// Check browser support
+		if (!supports()) throw 'Atomic: This browser does not support the methods used in this plugin.';
+
+		// Merge options into defaults
+		settings = extend(defaults, options || {});
+
+		// clear Content-Type if provided data is FormData
+		if (isFormData(settings.data)) {
+			delete settings.headers['Content-type'];
+		}
+
+		// Make request
+		return makeRequest(url);
+
+	};
+
+
+	//
+	// Public Methods
+	//
+
+	return Atomic;
+
+});
+
 
 /***/ }),
 
@@ -46814,6 +58880,18 @@ class Account extends _AppBuilder_platform_ABEmitter__WEBPACK_IMPORTED_MODULE_0_
       if (UserConfig) {
          this.isAuthenticated = true;
          this._config = UserConfig;
+      } else {
+         let tenantConfig = this.AB?.Config?.tenantConfig?.()?.options ?? {};
+         tenantConfig =
+            typeof tenantConfig === "string"
+               ? JSON.parse(tenantConfig)
+               : tenantConfig;
+         // If no user and tenant isn't using local auth start
+         // the external auth workflow:
+         if (tenantConfig.authType !== "login") {
+            window.location.assign("/auth/login");
+         }
+         // Keep going if the tenant is using local auth
       }
 
       var MetaConfig = this.AB.Config.metaConfig();
@@ -46988,19 +59066,66 @@ class Config {
       // portal popup and perform the initial config request
    }
 
+   /**
+    * Sets the configuration
+    * @param {Config} json - Configuration object
+    */
    config(json) {
+      if (!json || typeof json !== "object") {
+         throw new Error("Invalid configuration object");
+      }
+
       this._config = json;
+      /*
+         this._config = {
+            labels: {  label configuration  },
+            languages: { language configuration },
+            meta: { meta configuration  },
+            plugins: [ array of plugins  ],
+         +   inbox: { inbox configuration  },
+         +   inboxMeta: { inbox meta configuration },
+            site: { site configuration },
+            tenant: { tenant configuration },
+            user: { user configuration  },
+            userReal: {bool} true/false
+            version: {string} "1.0.0"
+         };
+
+         + = not pulled in by preloader. Instead a separate request is made.
+      */
+
+      // Move site and version to the top level
+      const { settings } = json;
+      ["site", "version"].forEach((key) => {
+         if (!this._config[key]) {
+            this._config[key] = settings[key];
+         }
+      });
+      delete this._config.settings;
+
+      this._config.userReal = window.__AB_Config_User_Real ?? false;
+
       (0,lodash__WEBPACK_IMPORTED_MODULE_0__.defaultsDeep)(this._config, configDefaults);
    }
 
+   /**
+    * Gets or sets a setting
+    * @param {string} key - Setting key
+    * @param {*} [value] - Setting value
+    * @returns {*} - Setting value if no value is provided
+    */
    setting(key, value) {
-      if (value) {
+      if (value !== undefined) {
          this._settings[key] = value;
          return;
       }
       return this._settings[key];
    }
 
+   /**
+    * Loads settings from a div element
+    * @param {HTMLElement} div - Div element
+    */
    settingsFromDiv(div) {
       Object.keys(settingsDefault).forEach((d) => {
          var val = div.getAttribute(d);
@@ -47028,10 +59153,10 @@ class Config {
     * @return {obj}
     *          { ABDefinition.id : {ABDefinition} }  hash of definitions.
     */
-   definitions() {
-      debugger;
-      return window.definitions;
-   }
+   // definitions() {
+   //    debugger;
+   //    return window.definitions;
+   // }
 
    error(/* ...args */) {
       console.error("Who is calling this? -> move to AB.error() instead.");
@@ -47096,12 +59221,12 @@ class Config {
       return null;
    }
 
-   uiSettings() {
-      if (window.innerWidth < 768) {
-         return ConfigMobile;
-      }
-      return ConfigDesktop;
-   }
+   // uiSettings() {
+   //    if (window.innerWidth < 768) {
+   //       return ConfigMobile;
+   //    }
+   //    return ConfigDesktop;
+   // }
 
    userConfig() {
       if (this._config && this._config.user) {
@@ -47553,18 +59678,18 @@ class Network extends _AppBuilder_platform_ABEmitter__WEBPACK_IMPORTED_MODULE_0_
     * @return {bool}
     */
    isNetworkConnected() {
-      console.log(
-         "TODO: Network.isNetworkConnected(): replace online check to expected order."
-      );
-      // if this isn't a Cordova Plugin, then return navigator data:
-      if (typeof Connection == "undefined") {
-         // NOTE: this technically only detects if we are connected to a
-         // network.  It doesn't guarantee we can communicate across the 'net
-         return navigator.onLine;
-      }
+      // console.log(
+      //    "TODO: Network.isNetworkConnected(): replace online check to expected order."
+      // );
+      // // if this isn't a Cordova Plugin, then return navigator data:
+      // if (typeof Connection == "undefined") {
+      //    // NOTE: this technically only detects if we are connected to a
+      //    // network.  It doesn't guarantee we can communicate across the 'net
+      //    return navigator.onLine;
+      // }
 
       // if this is a Web Client and using sails.socket.io
-      if (io && io.socket && io.socket.isConnected) {
+      if (typeof io != "undefined" && io.socket && io.socket.isConnected) {
          return io.socket.isConnected();
       }
 
@@ -48060,11 +60185,19 @@ class NetworkRest extends _AppBuilder_platform_ABEmitter__WEBPACK_IMPORTED_MODUL
             params.url = this.baseURL + params.url;
          }
 
+         params.data = params.data || params.params;
+         delete params.params;
+
          params.headers = params.headers || {};
          if (this.AB.Account.authToken) {
             params.headers.Authorization = this.AB.Account.authToken;
          }
-         params.headers["Content-type"] = "application/json";
+         // Fix: don't set content-type if passed in data is a FormData object.
+         if (
+            Object.prototype.toString.call(params.data) !== "[object FormData]"
+         ) {
+            params.headers["Content-type"] = "application/json";
+         }
 
          var tenantID = this.AB.Tenant.id();
          if (tenantID) {
@@ -48076,8 +60209,18 @@ class NetworkRest extends _AppBuilder_platform_ABEmitter__WEBPACK_IMPORTED_MODUL
          if (this.isNetworkConnected()) {
             params.method = params.method || params.type;
             params.timeout = 6000; // ??
-            params.data = params.data || params.params;
-            delete params.params;
+
+            // if params.data is a FormData object, don't set Content-type
+            if (
+               Object.prototype.toString.call(params.data) ===
+               "[object FormData]"
+            ) {
+               Object.keys(params.headers).forEach((k) => {
+                  if (k.toUpperCase() == "CONTENT-TYPE") {
+                     delete params.headers[k];
+                  }
+               });
+            }
 
             this.salSend(params)
                .then((packet) => {
@@ -48158,6 +60301,7 @@ class NetworkRest extends _AppBuilder_platform_ABEmitter__WEBPACK_IMPORTED_MODUL
                         context:
                            "NetworkRest:_request:Error returned from Server (req.ab.error())",
                         data: packet.data,
+                        message: packet.message,
                      });
                      // this.AB.Analytics.logError(packet.data);
                      // this.AB.error(packet.data);
@@ -48168,10 +60312,14 @@ class NetworkRest extends _AppBuilder_platform_ABEmitter__WEBPACK_IMPORTED_MODUL
                            null
                         );
                      }
-                     return reject(packet.data);
+                     let error = new Error(packet.message ?? packet.data);
+                     error.response = packet;
+                     error.text = packet.message;
+                     error.url = `${params.method} ${params.url}`;
+                     return reject(error);
                   } else {
                      // unknown/unexpected error:
-                     var error = new Error(
+                     let error = new Error(
                         `${err.status} ${err.statusText || err.message}: ${
                            params.method
                         } ${params.url}`
@@ -48277,6 +60425,12 @@ class NetworkRestSocket extends _NetworkRest__WEBPACK_IMPORTED_MODULE_0__["defau
       // Pass the io.socket.on(*) events to our AB factory.
       listSocketEvents.forEach((ev) => {
          io.socket.on(ev, (data) => {
+            // data should be in the format:
+            // {
+            //    objectId: {uuid},
+            //    data: {object}
+            // }
+
             // check if the ev contains 'datacollection'
             // and do a single normalizeData() on the incoming data here
             // before sending it off to be processed.
@@ -48287,6 +60441,23 @@ class NetworkRestSocket extends _NetworkRest__WEBPACK_IMPORTED_MODULE_0__["defau
                   if (obj) {
                      let model = obj.model();
                      if (ev != "ab.datacollection.delete") {
+                        // if data is packed, then unpack it
+                        let model = obj.model();
+                        if (model.isCsvPacked(values)) {
+                           let lengthPacked = JSON.stringify(data).length;
+                           values = model.csvUnpack(values);
+                           data.data = values.data;
+                           let lengthUnpacked = JSON.stringify(data).length;
+                           data.__length = lengthUnpacked;
+                           data.__lengthPacked = lengthPacked;
+                           console.log(
+                              `CSV Pack: ${lengthUnpacked} -> ${lengthPacked} (${(
+                                 (lengthPacked / lengthUnpacked) *
+                                 100
+                              ).toFixed(2)}%)`
+                           );
+                        }
+
                         let jobID = this.AB.jobID();
                         console.log(`${jobID} : ${ev}:normalization begin`);
                         let timeFrom = performance.now();
@@ -48634,6 +60805,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_form_f7_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../pages/form.f7.jsx */ 84723);
 /* harmony import */ var _pages_home_f7_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../pages/home.f7.jsx */ 59289);
 /* harmony import */ var _pages_list_f7_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../pages/list.f7.jsx */ 42767);
+/* harmony import */ var _pages_inbox_f7_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../pages/inbox.f7.jsx */ 48800);
+
 
 
 
@@ -48654,6 +60827,9 @@ __webpack_require__.r(__webpack_exports__);
          path: "/",
          component: (0,_pages_home_f7_jsx__WEBPACK_IMPORTED_MODULE_2__["default"])(AB),
       },
+      // These (/form and /list) are temporary reference pages we are using
+      // in our design. These should be removed after we have our Pages &
+      // Widgets up and working:
       {
          path: "/form",
          component: (0,_pages_form_f7_jsx__WEBPACK_IMPORTED_MODULE_1__["default"])(AB),
@@ -48663,12 +60839,74 @@ __webpack_require__.r(__webpack_exports__);
          component: (0,_pages_list_f7_jsx__WEBPACK_IMPORTED_MODULE_3__["default"])(AB),
       },
       {
-         path: "(.*)",
-         component: (0,_pages_404_f7_jsx__WEBPACK_IMPORTED_MODULE_0__["default"])(AB),
+         path: "/inbox",
+         component: (0,_pages_inbox_f7_jsx__WEBPACK_IMPORTED_MODULE_4__["default"])(AB),
       },
    ];
 
-   const listPages = Application.pages();
+   if (!AB.Account.isAuthenticated) return routes;
+
+   // inbox.loadInboxData(true);
+
+   // build our Tabs:
+   // NOTE: we build links only for the Root level Tabs
+   let pagesTabsRoot = Application.pages((p) => p.menuType == "tab");
+   if (pagesTabsRoot.length > 0) {
+      let tabRoute = {
+         path: "/tabs/",
+         content: "",
+         tabs: [],
+      };
+
+      let content = `<div class="page">
+<!--
+  <div class="navbar">
+    <div class="navbar-bg"></div>
+    <div class="navbar-inner">
+                      <div class="left">
+                     <a
+                        href="#"
+                        data-panel=".panel-left"
+                        class="link icon-only panel-open"
+                     >
+                        <i class="icon material-icons">menu</i>
+                     </a>
+                  </div>
+      <div class="title">Routable Tabs</div>
+    </div>
+  </div>
+-->
+  <div class="toolbar tabbar toolbar-bottom">
+    <div class="toolbar-inner">`;
+
+      // <!-- additional "data-route-tab-id" must match to tab's ID in the specified routes -->
+      pagesTabsRoot.forEach((p) => {
+         content += `<a href="/tabs/${p.route}" class="tab-link" data-route-tab-id="${p.route}">${p.name}</a>`;
+      });
+
+      content += `</div>
+  </div>
+  <!-- Additional "tabs-routable" is required on tabs -->
+  <div class="tabs tabs-routable">`;
+
+      // Make sure ALL tabs have a defined content <div>
+      let pagesTabsAll = Application.pages((p) => p.menuType == "tab", true);
+
+      pagesTabsAll.forEach((p) => {
+         content += `<div class="tab page-content" id="${p.route}">${p.name}</div>`;
+         tabRoute.tabs.push(p.routeComponent());
+      });
+
+      content += `
+  </div>
+</div>`;
+
+      tabRoute.content = content;
+
+      routes.push(tabRoute);
+   }
+
+   const listPages = Application.pages((p) => p.menuType == "menu", true);
 
    listPages.forEach((Page) => {
       routes.push(Page.routeComponent());
@@ -53942,10 +66180,7 @@ __webpack_require__.r(__webpack_exports__);
    };
 
    allDCs.forEach((DC) => {
-      configStore.state[DC.id] = [];
-      configStore.getters[DC.id] = function ({ state }) {
-         return state[DC.id];
-      };
+      DC.initStore(configStore);
    });
 
    const store = (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])(configStore);
@@ -53954,12 +66189,221 @@ __webpack_require__.r(__webpack_exports__);
 });
 
 
+/***/ }),
+
+/***/ 7882:
+/*!********************************************!*\
+  !*** ./src/pages/componants/FormioToF7.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   FormioToF7: () => (/* binding */ FormioToF7)
+/* harmony export */ });
+// FormioToF7.js
+class FormioToF7 {
+   constructor(schema, data = {}) {
+      this.schema = schema;
+      this.elements = {};
+      this.formEl = null;
+      this.data = data;
+   }
+
+   render() {
+      const components = this.schema.components || [];
+      let html = `
+<div class="list form-store-data" id="f7-form">
+  <ul>
+`;
+
+      for (const comp of components) {
+         const fieldHTML = this.renderComponent(comp);
+         html += fieldHTML;
+      }
+
+      html += `
+  </ul>
+</div>`;
+
+      const temp = document.createElement("div");
+      temp.innerHTML = html;
+      this.formEl = temp.querySelector("#f7-form");
+
+      for (const comp of components) {
+         if (!comp.key) continue;
+         const el = this.formEl.querySelector(`[name="${comp.key}"]`);
+         if (el) this.elements[comp.key] = el;
+      }
+
+      return this.formEl;
+   }
+
+   renderComponent(comp) {
+      const label = comp.label || comp.key;
+      const name = comp.key;
+      const required = comp.validate?.required ? "required" : "";
+      const disabled = comp.disabled ? "disabled" : "";
+      const conditional = comp.conditional?.when
+         ? `data-show-if="${comp.conditional.when}:${comp.conditional.eq}"`
+         : "";
+      const value = this.data[name] ?? "";
+
+      switch (comp.type) {
+         case "textfield":
+         case "email":
+         case "number":
+         case "password":
+            return `
+<li class="item-content item-input" ${conditional}>
+  <div class="item-inner">
+    <div class="item-title item-label">${label}</div>
+    <div class="item-input-wrap">
+      <input type="${
+         comp.type === "email"
+            ? "email"
+            : comp.type === "number"
+            ? "number"
+            : comp.type === "password"
+            ? "password"
+            : "text"
+      }" name="${name}" placeholder="${label}" ${required} ${disabled} value="${value}" />
+    </div>
+  </div>
+</li>`;
+
+         case "textarea":
+            return `
+<li class="item-content item-input" ${conditional}>
+  <div class="item-inner">
+    <div class="item-title item-label">${label}</div>
+    <div class="item-input-wrap">
+      <textarea name="${name}" placeholder="${label}" ${required} ${disabled}>${value}</textarea>
+    </div>
+  </div>
+</li>`;
+
+         case "select":
+            return `
+<li class="item-content item-input" ${conditional}>
+  <div class="item-inner">
+    <div class="item-title item-label">${label}</div>
+    <div class="item-input-wrap">
+      <select name="${name}" ${required} ${disabled}>
+        ${(comp.data?.values || [])
+           .map(
+              (v) =>
+                 `<option value="${v.value}" ${
+                    v.value === value ? "selected" : ""
+                 }>${v.label}</option>`
+           )
+           .join("")}
+      </select>
+    </div>
+  </div>
+</li>`;
+
+         case "checkbox":
+            return `
+<li class="item-content" ${conditional}>
+  <label class="item-checkbox item-content">
+    <input type="checkbox" name="${name}" ${required} ${disabled} ${
+               value ? "checked" : ""
+            } />
+    <i class="icon icon-checkbox"></i>
+    <div class="item-inner">
+      <div class="item-title">${label}</div>
+    </div>
+  </label>
+</li>`;
+
+         case "radio":
+            return `
+<li class="item-content item-input" ${conditional}>
+  <div class="item-inner">
+    <div class="item-title item-label">${label}</div>
+    <div class="item-input-wrap">
+      ${(comp.values || [])
+         .map(
+            (v) => `
+      <label class="radio">
+        <input type="radio" name="${name}" value="${
+               v.value
+            }" ${required} ${disabled} ${v.value === value ? "checked" : ""} />
+        <i class="icon-radio"></i> ${v.label}
+      </label>`
+         )
+         .join("")}
+    </div>
+  </div>
+</li>`;
+
+         case "image":
+            return `
+<li class="item-content" ${conditional}>
+  <div class="item-inner">
+    <img src="${comp.image}" alt="${label}" style="max-width: 100%;" />
+  </div>
+</li>`;
+
+         case "html":
+            return `
+<li class="item-content" ${conditional}>
+  <div class="item-inner">
+    ${comp.content || ""}
+  </div>
+</li>`;
+
+         case "button":
+            return `
+<li class="item-content" ${conditional}>
+  <div class="block">
+    <button type="${
+       comp.action || "button"
+    }" class="button button-fill" ${disabled}>${label || "Submit"}</button>
+  </div>
+</li>`;
+
+         default:
+            return "";
+      }
+   }
+
+   getFormElement() {
+      return this.formEl;
+   }
+
+   getField(key) {
+      return this.elements[key];
+   }
+
+   getValues() {
+      const values = {};
+      for (const key in this.elements) {
+         const el = this.elements[key];
+         if (el.type === "checkbox") {
+            values[key] = el.checked;
+         } else if (el.type === "radio") {
+            const checked = this.formEl.querySelector(
+               `[name="${key}"]:checked`
+            );
+            values[key] = checked ? checked.value : null;
+         } else {
+            values[key] = el.value;
+         }
+      }
+      return values;
+   }
+}
+
+
 /***/ })
 
 },
 /******/ __webpack_require__ => { // webpackRuntimeModules
 /******/ var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-/******/ __webpack_require__.O(0, ["vendor"], () => (__webpack_exec__(62107)));
+/******/ __webpack_require__.O(0, ["vendors"], () => (__webpack_exec__(62107)));
 /******/ var __webpack_exports__ = __webpack_require__.O();
 /******/ }
 ]);
