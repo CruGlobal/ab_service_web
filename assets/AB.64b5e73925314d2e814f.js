@@ -8813,6 +8813,16 @@ module.exports = class ABModelCore {
       let myObject = this.object;
 
       let content = data.data;
+      const firstRow = content[0];
+
+      // Note: CSV will refer to the columns at the first row in a list to generate CSV columns.
+      // if the first row were missing somecolumns and the next rows has those columns.
+      // they will lost those columns and values
+      if(firstRow) {
+        const columnNames = Object.keys(firstRow);
+        for (const missingField of myObject.fields(f => columnNames.indexOf(f.columnName) === -1))
+           firstRow[missingField.columnName] = undefined;
+      }
       let returnType = "array";
       if (!Array.isArray(content)) {
          returnType = "single";
@@ -85547,4 +85557,4 @@ module.exports = class ABCustomEditList {
 /***/ })
 
 }]);
-//# sourceMappingURL=AB.552cda9b35ccddc49efb.js.map
+//# sourceMappingURL=AB.64b5e73925314d2e814f.js.map
