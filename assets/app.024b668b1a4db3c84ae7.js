@@ -8201,10 +8201,11 @@ class PortalWorkTaskUserForm extends _ClassUI_js__WEBPACK_IMPORTED_MODULE_0__["d
          width: 600,
          position: "center",
          modal: true,
+         move: true,
          resize: true,
          head: {
             view: "toolbar",
-            css: "webix_dark",
+            css: "webix_dark team-form-header",
             cols: [
                {},
                {
@@ -9962,7 +9963,7 @@ try {
    /* global WEBPACK_MODE SENTRY_DSN VERSION */
    webpackMode = "development";
    dsn = undefined;
-   version = "1.15.4+c20713";
+   version = "1.15.5";
 } catch (err) {
    console.warn(
       "Error reading from webpack, check the DefinePlugin is working correctly",
@@ -10513,4 +10514,4 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 /******/ var __webpack_exports__ = __webpack_require__.O();
 /******/ }
 ]);
-//# sourceMappingURL=app.659bfd1752ad1328a7f7.js.map
+//# sourceMappingURL=app.024b668b1a4db3c84ae7.js.map
