@@ -1,5 +1,5 @@
 upstream webapp {
-  server app:${UPSTREAM_APP_PORT};
+  server ${UPSTREAM_APP_HOST}:${UPSTREAM_APP_PORT};
 }
 
 map $http_x_forwarded_proto $thescheme {

@@ -10,7 +10,7 @@
 ## $ docker push digiserve/ab-web:master
 ##
 
-FROM nginx
+FROM nginx:stable-alpine
 
 LABEL com.datadoghq.ad.check_names='["nginx"]'
 LABEL com.datadoghq.ad.init_configs='[{}]'
@@ -23,7 +23,8 @@ ENV NGINX_ENTRYPOINT_QUIET_LOGS=1
 
 # Default ENV values
 ENV UPSTREAM_APP_PORT=1337
-ENV UPSTREAM_APP_HOST=api_sails
+ARG UPSTREAM_APP_HOST=api_sails
+ENV UPSTREAM_APP_HOST=$UPSTREAM_APP_HOST
 # or app?
 # Upgrade alpine packages (useful for security fixes)
 RUN apk upgrade --no-cache
