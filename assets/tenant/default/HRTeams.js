@@ -60,6 +60,7 @@ const PROGRESS_STATUS_KEY_COMMON = "common";
 const PROGRESS_STATUS_KEY_PRINCIPAL = "principal";
 const PROGRESS_STATUS_VALUE_COMMON_INIT_PAGE = "Initializing page";
 const PROGRESS_STATUS_VALUE_COMMON_CHANGE_ENTITY = "Changing to a new entity";
+const TIMEOUT_RETRY_PAGEDATA = 15000;
 
 //TODO (Guy): These should be ABDesigner settings.
 const CONTENT_LINK_DATAPANEL_COLUMNNAME = "custrecord_ccc_team_assign_emp_id";
@@ -229,12 +230,6 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                            ) {
                               contentValue[contentGroupByColumnName] =
                                  newGroupDataPK;
-                              contentValue[contentPrincipleColumnName] == 1 &&
-                                 // TODO (Guy): Hardcode to hide the reason popup to prevent to continue the next process task
-                                 this.AB.once(
-                                    "ab.task.userform",
-                                    this._fnForceHideProcessUserForm
-                                 );
                               pendingPromises.push(
                                  this.updateData(
                                     this._contentDC,
@@ -245,6 +240,8 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                                     )
                                  )
                               );
+                              if (contentValue[contentPrincipleColumnName] == 1)
+                                 this._addUserFormQueue(contentValue);
                               this._fnBusyTeamRecord($contentRecord);
                               draggedNodes.push($contentRecord);
                               isRefreshed = true;
@@ -358,12 +355,6 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                   ) {
                      updatedValue[contentFieldLinkColumnName] = newTeamDataPK;
                      updatedValue[contentGroupByColumnName] = newGroupDataPK;
-                     updatedValue[contentPrincipleColumnName] == 1 &&
-                        // TODO (Guy): Hardcode to hide the reason popup to prevent to continue the next process task
-                        this.AB.once(
-                           "ab.task.userform",
-                           this._fnForceHideProcessUserForm
-                        );
                      updatedValue = await this.updateData(
                         this._contentDC,
                         this._parseFormValueByType(
@@ -372,6 +363,8 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                            updatedValue
                         )
                      );
+                     if (updatedValue[contentPrincipleColumnName] == 1)
+                        this._addUserFormQueue(updatedValue);
                   } else {
                      const pendingPromises = [];
                      // TODO (Guy): Force update Date End with a current date.
@@ -529,10 +522,6 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                   );
                $buttons.append($deleteButton);
             })();
-         };
-         // TODO (Guy): Hardcode to hide the reason popup to prevent to continue the next process task
-         this._fnForceHideProcessUserForm = () => {
-            $$("portal_work_task_user_form")?.hide();
          };
          this._fnDropNode = async (event) => {
             this.busy();
@@ -895,7 +884,10 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                      if (customProcessTasks.needApproval) {
                         await Promise.all([
                            new Promise((resolve) => {
-                              self.AB.once("ab.task.userform", resolve);
+                              self._addUserFormQueue(newFormData, {
+                                 needUserForm: customProcessTasks.needApproval,
+                                 callback: resolve,
+                              });
                            }),
                            (async () => {
                               await self._contentDC.model.update(dataID, {
@@ -925,12 +917,6 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                               })(),
                            ]);
                         } else {
-                           newFormData[contentPrincipleColumnName] == 1 &&
-                              // TODO (Guy): Hardcode to hide the reason popup to prevent to continue the next process task
-                              self.AB.once(
-                                 "ab.task.userform",
-                                 self._fnForceHideProcessUserForm
-                              );
                            newFormData = await self.updateData(
                               self._contentDC,
                               {
@@ -938,6 +924,8 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                                  id: dataID,
                               }
                            );
+                           if (newFormData[contentPrincipleColumnName] == 1)
+                              self._addUserFormQueue(newFormData);
                         }
                         contentNodes.push({
                            [dataID]: (!isEnded && newFormData) || null,
@@ -1228,6 +1216,47 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
          const style = document.createElement("style");
          style.innerHTML = css.join("");
          document.getElementsByTagName("head")[0].appendChild(style);
+
+         // TODO (Guy): Hack!!!
+         const processFormDataKey =
+            "491956b4-c33c-49d7-b4fe-5ccd0911d62d.EmployeeEmail";
+         this._userFormQueues = [];
+         this._fnUserFormListener = this.AB._events["ab.task.userform"];
+         this.AB.off("ab.task.userform", this._fnUserFormListener);
+         this.AB.on("ab.task.userform", async (data) => {
+            if (
+               !Object.prototype.hasOwnProperty.call(
+                  data.formData,
+                  processFormDataKey
+               )
+            ) {
+               this._fnUserFormListener(data);
+               return;
+            }
+            if (this._userFormQueues.length === 0) return;
+            const userFormQueueIndex = this._userFormQueues.findIndex(
+               (e) =>
+                  e.dataPanelRecord.email === data.formData[processFormDataKey]
+            );
+            if (userFormQueueIndex > -1) {
+               const userFormQueue = this._userFormQueues.splice(
+                  userFormQueueIndex,
+                  1
+               )[0];
+               if (userFormQueue.needUserForm) this._fnUserFormListener(data);
+               if (userFormQueue.callback) {
+                  const result = userFormQueue.callback();
+                  if (result instanceof Promise) {
+                     try {
+                        await result;
+                     } catch (err) {
+                        // TODO (Guy): Error log
+                        console.error(err);
+                     }
+                  }
+               }
+            }
+         });
       }
 
       _addContentRecordToGroup(contentRecord) {
@@ -1937,6 +1966,27 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
          return this.AB.definitionByID(connectFieldID)?.settings?.linkObject;
       }
 
+      // TODO (Guy): Hardcode to hide the reason popup to prevent to continue the next process task
+      _addUserFormQueue(
+         contentValue,
+         { callback, needUserForm } = { callback: null, needUserForm: false }
+      ) {
+         const dataPanelDC = this._contentDisplayDCs.find(
+            (contentDisplayDC) =>
+               contentDisplayDC.datasource === this._dataPanelDCs[0].datasource
+         );
+         const dataPanelPK = dataPanelDC.datasource.PK();
+         this._userFormQueues.push({
+            dataPanelRecord: dataPanelDC.getData(
+               (e) =>
+                  e[dataPanelPK] ==
+                  contentValue[CONTENT_LINK_DATAPANEL_COLUMNNAME]
+            )[0],
+            callback,
+            needUserForm,
+         });
+      }
+
       _isLessThanDay(date) {
          return Math.abs(new Date() - date) / 36e5 < 24;
       }
@@ -1947,8 +1997,22 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
       }
 
       async _pageData(dc, mainCallback, callback) {
-         await this._waitDCReady(dc);
+         try {
+            await this._waitDCReady(dc);
+         } catch (err) {
+            // TODO (Guy): Error log
+            console.error(err);
+         }
          let records = dc.getData();
+         const retryTimeout = setTimeout(async () => {
+            try {
+               mainCallback &&
+                  (await mainCallback(records, false, dc, callback));
+            } catch (err) {
+               // TODO (Guy): Error log
+               console.error(err);
+            }
+         }, TIMEOUT_RETRY_PAGEDATA);
          try {
             if (
                records.length < DC_OFFSET ||
@@ -1973,9 +2037,20 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                this._isPageDataTerminated
             )
                throw null;
+            clearTimeout(retryTimeout);
             mainCallback && (await mainCallback(records, false, dc, callback));
-         } catch {
-            mainCallback && (await mainCallback(records, true, dc, callback));
+         } catch (err) {
+            // TODO (Guy): Error log
+            if (err) console.error(err);
+            else {
+               clearTimeout(retryTimeout);
+               try {
+                  mainCallback &&
+                     (await mainCallback(records, true, dc, callback));
+               } catch (err) {
+                  console.error(err);
+               }
+            }
          }
       }
 
