@@ -43969,12 +43969,16 @@ module.exports = class ABFieldConnect extends ABFieldConnectCore {
                   });
                };
 
+               const selectedValue = theEditor?.config?.value;
+
                // we also need to get selected values of xxx->one connections
                // if we are looking at a field in a form we look at linkViaOneValues
                // if we are looking at a grid we are editing we look at theEditor?.config?.value
                if (
                   this?.settings?.linkViaType == "one" &&
-                  (this?.linkViaOneValues || theEditor?.config?.value)
+                  (this?.linkViaOneValues ||
+                     (!Array.isArray(selectedValue) && selectedValue) ||
+                     (Array.isArray(selectedValue) && selectedValue.length))
                ) {
                   let values = "";
                   // determine if we are looking in a grid or at a form field
@@ -44000,7 +44004,7 @@ module.exports = class ABFieldConnect extends ABFieldConnectCore {
                   // make sure values are unique:
                   let valHash = {};
                   values.split(",").forEach((v) => {
-                     valHash[v] = v;
+                     if (v) valHash[v] = v;
                   });
                   Object.keys(valHash).forEach((v) => {
                      whereRels.rules.push({
@@ -85557,4 +85561,4 @@ module.exports = class ABCustomEditList {
 /***/ })
 
 }]);
-//# sourceMappingURL=AB.64b5e73925314d2e814f.js.map
+//# sourceMappingURL=AB.7a78c5f3111c5dd45b41.js.map
