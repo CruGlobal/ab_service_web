@@ -17,6 +17,12 @@ server {
     gzip_static on;
     root /app/assets;
 
+    location = /monitors/lb {
+        return 200 'OK';
+        add_header Content-Type text/plain;
+        access_log off;
+    }
+
     # / -> /app/assets/index.html
     # Serves the main index.html, `no-cache` policy for freshness
     location = / {
