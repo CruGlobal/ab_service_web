@@ -1,4 +1,4 @@
-resolver 127.0.0.11 valid=5s;
+resolver 10.16.0.2 valid=5s ipv6=off;
 
 upstream webapp {
   server ${UPSTREAM_APP_HOST}:${UPSTREAM_APP_PORT};
