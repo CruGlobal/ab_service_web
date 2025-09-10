@@ -1,5 +1,6 @@
 upstream webapp {
     # See https://nginx.org/en/docs/http/ngx_http_upstream_module.html#upstream
+    zone backend_zone 64k;
     resolver 10.16.0.2 valid=5s ipv6=off;
     server ${UPSTREAM_APP_HOST}:${UPSTREAM_APP_PORT} resolve;
 }
