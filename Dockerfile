@@ -21,6 +21,8 @@ HEALTHCHECK --interval=10s --timeout=5s CMD curl -f http://127.0.0.1:81/health-c
 
 ENV NGINX_ENTRYPOINT_QUIET_LOGS=1
 
+EXPOSE 8000/tcp
+
 # Default ENV values
 ENV UPSTREAM_APP_PORT=1337
 ARG UPSTREAM_APP_HOST=api_sails
