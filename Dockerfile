@@ -14,7 +14,7 @@ FROM nginx:stable-alpine
 
 LABEL com.datadoghq.ad.check_names='["nginx"]'
 LABEL com.datadoghq.ad.init_configs='[{}]'
-LABEL com.datadoghq.ad.instances='[{"nginx_status_url": "http://%%host%%:81/nginx_status/"}]'
+# LABEL com.datadoghq.ad.instances='[{"nginx_status_url": "http://%%host%%:81/nginx_status/"}]'
 LABEL com.datadoghq.ad.logs='[{"source": "nginx"}]'
 
 HEALTHCHECK --interval=10s --timeout=5s CMD curl -f http://127.0.0.1:81/health-check || exit 1
