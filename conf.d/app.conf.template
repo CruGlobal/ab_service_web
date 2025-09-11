@@ -46,7 +46,7 @@ server {
     # /assets -> /app/assets
     location /assets/ {
         add_header Cache-Control "max-age=31536000";
-        alias /app/assets;
+        alias /app/assets/;
     }
 
     # /assets/tenant -> /app/assets/tenant
