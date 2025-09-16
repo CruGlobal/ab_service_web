@@ -19199,7 +19199,9 @@ function setValueToFormula(object, formulaString, rowData) {
             } else {
                formulaString = formulaString.replace(
                   element,
-                  rowData[columnName] ? field.format(rowData) : ""
+                  rowData[columnName] || rowData[field.relationName?.()]
+                     ? field.format(rowData)
+                     : ""
                );
             }
          }
@@ -85561,4 +85563,4 @@ module.exports = class ABCustomEditList {
 /***/ })
 
 }]);
-//# sourceMappingURL=AB.7a78c5f3111c5dd45b41.js.map
+//# sourceMappingURL=AB.cd6df5fffc04bbf8b159.js.map
