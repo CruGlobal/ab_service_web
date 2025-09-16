@@ -19199,7 +19199,7 @@ function setValueToFormula(object, formulaString, rowData) {
             } else {
                formulaString = formulaString.replace(
                   element,
-                  rowData[columnName] || rowData[field.relationName?.()]
+                  (rowData[columnName] || rowData[field.relationName?.()])
                      ? field.format(rowData)
                      : ""
                );
@@ -85563,4 +85563,4 @@ module.exports = class ABCustomEditList {
 /***/ })
 
 }]);
-//# sourceMappingURL=AB.cd6df5fffc04bbf8b159.js.map
+//# sourceMappingURL=AB.235813414ffcfc217bb6.js.map
