@@ -46431,18 +46431,19 @@ class ABMobileViewFormFile extends _core_mobile_ABMobileViewFormFileCore_js__WEB
    //    super(...params);
    // }
 
-   async init() {
-      const _this = this;
-      const $$ = this.AB.$;
+   // async init() {
+   //    const $$ = this.AB.$;
 
-      $$(`#${this.idUpload}`).on("change", async (ev) => {
-         // update the name field:
-         let name = ($$(`#${this.idUpload}`).val() ?? "").split("\\").pop();
-         if (name != "") {
-            $$(`#${this.idFileName}`).html(`<b>${name}</b>`);
-         }
-      });
-   }
+   //    // Wait until the input exists
+   //    this.AB.once("view:mounted", () => {
+   //       $$(`#${this.idUpload}`).on("change", () => {
+   //          let name = ($$(`#${this.idUpload}`).val() ?? "").split("\\").pop();
+   //          if (name) {
+   //             $$(`#${this.idFileName}`).html(`<b>${name}</b>`);
+   //          }
+   //       });
+   //    });
+   // }
 
    destroy() {}
 
@@ -46512,19 +46513,17 @@ class ABMobileViewFormFile extends _core_mobile_ABMobileViewFormFileCore_js__WEB
    }
 
    inputElementUpload($h) {
-      let field = this.field();
-      // let placeholder = this.settings.placeholder ?? "";
       let $inputElement = $h`
-         <input 
-            id=${this.idUpload} 
-            type="file"
-            name="file"
-            class="upload"
-         />
-      `;
-
+    <input 
+      id=${this.idUpload} 
+      type="file"
+      name="file"
+      class="upload"
+      accept="image/*"
+      style="position:absolute; left:0; top:0; width:100%; height:100%; opacity:0; cursor:pointer;"
+    />
+  `;
       this.updateProperties($inputElement);
-
       return $inputElement;
    }
 
@@ -46542,28 +46541,80 @@ class ABMobileViewFormFile extends _core_mobile_ABMobileViewFormFileCore_js__WEB
 
    html($h) {
       let field = this.field();
+
+      // setTimeout(() => {
+      const $$ = this.AB.$;
+      $$(`#${this.idUpload}`)
+         .off("change")
+         .on("change", (ev) => {
+            let file = ev.target.files[0];
+            let name = file?.name ?? "";
+
+            // Show file name
+            if (name) {
+               $$(`#${this.idFileName}`).html(`<b>${name}</b>`);
+            }
+
+            // Show image preview if it's an image
+            if (file && file.type.startsWith("image/")) {
+               let reader = new FileReader();
+               reader.onload = (e) => {
+                  // Append or replace preview
+                  let previewEl = $$(`#${this.idFileName} .preview`);
+                  let imgTag = `<div class="preview" style="margin-top:6px;">
+                  <img src="${e.target.result}" style="max-width:100%; border-radius:6px;" />
+               </div>`;
+                  if (previewEl.length) {
+                     previewEl.replaceWith(imgTag);
+                  } else {
+                     $$(`#${this.idFileName}`).append(imgTag);
+                  }
+               };
+               reader.readAsDataURL(file);
+            } else {
+               // Remove preview if not image
+               $$(`#${this.idFileName} .preview`).remove();
+            }
+         });
+      // });
+
       return $h`
-         <div class="list-block inputs-list">
-            <div class="item-content">
-                <div class="item-media button button-raised button-fill fileUpload">
-                    <span class="ico_upload"><i class="fa fa-paperclip" aria-hidden="true"></i></span>
-                    ${this.inputFormElement($h)}
-                </div>
-                <div class="item-inner">
-                  <div class="item-title floating-label">${this.label}</div>
-                  <div class="item-input">
-                    <input 
-                       id=${this.idFormElement} 
-                       name=${field.columnName} 
-                       readonly 
-                       type="hidden" 
-                       placeholder=""
-                    />
-                    <div id=${this.idFileName}></div>
+      <div class="list no-hairlines-md">
+         <div class="item-content">
+            <div class="item-inner" style="flex-direction: column; align-items: stretch;">
+
+               <!-- file upload -->
+               <div 
+                  class="button button-fill button-large" 
+                  style="position: relative; overflow: hidden; width: 100%;"
+               >
+                  <span style="display: inline-flex; align-items: center; gap: 6px;">
+                  <i class="material-icons">attach_file</i>
+                  ${this.label}
+                  </span>
+
+                  <!-- form + input generate -->
+                  <div style="position:absolute; top:0; left:0; width:100%; height:100%; opacity:0; cursor:pointer;">
+                  ${this.inputFormElement($h)}
                   </div>
-                </div>
+               </div>
+
+               <!-- display file name and preview -->
+               <input 
+                    id=${this.idFormElement} 
+                    name=${field.columnName} 
+                    readonly 
+                    type="hidden" 
+                    placeholder=""
+               />
+               <div 
+                  id="${this.idFileName}" 
+                  style="margin-top: 8px; font-size: 14px; color: var(--f7-text-color);"
+               ></div>
+
             </div>
-         </div>`;
+         </div>
+      </div>`;
    }
 }
 
@@ -58889,7 +58940,13 @@ class Account extends _AppBuilder_platform_ABEmitter__WEBPACK_IMPORTED_MODULE_0_
          // If no user and tenant isn't using local auth start
          // the external auth workflow:
          if (tenantConfig.authType !== "login") {
+            const referer = window.location.href;
+            // console.log("referer1 :" + referer);
+            if (referer && referer.includes("/mobile")) {
+               sessionStorage.setItem("refererUrlPWA", referer);
+            }
             window.location.assign("/auth/login");
+            return;
          }
          // Keep going if the tenant is using local auth
       }
