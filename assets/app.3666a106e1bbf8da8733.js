@@ -865,6 +865,12 @@ class Bootstrap extends EventEmitter {
          _utils_performance_js__WEBPACK_IMPORTED_MODULE_2__["default"].setContext("user", {
             id: userInfo.id,
          });
+         // redirect if has refererUrlPWA
+         const refererUrlPWA = sessionStorage.getItem("refererUrlPWA");
+         if (refererUrlPWA) {
+            sessionStorage.removeItem("refererUrlPWA");
+            window.location.assign(refererUrlPWA);
+         }
       } else {
          let { options: tenantConfig } = _config_Config_js__WEBPACK_IMPORTED_MODULE_1__["default"].tenantConfig();
          tenantConfig =
@@ -9966,7 +9972,7 @@ try {
    /* global WEBPACK_MODE SENTRY_DSN VERSION */
    webpackMode = "development";
    dsn = undefined;
-   version = "1.15.11";
+   version = "1.15.12";
 } catch (err) {
    console.warn(
       "Error reading from webpack, check the DefinePlugin is working correctly",
@@ -10517,4 +10523,4 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 /******/ var __webpack_exports__ = __webpack_require__.O();
 /******/ }
 ]);
-//# sourceMappingURL=app.dd94dfca6b41dfc02d38.js.map
+//# sourceMappingURL=app.3666a106e1bbf8da8733.js.map
