@@ -18301,7 +18301,7 @@ const ABFieldLongTextDefaults = {
    // if a {fn} is provided, it will be called with the ABField as a parameter:
    //  (field) => field.setting.something == true
 
-   isSortable: false,
+   isSortable: true,
    // {bool} / {fn}
    // determines if the current ABField can be used to Sort data.
    // if a {fn} is provided, it will be called with the ABField as a parameter:
@@ -85572,4 +85572,4 @@ module.exports = class ABCustomEditList {
 /***/ })
 
 }]);
-//# sourceMappingURL=AB.67180c13ce0022cea87c.js.map
+//# sourceMappingURL=AB.95700cc3e5c5025274f4.js.map
