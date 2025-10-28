@@ -2940,6 +2940,9 @@ module.exports = class ABDataCollectionCore extends ABMLClass {
       // Skip CSV packing
       this.settings.skipPack = values?.settings?.skipPack ?? false;
 
+      // Selected fields
+      this.settings.select = values?.settings?.select ?? null;
+
       this.__datasource = null;
       // {obj} .__datasource
       // the reference to the ABObject/ABObjectQuery that this ABDataCollection
@@ -5118,6 +5121,9 @@ module.exports = class ABDataCollectionCore extends ABMLClass {
          sort: sorts,
          populate: this.shouldPopulate,
       };
+
+      // Select specific fields
+      if (this.settings?.select) cond.select = this.settings.select;
 
       // Skip CSV packing
       if (this.settings?.skipPack) cond.skipPack = this.settings.skipPack;
@@ -85572,4 +85578,4 @@ module.exports = class ABCustomEditList {
 /***/ })
 
 }]);
-//# sourceMappingURL=AB.95700cc3e5c5025274f4.js.map
+//# sourceMappingURL=AB.f2a58e6d1662e7ac2474.js.map
