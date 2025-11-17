@@ -12575,7 +12575,7 @@ module.exports = class FilterComplexCore extends ABComponent {
 
       super(null, idBase, AB);
 
-      this.Account = { username: "??" };
+      this.Account = { username: "??", email: "??" };
       this._settings = {};
       this.condition = {};
       // const batchName; // we need to revert to this default when switching away from a in/by query field
@@ -12906,6 +12906,21 @@ module.exports = class FilterComplexCore extends ABComponent {
             break;
          default:
             result = this.queryFieldValid(value, rule, compareValue);
+            break;
+      }
+
+      return result;
+   }
+
+   emailValid(value, rule, compareValue) {
+      let result = false;
+
+      switch (rule) {
+         case "is_current_email":
+            result = value == compareValue;
+            break;
+         case "is_not_current_email":
+            result = value != compareValue;
             break;
       }
 
@@ -13360,10 +13375,11 @@ module.exports = class FilterComplexCore extends ABComponent {
                   processFieldKeys = ["calculate", "formula", "number"];
 
                   break;
-
+               case "email":
+                  conditions = conditions.concat(this.fieldsAddFiltersEmail(f));
+               // eslint-disable-next-line no-fallthrough
                case "string":
                case "LongText":
-               case "email":
                case "AutoIndex":
                   conditions = conditions.concat(
                      this.fieldsAddFiltersString(f)
@@ -13635,6 +13651,32 @@ module.exports = class FilterComplexCore extends ABComponent {
             value: booleanConditions[condKey],
             batch: "none",
             handler: (a, b) => this.booleanValid(a, condKey, b),
+         });
+      }
+
+      return result;
+   }
+
+   fieldsAddFiltersEmail(field) {
+      let userConditions = {
+         is_current_email: {
+            batch: "none",
+            label: this.labels.component.isCurrentUserEmailCondition,
+         },
+         is_not_current_email: {
+            batch: "none",
+            label: this.labels.component.isNotCurrentUserEmailCondition,
+         },
+      };
+
+      let result = [];
+
+      for (let condKey in userConditions) {
+         result.push({
+            id: condKey,
+            value: userConditions[condKey].label,
+            batch: userConditions[condKey].batch,
+            handler: (a, b) => this.emailValid(a, condKey, b),
          });
       }
 
@@ -85578,4 +85620,4 @@ module.exports = class ABCustomEditList {
 /***/ })
 
 }]);
-//# sourceMappingURL=AB.f2a58e6d1662e7ac2474.js.map
+//# sourceMappingURL=AB.e2f3bf5ebde302667849.js.map
