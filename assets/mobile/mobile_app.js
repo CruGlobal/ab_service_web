@@ -4762,6 +4762,33 @@ function queueOperation(fn, timeout = 20) {
    }
 }
 
+/**
+ * @function SearchWhereCond()
+ * Recursively search through the where condition and find any
+ * rules that match one of the provided rules.
+ * If one is found, we call the given callback with that rule.
+ * @param {*} cond
+ *        The current condition to search through. Could be the base
+ *        glue logic, or an individual rule.
+ * @param {array} rules
+ *        An array of cond.rule values to search for.
+ *        eg: ["equals", "contains", "in_data_collection"]
+ * @param {fn} cb
+ *        A callback function to call when a matching rule is found.
+ */
+function SearchWhereCond(cond, rules, cb) {
+   if (!cond) return;
+   if (cond.rules) {
+      cond.rules.forEach((r) => {
+         SearchWhereCond(r, rules, cb);
+      });
+      return;
+   }
+   if (rules.filter((f) => f == cond.rule).length > 0) {
+      cb(cond);
+   }
+}
+
 class ABDataCollectionCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(attributes, AB) {
       super(["label"], AB);
@@ -4799,6 +4826,10 @@ class ABDataCollectionCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_
       // {ABModel}
       // An instance of the ABModel used for this DataCollection to
       // access data on the server.
+
+      this._pendingLoadDataResolves = {
+         /* jobID : {pendingResolve } */
+      };
    }
 
    /**
@@ -4913,6 +4944,9 @@ class ABDataCollectionCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_
       // {int} .settings.syncType
       // how is the data between this ABDataCollection and it's
       // .datasource synced?
+
+      // Skip CSV packing
+      this.settings.skipPack = values?.settings?.skipPack ?? false;
 
       this.__datasource = null;
       // {obj} .__datasource
@@ -6106,6 +6140,12 @@ class ABDataCollectionCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_
                      this.__dataCollection.remove(id);
                      this.__totalCount--;
 
+                     // NOTE: Preserve the current cursor after item removal.
+                     // Webix v.10.1 automatically clears the cursor when an item is removed from the collection.
+                     if (currData && currData.id != id) {
+                        this.__dataCollection.setCursor(currData.id);
+                     }
+
                      // TODO: update tree list
                      // if (this.__treeCollection) {
                      //  this.__treeCollection.remove(id);
@@ -6265,6 +6305,30 @@ class ABDataCollectionCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_
                            f.getRelationValue(values);
                      }
                   });
+
+                  // Refresh Formula Fields when the connected fields are populated
+                  if (this.settings?.populate) {
+                     obj.fields(
+                        (fld) =>
+                           fld &&
+                           fld.key == "formula" &&
+                           connectedFields.filter((conFld) => {
+                              return (
+                                 conFld.id == fld.settings.field &&
+                                 // Populate all connect fields
+                                 (this.settings?.populate == true ||
+                                    // Populate specific connect fields
+                                    (Array.isArray(this.settings?.populate) &&
+                                       this.settings?.populate.indexOf(
+                                          conFld.id
+                                       ) > -1))
+                              );
+                           }).length > 0
+                     ).forEach((formulaField) => {
+                        updateItemData[formulaField.columnName] =
+                           formulaField.format(updateItemData, true);
+                     });
+                  }
 
                   // If this item needs to update
                   // meaning there is > 1 key in the object (we always have .id)
@@ -6547,7 +6611,8 @@ class ABDataCollectionCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_
                // NOTE: we can clear data here to update UI display, then data will be fetched when webix.dataFeed event
                if (
                   !this.settings?.loadAll &&
-                  currentCursor?.id != linkDC.previousCursorId
+                  linkDC.previousCursorId != null &&
+                  linkDC.previousCursorId != currentCursor?.id
                )
                   this.clearAll();
 
@@ -6743,6 +6808,34 @@ class ABDataCollectionCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_
             },
          });
       }
+
+      // add listeners to Datacollection that we are filtering using
+      // in_data_collection conditions:
+      let listFilterDCs = [];
+      let [whereCond] = this.getWhereClause(0, 0);
+      SearchWhereCond(
+         whereCond,
+         ["in_data_collection", "not_in_data_collection"],
+         (rule) => {
+            // value should be the ID reference to the cond DC
+            let condDC = this.AB.datacollectionByID(rule.value);
+            if (condDC) {
+               listFilterDCs.push(condDC);
+            }
+         }
+      );
+      listFilterDCs.forEach((condDC) => {
+         this.eventAdd({
+            emitter: condDC,
+            eventName: "loadData",
+            listener: () => {
+               // the filter by datacollection has changed values
+               // so we need to reload based upon the new values
+               this.clearAll();
+               this.loadData();
+            },
+         });
+      });
    }
 
    /*
@@ -6932,9 +7025,33 @@ class ABDataCollectionCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_
          wheres = __additionalWheres;
       }
 
+      // Handle conditions that have in_data_collection
+      // The server doesn't know the current state of the datacollections
+      // running on the client, so if we are using a condition that
+      // references our datacollection, we need to pass along the
+      // where condition of that datacollection
+      let patch = (rule) => {
+         // value should be the ID reference to the cond DC
+         let condDC = this.AB.datacollectionByID(rule.value);
+         if (condDC) {
+            let [cond] = condDC.getWhereClause(0, 0);
+            if (cond) {
+               // store that under .linkCond
+               rule.linkCond = cond;
+            }
+         }
+      };
+      SearchWhereCond(
+         wheres,
+         ["in_data_collection", "not_in_data_collection"],
+         patch
+      );
+
       // remove any null in the .rules
       // if (wheres?.rules?.filter) wheres.rules = wheres.rules.filter((r) => r);
-      wheres = this.datasource.whereCleanUp(wheres);
+      if (this.datasource) {
+         wheres = this.datasource.whereCleanUp(wheres);
+      }
 
       return [wheres, start, limit];
    }
@@ -6961,107 +7078,7 @@ class ABDataCollectionCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_
       // pull the defined sort values
       var sorts = this.settings.objectWorkspace.sortFields || [];
 
-      let [wheres, s2, l2] = this.getWhereClause(start, limit);
-      start = s2;
-      limit = l2;
-
-      // // pull filter conditions
-      // let wheres = this.AB.cloneDeep(
-      //    this.settings.objectWorkspace.filterConditions ?? {}
-      // );
-      // // if we pass new wheres with a reload use them instead
-      // if (this.__reloadWheres) {
-      //    wheres = this.__reloadWheres;
-      // }
-      // wheres.glue = wheres.glue || "and";
-      // wheres.rules = wheres.rules || [];
-
-      // const __additionalWheres = {
-      //    glue: "and",
-      //    rules: [],
-      // };
-
-      // // add the filterCond if there are rules to add
-      // if (this.__filterCond?.rules?.length > 0) {
-      //    __additionalWheres.rules.push(this.__filterCond);
-      // }
-
-      // // Filter by a selected cursor of a link DC
-      // let linkRule = this.ruleLinkedData();
-      // if (!this.settings.loadAll && linkRule) {
-      //    __additionalWheres.rules.push(linkRule);
-      // }
-      // // pull data rows following the follow data collection
-      // else if (this.datacollectionFollow) {
-      //    const followCursor = this.datacollectionFollow.getCursor();
-      //    // store the PK as a variable
-      //    let PK = this.datasource.PK();
-      //    // if the datacollection we are following is a query
-      //    // add "BASE_OBJECT." to the PK so we can select the
-      //    // right value to report the cursor change to
-      //    if (this.datacollectionFollow.settings.isQuery) {
-      //       PK = "BASE_OBJECT." + PK;
-      //    }
-      //    if (followCursor) {
-      //       start = 0;
-      //       limit = null;
-      //       wheres = {
-      //          glue: "and",
-      //          rules: [
-      //             {
-      //                key: this.datasource.PK(),
-      //                rule: "equals",
-      //                value: followCursor[PK],
-      //             },
-      //          ],
-      //       };
-      //    }
-      //    // Set no return rows
-      //    else {
-      //       wheres = {
-      //          glue: "and",
-      //          rules: [
-      //             {
-      //                key: this.datasource.PK(),
-      //                rule: "equals",
-      //                value: "NO RESULT ROW",
-      //             },
-      //          ],
-      //       };
-      //    }
-      // }
-
-      // // Combine setting & program filters
-      // if (__additionalWheres.rules.length) {
-      //    if (wheres.rules.length) {
-      //       __additionalWheres.rules.unshift(wheres);
-      //    }
-      //    wheres = __additionalWheres;
-      // }
-
-      // // remove any null in the .rules
-      // // if (wheres?.rules?.filter) wheres.rules = wheres.rules.filter((r) => r);
-      // wheres = obj.whereCleanUp(wheres);
-
-      // set query condition
-      var cond = {
-         where: wheres || {},
-         // limit: limit || 20,
-         skip: start || 0,
-         sort: sorts,
-         populate: this.shouldPopulate,
-      };
-
-      //// NOTE: we no longer set a default limit on loadData() but
-      //// require the platform.loadData() to pass in a default limit.
-      if (limit != null) {
-         cond.limit = limit;
-      }
-
-      // if settings specify loadAll, then remove the limit
-      if (this.settings.loadAll && !this.isCursorFollow) {
-         delete cond.limit;
-      }
+      // Wait for any dependent DCs to initialize
 
       //
       // Step 1: make sure any DataCollections we are linked to are
@@ -7077,23 +7094,55 @@ class ABDataCollectionCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_
       // Step 2: if we have any filter rules that depend on other DataCollections,
       // then wait for them to be initialized first.
       // eg: "(not_)in_data_collection" rule filters
-      if (wheres?.rules?.length) {
+      // get a preWheres that will at least include our specific filter data
+      // and use that to determine if we need to wait for any other DCs to load
+      let [preWheres] = this.getWhereClause(start, limit);
+      if (preWheres?.rules?.length) {
          const dcFilters = [];
 
-         wheres.rules.forEach((rule) => {
-            // if this collection is filtered by data collections we need to load them in case we need to validate from them later
-            if (
-               rule.rule == "in_data_collection" ||
-               rule.rule == "not_in_data_collection"
-            ) {
-               const dv = this.AB.datacollectionByID(rule.value);
+         // this is a recursive search that should catch all rules
+         SearchWhereCond(
+            preWheres,
+            ["in_data_collection", "not_in_data_collection"],
+            (rule) => {
+               let dv = this.AB.datacollectionByID(rule.value);
                if (dv) {
                   dcFilters.push(this.waitForDataCollectionToInitialize(dv));
                }
             }
-         });
+         );
 
          await Promise.all(dcFilters);
+      }
+
+      // NOW that any dependent DCs are initialized,
+      // we can proceed with calculating our where clause for real this time
+
+      let [wheres, s2, l2] = this.getWhereClause(start, limit);
+      start = s2;
+      limit = l2;
+
+      // set query condition
+      var cond = {
+         where: wheres || {},
+         // limit: limit || 20,
+         skip: start || 0,
+         sort: sorts,
+         populate: this.shouldPopulate,
+      };
+
+      // Skip CSV packing
+      if (this.settings?.skipPack) cond.skipPack = this.settings.skipPack;
+
+      //// NOTE: we no longer set a default limit on loadData() but
+      //// require the platform.loadData() to pass in a default limit.
+      if (limit != null) {
+         cond.limit = limit;
+      }
+
+      // if settings specify loadAll, then remove the limit
+      if (this.settings.loadAll && !this.isCursorFollow) {
+         delete cond.limit;
       }
 
       //
@@ -7103,12 +7152,11 @@ class ABDataCollectionCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_
       // the actual resolve() should happen in the
       // .processIncomingData() after the  data is processed.
       return new Promise((resolve, reject) => {
-         this._pendingLoadDataResolve = {
-            resolve: resolve,
-            reject: reject,
-         };
-
+         const jobID = this.AB.jobID();
+         cond.jobID = jobID;
+         this._pendingLoadDataResolves[jobID] = { resolve, reject };
          this.platformFind(model, cond).catch((err) => {
+            delete this._pendingLoadDataResolves[jobID];
             reject(err);
          });
       });
@@ -7249,11 +7297,9 @@ class ABDataCollectionCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_
             }
 
             // now we close out our .loadData() promise.resolve() :
-            if (this._pendingLoadDataResolve) {
-               this._pendingLoadDataResolve.resolve();
-
-               // after we call .resolve() stop tracking this:
-               this._pendingLoadDataResolve = null;
+            if (data.jobID) {
+               this._pendingLoadDataResolves[data.jobID].resolve();
+               delete this._pendingLoadDataResolves[data.jobID];
             }
 
             // If dc set load all, then it will not trigger .loadData in dc at
@@ -10899,6 +10945,16 @@ class ABModelCore {
       let myObject = this.object;
 
       let content = data.data;
+      const firstRow = content[0];
+
+      // Note: CSV will refer to the columns at the first row in a list to generate CSV columns.
+      // if the first row were missing somecolumns and the next rows has those columns.
+      // they will lost those columns and values
+      if(firstRow) {
+        const columnNames = Object.keys(firstRow);
+        for (const missingField of myObject.fields(f => columnNames.indexOf(f.columnName) === -1))
+           firstRow[missingField.columnName] = undefined;
+      }
       let returnType = "array";
       if (!Array.isArray(content)) {
          returnType = "single";
@@ -10974,8 +11030,9 @@ class ABModelCore {
          }
 
          let connData = Object.values(connHash);
+         const isPKID = connPK === "id";
          connData.forEach((c) => {
-            if (c.id == c[connPK]) {
+            if (!isPKID && c.id == c[connPK]) {
                delete c.id;
             }
 
@@ -10989,10 +11046,11 @@ class ABModelCore {
       });
 
       // final data preparations for csv encoding
+      const isPKID = myObject.PK();
       for (let I = 0; I < content.length; I++) {
          let row = content[I];
          // client side .normalizeData() should repopulate .id
-         delete row.id;
+         !isPKID && delete row.id;
 
          // we don't use .properties anymore, right?
          delete row.properties;
@@ -14141,7 +14199,7 @@ var queryPreviousTasks = (
 
          // value = task[method].apply(task, param);
 
-         if (value === null) value = [];
+         if (value == null) value = [];
          responses = _concat(responses, value);
 
          // add any previous tasks to our list
@@ -14905,9 +14963,9 @@ class FilterComplexCore extends _platform_ABComponent__WEBPACK_IMPORTED_MODULE_0
    dateValid(value, rule, compareValue) {
       let result = false;
 
-      if (!(value instanceof Date)) value = new Date(value);
+      if (value && !(value instanceof Date)) value = new Date(value);
 
-      if (!(compareValue instanceof Date))
+      if (compareValue && !(compareValue instanceof Date))
          compareValue = new Date(compareValue);
       switch (rule) {
          case "less":
@@ -14922,21 +14980,29 @@ class FilterComplexCore extends _platform_ABComponent__WEBPACK_IMPORTED_MODULE_0
          case "greater_or_equal":
             result = value >= compareValue;
             break;
+         case "less_current":
+            result = value.setHours?.(0, 0, 0, 0) < (new Date()).setHours(0, 0, 0, 0);
+            break;
+         case "greater_current":
+            result = value.setHours?.(0, 0, 0, 0) > (new Date()).setHours(0, 0, 0, 0);
+            break;
+         case "less_or_equal_current":
+            result = value.setHours?.(0, 0, 0, 0) <= (new Date()).setHours(0, 0, 0, 0);
+            break;
+         case "greater_or_equal_current":
+            result = value.setHours?.(0, 0, 0, 0) >= (new Date()).setHours(0, 0, 0, 0);
+            break
          case "is_current_date":
             result =
-               value.setHours(0, 0, 0, 0) == compareValue.setHours(0, 0, 0, 0);
+               value.setHours?.(0, 0, 0, 0) == compareValue.setHours(0, 0, 0, 0);
             break;
+         case "is_null":
          case "is_empty":
             result = !value;
             break;
+         case "is_not_null":
          case "is_not_empty":
             result = !!value;
-            break;
-         case "is_null":
-            result = value == null;
-            break;
-         case "is_not_null":
-            result = value != null;
             break;
          default:
             result = this.queryFieldValid(value, rule, compareValue);
@@ -15569,8 +15635,8 @@ class FilterComplexCore extends _platform_ABComponent__WEBPACK_IMPORTED_MODULE_0
       });
 
       // !!! Process Fields of ABProcess
-      // https://github.com/digi-serve/appbuilder_class_core/blob/master/FilterComplexCore.js#L636
-      // https://github.com/digi-serve/appbuilder_class_core/blob/master/FilterComplexCore.js#L564
+      // https://github.com/CruGlobal/appbuilder_class_core/blob/master/FilterComplexCore.js#L636
+      // https://github.com/CruGlobal/appbuilder_class_core/blob/master/FilterComplexCore.js#L564
       // (this._ProcessFields || [])
       //    // if there is no .field, it is probably an embedded special field
       //    .filter((pField) => pField.field == null)
@@ -20488,7 +20554,7 @@ const ABFieldLongTextDefaults = {
    // if a {fn} is provided, it will be called with the ABField as a parameter:
    //  (field) => field.setting.something == true
 
-   isSortable: false,
+   isSortable: true,
    // {bool} / {fn}
    // determines if the current ABField can be used to Sort data.
    // if a {fn} is provided, it will be called with the ABField as a parameter:
@@ -21403,9 +21469,13 @@ function setValueToFormula(object, formulaString, rowData) {
                      : ""
                );
             } else {
+               
                formulaString = formulaString.replace(
                   element,
-                  rowData[columnName] ? field.format(rowData) : ""
+                  // support normal field and connect field
+                  (rowData[columnName] || rowData[field.relationName?.()])
+                     ? field.format(rowData)
+                     : ""
                );
             }
          }
@@ -25694,6 +25764,7 @@ var AllProcessElements = [
    await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskServiceAccountingFPClose */ 29084)),
    await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskServiceAccountingFPYearClose */ 26575)),
    await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskServiceAccountingJEArchive */ 87512)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskServiceApi */ 29604)),
    await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskServiceCalculate */ 77855)),
    await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskServiceInsertRecord */ 22641)),
    await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskServiceQuery */ 76061)),
@@ -27482,6 +27553,98 @@ class AccountingJEArchiveCore extends _platform_process_tasks_ABProcessElement_j
 
 /***/ }),
 
+/***/ 76918:
+/*!*****************************************************************************!*\
+  !*** ./src/js/AppBuilder/core/process/tasks/ABProcessTaskServiceApiCore.js ***!
+  \*****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ApiTaskCore)
+/* harmony export */ });
+/* harmony import */ var _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 50138);
+
+
+let ApiDefaults = {
+   category: null,
+   // category: {string} | null
+   // if this Element should show up on one of the popup replace menus, then
+   // specify one of the categories of elements it should be an option for.
+   // Available choices: [ "start", "gateway", "task", "end" ].
+   //
+   // if it shouldn't show up under the popup menu, then leave this null
+
+   icon: "exchange", // font-awesome icon reference.  (without the 'fa-').  so 'user'  to reference 'fa-user'
+   // icon: {string}
+   // font-awesome icon reference.  (without the 'fa-').  so 'user'  to reference 'fa-user'
+
+   instanceValues: [],
+   // instanceValues: {array}
+   // a list of values this element tracks as it is operating in a process.
+
+   key: "Api",
+   // key: {string}
+   // unique key to reference this specific Task
+
+   settings: [
+      "url",
+      "method",
+      "headers",
+      "body",
+      "responseJson",
+      "storedSecrets",
+   ],
+   responseJson: 1,
+   headers: [],
+};
+
+class ApiTaskCore extends _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   constructor(attributes, process, AB) {
+      attributes.type = attributes.type || "process.task.service.api";
+      super(attributes, process, AB, ApiDefaults);
+   }
+
+   // return the default values for this DataField
+   static defaults() {
+      return ApiDefaults;
+   }
+
+   static DiagramReplace() {
+      return null;
+   }
+
+   /**
+    * processDataFields()
+    * return an array of avaiable data fields that this element
+    * can provide to other ProcessElements.
+    * Different Process Elements can make data available to other
+    * process Elements.
+    * @return {array} | null
+    */
+   processDataFields() {
+      const label = `${this.label}->rawResponse`;
+      if (!this._fakeField) {
+         this._fakeObj = this.AB.objectNew({});
+         this._fakeField = this.AB.fieldNew(
+            { key: "string", name: label, label },
+            this._fakeObj
+         );
+      }
+      return [
+         {
+            key: `${this.id}.rawResponse`,
+            label,
+            field: this._fakeField,
+         },
+      ];
+   }
+}
+
+
+/***/ }),
+
 /***/ 97286:
 /*!***********************************************************************************!*\
   !*** ./src/js/AppBuilder/core/process/tasks/ABProcessTaskServiceCalculateCore.js ***!
@@ -28855,7 +29018,7 @@ class ABProcessTaskUserApprovalCore extends _platform_process_tasks_ABProcessEle
 
       // NOTE: We are pretending our response is a type of ABFieldList. But our
       // ABField objects no longer allow "." in our columnNames:
-      //    ( https://github.com/digi-serve/appbuilder_class_core/blob/212cf5fa1c1d5c959aa246c730582ed50809ee0f/dataFields/ABFieldCore.js#L262 )
+      //    ( https://github.com/CruGlobal/appbuilder_class_core/blob/212cf5fa1c1d5c959aa246c730582ed50809ee0f/dataFields/ABFieldCore.js#L262 )
       // But our Process tasks really will be expecting it there so lets put
       // it back:
       listField.columnName = `${myID}.userFormResponse`;
@@ -46519,7 +46682,6 @@ class ABMobileViewFormFile extends _core_mobile_ABMobileViewFormFileCore_js__WEB
       type="file"
       name="file"
       class="upload"
-      accept="image/*"
       style="position:absolute; left:0; top:0; width:100%; height:100%; opacity:0; cursor:pointer;"
     />
   `;
@@ -50584,6 +50746,54 @@ class AccountingJEArchive extends _core_process_tasks_ABProcessTaskServiceAccoun
             this[s] = this.property(ids[s]);
          }
       });
+   }
+}
+
+
+/***/ }),
+
+/***/ 29604:
+/*!*****************************************************************************!*\
+  !*** ./src/js/AppBuilder/platform/process/tasks/ABProcessTaskServiceApi.js ***!
+  \*****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABProcessTaskServiceAPI)
+/* harmony export */ });
+/* harmony import */ var _core_process_tasks_ABProcessTaskServiceApiCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskServiceApiCore.js */ 76918);
+
+
+class ABProcessTaskServiceAPI extends _core_process_tasks_ABProcessTaskServiceApiCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   ////
+   //// Process Instance Methods
+   ////
+
+   warningsEval() {
+      super.warningsEval();
+
+      if (!this.formulaText) {
+         this.warningMessage("is missing a formula.");
+      }
+
+      if (this.formulaText) {
+         const hash = {};
+         (this.process.processDataFields(this) || []).forEach((item) => {
+            hash[`{${item.label}}`] = item;
+         });
+
+         let exp = new RegExp(`{[^}]*}`, "g");
+         let entries = this.formulaText.match(exp) || [];
+         entries.forEach((entry) => {
+            if (!hash[entry]) {
+               this.warningMessage(
+                  `could not resolve process value [${entry}]`
+               );
+            }
+         });
+      }
    }
 }
 
