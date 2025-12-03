@@ -698,7 +698,9 @@ const webixLoading = __webpack_require__.e(/*! import() | webix */ "webix").then
 
 // __AB_preload should be created by our /config/preload script that gets
 // loaded on the initial page load.
-window.__AB_preload.then(() => {
+Promise.all([window.__AB_preload, window.__AB_socketReady]).then(() => {
+   delete window.__AB_preload_resolve;
+   delete window.__AB_socketReady_resolve;
    _init_Bootstrap_js__WEBPACK_IMPORTED_MODULE_11__["default"].init(webixLoading).catch((err) => {
       // This is a known error that has already been handled.
       if (err.code == "ENODEFS") return;
@@ -9972,7 +9974,7 @@ try {
    /* global WEBPACK_MODE SENTRY_DSN VERSION */
    webpackMode = "development";
    dsn = undefined;
-   version = "1.15.17";
+   version = "1.15.18";
 } catch (err) {
    console.warn(
       "Error reading from webpack, check the DefinePlugin is working correctly",
@@ -10523,4 +10525,4 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 /******/ var __webpack_exports__ = __webpack_require__.O();
 /******/ }
 ]);
-//# sourceMappingURL=app.4e478416e17e29307eb1.js.map
+//# sourceMappingURL=app.bc4236013177f684a592.js.map
