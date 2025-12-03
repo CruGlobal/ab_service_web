@@ -83463,7 +83463,7 @@ class NetworkRest extends EventEmitter {
                      params._retry++;
 
                      // retry the attempt:
-                     this._request(params)
+                     this._request(params, jobResponse)
                         .then((data) => {
                            // console.log('--- timeout.then():',data);
                            this.AB.warn(
@@ -85625,4 +85625,4 @@ module.exports = class ABCustomEditList {
 /***/ })
 
 }]);
-//# sourceMappingURL=AB.1a60d12134867e24c24c.js.map
+//# sourceMappingURL=AB.9068055cdf0bbb85f37a.js.map

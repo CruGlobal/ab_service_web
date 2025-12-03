@@ -20,7 +20,10 @@ io.sails.reconnection = true;
 // by default, sails.io will not reconnect.  setting this to true will
 // tell it to auto reconnect.
 
-window.__AB_socketReady_resolve();
+const fnConnect = () => {
+   if (window.__AB_socketReady_resolve) window.__AB_socketReady_resolve();
+};
+io.socket.on("connect", fnConnect);
 
 
 /***/ }),
@@ -42,4 +45,4 @@ window.__AB_socketReady_resolve();
 /******/ var __webpack_exports__ = __webpack_require__.O();
 /******/ }
 ]);
-//# sourceMappingURL=sailsio.409e5a163330f52732b3.js.map
+//# sourceMappingURL=sailsio.bd6942ffde5fc1f7ec30.js.map
