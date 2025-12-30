@@ -125610,7 +125610,17 @@ __webpack_require__.r(__webpack_exports__);
          editorUI.id = `${ids.editArea}_dashboard_layout`;
 
          // clear out widgets in our dashboard area
-         const subWidgets = editorUI.rows ?? editorUI.cols;
+         var subWidgets = editorUI.rows ?? editorUI.cols;
+         if (!subWidgets || subWidgets.length === 0) {
+            if (editorUI.body) {
+               subWidgets = editorUI.body.rows ?? editorUI.body.cols;
+            }
+            if (!subWidgets || subWidgets.length === 0) {
+               console.error("Tell Johnny: No sub widgets found in editor UI");
+               console.error(editorUI);
+               return;
+            }
+         }
          const idDashboard = subWidgets[0].id;
          const $dashboard = $$(idDashboard);
          if ($dashboard) $dashboard.clearAll();
