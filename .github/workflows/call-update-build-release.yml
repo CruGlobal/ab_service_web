@@ -90,4 +90,31 @@ jobs:
       webpack_path: appbuilder_platform_pwa
       webpack_command: ${{ matrix.webpack }}
       build_meta_prefix: p
-  
+  call-update-hrteam:
+    if: ${{ github.event.client_payload.repo == 'plugin_HRTeams' }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - branch: master
+            webpack: update
+          - branch: develop
+            webpack: dev
+            pre_release: dev
+    name: Update Service Web ${{ matrix.branch }} (HRTeam)
+    uses: ./.github/workflows/update-build-release.yml
+    secrets:
+      app_secret: ${{ secrets.GS_DEV_APP_PK }}
+      DOCKER_USERNAME: ${{ vars.DOCKER_USERNAME }}
+      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+    with:
+      app_id: ${{ vars.GS_DEV_APP_ID }}
+      version: ${{ github.event.client_payload.version }}
+      type: ${{ github.event.client_payload.type }}
+      pre_release: ${{ matrix.pre_release }}
+      branch: ${{ matrix.branch }}
+      webpack_repo: plugin_HRTeams
+      webpack_repo_short: HRTeams
+      webpack_path: plugins/HRTeams
+      webpack_command: ${{ matrix.webpack }}
+      build_meta_prefix: d
