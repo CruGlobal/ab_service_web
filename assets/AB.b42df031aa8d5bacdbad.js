@@ -389,6 +389,7 @@ class ABValidator {
    constructor(AB) {
       this.AB = AB;
       this.errors = [];
+      this.platform = "web";
    }
 
    addError(name, message) {
@@ -6313,6 +6314,8 @@ module.exports = class ABDefinitionCore {
 // const _ = require("lodash");
 // const uuidv4 = require("uuid");
 
+const ABClassManager = __webpack_require__(/*! ../platform/ABClassManager */ 56938);
+
 const ABApplication = __webpack_require__(/*! ../platform/ABApplication */ 27223);
 const ABApplicationMobile = __webpack_require__(/*! ../platform/ABApplicationMobile */ 31221);
 const ABDefinition = __webpack_require__(/*! ../platform/ABDefinition */ 8592);
@@ -6401,6 +6404,9 @@ class ABFactory extends EventEmitter {
 
       this._allDatacollections = [];
       // {array} of all the ABDataCollection(s) in our site.
+
+      this.ClassManager = ABClassManager;
+      // {ClassManager} the single source for our Class Libraries.
 
       //
       // Class References
@@ -6580,6 +6586,10 @@ class ABFactory extends EventEmitter {
    }
 
    init() {
+      // BEFORE Definitions are loaded,
+      // make sure any local Plugins are loaded.
+      this.ClassManager.registerLocalPlugins(this.pluginAPI());
+
       let allDefinitions = Object.keys(this._definitions).map(
          (k) => this._definitions[k]
       );
@@ -6984,13 +6994,20 @@ class ABFactory extends EventEmitter {
    objectNew(values) {
       var newObj = null;
 
-      if (values.isExternal == true)
+      if (values.plugin_key) {
+         // If this is from a plugin, create it from ClassManager
+         newObj = this.ClassManager.createObject(
+            values.plugin_key,
+            values,
+            this
+         );
+      } else if (values.isExternal == true)
          newObj = new ABObjectExternal(values, this);
       else if (values.isImported == true)
          newObj = new ABObjectImport(values, this);
-      else if (values.isNetsuite == true)
+      else if (values.isNetsuite == true) {
          newObj = new ABObjectApiNetsuite(values, this);
-      else if (values.isAPI == true) newObj = new ABObjectApi(values, this);
+      } else if (values.isAPI == true) newObj = new ABObjectApi(values, this);
       else newObj = new ABObject(values, this);
 
       /*
@@ -7010,6 +7027,14 @@ class ABFactory extends EventEmitter {
 
    objectLanguage() {
       return this.objectByID("d84cd351-d96c-490f-9afb-2a0b880ca0ec");
+   }
+
+   objectPlugin() {
+      return this.objectByID("8a20528a-e472-4e80-911a-b14285425caf");
+   }
+
+   objectPluginLinks() {
+      return this.objectByID("7ff322ff-3434-4611-9fd1-4d2996414c1a");
    }
 
    objectProcessDefinition() {
@@ -7046,6 +7071,27 @@ class ABFactory extends EventEmitter {
 
    objectSecret() {
       return this.objectByID("db5b3b26-5300-4c92-bc73-8ce4f4696992");
+   }
+
+   //
+   // Plugin
+   //
+   pluginAPI() {
+      let api = this.ClassManager.getPluginAPI();
+      api.AB = this;
+      api.platform = this.platform ?? "service";
+      return api;
+   }
+
+   pluginRegister(plugin) {
+      let pluginClass = plugin(this.pluginAPI());
+      if (Array.isArray(pluginClass)) {
+         pluginClass.forEach((p) => {
+            this.ClassManager.pluginRegister(p);
+         });
+      } else {
+         this.ClassManager.pluginRegister(pluginClass);
+      }
    }
 
    //
@@ -12431,6 +12477,7 @@ var AllViews = [
    __webpack_require__(/*! ../platform/views/ABViewFormSelectSingle */ 46125),
    __webpack_require__(/*! ../platform/views/ABViewFormTextbox */ 10449),
    __webpack_require__(/*! ../platform/views/ABViewFormTree */ 35865),
+   __webpack_require__(/*! ../platform/views/ABViewFormURL */ 71616),
 ];
 
 /*
@@ -12480,8 +12527,8 @@ module.exports = class ABViewManagerCore {
             if (!isPlugin(values.key)) {
                console.error(
                   "!! View[" +
-                  values.key +
-                  "] not yet defined.  Have an ABView instead:"
+                     values.key +
+                     "] not yet defined.  Have an ABView instead:"
                );
             }
             return new Views["view"](values, application, parent);
@@ -29983,11 +30030,11 @@ module.exports = class ABViewCore extends ABMLClass {
       var form = null;
 
       var curr = this;
-      while (curr.key != "form" && !curr.isRoot() && curr.parent) {
+      while (!curr.isForm && !curr.isRoot() && curr.parent) {
          curr = curr.parent;
       }
 
-      if (curr.key == "form") {
+      if (curr.isForm) {
          form = curr;
       }
 
@@ -31764,6 +31811,7 @@ const ABViewFormPropertyComponentDefaults = {
 module.exports = class ABViewFormCore extends ABViewContainer {
    constructor(values, application, parent, defaultValues) {
       super(values, application, parent, defaultValues || ABViewFormDefaults);
+      this.isForm = true;
    }
 
    static common() {
@@ -35432,6 +35480,24 @@ module.exports = class ABClassApplication extends ABApplicationCore {
       return super.save();
    }
 
+   viewAll(fn = () => true) {
+      let vmViews = super.viewAll(fn);
+      let pluginViews = this.AB.ClassManager.viewAll(fn);
+      let allViews = [...vmViews, ...pluginViews];
+      let L = this.AB.Label();
+
+      // Sort by label from common() if available, otherwise by key
+      return allViews.sort((a, b) => {
+         const aCommon = a.common ? a.common() : {};
+         const bCommon = b.common ? b.common() : {};
+         const aLabel =
+            aCommon.label || L(aCommon.labelKey || aCommon.key) || "";
+         const bLabel =
+            bCommon.label || L(bCommon.labelKey || bCommon.key) || "";
+         return aLabel.localeCompare(bLabel);
+      });
+   }
+
    warningsEval() {
       super.warningsEval();
 
@@ -35570,6 +35636,200 @@ module.exports = class ABClassApplicationMobile extends (
       }
    }
 };
+
+
+/***/ }),
+
+/***/ 56938:
+/*!***********************************************!*\
+  !*** ./AppBuilder/platform/ABClassManager.js ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   allObjectProperties: () => (/* binding */ allObjectProperties),
+/* harmony export */   createObject: () => (/* binding */ createObject),
+/* harmony export */   createPropertiesObject: () => (/* binding */ createPropertiesObject),
+/* harmony export */   getPluginAPI: () => (/* binding */ getPluginAPI),
+/* harmony export */   pluginRegister: () => (/* binding */ pluginRegister),
+/* harmony export */   registerLocalPlugins: () => (/* binding */ registerLocalPlugins),
+/* harmony export */   viewAll: () => (/* binding */ viewAll),
+/* harmony export */   viewCreate: () => (/* binding */ viewCreate),
+/* harmony export */   viewEditorAll: () => (/* binding */ viewEditorAll),
+/* harmony export */   viewEditorCreate: () => (/* binding */ viewEditorCreate),
+/* harmony export */   viewPropertiesAll: () => (/* binding */ viewPropertiesAll)
+/* harmony export */ });
+/* harmony import */ var _plugins_ABUIPlugin_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./plugins/ABUIPlugin.js */ 4341);
+/* harmony import */ var _plugins_ABPropertiesObjectPlugin__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./plugins/ABPropertiesObjectPlugin */ 56965);
+/* harmony import */ var _plugins_ABObjectPlugin_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./plugins/ABObjectPlugin.js */ 84788);
+/* harmony import */ var _plugins_ABModelPlugin_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./plugins/ABModelPlugin.js */ 84364);
+/* harmony import */ var _plugins_ABViewPlugin_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./plugins/ABViewPlugin.js */ 65006);
+/* harmony import */ var _plugins_ABViewComponentPlugin_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./plugins/ABViewComponentPlugin.js */ 7105);
+/* harmony import */ var _plugins_ABViewPropertiesPlugin_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./plugins/ABViewPropertiesPlugin.js */ 49243);
+/* harmony import */ var _plugins_ABViewEditorPlugin_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./plugins/ABViewEditorPlugin.js */ 98487);
+
+
+
+
+
+
+
+
+
+const classRegistry = {
+   ObjectTypes: new Map(),
+   ObjectPropertiesTypes: new Map(),
+   FieldTypes: new Map(),
+   ViewTypes: new Map(),
+   ViewPropertiesTypes: new Map(),
+   ViewEditorTypes: new Map(),
+};
+
+function registerViewPropertiesTypes(name, ctor) {
+   classRegistry.ViewPropertiesTypes.set(name, ctor);
+}
+
+function registerViewEditorTypes(name, ctor) {
+   classRegistry.ViewEditorTypes.set(name, ctor);
+}
+
+function registerObjectPropertiesTypes(name, ctor) {
+   classRegistry.ObjectPropertiesTypes.set(name, ctor);
+}
+
+function registerObjectTypes(name, ctor) {
+   classRegistry.ObjectTypes.set(name, ctor);
+}
+
+function registerViewTypes(name, ctor) {
+   classRegistry.ViewTypes.set(name, ctor);
+}
+
+/**
+ * @method getPluginAPI()
+ * This is the data structure we provide to each of our plugins so they
+ * can register their custom classes.
+ * We provide base objects from which they can extend.
+ * @returns {Object}
+ */
+function getPluginAPI() {
+   return {
+      ABUIPlugin: _plugins_ABUIPlugin_js__WEBPACK_IMPORTED_MODULE_0__["default"],
+      ABPropertiesObjectPlugin: _plugins_ABPropertiesObjectPlugin__WEBPACK_IMPORTED_MODULE_1__["default"],
+      ABObjectPlugin: _plugins_ABObjectPlugin_js__WEBPACK_IMPORTED_MODULE_2__["default"],
+      ABModelPlugin: _plugins_ABModelPlugin_js__WEBPACK_IMPORTED_MODULE_3__["default"],
+      ABViewPlugin: _plugins_ABViewPlugin_js__WEBPACK_IMPORTED_MODULE_4__["default"],
+      ABViewComponentPlugin: _plugins_ABViewComponentPlugin_js__WEBPACK_IMPORTED_MODULE_5__["default"],
+      ABViewPropertiesPlugin: _plugins_ABViewPropertiesPlugin_js__WEBPACK_IMPORTED_MODULE_6__["default"],
+      ABViewEditorPlugin: _plugins_ABViewEditorPlugin_js__WEBPACK_IMPORTED_MODULE_7__["default"],
+      //  ABFieldPlugin,
+      //  ABViewPlugin,
+   };
+}
+
+// export function createField(type, config) {
+//   const FieldClass = classRegistry.FieldTypes.get(type);
+//   if (!FieldClass) throw new Error(`Unknown object type: ${type}`);
+//   return new FieldClass(config);
+// }
+function createObject(key, config, AB) {
+   const ObjectClass = classRegistry.ObjectTypes.get(key);
+   if (!ObjectClass) throw new Error(`Unknown object type: ${key}`);
+   return new ObjectClass(config, AB);
+}
+
+function createPropertiesObject(key, config, AB) {
+   const ObjectClass = classRegistry.ObjectPropertiesTypes.get(key);
+   if (!ObjectClass) throw new Error(`Unknown object type: ${key}`);
+   return new ObjectClass(config, AB);
+}
+
+function allObjectProperties() {
+   return Array.from(classRegistry.ObjectPropertiesTypes.values());
+}
+
+// export function createObjectProperty(key, config) {
+//    const ObjectClass = classRegistry.ObjectPropertiesTypes.get(key);
+//    if (!ObjectClass) throw new Error(`Unknown object type: ${key}`);
+//    return new ObjectClass(config);
+//  }
+
+function viewCreate(type, config, application, parent) {
+   const ViewClass = classRegistry.ViewTypes.get(type);
+   if (!ViewClass) throw new Error(`Unknown View type: ${type}`);
+   return new ViewClass(config, application, parent);
+}
+
+function viewAll(fn = () => true) {
+   return Array.from(classRegistry.ViewTypes.values()).filter(fn);
+}
+
+function viewPropertiesAll(fn = () => true) {
+   return Array.from(classRegistry.ViewPropertiesTypes.values()).filter(fn);
+}
+
+function viewEditorCreate(key, view, base, ids) {
+   const EditorClass = classRegistry.ViewEditorTypes.get(key);
+   if (!EditorClass) throw new Error(`Unknown View Editor type: ${key}`);
+   return new EditorClass(view, base, ids);
+}
+
+function viewEditorAll(fn = () => true) {
+   return Array.from(classRegistry.ViewEditorTypes.values()).filter(fn);
+}
+
+function pluginRegister(pluginClass) {
+   let type = pluginClass.getPluginType();
+   switch (type) {
+      case "object":
+         registerObjectTypes(pluginClass.getPluginKey(), pluginClass);
+         break;
+      case "properties-object":
+         registerObjectPropertiesTypes(pluginClass.getPluginKey(), pluginClass);
+         break;
+      // case "field":
+      //    break;
+      case "view":
+         registerViewTypes(pluginClass.getPluginKey(), pluginClass);
+         break;
+      case "properties-view":
+         registerViewPropertiesTypes(pluginClass.getPluginKey(), pluginClass);
+         break;
+      case "editor-view":
+         registerViewEditorTypes(pluginClass.getPluginKey(), pluginClass);
+         break;
+      default:
+         throw new Error(
+            `ABClassManager.pluginRegister():: Unknown plugin type: ${type}`
+         );
+   }
+}
+
+///
+/// For development
+///
+// import propertyNSAPI from "../../../plugins/ab_plugin_object_netsuite_api/properties/ABPropertiesObjectNetsuiteAPI.js";
+// import objectNSAPI from "./plugins/developer/ABObjectNetsuiteAPI.js";
+
+function registerLocalPlugins(API) {
+   // let { registerObjectTypes, registerObjectPropertiesTypes } = API;
+   // let cPropertyNSAPI = propertyNSAPI(API);
+   // registerObjectPropertiesTypes(cPropertyNSAPI.getPluginKey(), cPropertyNSAPI);
+   // let cObjectNSAPI = objectNSAPI(API);
+   // registerObjectTypes(cObjectNSAPI.getPluginKey(), cObjectNSAPI);
+}
+
+// module.exports = {
+//    getPluginAPI,
+//    createPropertiesObject,
+//    // createField,
+//    // createObjectProperty,
+//    // createView,
+//    // classRegistry, // Expose the registry for testing or introspection
+//    registerLocalPlugins,
+// };
 
 
 /***/ }),
@@ -37077,32 +37337,6 @@ module.exports = class ABModel extends ABModelCore {
    ///
    /// Instance Methods
    ///
-
-   // Prepare multilingual fields to be untranslated
-   // Before untranslating we need to ensure that values.translations is set.
-   prepareMultilingualData(values) {
-      // if this object has some multilingual fields, translate the data:
-      var mlFields = this.object.multilingualFields();
-      // if mlFields are inside of the values saved we want to translate otherwise do not because it will reset the translation field and you may loose unchanged translations
-      var shouldTranslate = false;
-      if (mlFields.length) {
-         mlFields.forEach(function (field) {
-            if (values[field] != null) {
-               shouldTranslate = true;
-            }
-         });
-      }
-      if (shouldTranslate) {
-         if (
-            values.translations == null ||
-            typeof values.translations == "undefined" ||
-            values.translations == ""
-         ) {
-            values.translations = [];
-         }
-         this.object.unTranslate(values, values, mlFields);
-      }
-   }
 
    request(method, params) {
       return this.AB.Network[method](params);
@@ -39646,8 +39880,31 @@ module.exports = class ABStep extends ABStepCore {
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 const ABViewManagerCore = __webpack_require__(/*! ../core/ABViewManagerCore */ 74834);
+const ClassManager = __webpack_require__(/*! ./ABClassManager */ 56938);
 
-module.exports = class ABViewManager extends ABViewManagerCore {};
+module.exports = class ABViewManager extends ABViewManagerCore {
+   /**
+    * @function newView
+    * return an instance of an ABView based upon the values.key value.
+    * @return {ABView}
+    */
+   static newView(values, application, parent) {
+      parent = parent || null;
+
+      // check to see if this is a plugin view
+      if (values.plugin_key) {
+         // If this is from a plugin, create it from ClassManager
+         return ClassManager.viewCreate(
+            values.plugin_key,
+            values,
+            application,
+            parent
+         );
+      }
+
+      return super.newView(values, application, parent);
+   }
+};
 
 
 /***/ }),
@@ -49326,6 +49583,1411 @@ module.exports = class ABMobileViewTimeline extends ABMobileViewTimelineCore {
 
 /***/ }),
 
+/***/ 56419:
+/*!********************************************************!*\
+  !*** ./AppBuilder/platform/plugins/ABClassUIPlugin.js ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABClassUIPlugin)
+/* harmony export */ });
+/* harmony import */ var _ui_ClassUI_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../ui/ClassUI.js */ 93692);
+
+
+class ABClassUIPlugin extends _ui_ClassUI_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   constructor(base = "class_ui", ids = {}) {
+      // base: {string} unique base id reference
+      // ids: {hash}  { key => '' }
+      // this is provided by the Sub Class and has the keys
+      // unique to the Sub Class' interface elements.
+
+      super(base, ids);
+
+      this.base = base;
+
+      this.AB = null;
+      // {ABFactory}
+      // Our common ABFactory for our application.
+      // Should be set via init(AB) method
+
+      this.CurrentApplicationID = null;
+      // {string} uuid
+      // The current ABApplication.id we are working with.
+
+      this.CurrentDatacollectionID = null;
+      // {string}
+      // the ABDataCollection.id of the datacollection we are working with.
+
+      this.CurrentObjectID = null;
+      // {string}
+      // the ABObject.id of the object we are working with.
+
+      this.CurrentProcessID = null;
+      // {string}
+      // the ABProcess.id of the process we are working with.
+
+      this.CurrentQueryID = null;
+      // {string}
+      // the ABObjectQuery.id of the query we are working with.
+
+      this.CurrentViewID = null;
+      // {string}
+      // the ABView.id of the view we are working with.
+
+      this.CurrentVersionID = null;
+      // {string}
+      // the ABVersion.id of the version we are working with.
+   }
+
+   /**
+    * @method static L()
+    * A static method to return a multilingual label function.
+    * NOTE: Sub classes should override this to provide their plugin name.
+    * @return {function} A function that returns multilingual labels
+    */
+   // static L() {
+   //    return function (...params) {
+   //       // Default implementation - sub classes should override
+   //       return params[0] || "";
+   //    };
+   // }
+
+   /**
+    * @function applicationLoad
+    * save the ABApplication.id of the current application.
+    * @param {ABApplication} app
+    */
+   applicationLoad(app) {
+      this.CurrentApplicationID = app?.id;
+   }
+
+   /**
+    * @function datacollectionLoad
+    * save the ABDataCollection.id of the current datacollection.
+    * @param {ABDataCollection} dc
+    */
+   datacollectionLoad(dc) {
+      this.CurrentDatacollectionID = dc?.id;
+   }
+
+   /**
+    * @function objectLoad
+    * save the ABObject.id of the current object.
+    * @param {ABObject} obj
+    */
+   objectLoad(obj) {
+      this.CurrentObjectID = obj?.id;
+   }
+
+   /**
+    * @function processLoad
+    * save the ABProcess.id of the current process.
+    * @param {ABProcess} process
+    */
+   processLoad(process) {
+      this.CurrentProcessID = process?.id;
+   }
+
+   /**
+    * @function queryLoad
+    * save the ABObjectQuery.id of the current query.
+    * @param {ABObjectQuery} query
+    */
+   queryLoad(query) {
+      this.CurrentQueryID = query?.id;
+   }
+
+   /**
+    * @function versionLoad
+    * save the ABVersion.id of the current version.
+    * @param {ABVersion} version
+    */
+   versionLoad(version) {
+      this.CurrentVersionID = version?.id;
+   }
+
+   /**
+    * @function viewLoad
+    * save the ABView.id of the current view.
+    * @param {ABView} view
+    */
+   viewLoad(view) {
+      this.CurrentViewID = view?.id;
+
+      if (view?.application) {
+         this.applicationLoad(view.application);
+      }
+   }
+
+   /**
+    * @method CurrentApplication
+    * return the current ABApplication being worked on.
+    * @return {ABApplication} application
+    */
+   get CurrentApplication() {
+      return this.AB?.applicationByID(this.CurrentApplicationID);
+   }
+
+   /**
+    * @method CurrentDatacollection()
+    * A helper to return the current ABDataCollection we are working with.
+    * @return {ABDataCollection}
+    */
+   get CurrentDatacollection() {
+      return this.AB?.datacollectionByID(this.CurrentDatacollectionID);
+   }
+
+   /**
+    * @method CurrentObject()
+    * A helper to return the current ABObject we are working with.
+    * @return {ABObject}
+    */
+   get CurrentObject() {
+      let obj = this.AB?.objectByID(this.CurrentObjectID);
+      if (!obj) {
+         obj = this.AB?.queryByID(this.CurrentObjectID);
+      }
+      return obj;
+   }
+
+   /**
+    * @method CurrentProcess()
+    * A helper to return the current ABProcess we are working with.
+    * @return {ABProcess}
+    */
+   get CurrentProcess() {
+      return this.AB?.processByID(this.CurrentProcessID);
+   }
+
+   /**
+    * @method CurrentQuery()
+    * A helper to return the current ABObjectQuery we are working with.
+    * @return {ABObjectQuery}
+    */
+   get CurrentQuery() {
+      return this.AB?.queryByID(this.CurrentQueryID);
+   }
+
+   /**
+    * @method CurrentView()
+    * A helper to return the current ABView we are working with.
+    * @return {ABView}
+    */
+   get CurrentView() {
+      return this.CurrentApplication?.views(
+         (v) => v.id == this.CurrentViewID
+      )[0];
+   }
+
+   /**
+    * @method CurrentVersion()
+    * A helper to return the current ABVersion we are working with.
+    * @return {ABVersion}
+    */
+   // get CurrentVersion() {
+   //    return this.AB?.versionByID?.(this.CurrentVersionID);
+   // }
+
+   /**
+    * @method datacollectionsIncluded()
+    * return a list of datacollections that are included in the current
+    * application.
+    * @return [{id, value, icon}]
+    *         id: {string} the ABDataCollection.id
+    *         value: {string} the label of the ABDataCollection
+    *         icon: {string} the icon to display
+    */
+   datacollectionsIncluded() {
+      return this.CurrentApplication?.datacollectionsIncluded()
+         .filter((dc) => {
+            const obj = dc.datasource;
+            return (
+               dc.sourceType == "object" && !obj?.isImported && !obj?.isReadOnly
+            );
+         })
+         .map((d) => {
+            let entry = { id: d.id, value: d.label };
+            if (d.sourceType == "query") {
+               entry.icon = "fa fa-filter";
+            } else {
+               entry.icon = "fa fa-database";
+            }
+            return entry;
+         });
+   }
+
+   /**
+    * @method uniqueIDs()
+    * add a unique identifier to each of our this.ids to ensure they are
+    * unique.  Useful for components that are repeated, like items in a list.
+    */
+   uniqueIDs() {
+      let uniqueInstanceID = webix.uid();
+      Object.keys(this.ids).forEach((k) => {
+         this.ids[k] = `${this.ids[k]}_${uniqueInstanceID}`;
+      });
+   }
+
+   /**
+    * @method warningsRefresh()
+    * reset the warnings on the provided ABObject and then start propogating
+    * the "warnings" display updates.
+    * @param {ABObject} ABObject
+    */
+   warningsRefresh(ABObject) {
+      ABObject?.warningsEval?.();
+      this.emit("warnings");
+   }
+
+   /**
+    * @method warningsPropogate()
+    * If any of the passed in ui elements issue a "warnings" event, we will
+    * propogate that upwards.
+    * @param {Array} elements
+    *        Array of UI elements that can emit "warnings" events
+    */
+   warningsPropogate(elements = []) {
+      elements.forEach((e) => {
+         e.on("warnings", () => {
+            this.emit("warnings");
+         });
+      });
+   }
+
+   /**
+    * @method init()
+    * Initialize the plugin with the ABFactory instance.
+    * @param {ABFactory} AB
+    */
+   async init(AB) {
+      this.AB = AB;
+   }
+}
+
+
+/***/ }),
+
+/***/ 84364:
+/*!******************************************************!*\
+  !*** ./AppBuilder/platform/plugins/ABModelPlugin.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABModelPlugin)
+/* harmony export */ });
+const ABModel = __webpack_require__(/*! ../ABModel */ 90940);
+
+class ABModelPlugin extends ABModel {}
+
+
+/***/ }),
+
+/***/ 84788:
+/*!*******************************************************!*\
+  !*** ./AppBuilder/platform/plugins/ABObjectPlugin.js ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABObjectPlugin)
+/* harmony export */ });
+/* harmony import */ var _ABObject_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ABObject.js */ 84154);
+/* harmony import */ var _ABObject_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_ABObject_js__WEBPACK_IMPORTED_MODULE_0__);
+
+
+class ABObjectPlugin extends (_ABObject_js__WEBPACK_IMPORTED_MODULE_0___default()) {
+   // constructor(...params) {
+   //    super(...params);
+
+   // }
+
+   static getPluginKey() {
+      console.error("ABObjectPlugin.getPluginKey() not overwritten!");
+      return "ab-object-plugin";
+   }
+
+   static getPluginType() {
+      return "object";
+   }
+
+   // Format our getDbInfo() response for the ABDesigner info options.
+   async getDbInfo() {
+      /*
+      // Data format:
+      {
+          "definitionId": "f2416a1a-d75c-40f2-8180-bad9b5f8b9cc",
+          "tableName": "AB_MockupHR_TeamTargetLocation",
+          "fields": [
+              {
+                  "Field": "uuid",
+                  "Type": "varchar(255)",
+                  "Null": "NO",
+                  "Key": "PRI",
+                  "Default": null,
+                  "Extra": ""
+              },
+              {
+                  "Field": "created_at",
+                  "Type": "datetime",
+                  "Null": "YES",
+                  "Key": "",
+                  "Default": null,
+                  "Extra": ""
+              },
+              {
+                  "Field": "updated_at",
+                  "Type": "datetime",
+                  "Null": "YES",
+                  "Key": "",
+                  "Default": null,
+                  "Extra": ""
+              },
+              {
+                  "Field": "properties",
+                  "Type": "text",
+                  "Null": "YES",
+                  "Key": "",
+                  "Default": null,
+                  "Extra": ""
+              }
+          ]
+      }
+      */
+      let PK = this.PK();
+      let fieldInfo = [];
+      this.fields().forEach((f) => {
+         let field = {
+            Field: f.columnName,
+            Type: f.key,
+            Null: f.settings.required ? "NO" : "YES",
+            Key: PK == f.columnName ? "PRI" : "",
+            Default: "",
+            Extra: "",
+         };
+         fieldInfo.push(field);
+      });
+
+      let TableInfo = {
+         definitionId: this.id,
+         tableName: this.tableName,
+         fields: fieldInfo,
+      };
+
+      return TableInfo;
+   }
+
+   toObj() {
+      const result = super.toObj();
+      result.plugin_key = this.constructor.getPluginKey();
+      // plugin_key : is what tells our ABFactory.objectNew() to create this object from the plugin class.
+      return result;
+   }
+}
+
+
+/***/ }),
+
+/***/ 56965:
+/*!*****************************************************************!*\
+  !*** ./AppBuilder/platform/plugins/ABPropertiesObjectPlugin.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABPropertiesObjectPlugin)
+/* harmony export */ });
+/* harmony import */ var _ABUIPlugin_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABUIPlugin.js */ 4341);
+
+
+function scanForSaveButton(el, idButtonSave) {
+   if (el.rows || el.cols || el.cells) {
+      let res = false;
+      (el.rows || el.cols || el.cells).forEach((e) => {
+         if (e) {
+            res = res || scanForSaveButton(e, idButtonSave);
+         }
+      });
+      return res;
+   }
+   if (el.id && el.id == idButtonSave) {
+      return true;
+   }
+   return false;
+}
+
+class ABPropertiesObjectPlugin extends _ABUIPlugin_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   constructor(key, ids = {}, AB) {
+      key = key ?? ABPropertiesObjectPlugin.getPluginKey();
+      // make sure we have these ids defined:
+      ids = Object.assign(
+         {
+            form: "",
+            buttonSave: "",
+            buttonCancel: "",
+         },
+         ids
+      );
+      super(key, ids, AB);
+      // console.log("ABPropertiesObjectPlugin constructor", this);
+
+      this.width = 800;
+      this.height = 500;
+   }
+
+   static getPluginKey() {
+      return "ab-properties-object-plugin";
+   }
+
+   async init(AB) {
+      this.AB = AB;
+
+      //
+      // setup our listeners
+      //
+      this.on("save.error", (...params) => {
+         this.onError(...params);
+      });
+
+      this.on("save.success", (...params) => {
+         this.onSuccess(...params);
+      });
+   }
+
+   /**
+    * @method onError()
+    * Our Error handler when the data we provided our parent
+    * ui_work_object_list_newObject object had an error saving
+    * the values.
+    * @param {Error|ABValidation|other} err
+    *        The error information returned. This can be several
+    *        different types of objects:
+    *        - A javascript Error() object
+    *        - An ABValidation object returned from our .isValid()
+    *          method
+    *        - An error response from our API call.
+    */
+   onError(err) {
+      let L = this.L();
+      if (err) {
+         console.error(err);
+         let message = L("the entered data is invalid");
+         // if this was our Validation() object:
+         if (err.updateForm) {
+            err.updateForm(this.$form);
+         } else {
+            if (err.code && err.data) {
+               message = err.data?.sqlMessage ?? message;
+            } else {
+               message = err?.message ?? message;
+            }
+         }
+
+         const values = this.$form.getValues();
+         webix.alert({
+            title: L("Error creating Object: {0}", [values.name]),
+            ok: L("fix it"),
+            text: message,
+            type: "alert-error",
+         });
+      }
+      // get notified if there was an error saving.
+      $$(this.ids.buttonSave).enable();
+   }
+
+   /**
+    * @method onSuccess()
+    * Our success handler when the data we provided our parent
+    * ui_work_object_list_newObject successfully saved the values.
+    */
+   onSuccess() {
+      this.formClear();
+      $$(this.ids.buttonSave).enable();
+   }
+
+   ui() {
+      return {
+         id: this.ids.component,
+         header: this.header(),
+         body: {
+            view: "form",
+            id: this.ids.form,
+            width: this.width,
+            height: this.height,
+            rules: this.rules(),
+            elements: this.elementsCombined(),
+         },
+      };
+   }
+
+   elementsCombined() {
+      let elements = this.elements();
+
+      // function scan(el) {
+      //    if (el.rows || el.cols || el.cells) {
+      //       let res = false;
+      //       (el.rows || el.cols || el.cells).forEach((e) => {
+      //          res = res || scan(e);
+      //       });
+      //       return res;
+      //    }
+      //    if (el.id && el.id == this.ids.buttonSave) {
+      //       return true;
+      //    }
+      //    return false;
+      // }
+
+      let hasSaveButton = false;
+      elements.forEach((el) => {
+         if (scanForSaveButton(el, this.ids.buttonSave)) {
+            hasSaveButton = true;
+         }
+      });
+      if (!hasSaveButton) {
+         let L = this.L();
+         elements.push({
+            margin: 5,
+            cols: [
+               { fillspace: true },
+               {
+                  view: "button",
+                  id: this.ids.buttonCancel,
+                  value: L("Cancel"),
+                  css: "ab-cancel-button",
+                  autowidth: true,
+                  click: () => {
+                     this.cancel();
+                  },
+                  on: {
+                     onAfterRender() {
+                        _ABUIPlugin_js__WEBPACK_IMPORTED_MODULE_0__["default"].CYPRESS_REF(this);
+                     },
+                  },
+               },
+               {
+                  view: "button",
+                  id: this.ids.buttonSave,
+                  css: "webix_primary",
+                  value: L("Add Object"),
+                  autowidth: true,
+                  type: "form",
+                  click: () => {
+                     return this.save();
+                  },
+                  on: {
+                     onAfterRender() {
+                        _ABUIPlugin_js__WEBPACK_IMPORTED_MODULE_0__["default"].CYPRESS_REF(this);
+                     },
+                  },
+               },
+            ],
+         });
+      }
+      return elements;
+   }
+
+   cancel() {
+      this.formClear();
+      this.emit("cancel");
+   }
+
+   formClear() {
+      $$(this.ids.form).clearValidation();
+      $$(this.ids.form).clear();
+   }
+
+   /**
+    * @function save
+    *
+    * verify the current info is ok, package it, and return it to be
+    * added to the application.createModel() method.
+    */
+   async save() {
+      var saveButton = $$(this.ids.buttonSave);
+      saveButton.disable();
+
+      // if it doesn't pass the basic form validation, return:
+      if (!(await this.formIsValid())) {
+         saveButton.enable();
+         return false;
+      }
+
+      var values = await this.formValues();
+
+      this.emit("save", values);
+   }
+
+   busy() {
+      const $form = $$(this.ids.form);
+      const $saveButton = $$(this.ids.buttonSave);
+
+      $form.showProgress({ type: "icon" });
+      $saveButton.disable();
+   }
+
+   ready() {
+      const $form = $$(this.ids.form);
+      const $saveButton = $$(this.ids.buttonSave);
+
+      $form.hideProgress();
+      $saveButton.enable();
+   }
+
+   ///
+   /// These methods are to be overridden by the Plugin definition
+   ///
+   header() {
+      // this is the name used when choosing the Object Type
+      // tab selector.
+      let L = this.L();
+      return L("PropertiesObjectPlugin");
+   }
+
+   rules() {
+      return {
+         // name: webix.rules.isNotEmpty,
+      };
+   }
+
+   elements() {
+      // return the webix form element definitions to appear on the page.
+      return [];
+   }
+
+   async formIsValid() {
+      var Form = $$(this.ids.form);
+
+      Form?.clearValidation();
+
+      // if it doesn't pass the basic form validation, return:
+      if (!Form.validate()) {
+         $$(this.ids.buttonSave)?.enable();
+         return false;
+      }
+   }
+
+   async formValues() {
+      var Form = $$(this.ids.form);
+      return Form?.getValues();
+   }
+}
+
+
+/***/ }),
+
+/***/ 4341:
+/*!***************************************************!*\
+  !*** ./AppBuilder/platform/plugins/ABUIPlugin.js ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABUIPlugin)
+/* harmony export */ });
+/* harmony import */ var _ui_ClassUI_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../ui/ClassUI.js */ 93692);
+
+
+class ABUIPlugin extends _ui_ClassUI_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   constructor(...params) {
+      super(...params);
+
+      // this.AB = AB;
+      // {ABFactory}
+      // Our common ABFactory for our application.
+
+      this.CurrentApplicationID = null;
+      // {string} uuid
+      // The current ABApplication.id we are working with.
+
+      this.CurrentDatacollectionID = null;
+      // {string}
+      // the ABDataCollection.id of the datacollection we are working with.
+
+      this.CurrentObjectID = null;
+      // {string}
+      // the ABObject.id of the object we are working with.
+
+      this.CurrentProcessID = null;
+      // {string}
+      // the ABProcess.id of the process we are working with.
+
+      this.CurrentQueryID = null;
+      // {string}
+      // the ABObjectQuery.id of the query we are working with.
+
+      this.CurrentViewID = null;
+      // {string}
+      // the ABView.id of the view we are working with.
+   }
+
+   static getPluginKey() {
+      return "ab-ui-plugin";
+   }
+
+   /**
+    * @method L()
+    * return a function that can be used to retrieve the a multilingual
+    * label for this plugin.
+    * @returns {string}
+    */
+   L() {
+      let _self = this;
+      return function (...params) {
+         return _self.AB.Multilingual.labelPlugin(
+            _self.constructor.getPluginKey(),
+            ...params
+         );
+      };
+   }
+
+   /**
+    * @function applicationLoad
+    * save the ABApplication.id of the current application.
+    * @param {ABApplication} app
+    */
+   applicationLoad(app) {
+      this.CurrentApplicationID = app?.id;
+   }
+
+   datacollectionLoad(dc) {
+      this.CurrentDatacollectionID = dc?.id;
+   }
+
+   objectLoad(obj) {
+      this.CurrentObjectID = obj?.id;
+   }
+
+   processLoad(process) {
+      this.CurrentProcessID = process?.id;
+   }
+
+   queryLoad(query) {
+      this.CurrentQueryID = query?.id;
+   }
+
+   versionLoad(version) {
+      this.CurrentVersionID = version?.id;
+   }
+
+   viewLoad(view) {
+      this.CurrentViewID = view?.id;
+
+      if (view?.application) {
+         this.applicationLoad(view.application);
+      }
+   }
+
+   /**
+    * @method CurrentApplication
+    * return the current ABApplication being worked on.
+    * @return {ABApplication} application
+    */
+   get CurrentApplication() {
+      return this.AB.applicationByID(this.CurrentApplicationID);
+   }
+
+   /**
+    * @method CurrentDatacollection()
+    * A helper to return the current ABDataCollection we are working with.
+    * @return {ABObject}
+    */
+   get CurrentDatacollection() {
+      return this.AB.datacollectionByID(this.CurrentDatacollectionID);
+   }
+
+   /**
+    * @method CurrentObject()
+    * A helper to return the current ABObject we are working with.
+    * @return {ABObject}
+    */
+   get CurrentObject() {
+      let obj = this.AB.objectByID(this.CurrentObjectID);
+      if (!obj) {
+         obj = this.AB.queryByID(this.CurrentObjectID);
+      }
+      return obj;
+   }
+
+   /**
+    * @method CurrentProcess()
+    * A helper to return the current ABProcess we are working with.
+    * @return {ABProcess}
+    */
+   get CurrentProcess() {
+      return this.AB.processByID(this.CurrentProcessID);
+   }
+
+   /**
+    * @method CurrentQuery()
+    * A helper to return the current ABObjectQuery we are working with.
+    * @return {ABObjectQuery}
+    */
+   get CurrentQuery() {
+      return this.AB.queryByID(this.CurrentQueryID);
+   }
+
+   /**
+    * @method CurrentView()
+    * A helper to return the current ABView we are working with.
+    * @return {ABView}
+    */
+   get CurrentView() {
+      return this.CurrentApplication?.views(
+         (v) => v.id == this.CurrentViewID
+      )[0];
+   }
+
+   /**
+    * @method datacollectionsIncluded()
+    * return a list of datacollections that are included in the current
+    * application.
+    * @return [{id, value, icon}]
+    *         id: {string} the ABDataCollection.id
+    *         value: {string} the label of the ABDataCollection
+    *         icon: {string} the icon to display
+    */
+   datacollectionsIncluded() {
+      return this.CurrentApplication?.datacollectionsIncluded()
+         .filter((dc) => {
+            const obj = dc.datasource;
+            return (
+               dc.sourceType == "object" && !obj?.isImported && !obj?.isReadOnly
+            );
+         })
+         .map((d) => {
+            let entry = { id: d.id, value: d.label };
+            if (d.sourceType == "query") {
+               entry.icon = "fa fa-filter";
+            } else {
+               entry.icon = "fa fa-database";
+            }
+            return entry;
+         });
+   }
+
+   /**
+    * @method uniqueIDs()
+    * add a unique identifier to each of our this.ids to ensure they are
+    * unique.  Useful for components that are repeated, like items in a list.
+    */
+   uniqueIDs() {
+      let uniqueInstanceID = webix.uid();
+      Object.keys(this.ids).forEach((k) => {
+         this.ids[k] = `${this.ids[k]}_${uniqueInstanceID}`;
+      });
+   }
+
+   /**
+    * @method warningsRefresh()
+    * reset the warnings on the provided ABObject and then start propogating
+    * the "warnings" display updates.
+    */
+   warningsRefresh(ABObject) {
+      ABObject?.warningsEval?.();
+      this.emit("warnings");
+   }
+
+   /**
+    * @method warningsPropogate()
+    * If any of the passed in ui elements issue a "warnings" event, we will
+    * propogate that upwards.
+    */
+   warningsPropogate(elements = []) {
+      elements.forEach((e) => {
+         e.on("warnings", () => {
+            this.emit("warnings");
+         });
+      });
+   }
+}
+
+
+/***/ }),
+
+/***/ 7105:
+/*!**************************************************************!*\
+  !*** ./AppBuilder/platform/plugins/ABViewComponentPlugin.js ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewComponentPlugin)
+/* harmony export */ });
+/* harmony import */ var _views_viewComponent_ABViewComponent_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../views/viewComponent/ABViewComponent.js */ 23687);
+
+
+class ABViewComponentPlugin extends _views_viewComponent_ABViewComponent_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   constructor(...params) {
+      super(...params);
+   }
+}
+
+
+/***/ }),
+
+/***/ 98487:
+/*!***********************************************************!*\
+  !*** ./AppBuilder/platform/plugins/ABViewEditorPlugin.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewEditorPlugin)
+/* harmony export */ });
+/* harmony import */ var _ABClassUIPlugin_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABClassUIPlugin.js */ 56419);
+
+
+class ABViewEditorPlugin extends _ABClassUIPlugin_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   constructor(view, base = "view_editor", ids = {}) {
+      // view: {ABView} The ABView instance this editor is for
+      // base: {string} unique base id reference
+      // ids: {hash}  { key => '' }
+      // this is provided by the Sub Class and has the keys
+      // unique to the Sub Class' interface elements.
+
+      var common = {
+         component: "",
+      };
+
+      Object.keys(ids).forEach((k) => {
+         if (typeof common[k] != "undefined") {
+            console.error(
+               `!!! ABViewEditorPlugin:: passed in ids contains a restricted field : ${k}`
+            );
+            return;
+         }
+         common[k] = "";
+      });
+
+      super(base, common);
+
+      this.AB = view.AB;
+      this.view = view;
+      // {ABView}
+      // The ABView instance this editor is editing
+
+      this.settings = view?.settings || {};
+      // {hash}
+      // shortcut to reference the view's settings
+
+      this.base = base;
+
+      this.component = this.view.component(this.ids.component);
+      // {ABComponent}
+      // The component instance for this view.
+      // Should be set via init() or component() method
+
+      // Load the view to set CurrentViewID
+      if (view) {
+         this.viewLoad(view);
+      }
+   }
+
+   /**
+    * @method static key
+    * Return the key identifier for this editor type.
+    * NOTE: Sub classes should override this to return their specific key.
+    * @return {string}
+    */
+   static get key() {
+      return this.getPluginKey();
+   }
+
+   /**
+    * @method ui()
+    * Return the Webix UI definition for this editor.
+    * NOTE: Sub classes should override this to provide their specific UI.
+    * @return {object} Webix UI definition
+    */
+   ui() {
+      // Default implementation - try to get UI from component
+      if (this.component) {
+         return typeof this.component.ui == "function"
+            ? this.component.ui()
+            : this.component.ui;
+      }
+
+      // Fallback: return a simple placeholder
+      return {
+         view: "template",
+         template: `<div class="ab-view-editor-placeholder">${
+            this.view?.label || "View Editor"
+         }</div>`,
+      };
+   }
+
+   /**
+    * @method init()
+    * Initialize the editor with the ABFactory instance.
+    * @param {ABFactory} AB
+    */
+   async init(AB) {
+      await super.init(AB);
+
+      // Initialize the component if it has an init method
+      if (this.component?.init) {
+         return this.component.init(AB, 2);
+         // in our editor, we provide accessLv = 2
+      }
+   }
+
+   /**
+    * @method detatch()
+    * Detach the editor component.
+    * Called when the editor is being removed or hidden.
+    */
+   detatch() {
+      this.component?.detatch?.();
+   }
+
+   /**
+    * @method onShow()
+    * Called when the editor is shown.
+    * Sub classes can override this to perform actions when the editor becomes visible.
+    */
+   onShow() {
+      this.component?.onShow?.();
+   }
+
+   /**
+    * @method onHide()
+    * Called when the editor is hidden.
+    * Sub classes can override this to perform actions when the editor becomes hidden.
+    */
+   onHide() {
+      this.component?.onHide?.();
+   }
+}
+
+
+/***/ }),
+
+/***/ 65006:
+/*!*****************************************************!*\
+  !*** ./AppBuilder/platform/plugins/ABViewPlugin.js ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewPlugin)
+/* harmony export */ });
+/* harmony import */ var _views_ABView_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../views/ABView.js */ 30747);
+/* harmony import */ var _views_ABView_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_views_ABView_js__WEBPACK_IMPORTED_MODULE_0__);
+
+
+class ABViewPlugin extends (_views_ABView_js__WEBPACK_IMPORTED_MODULE_0___default()) {
+   constructor(...params) {
+      super(...params);
+   }
+
+   static getPluginKey() {
+      return "ab-view-plugin";
+   }
+
+   static getPluginType() {
+      return "view";
+   }
+
+   toObj() {
+      const result = super.toObj();
+      result.plugin_key = this.constructor.getPluginKey();
+      // plugin_key : is what tells our ABFactory.objectNew() to create this object from the plugin class.
+      return result;
+   }
+
+   static newInstance(application, parent) {
+      // return a new instance from ABViewManager:
+      return application.viewNew(
+         { key: this.common().key, plugin_key: this.getPluginKey() },
+         application,
+         parent
+      );
+   }
+}
+
+
+/***/ }),
+
+/***/ 49243:
+/*!***************************************************************!*\
+  !*** ./AppBuilder/platform/plugins/ABViewPropertiesPlugin.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewPropertiesPlugin)
+/* harmony export */ });
+/* harmony import */ var _ABClassUIPlugin_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABClassUIPlugin.js */ 56419);
+
+
+class ABViewPropertiesPlugin extends _ABClassUIPlugin_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   constructor(base = "properties_abview", ids = {}) {
+      // base: {string} unique base id reference
+      // ids: {hash}  { key => '' }
+      // this is provided by the Sub Class and has the keys
+      // unique to the Sub Class' interface elements.
+
+      var common = {
+         label: "",
+      };
+
+      Object.keys(ids).forEach((k) => {
+         if (typeof common[k] != "undefined") {
+            console.error(
+               `!!! ABFieldProperty:: passed in ids contains a restricted field : ${k}`
+            );
+            return;
+         }
+         common[k] = "";
+      });
+
+      super(base, common);
+
+      this.base = base;
+
+      this.fieldsHide = {
+         /* id.tag : bool */
+      };
+      // {hash}
+      // indicates if a given field should be hidden.
+      // this allows sub classes to hide fields from parent classes:
+      // this.fieldsHide.required = true;  hides the required field.
+   }
+
+   static get key() {
+      return this.getPluginKey();
+   }
+
+   //
+   // ABView
+   //
+
+   ui(elements = [], rules = {}) {
+      let ids = this.ids;
+
+      let L = this.AB.Label();
+
+      let _ui = {
+         view: "form",
+         id: ids.component,
+         scroll: true,
+         elements: [
+            {
+               id: ids.label,
+               view: "text",
+               label: L("Name"),
+               name: "name",
+               value: "",
+               hidden: this.fieldsHide.label ? true : false,
+            },
+         ],
+         rules: {
+            // label: webix.rules.isNotEmpty,
+         },
+      };
+
+      elements.forEach((e) => {
+         _ui.elements.push(e);
+      });
+
+      Object.keys(rules).forEach((r) => {
+         _ui.rules[r] = rules[r];
+      });
+
+      return _ui;
+   }
+
+   async init(AB) {
+      await super.init(AB);
+
+      this.$form = $$(this.ids.component);
+      AB.Webix.extend(this.$form, webix.ProgressBar);
+
+      var VC = this.ViewClass();
+      if (VC) {
+         /*
+// TODO:
+         $$(this.ids.fieldDescription).define(
+            "label",
+            L(FC.defaults().description)
+         );
+      } else {
+         $$(this.ids.fieldDescription).hide();
+*/
+      }
+   }
+
+   /**
+    * @method clear()
+    * clear the property form.
+    */
+   clear() {
+      $$(this.ids.label).setValue("");
+   }
+
+   propertyDatacollections(view) {
+      return view.application.datacollectionsIncluded().map((d) => {
+         return { id: d.id, value: d.label };
+      });
+   }
+
+   /**
+    * @method defaults()
+    * Return the ViewClass() default values.
+    * NOTE: the child class MUST implement ViewClass() to return the
+    * proper ABViewXXX class definition.
+    * @return {obj}
+    */
+   defaults() {
+      var ViewClass = this.ViewClass();
+      if (!ViewClass) {
+         console.error("!!! properties/views/ABView: could not find ViewClass");
+         return null;
+      }
+      return ViewClass.common();
+   }
+
+   formValues() {
+      return $$(this.ids.component).getValues();
+   }
+
+   /**
+    * @method isValid()
+    * Verify the common ABField settings are valid before allowing
+    * us to create the new field.
+    * @return {bool}
+    */
+   isValid() {
+      /*
+// TODO:
+      var ids = this.ids;
+      var isValid = $$(ids.component).validate(),
+         colName = this.formValues()["columnName"];
+
+      // validate reserve column names
+      var FC = this.FieldClass();
+      if (!FC) {
+         this.AB.notify.developer(
+            new Error("Unable to resolve FieldClass"),
+            {
+               context: "ABFieldProperty: isValid()",
+               base: this.ids.component,
+            }
+         );
+      }
+
+      // columnName should not be one of the reserved names:
+      if (FC?.reservedNames.indexOf(colName.trim().toLowerCase()) > -1) {
+         this.markInvalid("columnName", L("This is a reserved name"));
+         isValid = false;
+      }
+
+      // columnName should not be in use by other fields on this object
+      // get All fields with matching colName
+      var fieldColName = this.currentObject?.fields(
+         (f) => f.columnName == colName
+      );
+      // ignore current edit field
+      if (this._CurrentField) {
+         fieldColName = fieldColName.filter(
+            (f) => f.id != this._CurrentField.id
+         );
+      }
+      // if any more matches, this is a problem
+      if (fieldColName.length > 0) {
+         this.markInvalid(
+            "columnName",
+            L("This column name is in use by another field ({0})", [
+               fieldColName.label,
+            ])
+         );
+         isValid = false;
+      }
+
+      return isValid;
+*/
+   }
+
+   markInvalid(name, message) {
+      $$(this.ids.component).markInvalid(name, message);
+   }
+
+   /**
+    * @method onChange()
+    * emit a "changed" event so our property manager can know
+    * there are new values that need saving.
+    */
+   onChange() {
+      this.emit("changed");
+   }
+
+   /**
+    * @function populate
+    * populate the property form with the given ABField instance provided.
+    * @param {ABView} view
+    *        The ABViewXXX instance that we are editing the settings for.
+    */
+   populate(view) {
+      this.viewLoad(view);
+      $$(this.ids.label)?.setValue(view.label);
+   }
+
+   requiredOnChange() {
+      // Sub Class should overwrite this if it is necessary.
+   }
+
+   /*
+    * @function values
+    *
+    * return the values for this form.
+    * @return {obj}
+    */
+   values() {
+      let vals = {};
+      vals.label = $$(this.ids.label).getValue();
+      return vals;
+   }
+
+   /**
+    * @method ViewClass()
+    * A method to return the proper ABViewXXX Definition.
+    * NOTE: Can be overwritten by the Child Class
+    */
+   ViewClass() {
+      return this._ViewClass(this.constructor.key);
+   }
+
+   _ViewClass(key) {
+      var app = this.CurrentApplication;
+      if (!app) {
+         app = this.AB.applicationNew({});
+      }
+      return app.viewAll((V) => V.common().key == key)[0];
+   }
+}
+
+
+/***/ }),
+
 /***/ 41260:
 /*!******************************************************!*\
   !*** ./AppBuilder/platform/process/ABProcessLane.js ***!
@@ -55494,10 +57156,6 @@ module.exports = class ABViewForm extends ABViewFormCore {
       const obj = dv.datasource;
       if (obj == null) return;
 
-      // get ABModel
-      const model = dv.model;
-      if (model == null) return;
-
       // show progress icon
       $formView.showProgress?.({ type: "icon" });
 
@@ -55581,23 +57239,16 @@ module.exports = class ABViewForm extends ABViewFormCore {
          $formView.hideProgress?.();
          return;
       }
-
       let newFormVals;
+      try {
+         newFormVals = await this.submitValues(formVals);
+      } catch (err) {
+         formError(err.data);
+         return;
+      }
       // {obj}
       // The fully populated values returned back from service call
       // We use this in our post processing Rules
-
-      try {
-         // is this an update or create?
-         if (formVals.id) {
-            newFormVals = await model.update(formVals.id, formVals);
-         } else {
-            newFormVals = await model.create(formVals);
-         }
-      } catch (err) {
-         formError(err.data);
-         throw err;
-      }
 
       /*
       // OLD CODE:
@@ -55708,6 +57359,19 @@ module.exports = class ABViewForm extends ABViewFormCore {
 
       if (this.settings.submitRules) {
          // TODO: scan submitRules for warnings.
+      }
+   }
+
+   async submitValues(formVals) {
+      // get ABModel
+      const model = this.datacollection.model;
+      if (model == null) return;
+
+      // is this an update or create?
+      if (formVals.id) {
+         return await model.update(formVals.id, formVals);
+      } else {
+         return await model.create(formVals);
       }
    }
 
@@ -56167,6 +57831,56 @@ module.exports = class ABViewFormTree extends ABViewFormTreeCore {
     */
    component() {
       return new ABViewFormTreeComponent(this);
+   }
+};
+
+
+/***/ }),
+
+/***/ 71616:
+/*!****************************************************!*\
+  !*** ./AppBuilder/platform/views/ABViewFormURL.js ***!
+  \****************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+const ABViewForm = __webpack_require__(/*! ./ABViewForm */ 10365);
+
+const ABViewFormURLDefaults = {
+   key: "form-url", // unique key identifier for this ABViewForm
+   icon: "list-alt", // icon reference: (without 'fa-' )
+   labelKey: "FormUrl", // {string} the multilingual label key for the class label
+};
+
+module.exports = class ABViewFormURL extends ABViewForm {
+   static common() {
+      return ABViewFormURLDefaults;
+   }
+
+   async submitValues(formVals) {
+      let url = this.settings.url;
+      let method = this.settings.method || "get";
+      method = method.toLowerCase();
+      if (!["get", "post", "put", "delete"].includes(method)) {
+         throw new Error(
+            `Invalid method "${method}" specified for ABViewFormURL`
+         );
+      }
+
+      // remove empty id from formVals
+      if (formVals.id === "") {
+         delete formVals.id;
+      }
+
+      let params = {
+         data: formVals,
+         url,
+      };
+
+      if (this.settings.headers) {
+         params.headers = this.settings.headers;
+      }
+
+      return await this.AB.Network[method](params);
    }
 };
 
@@ -65446,7 +67160,7 @@ module.exports = class ABViewFormComponent extends ABViewComponent {
 
       fieldValidations.forEach((f) => {
          // init each ui to have the properties (app and fields) of the object we are editing
-         f.filter.applicationLoad(dc.datasource.application);
+         f.filter.applicationLoad?.(dc.datasource.application); // depreciated.
          f.filter.fieldsLoad(dc.datasource.fields());
          // now we can set the value because the fields are properly initialized
          f.filter.setValue(f.validationRules);
@@ -65457,11 +67171,14 @@ module.exports = class ABViewFormComponent extends ABViewComponent {
             complexValidations[f.columnName] = [];
 
          // now we can push the rules into the hash
-         complexValidations[f.columnName].push({
-            filters: $$(f.view).getFilterHelper(),
-            // values: $$(ids.form).getValues(),
-            invalidMessage: f.invalidMessage,
-         });
+         // what happens if $$(f.view) isn't present?
+         if ($$(f.view)) {
+            complexValidations[f.columnName].push({
+               filters: $$(f.view).getFilterHelper(),
+               // values: $$(ids.form).getValues(),
+               invalidMessage: f.invalidMessage,
+            });
+         }
       });
 
       const ids = this.ids;
@@ -65473,14 +67190,17 @@ module.exports = class ABViewFormComponent extends ABViewComponent {
             name: key,
          });
 
+         if (!formField) return;
+
          // store the rules in a data param to be used later
          formField.$view.complexValidations = complexValidations[key];
          // define validation rules
          formField.define("validate", function (nval, oval, field) {
             // get field now that we are validating
-            const fieldValidating = $$(ids.form).queryView({
+            const fieldValidating = $$(ids.form)?.queryView({
                name: field,
             });
+            if (!fieldValidating) return true;
 
             // default valid is true
             let isValid = true;
@@ -82626,6 +84346,10 @@ class Multilingual extends MLClass {
    }
 
    label(key, altText, values = [], postMissing = true) {
+      if (typeof key == "undefined") {
+         return "";
+      }
+
       // part of our transition: L("single string") should start to work:
       if (typeof altText == "undefined" && key) {
          altText = key;
@@ -85789,4 +87513,4 @@ module.exports = class ABCustomEditList {
 /***/ })
 
 }]);
-//# sourceMappingURL=AB.3bf5db93c75d99b70a26.js.map
+//# sourceMappingURL=AB.b42df031aa8d5bacdbad.js.map
