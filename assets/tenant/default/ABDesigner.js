@@ -68695,6 +68695,7 @@ __webpack_require__.r(__webpack_exports__);
       __webpack_require__(/*! ./views/ABViewDetail */ "./src/rootPages/Designer/editors/views/ABViewDetail.js"),
       __webpack_require__(/*! ./views/ABViewDocxBuilder */ "./src/rootPages/Designer/editors/views/ABViewDocxBuilder.js"),
       __webpack_require__(/*! ./views/ABViewForm */ "./src/rootPages/Designer/editors/views/ABViewForm.js"),
+      __webpack_require__(/*! ./views/ABViewFormUrl */ "./src/rootPages/Designer/editors/views/ABViewFormUrl.js"),
       __webpack_require__(/*! ./views/ABViewGantt */ "./src/rootPages/Designer/editors/views/ABViewGantt.js"),
       __webpack_require__(/*! ./views/ABViewGrid */ "./src/rootPages/Designer/editors/views/ABViewGrid.js"),
       __webpack_require__(/*! ./views/ABViewKanban */ "./src/rootPages/Designer/editors/views/ABViewKanban.js"),
@@ -68717,6 +68718,13 @@ __webpack_require__.r(__webpack_exports__);
       if (p.editor) Editors.push(p.editor(AB, _views_ABViewDefault__WEBPACK_IMPORTED_MODULE_0__["default"]));
    });
 
+   // Load editors from ClassManager
+   if (AB.ClassManager && AB.ClassManager.viewEditorAll) {
+      AB.ClassManager.viewEditorAll()?.forEach((EditorClass) => {
+         Editors.push(EditorClass);
+      });
+   }
+
    return {
       /*
        * @function editors
@@ -68725,7 +68733,7 @@ __webpack_require__.r(__webpack_exports__);
        *        A filter for limiting which editor you want.
        * @return [{ClassUI(Editor1)}, {ClassUI(Editor2)}, ...]
        */
-      editors: function(f = () => true) {
+      editors: function (f = () => true) {
          return Editors.filter(f);
       },
    };
@@ -69527,6 +69535,7 @@ var myClass = null;
             let Defaults =
                AB.Class.ABViewManager.viewClass(key).defaultValues();
             return {
+               _dashboardID: this.ids.component,
                rows: [
                   {
                      id: this.ids.component,
@@ -69554,7 +69563,7 @@ var myClass = null;
 
             // NOTE: need to sorting before .addView because there is a render position bug in webix 5.1.7
             // https://webix.com/snippet/404cf0c7
-            var childViews = this.CurrentView.viewsSortByPosition();
+            var childViews = this.CurrentView?.viewsSortByPosition() || [];
 
             // attach all the .UI views:
             childViews.forEach((child) => {
@@ -69686,7 +69695,7 @@ var myClass = null;
             var allViewUpdates = [];
 
             // save view position state to views
-            this.CurrentView.views().forEach((v) => {
+            (this.CurrentView?.views() || []).forEach((v) => {
                var state = viewState.filter((vs) => vs.name == v.id)[0];
                if (state) {
                   v.position.x = state.x;
@@ -69705,13 +69714,17 @@ var myClass = null;
                // this.saveReorder()
                await Promise.all(allViewUpdates);
 
-               await this.CurrentView.save();
+               if (this.CurrentView) {
+                  await this.CurrentView.save();
+               }
 
                this.ready();
             } catch (err) {
                this.AB.notify.developer(err, {
                   message: "Error trying to save selected View:",
-                  view: this.CurrentView.toObj(),
+                  view: this.CurrentView?.toObj() || {
+                     currentView: "not found",
+                  },
                });
                this.ready();
             }
@@ -69719,17 +69732,19 @@ var myClass = null;
 
          onShow() {
             let hasTextComponent = false;
-            this.CurrentView.views().forEach((v) => {
-               if (v.key === "text") hasTextComponent = true;
-               var component = this.subComponents[v.id];
-               component?.onShow?.();
-            });
-            if (hasTextComponent) this.initTinyMCE();
+            if (this.CurrentView) {
+               this.CurrentView.views().forEach((v) => {
+                  if (v.key === "text") hasTextComponent = true;
+                  var component = this.subComponents[v.id];
+                  component?.onShow?.();
+               });
+               if (hasTextComponent) this.initTinyMCE();
 
-            let dc = this.CurrentView.datacollection;
-            if (dc && dc.dataStatus == dc.dataStatusFlag.notInitial) {
-               // load data when a widget is showing
-               dc.loadData();
+               let dc = this.CurrentView.datacollection;
+               if (dc && dc.dataStatus == dc.dataStatusFlag.notInitial) {
+                  // load data when a widget is showing
+                  dc.loadData();
+               }
             }
          }
 
@@ -69805,7 +69820,8 @@ var myClass = null;
           * @param {obj} trg  Webix provided object
           */
          viewDelete(e, id /*, trg */) {
-            var deletedView = this.CurrentView.views((v) => v.id == id)[0];
+            var deletedView =
+               this.CurrentView?.views((v) => v.id == id)[0] || null;
             if (!deletedView) return false;
 
             webix.confirm({
@@ -69844,11 +69860,13 @@ var myClass = null;
                      let Dashboard = $$(this.ids.component);
 
                      // Update UI
-                     var deletedElem = Dashboard.queryView({ name: id });
-                     if (deletedElem) {
-                        Dashboard.blockEvent();
-                        Dashboard.removeView(deletedElem);
-                        Dashboard.unblockEvent();
+                     if (Dashboard) {
+                        var deletedElem = Dashboard.queryView({ name: id });
+                        if (deletedElem) {
+                           Dashboard.blockEvent();
+                           Dashboard.removeView(deletedElem);
+                           Dashboard.unblockEvent();
+                        }
                      }
 
                      this.showEmptyPlaceholder();
@@ -69873,7 +69891,7 @@ var myClass = null;
           * @param {obj} trg  Webix provided object
           */
          viewEdit(e, id /*, trg */) {
-            var view = this.CurrentView.views((v) => v.id == id)[0];
+            var view = this.CurrentView?.views((v) => v.id == id)[0] || null;
 
             if (!view) return false;
 
@@ -70261,6 +70279,76 @@ var myClass = null;
          onShow() {
             this.component?.onShow?.();
          }
+      };
+   }
+
+   return myClass;
+}
+
+
+/***/ }),
+
+/***/ "./src/rootPages/Designer/editors/views/ABViewFormUrl.js":
+/*!***************************************************************!*\
+  !*** ./src/rootPages/Designer/editors/views/ABViewFormUrl.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* export default binding */ __WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _ABViewForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABViewForm */ "./src/rootPages/Designer/editors/views/ABViewForm.js");
+/**
+ * ABViewFormEditor
+ * The widget that displays the UI Editor Component on the screen
+ * when designing the UI.
+ */
+var myClass = null;
+// {singleton}
+// we will want to call this factory fn() repeatedly in our imports,
+// but we only want to define 1 Class reference.
+
+
+
+/* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__(AB) {
+   if (!myClass) {
+      const ABViewForm = (0,_ABViewForm__WEBPACK_IMPORTED_MODULE_0__["default"])(AB);
+      // var L = UIClass.L();
+      // var L = ABViewContainer.L();
+
+      myClass = class ABViewFormEditor extends ABViewForm {
+         static get key() {
+            return "form-url";
+         }
+
+         // constructor(view, base = "interface_editor_viewform") {
+         //    // base: {string} unique base id reference
+
+         //    super(view, base);
+
+         //    // this.component = this.view.component();
+         // }
+
+         // ui() {
+         //    let _ui = super.ui();
+         //    _ui.rows[0].cellHeight = 75;
+         //    return _ui;
+         // }
+
+         // init(AB) {
+         //    this.AB = AB;
+         //    return super.init(AB);
+         // }
+
+         // detatch() {
+         //    this.component?.detatch?.();
+         // }
+
+         // onShow() {
+         //    this.component?.onShow?.();
+         // }
       };
    }
 
@@ -71028,7 +71116,9 @@ let myClass = null;
 
             pivot.readonly = false;
 
-            return pivot;
+            // NOTE: ui_work_interface_workspace_editor_layout is expecting a { rows:[] }
+            // type of response from this.
+            return pivotContainer;
          }
 
          init(AB) {
@@ -71036,7 +71126,7 @@ let myClass = null;
 
             this.component?.init?.();
 
-            const pivotId = this.ui().id;
+            const pivotId = this.ui().rows[0].id;
             const $pivot = $$(pivotId);
             $pivot.getState().$observe("structure", (structure) => {
                this._saveStructure(structure);
@@ -71247,6 +71337,7 @@ let myClass = null;
             }
 
             return {
+               _dashboardID: ids.component,
                rows: [componentUI],
             };
          }
@@ -71479,6 +71570,7 @@ let myClass = null;
             const baseView = this.view;
 
             return {
+               _dashboardID: ids.component,
                rows: [
                   {
                      id: ids.component,
@@ -71989,6 +72081,7 @@ var PropertyMgr = null;
          __webpack_require__(/*! ./views/ABViewFormSelectSingle */ "./src/rootPages/Designer/properties/views/ABViewFormSelectSingle.js"),
          __webpack_require__(/*! ./views/ABViewFormTextbox */ "./src/rootPages/Designer/properties/views/ABViewFormTextbox.js"),
          __webpack_require__(/*! ./views/ABViewFormTree */ "./src/rootPages/Designer/properties/views/ABViewFormTree.js"),
+         __webpack_require__(/*! ./views/ABViewFormUrl */ "./src/rootPages/Designer/properties/views/ABViewFormUrl.js"),
          __webpack_require__(/*! ./views/ABViewGantt */ "./src/rootPages/Designer/properties/views/ABViewGantt.js"),
          __webpack_require__(/*! ./views/ABViewGrid */ "./src/rootPages/Designer/properties/views/ABViewGrid.js"),
          __webpack_require__(/*! ./views/ABViewImage */ "./src/rootPages/Designer/properties/views/ABViewImage.js"),
@@ -72011,6 +72104,15 @@ var PropertyMgr = null;
       AB.plugins().forEach((p) => {
          if (p.viewProperty) Views.push(p.viewProperty(AB, _views_ABView__WEBPACK_IMPORTED_MODULE_0__["default"]));
       });
+
+      // Include view properties from ClassManager
+      const Plugins = [];
+      if (AB.ClassManager && AB.ClassManager.viewPropertiesAll) {
+         const classManagerViewProperties = AB.ClassManager.viewPropertiesAll();
+         classManagerViewProperties.forEach((ViewPropertyClass) => {
+            Plugins.push(ViewPropertyClass);
+         });
+      }
 
       var MobileViews = [];
       // {array}
@@ -72053,11 +72155,11 @@ var PropertyMgr = null;
          },
 
          processElements: function (f = () => true) {
-            return Processes.filter(f);
+            return Plugins.concat(Processes).filter(f);
          },
 
          views: function (v = () => true) {
-            return Views.filter(v);
+            return Plugins.concat(Views).filter(v);
          },
 
          mobileViews: function (v = () => true) {
@@ -72160,6 +72262,7 @@ let myClass = null;
                   {
                      cols: [
                         {
+                           id: `${this.base}_name`,
                            view: "label",
                            label: L("Field Name:"),
                            align: "left",
@@ -77201,7 +77304,10 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       clear() {
+         // NOTE: don't call super.clear() here
+
          const ids = this.ids;
+         $$(ids.label).setValue("");
          $$(ids.isMultiple).setValue(0);
          $$(ids.hasColors).setValue(0);
          $$(ids.options).clearAll();
@@ -102816,8 +102922,9 @@ __webpack_require__.r(__webpack_exports__);
    );
 
    class ABViewFormProperty extends ABViewContainer {
-      constructor() {
-         super(base, {
+      constructor(b = null, id = null) {
+         b = b || base;
+         id = Object.assign(id || {}, {
             // Put our ids here
             datacollection: "",
             fields: "",
@@ -102831,6 +102938,7 @@ __webpack_require__.r(__webpack_exports__);
             buttonSubmitRules: "",
             buttonRecordRules: "",
          });
+         super(b, id);
 
          this.AB = AB;
          ABViewFormPropertyComponentDefaults =
@@ -102841,220 +102949,224 @@ __webpack_require__.r(__webpack_exports__);
          return "form";
       }
 
-      ui() {
+      ui(elements = null) {
          let ids = this.ids;
 
-         return super.ui([
-            {
-               id: ids.datacollection,
-               view: "richselect",
-               name: "datacollection",
-               label: L("Datacollection"),
-               labelWidth: uiConfig.labelWidthLarge,
-               skipAutoSave: true,
-               on: {
-                  onChange: (newId, oldId) => {
-                     this.selectSource(newId, oldId);
-                  },
-               },
-            },
+         elements = elements || [];
 
-            {
-               view: "fieldset",
-               label: L("Form Fields:"),
-               labelWidth: uiConfig.labelWidthLarge,
-               body: {
-                  type: "clean",
-                  padding: 10,
-                  rows: [
-                     {
-                        id: ids.fields,
-                        view: "list",
-                        name: "fields",
-
-                        select: false,
-                        minHeight: 200,
-                        template: (...params) => {
-                           return this.listTemplate(...params);
-                        },
-                        type: {
-                           markCheckbox: function (item) {
-                              return (
-                                 "<span class='check webix_icon fa fa-" +
-                                 (item.selected ? "check-" : "") +
-                                 "square-o'></span>"
-                              );
-                           },
-                        },
-                        onClick: {
-                           check: (...params) => {
-                              return this.check(...params);
-                           },
-                        },
+         return super.ui(
+            [
+               {
+                  id: ids.datacollection,
+                  view: "richselect",
+                  name: "datacollection",
+                  label: L("Datacollection"),
+                  labelWidth: uiConfig.labelWidthLarge,
+                  skipAutoSave: true,
+                  on: {
+                     onChange: (newId, oldId) => {
+                        this.selectSource(newId, oldId);
                      },
-                  ],
+                  },
                },
-            },
-            {
-               id: ids.showLabel,
-               name: "showLabel",
-               view: "checkbox",
-               label: L("Display Label"),
-               labelWidth: uiConfig.labelWidthLarge,
-               click: () => {
-                  this.onChange();
-               },
-            },
-            {
-               id: ids.labelPosition,
-               view: "richselect",
-               name: "labelPosition",
 
-               label: L("Label Position"),
-               labelWidth: uiConfig.labelWidthLarge,
-               options: [
-                  {
-                     id: "left",
-                     value: L("Left"),
-                  },
-                  {
-                     id: "top",
-                     value: L("Top"),
-                  },
-               ],
-               on: {
-                  onChange: () => {
-                     this.onChange();
-                  },
-               },
-            },
-            {
-               id: ids.labelWidth,
-               view: "counter",
-               name: "labelWidth",
+               {
+                  view: "fieldset",
+                  label: L("Form Fields:"),
+                  labelWidth: uiConfig.labelWidthLarge,
+                  body: {
+                     type: "clean",
+                     padding: 10,
+                     rows: [
+                        {
+                           id: ids.fields,
+                           view: "list",
+                           name: "fields",
 
-               label: L("Label Width"),
-               labelWidth: uiConfig.labelWidthLarge,
-               on: {
-                  onChange: () => {
-                     this.onChange();
-                  },
-               },
-            },
-            {
-               id: ids.height,
-               view: "counter",
-               name: "height",
-               label: L("Height"),
-               labelWidth: uiConfig.labelWidthLarge,
-               on: {
-                  onChange: () => {
-                     this.onChange();
-                  },
-               },
-            },
-            {
-               id: ids.clearOnLoad,
-               view: "checkbox",
-               name: "clearOnLoad",
-
-               label: L("Clear on load"),
-               labelWidth: uiConfig.labelWidthLarge,
-               on: {
-                  onChange: () => {
-                     this.onChange();
-                  },
-               },
-            },
-            {
-               id: ids.clearOnSave,
-               view: "checkbox",
-               name: "clearOnSave",
-               label: L("Clear on save"),
-               labelWidth: uiConfig.labelWidthLarge,
-               on: {
-                  onChange: () => {
-                     this.onChange();
-                  },
-               },
-            },
-            {
-               view: "fieldset",
-               label: L("Rules:"),
-               labelWidth: uiConfig.labelWidthLarge,
-               body: {
-                  type: "clean",
-                  padding: 10,
-                  rows: [
-                     {
-                        cols: [
-                           {
-                              view: "label",
-                              label: L("Submit Rules:"),
-                              width: uiConfig.labelWidthLarge,
+                           select: false,
+                           minHeight: 200,
+                           template: (...params) => {
+                              return this.listTemplate(...params);
                            },
-                           {
-                              id: ids.buttonSubmitRules,
-                              view: "button",
-                              css: "webix_primary",
-                              name: "buttonSubmitRules",
-                              label: L("Settings"),
-                              icon: "fa fa-gear",
-                              type: "icon",
-                              badge: 0,
-                              click: () => {
-                                 this.submitRuleShow();
+                           type: {
+                              markCheckbox: function (item) {
+                                 return (
+                                    "<span class='check webix_icon fa fa-" +
+                                    (item.selected ? "check-" : "") +
+                                    "square-o'></span>"
+                                 );
                               },
                            },
-                        ],
-                     },
-                     // {
-                     //    cols: [
-                     //       {
-                     //          view: "label",
-                     //          label: L("Display Rules:"),
-                     //          width: uiConfig.labelWidthLarge,
-                     //       },
-                     //       {
-                     //          view: "button",
-                     //          name: "buttonDisplayRules",
-                     //          css: "webix_primary",
-                     //          label: L("Settings"),
-                     //          icon: "fa fa-gear",
-                     //          type: "icon",
-                     //          badge: 0,
-                     //          click: () => {
-                     //             this.displayRuleShow();
-                     //          },
-                     //       },
-                     //    ],
-                     // },
-                     {
-                        cols: [
-                           {
-                              view: "label",
-                              label: L("Record Rules:"),
-                              width: uiConfig.labelWidthLarge,
-                           },
-                           {
-                              id: ids.buttonRecordRules,
-                              view: "button",
-                              name: "buttonRecordRules",
-                              css: "webix_primary",
-                              label: L("Settings"),
-                              icon: "fa fa-gear",
-                              type: "icon",
-                              badge: 0,
-                              click: () => {
-                                 this.recordRuleShow();
+                           onClick: {
+                              check: (...params) => {
+                                 return this.check(...params);
                               },
                            },
-                        ],
+                        },
+                     ],
+                  },
+               },
+               {
+                  id: ids.showLabel,
+                  name: "showLabel",
+                  view: "checkbox",
+                  label: L("Display Label"),
+                  labelWidth: uiConfig.labelWidthLarge,
+                  click: () => {
+                     this.onChange();
+                  },
+               },
+               {
+                  id: ids.labelPosition,
+                  view: "richselect",
+                  name: "labelPosition",
+
+                  label: L("Label Position"),
+                  labelWidth: uiConfig.labelWidthLarge,
+                  options: [
+                     {
+                        id: "left",
+                        value: L("Left"),
+                     },
+                     {
+                        id: "top",
+                        value: L("Top"),
                      },
                   ],
+                  on: {
+                     onChange: () => {
+                        this.onChange();
+                     },
+                  },
                },
-            },
-         ]);
+               {
+                  id: ids.labelWidth,
+                  view: "counter",
+                  name: "labelWidth",
+
+                  label: L("Label Width"),
+                  labelWidth: uiConfig.labelWidthLarge,
+                  on: {
+                     onChange: () => {
+                        this.onChange();
+                     },
+                  },
+               },
+               {
+                  id: ids.height,
+                  view: "counter",
+                  name: "height",
+                  label: L("Height"),
+                  labelWidth: uiConfig.labelWidthLarge,
+                  on: {
+                     onChange: () => {
+                        this.onChange();
+                     },
+                  },
+               },
+               {
+                  id: ids.clearOnLoad,
+                  view: "checkbox",
+                  name: "clearOnLoad",
+
+                  label: L("Clear on load"),
+                  labelWidth: uiConfig.labelWidthLarge,
+                  on: {
+                     onChange: () => {
+                        this.onChange();
+                     },
+                  },
+               },
+               {
+                  id: ids.clearOnSave,
+                  view: "checkbox",
+                  name: "clearOnSave",
+                  label: L("Clear on save"),
+                  labelWidth: uiConfig.labelWidthLarge,
+                  on: {
+                     onChange: () => {
+                        this.onChange();
+                     },
+                  },
+               },
+               {
+                  view: "fieldset",
+                  label: L("Rules:"),
+                  labelWidth: uiConfig.labelWidthLarge,
+                  body: {
+                     type: "clean",
+                     padding: 10,
+                     rows: [
+                        {
+                           cols: [
+                              {
+                                 view: "label",
+                                 label: L("Submit Rules:"),
+                                 width: uiConfig.labelWidthLarge,
+                              },
+                              {
+                                 id: ids.buttonSubmitRules,
+                                 view: "button",
+                                 css: "webix_primary",
+                                 name: "buttonSubmitRules",
+                                 label: L("Settings"),
+                                 icon: "fa fa-gear",
+                                 type: "icon",
+                                 badge: 0,
+                                 click: () => {
+                                    this.submitRuleShow();
+                                 },
+                              },
+                           ],
+                        },
+                        // {
+                        //    cols: [
+                        //       {
+                        //          view: "label",
+                        //          label: L("Display Rules:"),
+                        //          width: uiConfig.labelWidthLarge,
+                        //       },
+                        //       {
+                        //          view: "button",
+                        //          name: "buttonDisplayRules",
+                        //          css: "webix_primary",
+                        //          label: L("Settings"),
+                        //          icon: "fa fa-gear",
+                        //          type: "icon",
+                        //          badge: 0,
+                        //          click: () => {
+                        //             this.displayRuleShow();
+                        //          },
+                        //       },
+                        //    ],
+                        // },
+                        {
+                           cols: [
+                              {
+                                 view: "label",
+                                 label: L("Record Rules:"),
+                                 width: uiConfig.labelWidthLarge,
+                              },
+                              {
+                                 id: ids.buttonRecordRules,
+                                 view: "button",
+                                 name: "buttonRecordRules",
+                                 css: "webix_primary",
+                                 label: L("Settings"),
+                                 icon: "fa fa-gear",
+                                 type: "icon",
+                                 badge: 0,
+                                 click: () => {
+                                    this.recordRuleShow();
+                                 },
+                              },
+                           ],
+                        },
+                     ],
+                  },
+               },
+            ].concat(elements)
+         );
       }
 
       async init(AB) {
@@ -104701,7 +104813,7 @@ __webpack_require__.r(__webpack_exports__);
                placeholder: L("Select a field to filter by"),
                // options: look at populate
                on: {
-                  onChange: (newValue) => {
+                  onChange: (/* newValue */) => {
                      this.onChange();
                   },
                },
@@ -105280,6 +105392,177 @@ __webpack_require__.r(__webpack_exports__);
    }
 
    return ABViewFormTreeProperty;
+}
+
+
+/***/ }),
+
+/***/ "./src/rootPages/Designer/properties/views/ABViewFormUrl.js":
+/*!******************************************************************!*\
+  !*** ./src/rootPages/Designer/properties/views/ABViewFormUrl.js ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* export default binding */ __WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _ui_common_key_value__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../ui_common_key_value */ "./src/rootPages/Designer/ui_common_key_value.js");
+/* harmony import */ var _ABViewForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ABViewForm */ "./src/rootPages/Designer/properties/views/ABViewForm.js");
+/*
+ * ABViewForm
+ * A Property manager for our ABViewForm definitions
+ */
+
+
+
+/* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__(AB) {
+   const UIClassCommonKeyValue = (0,_ui_common_key_value__WEBPACK_IMPORTED_MODULE_0__["default"])(AB);
+   const ABViewForm = (0,_ABViewForm__WEBPACK_IMPORTED_MODULE_1__["default"])(AB);
+   const uiConfig = AB.Config.uiSettings();
+   const L = ABViewForm.L();
+
+   const base = "properties_abview_form_url";
+
+   class ABViewFormUrlProperty extends ABViewForm {
+      constructor() {
+         super(base, {
+            method: "",
+            url: "",
+            headers: "",
+         });
+
+         this.AB = AB;
+
+         this.UIKeyValues = new UIClassCommonKeyValue({
+            title: L("Headers"),
+            keyTitle: L("Key"),
+            valueTitle: L("Value"),
+            // contextID: base || randomID(),
+         });
+      }
+
+      static get key() {
+         return "form-url";
+      }
+
+      ui() {
+         let ids = this.ids;
+
+         return super.ui([
+            {
+               view: "fieldset",
+               label: L("URL:"),
+               labelWidth: uiConfig.labelWidthLarge,
+               body: {
+                  type: "clean",
+                  padding: 10,
+                  rows: [
+                     {
+                        id: ids.method,
+                        view: "richselect",
+                        name: "urlMethod",
+
+                        label: L("Method"),
+                        labelWidth: uiConfig.labelWidthLarge,
+                        options: [
+                           {
+                              id: "get",
+                              value: L("GET"),
+                           },
+                           {
+                              id: "post",
+                              value: L("POST"),
+                           },
+
+                           {
+                              id: "put",
+                              value: L("PUT"),
+                           },
+                           {
+                              id: "delete",
+                              value: L("DELETE"),
+                           },
+                        ],
+                        on: {
+                           onChange: () => {
+                              this.onChange();
+                           },
+                        },
+                     },
+                     {
+                        id: ids.url,
+                        view: "text",
+                        label: L("URL"),
+                        name: "url",
+                        value: "",
+                        on: {
+                           onChange: () => {
+                              this.onChange();
+                           },
+                        },
+                     },
+                     this.UIKeyValues.ui(),
+                  ],
+               },
+            },
+         ]);
+      }
+
+      populate(view) {
+         super.populate(view);
+         let ids = this.ids;
+         if (!view) return;
+
+         var methodSelector = $$(ids.method);
+         methodSelector.define("value", view.settings?.method || "get");
+         methodSelector.refresh();
+         methodSelector.enable();
+
+         $$(ids.url).setValue(view.settings.url);
+
+         this.UIKeyValues.populate(view.settings?.headers || []);
+      }
+
+      defaultValues() {
+         let values = {};
+         var ViewClass = this.ViewClass();
+         if (ViewClass) {
+            values = ViewClass.defaultValues();
+         }
+         return values;
+      }
+
+      /**
+       * @method values
+       * return the values for this form.
+       * @return {obj}
+       */
+      values() {
+         let ids = this.ids;
+         let vals = super.values();
+
+         vals.settings = vals.settings || {};
+
+         vals.settings.method = $$(ids.method).getValue();
+         vals.settings.url = $$(ids.url).getValue();
+
+         vals.headers = this.UIKeyValues.getValues();
+         return vals;
+      }
+
+      /**
+       * @method FieldClass()
+       * A method to return the proper ABViewXXX Definition.
+       * NOTE: Must be overwritten by the Child Class
+       */
+      ViewClass() {
+         return super._ViewClass("form-url");
+      }
+   }
+
+   return ABViewFormUrlProperty;
 }
 
 
@@ -117091,6 +117374,198 @@ var myClass = null;
 
 /***/ }),
 
+/***/ "./src/rootPages/Designer/ui_common_key_value.js":
+/*!*******************************************************!*\
+  !*** ./src/rootPages/Designer/ui_common_key_value.js ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* export default binding */ __WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _ui_class__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ui_class */ "./src/rootPages/Designer/ui_class.js");
+/*
+ * ui_common_key_value
+ *
+ * A common UI element for entering key/value pairs.
+ *
+ */
+
+
+var myClass = null;
+// {singleton}
+// we will want to call this factory fn() repeatedly in our imports,
+// but we only want to define 1 Class reference.
+
+/* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__(AB) {
+   if (!myClass) {
+      const UIClass = (0,_ui_class__WEBPACK_IMPORTED_MODULE_0__["default"])(AB);
+      var L = UIClass.L();
+
+      myClass = class ABCommonKeyValue extends UIClass {
+         constructor({ title, keyTitle, valueTitle, contextID = null }) {
+            var idBase = "abd_common_key_value";
+            if (contextID) {
+               idBase += `_${contextID}`;
+            }
+            super(idBase, {
+               kvlist: "",
+            });
+
+            this.title = title || L("Key/Value Pairs");
+            this.keyTitle = keyTitle || L("Key");
+            this.valueTitle = valueTitle || L("Value");
+         }
+
+         ui() {
+            return {
+               id: this.ids.component,
+               view: "layout",
+               padding: 10,
+               rows: [
+                  {
+                     padding: 0,
+                     cols: [
+                        {
+                           label: this.title,
+                           view: "label",
+                           padding: 0,
+                           height: 0,
+                        },
+                        {
+                           icon: "wxi-plus",
+                           view: "icon",
+                           padding: 0,
+                           width: 38,
+                           click: () => {
+                              this._addHeaderItem($$(this.ids.kvlist));
+                           },
+                        },
+                     ],
+                  },
+                  {
+                     view: "scrollview",
+                     scroll: "y",
+                     borderless: true,
+                     padding: 0,
+                     margin: 0,
+                     body: {
+                        id: this.ids.kvlist,
+                        view: "layout",
+                        padding: 0,
+                        margin: 0,
+                        rows: [],
+                     },
+                  },
+               ],
+            };
+         }
+
+         async init(/*AB, options */) {
+            // options = options || {};
+         }
+
+         _addHeaderItem($container) {
+            const uiItem = this._headerItem($container);
+            $container.addView(uiItem);
+         }
+
+         _headerItem($container, key, value) {
+            return {
+               cols: [
+                  {
+                     placeholder: this.keyTitle,
+                     view: "text",
+                     value: key,
+                  },
+                  {
+                     placeholder: this.valueTitle,
+                     view: "text",
+                     suggest: this._getSecretValues().map(
+                        (secret) => `SECRET:${secret.name}`
+                     ),
+                     value: value,
+                  },
+                  {
+                     icon: "wxi-trash",
+                     view: "icon",
+                     width: 38,
+                     click: function () {
+                        const $item = this.getParentView();
+                        $container.removeView($item);
+                     },
+                  },
+               ],
+            };
+         }
+
+         show() {
+            $$(this.ids.component)?.show();
+         }
+
+         hide() {
+            $$(this.ids.component)?.hide();
+         }
+
+         populate(values) {
+            this.formClear();
+
+            if (!values || !Array.isArray(values)) {
+               return;
+            }
+
+            const $kvlist = $$(this.ids.kvlist);
+            values.forEach((item) => {
+               if (item.key && item.value) {
+                  const uiItem = this._headerItem(
+                     $kvlist,
+                     item.key,
+                     item.value
+                  );
+                  $kvlist.addView(uiItem);
+               }
+            });
+         }
+
+         formClear() {
+            const $kvlist = $$(this.ids.kvlist);
+            this.AB.Webix.ui([], $kvlist);
+         }
+
+         getValues() {
+            const values = [];
+
+            // Request's headers
+            const $kvlist = $$(this.ids.kvlist);
+            values.headers = values.headers ?? [];
+            $kvlist?.getChildViews().forEach((item) => {
+               let children = item.getChildViews();
+               const $key = children[0];
+               const $value = children[1];
+               const key = $key.getValue();
+               const value = $value.getValue();
+
+               if (key != null && value != null)
+                  values.push({
+                     key,
+                     value,
+                  });
+            });
+
+            return values;
+         }
+      };
+   }
+
+   // NOTE: return JUST the class definition.
+   return myClass;
+}
+
+
+/***/ }),
+
 /***/ "./src/rootPages/Designer/ui_common_label_template.js":
 /*!************************************************************!*\
   !*** ./src/rootPages/Designer/ui_common_label_template.js ***!
@@ -125212,8 +125687,8 @@ __webpack_require__.r(__webpack_exports__);
                },
                on: {
                   onItemClick: function (id /*, e, node */) {
-                     var component = this.getItem(id);
-                     _this.addWidget(component);
+                     var item = this.getItem(id);
+                     _this.addWidget(item.component || item);
                   },
                },
             },
@@ -125281,6 +125756,8 @@ __webpack_require__.r(__webpack_exports__);
        * compile the template for each item in the list.
        */
       template(obj /* , common */) {
+         return `<div class='ab-component-in-page'><i class='fa fa-2x fa-${obj.icon}' aria-hidden='true'></i><br/>${obj.label}</div>`;
+         /*
          // if this is one of our ABViews:
          if (obj.common) {
             // see if a .label field is present
@@ -125298,6 +125775,7 @@ __webpack_require__.r(__webpack_exports__);
             // maybe this is simply the "No Components" placeholder
             return obj.label;
          }
+         */
       }
 
       /*
@@ -125315,6 +125793,16 @@ __webpack_require__.r(__webpack_exports__);
 
          var components = this.CurrentView.componentList();
 
+         components = components.map((c) => {
+            let label = c.name;
+            let icon = "cubes";
+            if (c.common) {
+               label = c.common().label || L(c.common().labelKey);
+               icon = c.common().icon || "cubes";
+            }
+            // preserve the original component so its methods (e.g., .newInstance()) remain available
+            return { label, icon, component: c };
+         });
          List.clearAll();
 
          if (components && components.length > 0) {
@@ -125481,11 +125969,17 @@ __webpack_require__.r(__webpack_exports__);
          let ids = this.ids;
 
          // clear edit area
-         $$(ids.editArea)
-            .getChildViews()
-            .forEach((childView) => {
-               $$(ids.editArea)?.removeView(childView);
-            });
+         $$(ids.editArea).define("rows", []);
+         $$(ids.editArea).define("cols", []);
+         $$(ids.editArea).reconstruct();
+         // let removeViews = $$(ids.editArea).getChildViews();
+         // while (removeViews.length > 0) {
+         //    let childView = removeViews.shift();
+         //    $$(ids.editArea)?.removeView(childView);
+         // }
+         // // removeViews.forEach((childView) => {
+         // //    $$(ids.editArea)?.removeView(childView);
+         // // });
 
          // load the component's editor in our editArea
          var editorComponent;
@@ -125610,20 +126104,28 @@ __webpack_require__.r(__webpack_exports__);
          editorUI.id = `${ids.editArea}_dashboard_layout`;
 
          // clear out widgets in our dashboard area
-         var subWidgets = editorUI.rows ?? editorUI.cols;
-         if (!subWidgets || subWidgets.length === 0) {
-            if (editorUI.body) {
-               subWidgets = editorUI.body.rows ?? editorUI.body.cols;
-            }
+
+         let idDashboard = editorUI._dashboardID;
+         if (!idDashboard) {
+            var subWidgets = editorUI.rows ?? editorUI.cols;
             if (!subWidgets || subWidgets.length === 0) {
-               console.error("Tell Johnny: No sub widgets found in editor UI");
-               console.error(editorUI);
-               return;
+               if (editorUI.body) {
+                  subWidgets = editorUI.body.rows ?? editorUI.body.cols;
+               }
+               if (!subWidgets || subWidgets.length === 0) {
+                  console.error(
+                     "Tell Johnny: No sub widgets found in editor UI"
+                  );
+                  console.error(editorUI);
+                  return;
+               }
             }
+            idDashboard = subWidgets[0].id;
          }
-         const idDashboard = subWidgets[0].id;
-         const $dashboard = $$(idDashboard);
-         if ($dashboard) $dashboard.clearAll();
+         if (idDashboard) {
+            const $dashboard = $$(idDashboard);
+            if ($dashboard) $dashboard.clearAll();
+         }
 
          // add the editorUI if it is not already added
          if ($$(ids.editArea).queryView({ id: editorUI.id }) == null)
@@ -126166,7 +126668,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ui_work_object_list_newObject_csv__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ui_work_object_list_newObject_csv */ "./src/rootPages/Designer/ui_work_object_list_newObject_csv.js");
 /* harmony import */ var _ui_work_object_list_newObject_api__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ui_work_object_list_newObject_api */ "./src/rootPages/Designer/ui_work_object_list_newObject_api.js");
 /* harmony import */ var _ui_work_object_list_newObject_import__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ui_work_object_list_newObject_import */ "./src/rootPages/Designer/ui_work_object_list_newObject_import.js");
-/* harmony import */ var _ui_work_object_list_newObject_netsuite__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ui_work_object_list_newObject_netsuite */ "./src/rootPages/Designer/ui_work_object_list_newObject_netsuite.js");
 /*
  * ui_work_object_list_newObject
  *
@@ -126186,7 +126687,6 @@ __webpack_require__.r(__webpack_exports__);
  * On Error, "save.error" will be emitted on the sub-component.
  *
  */
-
 
 
 
@@ -126212,7 +126712,16 @@ __webpack_require__.r(__webpack_exports__);
          this.CsvTab = (0,_ui_work_object_list_newObject_csv__WEBPACK_IMPORTED_MODULE_2__["default"])(AB);
          this.ApiTab = (0,_ui_work_object_list_newObject_api__WEBPACK_IMPORTED_MODULE_3__["default"])(AB);
          this.ImportTab = (0,_ui_work_object_list_newObject_import__WEBPACK_IMPORTED_MODULE_4__["default"])(AB);
-         this.NetsuiteTab = (0,_ui_work_object_list_newObject_netsuite__WEBPACK_IMPORTED_MODULE_5__["default"])(AB);
+
+         // Find any Plugin Properties for Objects:
+         this._plugins = {};
+         this.AB.ClassManager.allObjectProperties().forEach((plugin) => {
+            this._plugins[plugin.getPluginKey()] = new plugin(
+               null,
+               {},
+               this.AB
+            );
+         });
          /*
          this.ExternalTab = new ABImportExternal(AB);
          */
@@ -126220,7 +126729,7 @@ __webpack_require__.r(__webpack_exports__);
 
       ui() {
          // Our webix UI definition:
-         return {
+         let myUI = {
             view: "window",
             id: this.ids.component,
             // width: 400,
@@ -126261,7 +126770,6 @@ __webpack_require__.r(__webpack_exports__);
                   this.CsvTab.ui(),
                   this.ApiTab.ui(),
                   this.ImportTab.ui(),
-                  this.NetsuiteTab.ui(),
                ],
                tabbar: {
                   on: {
@@ -126286,6 +126794,16 @@ __webpack_require__.r(__webpack_exports__);
                },
             },
          };
+
+         // load any Plugin Properties for Objects:
+         Object.keys(this._plugins).forEach((key) => {
+            var plugin = this._plugins[key];
+            if (plugin.ui) {
+               myUI.body.cells.push(plugin.ui());
+            }
+         });
+
+         return myUI;
       }
 
       async init(AB) {
@@ -126302,7 +126820,6 @@ __webpack_require__.r(__webpack_exports__);
             "CsvTab",
             "ApiTab",
             "ImportTab",
-            "NetsuiteTab",
             /*, "ExternalTab"*/
          ].forEach((k) => {
             allInits.push(this[k].init(AB));
@@ -126311,6 +126828,18 @@ __webpack_require__.r(__webpack_exports__);
             });
             this[k].on("save", (values) => {
                this.save(values, k);
+            });
+         });
+
+         // load any Plugin Properties for Objects:
+         Object.keys(this._plugins).forEach((key) => {
+            var plugin = this._plugins[key];
+            allInits.push(plugin.init(AB));
+            plugin.on("cancel", () => {
+               this.emit("cancel");
+            });
+            plugin.on("save", (values) => {
+               this.save(values, key);
             });
          });
 
@@ -126335,7 +126864,11 @@ __webpack_require__.r(__webpack_exports__);
          this.CsvTab.applicationLoad(application);
          this.ApiTab.applicationLoad(application);
          this.ImportTab.applicationLoad(application);
-         this.NetsuiteTab.applicationLoad(application);
+
+         Object.keys(this._plugins).forEach((key) => {
+            let plugin = this._plugins[key];
+            plugin.applicationLoad(application);
+         });
       }
 
       /**
@@ -126372,6 +126905,20 @@ __webpack_require__.r(__webpack_exports__);
          this.emit("save", obj, this.selectNew);
       }
 
+      getTab(tabKey) {
+         if (this[tabKey]) {
+            return this[tabKey];
+         }
+         if (this._plugins[tabKey]) {
+            return this._plugins[tabKey];
+         }
+         webix.message({
+            type: "error",
+            text: L("Tab not found: {0}", tabKey),
+         });
+         return null;
+      }
+
       /**
        * @method save
        * take the data gathered by our child creation tabs, and
@@ -126382,13 +126929,22 @@ __webpack_require__.r(__webpack_exports__);
        * @return {Promise}
        */
       async save(values, tabKey) {
+         let tab = this.getTab(tabKey);
+         if (!tab) {
+            webix.message({
+               type: "error",
+               text: L("Tab not found: {0}", tabKey),
+            });
+            return false;
+         }
+
          // must have an application set.
          if (!this.CurrentApplicationID) {
             webix.alert({
                title: L("Shoot!"),
                test: L("No Application Set!  Why?"),
             });
-            this[tabKey].emit("save.error", true);
+            tab.emit("save.error", true);
             return false;
          }
 
@@ -126398,7 +126954,7 @@ __webpack_require__.r(__webpack_exports__);
          // have newObject validate it's values.
          var validator = newObject.isValid();
          if (validator.fail()) {
-            this[tabKey].emit("save.error", validator);
+            tab.emit("save.error", validator);
             // cb(validator); // tell current Tab component the errors
             return false; // stop here.
          }
@@ -126416,7 +126972,7 @@ __webpack_require__.r(__webpack_exports__);
          try {
             var obj = await newObject.save();
             await application.objectInsert(obj);
-            this[tabKey].emit("save.successful", obj);
+            tab.emit("save.successful", obj);
             this.done(obj);
          } catch (err) {
             // hide progress
@@ -126428,7 +126984,7 @@ __webpack_require__.r(__webpack_exports__);
             await application.objectRemove(newObject);
 
             // tell current Tab component there was an error
-            this[tabKey].emit("save.error", err);
+            tab.emit("save.error", err);
          }
       }
 
@@ -126460,8 +127016,14 @@ __webpack_require__.r(__webpack_exports__);
             case this.ExternalTab?.ids.form:
                this.ExternalTab?.onShow?.(this.CurrentApplicationID);
                break;
-            case this.NetsuiteTab?.ids.form:
-               this.NetsuiteTab?.onShow?.(this.CurrentApplicationID);
+
+            default:
+               Object.keys(this._plugins).forEach((key) => {
+                  let plugin = this._plugins[key];
+                  if (plugin.ids.form == tabId) {
+                     plugin.onShow?.(this.CurrentApplicationID);
+                  }
+               });
                break;
          }
       }
@@ -128708,2999 +129270,6 @@ __webpack_require__.r(__webpack_exports__);
    }
 
    return new UI_Work_Object_List_NewObject_Import();
-}
-
-
-/***/ }),
-
-/***/ "./src/rootPages/Designer/ui_work_object_list_newObject_netsuite.js":
-/*!**************************************************************************!*\
-  !*** ./src/rootPages/Designer/ui_work_object_list_newObject_netsuite.js ***!
-  \**************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* export default binding */ __WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _ui_class__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ui_class */ "./src/rootPages/Designer/ui_class.js");
-/* harmony import */ var _ui_work_object_list_newObject_netsuite_credentials__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ui_work_object_list_newObject_netsuite_credentials */ "./src/rootPages/Designer/ui_work_object_list_newObject_netsuite_credentials.js");
-/* harmony import */ var _ui_work_object_list_newObject_netsuite_tables__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ui_work_object_list_newObject_netsuite_tables */ "./src/rootPages/Designer/ui_work_object_list_newObject_netsuite_tables.js");
-/* harmony import */ var _ui_work_object_list_newObject_netsuite_fields__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ui_work_object_list_newObject_netsuite_fields */ "./src/rootPages/Designer/ui_work_object_list_newObject_netsuite_fields.js");
-/* harmony import */ var _ui_work_object_list_newObject_netsuite_connections__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ui_work_object_list_newObject_netsuite_connections */ "./src/rootPages/Designer/ui_work_object_list_newObject_netsuite_connections.js");
-/* harmony import */ var _ui_work_object_list_newObject_netsuite_dataTest__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ui_work_object_list_newObject_netsuite_dataTest */ "./src/rootPages/Designer/ui_work_object_list_newObject_netsuite_dataTest.js");
-/*
- * ui_work_object_list_newObject_netsuite
- *
- * Display the form for creating a new ABObject that connects to a Netsuite
- * instance.
- */
-
-
-
-
-
-
-
-/* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__(AB) {
-   const UIClass = (0,_ui_class__WEBPACK_IMPORTED_MODULE_0__["default"])(AB);
-   const L = UIClass.L();
-
-   class UI_Work_Object_List_NewObject_Netsuite extends UIClass {
-      constructor() {
-         super("ui_work_object_list_newObject_netsuite", {
-            // component: base,
-
-            form: "",
-            buttonSave: "",
-            buttonCancel: "",
-         });
-
-         this.UI_Credentials = (0,_ui_work_object_list_newObject_netsuite_credentials__WEBPACK_IMPORTED_MODULE_1__["default"])(AB);
-         this.UI_Tables = (0,_ui_work_object_list_newObject_netsuite_tables__WEBPACK_IMPORTED_MODULE_2__["default"])(AB);
-         this.UI_Fields = (0,_ui_work_object_list_newObject_netsuite_fields__WEBPACK_IMPORTED_MODULE_3__["default"])(AB);
-         this.UI_FieldTest = (0,_ui_work_object_list_newObject_netsuite_dataTest__WEBPACK_IMPORTED_MODULE_5__["default"])(AB);
-         this.UI_Connections = (0,_ui_work_object_list_newObject_netsuite_connections__WEBPACK_IMPORTED_MODULE_4__["default"])(AB);
-      }
-
-      ui() {
-         // Our webix UI definition:
-         return {
-            id: this.ids.component,
-            header: L("Netsuite"),
-            body: {
-               view: "form",
-               id: this.ids.form,
-               width: 820,
-               height: 650,
-               rules: {
-                  // TODO:
-                  // name: inputValidator.rules.validateObjectName
-               },
-               elements: [
-                  {
-                     rows: [
-                        {
-                           view: "text",
-                           label: L("Name"),
-                           name: "name",
-                           required: true,
-                           placeholder: L("Object name"),
-                           labelWidth: 70,
-                        },
-                        {
-                           view: "checkbox",
-                           label: L("Read Only"),
-                           name: "readonly",
-                           value: 0,
-                           // disabled: true,
-                        },
-                     ],
-                  },
-                  {
-                     view: "tabview",
-                     cells: [
-                        this.UI_Credentials.ui(),
-                        this.UI_Tables.ui(),
-                        this.UI_Fields.ui(),
-                        this.UI_Connections.ui(),
-                        this.UI_FieldTest.ui(),
-                     ],
-                  },
-                  { fillspace: true },
-                  {
-                     cols: [
-                        { fillspace: true },
-                        {
-                           view: "button",
-                           id: this.ids.buttonCancel,
-                           value: L("Cancel"),
-                           css: "ab-cancel-button",
-                           autowidth: true,
-                           click: () => {
-                              this.cancel();
-                           },
-                        },
-                        {
-                           view: "button",
-                           id: this.ids.buttonSave,
-                           css: "webix_primary",
-                           value: L("Save"),
-                           autowidth: true,
-                           type: "form",
-                           click: () => {
-                              return this.save();
-                           },
-                           disabled: true,
-                        },
-                     ],
-                  },
-               ],
-            },
-         };
-      }
-
-      async init(AB) {
-         this.AB = AB;
-
-         this.$form = $$(this.ids.form);
-         AB.Webix.extend(this.$form, webix.ProgressBar);
-
-         this.UI_Credentials.init(AB);
-         this.UI_Tables.init(AB);
-         this.UI_Fields.init(AB);
-         this.UI_Connections.init(AB);
-         this.UI_FieldTest.init(AB);
-
-         this.UI_Credentials.show();
-         this.UI_Tables.disable();
-         this.UI_Fields.disable();
-         this.UI_Connections.disable();
-         this.UI_FieldTest.disable();
-
-         // "verified" is triggered on the credentials tab once we verify
-         // the entered data is successful.
-         this.UI_Credentials.on("verified", () => {
-            this.UI_Tables.enable();
-            let creds = this.UI_Credentials.credentials();
-            this.UI_Tables.setCredentials(creds);
-            this.UI_Fields.setCredentials(creds);
-            this.UI_FieldTest.setCredentials(creds);
-            this.UI_Connections.setCredentials(creds);
-            this.UI_Tables.show();
-         });
-
-         this.UI_Credentials.on("notverified", () => {
-            this.UI_Tables.disable();
-         });
-
-         this.UI_Tables.on("tables", (tables) => {
-            this.UI_Connections.setAllTables(tables);
-         });
-
-         this.UI_Tables.on("table.selected", (table) => {
-            this.UI_Fields.enable();
-            this.UI_Fields.loadFields(table);
-            this.UI_Fields.show();
-
-            this.UI_Connections.setTable(table);
-            this.UI_FieldTest.setTable(table);
-         });
-
-         this.UI_Fields.on("connections", (list) => {
-            this.UI_Connections.loadConnections(list);
-            this.UI_Connections.enable();
-         });
-
-         this.UI_Fields.on("fields.ready", (config) => {
-            this.UI_FieldTest.enable();
-            this.UI_FieldTest.loadConfig(config);
-         });
-
-         this.UI_FieldTest.on("data.verfied", () => {
-            $$(this.ids.buttonSave).enable();
-         });
-
-         // "save.error" is triggered by the ui_work_object_list_newObject
-         // if there was an error saving the values from our form.
-         this.on("save.error", (err) => {
-            this.onError(err);
-         });
-
-         // "save.successful" is triggered by the ui_work_object_list_newObject
-         // if the values we provided were successfully saved.
-         this.on("save.successful", async (obj) => {
-            this.onSuccess();
-
-            // try {
-            //    await obj.fetchData();
-
-            //    webix.message({
-            //       type: "success",
-            //       text: L("Successfully fetching data."),
-            //    });
-            // } catch (err) {
-            //    webix.message({
-            //       type: "error",
-            //       text: L("Error fetching data."),
-            //    });
-            //    this.AB.notify.developer(err, {
-            //       context: "ABObjectAPI.fetchData()",
-            //       object: obj.toObj(),
-            //    });
-            // }
-         });
-
-         // init() routines are always considered async so:
-         return Promise.resolve();
-      }
-
-      cancel() {
-         this.formClear();
-         this.emit("cancel");
-      }
-
-      formClear() {
-         this.$form.clearValidation();
-         this.$form.clear();
-
-         this.UI_Credentials.formClear();
-         this.UI_Tables.formClear();
-         this.UI_Fields.formClear();
-         this.UI_Connections.formClear();
-         this.UI_FieldTest.formClear();
-
-         $$(this.ids.buttonSave).disable();
-      }
-
-      /**
-       * @method onError()
-       * Our Error handler when the data we provided our parent
-       * ui_work_object_list_newObject object had an error saving
-       * the values.
-       * @param {Error|ABValidation|other} err
-       *        The error information returned. This can be several
-       *        different types of objects:
-       *        - A javascript Error() object
-       *        - An ABValidation object returned from our .isValid()
-       *          method
-       *        - An error response from our API call.
-       */
-      onError(err) {
-         if (err) {
-            console.error(err);
-            let message = L("the entered data is invalid");
-            // if this was our Validation() object:
-            if (err.updateForm) {
-               err.updateForm(this.$form);
-            } else {
-               if (err.code && err.data) {
-                  message = err.data?.sqlMessage ?? message;
-               } else {
-                  message = err?.message ?? message;
-               }
-            }
-
-            const values = this.$form.getValues();
-            webix.alert({
-               title: L("Error creating Object: {0}", [values.name]),
-               ok: L("fix it"),
-               text: message,
-               type: "alert-error",
-            });
-         }
-         // get notified if there was an error saving.
-         $$(this.ids.buttonSave).enable();
-      }
-
-      /**
-       * @method onSuccess()
-       * Our success handler when the data we provided our parent
-       * ui_work_object_list_newObject successfully saved the values.
-       */
-      onSuccess() {
-         this.formClear();
-         $$(this.ids.buttonSave).enable();
-      }
-
-      /**
-       * @function save
-       *
-       * verify the current info is ok, package it, and return it to be
-       * added to the application.createModel() method.
-       */
-      async save() {
-         this.busy();
-
-         const Form = this.$form;
-
-         Form.clearValidation();
-
-         // if it doesn't pass the basic form validation, return:
-         if (!Form.validate()) {
-            this.ready();
-            return false;
-         }
-
-         let values = Form.getValues();
-
-         values.credentials = this.UI_Credentials.getValues();
-         values.tableName = this.UI_Tables.getValues();
-
-         let allFields = this.UI_Fields.getValues();
-
-         // Pick out our special columns: pk, created_at, updated_at
-         let pkField = allFields.find((f) => f.pk);
-         if (!pkField) {
-            webix.alert({
-               title: L("Error creating Object: {0}", [values.name]),
-               ok: L("fix it"),
-               text: L("No primary key specified."),
-               type: "alert-error",
-            });
-            return;
-         }
-         values.primaryColumnName = pkField.column;
-
-         values.columnRef = { created_at: null, updated_at: null };
-
-         ["created_at", "updated_at"].forEach((field) => {
-            let foundField = allFields.find((f) => f[field]);
-            if (foundField) {
-               values.columnRef[field] = foundField.column;
-            }
-         });
-
-         // Create a new Object
-         const object = AB.objectNew(
-            Object.assign({ isNetsuite: true }, values)
-         );
-
-         try {
-            // Add fields
-
-            for (const f of allFields) {
-               let def = {
-                  name: f.title,
-                  label: f.title,
-                  columnName: f.column,
-                  key: f.abType,
-               };
-               if (f.default) {
-                  def.settings = {};
-                  def.settings.default = f.default;
-               }
-               const field = AB.fieldNew(def, object);
-               await field.save(true);
-
-               // values.fieldIDs.push(field.id);
-            }
-            // values.id = object.id;
-         } catch (err) {
-            console.error(err);
-         }
-
-         let allConnectFields = this.UI_Connections.getValues();
-         for (var i = 0; i < allConnectFields.length; i++) {
-            let f = allConnectFields[i];
-            /* f = 
-                {
-                    "thisField": "_this_object_",
-                    "thatObject": "b7c7cca2-b919-4a90-b199-650a7a4693c1",
-                    "thatObjectField": "custrecord_whq_teams_strategy_strtgy_cod",
-                    "linkType": "many:one"
-                }
-            */
-
-            let linkObject = this.AB.objectByID(f.thatObject);
-            if (!linkObject) continue;
-
-            let linkType = f.linkType;
-            let parts = linkType.split(":");
-            let link = parts[0];
-            let linkVia = parts[1];
-
-            let thisField = {
-               key: "connectObject",
-               // columnName: f.thisField,
-               label: linkObject.label,
-               settings: {
-                  showIcon: "1",
-
-                  linkObject: linkObject.id,
-                  linkType: link,
-                  linkViaType: linkVia,
-                  isCustomFK: 0,
-                  indexField: "",
-                  indexField2: "",
-                  isSource: 0,
-                  width: 100,
-               },
-            };
-
-            let linkField = this.AB.cloneDeep(thisField);
-            // linkField.columnName = f.thatObjectField;
-            linkField.label = object.label || object.name;
-            linkField.settings.linkObject = object.id;
-            linkField.settings.linkType = linkVia;
-            linkField.settings.linkViaType = link;
-
-            switch (linkType) {
-               case "one:one":
-                  if (f.whichSource == "_this_") {
-                     thisField.settings.isSource = 1;
-                  } else {
-                     linkField.settings.isSource = 1;
-                  }
-                  thisField.columnName = f.sourceField;
-                  linkField.columnName = f.sourceField;
-                  break;
-
-               case "one:many":
-               case "many:one":
-                  thisField.columnName = f.thatField;
-                  linkField.columnName = f.thatField;
-                  break;
-
-               case "many:many":
-                  thisField.settings.joinTable = f.joinTable;
-                  linkField.settings.joinTable = f.joinTable;
-
-                  thisField.settings.joinTableReference = f.thisObjReference;
-                  linkField.settings.joinTableReference = f.thatObjReference;
-
-                  thisField.settings.joinTablePK = f.joinTablePK;
-                  linkField.settings.joinTablePK = f.joinTablePK;
-
-                  thisField.settings.joinTableEntity = f.joinTableEntity;
-                  linkField.settings.joinTableEntity = f.joinTableEntity;
-
-                  if (f.joinActiveField != "_none_") {
-                     thisField.settings.joinActiveField = f.joinActiveField;
-                     thisField.settings.joinActiveValue = f.joinActiveValue;
-                     thisField.settings.joinInActiveValue = f.joinInActiveValue;
-
-                     linkField.settings.joinActiveField = f.joinActiveField;
-                     linkField.settings.joinActiveValue = f.joinActiveValue;
-                     linkField.settings.joinInActiveValue = f.joinInActiveValue;
-                  }
-                  break;
-            }
-
-            // create an initial LinkColumn
-            let fieldLink = linkObject.fieldNew(linkField);
-            await fieldLink.save(true); // should get an .id now
-
-            // make sure I can reference field => linkColumn
-            thisField.settings.linkColumn = fieldLink.id;
-            let field = object.fieldNew(thisField);
-            await field.save();
-
-            // now update reference linkColumn => field
-            fieldLink.settings.linkColumn = field.id;
-            await fieldLink.save();
-         }
-
-         this.emit("save", object.toObj());
-
-         this.ready();
-      }
-
-      /**
-       * @function show()
-       *
-       * Show this component.
-       */
-      show() {
-         $$(this.ids.component)?.show();
-      }
-
-      busy() {
-         const $form = $$(this.ids.form);
-         const $saveButton = $$(this.ids.buttonSave);
-
-         $form.showProgress({ type: "icon" });
-         $saveButton.disable();
-      }
-
-      ready() {
-         const $form = $$(this.ids.form);
-         const $saveButton = $$(this.ids.buttonSave);
-
-         $form.hideProgress();
-         $saveButton.enable();
-      }
-   }
-   return new UI_Work_Object_List_NewObject_Netsuite();
-}
-
-
-/***/ }),
-
-/***/ "./src/rootPages/Designer/ui_work_object_list_newObject_netsuite_connections.js":
-/*!**************************************************************************************!*\
-  !*** ./src/rootPages/Designer/ui_work_object_list_newObject_netsuite_connections.js ***!
-  \**************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* export default binding */ __WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _ui_class__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ui_class */ "./src/rootPages/Designer/ui_class.js");
-/*
- * ui_work_object_list_newObject_netsuite_connections
- *
- * Display the tab/form for selecting which of the available conections we
- * want to create for this table.
- */
-
-
-/* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__(AB) {
-   const UIClass = (0,_ui_class__WEBPACK_IMPORTED_MODULE_0__["default"])(AB);
-   const L = UIClass.L();
-   const uiConfig = AB.Config.uiSettings();
-
-   class UI_Work_Object_List_NewObject_Netsuite_Connections extends UIClass {
-      constructor() {
-         super("ui_work_object_list_newObject_netsuite_connections", {
-            // component: base,
-
-            form: "",
-
-            // fieldSelector: "",
-            connections: "",
-            displayConnections: "",
-            displayNoConnections: "",
-
-            fieldGrid: "",
-            buttonVerify: "",
-            buttonLookup: "",
-            tableName: "",
-         });
-
-         this.allTables = [];
-         // [ { id, name }, ... ]
-         // A list of all the available tables. This is used for identifying the
-         // join tables in many:many connections.
-         // We get this list from the Tables interface tab.
-
-         this.credentials = {};
-         // {  CRED_KEY : CRED_VAL }
-         // The entered credential references necessary to perform our Netsuite
-         // operations.
-
-         this.connectionList = null;
-         // {array}
-         // Holds an array of connection descriptions
-
-         this.connections = null;
-         // {array}
-         // Holds the array of chosen/verified connections
-      }
-
-      ui() {
-         // Our webix UI definition:
-         return {
-            id: this.ids.component,
-            header: L("Connections"),
-            body: {
-               view: "form",
-               id: this.ids.form,
-               width: 800,
-               height: 450,
-               rules: {
-                  // TODO:
-                  // name: inputValidator.rules.validateObjectName
-               },
-               elements: [
-                  {
-                     view: "layout",
-                     padding: 10,
-                     rows: [
-                        {
-                           id: this.ids.tableName,
-                           label: L("Selected Table: {0}", [this.table]),
-                           view: "label",
-                           height: 40,
-                        },
-                     ],
-                  },
-
-                  // Field Selector
-                  {
-                     view: "multiview",
-                     animate: false,
-                     borderless: true,
-                     rows: [
-                        {
-                           id: this.ids.displayNoConnections,
-                           rows: [
-                              {
-                                 maxHeight: uiConfig.xxxLargeSpacer,
-                                 hidden: uiConfig.hideMobile,
-                              },
-                              {
-                                 view: "label",
-                                 align: "center",
-                                 height: 200,
-                                 label: "<div style='display: block; font-size: 180px; background-color: #666; color: transparent; text-shadow: 0px 1px 1px rgba(255,255,255,0.5); -webkit-background-clip: text; -moz-background-clip: text; background-clip: text;' class='fa fa-exclamation-triangle'></div>",
-                              },
-                              {
-                                 // id: ids.error_msg,
-                                 view: "label",
-                                 align: "center",
-                                 label: L(
-                                    "You have no other Netwuite Objects imported"
-                                 ),
-                              },
-                              {
-                                 // id: ids.error_msg,
-                                 view: "label",
-                                 align: "center",
-                                 label: L(
-                                    "Continue creating this object now, then create the connections on the other objects you import."
-                                 ),
-                              },
-                              {
-                                 maxHeight: uiConfig.xxxLargeSpacer,
-                                 hidden: uiConfig.hideMobile,
-                              },
-                           ],
-                        },
-                        {
-                           id: this.ids.displayConnections,
-                           rows: [
-                              {
-                                 // id: ids.tabFields,
-                                 view: "layout",
-                                 padding: 10,
-                                 rows: [
-                                    {
-                                       cols: [
-                                          {
-                                             label: L("Connections"),
-                                             view: "label",
-                                          },
-                                          {
-                                             icon: "wxi-plus",
-                                             view: "icon",
-                                             width: 38,
-                                             click: () => {
-                                                this._addConnection();
-                                             },
-                                          },
-                                       ],
-                                    },
-                                    {
-                                       view: "scrollview",
-                                       scroll: "y",
-                                       borderless: true,
-                                       padding: 0,
-                                       margin: 0,
-                                       body: {
-                                          id: this.ids.connections,
-                                          view: "layout",
-                                          padding: 0,
-                                          margin: 0,
-                                          rows: [],
-                                       },
-                                    },
-                                 ],
-                              },
-                           ],
-                        },
-                     ],
-                  },
-               ],
-            },
-         };
-      }
-
-      async init(AB) {
-         this.AB = AB;
-
-         this.$form = $$(this.ids.form);
-
-         AB.Webix.extend(this.$form, webix.ProgressBar);
-
-         // this.$fieldSelector = $$(this.ids.fieldSelector);
-         // if (this.$fieldSelector)
-         //    AB.Webix.extend(this.$fieldSelector, webix.ProgressBar);
-
-         // init() routines are always considered async so:
-         return Promise.resolve();
-      }
-
-      disable() {
-         $$(this.ids.form).disable();
-      }
-
-      enable() {
-         $$(this.ids.form).enable();
-      }
-
-      formClear() {
-         this.$form.clearValidation();
-         this.$form.clear();
-         this.disable();
-      }
-
-      getValues() {
-         return []; // TODO:
-      }
-
-      setTable(table) {
-         this.table = table;
-         $$(this.ids.tableName).setValue(
-            `<span style="font-size: 1.5em; font-weight:bold">${this.table}</span>`
-         );
-      }
-
-      loadConnections(allConnections) {
-         this.connectionList = allConnections;
-         // refresh more often than on init();
-         this.listNetsuiteObjects = this.AB.objects((o) => o.isNetsuite);
-         if (this.listNetsuiteObjects.length == 0) {
-            $$(this.ids.displayNoConnections)?.show();
-         } else {
-            $$(this.ids.displayConnections)?.show();
-         }
-      }
-
-      _fieldItem(key, type) {
-         const self = this;
-         const fieldTypes = this.AB.Class.ABFieldManager.allFields();
-         const fieldKeys = ["string", "LongText", "number", "date", "boolean"];
-
-         const linkTypes = ["one:one", "one:many", "many:one", "many:many"];
-         const linkOptions = linkTypes.map((l) => {
-            return { id: l, value: l };
-         });
-         linkOptions.unshift({ id: "_choose", value: L("choose link type") });
-
-         // For the Base Object, let's include all fields that are clearly
-         // objects.
-         let fieldOptions = this.connectionList.map((conn) => {
-            return {
-               id: conn.column,
-               value: conn.column,
-            };
-         });
-
-         let thisObjectFields = fieldOptions;
-         let thatObjectFields = [];
-
-         let listOtherObjects = this.listNetsuiteObjects.map((nObj) => {
-            return {
-               id: nObj.id,
-               value: nObj.label,
-            };
-         });
-         listOtherObjects.unshift({ id: "_choose", value: L("Choose Object") });
-
-         return {
-            view: "form",
-            elements: [
-               {
-                  cols: [
-                     // object and type
-                     {
-                        rows: [
-                           {
-                              placeholder: L("Existing Netsuite Object"),
-                              options: listOtherObjects,
-                              view: "select",
-                              name: "thatObject",
-                              label: L("To:"),
-                              // value: type,
-                              on: {
-                                 onChange: async function (
-                                    newVal,
-                                    oldVal,
-                                    config
-                                 ) {
-                                    let connObj = self.AB.objectByID(newVal);
-                                    if (connObj) {
-                                       let result = await self.AB.Network.get({
-                                          url: `/netsuite/table/${connObj.tableName}`,
-                                          params: {
-                                             credentials: JSON.stringify(
-                                                self.credentials
-                                             ),
-                                          },
-                                       });
-                                       let fields = result.filter(
-                                          (r) => r.type == "object"
-                                       );
-                                       let options = fields.map((f) => {
-                                          return {
-                                             id: f.column,
-                                             value: f.column,
-                                          };
-                                       });
-
-                                       // include a "_that_object_" incase this is a one:xxx
-                                       // connection.
-                                       // options.unshift({
-                                       //    id: "_that_object_",
-                                       //    value: L("That Object"),
-                                       // });
-
-                                       thatObjectFields = options;
-                                       /*
-                                       let $linkColumn =
-                                          this.getParentView().getChildViews()[1];
-
-                                       $linkColumn.define("options", options);
-                                       $linkColumn.refresh();
-                                       */
-                                       let $rowsFieldsets = this.getParentView()
-                                          .getParentView()
-                                          .getChildViews()[1];
-
-                                       // update one:one ThatObject:
-                                       let whichOptions = $rowsFieldsets
-                                          .getChildViews()[0]
-                                          .getChildViews()[0]
-                                          .getChildViews()[1];
-                                       let newOptions = [
-                                          { id: "_choose", value: L("Choose") },
-                                          {
-                                             id: "_this_",
-                                             value: L("This Object"),
-                                          },
-                                       ];
-                                       newOptions.push({
-                                          id: connObj.id,
-                                          value: connObj.label,
-                                       });
-                                       whichOptions.define(
-                                          "options",
-                                          newOptions
-                                       );
-                                       whichOptions.refresh();
-                                    }
-                                 },
-                              },
-                           },
-                           {
-                              placeholder: "Link Type",
-                              options: linkOptions,
-                              view: "select",
-                              name: "linkType",
-                              label: L("link type"),
-                              on: {
-                                 onChange: async function (
-                                    newVal,
-                                    oldVal,
-                                    config
-                                 ) {
-                                    let $toObj =
-                                       this.getParentView().getChildViews()[0];
-                                    let $linkColumn =
-                                       this.getParentView().getChildViews()[1];
-
-                                    let objID = $toObj.getValue();
-                                    let Obj = self.AB.objectByID(objID);
-
-                                    let linkVal = $linkColumn.getValue();
-                                    let links = linkVal.split(":");
-                                    let messageA = self.message(
-                                       L("This object"),
-                                       links[0],
-                                       Obj.label
-                                    );
-
-                                    let messageB = self.message(
-                                       Obj.label,
-                                       links[1],
-                                       L("This object")
-                                    );
-
-                                    if (newVal == "_choose") {
-                                       messageA = messageB = "";
-                                    }
-
-                                    let $linkTextA =
-                                       this.getParentView().getChildViews()[2];
-                                    let $linkTextB =
-                                       this.getParentView().getChildViews()[3];
-
-                                    $linkTextA.define("label", messageA);
-                                    $linkTextA.refresh();
-
-                                    $linkTextB.define("label", messageB);
-                                    $linkTextB.refresh();
-
-                                    let $rowsFieldsets = this.getParentView()
-                                       .getParentView()
-                                       .getChildViews()[1];
-
-                                    let $thatFieldOptions;
-
-                                    switch (linkVal) {
-                                       case "one:one":
-                                          $rowsFieldsets
-                                             .getChildViews()[0]
-                                             .show();
-                                          break;
-
-                                       case "one:many":
-                                          // This Object's fields must be in field picker:
-                                          $thatFieldOptions = $rowsFieldsets
-                                             .getChildViews()[1]
-                                             .getChildViews()[0]
-                                             .getChildViews()[1];
-                                          $thatFieldOptions.define(
-                                             "options",
-                                             thisObjectFields
-                                          );
-                                          $thatFieldOptions.refresh();
-                                          $rowsFieldsets
-                                             .getChildViews()[1]
-                                             .show();
-                                          break;
-
-                                       case "many:one":
-                                          // This Object's fields must be in field picker:
-                                          $thatFieldOptions = $rowsFieldsets
-                                             .getChildViews()[1]
-                                             .getChildViews()[0]
-                                             .getChildViews()[1];
-                                          $thatFieldOptions.define(
-                                             "options",
-                                             thatObjectFields
-                                          );
-                                          $thatFieldOptions.refresh();
-                                          $rowsFieldsets
-                                             .getChildViews()[1]
-                                             .show();
-                                          break;
-
-                                       case "many:many":
-                                          $rowsFieldsets
-                                             .getChildViews()[2]
-                                             .show();
-                                          break;
-                                    }
-                                 },
-                              },
-                              // value: type,
-                           },
-                           {
-                              // this to that
-                              // id: ids.fieldLink2,
-                              view: "label",
-                              // width: 200,
-                           },
-                           {
-                              // that to this
-                              view: "label",
-                              // width: 200,
-                           },
-                        ],
-                     },
-                     {
-                        rows: [
-                           {
-                              view: "fieldset",
-                              label: L("one to one"),
-                              hidden: true,
-                              body: {
-                                 rows: [
-                                    {
-                                       view: "label",
-                                       label: L(
-                                          "which object holds the connection value?"
-                                       ),
-                                    },
-                                    {
-                                       view: "select",
-                                       options: [
-                                          {
-                                             id: "_choose",
-                                             value: L("Choose Object"),
-                                          },
-                                          {
-                                             id: "_this_",
-                                             value: L("This Object"),
-                                          },
-                                          {
-                                             id: "_that_",
-                                             value: L("That Object"),
-                                          },
-                                       ],
-                                       name: "whichSource",
-                                       on: {
-                                          onChange: async function (
-                                             newVal,
-                                             oldVal,
-                                             config
-                                          ) {
-                                             if (newVal == "_choose") return;
-
-                                             let $fieldPicker =
-                                                this.getParentView().getChildViews()[2];
-
-                                             if (newVal == "_this_") {
-                                                $fieldPicker.define(
-                                                   "options",
-                                                   thisObjectFields
-                                                );
-                                             } else {
-                                                $fieldPicker.define(
-                                                   "options",
-                                                   thatObjectFields
-                                                );
-                                             }
-                                             $fieldPicker.refresh();
-                                             $fieldPicker.show();
-                                          },
-                                       },
-                                    },
-                                    {
-                                       view: "select",
-                                       label: L("which field"),
-                                       name: "sourceField",
-                                       options: [],
-                                       hidden: true,
-                                    },
-                                 ],
-                              },
-                           },
-                           {
-                              view: "fieldset",
-                              label: L("one:X"),
-                              hidden: true,
-                              body: {
-                                 rows: [
-                                    {
-                                       view: "label",
-                                       label: L(
-                                          "which field defines the connection?"
-                                       ),
-                                    },
-                                    {
-                                       view: "select",
-                                       // label: L("which field"),
-                                       name: "thatField",
-                                       options: [],
-                                       // hidden: false,
-                                    },
-                                 ],
-                              },
-                           },
-                           {
-                              view: "fieldset",
-                              label: L("many:many"),
-                              hidden: true,
-                              body: {
-                                 rows: [
-                                    {
-                                       view: "label",
-                                       label: L(
-                                          "which table is the join table?"
-                                       ),
-                                    },
-                                    {
-                                       view: "combo",
-                                       name: "joinTable",
-                                       options: {
-                                          filter: (item, value) => {
-                                             return (
-                                                item.value
-                                                   .toLowerCase()
-                                                   .indexOf(
-                                                      value.toLowerCase()
-                                                   ) > -1
-                                             );
-                                          },
-                                          body: {
-                                             // template: "#value#",
-                                             data: this.allTables,
-                                          },
-                                       },
-                                       on: {
-                                          onChange: async function (
-                                             newVal,
-                                             oldVal,
-                                             config
-                                          ) {
-                                             let result =
-                                                await self.AB.Network.get({
-                                                   url: `/netsuite/table/${newVal}`,
-                                                   params: {
-                                                      credentials:
-                                                         JSON.stringify(
-                                                            self.credentials
-                                                         ),
-                                                   },
-                                                });
-                                             // let fields = result.filter(
-                                             //    (r) => r.type == "object"
-                                             // );
-                                             let options = result.map((f) => {
-                                                return {
-                                                   id: f.column,
-                                                   value: f.column,
-                                                };
-                                             });
-
-                                             let $thisObjRef =
-                                                this.getParentView().getChildViews()[2];
-                                             $thisObjRef.define(
-                                                "options",
-                                                options
-                                             );
-                                             $thisObjRef.refresh();
-                                             $thisObjRef.show();
-
-                                             let $thatObjRef =
-                                                this.getParentView().getChildViews()[3];
-                                             $thatObjRef.define(
-                                                "options",
-                                                options
-                                             );
-                                             $thatObjRef.refresh();
-                                             $thatObjRef.show();
-
-                                             let $objectPK =
-                                                this.getParentView().getChildViews()[4];
-                                             $objectPK.define(
-                                                "options",
-                                                options
-                                             );
-
-                                             let pkField = result.find(
-                                                (r) => r.title == "Internal ID"
-                                             );
-                                             if (pkField) {
-                                                $objectPK.setValue(
-                                                   pkField.column
-                                                );
-                                             }
-                                             $objectPK.refresh();
-                                             $objectPK.show();
-
-                                             let $entityField =
-                                                this.getParentView().getChildViews()[5];
-                                             $entityField.define(
-                                                "options",
-                                                options
-                                             );
-
-                                             let fieldEntity = result.find(
-                                                (r) => {
-                                                   if (!r.column) return false;
-
-                                                   return (
-                                                      r.column.indexOf(
-                                                         "entity"
-                                                      ) > -1
-                                                   );
-                                                }
-                                             );
-                                             if (fieldEntity) {
-                                                $entityField.setValue(
-                                                   fieldEntity.column
-                                                );
-                                             }
-                                             $entityField.refresh();
-                                             $entityField.show();
-
-                                             let fOptions =
-                                                self.AB.cloneDeep(options);
-                                             fOptions.unshift({
-                                                id: "_none_",
-                                                value: "",
-                                             });
-                                             let $activeField =
-                                                this.getParentView().getChildViews()[6];
-                                             $activeField.define(
-                                                "options",
-                                                fOptions
-                                             );
-                                             $activeField.refresh();
-                                             $activeField.show();
-                                          },
-                                       },
-                                    },
-
-                                    {
-                                       view: "select",
-                                       label: L("This Object's reference"),
-                                       labelPosition: "top",
-                                       options: [],
-                                       name: "thisObjReference",
-                                       hidden: true,
-                                    },
-                                    {
-                                       view: "select",
-                                       label: L("That Object's reference"),
-                                       labelPosition: "top",
-                                       options: [],
-                                       name: "thatObjReference",
-                                       hidden: true,
-                                    },
-                                    {
-                                       view: "select",
-                                       label: L("Join Table Primary Key:"),
-                                       labelPosition: "top",
-                                       options: [],
-                                       name: "joinTablePK",
-                                       hidden: true,
-                                    },
-                                    {
-                                       view: "select",
-                                       label: L(
-                                          "Which field holds the Entity:"
-                                       ),
-                                       labelPosition: "top",
-                                       options: [],
-                                       name: "joinTableEntity",
-                                       hidden: true,
-                                    },
-                                    {
-                                       view: "select",
-                                       label: L("Join Table isActive Field:"),
-                                       labelPosition: "top",
-                                       options: [],
-                                       name: "joinActiveField",
-                                       hidden: true,
-                                       on: {
-                                          onChange: async function (
-                                             newVal,
-                                             oldVal,
-                                             config
-                                          ) {
-                                             if (newVal != "_none_") {
-                                                // show the active/inactive value
-                                                let siblings =
-                                                   this.getParentView().getChildViews();
-                                                siblings[
-                                                   siblings.length - 2
-                                                ].show();
-                                                siblings[
-                                                   siblings.length - 1
-                                                ].show();
-                                             }
-                                          },
-                                       },
-                                    },
-                                    {
-                                       view: "text",
-                                       label: L("Active Value"),
-                                       name: "joinActiveValue",
-                                       hidden: true,
-                                       value: "",
-                                    },
-                                    {
-                                       view: "text",
-                                       label: L("InActive Value"),
-                                       name: "joinInActiveValue",
-                                       hidden: true,
-                                       value: "",
-                                    },
-                                 ],
-                              },
-                           },
-                        ],
-                     },
-                     {
-                        // Delete Column
-                        rows: [
-                           {},
-                           {
-                              icon: "wxi-trash",
-                              view: "icon",
-                              width: 38,
-                              click: function () {
-                                 const $item = this.getParentView()
-                                    .getParentView()
-                                    .getParentView();
-                                 $$(self.ids.connections).removeView($item);
-                              },
-                           },
-                           {},
-                        ],
-                        // delete Row Icon
-                     },
-                  ],
-               },
-            ],
-         };
-      }
-
-      _addConnection(key, type) {
-         const uiItem = this._fieldItem(key, type);
-         $$(this.ids.connections).addView(uiItem);
-      }
-
-      _clearFieldItems() {
-         const $connections = $$(this.ids.connections);
-         AB.Webix.ui([], $connections);
-      }
-
-      message(a, link, b) {
-         let msg;
-         if (link == "many") {
-            msg = L("{0} has many {1} entities", [a, b]);
-         } else {
-            msg = L("{0} has one {1} entity", [a, b]);
-         }
-
-         return msg;
-      }
-
-      /**
-       * @method onError()
-       * Our Error handler when the data we provided our parent
-       * ui_work_object_list_newObject object had an error saving
-       * the values.
-       * @param {Error|ABValidation|other} err
-       *        The error information returned. This can be several
-       *        different types of objects:
-       *        - A javascript Error() object
-       *        - An ABValidation object returned from our .isValid()
-       *          method
-       *        - An error response from our API call.
-       */
-      onError(err) {
-         if (err) {
-            console.error(err);
-            let message = L("the entered data is invalid");
-            // if this was our Validation() object:
-            if (err.updateForm) {
-               err.updateForm(this.$form);
-            } else {
-               if (err.code && err.data) {
-                  message = err.data?.sqlMessage ?? message;
-               } else {
-                  message = err?.message ?? message;
-               }
-            }
-
-            const values = this.$form.getValues();
-            webix.alert({
-               title: L("Error creating Object: {0}", [values.name]),
-               ok: L("fix it"),
-               text: message,
-               type: "alert-error",
-            });
-         }
-         // get notified if there was an error saving.
-         $$(this.ids.buttonVerify).enable();
-      }
-
-      /**
-       * @method onSuccess()
-       * Our success handler when the data we provided our parent
-       * ui_work_object_list_newObject successfully saved the values.
-       */
-      onSuccess() {
-         this.formClear();
-         $$(this.ids.buttonVerify).enable();
-      }
-
-      /**
-       * @function show()
-       *
-       * Show this component.
-       */
-      show() {
-         $$(this.ids.component)?.show();
-      }
-
-      busy() {
-         const $verifyButton = $$(this.ids.buttonVerify);
-
-         // this.$fieldSelector.showProgress({ type: "icon" });
-         $verifyButton.disable();
-      }
-
-      ready() {
-         const $verifyButton = $$(this.ids.buttonVerify);
-
-         // this.$fieldSelector.hideProgress();
-         $verifyButton.enable();
-      }
-
-      setCredentials(creds) {
-         this.credentials = creds;
-      }
-
-      setAllTables(tables) {
-         this.allTables = this.AB.cloneDeep(tables);
-         this.allTables.unshift({ id: "_choose", value: L("Choose") });
-      }
-
-      getValues() {
-         let values = [];
-         $$(this.ids.connections)
-            .getChildViews()
-            .forEach(($row) => {
-               values.push($row.getValues());
-            });
-         return values;
-      }
-
-      // verify() {
-      //    this.emit("fields.ready", {
-      //       credentials: this.credentials,
-      //       table: this.table,
-      //       fieldList: this.fieldList,
-      //    });
-      // }
-   }
-   return new UI_Work_Object_List_NewObject_Netsuite_Connections();
-}
-
-
-/***/ }),
-
-/***/ "./src/rootPages/Designer/ui_work_object_list_newObject_netsuite_credentials.js":
-/*!**************************************************************************************!*\
-  !*** ./src/rootPages/Designer/ui_work_object_list_newObject_netsuite_credentials.js ***!
-  \**************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* export default binding */ __WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _ui_class__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ui_class */ "./src/rootPages/Designer/ui_class.js");
-/*
- * ui_work_object_list_newObject_netsuite_credentials
- *
- * Display the tab/form for entering the Netsuite credentials for our
- * connection.
- */
-
-
-const KeysCredentials = [
-   "NETSUITE_CONSUMER_KEY",
-   "NETSUITE_CONSUMER_SECRET",
-   "NETSUITE_TOKEN_KEY",
-   "NETSUITE_TOKEN_SECRET",
-];
-const KeysAPI = [
-   "NETSUITE_REALM",
-   "NETSUITE_BASE_URL",
-   "NETSUITE_QUERY_BASE_URL",
-];
-
-const KeysALL = KeysCredentials.concat(KeysAPI);
-
-/* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__(AB) {
-   const UIClass = (0,_ui_class__WEBPACK_IMPORTED_MODULE_0__["default"])(AB);
-   const L = UIClass.L();
-
-   class UI_Work_Object_List_NewObject_Netsuite_Credentials extends UIClass {
-      constructor() {
-         super("ui_work_object_list_newObject_netsuite_credentials", {
-            // component: base,
-
-            form: "",
-            buttonVerify: "",
-            labelVerified: "",
-         });
-
-         this.entries = {};
-      }
-
-      ui() {
-         // Our webix UI definition:
-         let ui = {
-            id: this.ids.component,
-            header: L("Credentials"),
-            body: {
-               view: "form",
-               id: this.ids.form,
-               width: 820,
-               height: 700,
-               rules: {
-                  // TODO:
-                  // name: inputValidator.rules.validateObjectName
-               },
-               elements: [
-                  {
-                     rows: [],
-                  },
-                  {
-                     cols: [
-                        { fillspace: true },
-                        // {
-                        //    view: "button",
-                        //    id: this.ids.buttonCancel,
-                        //    value: L("Cancel"),
-                        //    css: "ab-cancel-button",
-                        //    autowidth: true,
-                        //    click: () => {
-                        //       this.cancel();
-                        //    },
-                        // },
-                        {
-                           view: "button",
-                           id: this.ids.buttonVerify,
-                           css: "webix_primary",
-                           value: L("Verify"),
-                           autowidth: true,
-                           type: "form",
-                           click: () => {
-                              return this.verify();
-                           },
-                        },
-                     ],
-                  },
-                  {
-                     cols: [
-                        { fillspace: true },
-                        {
-                           id: this.ids.labelVerified,
-                           view: "label",
-                           label: L(
-                              "All parameters are valid. Continue on to select a Table to work with."
-                           ),
-                           hidden: true,
-                        },
-                     ],
-                  },
-               ],
-            },
-         };
-
-         let rows = ui.body.elements[0].rows;
-         let fsOauth = {
-            view: "fieldset",
-            label: L("Netsuite OAuth 1.0 Credentials"),
-            body: {
-               rows: [],
-            },
-         };
-
-         let EnvInput = (k) => {
-            return {
-               cols: [
-                  {
-                     id: k,
-                     view: "text",
-                     label: k,
-                     name: k,
-                     required: true,
-                     placeholder: `ENV:${k}`,
-                     value: `ENV:${k}`,
-                     labelWidth: 230,
-                     on: {
-                        onChange: (nV, oV) => {
-                           this.envVerify(k, nV);
-                        },
-                     },
-                  },
-                  {
-                     id: `${k}_verified`,
-                     view: "label",
-                     width: 20,
-                     label: '<i class="fa-solid fa-check"></i>',
-                     hidden: true,
-                  },
-               ],
-            };
-         };
-
-         KeysCredentials.forEach((k) => {
-            fsOauth.body.rows.push(EnvInput(k));
-         });
-         rows.push(fsOauth);
-         rows.push({ height: 15 });
-
-         let fsAPI = {
-            view: "fieldset",
-            label: L("Netsuite API Config"),
-            body: {
-               rows: [],
-            },
-         };
-
-         KeysAPI.forEach((k) => {
-            fsAPI.body.rows.push(EnvInput(k));
-         });
-         rows.push(fsAPI);
-
-         return ui;
-      }
-
-      async init(AB) {
-         this.AB = AB;
-
-         this.$form = $$(this.ids.form);
-         AB.Webix.extend(this.$form, webix.ProgressBar);
-
-         // init() routines are always considered async so:
-         return Promise.resolve();
-      }
-
-      formClear() {
-         this.$form.clearValidation();
-         this.$form.clear();
-
-         KeysALL.forEach((k) => {
-            $$(k).setValue(`ENV:${k}`);
-         });
-      }
-
-      getValues() {
-         return this.credentials();
-      }
-
-      /**
-       * @method onError()
-       * Our Error handler when the data we provided our parent
-       * ui_work_object_list_newObject object had an error saving
-       * the values.
-       * @param {Error|ABValidation|other} err
-       *        The error information returned. This can be several
-       *        different types of objects:
-       *        - A javascript Error() object
-       *        - An ABValidation object returned from our .isValid()
-       *          method
-       *        - An error response from our API call.
-       */
-      onError(err) {
-         if (err) {
-            console.error(err);
-            let message = L("the entered data is invalid");
-            // if this was our Validation() object:
-            if (err.updateForm) {
-               err.updateForm(this.$form);
-            } else {
-               if (err.code && err.data) {
-                  message = err.data?.sqlMessage ?? message;
-               } else {
-                  message = err?.message ?? message;
-               }
-            }
-
-            const values = this.$form.getValues();
-            webix.alert({
-               title: L("Error creating Object: {0}", [values.name]),
-               ok: L("fix it"),
-               text: message,
-               type: "alert-error",
-            });
-         }
-         // get notified if there was an error saving.
-         $$(this.ids.buttonVerify).enable();
-      }
-
-      /**
-       * @method onSuccess()
-       * Our success handler when the data we provided our parent
-       * ui_work_object_list_newObject successfully saved the values.
-       */
-      onSuccess() {
-         this.formClear();
-         $$(this.ids.buttonVerify).enable();
-      }
-
-      /**
-       * @function show()
-       *
-       * Show this component.
-       */
-      show() {
-         $$(this.ids.component)?.show();
-         console.log("SHOW, Baby!  SHOW!");
-      }
-
-      busy() {
-         const $form = $$(this.ids.form);
-         const $saveButton = $$(this.ids.buttonVerify);
-
-         $form.showProgress({ type: "icon" });
-         $saveButton.disable();
-      }
-
-      credentials() {
-         let creds = {};
-         KeysALL.forEach((k) => {
-            let $input = $$(k);
-            if ($input) {
-               creds[k] = $input.getValue();
-            }
-         });
-
-         return creds;
-      }
-
-      envVerify(k, nV) {
-         let envKey = nV.replace("ENV:", "");
-         return this.AB.Network.get({
-            url: `/env/verify/${envKey}`,
-         })
-            .then((result) => {
-               console.log(result);
-               if (result.status == "success") {
-                  $$(`${k}_verified`).show();
-                  this.entries[k] = true;
-               } else {
-                  $$(`${k}_verified`).hide();
-                  this.entries[k] = false;
-               }
-            })
-            .catch((err) => {
-               console.error(err);
-               $$(`${k}_verified`).hide();
-               this.entries[k] = false;
-            });
-      }
-
-      ready() {
-         const $form = $$(this.ids.form);
-         const $saveButton = $$(this.ids.buttonVerify);
-
-         $form.hideProgress();
-         $saveButton.enable();
-      }
-
-      async verify() {
-         let isVerified = true;
-         let AllVerifies = [];
-         KeysALL.forEach((k) => {
-            let nV = $$(k).getValue();
-            AllVerifies.push(this.envVerify(k, nV));
-         });
-         await Promise.all(AllVerifies);
-
-         KeysALL.forEach((k) => {
-            isVerified = isVerified && this.entries[k];
-         });
-
-         if (isVerified) {
-            this.emit("verified");
-            $$(this.ids.labelVerified)?.show();
-         } else {
-            this.emit("notverified");
-            $$(this.ids.labelVerified)?.hide();
-         }
-      }
-   }
-   return new UI_Work_Object_List_NewObject_Netsuite_Credentials();
-}
-
-
-/***/ }),
-
-/***/ "./src/rootPages/Designer/ui_work_object_list_newObject_netsuite_dataTest.js":
-/*!***********************************************************************************!*\
-  !*** ./src/rootPages/Designer/ui_work_object_list_newObject_netsuite_dataTest.js ***!
-  \***********************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* export default binding */ __WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _ui_class__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ui_class */ "./src/rootPages/Designer/ui_class.js");
-/*
- * ui_work_object_list_newObject_netsuite_dataTest
- *
- * Display the tab/form to review what the current Definitions look like
- * working with the data from Netsuite.
- */
-
-
-/* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__(AB) {
-   const UIClass = (0,_ui_class__WEBPACK_IMPORTED_MODULE_0__["default"])(AB);
-   const L = UIClass.L();
-
-   class UI_Work_Object_List_NewObject_Netsuite_DataTest extends UIClass {
-      constructor() {
-         super("ui_work_object_list_newObject_netsuite_dataTest", {
-            // component: base,
-            form: "",
-            network: "",
-            dataView: "",
-
-            buttonVerify: "",
-            tableName: "",
-         });
-
-         this.credentials = {};
-         // {  CRED_KEY : CRED_VAL }
-         // The entered credential references necessary to perform our Netsuite
-         // operations.
-
-         this.fieldKeys = [
-            "string",
-            "LongText",
-            "number",
-            "date",
-            "boolean",
-            "json",
-            "list",
-         ];
-         // {array} of types of ABFields we can translate into.
-
-         this.fieldList = null;
-         // {array}
-         // Holds an array of field descriptions
-
-         this.table = null;
-         // {string}
-         // name of the table we are working with
-      }
-
-      ui() {
-         // Our webix UI definition:
-         return {
-            id: this.ids.component,
-            header: L("Data Verification"),
-            body: {
-               view: "form",
-               id: this.ids.form,
-               width: 800,
-               height: 400,
-               rules: {
-                  // TODO:
-                  // name: inputValidator.rules.validateObjectName
-               },
-               elements: [
-                  // Field Selector
-                  {
-                     view: "layout",
-                     padding: 10,
-                     rows: [
-                        {
-                           cols: [
-                              {
-                                 id: this.ids.tableName,
-                                 label: L("Selected Table: {0}", [this.table]),
-                                 view: "label",
-                                 height: 40,
-                              },
-                              {},
-                           ],
-                        },
-                        {
-                           view: "multiview",
-                           // keepViews: true,
-                           cells: [
-                              // Select Table indicator
-                              {
-                                 id: this.ids.network,
-                                 rows: [
-                                    {},
-                                    {
-                                       view: "label",
-                                       align: "center",
-                                       height: 200,
-                                       label: "<div style='display: block; font-size: 180px; background-color: #666; color: transparent; text-shadow: 0px 1px 1px rgba(255,255,255,0.5); -webkit-background-clip: text; -moz-background-clip: text; background-clip: text;' class='fa fa-database'></div>",
-                                    },
-                                    {
-                                       view: "label",
-                                       align: "center",
-                                       label: L(
-                                          "Gathering data from Netsuite."
-                                       ),
-                                    },
-                                    {},
-                                 ],
-                              },
-                              {
-                                 id: this.ids.dataView,
-                                 rows: [
-                                    {},
-                                    {
-                                       view: "label",
-                                       label: "Waiting for response",
-                                    },
-                                    {},
-                                 ],
-                                 // hidden: true,
-                              },
-                           ],
-                        },
-
-                        // {
-                        //    id: this.ids.fieldGrid,
-                        //    view: "datatable",
-                        //    resizeColumn: true,
-                        //    height: 300,
-                        //    columns: [
-                        //       {
-                        //          id: "title",
-                        //          header: L("title"),
-                        //          editor: "text",
-                        //       },
-                        //       { id: "column", header: L("column") },
-
-                        //       { id: "nullable", header: L("nullable") },
-                        //       { id: "readOnly", header: L("read only") },
-                        //       {
-                        //          id: "pk",
-                        //          header: L("is primary key"),
-                        //          template: "{common.radio()}",
-                        //       },
-                        //       // {
-                        //       //    id: "description",
-                        //       //    header: L("description"),
-                        //       //    fillspace: true,
-                        //       // },
-                        //       {
-                        //          id: "abType",
-                        //          header: L("AB Field Type"),
-                        //          editor: "select",
-                        //          options: [" "].concat(this.fieldKeys),
-                        //       },
-                        //       {
-                        //          id: "delme",
-                        //          header: "",
-                        //          template: "{common.trashIcon()}",
-                        //       },
-                        //    ],
-                        //    editable: true,
-                        //    scroll: "y",
-                        //    onClick: {
-                        //       "wxi-trash": (e, id) => {
-                        //          debugger;
-                        //          $$(this.ids.fieldGrid).remove(id);
-                        //       },
-                        //    },
-                        // },
-                     ],
-                  },
-
-                  {
-                     cols: [
-                        { fillspace: true },
-                        // {
-                        //    view: "button",
-                        //    id: this.ids.buttonCancel,
-                        //    value: L("Cancel"),
-                        //    css: "ab-cancel-button",
-                        //    autowidth: true,
-                        //    click: () => {
-                        //       this.cancel();
-                        //    },
-                        // },
-                        {
-                           view: "button",
-                           id: this.ids.buttonVerify,
-                           css: "webix_primary",
-                           value: L("Verify"),
-                           autowidth: true,
-                           type: "form",
-                           click: () => {
-                              return this.verify();
-                           },
-                        },
-                     ],
-                  },
-               ],
-            },
-         };
-      }
-
-      async init(AB) {
-         this.AB = AB;
-
-         this.$form = $$(this.ids.form);
-         AB.Webix.extend(this.$form, webix.ProgressBar);
-
-         // init() routines are always considered async so:
-         return Promise.resolve();
-      }
-
-      disable() {
-         $$(this.ids.form).disable();
-      }
-
-      enable() {
-         $$(this.ids.form).enable();
-      }
-
-      formClear() {
-         this.$form.clearValidation();
-         this.$form.clear();
-
-         // reset the data view to blank
-         let table = {
-            id: this.ids.dataView,
-            rows: [
-               {},
-               {
-                  view: "label",
-                  label: "Waiting for response",
-               },
-               {},
-            ],
-            // hidden: true,
-         };
-         webix.ui(table, $$(this.ids.dataView));
-         this.disable();
-      }
-      setTableName() {
-         $$(this.ids.tableName).setValue(
-            `<span style="font-size: 1.5em; font-weight:bold">${this.table}</span>`
-         );
-      }
-
-      setTable(table) {
-         this.table = table;
-         this.setTableName();
-
-         // this is called when a table name has been selected.
-         // but we need to be disabled until they have verified the
-         // fields.
-         this.formClear();
-      }
-
-      async loadConfig(config) {
-         this.credentials = config.credentials;
-         this.setTable(config.table);
-         this.fieldList = config.fieldList;
-
-         $$(this.ids.network).show();
-         this.busy();
-
-         let result = await this.AB.Network.get({
-            url: `/netsuite/dataVerify/${this.table}`,
-            params: {
-               credentials: JSON.stringify(this.credentials),
-            },
-         });
-
-         this.data = result;
-         // this.ids.dataView,
-
-         // convert all the json types to strings for display:
-         this.fieldList
-            .filter((f) => f.abType == "json")
-            .forEach((f) => {
-               this.data.forEach((d) => {
-                  try {
-                     d[f.column] = JSON.stringify(d[f.column]);
-                  } catch (e) {
-                     console.log(e);
-                  }
-               });
-            });
-
-         this.showTable();
-         this.enable();
-         this.ready();
-      }
-
-      showTable() {
-         let table = {
-            id: this.ids.dataView,
-            view: "datatable",
-            columns: this.fieldList.map((f) => {
-               return {
-                  id: f.column,
-                  header: f.title,
-               };
-            }),
-            data: this.data,
-         };
-
-         webix.ui(table, $$(this.ids.dataView));
-         $$(this.ids.dataView).show();
-      }
-
-      /**
-       * @method onError()
-       * Our Error handler when the data we provided our parent
-       * ui_work_object_list_newObject object had an error saving
-       * the values.
-       * @param {Error|ABValidation|other} err
-       *        The error information returned. This can be several
-       *        different types of objects:
-       *        - A javascript Error() object
-       *        - An ABValidation object returned from our .isValid()
-       *          method
-       *        - An error response from our API call.
-       */
-      // onError(err) {
-      //    if (err) {
-      //       console.error(err);
-      //       let message = L("the entered data is invalid");
-      //       // if this was our Validation() object:
-      //       if (err.updateForm) {
-      //          err.updateForm(this.$form);
-      //       } else {
-      //          if (err.code && err.data) {
-      //             message = err.data?.sqlMessage ?? message;
-      //          } else {
-      //             message = err?.message ?? message;
-      //          }
-      //       }
-
-      //       const values = this.$form.getValues();
-      //       webix.alert({
-      //          title: L("Error creating Object: {0}", [values.name]),
-      //          ok: L("fix it"),
-      //          text: message,
-      //          type: "alert-error",
-      //       });
-      //    }
-      //    // get notified if there was an error saving.
-      //    $$(this.ids.buttonVerify).enable();
-      // }
-
-      /**
-       * @method onSuccess()
-       * Our success handler when the data we provided our parent
-       * ui_work_object_list_newObject successfully saved the values.
-       */
-      // onSuccess() {
-      //    this.formClear();
-      //    $$(this.ids.buttonVerify).enable();
-      // }
-
-      verify() {
-         this.emit("data.verfied");
-      }
-
-      /**
-       * @function show()
-       *
-       * Show this component.
-       */
-      show() {
-         $$(this.ids.component)?.show();
-      }
-
-      busy() {
-         const $verifyButton = $$(this.ids.buttonVerify);
-
-         this.$form.showProgress({ type: "icon" });
-         $verifyButton.disable();
-      }
-
-      ready() {
-         const $verifyButton = $$(this.ids.buttonVerify);
-
-         this.$form.hideProgress();
-         $verifyButton.enable();
-      }
-
-      setCredentials(creds) {
-         this.credentials = creds;
-      }
-   }
-   return new UI_Work_Object_List_NewObject_Netsuite_DataTest();
-}
-
-
-/***/ }),
-
-/***/ "./src/rootPages/Designer/ui_work_object_list_newObject_netsuite_fields.js":
-/*!*********************************************************************************!*\
-  !*** ./src/rootPages/Designer/ui_work_object_list_newObject_netsuite_fields.js ***!
-  \*********************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* export default binding */ __WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _ui_class__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ui_class */ "./src/rootPages/Designer/ui_class.js");
-/*
- * ui_work_object_list_newObject_netsuite_fields
- *
- * Display the tab/form for selecting which of the available tables we are
- * working with.
- */
-
-
-/* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__(AB) {
-   const UIClass = (0,_ui_class__WEBPACK_IMPORTED_MODULE_0__["default"])(AB);
-   const L = UIClass.L();
-
-   class UI_Work_Object_List_NewObject_Netsuite_Fields extends UIClass {
-      constructor() {
-         super("ui_work_object_list_newObject_netsuite_fields", {
-            // component: base,
-
-            form: "",
-
-            tableName: "",
-            // tableList: "",
-            fieldSelector: "",
-            // fields: "",
-            fieldGrid: "",
-            buttonVerify: "",
-            // buttonLookup: "",
-         });
-
-         this.credentials = {};
-         // {  CRED_KEY : CRED_VAL }
-         // The entered credential references necessary to perform our Netsuite
-         // operations.
-
-         this.fieldKeys = [
-            "string",
-            "LongText",
-            "number",
-            "date",
-            "datetime",
-            "boolean",
-            "json",
-            "list",
-            // "connectObject",
-         ];
-         // {array} of types of ABFields we can translate into.
-
-         this.fieldList = null;
-         // {array}
-         // Holds an array of field descriptions
-
-         this.fields = null;
-         // {array}
-         // Holds the array of chosen/verified fields
-      }
-
-      ui() {
-         // Our webix UI definition:
-         return {
-            id: this.ids.component,
-            header: L("Fields"),
-            body: {
-               view: "form",
-               id: this.ids.form,
-               width: 800,
-               height: 450,
-               rules: {
-                  // TODO:
-                  // name: inputValidator.rules.validateObjectName
-               },
-               elements: [
-                  // Field Selector
-                  {
-                     id: this.ids.fieldSelector,
-                     view: "layout",
-                     padding: 10,
-                     rows: [
-                        {
-                           rows: [
-                              {
-                                 id: this.ids.tableName,
-                                 label: L("Selected Table: {0}", [this.table]),
-                                 view: "label",
-                                 height: 40,
-                              },
-                              {},
-                           ],
-                        },
-                        // {
-                        //    view: "scrollview",
-                        //    scroll: "y",
-                        //    borderless: true,
-                        //    padding: 0,
-                        //    margin: 0,
-                        //    body: {
-                        //       id: this.ids.fields,
-                        //       view: "layout",
-                        //       padding: 0,
-                        //       margin: 0,
-                        //       rows: [],
-                        //    },
-                        // },
-                        {
-                           id: this.ids.fieldGrid,
-                           view: "datatable",
-                           resizeColumn: true,
-                           height: 300,
-                           columns: [
-                              {
-                                 id: "title",
-                                 header: L("title"),
-                                 editor: "text",
-                              },
-                              { id: "column", header: L("column") },
-
-                              { id: "nullable", header: L("nullable") },
-                              { id: "readOnly", header: L("read only") },
-                              {
-                                 id: "default",
-                                 header: L("Default Value"),
-                                 editor: "text",
-                              },
-                              {
-                                 id: "pk",
-                                 header: L("is primary key"),
-                                 template: "{common.radio()}",
-                              },
-                              {
-                                 id: "created_at",
-                                 header: L("Created At"),
-                                 template: "{common.radio()}",
-                              },
-                              {
-                                 id: "updated_at",
-                                 header: L("Updated At"),
-                                 template: "{common.radio()}",
-                              },
-                              // {
-                              //    id: "description",
-                              //    header: L("description"),
-                              //    fillspace: true,
-                              // },
-                              {
-                                 id: "abType",
-                                 header: L("AB Field Type"),
-                                 editor: "select",
-                                 options: [" "].concat(this.fieldKeys),
-                                 on: {
-                                    onChange: (newValue, oldValue) => {
-                                       debugger;
-                                    },
-                                 },
-                              },
-                              {
-                                 id: "delme",
-                                 header: "",
-                                 template: "{common.trashIcon()}",
-                              },
-                           ],
-                           editable: true,
-                           scroll: "xy",
-                           onClick: {
-                              "wxi-trash": (e, id) => {
-                                 $$(this.ids.fieldGrid).remove(id);
-                                 this.fields = this.fields.filter(
-                                    (f) => f.id != id.row
-                                 );
-                              },
-                           },
-                        },
-                        {
-                           cols: [
-                              { fillspace: true },
-                              // {
-                              //    view: "button",
-                              //    id: this.ids.buttonCancel,
-                              //    value: L("Cancel"),
-                              //    css: "ab-cancel-button",
-                              //    autowidth: true,
-                              //    click: () => {
-                              //       this.cancel();
-                              //    },
-                              // },
-                              {
-                                 view: "button",
-                                 id: this.ids.buttonVerify,
-                                 css: "webix_primary",
-                                 value: L("Verify"),
-                                 autowidth: true,
-                                 type: "form",
-                                 click: () => {
-                                    return this.verify();
-                                 },
-                              },
-                           ],
-                        },
-                     ],
-                  },
-               ],
-            },
-         };
-      }
-
-      async init(AB) {
-         this.AB = AB;
-
-         this.$form = $$(this.ids.form);
-
-         this.$fieldSelector = $$(this.ids.fieldSelector);
-         AB.Webix.extend(this.$form, webix.ProgressBar);
-         AB.Webix.extend(this.$fieldSelector, webix.ProgressBar);
-
-         // init() routines are always considered async so:
-         return Promise.resolve();
-      }
-
-      disable() {
-         $$(this.ids.form).disable();
-      }
-
-      enable() {
-         $$(this.ids.form).enable();
-      }
-
-      formClear() {
-         this.$form.clearValidation();
-         this.$form.clear();
-
-         $$(this.ids.fieldGrid)?.clearAll();
-         this.disable();
-         $$(this.ids.buttonVerify).disable();
-      }
-
-      addABType(f) {
-         switch (f.type) {
-            case "array":
-               // this is most likely a MANY:x connection.
-               // Q:what do we default this to?
-               f.abType = "json";
-               break;
-
-            case "object":
-               // this is most likely a ONE:X[ONE,MANY] connection.
-               // // lets scan the properties of the dest obj,
-               // // find a property with title = "Internal Identifier"
-               // // and make this ABType == that property.type
-
-               // if (f.properties) {
-               //    Object.keys(f.properties).forEach((k) => {
-               //       if (f.properties[k].title == "Internal Identifier") {
-               //          f.abType = f.properties[k].type;
-               //       }
-               //    });
-               // }
-               // // default to "string" if an Internal Identifier isn't found.
-               // if (!f.abType) {
-               //    f.abType = "string";
-               // }
-               f.abType = "connectObject";
-               break;
-
-            case "boolean":
-               f.abType = "boolean";
-               break;
-
-            default:
-               f.abType = "string";
-         }
-
-         // just in case:
-         // lets see if this looks like a date field instead
-
-         if (f.abType == "string") {
-            let lcTitle = f.title?.toLowerCase();
-            if (lcTitle) {
-               let indxDate = lcTitle.indexOf("date") > -1;
-               let indxDay = lcTitle.indexOf("day") > -1;
-               if (indxDate || indxDay) {
-                  f.abType = "date";
-               }
-            }
-
-            if (f.format == "date-time") {
-               f.abType = "datetime";
-            }
-         }
-
-         // Seems like the PKs have title == "Internal ID"
-         if (f.title == "Internal ID") {
-            f.pk = true;
-         }
-      }
-
-      getValues() {
-         return this.fields;
-      }
-
-      setTableName() {
-         $$(this.ids.tableName).setValue(
-            `<span style="font-size: 1.5em; font-weight:bold">${this.table}</span>`
-         );
-      }
-      async loadFields(table) {
-         $$(this.ids.fieldGrid)?.clearAll();
-         this.table = table;
-         $$(this.ids.fieldSelector).show();
-         this.busy();
-         this.setTableName();
-
-         let result = await this.AB.Network.get({
-            url: `/netsuite/table/${table}`,
-            params: { credentials: JSON.stringify(this.credentials) },
-         });
-
-         this.fieldList = result;
-         (result || []).forEach((f) => {
-            this.addABType(f);
-         });
-
-         // ok, in this pane, we are just looking at the base fields
-         // leave the connections to the next pane:
-         this.fields = result.filter((r) => r.type != "object");
-
-         // let our other pane know about it's connections
-         this.emit(
-            "connections",
-            result.filter((r) => r.type == "object")
-         );
-
-         $$(this.ids.fieldGrid).parse(this.fields);
-         this.ready();
-      }
-
-      /**
-       * @method onError()
-       * Our Error handler when the data we provided our parent
-       * ui_work_object_list_newObject object had an error saving
-       * the values.
-       * @param {Error|ABValidation|other} err
-       *        The error information returned. This can be several
-       *        different types of objects:
-       *        - A javascript Error() object
-       *        - An ABValidation object returned from our .isValid()
-       *          method
-       *        - An error response from our API call.
-       */
-      onError(err) {
-         if (err) {
-            console.error(err);
-            let message = L("the entered data is invalid");
-            // if this was our Validation() object:
-            if (err.updateForm) {
-               err.updateForm(this.$form);
-            } else {
-               if (err.code && err.data) {
-                  message = err.data?.sqlMessage ?? message;
-               } else {
-                  message = err?.message ?? message;
-               }
-            }
-
-            const values = this.$form.getValues();
-            webix.alert({
-               title: L("Error creating Object: {0}", [values.name]),
-               ok: L("fix it"),
-               text: message,
-               type: "alert-error",
-            });
-         }
-         // get notified if there was an error saving.
-         $$(this.ids.buttonVerify).enable();
-      }
-
-      /**
-       * @method onSuccess()
-       * Our success handler when the data we provided our parent
-       * ui_work_object_list_newObject successfully saved the values.
-       */
-      onSuccess() {
-         this.formClear();
-         $$(this.ids.buttonVerify).enable();
-      }
-
-      /**
-       * @function show()
-       *
-       * Show this component.
-       */
-      show() {
-         $$(this.ids.component)?.show();
-      }
-
-      busy() {
-         const $verifyButton = $$(this.ids.buttonVerify);
-
-         this.$fieldSelector.showProgress({ type: "icon" });
-         $verifyButton.disable();
-      }
-
-      ready() {
-         const $verifyButton = $$(this.ids.buttonVerify);
-
-         this.$fieldSelector.hideProgress();
-         $verifyButton.enable();
-      }
-
-      setCredentials(creds) {
-         this.credentials = creds;
-      }
-
-      verify() {
-         this.emit("fields.ready", {
-            credentials: this.credentials,
-            table: this.table,
-            fieldList: this.fields,
-         });
-      }
-   }
-   return new UI_Work_Object_List_NewObject_Netsuite_Fields();
-}
-
-
-/***/ }),
-
-/***/ "./src/rootPages/Designer/ui_work_object_list_newObject_netsuite_tables.js":
-/*!*********************************************************************************!*\
-  !*** ./src/rootPages/Designer/ui_work_object_list_newObject_netsuite_tables.js ***!
-  \*********************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* export default binding */ __WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _ui_class__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ui_class */ "./src/rootPages/Designer/ui_class.js");
-/*
- * ui_work_object_list_newObject_netsuite_tables
- *
- * Display the tab/form for selecting which of the available tables we are
- * working with.
- */
-
-
-/* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__(AB) {
-   const UIClass = (0,_ui_class__WEBPACK_IMPORTED_MODULE_0__["default"])(AB);
-   const L = UIClass.L();
-
-   class UI_Work_Object_List_NewObject_Netsuite_Tables extends UIClass {
-      constructor() {
-         super("ui_work_object_list_newObject_netsuite_tables", {
-            // component: base,
-
-            form: "",
-
-            searchText: "",
-            tableList: "",
-            // fieldSelector: "",
-            fields: "",
-            buttonVerify: "",
-            buttonLookup: "",
-         });
-
-         this.credentials = {};
-         // {  CRED_KEY : CRED_VAL }
-         // The entered credential references necessary to perform our Netsuite
-         // operations.
-
-         this.lastSelectedTable = null;
-         // {string}
-         // the table name of the last selected table.
-      }
-
-      ui() {
-         // Our webix UI definition:
-         return {
-            id: this.ids.component,
-            header: L("Tables"),
-            body: {
-               view: "form",
-               id: this.ids.form,
-               width: 800,
-               height: 700,
-               rules: {
-                  // TODO:
-                  // name: inputValidator.rules.validateObjectName
-               },
-               elements: [
-                  {
-                     cols: [
-                        // The Table Selector Column
-                        {
-                           rows: [
-                              {
-                                 cols: [
-                                    {
-                                       view: "label",
-                                       align: "left",
-                                       label: L(
-                                          "Use the provided credentials to request a list of tables to work with."
-                                       ),
-                                    },
-                                    {
-                                       view: "button",
-                                       id: this.ids.buttonLookup,
-                                       value: L("Load Catalog"),
-                                       // css: "ab-cancel-button",
-                                       autowidth: true,
-                                       click: () => {
-                                          this.loadCatalog();
-                                       },
-                                    },
-                                 ],
-                              },
-                              {
-                                 id: this.ids.searchText,
-                                 view: "search",
-                                 icon: "fa fa-search",
-                                 label: L("Search"),
-                                 labelWidth: 80,
-                                 placeholder: L("tablename"),
-                                 height: 35,
-                                 keyPressTimeout: 100,
-                                 on: {
-                                    onAfterRender() {
-                                       AB.ClassUI.CYPRESS_REF(this);
-                                    },
-                                    onTimedKeyPress: () => {
-                                       let searchText = $$(this.ids.searchText)
-                                          .getValue()
-                                          .toLowerCase();
-
-                                       this.$list.filter(function (item) {
-                                          return (
-                                             !item.value ||
-                                             item.value
-                                                .toLowerCase()
-                                                .indexOf(searchText) > -1
-                                          );
-                                       });
-                                    },
-                                 },
-                              },
-                              {
-                                 id: this.ids.tableList,
-                                 view: "list",
-                                 select: 1,
-                                 height: 400,
-                                 on: {
-                                    onItemClick: (id, e) => {
-                                       if (id != this.lastSelectedTable) {
-                                          this.lastSelectedTable = id;
-                                          this.emit("table.selected", id);
-                                       }
-                                    },
-                                 },
-                              },
-                           ],
-                        },
-
-                        // Select Table indicator
-                        {
-                           rows: [
-                              {},
-                              {
-                                 view: "label",
-                                 align: "center",
-                                 height: 200,
-                                 label: "<div style='display: block; font-size: 180px; background-color: #666; color: transparent; text-shadow: 0px 1px 1px rgba(255,255,255,0.5); -webkit-background-clip: text; -moz-background-clip: text; background-clip: text;' class='fa fa-database'></div>",
-                              },
-                              {
-                                 view: "label",
-                                 align: "center",
-                                 label: L("Select an table to work with."),
-                              },
-                              {},
-                           ],
-                        },
-                     ],
-                  },
-                  // {
-                  //    cols: [
-                  //       { fillspace: true },
-                  //       // {
-                  //       //    view: "button",
-                  //       //    id: this.ids.buttonCancel,
-                  //       //    value: L("Cancel"),
-                  //       //    css: "ab-cancel-button",
-                  //       //    autowidth: true,
-                  //       //    click: () => {
-                  //       //       this.cancel();
-                  //       //    },
-                  //       // },
-                  //       {
-                  //          view: "button",
-                  //          id: this.ids.buttonVerify,
-                  //          css: "webix_primary",
-                  //          value: L("Verify"),
-                  //          autowidth: true,
-                  //          type: "form",
-                  //          click: () => {
-                  //             return this.verify();
-                  //          },
-                  //       },
-                  //    ],
-                  // },
-               ],
-            },
-         };
-      }
-
-      async init(AB) {
-         this.AB = AB;
-
-         this.$form = $$(this.ids.form);
-         this.$list = $$(this.ids.tableList);
-         // this.$fieldSelector = $$(this.ids.fieldSelector);
-         AB.Webix.extend(this.$form, webix.ProgressBar);
-         AB.Webix.extend(this.$list, webix.ProgressBar);
-         // AB.Webix.extend(this.$fieldSelector, webix.ProgressBar);
-
-         // init() routines are always considered async so:
-         return Promise.resolve();
-      }
-
-      disable() {
-         $$(this.ids.form).disable();
-      }
-
-      enable() {
-         $$(this.ids.form).enable();
-      }
-
-      formClear() {
-         this.$form.clearValidation();
-         this.$form.clear();
-
-         $$(this.ids.searchText).setValue("");
-         this.$list.filter(() => true);
-         this.lastSelectedTable = null;
-      }
-      getValues() {
-         return this.lastSelectedTable;
-      }
-
-      async loadCatalog() {
-         this.busy();
-         let result = await this.AB.Network.get({
-            url: "/netsuite/metadata",
-            params: { credentials: JSON.stringify(this.credentials) },
-         });
-
-         let data = [];
-         result.forEach((r) => {
-            data.push({ id: r, value: r });
-         });
-         let $table = $$(this.ids.tableList);
-         $table.clearAll();
-         $table.parse(data);
-
-         // console.error(data);
-         this.emit("tables", data);
-      }
-
-      _fieldItem(def) {
-         const self = this;
-         const fieldTypes = this.AB.Class.ABFieldManager.allFields();
-         const fieldKeys = ["string", "LongText", "number", "date", "boolean"];
-
-         let key = def.column || def.title;
-         let type = def.type;
-
-         return {
-            cols: [
-               {
-                  view: "text",
-                  value: key,
-                  placeholder: "key",
-               },
-               {
-                  placeholder: "Type",
-                  options: fieldKeys.map((fKey) => {
-                     return {
-                        id: fKey,
-                        value: fieldTypes
-                           .filter((f) => f.defaults().key == fKey)[0]
-                           ?.defaults().menuName,
-                     };
-                  }),
-                  view: "select",
-                  value: type,
-               },
-               {
-                  icon: "wxi-trash",
-                  view: "icon",
-                  width: 38,
-                  click: function () {
-                     const $item = this.getParentView();
-                     $$(self.ids.fields).removeView($item);
-                  },
-               },
-            ],
-         };
-      }
-
-      async loadFields(table) {
-         // $$(this.ids.fieldSelector).show();
-         this.busyFields();
-
-         let result = await this.AB.Network.get({
-            url: `/netsuite/table/${table}`,
-            params: { credentials: JSON.stringify(this.credentials) },
-         });
-
-         this.fieldList = result;
-         (result || []).forEach((f) => {
-            const uiItem = this._fieldItem(f);
-            $$(this.ids.fields).addView(uiItem);
-         });
-         this.readyFields();
-      }
-
-      /**
-       * @method onError()
-       * Our Error handler when the data we provided our parent
-       * ui_work_object_list_newObject object had an error saving
-       * the values.
-       * @param {Error|ABValidation|other} err
-       *        The error information returned. This can be several
-       *        different types of objects:
-       *        - A javascript Error() object
-       *        - An ABValidation object returned from our .isValid()
-       *          method
-       *        - An error response from our API call.
-       */
-      onError(err) {
-         if (err) {
-            console.error(err);
-            let message = L("the entered data is invalid");
-            // if this was our Validation() object:
-            if (err.updateForm) {
-               err.updateForm(this.$form);
-            } else {
-               if (err.code && err.data) {
-                  message = err.data?.sqlMessage ?? message;
-               } else {
-                  message = err?.message ?? message;
-               }
-            }
-
-            const values = this.$form.getValues();
-            webix.alert({
-               title: L("Error creating Object: {0}", [values.name]),
-               ok: L("fix it"),
-               text: message,
-               type: "alert-error",
-            });
-         }
-         // get notified if there was an error saving.
-         $$(this.ids.buttonVerify).enable();
-      }
-
-      /**
-       * @method onSuccess()
-       * Our success handler when the data we provided our parent
-       * ui_work_object_list_newObject successfully saved the values.
-       */
-      onSuccess() {
-         this.formClear();
-         $$(this.ids.buttonVerify).enable();
-      }
-
-      /**
-       * @function show()
-       *
-       * Show this component.
-       */
-      show() {
-         $$(this.ids.component)?.show();
-      }
-
-      busy() {
-         const $list = $$(this.ids.tableList);
-         // const $verifyButton = $$(this.ids.buttonVerify);
-
-         $list.showProgress({ type: "icon" });
-         // $verifyButton.disable();
-      }
-
-      // busyFields() {
-      //    this.$fieldSelector.showProgress({ type: "icon" });
-      // }
-
-      ready() {
-         const $form = $$(this.ids.form);
-         // const $verifyButton = $$(this.ids.buttonVerify);
-
-         $form.hideProgress();
-         // $verifyButton.enable();
-      }
-
-      // readyFields() {
-      //    this.$fieldSelector.hideProgress();
-      // }
-
-      setCredentials(creds) {
-         this.credentials = creds;
-      }
-   }
-   return new UI_Work_Object_List_NewObject_Netsuite_Tables();
 }
 
 
