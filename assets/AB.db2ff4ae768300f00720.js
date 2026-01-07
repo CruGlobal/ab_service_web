@@ -8856,7 +8856,7 @@ module.exports = class ABModelCore {
    csvPackStringifyFields(myObject, content) {
       // stringify any potential json data
       // starting with List data
-      let keys = ["list", "json"];
+      let keys = ["list", "json", "file"];
       let stringifyFields = myObject.fields((f) => keys.indexOf(f.key) > -1);
       stringifyFields.forEach((f) => {
          for (let I = 0; I < content.length; I++) {
@@ -9115,10 +9115,10 @@ module.exports = class ABModelCore {
 
    csvUnpackUnstringifyFields(myObject, data) {
       let connPK = myObject.PK();
-      let keyFields = ["list", "boolean", "number", "json"];
+      let keyFields = ["list", "boolean", "number", "json", "file"];
       let parseFields = myObject.fields((f) => keyFields.indexOf(f.key) > -1);
       data.forEach((row) => {
-         // unstringify any list,bool,number fields
+         // unstringify any list,bool,number,file fields
          parseFields.forEach((f) => {
             let val = row[f.columnName];
             if (val && typeof val == "string") {
@@ -16621,7 +16621,7 @@ module.exports = class ABFieldCore extends ABMLClass {
 
    /**
     * @method format
-    * return display text to detail comonent and define label of object
+    * return display text to detail component and define label of object
     *
     * @param {Object} rowData - data
     */
@@ -87513,4 +87513,4 @@ module.exports = class ABCustomEditList {
 /***/ })
 
 }]);
-//# sourceMappingURL=AB.b42df031aa8d5bacdbad.js.map
+//# sourceMappingURL=AB.db2ff4ae768300f00720.js.map
