@@ -17039,27 +17039,46 @@ module.exports = class ABFieldDateCore extends ABField {
                dateFormatString = "%d/%m/%Y";
             }
             break;
-         //mm/dd/yyyy
+         //dd/mm/yyyy
          case 3:
             {
                dateFormatString = "%m/%d/%Y";
             }
             break;
-         //M D, yyyy
-         case 4:
+         //mm/dd/yyyy
+         case (4, 5):
             {
                dateFormatString = "%M %d, %Y";
             }
             break;
-         //D M, yyyy
-         case 5:
+         //M D, yyyy
+         case 6:
+            {
+               dateFormatString = "%d/%m/%Y";
+            }
+            break;
+         //dd/mm/yyyy
+         case 7:
+            {
+               dateFormatString = "%m/%d/%Y";
+            }
+            break;
+         //mm/dd/yyyy
+         case 8:
+            {
+               dateFormatString = "%M %d, %Y";
+            }
+            break;
+         //M D, yyyy
+         case 9:
             {
                dateFormatString = "%d %M, %Y";
             }
             break;
+         //D M, yyyy
          default:
             {
-               dateFormatString = "%d/%m/%Y";
+               dateFormatString = "%M %d, %Y";
             }
             break;
       }
@@ -87513,4 +87532,4 @@ module.exports = class ABCustomEditList {
 /***/ })
 
 }]);
-//# sourceMappingURL=AB.db2ff4ae768300f00720.js.map
+//# sourceMappingURL=AB.7d195824b865de0c9534.js.map
