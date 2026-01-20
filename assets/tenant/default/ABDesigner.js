@@ -74905,10 +74905,12 @@ __webpack_require__.r(__webpack_exports__);
                      id: ids.dateFormat,
                      value: 2,
                      options: [
-                        { id: 2, value: "dd/mm/yyyy" },
-                        { id: 3, value: "mm/dd/yyyy" },
-                        { id: 4, value: "M D, yyyy" },
-                        { id: 5, value: "D M, yyyy" },
+                        { id: 2, value: "Local Date Format (short)" },
+                        { id: 4, value: "Local Date Format (long)" },
+                        { id: 6, value: "dd/mm/yyyy" },
+                        { id: 7, value: "mm/dd/yyyy" },
+                        { id: 8, value: "M D, yyyy" },
+                        { id: 9, value: "D M, yyyy" },
                      ],
                      on: {
                         onChange: () => {
@@ -75308,25 +75310,36 @@ __webpack_require__.r(__webpack_exports__);
          let formatString = "";
          switch (dateFormat) {
             //Ignore Date
-            case (1, 2):
+            case (2 || 0):
                {
                   formatString = "%d/%m/%Y";
                }
                break;
-            //mm/dd/yyyy
-            case 3:
+            //dd/mm/yyyy
+            case (4 || 0):
+               {
+                  formatString = "%M %d, %Y";
+               }
+               break;
+            //M D, yyyy
+            case 6:
+               {
+                  formatString = "%d/%m/%Y";
+               }
+               break;
+            //D M, yyyy
+            case 7:
                {
                   formatString = "%m/%d/%Y";
                }
                break;
-            //M D, yyyy
-            case 4:
+            case 8:
                {
                   formatString = "%M %d, %Y";
                }
                break;
             //D M, yyyy
-            case 5:
+            case 9:
                {
                   formatString = "%d %M, %Y";
                }
