@@ -46,26 +46,38 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* export default binding */ __WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _libs_CustomProcessTasks_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./libs/CustomProcessTasks.js */ "./libs/CustomProcessTasks.js");
+/* harmony import */ var _components_constants_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/constants.js */ "./components/constants.js");
+/* harmony import */ var _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/dcContainer.js */ "./components/dcContainer.js");
+/* harmony import */ var _components_utils_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/utils.js */ "./components/utils.js");
+/* harmony import */ var _components_data_panel_staffDataPanel_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/data_panel/staffDataPanel.js */ "./components/data_panel/staffDataPanel.js");
+/* harmony import */ var _components_data_panel_rcDataPanel_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/data_panel/rcDataPanel.js */ "./components/data_panel/rcDataPanel.js");
+
+
+
+
+
+
 
 
 const DC_OFFSET = 20;
-const EVENT_CHANGE_CURSOR = "changeCursor";
-const RECORD_LIMIT = 1000;
 const TEAM_CHART_MAX_DEPTH = 10; // prevent inifinite loop
-const ONE_SECOND = 1000;
-const FORM_LABEL_WIDTH = 110;
+const FORM_LABEL_WIDTH = 130;
 const PROGRESS_STATUS_WIDTH = 80;
-const PROGRESS_STATUS_DELAY = 750;
+const PROGRESS_STATUS_DELAY = 500;
 const PROGRESS_STATUS_KEY_COMMON = "common";
 const PROGRESS_STATUS_KEY_PRINCIPAL = "principal";
 const PROGRESS_STATUS_VALUE_COMMON_INIT_PAGE = "Initializing page";
+const PROGRESS_STATUS_VALUE_COMMON_INIT_DCs = "Initializing DCs";
 const PROGRESS_STATUS_VALUE_COMMON_CHANGE_ENTITY = "Changing to a new entity";
 const TIMEOUT_RETRY_PAGEDATA = 15000;
 
 //TODO (Guy): These should be ABDesigner settings.
 const CONTENT_LINK_DATAPANEL_COLUMNNAME = "custrecord_ccc_team_assign_emp_id";
+const DATAPANEL_EMERITUS_STATUS_COLUMNNAME = "custentity_ccc_emeritus_status";
 const DATAPANEL_ORG_STATUS_COLUMNNAME = "custentity_ccc_org_status";
 const EXTERNAL_SUPPORT_COLUMNNAME = "custrecord_whq_team_is_external_support";
+const RESPONSIBILITY_ASSIGNMENT_COLUMNNAME =
+   "custrecord_ccc_team_resp_assignment_id";
 const ORG_SENT_STATUSES = ["9", "12", "15"];
 /* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__(ABViewComponent) {
    return class ABViewOrgChartTeamsComponent extends ABViewComponent {
@@ -80,6 +92,9 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                   dataPanel: "",
                   dataPanelButton: "",
                   dataPanelPopup: "",
+                  dataPanelRcSearch: "",
+                  dataPanelRcFilterMode: "",
+                  dataPanelRcList: "",
                   filterButton: "",
                   filterPopup: "",
                   filterForm: "",
@@ -98,31 +113,26 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
          );
 
          // Private parameters
+         this._utils = new _components_utils_js__WEBPACK_IMPORTED_MODULE_3__["default"](this.AB);
          this._resources = [
             __webpack_require__.e(/*! import() */ "js_orgchart-webcomponents_js").then(__webpack_require__.bind(__webpack_require__, /*! ./js/orgchart-webcomponents.js */ "./js/orgchart-webcomponents.js")),
             __webpack_require__.e(/*! import() */ "styles_orgchart-webcomponents_css").then(__webpack_require__.bind(__webpack_require__, /*! ./styles/orgchart-webcomponents.css */ "./styles/orgchart-webcomponents.css")),
             __webpack_require__.e(/*! import() */ "styles_team-widget_css").then(__webpack_require__.bind(__webpack_require__, /*! ./styles/team-widget.css */ "./styles/team-widget.css")),
          ];
-         this._resolveInit = null;
-         this._promiseInit = new Promise((resolve) => {
-            this._resolveInit = resolve;
-         });
+         this._dataPanels = {
+            staff: new _components_data_panel_staffDataPanel_js__WEBPACK_IMPORTED_MODULE_4__["default"](this.AB, this.ids, this.settings),
+            rc: new _components_data_panel_rcDataPanel_js__WEBPACK_IMPORTED_MODULE_5__["default"](this.AB, this.ids, this.settings),
+         };
+         this._selectedDataPanel = this._dataPanels.staff;
          this.__orgchart = null;
          this.__filters = {
             inactive: 0,
          };
          this._OrgChart = null;
+         this._initialized = false;
          this._promisePageData = null;
-         this._contentDC = null;
-         this._contentGroupDC = null;
-         this._contentDisplayDCs = [];
-         this._dataPanelDCs = [];
-         this._entityDC = null;
          this._isPageDataTerminated = false;
          this._progressStatusQueues = [];
-         this._strategyCodeDC = null;
-         this._subStrategyDC = null;
-         this._teamStrategyDC = null;
          this._chartData = null;
          this._strategyCodeOpts = [];
          this._strategyOpts = [];
@@ -136,29 +146,132 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
          this._fnContentDragStart = (event) => {
             event.stopPropagation();
             this._$eventTarget = event.target;
-            const $eventTarget = this._$eventTarget;
-            const dataset = $eventTarget.dataset;
-            const dataTransfer = event.dataTransfer;
-            const data = {};
-            switch ($eventTarget.className) {
-               case "webix_list_item":
-                  data.pk = dataset.pk;
-                  data.contentLinkedFieldID = dataset.contentLinkedFieldId;
-                  break;
-               default:
-                  data.source = dataset.source;
-                  break;
-            }
-            dataTransfer.setData("text/plain", JSON.stringify(data));
+            const data = this._dataPanels.staff.getSavedDragData(event);
+            data.source = event.target.dataset.source;
+            // switch ($eventTarget.className) {
+            //    case "webix_list_item":
+            //       data.pk = dataset.pk;
+            //       data.contentLinkedFieldID = dataset.contentLinkedFieldId;
+            //       break;
+            //    default:
+            //       data.source = dataset.source;
+            //       break;
+            // }
+            event.dataTransfer.setData("text/plain", JSON.stringify(data));
             // $eventTarget.style.opacity = "0.5";
          };
+         this._fnRcDragStart = (event) => {
+            event.stopPropagation();
+            event.dataTransfer.setData("id", event.target.id);
+            event.dataTransfer.setData("isRC", 1);
+         };
+         this._fnRcDrop = async (event) => {
+            const dataTransfer = event.dataTransfer;
+            if (dataTransfer.getData("isRC") != 1) return;
+
+            event.stopPropagation();
+
+            const $rcRecord = document.getElementById(
+               dataTransfer.getData("id")
+            );
+
+            this._fnBusyRecord($rcRecord);
+
+            const teamObj = _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.team.datasource;
+            const fieldTeamRC = teamObj.fieldByID(
+               _components_constants_js__WEBPACK_IMPORTED_MODULE_1__["default"].TEAM_RESPONSIBILITY_CENTRE_FIELD_ID
+            );
+            const fieldRcTeam = fieldTeamRC.fieldLink;
+            const rcObj = fieldRcTeam.object;
+
+            // RC id
+            const rcId = $rcRecord.dataset.id;
+            const rcData = _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.responsibilityCenter.getData(
+               (item) => item.id == rcId
+            )[0];
+            rcData[fieldRcTeam.columnName] =
+               rcData[fieldRcTeam.columnName] || [];
+
+            // Team id
+            const $group = event.currentTarget;
+            const teamId = this.teamRecordID(
+               $group.parentElement.parentElement.id
+            );
+            const teamData = this.datacollection.getData(
+               (item) => item.id == teamId
+            )[0];
+
+            // Check exists
+            if (
+               rcData?.[fieldRcTeam.columnName].find(
+                  (team) => team?.id ?? team == teamId
+               ) ||
+               teamData?.[fieldTeamRC.columnName].find(
+                  (rc) => rc?.id ?? rc == rcId
+               )
+            ) {
+               this.AB.Webix.alert({
+                  title: this.label("Already Exists"),
+                  text: this.label("Team is already assigned to this RC."),
+                  ok: this.label("OK"),
+               });
+               return;
+            }
+
+            // Relate RC to Team
+            if (
+               rcData[fieldRcTeam.columnName].find(
+                  (team) => team.id ?? team == teamId
+               ) == null
+            ) {
+               rcData[fieldRcTeam.columnName] =
+                  rcData[fieldRcTeam.columnName] || [];
+               rcData[fieldRcTeam.columnName].push(teamId);
+               rcData[fieldRcTeam.relationName()] =
+                  rcData[fieldRcTeam.relationName()] ?? [];
+               rcData[fieldRcTeam.relationName()].push(teamData);
+            }
+
+            const $newRcDom = this._addRcToGroup(teamData, rcData);
+            this._fnBusyRecord($newRcDom);
+
+            // Relate Team to RC
+            teamData[fieldTeamRC.columnName] =
+               teamData[fieldTeamRC.columnName] ?? [];
+            teamData[fieldTeamRC.columnName].push(rcData.id);
+
+            const relatedRC = this.AB.cloneDeep(rcData);
+            // Prevent circular reference
+            delete relatedRC[fieldRcTeam.relationName()];
+            teamData[fieldTeamRC.relationName()] =
+               teamData[fieldTeamRC.relationName()] ?? [];
+            teamData[fieldTeamRC.relationName()].push(relatedRC);
+
+            try {
+               await teamObj.model().update(teamData.id, teamData);
+            } catch (err) {
+               $newRcDom.remove();
+               console.error(err);
+            }
+
+            this._fnReadyRecord($rcRecord);
+            this._fnReadyRecord($newRcDom);
+
+            // TODO: remove exists RC?
+         };
+
          this._fnContentDrop = async (event) => {
             const dataTransfer = event.dataTransfer;
-            if (dataTransfer.getData("isnode") == 1) return;
+            if (
+               dataTransfer.getData("isnode") == 1 ||
+               dataTransfer.getData("isRC") == 1
+            )
+               return;
+
             event.stopPropagation();
             const $teamRecord =
                this._$eventTarget?.closest(".team-group-record");
-            this._fnBusyTeamRecord($teamRecord);
+            this._fnBusyRecord($teamRecord);
 
             const settings = this.settings;
             const dropContentToCreate = settings.dropContentToCreate === 1;
@@ -188,11 +301,12 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
             const newTeamDataPK = JSON.parse(
                $content.parentElement.dataset.source
             )._rawData[teamObjPK];
-            let {
-               source: updatedValue,
-               pk: dataPK,
-               contentLinkedFieldID,
-            } = JSON.parse(dataTransfer.getData("text/plain"));
+            const parsedDataTransfer = JSON.parse(
+               dataTransfer.getData("text/plain")
+            );
+            let updatedValue = parsedDataTransfer.source;
+            const { dataPK, contentLinkedFieldID } =
+               this._dataPanels.staff.extractDragData(parsedDataTransfer);
             const draggedNodes = [];
             let isRefreshed = true;
             try {
@@ -232,9 +346,9 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                                  newGroupDataPK;
                               pendingPromises.push(
                                  this.updateData(
-                                    this._contentDC,
+                                    _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.content,
                                     this._parseFormValueByType(
-                                       this._contentDC,
+                                       _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.content,
                                        contentValue,
                                        contentValue
                                     )
@@ -252,15 +366,15 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                         contentValue[contentDateEndColumnName] = newDate;
                         pendingPromises.push(
                            this.updateData(
-                              this._contentDC,
+                              _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.content,
                               this._parseFormValueByType(
-                                 this._contentDC,
+                                 _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.content,
                                  contentValue,
                                  contentValue
                               )
                            )
                         );
-                        this._fnBusyTeamRecord($contentRecord);
+                        this._fnBusyRecord($contentRecord);
                         draggedNodes.push($contentRecord);
                         isRefreshed = true;
                      }
@@ -274,7 +388,7 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                      const customProcessTasks = new _libs_CustomProcessTasks_js__WEBPACK_IMPORTED_MODULE_0__["default"](
                         this,
                         this._parseFormValueByType(
-                           this._contentDC,
+                           _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.content,
                            updatedValue,
                            updatedValue
                         ),
@@ -292,12 +406,12 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                            $group
                               .querySelector(".team-group-content")
                               .appendChild($draggedNode);
-                           this._fnBusyTeamRecord($draggedNode);
+                           this._fnBusyRecord($draggedNode);
                            draggedNodes.push($draggedNode);
                         })(),
                         (async () =>
                            await this.createData(
-                              this._contentDC,
+                              _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.content,
                               await customProcessTasks.run()
                            ))()
                      );
@@ -309,7 +423,7 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                   updatedValue = JSON.parse(updatedValue);
                   const $contentRecords =
                      $content.getElementsByClassName("team-group-record");
-                  const dataPanelDCs = this._dataPanelDCs;
+                  const dataPanelDCs = _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.dataPanels;
                   for (const dataPanelDC of dataPanelDCs) {
                      const dataPanelLinkedColumnName =
                         dataPanelDC.datasource.connectFields(
@@ -328,7 +442,7 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                               updatedValue[contentGroupByColumnName] ==
                                  $group.dataset.pk)
                         ) {
-                           this._fnReadyTeamRecord($teamRecord);
+                           this._fnReadyRecord($teamRecord);
                            return;
                         }
                      }
@@ -343,7 +457,7 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                   $group
                      .querySelector(".team-group-content")
                      .appendChild($draggedNode);
-                  this._fnBusyTeamRecord($draggedNode);
+                  this._fnBusyRecord($draggedNode);
                   draggedNodes.push($draggedNode);
                   if (
                      !dropContentToCreate ||
@@ -356,9 +470,9 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                      updatedValue[contentFieldLinkColumnName] = newTeamDataPK;
                      updatedValue[contentGroupByColumnName] = newGroupDataPK;
                      updatedValue = await this.updateData(
-                        this._contentDC,
+                        _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.content,
                         this._parseFormValueByType(
-                           this._contentDC,
+                           _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.content,
                            updatedValue,
                            updatedValue
                         )
@@ -371,9 +485,9 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                      updatedValue[contentDateEndColumnName] = new Date();
                      pendingPromises.push(
                         this.updateData(
-                           this._contentDC,
+                           _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.content,
                            this._parseFormValueByType(
-                              this._contentDC,
+                              _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.content,
                               updatedValue,
                               updatedValue
                            )
@@ -384,7 +498,7 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                      const customProcessTasks = new _libs_CustomProcessTasks_js__WEBPACK_IMPORTED_MODULE_0__["default"](
                         this,
                         this._parseFormValueByType(
-                           this._contentDC,
+                           _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.content,
                            updatedValue,
                            updatedValue
                         ),
@@ -395,7 +509,7 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                      pendingPromises.push(
                         (async () =>
                            await this.createData(
-                              this._contentDC,
+                              _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.content,
                               await customProcessTasks.run()
                            ))()
                      );
@@ -403,7 +517,7 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                         pendingPromises.length - 1
                      ];
                   }
-                  this._fnReadyTeamRecord($draggedNode);
+                  this._fnReadyRecord($draggedNode);
                }
                if (isRefreshed) {
                   draggedNodes.forEach(($draggedNode) => {
@@ -416,18 +530,26 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                // TODO (Guy): The update data error.
                console.error(err);
             }
-            this._fnReadyTeamRecord($teamRecord);
+            this._fnReadyRecord($teamRecord);
          };
          this._fnCreateNode = ($node, data) => {
+            // set team id
+            $node.dataset.id = data._rawData.id;
+
             // remove built in icon
             $node.querySelector(".title > i")?.remove();
 
             // customize
+            if (data._rawData[EXTERNAL_SUPPORT_COLUMNNAME] === 1) {
+               $node.style.margin = "0px 12px";
+               $node.style.borderStyle = "solid";
+               $node.style.borderColor = "#0d4757";
+               $node.style.borderRadius = "20px";
+               $node.style.borderWidth = "6px";
+            }
             const $content = $node.children.item(1);
             $content.innerHTML = "";
-            const contentGroupDC = this._contentGroupDC;
-            const groupObjPKColumeName = contentGroupDC.datasource.PK();
-            const contentGroupOptions = contentGroupDC.getData();
+            const contentGroupOptions = this._getDropZoneSections();
             const contentGroupOptionsLength = contentGroupOptions.length;
             if (data.filteredOut || contentGroupOptionsLength === 0) {
                // This node doesn't pass the filter, but it's children do so
@@ -448,22 +570,14 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
 
                // TODO: should this be a config option
                const groupText = group.name;
-               $group.setAttribute("data-pk", group[groupObjPKColumeName]);
+               $group.setAttribute("data-pk", group.id);
 
-               if (groupText == "Leader") {
-                  $group.classList.add("leader");
-                  const $leaderIcon = element(
-                     "span",
-                     "team-group-title fa fa-user-circle-o"
-                  );
-                  $group.appendChild($leaderIcon);
-               } else if (groupText == "Member") {
-                  const $memberIcon = element(
-                     "span",
-                     "team-group-title fa fa-users"
-                  );
-                  $group.appendChild($memberIcon);
-               }
+               if (group.extraClass) $group.classList.add(group.extraClass);
+               const $leaderIcon = element(
+                  "span",
+                  `team-group-title ${group.icon}`
+               );
+               $group.appendChild($leaderIcon);
 
                if (settings.showGroupTitle === 1) {
                   const $groupTitle = element("span", "team-group-title");
@@ -474,25 +588,31 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                $group.appendChild($groupContent);
                if (settings.draggable === 1) {
                   $group.addEventListener("dragover", this._fnContentDragOver);
-                  $group.addEventListener("drop", this._fnContentDrop);
+                  $group.addEventListener("drop", group.fnDrop);
                }
             }
-            const $buttons = element("div", "team-button-section");
-            $content.appendChild($buttons);
-            const $editButton = element("div", "team-button");
-            $editButton.append(element("i", "fa fa-pencil"));
-            const $addButton = element("div", "team-button");
-            $addButton.append(element("i", "fa fa-plus"));
-            $buttons.append($editButton, $addButton);
             const dataID = this.teamRecordID(data.id);
-            $addButton.onclick = () => {
-               this._showTeamFormPopup("Add", { __parentID: dataID });
-            };
-            $editButton.onclick = () =>
-               this._showTeamFormPopup(
-                  "Edit",
-                  this.datacollection.getData((e) => e.id == dataID)[0]
-               );
+
+            // Edit / Delete buttons of Team node
+            let $sectionButton;
+            if (this._roles.isHRG || this._roles.isAdmin) {
+               $sectionButton = element("div", "team-button-section");
+               $content.appendChild($sectionButton);
+               const $editButton = element("div", "team-button");
+               $editButton.append(element("i", "fa fa-pencil"));
+               const $addButton = element("div", "team-button");
+               $addButton.append(element("i", "fa fa-plus"));
+               $sectionButton.append($editButton, $addButton);
+
+               $addButton.onclick = () => {
+                  this._showTeamFormPopup("Add", { __parentID: dataID });
+               };
+               $editButton.onclick = () =>
+                  this._showTeamFormPopup(
+                     "Edit",
+                     this.datacollection.getData((e) => e.id == dataID)[0]
+                  );
+            }
             $node.querySelector(".title").ondblclick = () =>
                this._showTeamFormPopup(
                   "Edit",
@@ -505,7 +625,7 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                const $span = element("span", "active-text");
                $span.innerHTML = isInactive ? "INACTIVE" : "ACTIVE";
                $active.append($span);
-               $buttons.append($active);
+               $sectionButton?.append($active);
             }
             (async () => {
                if (
@@ -520,7 +640,7 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                   this.teamDelete(
                      this.datacollection.getData((e) => e.id == dataID)[0]
                   );
-               $buttons.append($deleteButton);
+               $sectionButton?.append($deleteButton);
             })();
          };
          this._fnDropNode = async (event) => {
@@ -552,101 +672,7 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
             }
             this.ready();
          };
-         this._fnPageContentCallback = async (
-            contentRecords,
-            isContentDone,
-            contentDC,
-            callback
-         ) => {
-            await Promise.all([
-               this._waitDCReady(contentDC),
-               ...this._getAllDCs({ areCoreDCsExcluded: true }).map((dc) =>
-                  this._waitDCReady(dc)
-               ),
-            ]);
-            for (const contentRecord of contentRecords)
-               this._addContentRecordToGroup(contentRecord);
-            if (isContentDone) callback && (await callback());
-            else
-               this._pageData(contentDC, this._fnPageContentCallback, callback);
-         };
-         this._fnPageContentDisplayCallback = async (
-            contentDisplayRecords,
-            isContentDisplayDone,
-            contentDisplayDC,
-            callback
-         ) => {
-            const contentDC = this._contentDC;
-            await Promise.all([
-               this._waitDCReady(contentDisplayDC),
-               this._waitDCReady(contentDC),
-            ]);
-            this._refreshDataPanel();
-            if (isContentDisplayDone) {
-               this._fnPageContentCallback(
-                  contentDC.getData(),
-                  true,
-                  contentDC,
-                  callback
-               );
-            } else {
-               this._fnPageContentCallback(
-                  contentDC.getData(),
-                  true,
-                  contentDC
-               );
-               this._pageData(
-                  contentDisplayDC,
-                  this._fnPageContentDisplayCallback,
-                  callback
-               );
-            }
-         };
 
-         this._fnPageTeamCallback = async (
-            teamRecords,
-            isTeamDone,
-            teamDC,
-            callback
-         ) => {
-            const contentDC = this._contentDC;
-            await Promise.all([
-               this._waitDCReady(teamDC),
-               this._waitDCReady(contentDC),
-            ]);
-            if (this.__orgchart == null) this._refreshOrgChart();
-            else {
-               const teamObjPK = teamDC.datasource.PK();
-               for (const teamRecord of teamRecords) {
-                  if (
-                     document.getElementById(
-                        this.teamNodeID(teamRecord[teamObjPK])
-                     ) == null
-                  )
-                     await this.teamAddChild(teamRecord, false);
-                  else await this.teamEdit(teamRecord, false);
-               }
-            }
-            if (isTeamDone)
-               this._fnPageContentCallback(
-                  contentDC.getData(),
-                  true,
-                  contentDC,
-                  callback
-               );
-            else {
-               this._fnPageContentCallback(
-                  contentDC.getData(),
-                  true,
-                  contentDC
-               );
-               this._pageData(
-                  this.datacollection,
-                  this._fnPageTeamCallback,
-                  callback
-               );
-            }
-         };
          this._fnChangeEntity = async () => {
             this._isPageDataTerminated = true;
             this._addProgressStatusQueue(
@@ -655,16 +681,15 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
             );
             this._removeOrgChart();
             try {
-               await this._callAfterRender(async () => {
-                  await Promise.all(
-                     this._getAllDCs().map((dc) => this._waitDCReady(dc))
-                  );
-                  // Wait until the next event loop.
-                  await Promise.resolve();
-                  await this._promisePageData;
-                  this._isPageDataTerminated = false;
-                  await this.refresh();
-               });
+               await this._utils.waitDOM();
+               await Promise.all(
+                  this._getAllDCs().map((dc) => this._utils.waitDCReady(dc))
+               );
+               // Wait until the next event loop.
+               await Promise.resolve();
+               // await this._promisePageData;
+               this._isPageDataTerminated = false;
+               await this.refresh();
             } catch (err) {
                // TODO (Guy): The update data error.
                console.error(err);
@@ -683,7 +708,14 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                   event.currentTarget.parentElement.dataset.source
             );
             for (const fieldID of self.settings.setEditableContentFields) {
-               const field = self._contentDC.datasource.fieldByID(fieldID);
+               const field =
+                  _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.content.datasource.fieldByID(fieldID);
+
+               // skip the Responsibility Assignment field
+               // How can I do this more properly?
+               if (field.columnName == RESPONSIBILITY_ASSIGNMENT_COLUMNNAME)
+                  continue;
+
                if (field.key === "connectObject") {
                   const linkedDC = self
                      ._getAllDCs()
@@ -737,7 +769,7 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                   const $contentFormData = $$(self.ids.contentFormData);
                   if (!$contentFormData.validate()) return;
                   let newFormData = self._parseFormValueByType(
-                     self._contentDC,
+                     _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.content,
                      contentValue,
                      Object.assign(
                         {},
@@ -749,7 +781,12 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                   $contentForm.blockEvent();
                   $contentForm.$view.remove();
                   $contentForm.destructor();
-                  if (!self._checkIfDataChanged(self._contentDC, newFormData))
+                  if (
+                     !self._checkIfDataChanged(
+                        _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.content,
+                        newFormData
+                     )
+                  )
                      return;
                   const teamDC = self.datacollection;
                   const dataID = newFormData.id;
@@ -776,7 +813,7 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                         isCreated = false;
                         for (const editContentFieldToCreateNew of editContentFieldsToCreateNew) {
                            const editContentFieldToCreateNewColumnName =
-                              self._contentDC.datasource.fieldByID(
+                              _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.content.datasource.fieldByID(
                                  editContentFieldToCreateNew
                               )?.columnName;
                            if (
@@ -864,7 +901,7 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                   } catch {
                      return;
                   }
-                  self._fnBusyTeamRecord($teamRecord);
+                  self._fnBusyRecord($teamRecord);
                   const contentNodes = [];
                   try {
                      if (isChangedToPrincipal) {
@@ -890,10 +927,13 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                               });
                            }),
                            (async () => {
-                              await self._contentDC.model.update(dataID, {
-                                 [contentPrincipleColumnName]: "1",
-                              });
-                              self._contentDC.model.update(dataID, {
+                              await _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.content.model.update(
+                                 dataID,
+                                 {
+                                    [contentPrincipleColumnName]: "1",
+                                 }
+                              );
+                              _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.content.model.update(dataID, {
                                  [contentPrincipleColumnName]: "0",
                               });
                            })(),
@@ -903,7 +943,7 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                            const oldData = {};
                            oldData[contentDateEndColumnName] = new Date();
                            await Promise.all([
-                              self.updateData(self._contentDC, {
+                              self.updateData(_components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.content, {
                                  ...oldData,
                                  id: dataID,
                               }),
@@ -911,14 +951,14 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                                  newFormData[contentDateStartColumnName] =
                                     oldData[contentDateEndColumnName];
                                  newFormData = await self.createData(
-                                    self._contentDC,
+                                    _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.content,
                                     newFormData
                                  );
                               })(),
                            ]);
                         } else {
                            newFormData = await self.updateData(
-                              self._contentDC,
+                              _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.content,
                               {
                                  ...newFormData,
                                  id: dataID,
@@ -946,7 +986,7 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                      contentNode[key] &&
                         self._addContentRecordToGroup(contentNode[key]);
                   }
-                  self._fnReadyTeamRecord($teamRecord);
+                  self._fnReadyRecord($teamRecord);
                   self._refreshDataPanel();
                },
             });
@@ -965,7 +1005,7 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                      {
                         view: "label",
                         label: `${self.label("Edit")} ${
-                           self._contentDC.datasource.label
+                           _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.content.datasource.label
                         }`,
                         align: "left",
                      },
@@ -1072,20 +1112,21 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                                                       contentDisplayedFieldFilterKey
                                                    ],
                                                    labelWidth: FORM_LABEL_WIDTH,
-                                                   options: this._contentGroupDC
-                                                      .getData()
-                                                      .map(
-                                                         (
-                                                            contentGroupValue
-                                                         ) => ({
-                                                            id: contentGroupValue[
-                                                               columnName
-                                                            ],
-                                                            value: contentGroupValue[
-                                                               columnName
-                                                            ],
-                                                         })
-                                                      ),
+                                                   options:
+                                                      _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.contentGroup
+                                                         .getData()
+                                                         .map(
+                                                            (
+                                                               contentGroupValue
+                                                            ) => ({
+                                                               id: contentGroupValue[
+                                                                  columnName
+                                                               ],
+                                                               value: contentGroupValue[
+                                                                  columnName
+                                                               ],
+                                                            })
+                                                         ),
                                                    name: contentDisplayedFieldFilterKey,
                                                    clear: "replace",
                                                 }
@@ -1165,43 +1206,39 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
             }
             $popup.show($$(ids.filterButton).$view);
          };
-         this._fnBusyTeamRecord = ($teamRecord) => {
-            if ($teamRecord == null) return;
+         this._fnBusyRecord = ($record) => {
+            if ($record == null) return;
 
-            $teamRecord.setAttribute("draggable", "false");
+            $record.setAttribute("draggable", "false");
 
             // Hide the edit button
-            const $buttonEdit = $teamRecord.querySelector(
-               ".team-group-record-edit-icon"
-            );
-            $buttonEdit.style.visibility = "hidden";
-            $buttonEdit.style.display = "none";
+            const $buttonEdit = $record.querySelector(".record-edit-icon");
+            if ($buttonEdit) {
+               $buttonEdit.style.display = "none";
+            }
 
             // Show the loading icon
-            const $iconLoading = $teamRecord.querySelector(
-               ".team-group-record-loading-icon"
-            );
-            $iconLoading.style.visibility = "visible";
-            $iconLoading.style.display = "block";
+            const $iconLoading = $record.querySelector(".record-loading-icon");
+            if ($iconLoading) {
+               $iconLoading.style.visibility = "visible";
+            }
          };
-         this._fnReadyTeamRecord = ($teamRecord) => {
-            if ($teamRecord == null) return;
+         this._fnReadyRecord = ($record) => {
+            if ($record == null) return;
 
-            $teamRecord.setAttribute("draggable", "true");
+            $record.setAttribute("draggable", "true");
 
             // Hide the edit button
-            const $buttonEdit = $teamRecord.querySelector(
-               ".team-group-record-edit-icon"
-            );
-            $buttonEdit.style.visibility = "visible";
-            $buttonEdit.style.display = "block";
+            const $buttonEdit = $record.querySelector(".record-edit-icon");
+            if ($buttonEdit) {
+               $buttonEdit.style.display = "block";
+            }
 
             // Show the loading icon
-            const $iconLoading = $teamRecord.querySelector(
-               ".team-group-record-loading-icon"
-            );
-            $iconLoading.style.visibility = "hidden";
-            $iconLoading.style.display = "none";
+            const $iconLoading = $record.querySelector(".record-loading-icon");
+            if ($iconLoading) {
+               $iconLoading.style.visibility = "hidden";
+            }
          };
 
          // Generate strategy css
@@ -1259,6 +1296,23 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
          });
       }
 
+      _confirmBox(title, description, yes = "Yes", cancel = "Cancel") {
+         return new Promise((resolve) => {
+            this.AB.Webix.confirm({
+               title: this.label(title),
+               text: this.label(description),
+               ok: this.label(yes),
+               cancel: this.label(cancel),
+            })
+               .then((result) => {
+                  resolve(result);
+               })
+               .fail(() => {
+                  resolve(false);
+               });
+         });
+      }
+
       _addContentRecordToGroup(contentRecord) {
          const linkedContentColumnName = this.AB.definitionByID(
             this.AB.definitionByID(this.settings.contentField).settings
@@ -1268,7 +1322,7 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
             this.teamNodeID(contentRecord[linkedContentColumnName])
          );
          if ($teamNode == null) return;
-         const contentGroupDC = this._contentGroupDC;
+         const contentGroupDC = _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.contentGroup;
          const contentGroupDataPK =
             contentRecord[
                this.AB.definitionByID(this.settings.contentGroupByField)
@@ -1285,35 +1339,127 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
             `.team-group-section[data-pk="${contentGroupDataPK}"] > .team-group-content`
          );
          if ($groupSection == null) return;
+
          (async () => {
-            await this._callAfterRender(async () => {
-               const contentNodeID = this.contentNodeID(contentRecord.id);
-               let $contentNode = document.getElementById(contentNodeID);
-               while ($contentNode != null) {
-                  $contentNode.remove();
-                  $contentNode = document.getElementById(contentNodeID);
+            await this._utils.waitDOM();
+            const principalColumnName =
+                  this.AB.definitionByID(this.settings.contentPrincipleField)
+                     .columnName
+            const isNewChildPrincipal = contentRecord[principalColumnName] === 1;
+            const $newChild = await this._createUIContentRecord(contentRecord, isNewChildPrincipal
+               ? this.settings.strategyColors[
+                  $teamNode.classList.item(1).replace("strategy-", "")
+               ]: "");
+            const dataPanelDC = _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list
+               .contentDisplays
+               .find((contentDisplay) => contentDisplay.datasource === _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.dataPanels[0].datasource);
+            const dataPanelPK = dataPanelDC.datasource.PK();
+            const dataPanelRecord = dataPanelDC.getData((e) => e[dataPanelPK] === contentRecord[CONTENT_LINK_DATAPANEL_COLUMNNAME])[0];
+            const isNewChildEmeritus = dataPanelRecord?.[DATAPANEL_EMERITUS_STATUS_COLUMNNAME] === 1;
+            for (const $child of $groupSection.children) {
+               const childContentRecord = JSON.parse($child.dataset.source);
+               const isChildPrincipal = childContentRecord[principalColumnName] === 1;
+               if (isNewChildPrincipal && !isChildPrincipal) {
+                  $child.before($newChild);
+                  return;
+               } else if (!isNewChildPrincipal && isChildPrincipal)
+                  continue;
+               const childDataPanelRecord = dataPanelDC.getData((e) => e[dataPanelPK] === childContentRecord[CONTENT_LINK_DATAPANEL_COLUMNNAME])[0];
+               const isChildEmeritus = childDataPanelRecord[DATAPANEL_EMERITUS_STATUS_COLUMNNAME] === 1;
+               if (dataPanelRecord == null) {
+                  $child.after($newChild);
+                  return;
+               } else if (!isNewChildEmeritus && isChildEmeritus) {
+                  $child.before($newChild);
+                  return;
+               } else if (isNewChildEmeritus && !isChildEmeritus)
+                  continue;
+               const sortingResult = this._utils.sortByEmployeeLastname(dataPanelRecord, childDataPanelRecord);
+               if (sortingResult === -1) {
+                  $child.before($newChild);
+                  return;
+               } else if (sortingResult === 0) {
+                  if (this._utils.sortByEmployeeFirstname(dataPanelRecord, childDataPanelRecord) === -1)
+                     $child.before($newChild);
+                  else
+                     $child.after($newChild);
+                  return;
                }
-               const contentPrincipleFieldValue =
-                  contentRecord[
-                     this.AB.definitionByID(this.settings.contentPrincipleField)
-                        .columnName
-                  ];
-               if (contentPrincipleFieldValue) {
-                  $groupSection.prepend(
-                     await this._createUIContentRecord(
-                        contentRecord,
-                        this.settings.strategyColors[
-                           $teamNode.classList.item(1).replace("strategy-", "")
-                        ]
-                     )
-                  );
-               } else {
-                  $groupSection.appendChild(
-                     await this._createUIContentRecord(contentRecord, "")
-                  );
-               }
-            });
+            }
+            $groupSection.appendChild($newChild);
          })();
+      }
+
+      _addRcToGroup(teamRecord, rcRecord) {
+         const $teamNode = document.getElementById(
+            this.teamNodeID(teamRecord.id)
+         );
+         if ($teamNode == null) return;
+
+         const contentGroupDataPK = _components_data_panel_rcDataPanel_js__WEBPACK_IMPORTED_MODULE_5__["default"].dropZoneSections[0].id;
+         const $groupSection = $teamNode.querySelector(
+            `.team-group-section[data-pk="${contentGroupDataPK}"] > .team-group-content`
+         );
+
+         const $rcDom = this._createUIRcRecord(rcRecord);
+         $groupSection.appendChild($rcDom);
+
+         return $rcDom;
+      }
+
+      _cleanUpRcView(teamRecord = null) {
+         let $parent = document;
+         if (teamRecord) {
+            $parent = document.getElementById(this.teamNodeID(teamRecord.id));
+            if ($parent == null) return;
+         }
+
+         const contentGroupDataPK = _components_data_panel_rcDataPanel_js__WEBPACK_IMPORTED_MODULE_5__["default"].dropZoneSections[0].id;
+         const $groupSections = $parent.querySelectorAll(
+            `.team-group-section[data-pk="${contentGroupDataPK}"] > .team-group-content`
+         );
+         $groupSections.forEach(($grpSection) => {
+            $grpSection.replaceChildren();
+         });
+      }
+
+      async _fnExcludeRc(event) {
+         const $rc = event.currentTarget.closest(".rc-record");
+         if ($rc == null) return;
+
+         const yesOrNo = await this._confirmBox(
+            "Remove RC relationship?",
+            "This will remove the link between the Team and RC. Are you sure you want to do this?"
+         );
+         if (!yesOrNo) return;
+
+         const $team = $rc.closest(".node");
+         if ($team == null) return;
+
+         this._fnBusyRecord($rc);
+
+         const teamObj = this.datacollection.datasource;
+         const contentFieldLink = teamObj.fieldByID(
+            _components_constants_js__WEBPACK_IMPORTED_MODULE_1__["default"].TEAM_RESPONSIBILITY_CENTRE_FIELD_ID
+         );
+
+         const dc = _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.team;
+         const teamId = $team.dataset.id;
+         const rcId = $rc.dataset.id;
+         let teamData = dc.getData((item) => item.id == teamId)[0];
+
+         // Unrelate the RC from the team.
+         teamData[contentFieldLink.columnName] = (
+            teamData[contentFieldLink.columnName] ?? []
+         ).filter((relatedTeam) => relatedTeam.id ?? relatedTeam != rcId);
+         teamData[contentFieldLink.relationName()] = (
+            teamData[contentFieldLink.relationName()] ?? []
+         ).filter((relatedTeam) => relatedTeam.id ?? relatedTeam != rcId);
+
+         await dc.datasource.model().update(teamData.id, teamData);
+
+         this._fnReadyRecord($rc);
+         $rc.remove();
       }
 
       _addProgressStatusQueue(key, value) {
@@ -1327,10 +1473,11 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
       _cleanValue(dc, value) {
          value = structuredClone(value);
          const editableColumnNames = [];
-         if (this._entityDC) {
-            const entityLinkField = this._entityDC.datasource.connectFields(
-               (f) => f.settings.linkObject === dc.datasource.id
-            )[0];
+         if (_components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.entity) {
+            const entityLinkField =
+               _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.entity.datasource.connectFields(
+                  (f) => f.settings.linkObject === dc.datasource.id
+               )[0];
             if (entityLinkField)
                editableColumnNames.push(entityLinkField.fieldLink.columnName);
          }
@@ -1346,9 +1493,9 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                   EXTERNAL_SUPPORT_COLUMNNAME
                );
                break;
-            case this._contentDC:
+            case _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.content:
                editableColumnNames.push(
-                  ...this._contentDC.datasource
+                  ..._components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.content.datasource
                      .fields(
                         (field) =>
                            this.settings.setEditableContentFields.indexOf(
@@ -1367,36 +1514,18 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
          }
          for (const key in value)
             if (editableColumnNames.indexOf(key) === -1) delete value[key];
+            // Convert the Responsibility field value according to AB return format
+            // QUESTION: Should other fields be processed here too?
+            else if (
+               key == RESPONSIBILITY_ASSIGNMENT_COLUMNNAME &&
+               value[key]
+            ) {
+               const field = _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.content.datasource.fields(
+                  (field) => field.columnName === key
+               )[0];
+               value[key] = field.editParse(value[key]);
+            }
          return value;
-      }
-
-      _createCustomDCByObjID(objID, { loadAll = false, filter, linkedDC }) {
-         const settings = {
-            datasourceID: objID,
-            populate: false,
-            loadAll,
-            objectWorkspace: {},
-         };
-         if (linkedDC != null) {
-            const linkedObjID = linkedDC.datasource.id;
-            (settings.linkFieldID = this.AB.definitionByID(objID).fieldIDs.find(
-               (fieldID) =>
-                  this.AB.definitionByID(fieldID).settings.linkObject ===
-                  linkedObjID
-            )) && (settings.linkDatacollectionID = linkedDC.id);
-         }
-         if (filter) settings.objectWorkspace.filterConditions = filter;
-         const dc = this.AB.datacollectionNew({
-            id: `dc.${objID}`,
-            label: this.AB.objectByID(objID).label,
-            settings,
-         });
-         this._initDC(dc);
-         if (linkedDC) {
-            dc.eventRemove("cursorStale", linkedDC);
-            dc.$dc.__prevLinkDcCursor = linkedDC.getCursor()?.id?.toString();
-         }
-         return dc;
       }
 
       async _createUIContentRecord(data, color) {
@@ -1405,7 +1534,10 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
          $ui.setAttribute("data-source", JSON.stringify(data));
          $ui.style.borderColor = color;
          $ui.addEventListener("dblclick", this._fnShowContentForm);
-         if (this.settings.draggable === 1) {
+         if (
+            this.settings.draggable === 1 &&
+            (this._roles.isHRG || this._roles.isAdmin)
+         ) {
             $ui.setAttribute("draggable", "true");
             $ui.addEventListener("dragstart", this._fnContentDragStart);
             $ui.addEventListener("dragend", this._fnContentDragEnd);
@@ -1424,11 +1556,11 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
          let currentDataRecords = [];
          let currentField = null;
          let currentDisplayIndex = 0;
-         const contentDC = this._contentDC;
+         const contentDC = _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.content;
          const contentObjID = contentDC.datasource.id;
          const contentDisplayedFields = this.settings.contentDisplayedFields;
          const contentDisplayedFieldsKeys = Object.keys(contentDisplayedFields);
-         const contentDisplayDCs = this._contentDisplayDCs;
+         const contentDisplayDCs = _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.contentDisplays;
          let $jobTitle;
          for (let j = 0; j < contentDisplayedFieldsKeys.length; j++) {
             const displayedFieldKey = contentDisplayedFieldsKeys[j];
@@ -1457,7 +1589,7 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                         } else if (currentFieldData != null)
                            currentDataPKs.push(currentFieldData);
                      } while (currentDataRecords.length > 0);
-                     await this._waitDCReady(displayDC);
+                     await this._utils.waitDCReady(displayDC);
                      currentDataRecords = displayDC.getData((r) => {
                         return currentDataPKs.some((id) => id == r.id);
                      });
@@ -1670,22 +1802,63 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                }
             !isShown && (hardcodedDisplayStyle.display = "none");
          }
-         const $editIcon = element("div", "team-group-record-edit-icon");
-         $editIcon.appendChild(element("i", "fa fa-pencil"));
-         $editIcon.addEventListener("click", this._fnShowContentForm);
 
-         const $loadingIcon = element("div", "team-group-record-loading-icon");
-         $loadingIcon.appendChild(
-            element("i", "fa fa-refresh fa-spin loading-spinner")
-         );
+         if (this._roles.isHRG || this._roles.isAdmin) {
+            const $editIcon = element("div", "record-edit-icon");
+            $editIcon.appendChild(element("i", "fa fa-pencil"));
+            $editIcon.addEventListener("click", this._fnShowContentForm);
 
-         $ui.appendChild($editIcon);
-         $ui.appendChild($loadingIcon);
+            const $loadingIcon = element("div", "record-loading-icon");
+            $loadingIcon.appendChild(
+               element("i", "fa fa-refresh fa-spin loading-spinner")
+            );
+
+            $ui.appendChild($editIcon);
+            $ui.appendChild($loadingIcon);
+         }
+
+         return $ui;
+      }
+
+      _createUIRcRecord(rc) {
+         const $ui = element("div", "rc-record");
+
+         if (
+            this.settings.draggable === 1 &&
+            (this._roles.isFinance || this._roles.isAdmin)
+         ) {
+            $ui.setAttribute("draggable", "true");
+            $ui.addEventListener("dragstart", this._fnRcDragStart);
+         }
+
+         $ui.dataset.id = rc.id;
+         $ui.setAttribute("id", this.contentNodeID(rc.id));
+
+         const $rcName = element("div", "rc-record-name");
+         $rcName.innerText = rc.name;
+         $ui.appendChild($rcName);
+
+         if (this._roles.isFinance || this._roles.isAdmin) {
+            const $removeIcon = element("div", "record-edit-icon");
+            $removeIcon.appendChild(element("i", "fa fa-trash-o"));
+            $removeIcon.addEventListener("click", (event) => {
+               this._fnExcludeRc(event);
+            });
+
+            const $loadingIcon = element("div", "record-loading-icon");
+            $loadingIcon.appendChild(
+               element("i", "fa fa-refresh fa-spin loading-spinner")
+            );
+
+            $ui.appendChild($removeIcon);
+            $ui.appendChild($loadingIcon);
+         }
+
          return $ui;
       }
 
       _createWebixUIFieldByFieldID(fieldID, value) {
-         const field = this._contentDC.datasource.fields(
+         const field = _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.content.datasource.fields(
             (field) => field.id === fieldID
          )[0];
          if (field == null)
@@ -1721,7 +1894,7 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                rule[field.columnName] = () => true;
                break;
          }
-         const element = {
+         let element = {
             view: "text",
             name: field.columnName,
             label: field.label,
@@ -1737,10 +1910,10 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                      this.settings.contentPrincipleField
                   ).columnName:
                      // TODO (Guy): Hardcode getting data panel dc.
-                     const dataPanelDC = this._contentDisplayDCs.find(
+                     const dataPanelDC = _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.contentDisplays.find(
                         (contentDisplayDC) =>
                            contentDisplayDC.datasource ===
-                           this._dataPanelDCs[0].datasource
+                           _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.dataPanels[0].datasource
                      );
                      const dataPanelPK = dataPanelDC.datasource.PK();
                      const teamPK = this.datacollection.datasource.PK();
@@ -1799,6 +1972,13 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                         )[0]
                      );
                      return { element, rule };
+                  }
+                  // Hardcode for the responsibility assignment field ??
+                  else if (
+                     field.columnName == RESPONSIBILITY_ASSIGNMENT_COLUMNNAME
+                  ) {
+                     element = this._elementResponsibility(field, value);
+                     break;
                   }
                   element.options = linkedDC.getData().map((e) => ({
                      id: e.id,
@@ -1859,21 +2039,6 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
          return { element, rule };
       }
 
-      async _callAfterRender(callback, ...params) {
-         await new Promise((resolve, reject) => {
-            requestAnimationFrame(() => {
-               requestAnimationFrame(async () => {
-                  try {
-                     await callback(...params);
-                     resolve();
-                  } catch (err) {
-                     reject(err);
-                  }
-               });
-            });
-         });
-      }
-
       _checkIfDataChanged(dc, newValue) {
          const objPK = dc.datasource.PK();
          const oldValue = dc.getData((e) => e[objPK] == newValue[objPK])[0];
@@ -1912,14 +2077,15 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
          return false;
       }
 
-      _getAllDCs({ areCoreDCsExcluded } = { areCoreDCsExcluded: false }) {
-         const entityDC = this._entityDC;
+      _getAllDCs() {
+         const entityDC = _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.entity;
          const teamDC = this.datacollection;
-         const contentDC = this._contentDC;
-         const contentGroupDC = this._contentGroupDC;
-         const strategyCodeDC = this._strategyCodeDC;
-         const subStrategyDC = this._subStrategyDC;
-         const teamStrategyDC = this._teamStrategyDC;
+         const contentDC = _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.content;
+         const contentGroupDC = _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.contentGroup;
+         const strategyCodeDC = _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.strategyCode;
+         const subStrategyDC = _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.subStrategy;
+         const teamStrategyDC = _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.teamStrategy;
+         const responsibilityDC = _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.responsibility;
          const results = [
             entityDC,
             teamDC,
@@ -1928,18 +2094,14 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
             strategyCodeDC,
             subStrategyDC,
             teamStrategyDC,
+            responsibilityDC,
          ];
-         return (
-            (areCoreDCsExcluded &&
-               this._contentDisplayDCs.filter(
-                  (contentDisplayDC) => results.indexOf(contentDisplayDC) === -1
-               )) ||
-            results.concat(
-               this._contentDisplayDCs.filter(
-                  (contentDisplayDC) => results.indexOf(contentDisplayDC) === -1
-               )
-            )
+
+         const contentDisplaysDCs = _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.contentDisplays.filter(
+            (contentDisplayDC) => results.indexOf(contentDisplayDC) === -1
          );
+
+         return results.concat(contentDisplaysDCs);
       }
 
       _getChildChartDataByID(id, chartData = this._chartData) {
@@ -1971,9 +2133,10 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
          contentValue,
          { callback, needUserForm } = { callback: null, needUserForm: false }
       ) {
-         const dataPanelDC = this._contentDisplayDCs.find(
+         const dataPanelDC = _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.contentDisplays.find(
             (contentDisplayDC) =>
-               contentDisplayDC.datasource === this._dataPanelDCs[0].datasource
+               contentDisplayDC.datasource ===
+               _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.dataPanels[0].datasource
          );
          const dataPanelPK = dataPanelDC.datasource.PK();
          this._userFormQueues.push({
@@ -1991,18 +2154,24 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
          return Math.abs(new Date() - date) / 36e5 < 24;
       }
 
-      _initDC(dc) {
-         dc.init();
-         if (dc.dataStatus === dc.dataStatusFlag.notInitial) dc.loadData();
+      async _fetchAllData(dc) {
+         await this._utils.waitDCReady(dc);
+
+         const totalCount = dc.totalCount;
+         let records = dc.getData();
+
+         // Load data to the end
+         while (records.length < totalCount) {
+            // await dc.loadData(records.length);
+            await dc.loadData(0, _components_constants_js__WEBPACK_IMPORTED_MODULE_1__["default"].RECORD_LIMIT);
+            records = dc.getData();
+         }
+
+         return dc.getData();
       }
 
       async _pageData(dc, mainCallback, callback) {
-         try {
-            await this._waitDCReady(dc);
-         } catch (err) {
-            // TODO (Guy): Error log
-            console.error(err);
-         }
+         await this._utils.waitDCReady(dc);
          let records = dc.getData();
          const retryTimeout = setTimeout(async () => {
             try {
@@ -2016,14 +2185,14 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
          try {
             if (
                records.length < DC_OFFSET ||
-               (records.length - DC_OFFSET) % RECORD_LIMIT > 0 ||
+               (records.length - DC_OFFSET) % _components_constants_js__WEBPACK_IMPORTED_MODULE_1__["default"].RECORD_LIMIT > 0 ||
                this._isPageDataTerminated
             )
                throw null;
             try {
                await dc.loadData(
-                  RECORD_LIMIT * parseInt(records.length / RECORD_LIMIT),
-                  RECORD_LIMIT
+                  _components_constants_js__WEBPACK_IMPORTED_MODULE_1__["default"].RECORD_LIMIT * parseInt(records.length / _components_constants_js__WEBPACK_IMPORTED_MODULE_1__["default"].RECORD_LIMIT),
+                  _components_constants_js__WEBPACK_IMPORTED_MODULE_1__["default"].RECORD_LIMIT
                );
             } catch {}
             if (
@@ -2033,7 +2202,7 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                throw null;
             records = dc.getData();
             if (
-               (records.length - DC_OFFSET) % RECORD_LIMIT > 0 ||
+               (records.length - DC_OFFSET) % _components_constants_js__WEBPACK_IMPORTED_MODULE_1__["default"].RECORD_LIMIT > 0 ||
                this._isPageDataTerminated
             )
                throw null;
@@ -2112,7 +2281,7 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                         }
                   }
                   // TODO (Guy): Many logic in the future. Now we don't have an array data changed.
-                  else delete newFormData[columnName];
+                  // else delete newFormData[columnName];
                   break;
                default:
                   if (newValue == null || newValue === "")
@@ -2168,7 +2337,7 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
          return newFormData;
       }
 
-      _refreshDataPanel() {
+      async _refreshDataPanel() {
          $$(this.ids.dataPanel)
             ?.getChildViews()[1]
             .getChildViews()
@@ -2181,8 +2350,10 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
             this._removeOrgChart();
             return;
          }
+
+         // Find the top node
+         let topNodeData = teamDC.getCursor();
          const settings = this.settings;
-         let topNode = teamDC.getCursor();
          const topNodeColumn = this.AB.definitionByID(
             settings.topTeam
          ).columnName;
@@ -2190,9 +2361,9 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
             const topFromField = teamDC.getData(
                (e) => e[topNodeColumn] == 1
             )[0];
-            topNode = topFromField ? topFromField : topNode;
+            topNodeData = topFromField ? topFromField : topNodeData;
          }
-         if (!topNode) {
+         if (!topNodeData) {
             this._removeOrgChart();
             return;
          }
@@ -2212,7 +2383,7 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
          const teamInactiveColumnName = this.AB.definitionByID(
             settings.teamInactive
          ).columnName;
-         const teamStrategyDC = this._teamStrategyDC;
+         const teamStrategyDC = _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.teamStrategy;
          const teamStrategyObjPK = teamStrategyDC.datasource.PK();
          const teamStrategyColumnName = this.AB.definitionByID(
             settings.teamStrategy
@@ -2265,23 +2436,25 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                node.children = node.children.sort(sortByTeamName);
             }
          };
-         const chartData = (this._chartData = {
-            id: this.teamNodeID(topNode[teamObjPK]),
-            name: topNode[teamNameColumnName] ?? "",
+         // the Root node
+         const chartTopNode = (this._chartData = {
+            id: this.teamNodeID(topNodeData[teamObjPK]),
+            name: topNodeData[teamNameColumnName] ?? "",
             className: `strategy-${
                teamStrategyDC.getData(
-                  (e) => e[teamStrategyObjPK] == topNode[teamStrategyColumnName]
+                  (e) =>
+                     e[teamStrategyObjPK] == topNodeData[teamStrategyColumnName]
                )[0]?.[strategyCodeColumnName]
             }`,
-            isInactive: topNode[teamInactiveColumnName],
-            _rawData: topNode,
+            isInactive: topNodeData[teamInactiveColumnName],
+            _rawData: topNodeData,
             filteredOut: false,
          });
-         chartData.filteredOut = this.filterTeam(chartData);
-         pullChildData(chartData);
+         chartTopNode.filteredOut = this.filterTeam(chartTopNode);
+         pullChildData(chartTopNode);
          const draggable = settings.draggable === 1;
          const orgchart = new this._OrgChart({
-            data: this.AB.cloneDeep(chartData),
+            data: this.AB.cloneDeep(chartTopNode),
             direction: settings.direction,
             pan: true,
             zoom: false,
@@ -2309,6 +2482,7 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
       _refreshProgressStatus() {
          const $progressStatus = $$(this.ids.progressStatus);
          if (this._progressStatusQueues.length > 0) {
+            this.busy();
             const commonQueues = [];
             const principalQueues = [];
             for (const { key, value } of this._progressStatusQueues) {
@@ -2362,7 +2536,8 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                .item(0).classList;
             iconClassList.replace("fa-refresh", "fa-check-circle");
             iconClassList.remove("progress-status-spin");
-            setTimeout(() => $progressStatus.hide(), PROGRESS_STATUS_DELAY);
+            $progressStatus.hide();
+            this.ready();
          }
       }
 
@@ -2370,16 +2545,27 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
          await (dc.reloadPromise ||
             dc.reloadData(
                0,
-               RECORD_LIMIT * Math.ceil(dc.getData().length / RECORD_LIMIT) ||
-                  RECORD_LIMIT
+               _components_constants_js__WEBPACK_IMPORTED_MODULE_1__["default"].RECORD_LIMIT * Math.ceil(dc.getData().length / _components_constants_js__WEBPACK_IMPORTED_MODULE_1__["default"].RECORD_LIMIT) ||
+                  _components_constants_js__WEBPACK_IMPORTED_MODULE_1__["default"].RECORD_LIMIT
             ));
       }
 
-      _removeProgressStatusQueue(key, value) {
-         const index = this._progressStatusQueues.findIndex(
-            (e) => e.key === key && e.value === value
+      async _removeProgressStatusQueue(key, value) {
+         // Delay waiting to refresh the progress status
+         if (this.__throttleProgressStatus)
+            delete this.__throttleProgressStatus;
+         this.__throttleProgressStatus = this._utils.timeout(
+            PROGRESS_STATUS_DELAY
          );
-         index > -1 && this._progressStatusQueues.splice(index, 1);
+         await this.__throttleProgressStatus;
+
+         // const index = this._progressStatusQueues.findIndex(
+         //    (e) => e.key === key && e.value === value
+         // );
+         // index > -1 && this._progressStatusQueues.splice(index, 1);
+         this._progressStatusQueues = this._progressStatusQueues.filter(
+            (e) => `${e.key}-${e.value}` !== `${key}-${value}`
+         );
          this._refreshProgressStatus();
       }
 
@@ -2474,164 +2660,31 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
          this.AB.Webix.ui(this._uiTeamFormPopup(mode, value)).show();
       }
 
-      _uiDataPanel() {
-         const self = this;
-         const _dataPanelDCs = self._dataPanelDCs;
-         const dataPanelDCs = self.settings.dataPanelDCs;
-         const contentObjID = this._contentDC?.datasource?.id;
-         const cells = [];
-         for (const key in dataPanelDCs) {
-            const [tabIndex, dataPanelDCID] = key.split(".");
-
-            // TODO (Guy): Hardcode data panel DCs for Employee.
-            // const _dataPanelDC = _dataPanelDCs.find(
-            //    (dataPanelDC) => dataPanelDC.id === dataPanelDCID
-            // );
-            const _dataPanelDC = self._contentDisplayDCs.find(
-               (contentDisplayDC) =>
-                  contentDisplayDC.datasource.id ===
-                  _dataPanelDCs.find(
-                     (dataPanelDC) => dataPanelDC.id === dataPanelDCID
-                  ).datasource.id
-            );
-            const contentDC = this._contentDC;
-            const header = dataPanelDCs[key];
-            if (_dataPanelDC == null)
-               cells.push({
-                  header,
-                  body: {
-                     view: "list",
-                     css: { overflow: "auto", "max-height": "90%" },
-                     data: [],
-                  },
-               });
-            else {
-               const panelObj = _dataPanelDC.datasource;
-               cells.push({
-                  header,
-                  body: {
-                     view: "list",
-                     template: (data) =>
-                        `<div class="data-panel-employee"><span class="initials">${
-                           data.initials
-                        }</span> ${panelObj.displayData(data)}</div>`,
-                     borderless: true,
-                     css: "data-panel-employee-list",
-                     data: [],
-                     on: {
-                        async onViewShow() {
-                           await self._waitDCReady(_dataPanelDC);
-                           const contentLinkedField = panelObj.connectFields(
-                              (field) => field.datasourceLink.id == contentObjID
-                           )[0].fieldLink;
-                           const contentLinkedColumnName =
-                              contentLinkedField.columnName;
-                           this.clearAll();
-                           this.define(
-                              "data",
-                              // TODO (Guy): Hardcode Employee DC.
-                              (parseInt(tabIndex) < 2
-                                 ? _dataPanelDC.getData(
-                                      (panelRecord) =>
-                                         panelRecord.isinactive !== "T" &&
-                                         (tabIndex === "0"
-                                            ? contentDC.getData(
-                                                 (contentRecord) =>
-                                                    contentRecord[
-                                                       contentLinkedColumnName
-                                                    ] == panelRecord.id
-                                              )[0] == null
-                                            : contentDC.getData(
-                                                 (contentRecord) =>
-                                                    contentRecord[
-                                                       contentLinkedColumnName
-                                                    ] == panelRecord.id
-                                              )[0] != null)
-                                   )
-                                 : _dataPanelDCs
-                                      .find(
-                                         (dataPanelDC) =>
-                                            dataPanelDC.id === dataPanelDCID
-                                      )
-                                      .getData()
-                              ).sort(sortByEmployeeLastname)
-                           );
-                           await self._callAfterRender(() => {
-                              const $itemElements =
-                                 this.$view.children.item(0).children;
-                              const itemElementsLength = $itemElements.length;
-                              const contentFieldID = contentLinkedField.id;
-                              let count = 0;
-                              while (count < itemElementsLength) {
-                                 const $itemElement = $itemElements.item(
-                                    count++
-                                 );
-                                 $itemElement.setAttribute(
-                                    "data-content-linked-field-id",
-                                    contentFieldID
-                                 );
-                                 const dataPanelRecord = _dataPanelDC.getData(
-                                    (e) =>
-                                       e.id ==
-                                       $itemElement.getAttribute("webix_l_id")
-                                 )[0];
-                                 if (dataPanelRecord == null) continue;
-                                 $itemElement.setAttribute(
-                                    "data-pk",
-                                    dataPanelRecord[panelObj.PK()]
-                                 );
-                                 $itemElement.setAttribute("draggable", "true");
-                                 $itemElement.addEventListener(
-                                    "dragstart",
-                                    self._fnContentDragStart
-                                 );
-                                 $itemElement.addEventListener(
-                                    "dragend",
-                                    self._fnContentDragEnd
-                                 );
-                              }
-                           });
-                        },
-                     },
-                  },
-               });
-            }
-         }
+      _uiDataPanelButton() {
          return {
-            height: 500,
-            type: "clean",
-            rows: [
-               {
-                  view: "template",
-                  borderless: true,
-                  template: `<div><span class="fa fa-close data-panel-close"></span></div>`,
-                  height: 35,
-                  onClick: {
-                     "data-panel-close": () => {
-                        $$(this.ids.dataPanelPopup).hide();
-                        this._resizeObserver?.unobserve(
-                           $$(this.ids.dataPanelButton).$view
-                        );
-                        return false;
-                     },
-                  },
-               },
-               {
-                  id: this.ids.dataPanel,
-                  view: "tabview",
-                  css: "data-panel-tabview",
-                  width: 270,
-                  borderless: true,
-                  tabbar: {
-                     height: 25,
-                     // width: 300,
-                     align: "left",
-                     // type: "bottom",
-                     css: "data-panel-tabbar",
-                  },
-                  cells,
-               },
-            ],
+            view: "template",
+            id: this.ids.dataPanelButton,
+            template: `<div class="filter-button switch-data-panel">
+                           <span class="fa ${
+                              this._selectedDataPanel instanceof _components_data_panel_staffDataPanel_js__WEBPACK_IMPORTED_MODULE_4__["default"]
+                                 ? _components_data_panel_rcDataPanel_js__WEBPACK_IMPORTED_MODULE_5__["default"].icon
+                                 : _components_data_panel_staffDataPanel_js__WEBPACK_IMPORTED_MODULE_4__["default"].icon
+                           }"></span>
+                        </div>
+                        <div class="filter-button data-panel-button">
+                           <span class="fa ${
+                              this._selectedDataPanel.constructor.icon
+                           }"></span>
+                           <span>&nbsp;${this.label(
+                              this._selectedDataPanel.constructor.label
+                           )}</span>
+                        </div>`,
+            align: "right",
+            width: 330,
+            onClick: {
+               "data-panel-button": (ev) => this._selectedDataPanel.show(ev),
+               "switch-data-panel": (ev) => this.switchDataPanel(),
+            },
          };
       }
 
@@ -2900,37 +2953,95 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
          };
       }
 
-      // TODO (Guy): Some DC.waitReady() won't be resolved.
-      async _waitDCReady(dc) {
-         // Wait for then next event loop
-         await Promise.resolve();
-         dc.reloadPromise != null && (await dc.reloadPromise);
-         const dataStatusFlag = dc.dataStatusFlag;
-         switch (dc.dataStatus) {
-            case dc.dataStatusFlag.initialized:
-               dc._events.initializedData && dc.emit("initializedData");
-               break;
-            case dc.dataStatusFlag.initializing:
-               await new Promise((resolve) => {
-                  let timeoutID = null;
-                  const forceDCReady = () => {
-                     if (dc.dataStatus === dc.dataStatusFlag.initialized) {
-                        dc.emit("initializedData");
-                        return;
-                     }
-                     timeoutID = setTimeout(forceDCReady, ONE_SECOND);
-                  };
-                  timeoutID = setTimeout(forceDCReady, ONE_SECOND);
-                  dc.once("initializedData", () => {
-                     clearTimeout(timeoutID);
-                     timeoutID = null;
-                     resolve();
-                  });
-               });
-               break;
-            default:
-               break;
-         }
+      _elementResponsibility(field, value) {
+         // clean previous values
+         delete field.linkViaOneValues;
+
+         const formAddResponsibilityId = "b0784e31-a512-4ea9-925b-d500c0adae95";
+         const fieldEntityId = "acfbfcd6-fcd4-42c9-968e-869be9ec7c5e";
+         const fieldUpdatedBy = "569016c7-3b3c-4696-95be-9ec73cab1b51";
+         const fieldInactiveId = "953f84f4-eb3a-4cbb-b94f-ac550cb1b34a";
+
+         const viewForm = this.AB.Class.ABViewManager.newView(
+            {
+               id: `mock_form_of_${field.id}`,
+               key: "form",
+               settings: {
+                  dataviewID: "",
+                  labelWidth: FORM_LABEL_WIDTH,
+               },
+            },
+            this.view.application
+         );
+
+         const filterConditions = {
+            glue: "and",
+            rules: [
+               {
+                  key: fieldEntityId,
+                  rule: "equals",
+                  value: _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.entity.getCursor()?.id,
+               },
+               {
+                  key: fieldUpdatedBy,
+                  rule: "is_current_email",
+               },
+               {
+                  glue: "or",
+                  rules: [
+                     {
+                        key: fieldInactiveId,
+                        rule: "unchecked",
+                     },
+                     {
+                        key: fieldInactiveId,
+                        rule: "is_null",
+                     },
+                  ],
+               },
+            ],
+         };
+
+         const viewConnect = this.AB.Class.ABViewManager.newView(
+            {
+               id: `field_${field.id}`,
+               key: "connect",
+               settings: {
+                  objectId: field.object.id,
+                  fieldId: field.id,
+                  formView: formAddResponsibilityId,
+                  filterConditions,
+               },
+            },
+            this.view.application,
+            viewForm
+         );
+         const viewConnectComponent = viewConnect.component();
+         const result = viewConnectComponent.ui();
+
+         const inputMulticombo = result.rows[0].rows[0].cols[2];
+         $$(inputMulticombo.id)?.destructor();
+
+         inputMulticombo.value = value[field.columnName]
+            ?.filter((rc) => rc)
+            .map((rc) => rc.id ?? rc)
+            .join(",");
+
+         // trigger .onShow to pull/populate data
+         inputMulticombo.on = inputMulticombo.on ?? {};
+         inputMulticombo.on.onAfterRender = async () => {
+            const $multicombo = $$(inputMulticombo.id);
+            if ($multicombo.__populated) return;
+            $multicombo.getList().clearAll();
+
+            // populate values
+            $multicombo.blockEvent();
+            await viewConnectComponent.onShow();
+            $multicombo.__populated = true;
+            $multicombo.unblockEvent();
+         };
+
+         return result;
       }
 
       ui() {
@@ -2959,10 +3070,14 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                                  "Filter"
                               )}</button>`,
                            align: "left",
+                           width: 120,
                            onClick: {
                               "filter-button": (ev) =>
                                  self._fnShowFilterPopup(ev),
                            },
+                        },
+                        {
+                           fillspace: true,
                         },
                         {
                            view: "template",
@@ -2972,20 +3087,17 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                            template: `<div class="progress-status">
                               <i class="fa fa-refresh progress-status-spin"></i></div>`,
                            tooltip: false,
-                        },
-                        {
-                           view: "template",
-                           id: this.ids.dataPanelButton,
-                           template: `<div class="filter-button data-panel-button">
-                              <span class="fa fa-users"></span>
-                              <span>${self.label("Staff Assignment")}</span>
-                           </div>`,
-                           align: "right",
                            onClick: {
-                              "data-panel-button": (ev) =>
-                                 self._showDataPanel(ev),
+                              "progress-status": (ev, id) => {
+                                 this._progressStatusQueues = [];
+                                 this._refreshProgressStatus();
+                              },
                            },
                         },
+                        {
+                           fillspace: true,
+                        },
+                        this._uiDataPanelButton(),
                      ],
                   },
                   {
@@ -3008,41 +3120,36 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
 
       async init(AB, accessLevel) {
          await super.init(AB, accessLevel);
-         const settings = this.settings;
-         const teamDC = (this.datacollection = this._createCustomDCByObjID(
-            this.datacollection.datasource.id,
-            {
-               linkedDC: this.datacollection.datacollectionLink,
-               filter:
-                  this.datacollection.settings.objectWorkspace.filterConditions,
-            }
-         ));
 
-         // Stable DCs.
-         const contentGroupDC = (this._contentGroupDC =
-            this._createCustomDCByObjID(
-               this._getLinkedObjIDByConnectFieldID(
-                  settings.contentGroupByField
-               ),
-               { loadAll: true }
+         this._initRole();
+
+         const tasks = [];
+         const settings = this.settings;
+         _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].AB = AB;
+
+         // WORKAROUND: Convert to the custom DC
+         const teamDC = (this.datacollection =
+            this._utils.createCustomDCByObjID(
+               this.datacollection.datasource.id,
+               {
+                  linkedDC: this.datacollection.datacollectionLink,
+                  filter:
+                     this.datacollection.settings.objectWorkspace
+                        .filterConditions,
+                  populate: [_components_constants_js__WEBPACK_IMPORTED_MODULE_1__["default"].TEAM_RESPONSIBILITY_CENTRE_FIELD_ID],
+                  skipPack: true,
+               }
             ));
-         const teamStrategyDC = (this._teamStrategyDC =
-            this._createCustomDCByObjID(
-               this._getLinkedObjIDByConnectFieldID(settings.teamStrategy),
-               { loadAll: true }
-            ));
-         const strategyCodeDC = (this._strategyCodeDC =
-            this._createCustomDCByObjID(
-               this._getLinkedObjIDByConnectFieldID(settings.strategyCode),
-               { loadAll: true }
-            ));
-         const subStrategyDC = (this._subStrategyDC =
-            this._createCustomDCByObjID(
-               this._getLinkedObjIDByConnectFieldID(settings.subStrategy),
-               { loadAll: true }
-            ));
-         const pendingPromises = [
+         _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.team = teamDC;
+         _components_utils_js__WEBPACK_IMPORTED_MODULE_3__["default"].initDC(teamDC);
+
+         tasks.push(
             (async () => {
+               this._addProgressStatusQueue(
+                  PROGRESS_STATUS_KEY_COMMON,
+                  PROGRESS_STATUS_VALUE_COMMON_INIT_PAGE
+               );
+
                this._resources = await Promise.all(this._resources);
                this._OrgChart ||
                   (this._OrgChart = (() => {
@@ -3055,49 +3162,70 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                      };
                      return OrgChart;
                   })());
-            })(),
-            // Wait for pulling stable list data.
-            this._waitDCReady(contentGroupDC),
-            this._waitDCReady(strategyCodeDC),
-            this._waitDCReady(subStrategyDC),
-            this._waitDCReady(teamStrategyDC),
-         ];
 
-         // Preparing for the entity DC and wait for setting a cursor.
-         const entityDC = (this._entityDC = teamDC.datacollectionLink);
-         if (entityDC != null) {
-            this._initDC(entityDC);
-            pendingPromises.push(
-               (async () => {
-                  await this._waitDCReady(entityDC);
-                  // Wait until the next event loop to make sure the EVENT won't trigger here.
-                  await Promise.resolve();
-                  entityDC.on(EVENT_CHANGE_CURSOR, this._fnChangeEntity);
-               })()
-            );
-         }
-         await Promise.all(pendingPromises);
-         this._strategyCodeOpts = strategyCodeDC
+               this._removeProgressStatusQueue(
+                  PROGRESS_STATUS_KEY_COMMON,
+                  PROGRESS_STATUS_VALUE_COMMON_INIT_PAGE
+               );
+            })()
+         );
+
+         tasks.push(
+            new Promise(async (next, fail) => {
+               this._addProgressStatusQueue(
+                  PROGRESS_STATUS_KEY_COMMON,
+                  PROGRESS_STATUS_VALUE_COMMON_INIT_DCs
+               );
+
+               try {
+                  await _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].init(AB, settings);
+                  next();
+               } catch (err) {
+                  fail(err);
+               }
+
+               this._removeProgressStatusQueue(
+                  PROGRESS_STATUS_KEY_COMMON,
+                  PROGRESS_STATUS_VALUE_COMMON_INIT_DCs
+               );
+            })
+         );
+
+         // Data Panel
+         this._dataPanels.staff.init();
+         this._dataPanels.rc.init();
+
+         await Promise.all(tasks);
+
+         this._initDCevents();
+
+         this._initialized = true;
+
+         if (this._isShown) this.refresh();
+
+         this._strategyCodeOpts = _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.strategyCode
             .getData()
             .map((strategyCodeValue) => ({
                id: strategyCodeValue.id,
-               // TODO (Guy): Hardcode to use the name column.
                value: strategyCodeValue.name,
             }))
             .sort();
+
+         const subStrategyObjPK =
+            _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.subStrategy.datasource?.PK?.();
          const subStrategyColumnName = this.AB.definitionByID(
             settings.subStrategy
          )?.columnName;
-         const subStrategyObjPK = subStrategyDC.datasource?.PK?.();
          const strategyCodeColumnName = this.AB.definitionByID(
             settings.strategyCode
          )?.columnName;
-         this._strategyOpts = teamStrategyDC
+
+         this._strategyOpts = _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.teamStrategy
             .getData()
             .map((teamStrategyValue) => ({
                id: teamStrategyValue.id,
                // TODO (Guy): Hardcode to use the name column.
-               value: subStrategyDC.getData(
+               value: _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.subStrategy.getData(
                   (subStrategyValue) =>
                      subStrategyValue[subStrategyObjPK] ==
                      teamStrategyValue[subStrategyColumnName]
@@ -3105,120 +3233,120 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                code: teamStrategyValue[strategyCodeColumnName],
             }))
             .sort();
-         // Preparing for the data panel DCs.
-         const _dataPanelDCs = (this._dataPanelDCs = []);
-         const dataPanelDCs = settings.dataPanelDCs;
-         for (const key in dataPanelDCs) {
-            const [, dataPanelDCID] = key.split(".");
-            const _dataPanelDC = AB.datacollectionByID(dataPanelDCID);
-            _dataPanelDCs.findIndex(
-               (_dataPanelDC) => _dataPanelDC.id === dataPanelDCID
-            ) < 0 && _dataPanelDCs.push(_dataPanelDC);
-            this._initDC(_dataPanelDC);
-         }
+      }
 
-         // Preparing for the content DC.
-         const contentFieldFilter = JSON.parse(settings.contentFieldFilter);
-         const contentDC = (this._contentDC = this._createCustomDCByObjID(
-            this._getLinkedObjIDByConnectFieldID(settings.contentField),
-            {
-               linkedDC: entityDC,
-               filter: {
-                  glue: "and",
-                  rules: [
-                     // TODO (Guy): Hardcode date start filter.
-                     {
-                        key: settings.contentFieldDateStart,
-                        rule: "is_not_null",
-                        value: "",
-                     },
-                     {
-                        glue: "or",
-                        rules:
-                           (contentFieldFilter?.rules?.length > 0 && [
-                              contentFieldFilter,
-
-                              // TODO (Guy): Hardcode date end filter.
-                              {
-                                 key: settings.contentFieldDateEnd,
-                                 rule: "is_null",
-                                 value: "",
-                              },
-                           ]) ||
-                           [],
-                     },
-                  ],
-               },
-            }
-         ));
-
-         // Prepare display DCs.
-         const contentDisplayedFieldKeys = Object.keys(
-            settings.contentDisplayedFields
+      _initDCevents() {
+         _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.entity.on(
+            _components_constants_js__WEBPACK_IMPORTED_MODULE_1__["default"].EVENT_CHANGE_CURSOR,
+            this._fnChangeEntity
          );
-         const contentDisplayDCs = (this._contentDisplayDCs = []);
-         if (contentDisplayedFieldKeys.length > 0) {
-            let [, objID] = contentDisplayedFieldKeys.pop().split(".");
-            while (contentDisplayedFieldKeys.length > 0) {
-               if (
-                  contentDisplayDCs.findIndex(
-                     (contentDisplayDC) =>
-                        contentDisplayDC.datasource.id === objID
-                  ) < 0
-               )
-                  switch (objID) {
-                     case teamDC.datasource.id:
-                        contentDisplayDCs.push(teamDC);
-                        break;
-                     case contentGroupDC.datasource.id:
-                        contentDisplayDCs.push(contentGroupDC);
-                        break;
-                     case strategyCodeDC.datasource.id:
-                        contentDisplayDCs.push(strategyCodeDC);
-                        break;
-                     case subStrategyDC.datasource.id:
-                        contentDisplayDCs.push(subStrategyDC);
-                        break;
-                     case teamStrategyDC.datasource.id:
-                        contentDisplayDCs.push(teamStrategyDC);
-                        break;
-                     case contentDC.datasource.id:
-                        contentDisplayDCs.push(contentDC);
-                        break;
-                     default:
-                        if (entityDC?.datasource.id === objID)
-                           contentDisplayDCs.push(entityDC);
-                        else
-                           contentDisplayDCs.push(
-                              this._createCustomDCByObjID(objID, {
-                                 linkedDC: entityDC,
-                              })
-                           );
-                        break;
-                  }
-               [, objID] = contentDisplayedFieldKeys.pop().split(".");
-            }
+      }
+
+      _initRole() {
+         const userRoles = this.AB.Account.roles();
+         this._roles = this._roles ?? {};
+         this._roles.isAdmin =
+            userRoles.filter(
+               (role) => (role.uuid ?? role) == _components_constants_js__WEBPACK_IMPORTED_MODULE_1__["default"].ROLE_SYSTEM_ADMIN
+            ).length > 0;
+         this._roles.isHRG =
+            userRoles.filter((role) => (role.uuid ?? role) == _components_constants_js__WEBPACK_IMPORTED_MODULE_1__["default"].ROLE_HRG)
+               .length > 0;
+         this._roles.isFinance =
+            userRoles.filter(
+               (role) => (role.uuid ?? role) == _components_constants_js__WEBPACK_IMPORTED_MODULE_1__["default"].ROLE_FINANCE
+            ).length > 0;
+
+         // Set data panel based on role
+         if (
+            (this._roles.isHRG && this._roles.isFinance) ||
+            this._roles.isAdmin
+         ) {
+            // If both HRG & Finance role, treat as Admin
+            this._roles.isAdmin = true;
+            this._selectedDataPanel = this._dataPanels.staff;
+         } else if (this._roles.isHRG) {
+            this._selectedDataPanel = this._dataPanels.staff;
+         } else if (this._roles.isFinance) {
+            this._selectedDataPanel = this._dataPanels.rc;
          }
-         this._resolveInit();
+
+         this.switchDataPanel(this._selectedDataPanel);
+      }
+
+      _refreshRcView() {
+         const teamDC = _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.team;
+         const fieldRc = teamDC.datasource.fields(
+            (fld) => fld.id == _components_constants_js__WEBPACK_IMPORTED_MODULE_1__["default"].TEAM_RESPONSIBILITY_CENTRE_FIELD_ID
+         )[0];
+
+         const teamRecords = teamDC.getData();
+         (teamRecords ?? []).forEach((team) => {
+            // Clean up
+            this._cleanUpRcView(team);
+
+            const rcs = team[fieldRc.relationName()];
+            (rcs ?? []).forEach((rc) => {
+               if (!rc) return;
+
+               this._addRcToGroup(team, rc);
+            });
+         });
+      }
+
+      async _refreshContentView() {
+         const contentRecs = _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.content.getData();
+         for (const contentRec of contentRecs)
+            this._addContentRecordToGroup(contentRec);
+      }
+
+      _getDropZoneSections() {
+         const dropzone = []
+            .concat(_components_data_panel_rcDataPanel_js__WEBPACK_IMPORTED_MODULE_5__["default"].dropZoneSections)
+            .concat(_components_data_panel_staffDataPanel_js__WEBPACK_IMPORTED_MODULE_4__["default"].dropZoneSections)
+            .map((zone) => {
+               switch (zone.id) {
+                  case "RC":
+                     zone.fnDrop = this._fnRcDrop;
+                     break;
+                  default:
+                     // If HRG role, allow dropping content to Leader & Member section
+                     if (this._roles.isHRG) zone.fnDrop = this._fnContentDrop;
+                     break;
+               }
+
+               return zone;
+            });
+
+         // Finance role, does not show Member section
+         if (this._roles.isFinance && !this._roles.isAdmin) {
+            const indexMember = dropzone.findIndex(
+               (zone) => zone.name == "Member"
+            );
+            dropzone.splice(indexMember, 1);
+         }
+
+         return dropzone;
       }
 
       async createData(dc, value) {
          value = this._cleanValue(dc, value);
-         if (this._entityDC) {
-            const entityLinkField = this._entityDC.datasource.connectFields(
-               (f) => f.settings.linkObject === dc.datasource.id
-            )[0];
+         if (_components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.entity) {
+            const entityLinkField =
+               _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.entity.datasource.connectFields(
+                  (f) => f.settings.linkObject === dc.datasource.id
+               )[0];
             if (
                value[entityLinkField.fieldLink.columnName] == null ||
                value[entityLinkField.fieldLink.columnName] === ""
             ) {
-               const entityObjPK = this._entityDC.datasource.PK();
+               const entityObjPK = _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.entity.datasource.PK();
                value[entityLinkField.fieldLink.columnName] =
-                  this._entityDC.getCursor()[entityObjPK];
+                  _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.entity.getCursor()[entityObjPK];
             }
          }
          switch (dc) {
-            case this._contentDC:
+            case _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.content:
                delete value[
                   this.AB.definitionByID(this.settings.contentFieldDateEnd)
                      .columnName
@@ -3234,17 +3362,9 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
       }
 
       async onShow() {
+         this._isShown = true;
          this.AB.performance.mark("TeamChart.onShow");
-         this._addProgressStatusQueue(
-            PROGRESS_STATUS_KEY_COMMON,
-            PROGRESS_STATUS_VALUE_COMMON_INIT_PAGE
-         );
-         await this._promiseInit;
          await this.refresh();
-         this._removeProgressStatusQueue(
-            PROGRESS_STATUS_KEY_COMMON,
-            PROGRESS_STATUS_VALUE_COMMON_INIT_PAGE
-         );
          this.AB.performance.measure("TeamChart.onShow");
       }
 
@@ -3255,135 +3375,71 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
          } else dc.$dc.remove(value.id);
       }
 
-      async refresh(force = true) {
+      async refresh() {
+         if (!this._initialized) {
+            // alert("WHAT !!!");
+            return;
+         }
+
+         this.switchDataPanel(this._selectedDataPanel);
+
          const ids = this.ids;
          $$(ids.teamFormPopup)?.destructor();
          $$(ids.contentForm)?.destructor();
-         const pendingPromises = this._getAllDCs().map((dc) =>
-            this._waitDCReady(dc)
+
+         let tasks = [];
+
+         // Load data of the Team Object
+         await this._fetchAllData(this.datacollection);
+         this._refreshOrgChart();
+
+         // Render RC section
+         tasks.push(
+            new Promise(async (next) => {
+               await this._utils.waitDOM();
+
+               this._refreshRcView();
+               next();
+            })
          );
-         this._promisePageData != null &&
-            pendingPromises.push(this._promisePageData);
-         try {
-            await Promise.all(pendingPromises);
-            this._refreshOrgChart();
-            if (force) {
-               let resolvePageData = null;
-               this._promisePageData = new Promise((resolve) => {
-                  resolvePageData = resolve;
-               });
-               await this._callAfterRender(() => {
-                  (async () => {
-                     try {
-                        await Promise.all([
-                           new Promise((resolve) => {
-                              const progressStatusValue = `Loading ${this.datacollection.datasource.name}`;
-                              this._addProgressStatusQueue(
-                                 PROGRESS_STATUS_KEY_COMMON,
-                                 progressStatusValue
-                              );
-                              this._pageData(
-                                 this.datacollection,
-                                 this._fnPageTeamCallback,
-                                 () => {
-                                    this._removeProgressStatusQueue(
-                                       PROGRESS_STATUS_KEY_COMMON,
-                                       progressStatusValue
-                                    );
-                                    resolve();
-                                 }
-                              );
-                           }),
-                           new Promise((resolve) => {
-                              const progressStatusValue = `Loading ${this._contentDC.datasource.name}`;
-                              this._addProgressStatusQueue(
-                                 PROGRESS_STATUS_KEY_COMMON,
-                                 progressStatusValue
-                              );
-                              this._pageData(
-                                 this._contentDC,
-                                 this._fnPageContentCallback,
-                                 () => {
-                                    this._removeProgressStatusQueue(
-                                       PROGRESS_STATUS_KEY_COMMON,
-                                       progressStatusValue
-                                    );
-                                    resolve();
-                                 }
-                              );
-                           }),
-                           ...this._getAllDCs({ areCoreDCsExcluded: true }).map(
-                              (contentDisplayDC) =>
-                                 new Promise((resolve) => {
-                                    const progressStatusValue = `Loading ${contentDisplayDC.datasource.name}`;
-                                    this._addProgressStatusQueue(
-                                       PROGRESS_STATUS_KEY_COMMON,
-                                       progressStatusValue
-                                    );
-                                    this._pageData(
-                                       contentDisplayDC,
-                                       this._fnPageContentDisplayCallback,
-                                       () => {
-                                          this._removeProgressStatusQueue(
-                                             PROGRESS_STATUS_KEY_COMMON,
-                                             progressStatusValue
-                                          );
-                                          resolve();
-                                       }
-                                    );
-                                 })
-                           ),
-                        ]);
-                     } catch (err) {
-                        // TODO (Guy): The paging error.
-                        console.error(err);
-                     }
-                     const topTeamColumnName = this.AB.definitionByID(
-                        this.settings.topTeam
-                     ).columnName;
-                     this.datacollection.getData(
-                        (e) => e[topTeamColumnName] == 1
-                     ).length === 0 &&
-                        this.AB.Webix.alert({
-                           title: `${this.label("Warning")}: ${this.label(
-                              "No Team"
-                           )}`,
-                           ok: this.label("OK"),
-                           text: this.label(
-                              "No team is assigned to this entity"
-                           ),
-                        });
-                     resolvePageData();
-                     this._promisePageData = null;
-                  })();
-               });
-            } else
-               await this._callAfterRender(async () => {
-                  await Promise.all([
-                     this._fnPageTeamCallback(
-                        this.datacollection.getData(),
-                        true,
-                        this.datacollection
-                     ),
-                     this._fnPageContentCallback(
-                        this._contentDC.getData(),
-                        true,
-                        this._contentDC
-                     ),
-                     ...this._getAllDCs({ areCoreDCsExcluded: true }).map(
-                        (contentDisplayDC) =>
-                           this._fnPageContentDisplayCallback(
-                              contentDisplayDC.getData(),
-                              true,
-                              contentDisplayDC
-                           )
-                     ),
-                  ]);
-               });
-         } catch (err) {
-            // TODO (Guy): The paging error.
-            console.error(err);
-         }
+
+         let loadDcs = [
+            _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.content,
+            ..._components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.contentDisplays,
+         ];
+         // Remove duplicate DCs
+         loadDcs = loadDcs.filter(function (dc, pos) {
+            return loadDcs.findIndex((dc2) => dc.id == dc2.id) == pos;
+         });
+
+         tasks = tasks.concat([
+            ...loadDcs.map(
+               (dc) =>
+                  new Promise(async (next) => {
+                     await this._fetchAllData(dc);
+                     next();
+                  })
+            ),
+         ]);
+
+         await Promise.all(tasks);
+
+         this._refreshContentView();
+         // this._refreshDataPanel();
+
+         const topTeamColumnName = this.AB.definitionByID(
+            this.settings.topTeam
+         ).columnName;
+
+         if (
+            this.datacollection.getData((e) => e[topTeamColumnName] == 1)
+               .length === 0
+         )
+            this.AB.Webix.alert({
+               title: `${this.label("Warning")}: ${this.label("No Team")}`,
+               ok: this.label("OK"),
+               text: this.label("No team is assigned to this entity"),
+            });
       }
 
       async updateData(dc, value) {
@@ -3397,7 +3453,7 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
 
       async filterApply() {
          this.busy();
-         await this._promisePageData;
+         // await this._promisePageData;
          const ids = this.ids;
          $$(ids.filterPopup).hide();
          this.__filters = $$(ids.filterForm).getValues();
@@ -3410,7 +3466,7 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
          this.ready();
       }
 
-      filterTeam(team) {
+      filterTeam(teamNode) {
          const filters = this.__filters;
          let filter = false;
          filters.strategy = filters.strategy ?? "";
@@ -3421,12 +3477,14 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
             filter = true;
             if (
                filters.strategy !== "" &&
-               filters.strategy == team.className.replace("strategy-", "")
+               filters.strategy == teamNode.className.replace("strategy-", "")
             )
                filter = false;
             if (
                filters.teamName !== "" &&
-               team.name.toLowerCase().includes(filters.teamName.toLowerCase())
+               teamNode.name
+                  .toLowerCase()
+                  .includes(filters.teamName.toLowerCase())
             )
                filter = false;
             if (!filter) return filter;
@@ -3444,14 +3502,14 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
          const contentFieldLinkColumnName = teamObj.connectFields(
             (connectField) => connectField.id === contentField
          )[0].fieldLink.columnName;
-         const contentDC = this._contentDC;
+         const contentDC = _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.content;
          const contentObj = contentDC.datasource;
          const contentObjID = contentObj.id;
          const contentObjPK = contentObj.PK();
-         const teamRecordPK = team._rawData[teamObj.PK()];
+         const teamRecordPK = teamNode._rawData[teamObj.PK()];
          const contentDisplayedFields = settings.contentDisplayedFields;
          const contentDisplayedFieldKeys = Object.keys(contentDisplayedFields);
-         const contentDisplayDCs = this._contentDisplayDCs;
+         const contentDisplayDCs = _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.contentDisplays;
          let currentContentDisplayFieldKey = null;
          let currentContentDisplayDC = null;
          let currentContentDisplayObjID = null;
@@ -3562,7 +3620,7 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
             (e) => e[teamObjPK] == value[teamLinkTeamColumnName]
          )[0];
          if (
-            parentValue[EXTERNAL_SUPPORT_COLUMNNAME] == 1 &&
+            parentValue?.[EXTERNAL_SUPPORT_COLUMNNAME] == 1 &&
             (value[EXTERNAL_SUPPORT_COLUMNNAME] == null ||
                value[EXTERNAL_SUPPORT_COLUMNNAME] === "")
          )
@@ -3583,7 +3641,7 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
          );
          if (parent != null) {
             const hasChild = parent.parentNode.colSpan > 1;
-            const teamStrategyDC = this._teamStrategyDC;
+            const teamStrategyDC = _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.teamStrategy;
             const teamStrategyObjPK = teamStrategyDC.datasource.PK();
             const teamStrategyColumnName = this.AB.definitionByID(
                this.settings.teamStrategy
@@ -3628,12 +3686,11 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                this._getLinkedColumnNameByConnectFieldID(
                   this.settings.contentField
                );
-            await this._callAfterRender(() => {
-               for (const contentRecord of this._contentDC.getData(
-                  (e) => e[contentLinkedColumnName] == teamValuePK
-               ))
-                  this._addContentRecordToGroup(contentRecord);
-            });
+            await this._utils.waitDOM();
+            for (const contentRecord of _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.content.getData(
+               (e) => e[contentLinkedColumnName] == teamValuePK
+            ))
+               this._addContentRecordToGroup(contentRecord);
          }
          this.ready();
       }
@@ -3662,7 +3719,7 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
             ).length > 0
          )
             return false;
-         const contentDC = this._contentDC;
+         const contentDC = _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.content;
          const contentLinkedColumnName =
             this._getLinkedColumnNameByConnectFieldID(settings.contentField);
          if (
@@ -3691,7 +3748,7 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                .length > 0
          )
             return false;
-         const contentDC = this._contentDC;
+         const contentDC = _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.content;
          const contentLinkedColumnName =
             this._getLinkedColumnNameByConnectFieldID(settings.contentField);
          return !(
@@ -3784,7 +3841,7 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
             this.ready();
             return;
          }
-         const teamStrategyDC = this._teamStrategyDC;
+         const teamStrategyDC = _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.teamStrategy;
          const teamStrategyObjPK = teamStrategyDC.datasource.PK();
          const teamStrategyColumnName = this.AB.definitionByID(
             settings.teamStrategy
@@ -3822,6 +3879,24 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
          $node.dataset.source = JSON.stringify(newChartData);
          $node.querySelector(".title").innerHTML = teamValueName;
          this.ready();
+      }
+
+      switchDataPanel(dataPanel = null) {
+         const $btnDataPanel = $$(this.ids.dataPanelButton);
+
+         if (dataPanel) this._selectedDataPanel = dataPanel;
+         // Toggle between the 2 data panels
+         else if (this._selectedDataPanel == this._dataPanels.rc)
+            this._selectedDataPanel = this._dataPanels.staff;
+         else this._selectedDataPanel = this._dataPanels.rc;
+
+         this.AB.Webix.ui(this._uiDataPanelButton(), $btnDataPanel);
+
+         const $buttonSwitchDataPanel =
+            document.querySelector(".switch-data-panel");
+
+         if ($buttonSwitchDataPanel && this._roles.isAdmin)
+            $buttonSwitchDataPanel.style.visibility = "visible";
       }
 
       // HELPERS
@@ -3867,15 +3942,22 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
       }
 
       busy() {
-         const $chartView = $$(this.ids.chartContent);
-         $chartView.disable();
-         $chartView.showProgress({ type: "icon" });
+         // const $chartView = $$(this.ids.chartContent);
+         const $filterButton = $$(this.ids.filterButton);
+
+         // $chartView.disable();
+         // $chartView.showProgress({ type: "icon" });
+         $filterButton.disable();
       }
 
       ready() {
-         const $chartView = $$(this.ids.chartContent);
-         $chartView.enable();
-         $chartView.hideProgress();
+         // const $chartView = $$(this.ids.chartContent);
+         const $filterButton = $$(this.ids.filterButton);
+
+         // $chartView.enable();
+         // $chartView.hideProgress();
+
+         $filterButton.enable();
       }
 
       get allDCs() {
@@ -3898,13 +3980,6 @@ function element(type, classes = "") {
    const elem = document.createElement(type);
    if (classes) elem.classList.add(...classes.split(" "));
    return elem;
-}
-
-// TODO (Guy): Hardcode by specipic fields.
-function sortByEmployeeLastname(a, b) {
-   return (a.lastname ?? "").toLowerCase() > (b.lastname ?? "").toLowerCase()
-      ? 1
-      : -1;
 }
 
 function sortByTeamName(a, b) {
@@ -5853,6 +5928,989 @@ function fieldToOption(f) {
 
 /***/ }),
 
+/***/ "./components/constants.js":
+/*!*********************************!*\
+  !*** ./components/constants.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+   EVENT_CHANGE_CURSOR: "changeCursor",
+   EVENT_CREATE: "create",
+   EVENT_LOAD_DATA: "loadData",
+   RECORD_LIMIT: 1000,
+   ONE_SECOND: 1000,
+
+   // TODO: will add this to Property settings later.
+   RESPONSIBILITY_ASSIGNMENT_FIELD_ID: "843c8c88-8a2e-11f0-84bd-0242ac150002",
+   TEAM_RESPONSIBILITY_CENTRE_FIELD_ID: "0b4f6895-9860-11f0-ac08-0242ac150002",
+   RESPONSIBILITY_CENTRE_ENTITY_FIELD_ID:
+      "f06a2e30-9847-11f0-8a6b-0242ac150003",
+   RESPONSIBILITY_CENTRE_DC_ID: "3791954c-89c4-4372-84af-9fe8a0b0bec8",
+   RESPONSIBILITY_CENTRE_INACTIVE_FIELD_ID:
+      "0247418d-9855-11f0-a3a3-0242ac150003",
+
+   ROLE_SYSTEM_ADMIN: "dd6c2d34-0982-48b7-bc44-2456474edbea",
+   ROLE_HRG: "39ae03d7-0350-4227-b6e1-e03777688eff",
+   ROLE_FINANCE: "e32dbd38-2300-4aac-84a9-d2c704bd2a29",
+});
+
+
+/***/ }),
+
+/***/ "./components/data_panel/_DataPanel.js":
+/*!*********************************************!*\
+  !*** ./components/data_panel/_DataPanel.js ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ DataPanel)
+/* harmony export */ });
+class DataPanel {
+   static get icon() {
+      return "fa-square";
+   }
+   static get label() {
+      return "DATA PANEL LABEL";
+   }
+
+   init() {}
+
+   show() {}
+
+   refresh() {}
+}
+
+
+/***/ }),
+
+/***/ "./components/data_panel/rcDataPanel.js":
+/*!**********************************************!*\
+  !*** ./components/data_panel/rcDataPanel.js ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ RcDataPanel)
+/* harmony export */ });
+/* harmony import */ var _constants_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../constants.js */ "./components/constants.js");
+/* harmony import */ var _DataPanel_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./_DataPanel.js */ "./components/data_panel/_DataPanel.js");
+/* harmony import */ var _dcContainer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../dcContainer.js */ "./components/dcContainer.js");
+/* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils.js */ "./components/utils.js");
+
+
+
+
+
+class RcDataPanel extends _DataPanel_js__WEBPACK_IMPORTED_MODULE_1__["default"] {
+   static get icon() {
+      return "fa-university";
+   }
+   static get label() {
+      return "Responsibility Centre";
+   }
+
+   static get dropZoneSections() {
+      return [
+         {
+            id: "RC",
+            name: "Responsibility Centre",
+            icon: "fa fa-university",
+            extraClass: "responsibility-centre",
+         },
+      ];
+   }
+
+   constructor(AB, ids, settings) {
+      super();
+
+      this._utils = new _utils_js__WEBPACK_IMPORTED_MODULE_3__["default"](AB);
+
+      this.AB = AB;
+      this.ids = ids;
+      this.settings = settings;
+   }
+
+   init() {
+      _dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.responsibilityCenter = this.AB.datacollectionByID(
+         _constants_js__WEBPACK_IMPORTED_MODULE_0__["default"].RESPONSIBILITY_CENTRE_DC_ID
+      );
+      // DcContainer.list.responsibilityCenter.init();
+      // Utils.initDC(DcContainer.list.responsibilityCenter);
+
+      // const RESPONSIBILITY_CENTRE_TEAM_FIELD_ID =
+      //    this._utils.getLinkedFieldIDByConnectFieldID(
+      //       CONST.TEAM_RESPONSIBILITY_CENTRE_FIELD_ID
+      //    );
+
+      // DcContainer.list.responsibilityCenter = this._utils.createCustomDCByObjID(
+      //    this._utils.getLinkedObjIDByConnectFieldID(
+      //       CONST.TEAM_RESPONSIBILITY_CENTRE_FIELD_ID
+      //    ),
+      //    {
+      //       loadAll: true,
+      //       linkedDC: DcContainer.list.entity,
+      //       select: ["id", "name", CONST.RESPONSIBILITY_CENTRE_ENTITY_FIELD_ID],
+      //       // populate: [RESPONSIBILITY_CENTRE_TEAM_FIELD_ID],
+      //       // T T
+      //       skipPack: true,
+      //       filter: {
+      //          glue: "and",
+      //          rules: [
+      //             {
+      //                key: CONST.RESPONSIBILITY_CENTRE_INACTIVE_FIELD_ID,
+      //                rule: "unchecked",
+      //             },
+      //          ],
+      //       },
+      //    }
+      // );
+   }
+
+   show(ev) {
+      if (this._popup == null) {
+         this._popup = this.AB.Webix.ui(this._uiPopup());
+         const $list = $$(this.ids.dataPanelRcList);
+         this.AB.Webix.extend($list, this.AB.Webix.ProgressBar);
+         // DcContainer.list.responsibilityCenter.bind($list);
+      }
+
+      this._popup.show(ev, { pos: "bottom", x: -12, y: 16 });
+   }
+
+   async refresh() {
+      const $list = $$(this.ids.dataPanelRcList);
+      $list.clearAll();
+      this._busy();
+
+      // Refresh data
+      const dcRC = _dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.responsibilityCenter;
+      const linkDC = dcRC.datacollectionLink;
+      if (this._previousParentDcCursorId != linkDC.getCursor()?.id) {
+         await dcRC.loadData(0, _constants_js__WEBPACK_IMPORTED_MODULE_0__["default"].RECORD_LIMIT);
+         this._previousParentDcCursorId = linkDC.getCursor()?.id;
+      }
+
+      const dc = _dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.responsibilityCenter;
+      _utils_js__WEBPACK_IMPORTED_MODULE_3__["default"].initDC(dc);
+      await this._utils.waitDCReady(dc);
+      const rcList = dc.getData() ?? [];
+      $list.parse(rcList);
+      this._filterRCList();
+
+      this._ready();
+   }
+
+   _ui() {
+      return {
+         rows: [
+            {
+               id: this.ids.dataPanelRcSearch,
+               view: "search",
+               align: "center",
+               placeholder: "Search by title...",
+               on: {
+                  onTimedKeyPress: () => {
+                     this._filterRCList();
+                  },
+               },
+            },
+            {
+               id: this.ids.dataPanelRcFilterMode,
+               view: "segmented",
+               options: [
+                  { id: "all", value: "All" },
+                  { id: "unplaced", value: "Unplaced" },
+                  { id: "placed", value: "Placed" },
+               ],
+               on: {
+                  onChange: () => {
+                     this._filterRCList();
+                  },
+               },
+            },
+            {
+               id: this.ids.dataPanelRcList,
+               view: "list",
+               width: 310,
+               height: 500,
+               template: (item) => {
+                  return `${item.name}`;
+               },
+               type: {
+                  css: "cursor-move",
+                  height: 35,
+                  width: 310,
+               },
+               select: false,
+               drag: false,
+               data: [],
+               on: {
+                  onAfterRender: () => {
+                     const $list = $$(this.ids.dataPanelRcList);
+                     $list.$view
+                        .querySelectorAll(".cursor-move")
+                        .forEach((elem, inx) => {
+                           elem.id = `rc_datapanel_${inx}`;
+                           elem.dataset.id = $list.getIdByIndex(inx);
+                           elem.setAttribute("draggable", "true");
+                           elem.addEventListener("dragstart", (event) => {
+                              this._fnDragStart(elem.id, event);
+                           });
+                        });
+                  },
+               },
+            },
+         ],
+      };
+   }
+
+   _uiPopup() {
+      return {
+         view: "popup",
+         width: 310,
+         body: this._ui(),
+         on: {
+            onShow: () => {
+               this.refresh();
+            },
+         },
+      };
+   }
+
+   _filterRCList() {
+      const ids = this.ids;
+      const mode = $$(ids.dataPanelRcFilterMode).getValue();
+      const searchText = $$(ids.dataPanelRcSearch).getValue().toLowerCase();
+
+      const teamDC = _dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.team;
+      const fieldRc = teamDC.datasource.fields(
+         (fld) => fld.id == _constants_js__WEBPACK_IMPORTED_MODULE_0__["default"].TEAM_RESPONSIBILITY_CENTRE_FIELD_ID
+      )[0];
+
+      // Get placed RC ids
+      const placedRCIds = new Set();
+      (teamDC.getData() ?? []).forEach((team) => {
+         (team?.[fieldRc.relationName()] ?? []).forEach((rc) => {
+            if (!rc) return;
+            placedRCIds.add(rc.id);
+         });
+      });
+
+      const filterSearch = (item) =>
+         searchText == "" || item.name.toLowerCase().indexOf(searchText) != -1;
+
+      switch (mode) {
+         case "all":
+            $$(ids.dataPanelRcList).filter((item) => filterSearch(item));
+            break;
+         case "unplaced":
+            $$(ids.dataPanelRcList).filter((item) => {
+               return filterSearch(item) && placedRCIds.has(item.id) == false;
+            });
+            break;
+         case "placed":
+            $$(ids.dataPanelRcList).filter((item) => {
+               return filterSearch(item) && placedRCIds.has(item.id);
+            });
+            break;
+      }
+   }
+
+   _busy() {
+      const $search = $$(this.ids.dataPanelRcSearch);
+      const $list = $$(this.ids.dataPanelRcList);
+
+      $search.disable();
+      $list.disable();
+      $list.showProgress({ type: "icon" });
+   }
+
+   _ready() {
+      const $search = $$(this.ids.dataPanelRcSearch);
+      const $list = $$(this.ids.dataPanelRcList);
+
+      $search.enable();
+      $list.enable();
+      $list.hideProgress();
+   }
+
+   _fnDragStart(domId, event) {
+      event.stopPropagation();
+      event.dataTransfer.setData("id", domId);
+      event.dataTransfer.setData("isRC", 1);
+   }
+}
+
+
+/***/ }),
+
+/***/ "./components/data_panel/staffDataPanel.js":
+/*!*************************************************!*\
+  !*** ./components/data_panel/staffDataPanel.js ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ StaffDataPanel)
+/* harmony export */ });
+/* harmony import */ var _DataPanel_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./_DataPanel.js */ "./components/data_panel/_DataPanel.js");
+/* harmony import */ var _dcContainer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../dcContainer.js */ "./components/dcContainer.js");
+/* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils.js */ "./components/utils.js");
+
+
+
+
+class StaffDataPanel extends _DataPanel_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   static get icon() {
+      return "fa-user";
+   }
+   static get label() {
+      return "Staff Assignment";
+   }
+   static get dropZoneSections() {
+      const contentGroupDC = _dcContainer_js__WEBPACK_IMPORTED_MODULE_1__["default"].list.contentGroup;
+      const groupObjPKColumeName = contentGroupDC.datasource.PK();
+      const contentGroupOptions = contentGroupDC.getData() ?? [];
+
+      return contentGroupOptions.map((group) => {
+         group.id = group[groupObjPKColumeName];
+
+         switch (group.name) {
+            case "Leader":
+               group.extraClass = "leader";
+               group.icon = "fa fa-user-circle-o";
+               break;
+            case "Member":
+               group.icon = "fa fa-users";
+               break;
+         }
+
+         return group;
+      });
+   }
+
+   constructor(AB, ids, settings) {
+      super();
+
+      this._utils = new _utils_js__WEBPACK_IMPORTED_MODULE_2__["default"](AB);
+
+      this.AB = AB;
+      this.ids = ids;
+      this.settings = settings;
+   }
+
+   init() {
+      // Preparing for the data panel DCs.
+      const dataPanelDCs = this.settings.dataPanelDCs;
+      for (const key in dataPanelDCs) {
+         const [, dataPanelDCID] = key.split(".");
+         const _dataPanelDC = this.AB.datacollectionByID(dataPanelDCID);
+         _dcContainer_js__WEBPACK_IMPORTED_MODULE_1__["default"].list.dataPanels.findIndex(
+            (_dataPanelDC) => _dataPanelDC.id === dataPanelDCID
+         ) < 0 && _dcContainer_js__WEBPACK_IMPORTED_MODULE_1__["default"].list.dataPanels.push(_dataPanelDC);
+         _utils_js__WEBPACK_IMPORTED_MODULE_2__["default"].initDC(_dataPanelDC);
+      }
+   }
+
+   show() {
+      let $panel = $$(this.ids.dataPanelPopup);
+      if (!$panel) {
+         $panel = this.AB.Webix.ui({
+            id: this.ids.dataPanelPopup,
+            view: "window",
+            height: 500,
+            width: 270,
+            headHeight: 35,
+            // head: {
+            //    view: "template",
+            //    borderless: true,
+            //    template: `<div><span class="fa fa-close data-panel-close"></span></div>`,
+            //    height: 35,
+            //    onClick: {
+            //       "data-panel-close": () => {
+            //          $$(this.ids.dataPanelPopup).hide();
+            //          this._resizeObserver?.unobserve(
+            //             $$(this.ids.dataPanelButton).$view
+            //          );
+            //          return false;
+            //       },
+            //    },
+            // },
+            body: this._ui(),
+            css: "data-panel-popup",
+            close: true,
+            move: true,
+            modal: true,
+            resize: true,
+         });
+      }
+
+      // toggle
+      if ($panel.isVisible()) {
+         $panel.hide();
+         return;
+      }
+
+      const $dpButtonWebix = $$(this.ids.dataPanelButton).$view;
+      const $dpButtonElem = $dpButtonWebix.querySelector(".data-panel-button");
+      // Ensure the popup will stay to the right when resizing
+      // if (!this._resizeObserver && ResizeObserver) {
+      //    this._resizeObserver = new ResizeObserver(([e]) => {
+      //       // Hide the panel when the widget is hidden (ex. switched to another App)
+      //       if (e.contentRect.width == 0 && e.contentRect.height == 0) {
+      //          return $panel.hide();
+      //       }
+      //       // $panel.show($dpButtonElem, { x: -30, y: -35 });
+      //       $panel.show($dpButtonElem, { pos: "bottom", x: -30 });
+      //    });
+      // }
+      // this._resizeObserver.observe($dpButtonWebix);
+      // $panel.show($dpButtonElem, { x: -30, y: -35 });
+      $panel.show($dpButtonElem, { pos: "bottom", x: -30 });
+      this.refresh();
+   }
+
+   refresh() {
+      $$(this.ids.dataPanel)
+         ?.getChildViews()[1]
+         .getChildViews()
+         .forEach(($childView) => $childView.callEvent("onViewShow"));
+   }
+
+   _ui() {
+      const self = this;
+      const _dataPanelDCs = _dcContainer_js__WEBPACK_IMPORTED_MODULE_1__["default"].list.dataPanels;
+      const dataPanelDCs = self.settings.dataPanelDCs;
+      const contentObjID = self._utils.getLinkedObjIDByConnectFieldID(
+         self.settings.contentField
+      );
+      const cells = [];
+      for (const key in dataPanelDCs) {
+         const [tabIndex, dataPanelDCID] = key.split(".");
+
+         // TODO (Guy): Hardcode data panel DCs for Employee.
+         // const _dataPanelDC = _dataPanelDCs.find(
+         //    (dataPanelDC) => dataPanelid === dataPanelDCID
+         // );
+         const _dataPanelDC = _dcContainer_js__WEBPACK_IMPORTED_MODULE_1__["default"].list.contentDisplays.find(
+            (contentDisplayDC) =>
+               contentDisplayDC.datasource.id ===
+               _dataPanelDCs.find(
+                  (dataPanelDC) => dataPanelDC.id === dataPanelDCID
+               ).datasource.id
+         );
+         const contentDC = _dcContainer_js__WEBPACK_IMPORTED_MODULE_1__["default"].list.content;
+         const header = dataPanelDCs[key];
+         if (_dataPanelDC == null)
+            cells.push({
+               header,
+               body: {
+                  view: "list",
+                  // css: { overflow: "auto", "max-height": "90%" },
+                  data: [],
+               },
+            });
+         else {
+            const panelObj = _dataPanelDC.datasource;
+            cells.push({
+               header,
+               body: {
+                  view: "list",
+                  template: (data) =>
+                     `<div class="data-panel-employee"><span class="initials">${
+                        data.initials
+                     }</span> ${panelObj.displayData(data)}</div>`,
+                  borderless: true,
+                  // css: "data-panel-employee-list",
+                  data: [],
+                  on: {
+                     async onViewShow() {
+                        await self._utils.waitDCReady(_dataPanelDC);
+                        const contentLinkedField = panelObj.connectFields(
+                           (field) => field.datasourceLink.id == contentObjID
+                        )[0].fieldLink;
+                        const contentLinkedColumnName =
+                           contentLinkedField.columnName;
+                        this.clearAll();
+                        this.define(
+                           "data",
+                           // TODO (Guy): Hardcode Employee DC.
+                           (parseInt(tabIndex) < 2
+                              ? _dataPanelDC.getData(
+                                   (panelRecord) =>
+                                      panelRecord.isinactive !== "T" &&
+                                      (tabIndex === "0"
+                                         ? contentDC.getData(
+                                              (contentRecord) =>
+                                                 contentRecord[
+                                                    contentLinkedColumnName
+                                                 ] == panelRecord.id
+                                           )[0] == null
+                                         : contentDC.getData(
+                                              (contentRecord) =>
+                                                 contentRecord[
+                                                    contentLinkedColumnName
+                                                 ] == panelRecord.id
+                                           )[0] != null)
+                                )
+                              : _dataPanelDCs
+                                   .find(
+                                      (dataPanelDC) =>
+                                         dataPanelDC.id === dataPanelDCID
+                                   )
+                                   .getData()
+                           ).sort(self._utils.sortByEmployeeLastname)
+                        );
+                        await self._utils.waitDOM();
+                        const $itemElements =
+                           this.$view.children.item(0).children;
+                        const itemElementsLength = $itemElements.length;
+                        const contentFieldID = contentLinkedField.id;
+                        let count = 0;
+                        while (count < itemElementsLength) {
+                           const $itemElement = $itemElements.item(count++);
+                           $itemElement.setAttribute(
+                              "data-content-linked-field-id",
+                              contentFieldID
+                           );
+                           const dataPanelRecord = _dataPanelDC.getData(
+                              (e) =>
+                                 e.id == $itemElement.getAttribute("webix_l_id")
+                           )[0];
+                           if (dataPanelRecord == null) continue;
+                           $itemElement.setAttribute(
+                              "data-pk",
+                              dataPanelRecord[panelObj.PK()]
+                           );
+                           $itemElement.setAttribute("draggable", "true");
+                           $itemElement.addEventListener(
+                              "dragstart",
+                              (event) => {
+                                 self._fnDragStart(event);
+                              }
+                           );
+                        }
+                     },
+                  },
+               },
+            });
+         }
+      }
+      return {
+         type: "clean",
+         rows: [
+            {
+               id: this.ids.dataPanel,
+               view: "tabview",
+               // css: "data-panel-tabview",
+               padding: 0,
+               borderless: true,
+               tabbar: {
+                  height: 35,
+                  align: "left",
+                  // type: "bottom",
+                  css: "data-panel-tabbar",
+               },
+               cells,
+            },
+         ],
+      };
+   }
+
+   _fnDragStart(event) {
+      const data = this.getSavedDragData(event);
+      event.dataTransfer.setData("text/plain", JSON.stringify(data));
+   }
+
+   getSavedDragData(event) {
+      const dataset = event.target.dataset;
+      return {
+         pk: dataset.pk,
+         contentLinkedFieldID: dataset.contentLinkedFieldId,
+      };
+   }
+
+   /**
+   @function extractDragData
+   @return {Object} - {
+               dataPK,
+               contentLinkedFieldID,
+            }
+   */
+   extractDragData(dataTransfer) {
+      return {
+         dataPK: dataTransfer.pk,
+         contentLinkedFieldID: dataTransfer.contentLinkedFieldID,
+      };
+   }
+}
+
+
+/***/ }),
+
+/***/ "./components/dcContainer.js":
+/*!***********************************!*\
+  !*** ./components/dcContainer.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ DcContainer)
+/* harmony export */ });
+/* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils.js */ "./components/utils.js");
+/* harmony import */ var _constants_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./constants.js */ "./components/constants.js");
+
+
+
+class DcContainer {
+   static get list() {
+      if (!this._datacollections) {
+         this._datacollections = {
+            content: null,
+            contentGroup: null,
+            contentDisplays: [],
+            dataPanels: [],
+            entity: null,
+            responsibility: null,
+            responsibilityCenter: null,
+            strategyCode: null,
+            subStrategy: null,
+            team: null,
+            teamStrategy: null,
+         };
+      }
+
+      return this._datacollections;
+   }
+
+   static async init(AB, settings) {
+      this.AB = AB;
+      this._utils = new _utils_js__WEBPACK_IMPORTED_MODULE_0__["default"](AB);
+
+      // WORKAROUND
+      const teamDC = this.list.team;
+
+      // Stable DCs.
+      const contentGroupDC = (this.list.contentGroup =
+         this._utils.createCustomDCByObjID(
+            this._utils.getLinkedObjIDByConnectFieldID(
+               settings.contentGroupByField
+            ),
+            { loadAll: true }
+         ));
+      const teamStrategyDC = (this.list.teamStrategy =
+         this._utils.createCustomDCByObjID(
+            this._utils.getLinkedObjIDByConnectFieldID(settings.teamStrategy),
+            { loadAll: true }
+         ));
+      const strategyCodeDC = (this.list.strategyCode =
+         this._utils.createCustomDCByObjID(
+            this._utils.getLinkedObjIDByConnectFieldID(settings.strategyCode),
+            { loadAll: true }
+         ));
+      const subStrategyDC = (this.list.subStrategy =
+         this._utils.createCustomDCByObjID(
+            this._utils.getLinkedObjIDByConnectFieldID(settings.subStrategy),
+            { loadAll: true }
+         ));
+      this.list.responsibility = this._utils.createCustomDCByObjID(
+         this._utils.getLinkedObjIDByConnectFieldID(
+            _constants_js__WEBPACK_IMPORTED_MODULE_1__["default"].RESPONSIBILITY_ASSIGNMENT_FIELD_ID
+         ),
+         { loadAll: true }
+      );
+
+      // Preparing for the entity DC and wait for setting a cursor.
+      const entityDC = (this.list.entity = teamDC.datacollectionLink);
+      if (entityDC != null) {
+         _utils_js__WEBPACK_IMPORTED_MODULE_0__["default"].initDC(entityDC);
+      }
+
+      // Preparing for the content DC.
+      const contentFieldFilter = JSON.parse(settings.contentFieldFilter);
+      const contentDC = (this.list.content = this._utils.createCustomDCByObjID(
+         this._utils.getLinkedObjIDByConnectFieldID(settings.contentField),
+         {
+            linkedDC: entityDC,
+            populate: [_constants_js__WEBPACK_IMPORTED_MODULE_1__["default"].RESPONSIBILITY_ASSIGNMENT_FIELD_ID],
+            skipPack: true,
+            filter: {
+               glue: "and",
+               rules: [
+                  // TODO (Guy): Hardcode date start filter.
+                  {
+                     key: settings.contentFieldDateStart,
+                     rule: "is_not_null",
+                     value: "",
+                  },
+                  {
+                     glue: "or",
+                     rules:
+                        (contentFieldFilter?.rules?.length > 0 && [
+                           contentFieldFilter,
+
+                           // TODO (Guy): Hardcode date end filter.
+                           {
+                              key: settings.contentFieldDateEnd,
+                              rule: "is_null",
+                              value: "",
+                           },
+                        ]) ||
+                        [],
+                  },
+               ],
+            },
+         }
+      ));
+
+      // Prepare display DCs.
+      const contentDisplayedFieldKeys = Object.keys(
+         settings.contentDisplayedFields
+      );
+      const contentDisplayDCs = this.list.contentDisplays;
+      if (contentDisplayedFieldKeys.length > 0) {
+         let [, objID] = contentDisplayedFieldKeys.pop().split(".");
+         while (contentDisplayedFieldKeys.length > 0) {
+            if (
+               contentDisplayDCs.findIndex(
+                  (contentDisplayDC) => contentDisplayDC.datasource.id === objID
+               ) < 0
+            )
+               switch (objID) {
+                  case teamDC.datasource.id:
+                     contentDisplayDCs.push(teamDC);
+                     break;
+                  case contentGroupDC.datasource.id:
+                     contentDisplayDCs.push(contentGroupDC);
+                     break;
+                  case strategyCodeDC.datasource.id:
+                     contentDisplayDCs.push(strategyCodeDC);
+                     break;
+                  case subStrategyDC.datasource.id:
+                     contentDisplayDCs.push(subStrategyDC);
+                     break;
+                  case teamStrategyDC.datasource.id:
+                     contentDisplayDCs.push(teamStrategyDC);
+                     break;
+                  case contentDC.datasource.id:
+                     contentDisplayDCs.push(contentDC);
+                     break;
+                  default:
+                     if (entityDC?.datasource.id === objID)
+                        contentDisplayDCs.push(entityDC);
+                     else
+                        contentDisplayDCs.push(
+                           this._utils.createCustomDCByObjID(objID, {
+                              linkedDC: entityDC,
+                           })
+                        );
+                     break;
+               }
+            [, objID] = contentDisplayedFieldKeys.pop().split(".");
+         }
+      }
+
+      const pendingPromises = [];
+
+      for (const propName in DcContainer.list) {
+         let dcs = DcContainer.list[propName];
+         if (dcs == null) continue;
+
+         // convert to Array
+         if (Array.isArray(dcs) === false) dcs = [dcs];
+
+         // load and wait for ready
+         dcs.forEach((dc) => {
+            pendingPromises.push(this._utils.waitDCReady(dc));
+            _utils_js__WEBPACK_IMPORTED_MODULE_0__["default"].initDC(dc);
+         });
+      }
+
+      await Promise.all(pendingPromises);
+   }
+}
+
+
+/***/ }),
+
+/***/ "./components/utils.js":
+/*!*****************************!*\
+  !*** ./components/utils.js ***!
+  \*****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ OrgChartUtils)
+/* harmony export */ });
+/* harmony import */ var _constants_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./constants.js */ "./components/constants.js");
+
+
+class OrgChartUtils {
+   constructor(AB) {
+      this.AB = AB;
+   }
+
+   getLinkedColumnNameByConnectFieldID(connectFieldID) {
+      return this.AB.definitionByID(
+         this.getLinkedFieldIDByConnectFieldID(connectFieldID)
+      ).columnName;
+   }
+
+   getLinkedFieldIDByConnectFieldID(connectFieldID) {
+      return this.AB.definitionByID(connectFieldID).settings.linkColumn;
+   }
+
+   getLinkedObjIDByConnectFieldID(connectFieldID) {
+      return this.AB.definitionByID(connectFieldID)?.settings?.linkObject;
+   }
+
+   isLessThanDay(date) {
+      return Math.abs(new Date() - date) / 36e5 < 24;
+   }
+
+   /** Data Collection */
+   createCustomDCByObjID(
+      objID,
+      {
+         loadAll = false,
+         filter,
+         linkedDC,
+         select = null,
+         populate = false,
+         skipPack = false,
+      }
+   ) {
+      const obj = this.AB.objectByID(objID);
+      if (!obj) {
+         console.error(
+            `OrgChartUtils.createCustomDCByObjID: Object ${objID} not found.`
+         );
+         return null;
+      }
+      const settings = {
+         datasourceID: objID,
+         select,
+         populate,
+         loadAll,
+         objectWorkspace: {},
+         skipPack,
+      };
+      if (linkedDC != null) {
+         const linkedObjID = linkedDC.datasource.id;
+         (settings.linkFieldID = this.AB.definitionByID(objID).fieldIDs.find(
+            (fieldID) =>
+               this.AB.definitionByID(fieldID).settings.linkObject ===
+               linkedObjID
+         )) && (settings.linkDatacollectionID = linkedDC.id);
+      }
+      if (filter) settings.objectWorkspace.filterConditions = filter;
+      const dc = this.AB.datacollectionNew({
+         id: `dc.${objID}`,
+         label: obj.label,
+         settings,
+      });
+      // OrgChartUtils.initDC(dc);
+      if (linkedDC) {
+         dc.eventRemove("cursorStale", linkedDC);
+         dc.$dc.__prevLinkDcCursor = linkedDC.getCursor()?.id?.toString();
+      }
+      return dc;
+   }
+
+   static initDC(dc) {
+      dc.init();
+      if (dc.dataStatus === dc.dataStatusFlag.notInitial) dc.loadData();
+   }
+
+   // TODO (Guy): Some DC.waitReady() won't be resolved.
+   async waitDCReady(dc) {
+      // Wait for the next event loop
+      await Promise.resolve();
+      if (dc.reloadPromise != null) await dc.reloadPromise;
+
+      switch (dc.dataStatus) {
+         case dc.dataStatusFlag.initialized:
+            dc._events.initializedData && dc.emit("initializedData");
+            break;
+         case dc.dataStatusFlag.initializing:
+            await new Promise((resolve) => {
+               let timeoutID = null;
+               const forceDCReady = () => {
+                  if (dc.dataStatus === dc.dataStatusFlag.initialized) {
+                     dc.emit("initializedData");
+                     return;
+                  }
+                  timeoutID = setTimeout(forceDCReady, _constants_js__WEBPACK_IMPORTED_MODULE_0__["default"].ONE_SECOND);
+               };
+               timeoutID = setTimeout(forceDCReady, _constants_js__WEBPACK_IMPORTED_MODULE_0__["default"].ONE_SECOND);
+               dc.once("initializedData", () => {
+                  clearTimeout(timeoutID);
+                  timeoutID = null;
+                  resolve();
+               });
+            });
+            break;
+         default:
+            break;
+      }
+   }
+
+   async waitDOM(callback, ...params) {
+      return new Promise((resolve, reject) => {
+         requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+               (async () => {
+                  try {
+                     if (callback) await callback(...params);
+                     resolve();
+                  } catch (err) {
+                     reject(err);
+                  }
+               })()
+            });
+         });
+      });
+   }
+
+   timeout(ms) {
+      return new Promise((resolve) => {
+         setTimeout(() => resolve(), ms);
+      });
+   }
+
+   // TODO (Guy): Hardcode by specipic fields.
+   sortByEmployeeFirstname(a, b) {
+      a = a.firstname?.toLowerCase() ?? "";
+      b = b.firstname?.toLowerCase() ?? ""
+      return a > b
+         ? 1
+         : (a < b ? -1: 0);
+   }
+
+   // TODO (Guy): Hardcode by specipic fields.
+   sortByEmployeeLastname(a, b) {
+      a = a.lastname?.toLowerCase() ?? "";
+      b = b.lastname?.toLowerCase() ?? ""
+      return a > b
+         ? 1
+         : (a < b ? -1: 0);
+   }
+}
+
+
+/***/ }),
+
 /***/ "./libs/CustomProcessTasks.js":
 /*!************************************!*\
   !*** ./libs/CustomProcessTasks.js ***!
@@ -6531,7 +7589,7 @@ __webpack_require__.r(__webpack_exports__);
 
 const plugin = {
    /* global VERSION -- injected by webpack define plugin */
-   version: "1.0.0",
+   version: "1.0.7",
    key: "HRTeams",
    apply: function (AB) {
       const ABView = AB.Class.ABViewManager.viewClass("view");
