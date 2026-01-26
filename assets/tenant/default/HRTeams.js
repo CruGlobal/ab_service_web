@@ -543,7 +543,7 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
             if (data._rawData[EXTERNAL_SUPPORT_COLUMNNAME] === 1) {
                $node.style.margin = "0px 12px";
                $node.style.borderStyle = "solid";
-               $node.style.borderColor = "#0d4757";
+               $node.style.borderColor = "#808080";
                $node.style.borderRadius = "20px";
                $node.style.borderWidth = "6px";
             }
@@ -1641,7 +1641,7 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                   $hardcodedSpecialDisplay.appendChild($currentDisplay);
                   break;
                case 3:
-                  $hardcodedSpecialDisplay.appendChild($currentDisplay);
+                  $hardcodedSpecialDisplay.prepend($currentDisplay);
                   break;
                case 5:
                   hardcodedDisplays.unshift(
@@ -2420,8 +2420,8 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                      _rawData: childData,
                   };
                   child.filteredOut = this.filterTeam(child);
-                  if (childData[EXTERNAL_SUPPORT_COLUMNNAME] == 1)
-                     child.className = `strategy-external`;
+                  // if (childData[EXTERNAL_SUPPORT_COLUMNNAME] == 1)
+                  //   child.className = `strategy-external`;
                   pullChildData(child, depth + 1);
 
                   // If this node is filtered we still need it if it has children
@@ -7589,7 +7589,7 @@ __webpack_require__.r(__webpack_exports__);
 
 const plugin = {
    /* global VERSION -- injected by webpack define plugin */
-   version: "1.0.7",
+   version: "1.0.8",
    key: "HRTeams",
    apply: function (AB) {
       const ABView = AB.Class.ABViewManager.viewClass("view");
