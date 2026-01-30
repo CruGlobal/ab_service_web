@@ -322,8 +322,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! moment */ 41655);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var nanoid__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! nanoid */ 27869);
-/* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! uuid */ 15460);
+/* harmony import */ var nanoid__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! nanoid */ 27869);
+/* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! uuid */ 15460);
 /* harmony import */ var _utils_performance__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../utils/performance */ 76431);
 /* harmony import */ var _platform_FilterComplex__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./platform/FilterComplex */ 46334);
 /* harmony import */ var _platform_FilterComplex__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_platform_FilterComplex__WEBPACK_IMPORTED_MODULE_12__);
@@ -336,6 +336,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _factory_utils_Dialog_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./_factory_utils/Dialog.js */ 79750);
 /* harmony import */ var _resources_Multilingual_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../resources/Multilingual.js */ 34224);
 /* harmony import */ var _resources_Network_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../resources/Network.js */ 46147);
+/* harmony import */ var _platform_plugins_included_index_js__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./platform/plugins/included/index.js */ 30188);
 /* harmony import */ var _resources_Storage_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../resources/Storage.js */ 97112);
 /* harmony import */ var _core_ABViewManagerCore__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./core/ABViewManagerCore */ 74834);
 /* harmony import */ var _core_ABViewManagerCore__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_core_ABViewManagerCore__WEBPACK_IMPORTED_MODULE_13__);
@@ -372,6 +373,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 // Network: our interface for communicating to our server
+
+
 
 
 // Storage: manages our interface for local storage
@@ -1219,6 +1222,13 @@ class ABFactory extends (_core_ABFactoryCore__WEBPACK_IMPORTED_MODULE_3___defaul
       this._plugins.push(p);
    }
 
+   pluginLocalLoad() {
+      // This is a placeholder for a local plugin load.
+      // The platform version of this method will load the plugins from
+      // /platform/plugins/local/
+      return _platform_plugins_included_index_js__WEBPACK_IMPORTED_MODULE_18__["default"].load(this);
+   }
+
    //
    // Utilities
    //
@@ -1272,7 +1282,7 @@ class ABFactory extends (_core_ABFactoryCore__WEBPACK_IMPORTED_MODULE_3___defaul
    }
 
    jobID() {
-      return (0,nanoid__WEBPACK_IMPORTED_MODULE_18__.nanoid)();
+      return (0,nanoid__WEBPACK_IMPORTED_MODULE_19__.nanoid)();
    }
 
    Label() {
@@ -1350,7 +1360,7 @@ class ABFactory extends (_core_ABFactoryCore__WEBPACK_IMPORTED_MODULE_3___defaul
    }
 
    uuid() {
-      return (0,uuid__WEBPACK_IMPORTED_MODULE_19__["default"])();
+      return (0,uuid__WEBPACK_IMPORTED_MODULE_20__["default"])();
    }
 
    warn(message, ...rest) {
@@ -6585,10 +6595,11 @@ class ABFactory extends EventEmitter {
       }
    }
 
-   init() {
+   async init() {
       // BEFORE Definitions are loaded,
       // make sure any local Plugins are loaded.
-      this.ClassManager.registerLocalPlugins(this.pluginAPI());
+      // this.ClassManager.registerLocalPlugins(this.pluginAPI());
+      await this.pluginLocalLoad();
 
       let allDefinitions = Object.keys(this._definitions).map(
          (k) => this._definitions[k]
@@ -7081,6 +7092,13 @@ class ABFactory extends EventEmitter {
       api.AB = this;
       api.platform = this.platform ?? "service";
       return api;
+   }
+
+   pluginLocalLoad() {
+      // This is a placeholder for a local plugin load.
+      // The platform version of this method will load the plugins from
+      // /platform/plugins/local/
+      return Promise.resolve();
    }
 
    pluginRegister(plugin) {
@@ -12433,12 +12451,12 @@ var AllViews = [
    __webpack_require__(/*! ../platform/views/ABViewImage */ 84234),
    __webpack_require__(/*! ../platform/views/ABViewLabel */ 66933),
    __webpack_require__(/*! ../platform/views/ABViewLayout */ 30077),
-   __webpack_require__(/*! ../platform/views/ABViewList */ 47363),
+   // require("../platform/views/ABViewList"),
    __webpack_require__(/*! ../platform/views/ABViewMenu */ 46672),
    __webpack_require__(/*! ../platform/views/ABViewPage */ 44),
    __webpack_require__(/*! ../platform/views/ABViewPDFImporter */ 51547),
    __webpack_require__(/*! ../platform/views/ABViewPivot */ 86087),
-   __webpack_require__(/*! ../platform/views/ABViewTab */ 7976),
+   // require("../platform/views/ABViewTab"),
    __webpack_require__(/*! ../platform/views/ABViewText */ 66048),
 
    //
@@ -33427,61 +33445,6 @@ module.exports = class ABViewLayoutCore extends ABViewWidget {
 
 /***/ }),
 
-/***/ 95148:
-/*!*************************************************!*\
-  !*** ./AppBuilder/core/views/ABViewListCore.js ***!
-  \*************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-const ABViewWidget = __webpack_require__(/*! ../../platform/views/ABViewWidget */ 87039);
-
-const ABViewListPropertyComponentDefaults = {
-   dataviewID: null,
-   field: null,
-   height: 0,
-};
-
-const ABViewDefaults = {
-   key: "list", // {string} unique key for this view
-   icon: "list-ul", // {string} fa-[icon] reference for this view
-   labelKey: "List", // {string} the multilingual label key for the class label
-};
-
-module.exports = class ABViewLabelCore extends ABViewWidget {
-   constructor(values, application, parent, defaultValues) {
-      super(values, application, parent, defaultValues || ABViewDefaults);
-   }
-
-   static common() {
-      return ABViewDefaults;
-   }
-
-   static defaultValues() {
-      return ABViewListPropertyComponentDefaults;
-   }
-
-   /**
-    * @method componentList
-    * return the list of components available on this view to display in the editor.
-    */
-   componentList() {
-      return [];
-   }
-
-   field() {
-      var dv = this.datacollection;
-      if (!dv) return null;
-
-      var object = dv.datasource;
-      if (!object) return null;
-
-      return object.fieldByID(this.settings.field);
-   }
-};
-
-
-/***/ }),
-
 /***/ 65419:
 /*!*************************************************!*\
   !*** ./AppBuilder/core/views/ABViewMenuCore.js ***!
@@ -34782,99 +34745,6 @@ module.exports = class ABViewSchedulerCore extends ABViewWidget {
 
 /***/ }),
 
-/***/ 28115:
-/*!************************************************!*\
-  !*** ./AppBuilder/core/views/ABViewTabCore.js ***!
-  \************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-const ABViewWidget = __webpack_require__(/*! ../../platform/views/ABViewWidget */ 87039);
-const ABViewContainer = __webpack_require__(/*! ../../platform/views/ABViewContainer */ 76528);
-
-const ABViewTabPropertyComponentDefaults = {
-   height: 0,
-   minWidth: 0,
-   stackTabs: 0, // use sidebar view instead of tabview
-   darkTheme: 0, // set dark theme css or not
-   sidebarWidth: 200, // width of sidebar menu when stacking tabs
-   sidebarPos: "left", // the default position of sidebar
-   iconOnTop: 0, // do you want to put the icon above the text label?
-   hintID: null, // store the ID of a webix hint tutorial for this view
-};
-
-const ABViewTabDefaults = {
-   key: "tab", // {string} unique key for this view
-   icon: "window-maximize", // {string} fa-[icon] reference for this view
-   labelKey: "Tab", // {string} the multilingual label key for the class label
-};
-
-module.exports = class ABViewTabCore extends ABViewWidget {
-   /**
-    * @param {obj} values  key=>value hash of ABView values
-    * @param {ABApplication} application the application object this view is under
-    * @param {ABViewWidget} parent the ABViewWidget this view is a child of. (can be null)
-    */
-   constructor(values, application, parent, defaultValues) {
-      super(values, application, parent, defaultValues || ABViewTabDefaults);
-   }
-
-   static common() {
-      return ABViewTabDefaults;
-   }
-
-   static defaultValues() {
-      return ABViewTabPropertyComponentDefaults;
-   }
-
-   ///
-   /// Instance Methods
-   ///
-
-   /**
-    * @method fromValues()
-    *
-    * initialze this object with the given set of values.
-    * @param {obj} values
-    */
-   fromValues(values) {
-      super.fromValues(values);
-
-      // convert from "0" => 0
-      this.settings.height = parseInt(this.settings.height);
-      this.settings.minWidth = parseInt(this.settings.minWidth || 0);
-      this.settings.stackTabs = parseInt(this.settings.stackTabs);
-      this.settings.darkTheme = parseInt(this.settings.darkTheme);
-      this.settings.sidebarWidth = parseInt(this.settings.sidebarWidth);
-      // this.settings.sidebarPos = this.settings.sidebarPos;
-      this.settings.iconOnTop = parseInt(this.settings.iconOnTop);
-   }
-
-   addTab(tabName, tabIcon) {
-      return this.application
-         .viewNew(
-            {
-               key: ABViewContainer.common().key,
-               label: tabName,
-               tabicon: tabIcon,
-            },
-            this.application,
-            this
-         )
-         .save();
-   }
-
-   /**
-    * @method componentList
-    * return the list of components available on this view to display in the editor.
-    */
-   componentList() {
-      return [];
-   }
-};
-
-
-/***/ }),
-
 /***/ 78291:
 /*!*************************************************!*\
   !*** ./AppBuilder/core/views/ABViewTextCore.js ***!
@@ -35685,9 +35555,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _plugins_ABObjectPlugin_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./plugins/ABObjectPlugin.js */ 84788);
 /* harmony import */ var _plugins_ABModelPlugin_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./plugins/ABModelPlugin.js */ 84364);
 /* harmony import */ var _plugins_ABViewPlugin_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./plugins/ABViewPlugin.js */ 65006);
-/* harmony import */ var _plugins_ABViewComponentPlugin_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./plugins/ABViewComponentPlugin.js */ 7105);
-/* harmony import */ var _plugins_ABViewPropertiesPlugin_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./plugins/ABViewPropertiesPlugin.js */ 49243);
-/* harmony import */ var _plugins_ABViewEditorPlugin_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./plugins/ABViewEditorPlugin.js */ 98487);
+/* harmony import */ var _plugins_ABViewWidgetPlugin_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./plugins/ABViewWidgetPlugin.js */ 76554);
+/* harmony import */ var _plugins_ABViewComponentPlugin_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./plugins/ABViewComponentPlugin.js */ 7105);
+/* harmony import */ var _plugins_ABViewPropertiesPlugin_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./plugins/ABViewPropertiesPlugin.js */ 49243);
+/* harmony import */ var _plugins_ABViewEditorPlugin_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./plugins/ABViewEditorPlugin.js */ 98487);
+/* harmony import */ var _views_ABViewContainer_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./views/ABViewContainer.js */ 76528);
+/* harmony import */ var _views_ABViewContainer_js__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_views_ABViewContainer_js__WEBPACK_IMPORTED_MODULE_9__);
 
 
 
@@ -35695,6 +35568,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+// some views need to reference ABViewContainer,
 
 
 const classRegistry = {
@@ -35740,9 +35617,11 @@ function getPluginAPI() {
       ABObjectPlugin: _plugins_ABObjectPlugin_js__WEBPACK_IMPORTED_MODULE_2__["default"],
       ABModelPlugin: _plugins_ABModelPlugin_js__WEBPACK_IMPORTED_MODULE_3__["default"],
       ABViewPlugin: _plugins_ABViewPlugin_js__WEBPACK_IMPORTED_MODULE_4__["default"],
-      ABViewComponentPlugin: _plugins_ABViewComponentPlugin_js__WEBPACK_IMPORTED_MODULE_5__["default"],
-      ABViewPropertiesPlugin: _plugins_ABViewPropertiesPlugin_js__WEBPACK_IMPORTED_MODULE_6__["default"],
-      ABViewEditorPlugin: _plugins_ABViewEditorPlugin_js__WEBPACK_IMPORTED_MODULE_7__["default"],
+      ABViewWidgetPlugin: _plugins_ABViewWidgetPlugin_js__WEBPACK_IMPORTED_MODULE_5__["default"],
+      ABViewComponentPlugin: _plugins_ABViewComponentPlugin_js__WEBPACK_IMPORTED_MODULE_6__["default"],
+      ABViewPropertiesPlugin: _plugins_ABViewPropertiesPlugin_js__WEBPACK_IMPORTED_MODULE_7__["default"],
+      ABViewEditorPlugin: _plugins_ABViewEditorPlugin_js__WEBPACK_IMPORTED_MODULE_8__["default"],
+      ABViewContainer: (_views_ABViewContainer_js__WEBPACK_IMPORTED_MODULE_9___default()),
       //  ABFieldPlugin,
       //  ABViewPlugin,
    };
@@ -39910,18 +39789,17 @@ module.exports = class ABViewManager extends ABViewManagerCore {
    static newView(values, application, parent) {
       parent = parent || null;
 
-      // check to see if this is a plugin view
-      if (values.plugin_key) {
-         // If this is from a plugin, create it from ClassManager
-         return ClassManager.viewCreate(
-            values.plugin_key,
-            values,
-            application,
-            parent
-         );
-      }
+      // Moving to ClassManager for our default views:
+      let key = values.plugin_key || values.key;
+      let view = null;
 
-      return super.newView(values, application, parent);
+      try {
+         view = ClassManager.viewCreate(key, values, application, parent);
+      } catch (error) {
+         // console.error(`Error creating view ${key}:`, error);
+         view = super.newView(values, application, parent);
+      }
+      return view;
    }
 };
 
@@ -51027,6 +50905,1004 @@ class ABViewPropertiesPlugin extends _ABClassUIPlugin_js__WEBPACK_IMPORTED_MODUL
 
 /***/ }),
 
+/***/ 76554:
+/*!***********************************************************!*\
+  !*** ./AppBuilder/platform/plugins/ABViewWidgetPlugin.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewWidgetPlugin)
+/* harmony export */ });
+/* harmony import */ var _views_ABViewWidget_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../views/ABViewWidget.js */ 87039);
+/* harmony import */ var _views_ABViewWidget_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_views_ABViewWidget_js__WEBPACK_IMPORTED_MODULE_0__);
+
+
+class ABViewWidgetPlugin extends (_views_ABViewWidget_js__WEBPACK_IMPORTED_MODULE_0___default()) {
+   constructor(...params) {
+      super(...params);
+   }
+
+   static getPluginKey() {
+      return "ab-view-plugin";
+   }
+
+   static getPluginType() {
+      return "view";
+   }
+
+   toObj() {
+      const result = super.toObj();
+      result.plugin_key = this.constructor.getPluginKey();
+      // plugin_key : is what tells our ABFactory.objectNew() to create this object from the plugin class.
+      return result;
+   }
+
+   static newInstance(application, parent) {
+      // return a new instance from ABViewManager:
+      return application.viewNew(
+         { key: this.common().key, plugin_key: this.getPluginKey() },
+         application,
+         parent
+      );
+   }
+}
+
+
+/***/ }),
+
+/***/ 30188:
+/*!*******************************************************!*\
+  !*** ./AppBuilder/platform/plugins/included/index.js ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _view_list_FNAbviewlist_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./view_list/FNAbviewlist.js */ 62467);
+/* harmony import */ var _view_tab_FNAbviewtab_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./view_tab/FNAbviewtab.js */ 95757);
+
+
+
+const AllPlugins = [_view_tab_FNAbviewtab_js__WEBPACK_IMPORTED_MODULE_0__["default"], _view_list_FNAbviewlist_js__WEBPACK_IMPORTED_MODULE_1__["default"]];
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+   load: (AB) => {
+      AllPlugins.forEach((plugin) => {
+         AB.pluginRegister(plugin);
+      });
+   },
+});
+
+
+/***/ }),
+
+/***/ 62467:
+/*!************************************************************************!*\
+  !*** ./AppBuilder/platform/plugins/included/view_list/FNAbviewlist.js ***!
+  \************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FNAbviewlist)
+/* harmony export */ });
+/* harmony import */ var _FNAbviewlistComponent_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FNAbviewlistComponent.js */ 68768);
+
+
+// FNAbviewlist Web
+// A web side import for an ABView.
+//
+function FNAbviewlist({
+   /*AB,*/
+   ABViewWidgetPlugin,
+   ABViewComponentPlugin,
+   ABViewContainer,
+}) {
+   const ABAbviewlistComponent = (0,_FNAbviewlistComponent_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
+      ABViewComponentPlugin,
+   });
+
+   const ABViewListPropertyComponentDefaults = {
+      dataviewID: null,
+      field: null,
+      height: 0,
+   };
+
+   const ABViewDefaults = {
+      key: "list", // {string} unique key for this view
+      icon: "list-ul", // {string} fa-[icon] reference for this view
+      labelKey: "List(plugin)", // {string} the multilingual label key for the class label
+   };
+
+   class ABViewListCore extends ABViewWidgetPlugin {
+      constructor(values, application, parent, defaultValues) {
+         super(values, application, parent, defaultValues || ABViewDefaults);
+      }
+
+      static common() {
+         return ABViewDefaults;
+      }
+
+      static defaultValues() {
+         return ABViewListPropertyComponentDefaults;
+      }
+
+      /**
+       * @method componentList
+       * return the list of components available on this view to display in the editor.
+       */
+      componentList() {
+         return [];
+      }
+
+      field() {
+         var dv = this.datacollection;
+         if (!dv) return null;
+
+         var object = dv.datasource;
+         if (!object) return null;
+
+         return object.fieldByID(this.settings.field);
+      }
+   }
+
+   return class ABViewList extends ABViewListCore {
+      /**
+       * @method getPluginKey
+       * return the plugin key for this view.
+       * @return {string} plugin key
+       */
+      static getPluginKey() {
+         return this.common().key;
+      }
+
+      /**
+       * @method component()
+       * return a UI component based upon this view.
+       * @return {obj} UI component
+       */
+      component(parentId) {
+         return new ABAbviewlistComponent(this, parentId);
+      }
+
+      // constructor(values, application, parent, defaultValues) {
+      //    super(values, application, parent, defaultValues);
+      // }
+
+      warningsEval() {
+         super.warningsEval();
+         let DC = this.datacollection;
+         if (!DC) {
+            this.warningsMessage(
+               `can't resolve it's datacollection[${this.settings.dataviewID}]`
+            );
+         }
+      }
+   };
+}
+
+
+/***/ }),
+
+/***/ 68768:
+/*!*********************************************************************************!*\
+  !*** ./AppBuilder/platform/plugins/included/view_list/FNAbviewlistComponent.js ***!
+  \*********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FNAbviewlistComponent)
+/* harmony export */ });
+function FNAbviewlistComponent({
+   /*AB,*/
+   ABViewComponentPlugin,
+}) {
+   return class ABAbviewlistComponent extends ABViewComponentPlugin {
+      constructor(baseView, idBase, ids) {
+         super(
+            baseView,
+            idBase || `ABViewList_${baseView.id}`,
+            Object.assign({ list: "" }, ids)
+         );
+      }
+
+      ui() {
+         const settings = this.settings;
+         const _uiList = {
+            id: this.ids.list,
+            view: "dataview",
+            type: {
+               width: 1000,
+               height: 30,
+            },
+            template: (item) => {
+               const field = this.view.field();
+
+               if (!field) return "";
+
+               return field.format(item);
+            },
+         };
+
+         // set height or autoHeight
+         if (settings.height !== 0) _uiList.height = settings.height;
+         else _uiList.autoHeight = true;
+
+         const _ui = super.ui([_uiList]);
+
+         delete _ui.type;
+
+         return _ui;
+      }
+
+      async init(AB) {
+         await super.init(AB);
+
+         const dc = this.datacollection;
+
+         if (!dc) return;
+
+         // bind dc to component
+         dc.bind($$(this.ids.list));
+         // $$(ids.list).sync(dv);
+      }
+   };
+}
+
+
+/***/ }),
+
+/***/ 95757:
+/*!**********************************************************************!*\
+  !*** ./AppBuilder/platform/plugins/included/view_tab/FNAbviewtab.js ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FNAbviewtab)
+/* harmony export */ });
+/* harmony import */ var _FNAbviewtabComponent_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FNAbviewtabComponent.js */ 89618);
+
+
+// FNAbviewtab Web
+// A web side import for an ABView.
+//
+function FNAbviewtab({
+   /*AB,*/
+   ABViewWidgetPlugin,
+   ABViewComponentPlugin,
+   ABViewContainer,
+}) {
+   const ABAbviewtabComponent = (0,_FNAbviewtabComponent_js__WEBPACK_IMPORTED_MODULE_0__["default"])({ ABViewComponentPlugin });
+
+   const ABViewTabPropertyComponentDefaults = {
+      height: 0,
+      minWidth: 0,
+      stackTabs: 0, // use sidebar view instead of tabview
+      darkTheme: 0, // set dark theme css or not
+      sidebarWidth: 200, // width of sidebar menu when stacking tabs
+      sidebarPos: "left", // the default position of sidebar
+      iconOnTop: 0, // do you want to put the icon above the text label?
+      hintID: null, // store the ID of a webix hint tutorial for this view
+   };
+
+   const ABViewTabDefaults = {
+      key: "tab", // {string} unique key for this view
+      icon: "window-maximize", // {string} fa-[icon] reference for this view
+      labelKey: "Tab(plugin)", // {string} the multilingual label key for the class label
+   };
+
+   class ABViewTabCore extends ABViewWidgetPlugin {
+      /**
+       * @param {obj} values  key=>value hash of ABView values
+       * @param {ABApplication} application the application object this view is under
+       * @param {ABViewWidget} parent the ABViewWidget this view is a child of. (can be null)
+       */
+      constructor(values, application, parent, defaultValues) {
+         super(values, application, parent, defaultValues || ABViewTabDefaults);
+      }
+
+      static common() {
+         return ABViewTabDefaults;
+      }
+
+      static defaultValues() {
+         return ABViewTabPropertyComponentDefaults;
+      }
+
+      ///
+      /// Instance Methods
+      ///
+
+      /**
+       * @method fromValues()
+       *
+       * initialze this object with the given set of values.
+       * @param {obj} values
+       */
+      fromValues(values) {
+         super.fromValues(values);
+
+         // convert from "0" => 0
+         this.settings.height = parseInt(this.settings.height);
+         this.settings.minWidth = parseInt(this.settings.minWidth || 0);
+         this.settings.stackTabs = parseInt(this.settings.stackTabs);
+         this.settings.darkTheme = parseInt(this.settings.darkTheme);
+         this.settings.sidebarWidth = parseInt(this.settings.sidebarWidth);
+         // this.settings.sidebarPos = this.settings.sidebarPos;
+         this.settings.iconOnTop = parseInt(this.settings.iconOnTop);
+      }
+
+      addTab(tabName, tabIcon) {
+         return this.application
+            .viewNew(
+               {
+                  key: ABViewContainer.common().key,
+                  label: tabName,
+                  tabicon: tabIcon,
+               },
+               this.application,
+               this
+            )
+            .save();
+      }
+
+      /**
+       * @method componentList
+       * return the list of components available on this view to display in the editor.
+       */
+      componentList() {
+         return [];
+      }
+   }
+
+   return class ABViewTab extends ABViewTabCore {
+      /**
+       * @method getPluginKey
+       * return the plugin key for this view.
+       * @return {string} plugin key
+       */
+      static getPluginKey() {
+         return this.common().key;
+      }
+
+      /**
+       * @method component()
+       * return a UI component based upon this view.
+       * @return {obj} UI component
+       */
+      component(parentId) {
+         return new ABAbviewtabComponent(this, parentId);
+      }
+
+      warningsEval() {
+         super.warningsEval();
+
+         let allViews = this.views();
+
+         if (allViews.length == 0) {
+            this.warningsMessage("has no tabs set");
+         }
+
+         // NOTE: this is done in ABView:
+         // (this.views() || []).forEach((v) => {
+         //    v.warningsEval();
+         // });
+      }
+   };
+}
+
+
+/***/ }),
+
+/***/ 89618:
+/*!*******************************************************************************!*\
+  !*** ./AppBuilder/platform/plugins/included/view_tab/FNAbviewtabComponent.js ***!
+  \*******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FNAbviewtabComponent)
+/* harmony export */ });
+function FNAbviewtabComponent({
+   /*AB,*/
+   ABViewComponentPlugin,
+}) {
+   return class ABAbviewtabComponent extends ABViewComponentPlugin {
+      constructor(baseView, idBase, ids) {
+         super(
+            baseView,
+            idBase || `ABViewTab_${baseView.id}`,
+            Object.assign(
+               {
+                  tab: "",
+
+                  sidebar: "",
+                  expandMenu: "",
+                  collapseMenu: "",
+
+                  popupTabManager: "",
+                  popupTabManagerForm: "",
+                  popupTabManagerSaveButton: "",
+               },
+               ids
+            )
+         );
+
+         this.viewComponents =
+            this.viewComponents ||
+            baseView
+               .views((v) => v.getUserAccess())
+               .map((v) => {
+                  return {
+                     view: v,
+                     // component: v.component(App)
+                  };
+               });
+      }
+
+      ui() {
+         const ids = this.ids;
+         const baseView = this.view;
+         const ab = this.AB;
+         const abWebix = ab.Webix;
+
+         let _ui = null;
+
+         // We are going to make a custom icon using the first letter of a menu item for menu items that don't have an icon
+         // to do this we need to modify the default template with the method webix recommended form this snippet https://snippet.webix.com/b566d9f8
+         abWebix.type(abWebix.ui.tree, {
+            baseType: "sideBar", // inherit everything else from sidebar type
+            name: "customIcons",
+            icon: (obj, common) => {
+               if (obj.icon.length)
+                  return [
+                     "<span class='webix_icon webix_sidebar_icon fa fa-fw fa-",
+                     obj.icon,
+                     "'></span>",
+                  ].join("");
+
+               return [
+                  "<span class='webix_icon webix_sidebar_icon sidebarCustomIcon'>",
+                  obj.value.charAt(0).toUpperCase(),
+                  "</span>",
+               ].join("");
+            },
+         });
+
+         const viewComponents = this.viewComponents;
+         const settings = this.settings;
+
+         if (viewComponents.length > 0) {
+            if (settings.stackTabs) {
+               // define your menu items from the view components
+               const menuItems = viewComponents.map((vc) => {
+                  const view = vc.view;
+
+                  return {
+                     id: `${view.id}_menu`,
+                     value: view.label,
+                     icon: view.tabicon ? view.tabicon : "",
+                  };
+               });
+
+               if (menuItems.length) {
+                  // create a menu item for the collapse option to use later
+                  const collapseMenu = {
+                     id: ids.collapseMenu,
+                     value: this.label("Collapse Menu"),
+                     icon: "chevron-circle-left",
+                  };
+
+                  // create a menu item from the expand option to use later
+                  const expandMenu = {
+                     id: ids.expandMenu,
+                     value: this.label("Expand Menu"),
+                     icon: "chevron-circle-right",
+                     hidden: true,
+                  };
+
+                  // find out what the first option is so we can set it later
+                  let selectedItem = `${viewComponents[0].view.id}_menu`;
+
+                  const abStorage = ab.Storage;
+                  const sidebar = {
+                     view: "sidebar",
+                     type: "customIcons", // define the sidebar type with the new template created above
+                     id: ids.sidebar,
+                     height: settings.height,
+                     width: settings.sidebarWidth ? settings.sidebarWidth : 0,
+                     scroll: true,
+                     position: settings.sidebarPos
+                        ? settings.sidebarPos
+                        : "left",
+                     css: settings.darkTheme ? "webix_dark" : "",
+                     data: menuItems.concat(collapseMenu), // add you menu items along with the collapse option to start
+                     on: {
+                        onItemClick: (id) => {
+                           // when a menu item is clicked
+                           if (id === ids.collapseMenu) {
+                              // if it was the collapse menu item
+                              setTimeout(() => {
+                                 const $sidebar = $$(ids.sidebar);
+
+                                 // remove the collapse option from the menu
+                                 $sidebar.remove(ids.collapseMenu);
+                                 // add the expand option to the menu
+                                 $sidebar.add(expandMenu);
+                                 // toggle the sidebar state
+                                 $sidebar.toggle();
+                                 // we just clicked the collapse...but we don't wanted highlighted
+                                 // so highlight the previously selected menu item
+                                 $sidebar.select(selectedItem);
+                                 // store this state in local storage the user preference is
+                                 // remembered next time they see this sidebar
+                                 abStorage.set(
+                                    `${ids.tab}-state`,
+                                    $sidebar.getState()
+                                 );
+                              }, 0);
+                           } else if (id === ids.expandMenu) {
+                              setTimeout(() => {
+                                 const $sidebar = $$(ids.sidebar);
+
+                                 // remove the expand option from the menu
+                                 $sidebar.remove(ids.expandMenu);
+                                 // add the collapse option to the menu
+                                 $sidebar.add(collapseMenu);
+                                 // toggle the sidebar state
+                                 $sidebar.toggle();
+                                 // we just clicked the collapse...but we don't wanted highlighted
+                                 // so highlight the previously selected menu item
+                                 $sidebar.select(selectedItem);
+                                 // store this state in local storage the user preference is
+                                 // remembered next time they see this sidebar
+                                 abStorage.set(
+                                    `${ids.tab}-state`,
+                                    $sidebar.getState()
+                                 );
+                              }, 0);
+                           } else {
+                              // store the selecte menu item just in case someone toggles the menu later
+                              selectedItem = id;
+                              // if the menu item is a regular menu item
+                              // call the onShow with the view id to load the view
+
+                              id = id.replace("_menu", "");
+                              let node = $$(id);
+                              if (node) {
+                                 node.show(false, false);
+                              } else {
+                                 // How often does this occure?
+                                 let msg = `ABViewTabComponent[${this.name}][${this.id}] could not resolve UI panel for provided menu [${selectedItem}].`;
+                                 this.AB.notify("developer", msg, {});
+                              }
+                              // $$(id).show(false, false);
+
+                              // onShow(id);
+                           }
+                        },
+                        onSelectChange: () => {
+                           addDataCy();
+                        },
+                        onAfterRender: () => {
+                           addDataCy();
+                        },
+                     },
+                  };
+
+                  const multiview = {
+                     view: "multiview",
+                     id: ids.tab,
+                     keepViews: true,
+                     minWidth: settings.minWidth,
+                     cells: viewComponents.map((view) => {
+                        const tabUi = {
+                           id: view.view.id,
+                           // ui will be loaded when its tab is opened
+                           view: "layout",
+                           rows: [],
+                        };
+
+                        return tabUi;
+                     }),
+                     on: {
+                        onViewChange: (prevId, nextId) => {
+                           this.onShow(nextId);
+                        },
+                     },
+                  };
+
+                  const addDataCy = function () {
+                     const $sidebar = $$(ids.sidebar);
+
+                     // set ids of controller buttons
+                     const collapseNode = $sidebar?.$view.querySelector(
+                        `[webix_tm_id="${ids.collapseMenu}"]`
+                     );
+
+                     if (collapseNode)
+                        collapseNode.setAttribute(
+                           "data-cy",
+                           `tab-collapseMenu-${ids.collapseMenu}`
+                        );
+
+                     const expandNode = $sidebar?.$view.querySelector(
+                        `[webix_tm_id="${ids.expandMenu}"]`
+                     );
+
+                     if (expandNode)
+                        expandNode.setAttribute(
+                           "data-cy",
+                           `tab-expandMenu-${ids.expandMenu}`
+                        );
+
+                     baseView.views((view) => {
+                        const node = $sidebar?.$view?.querySelector(
+                           `[webix_tm_id="${view.id}_menu"]`
+                        );
+
+                        if (!node) {
+                           return;
+                        }
+
+                        node.setAttribute(
+                           "data-cy",
+                           `tab-${view.name.replace(" ", "")}-${view.id}-${
+                              baseView.id
+                           }`
+                        );
+                     });
+                  };
+
+                  let columns = [sidebar, multiview];
+
+                  if (settings.sidebarPos === "right") {
+                     columns = [multiview, sidebar];
+                  }
+
+                  _ui = {
+                     cols: columns,
+                  };
+               } else
+                  _ui = {
+                     view: "spacer",
+                  };
+            } else {
+               const cells = baseView
+                  .views((view) => {
+                     const accessLevel = view.getUserAccess();
+
+                     if (accessLevel > 0) {
+                        return view;
+                     }
+                  })
+                  .map((view) => {
+                     const tabUi = {
+                        id: view.id,
+                        // ui will be loaded when its tab is opened
+                        view: "layout",
+                        rows: [],
+                     };
+
+                     let tabTemplate = "";
+
+                     // tab icon
+                     if (view.tabicon) {
+                        if (settings.iconOnTop)
+                           tabTemplate = [
+                              "<div class='ab-tabIconContainer'><span class='fa fa-lg fa-fw fa-",
+                              view.tabicon,
+                              "'></span><br/>",
+                              view.label,
+                              "</div>",
+                           ].join("");
+                        else
+                           tabTemplate = [
+                              "<span class='fa fa-lg fa-fw fa-",
+                              view.tabicon,
+                              "'></span> ",
+                              view.label,
+                           ].join("");
+                     }
+
+                     // no icon
+                     else tabTemplate = view.label;
+
+                     return {
+                        header: tabTemplate,
+                        body: tabUi,
+                     };
+                  });
+
+               // if there are cells to display then return a tabview
+               if (cells.length) {
+                  _ui = {
+                     rows: [
+                        {
+                           view: "tabview",
+                           id: ids.tab,
+                           minWidth: settings.minWidth,
+                           height: settings.height,
+                           tabbar: {
+                              height: 60,
+                              type: "bottom",
+                              css: settings.darkTheme ? "webix_dark" : "",
+                              on: {
+                                 onAfterRender: () => {
+                                    baseView.views((view) => {
+                                       const node = $$(
+                                          ids.tab
+                                       )?.$view?.querySelector(
+                                          `[button_id="${view.id}"]`
+                                       );
+
+                                       if (!node) return;
+
+                                       node.setAttribute(
+                                          "data-cy",
+                                          `tab ${view.name} ${view.id} ${baseView.id}`
+                                       );
+                                    });
+                                 },
+                              },
+                           },
+                           multiview: {
+                              on: {
+                                 onViewChange: (prevId, nextId) => {
+                                    this.onShow(nextId);
+                                 },
+                              },
+                           },
+                           cells: cells,
+                        },
+                     ],
+                  };
+               }
+               // else we return a spacer
+               else
+                  _ui = {
+                     view: "spacer",
+                  };
+            }
+         } else
+            _ui = {
+               view: "spacer",
+            };
+
+         _ui = super.ui([_ui]);
+
+         delete _ui.type;
+
+         return _ui;
+      }
+
+      async init(AB) {
+         await super.init(AB);
+
+         const ids = this.ids;
+         const $tab = $$(ids.tab);
+         const ab = this.AB;
+         const abWebix = ab.Webix;
+
+         if ($tab) abWebix.extend($tab, abWebix.ProgressBar);
+
+         const baseView = this.view;
+         const viewComponents = this.viewComponents;
+
+         viewComponents.forEach((vc) => {
+            // vc.component.init(AB);
+
+            // Trigger 'changePage' event to parent
+            this.eventAdd({
+               emitter: vc.view,
+               eventName: "changePage",
+               listener: (...p) => this.changePage(...p),
+            });
+         });
+
+         // Trigger 'changeTab' event to parent
+         this.eventAdd({
+            emitter: baseView,
+            eventName: "changeTab",
+            listener: (...p) => this.changeTab(...p),
+         });
+
+         // initialize the sidebar and figure out if it should be collased or not
+         const $sidebar = $$(ids.sidebar);
+
+         if (!$sidebar) return;
+
+         const state = await ab.Storage.get(`${ids.tab}-state`);
+
+         if (!state) return;
+
+         // create a menu item for the collapse option to use later
+         const collapseMenu = {
+            id: ids.collapseMenu,
+            value: this.label("Collapse Menu"),
+            icon: "chevron-circle-left",
+         };
+
+         // create a menu item from the expand option to use later
+         const expandMenu = {
+            id: ids.expandMenu,
+            value: this.label("Expand Menu"),
+            icon: "chevron-circle-right",
+            hidden: true,
+         };
+
+         // this will collapse or expand the sidebar
+         $sidebar.setState(state);
+
+         const checkCollapseMenu = $sidebar.getItem(ids.collapseMenu) ?? null;
+         const checkExpandMenu = $sidebar.getItem(ids.expandMenu) ?? null;
+
+         // if the state is collapsed we need to make sure the expand option is available
+         if (state.collapsed) {
+            if (checkCollapseMenu && checkExpandMenu)
+               // $sidebar.remove(ids.collapseMenu);
+               $sidebar.add(expandMenu);
+         } else if (checkCollapseMenu && checkExpandMenu)
+            // $sidebar.remove(ids.collapseMenu);
+            $sidebar.add(collapseMenu);
+      }
+
+      changePage(pageId) {
+         const $tab = $$(this.ids.tab);
+
+         $tab?.blockEvent();
+         this.view.changePage(pageId);
+         $tab?.unblockEvent();
+      }
+
+      changeTab(tabViewId) {
+         const baseView = this.view;
+         const $tabViewId = $$(tabViewId);
+
+         // switch tab view
+         this.toggleParent(baseView.parent);
+
+         if (this.settings.stackTabs)
+            if (!$tabViewId.isVisible()) {
+               const showIt = setInterval(() => {
+                  if ($tabViewId.isVisible()) clearInterval(showIt);
+
+                  $tabViewId.show(false, false);
+               }, 200);
+            } else $$(this.ids.tab).setValue(tabViewId);
+      }
+
+      toggleParent(view) {
+         const $viewID = $$(view.id);
+
+         if (view.key === "tab" || view.key === "viewcontainer") {
+            $viewID?.show(false, false);
+         }
+         if (view.parent) {
+            this.toggleParent(view.parent);
+         }
+      }
+
+      onShow(viewId) {
+         const ids = this.ids;
+
+         let defaultViewIsSet = false;
+
+         const $sidebar = $$(ids.sidebar);
+
+         // if no viewId is given, then try to get the currently selected ID
+         if (!viewId && $sidebar)
+            viewId = $sidebar.getSelectedId().replace("_menu", "");
+
+         const baseView = this.view;
+         const viewComponents = this.viewComponents;
+
+         viewComponents.forEach((vc) => {
+            // set default view id
+            const currView = baseView.views((view) => {
+               return view.id === vc.view.id;
+            });
+
+            let accessLevel = 0;
+
+            if (currView.length) accessLevel = currView[0].getUserAccess();
+
+            // choose the 1st View if we don't have one we are looking for.
+            if (!viewId && !defaultViewIsSet && accessLevel > 0) {
+               viewId = vc.view.id;
+
+               defaultViewIsSet = true;
+            }
+
+            // create view's component once
+            const $tab = $$(ids.tab);
+            const settings = this.settings;
+
+            if (!vc?.component && vc?.view?.id === viewId) {
+               // show loading cursor
+               if ($tab?.showProgress) $tab.showProgress({ type: "icon" });
+
+               vc.component = vc.view.component();
+
+               const $viewID = $$(vc.view.id);
+               const ab = this.AB;
+               const abWebix = ab.Webix;
+
+               if (settings.stackTabs) {
+                  // update multiview UI
+                  abWebix.ui(
+                     {
+                        // able to 'scroll' in tab view
+                        id: vc.view.id,
+                        view: "scrollview",
+                        css: "ab-multiview-scrollview",
+                        body: vc.component.ui(),
+                     },
+                     $viewID
+                  );
+               } else {
+                  // update tab UI
+                  abWebix.ui(
+                     {
+                        // able to 'scroll' in tab view
+                        id: vc.view.id,
+                        view: "scrollview",
+                        css: "ab-tabview-scrollview",
+                        body: vc.component.ui(),
+                     },
+                     $viewID
+                  );
+               }
+
+               // for tabs we need to look at the view's accessLevels
+               accessLevel = vc.view.getUserAccess();
+
+               vc.component.init(ab, accessLevel);
+
+               // done
+               setTimeout(() => {
+                  // $$(v.view.id).adjust();
+
+                  $tab?.hideProgress?.();
+                  // check if tab has a hint
+                  // if (vc?.view?.settings?.hintID) {
+                  //    // fetch the steps for the hint
+                  //    let hint = ab.hintID(vc.view.settings.hintID);
+                  //    hint.createHintUI();
+                  // }
+               }, 10);
+            }
+
+            // show UI
+            if (vc?.view?.id === viewId && vc?.component?.onShow)
+               vc.component.onShow();
+
+            if (settings.stackTabs && vc?.view?.id === viewId) {
+               $$(viewId)?.show(false, false);
+               $sidebar?.select(`${viewId}_menu`);
+            }
+         });
+      }
+   };
+}
+
+
+/***/ }),
+
 /***/ 41260:
 /*!******************************************************!*\
   !*** ./AppBuilder/platform/process/ABProcessLane.js ***!
@@ -59627,45 +60503,6 @@ module.exports = class ABViewLayout extends ABViewLayoutCore {
 
 /***/ }),
 
-/***/ 47363:
-/*!*************************************************!*\
-  !*** ./AppBuilder/platform/views/ABViewList.js ***!
-  \*************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-const ABViewListCore = __webpack_require__(/*! ../../core/views/ABViewListCore */ 95148);
-const ABViewListComponent = __webpack_require__(/*! ./viewComponent/ABViewListComponent */ 32795);
-
-let L = (...params) => AB.Multilingual.label(...params);
-
-module.exports = class ABViewList extends ABViewListCore {
-   // constructor(values, application, parent, defaultValues) {
-   //    super(values, application, parent, defaultValues);
-   // }
-
-   /**
-    * @method component()
-    * return a UI component based upon this view.
-    * @return {obj} UI component
-    */
-   component() {
-      return new ABViewListComponent(this);
-   }
-
-   warningsEval() {
-      super.warningsEval();
-      let DC = this.datacollection;
-      if (!DC) {
-         this.warningsMessage(
-            `can't resolve it's datacollection[${this.settings.dataviewID}]`
-         );
-      }
-   }
-};
-
-
-/***/ }),
-
 /***/ 46672:
 /*!*************************************************!*\
   !*** ./AppBuilder/platform/views/ABViewMenu.js ***!
@@ -59882,63 +60719,6 @@ module.exports = class ABViewScheduler extends ABViewSchedulerCore {
 
    warningsEval() {
       super.warningsEval();
-   }
-};
-
-
-/***/ }),
-
-/***/ 7976:
-/*!************************************************!*\
-  !*** ./AppBuilder/platform/views/ABViewTab.js ***!
-  \************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-const ABViewTabCore = __webpack_require__(/*! ../../core/views/ABViewTabCore */ 28115);
-
-const ABViewTabComponent = __webpack_require__(/*! ./viewComponent/ABViewTabComponent */ 22008);
-
-module.exports = class ABViewTab extends ABViewTabCore {
-   /**
-    * @method component()
-    * return a UI component based upon this view.
-    * @param {obj} App
-    * @return {obj} UI component
-    */
-   component(v1App = false) {
-      let component = new ABViewTabComponent(this);
-
-      // if this is our v1Interface
-      if (v1App) {
-         const newComponent = component;
-
-         component = {
-            ui: newComponent.ui(),
-            init: (options, accessLevel) => {
-               return newComponent.init(this.AB);
-            },
-            onShow: (...params) => {
-               return newComponent.onShow?.(...params);
-            },
-         };
-      }
-
-      return component;
-   }
-
-   warningsEval() {
-      super.warningsEval();
-
-      let allViews = this.views();
-
-      if (allViews.length == 0) {
-         this.warningsMessage("has no tabs set");
-      }
-
-      // NOTE: this is done in ABView:
-      // (this.views() || []).forEach((v) => {
-      //    v.warningsEval();
-      // });
    }
 };
 
@@ -73163,68 +73943,6 @@ module.exports = class ABViewLayoutComponent extends ABViewComponent {
 
 /***/ }),
 
-/***/ 32795:
-/*!************************************************************************!*\
-  !*** ./AppBuilder/platform/views/viewComponent/ABViewListComponent.js ***!
-  \************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-const ABViewComponent = (__webpack_require__(/*! ./ABViewComponent */ 23687)["default"]);
-
-module.exports = class ABViewListComponent extends ABViewComponent {
-   constructor(baseView, idBase, ids) {
-      super(
-         baseView,
-         idBase || `ABViewList_${baseView.id}`,
-         Object.assign({ list: "" }, ids)
-      );
-   }
-
-   ui() {
-      const settings = this.settings;
-      const _uiList = {
-         id: this.ids.list,
-         view: "dataview",
-         type: {
-            width: 1000,
-            height: 30,
-         },
-         template: (item) => {
-            const field = this.view.field();
-
-            if (!field) return "";
-
-            return field.format(item);
-         },
-      };
-
-      // set height or autoHeight
-      if (settings.height !== 0) _uiList.height = settings.height;
-      else _uiList.autoHeight = true;
-
-      const _ui = super.ui([_uiList]);
-
-      delete _ui.type;
-
-      return _ui;
-   }
-
-   async init(AB) {
-      await super.init(AB);
-
-      const dc = this.datacollection;
-
-      if (!dc) return;
-
-      // bind dc to component
-      dc.bind($$(this.ids.list));
-      // $$(ids.list).sync(dv);
-   }
-};
-
-
-/***/ }),
-
 /***/ 75210:
 /*!************************************************************************!*\
   !*** ./AppBuilder/platform/views/viewComponent/ABViewMenuComponent.js ***!
@@ -75701,593 +76419,6 @@ module.exports = class ABViewSchedulerComponent extends ABViewComponent {
 
          $component.reconstruct();
       }
-   }
-};
-
-
-/***/ }),
-
-/***/ 22008:
-/*!***********************************************************************!*\
-  !*** ./AppBuilder/platform/views/viewComponent/ABViewTabComponent.js ***!
-  \***********************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-const ABViewComponent = (__webpack_require__(/*! ./ABViewComponent */ 23687)["default"]);
-
-module.exports = class ABViewTabComponent extends ABViewComponent {
-   constructor(baseView, idBase, ids) {
-      super(
-         baseView,
-         idBase || `ABViewTab_${baseView.id}`,
-         Object.assign(
-            {
-               tab: "",
-
-               sidebar: "",
-               expandMenu: "",
-               collapseMenu: "",
-
-               popupTabManager: "",
-               popupTabManagerForm: "",
-               popupTabManagerSaveButton: "",
-            },
-            ids
-         )
-      );
-
-      this.viewComponents =
-         this.viewComponents ||
-         baseView
-            .views((v) => v.getUserAccess())
-            .map((v) => {
-               return {
-                  view: v,
-                  // component: v.component(App)
-               };
-            });
-   }
-
-   ui() {
-      const ids = this.ids;
-      const baseView = this.view;
-      const ab = this.AB;
-      const abWebix = ab.Webix;
-
-      let _ui = null;
-
-      // We are going to make a custom icon using the first letter of a menu item for menu items that don't have an icon
-      // to do this we need to modify the default template with the method webix recommended form this snippet https://snippet.webix.com/b566d9f8
-      abWebix.type(abWebix.ui.tree, {
-         baseType: "sideBar", // inherit everything else from sidebar type
-         name: "customIcons",
-         icon: (obj, common) => {
-            if (obj.icon.length)
-               return [
-                  "<span class='webix_icon webix_sidebar_icon fa fa-fw fa-",
-                  obj.icon,
-                  "'></span>",
-               ].join("");
-
-            return [
-               "<span class='webix_icon webix_sidebar_icon sidebarCustomIcon'>",
-               obj.value.charAt(0).toUpperCase(),
-               "</span>",
-            ].join("");
-         },
-      });
-
-      const viewComponents = this.viewComponents;
-      const settings = this.settings;
-
-      if (viewComponents.length > 0) {
-         if (settings.stackTabs) {
-            // define your menu items from the view components
-            const menuItems = viewComponents.map((vc) => {
-               const view = vc.view;
-
-               return {
-                  id: `${view.id}_menu`,
-                  value: view.label,
-                  icon: view.tabicon ? view.tabicon : "",
-               };
-            });
-
-            if (menuItems.length) {
-               // create a menu item for the collapse option to use later
-               const collapseMenu = {
-                  id: ids.collapseMenu,
-                  value: this.label("Collapse Menu"),
-                  icon: "chevron-circle-left",
-               };
-
-               // create a menu item from the expand option to use later
-               const expandMenu = {
-                  id: ids.expandMenu,
-                  value: this.label("Expand Menu"),
-                  icon: "chevron-circle-right",
-                  hidden: true,
-               };
-
-               // find out what the first option is so we can set it later
-               let selectedItem = `${viewComponents[0].view.id}_menu`;
-
-               const abStorage = ab.Storage;
-               const sidebar = {
-                  view: "sidebar",
-                  type: "customIcons", // define the sidebar type with the new template created above
-                  id: ids.sidebar,
-                  height: settings.height,
-                  width: settings.sidebarWidth ? settings.sidebarWidth : 0,
-                  scroll: true,
-                  position: settings.sidebarPos ? settings.sidebarPos : "left",
-                  css: settings.darkTheme ? "webix_dark" : "",
-                  data: menuItems.concat(collapseMenu), // add you menu items along with the collapse option to start
-                  on: {
-                     onItemClick: (id) => {
-                        // when a menu item is clicked
-                        if (id === ids.collapseMenu) {
-                           // if it was the collapse menu item
-                           setTimeout(() => {
-                              const $sidebar = $$(ids.sidebar);
-
-                              // remove the collapse option from the menu
-                              $sidebar.remove(ids.collapseMenu);
-                              // add the expand option to the menu
-                              $sidebar.add(expandMenu);
-                              // toggle the sidebar state
-                              $sidebar.toggle();
-                              // we just clicked the collapse...but we don't wanted highlighted
-                              // so highlight the previously selected menu item
-                              $sidebar.select(selectedItem);
-                              // store this state in local storage the user preference is
-                              // remembered next time they see this sidebar
-                              abStorage.set(
-                                 `${ids.tab}-state`,
-                                 $sidebar.getState()
-                              );
-                           }, 0);
-                        } else if (id === ids.expandMenu) {
-                           setTimeout(() => {
-                              const $sidebar = $$(ids.sidebar);
-
-                              // remove the expand option from the menu
-                              $sidebar.remove(ids.expandMenu);
-                              // add the collapse option to the menu
-                              $sidebar.add(collapseMenu);
-                              // toggle the sidebar state
-                              $sidebar.toggle();
-                              // we just clicked the collapse...but we don't wanted highlighted
-                              // so highlight the previously selected menu item
-                              $sidebar.select(selectedItem);
-                              // store this state in local storage the user preference is
-                              // remembered next time they see this sidebar
-                              abStorage.set(
-                                 `${ids.tab}-state`,
-                                 $sidebar.getState()
-                              );
-                           }, 0);
-                        } else {
-                           // store the selecte menu item just in case someone toggles the menu later
-                           selectedItem = id;
-                           // if the menu item is a regular menu item
-                           // call the onShow with the view id to load the view
-
-                           id = id.replace("_menu", "");
-                           let node = $$(id);
-                           if (node) {
-                              node.show(false, false);
-                           } else {
-                              // How often does this occure?
-                              let msg = `ABViewTabComponent[${this.name}][${this.id}] could not resolve UI panel for provided menu [${selectedItem}].`;
-                              this.AB.notify("developer", msg, {});
-                           }
-                           // $$(id).show(false, false);
-
-                           // onShow(id);
-                        }
-                     },
-                     onSelectChange: () => {
-                        addDataCy();
-                     },
-                     onAfterRender: () => {
-                        addDataCy();
-                     },
-                  },
-               };
-
-               const multiview = {
-                  view: "multiview",
-                  id: ids.tab,
-                  keepViews: true,
-                  minWidth: settings.minWidth,
-                  cells: viewComponents.map((view) => {
-                     const tabUi = {
-                        id: view.view.id,
-                        // ui will be loaded when its tab is opened
-                        view: "layout",
-                        rows: [],
-                     };
-
-                     return tabUi;
-                  }),
-                  on: {
-                     onViewChange: (prevId, nextId) => {
-                        this.onShow(nextId);
-                     },
-                  },
-               };
-
-               const addDataCy = function () {
-                  const $sidebar = $$(ids.sidebar);
-
-                  // set ids of controller buttons
-                  const collapseNode = $sidebar?.$view.querySelector(
-                     `[webix_tm_id="${ids.collapseMenu}"]`
-                  );
-
-                  if (collapseNode)
-                     collapseNode.setAttribute(
-                        "data-cy",
-                        `tab-collapseMenu-${ids.collapseMenu}`
-                     );
-
-                  const expandNode = $sidebar?.$view.querySelector(
-                     `[webix_tm_id="${ids.expandMenu}"]`
-                  );
-
-                  if (expandNode)
-                     expandNode.setAttribute(
-                        "data-cy",
-                        `tab-expandMenu-${ids.expandMenu}`
-                     );
-
-                  baseView.views((view) => {
-                     const node = $sidebar?.$view?.querySelector(
-                        `[webix_tm_id="${view.id}_menu"]`
-                     );
-
-                     if (!node) {
-                        return;
-                     }
-
-                     node.setAttribute(
-                        "data-cy",
-                        `tab-${view.name.replace(" ", "")}-${view.id}-${
-                           baseView.id
-                        }`
-                     );
-                  });
-               };
-
-               let columns = [sidebar, multiview];
-
-               if (settings.sidebarPos === "right") {
-                  columns = [multiview, sidebar];
-               }
-
-               _ui = {
-                  cols: columns,
-               };
-            } else
-               _ui = {
-                  view: "spacer",
-               };
-         } else {
-            const cells = baseView
-               .views((view) => {
-                  const accessLevel = view.getUserAccess();
-
-                  if (accessLevel > 0) {
-                     return view;
-                  }
-               })
-               .map((view) => {
-                  const tabUi = {
-                     id: view.id,
-                     // ui will be loaded when its tab is opened
-                     view: "layout",
-                     rows: [],
-                  };
-
-                  let tabTemplate = "";
-
-                  // tab icon
-                  if (view.tabicon) {
-                     if (settings.iconOnTop)
-                        tabTemplate = [
-                           "<div class='ab-tabIconContainer'><span class='fa fa-lg fa-fw fa-",
-                           view.tabicon,
-                           "'></span><br/>",
-                           view.label,
-                           "</div>",
-                        ].join("");
-                     else
-                        tabTemplate = [
-                           "<span class='fa fa-lg fa-fw fa-",
-                           view.tabicon,
-                           "'></span> ",
-                           view.label,
-                        ].join("");
-                  }
-
-                  // no icon
-                  else tabTemplate = view.label;
-
-                  return {
-                     header: tabTemplate,
-                     body: tabUi,
-                  };
-               });
-
-            // if there are cells to display then return a tabview
-            if (cells.length) {
-               _ui = {
-                  rows: [
-                     {
-                        view: "tabview",
-                        id: ids.tab,
-                        minWidth: settings.minWidth,
-                        height: settings.height,
-                        tabbar: {
-                           height: 60,
-                           type: "bottom",
-                           css: settings.darkTheme ? "webix_dark" : "",
-                           on: {
-                              onAfterRender: () => {
-                                 baseView.views((view) => {
-                                    const node = $$(
-                                       ids.tab
-                                    )?.$view?.querySelector(
-                                       `[button_id="${view.id}"]`
-                                    );
-
-                                    if (!node) return;
-
-                                    node.setAttribute(
-                                       "data-cy",
-                                       `tab ${view.name} ${view.id} ${baseView.id}`
-                                    );
-                                 });
-                              },
-                           },
-                        },
-                        multiview: {
-                           on: {
-                              onViewChange: (prevId, nextId) => {
-                                 this.onShow(nextId);
-                              },
-                           },
-                        },
-                        cells: cells,
-                     },
-                  ],
-               };
-            }
-            // else we return a spacer
-            else
-               _ui = {
-                  view: "spacer",
-               };
-         }
-      } else
-         _ui = {
-            view: "spacer",
-         };
-
-      _ui = super.ui([_ui]);
-
-      delete _ui.type;
-
-      return _ui;
-   }
-
-   async init(AB) {
-      await super.init(AB);
-
-      const ids = this.ids;
-      const $tab = $$(ids.tab);
-      const ab = this.AB;
-      const abWebix = ab.Webix;
-
-      if ($tab) abWebix.extend($tab, abWebix.ProgressBar);
-
-      const baseView = this.view;
-      const viewComponents = this.viewComponents;
-
-      viewComponents.forEach((vc) => {
-         // vc.component.init(AB);
-
-         // Trigger 'changePage' event to parent
-         this.eventAdd({
-            emitter: vc.view,
-            eventName: "changePage",
-            listener: (...p) => this.changePage(...p),
-         });
-      });
-
-      // Trigger 'changeTab' event to parent
-      this.eventAdd({
-         emitter: baseView,
-         eventName: "changeTab",
-         listener: (...p) => this.changeTab(...p),
-      });
-
-      // initialize the sidebar and figure out if it should be collased or not
-      const $sidebar = $$(ids.sidebar);
-
-      if (!$sidebar) return;
-
-      const state = await ab.Storage.get(`${ids.tab}-state`);
-
-      if (!state) return;
-
-      // create a menu item for the collapse option to use later
-      const collapseMenu = {
-         id: ids.collapseMenu,
-         value: this.label("Collapse Menu"),
-         icon: "chevron-circle-left",
-      };
-
-      // create a menu item from the expand option to use later
-      const expandMenu = {
-         id: ids.expandMenu,
-         value: this.label("Expand Menu"),
-         icon: "chevron-circle-right",
-         hidden: true,
-      };
-
-      // this will collapse or expand the sidebar
-      $sidebar.setState(state);
-
-      const checkCollapseMenu = $sidebar.getItem(ids.collapseMenu) ?? null;
-      const checkExpandMenu = $sidebar.getItem(ids.expandMenu) ?? null;
-
-      // if the state is collapsed we need to make sure the expand option is available
-      if (state.collapsed) {
-         if (checkCollapseMenu && checkExpandMenu)
-            // $sidebar.remove(ids.collapseMenu);
-            $sidebar.add(expandMenu);
-      } else if (checkCollapseMenu && checkExpandMenu)
-         // $sidebar.remove(ids.collapseMenu);
-         $sidebar.add(collapseMenu);
-   }
-
-   changePage(pageId) {
-      const $tab = $$(this.ids.tab);
-
-      $tab?.blockEvent();
-      this.view.changePage(pageId);
-      $tab?.unblockEvent();
-   }
-
-   changeTab(tabViewId) {
-      const baseView = this.view;
-      const $tabViewId = $$(tabViewId);
-
-      // switch tab view
-      this.toggleParent(baseView.parent);
-
-      if (this.settings.stackTabs)
-         if (!$tabViewId.isVisible()) {
-            const showIt = setInterval(() => {
-               if ($tabViewId.isVisible()) clearInterval(showIt);
-
-               $tabViewId.show(false, false);
-            }, 200);
-         } else $$(this.ids.tab).setValue(tabViewId);
-   }
-
-   toggleParent(view) {
-      const $viewID = $$(view.id);
-
-      if (view.key === "tab" || view.key === "viewcontainer") {
-         $viewID?.show(false, false);
-      }
-      if (view.parent) {
-         this.toggleParent(view.parent);
-      }
-   }
-
-   onShow(viewId) {
-      const ids = this.ids;
-
-      let defaultViewIsSet = false;
-
-      const $sidebar = $$(ids.sidebar);
-
-      // if no viewId is given, then try to get the currently selected ID
-      if (!viewId && $sidebar)
-         viewId = $sidebar.getSelectedId().replace("_menu", "");
-
-      const baseView = this.view;
-      const viewComponents = this.viewComponents;
-
-      viewComponents.forEach((vc) => {
-         // set default view id
-         const currView = baseView.views((view) => {
-            return view.id === vc.view.id;
-         });
-
-         let accessLevel = 0;
-
-         if (currView.length) accessLevel = currView[0].getUserAccess();
-
-         // choose the 1st View if we don't have one we are looking for.
-         if (!viewId && !defaultViewIsSet && accessLevel > 0) {
-            viewId = vc.view.id;
-
-            defaultViewIsSet = true;
-         }
-
-         // create view's component once
-         const $tab = $$(ids.tab);
-         const settings = this.settings;
-
-         if (!vc?.component && vc?.view?.id === viewId) {
-            // show loading cursor
-            if ($tab?.showProgress) $tab.showProgress({ type: "icon" });
-
-            vc.component = vc.view.component();
-
-            const $viewID = $$(vc.view.id);
-            const ab = this.AB;
-            const abWebix = ab.Webix;
-
-            if (settings.stackTabs) {
-               // update multiview UI
-               abWebix.ui(
-                  {
-                     // able to 'scroll' in tab view
-                     id: vc.view.id,
-                     view: "scrollview",
-                     css: "ab-multiview-scrollview",
-                     body: vc.component.ui(),
-                  },
-                  $viewID
-               );
-            } else {
-               // update tab UI
-               abWebix.ui(
-                  {
-                     // able to 'scroll' in tab view
-                     id: vc.view.id,
-                     view: "scrollview",
-                     css: "ab-tabview-scrollview",
-                     body: vc.component.ui(),
-                  },
-                  $viewID
-               );
-            }
-
-            // for tabs we need to look at the view's accessLevels
-            accessLevel = vc.view.getUserAccess();
-
-            vc.component.init(ab, accessLevel);
-
-            // done
-            setTimeout(() => {
-               // $$(v.view.id).adjust();
-
-               $tab?.hideProgress?.();
-               // check if tab has a hint
-               // if (vc?.view?.settings?.hintID) {
-               //    // fetch the steps for the hint
-               //    let hint = ab.hintID(vc.view.settings.hintID);
-               //    hint.createHintUI();
-               // }
-            }, 10);
-         }
-
-         // show UI
-         if (vc?.view?.id === viewId && vc?.component?.onShow)
-            vc.component.onShow();
-
-         if (settings.stackTabs && vc?.view?.id === viewId) {
-            $$(viewId)?.show(false, false);
-            $sidebar?.select(`${viewId}_menu`);
-         }
-      });
    }
 };
 
@@ -87552,4 +87683,4 @@ module.exports = class ABCustomEditList {
 /***/ })
 
 }]);
-//# sourceMappingURL=AB.d607aaf6527e47ecd1ac.js.map
+//# sourceMappingURL=AB.5bad2a775689484e4940.js.map
