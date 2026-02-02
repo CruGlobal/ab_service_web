@@ -68653,6 +68653,845 @@ module.exports = Labels;
 
 /***/ }),
 
+/***/ "./src/plugins/index.js":
+/*!******************************!*\
+  !*** ./src/plugins/index.js ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _web_view_list_FNAbviewlist_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./web_view_list/FNAbviewlist.js */ "./src/plugins/web_view_list/FNAbviewlist.js");
+/* harmony import */ var _web_view_tab_FNAbviewtab_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./web_view_tab/FNAbviewtab.js */ "./src/plugins/web_view_tab/FNAbviewtab.js");
+/* harmony import */ var _web_view_tab_FNAbviewtabEditor_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./web_view_tab/FNAbviewtabEditor.js */ "./src/plugins/web_view_tab/FNAbviewtabEditor.js");
+
+
+
+
+const AllPlugins = [_web_view_tab_FNAbviewtab_js__WEBPACK_IMPORTED_MODULE_1__["default"], _web_view_tab_FNAbviewtabEditor_js__WEBPACK_IMPORTED_MODULE_2__["default"], _web_view_list_FNAbviewlist_js__WEBPACK_IMPORTED_MODULE_0__["default"]];
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+   load: (AB) => {
+      AllPlugins.forEach((plugin) => {
+         AB.pluginRegister(plugin);
+      });
+   },
+});
+
+
+/***/ }),
+
+/***/ "./src/plugins/web_view_list/FNAbviewlist.js":
+/*!***************************************************!*\
+  !*** ./src/plugins/web_view_list/FNAbviewlist.js ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FNAbviewlistProperties)
+/* harmony export */ });
+// FNAbviewlist Properties
+// A properties side import for an ABView.
+//
+function FNAbviewlistProperties({
+   AB,
+   ABViewPropertiesPlugin,
+   // ABUIPlugin,
+}) {
+   const BASE_ID = "properties_abview_list";
+
+   const uiConfig = AB.UISettings.config();
+   const L = AB.Label();
+
+   return class ABAbviewlistProperties extends ABViewPropertiesPlugin {
+      static getPluginKey() {
+         return this.key;
+      }
+
+      static getPluginType() {
+         return "properties-view";
+         // properties-view : will display in the properties panel of the ABDesigner
+      }
+
+      constructor() {
+         super(BASE_ID, {
+            datacollection: "",
+            field: "",
+            height: "",
+         });
+         this.AB = AB;
+      }
+
+      static get key() {
+         return "list";
+      }
+
+      ui() {
+         // const defaultValues = this.defaultValues();
+         const ids = this.ids;
+
+         return super.ui([
+            {
+               id: ids.datacollection,
+               name: "dataviewID",
+               view: "richselect",
+               label: L("Data Source"),
+               labelWidth: uiConfig.labelWidthLarge,
+               on: {
+                  onChange: (dcId, oldDcId) => {
+                     if (dcId == oldDcId) return;
+
+                     // Update field options in property
+                     this.propertyUpdateFieldOptions(dcId);
+                     this.onChange();
+                  },
+               },
+            },
+            {
+               id: ids.field,
+               name: "field",
+               view: "richselect",
+               label: L("Field"),
+               labelWidth: uiConfig.labelWidthLarge,
+               on: {
+                  onChange: () => {
+                     this.onChange();
+                  },
+               },
+            },
+            {
+               id: ids.height,
+               view: "counter",
+               name: "height",
+               label: L("Height:"),
+               labelWidth: uiConfig.labelWidthLarge,
+               on: {
+                  onChange: () => {
+                     this.onChange();
+                  },
+               },
+            },
+         ]);
+      }
+
+      async init(AB) {
+         this.AB = AB;
+
+         await super.init(AB);
+      }
+
+      /**
+       * @method propertyUpdateFieldOptions
+       * Populate fields of object to select list in property
+       * @param {string} dvId - id of ABDatacollection
+       */
+      propertyUpdateFieldOptions(dvId) {
+         var datacollection = this.AB.datacollectionByID(dvId);
+         var object = datacollection ? datacollection.datasource : null;
+
+         // Pull field list
+         var fieldOptions = [];
+         if (object != null) {
+            fieldOptions = object.fields().map((f) => {
+               return {
+                  id: f.id,
+                  value: f.label,
+               };
+            });
+         }
+
+         const ids = this.ids;
+         $$(ids.field).define("options", fieldOptions);
+         $$(ids.field).refresh();
+      }
+
+      populate(view) {
+         super.populate(view);
+
+         const ids = this.ids;
+
+         var dcID = view.settings.dataviewID ? view.settings.dataviewID : null;
+         var $dc = $$(ids.datacollection);
+
+         // Pull data collections to options
+         var dcOptions = view.application.datacollectionsIncluded().map((d) => {
+            return {
+               id: d.id,
+               value: d.label,
+               icon:
+                  d.sourceType == "query" ? "fa fa-filter" : "fa fa-database",
+            };
+         });
+         $dc.define("options", dcOptions);
+         $dc.define("value", dcID);
+         $dc.refresh();
+
+         this.propertyUpdateFieldOptions(dcID);
+
+         $$(ids.field).setValue(view.settings.field);
+         $$(ids.height).setValue(view.settings.height);
+      }
+
+      defaultValues() {
+         const ViewClass = this.ViewClass();
+
+         let values = null;
+
+         if (ViewClass) {
+            values = ViewClass.defaultValues();
+         }
+
+         return values;
+      }
+
+      /**
+       * @method values
+       * return the values for this form.
+       * @return {obj}
+       */
+      values() {
+         const ids = this.ids;
+
+         const $component = $$(ids.component);
+
+         const values = super.values();
+
+         values.settings = $component.getValues();
+
+         return values;
+      }
+
+      /**
+       * @method FieldClass()
+       * A method to return the proper ABViewXXX Definition.
+       * NOTE: Must be overwritten by the Child Class
+       */
+      ViewClass() {
+         return super._ViewClass("list");
+      }
+   };
+}
+
+
+/***/ }),
+
+/***/ "./src/plugins/web_view_tab/FNAbviewtab.js":
+/*!*************************************************!*\
+  !*** ./src/plugins/web_view_tab/FNAbviewtab.js ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FNAbviewtabProperties)
+/* harmony export */ });
+/* harmony import */ var _rootPages_Designer_interface_common_ui_tab_form_popup__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../rootPages/Designer/interface_common/ui_tab_form_popup */ "./src/rootPages/Designer/interface_common/ui_tab_form_popup.js");
+// FNAbviewtab Properties
+// A properties side import for an ABView.
+//
+
+
+function FNAbviewtabProperties({
+   AB,
+   ABViewPropertiesPlugin,
+   // ABUIPlugin,
+}) {
+   const BASE_ID = "properties_abview_tab";
+
+   const uiConfig = AB.Config.uiSettings();
+   const L = AB.Label();
+
+   const TabPopup = (0,_rootPages_Designer_interface_common_ui_tab_form_popup__WEBPACK_IMPORTED_MODULE_0__["default"])(AB);
+
+   return class ABAbviewtabProperties extends ABViewPropertiesPlugin {
+      static getPluginKey() {
+         return this.key;
+      }
+
+      static getPluginType() {
+         return "properties-view";
+         // properties-view : will display in the properties panel of the ABDesigner
+      }
+
+      constructor() {
+         super(BASE_ID, {
+            sidebarWidth: "",
+            sidebarPos: "",
+            iconOnTop: "",
+            height: "",
+            minWidth: "",
+            stackTabs: "",
+            darkTheme: "",
+         });
+         this.AB = AB;
+      }
+
+      static get key() {
+         return "tab";
+      }
+
+      ui() {
+         const ids = this.ids;
+
+         return super.ui([
+            {
+               id: ids.height,
+               name: "height",
+               view: "counter",
+               label: L("Height"),
+               on: {
+                  onChange: () => {
+                     this.onChange();
+                  },
+               },
+            },
+            {
+               id: ids.minWidth,
+               view: "counter",
+               name: "minWidth",
+               label: L("Minimum width"),
+               on: {
+                  onChange: () => {
+                     this.onChange();
+                  },
+               },
+            },
+            {
+               id: ids.stackTabs,
+               view: "checkbox",
+               name: "stackTabs",
+               labelRight: L("Stack Tabs Vertically"),
+               labelWidth: uiConfig.labelWidthCheckbox,
+               on: {
+                  onChange: (newValue) => {
+                     if (newValue == 1) {
+                        $$(ids.sidebarWidth).show();
+                        $$(ids.sidebarPos).show();
+                        $$(ids.iconOnTop).hide();
+                     } else {
+                        $$(ids.sidebarWidth).hide();
+                        $$(ids.sidebarPos).hide();
+                        $$(ids.iconOnTop).show();
+                     }
+                     this.onChange();
+                  },
+               },
+            },
+            {
+               id: ids.iconOnTop,
+               view: "checkbox",
+               name: "iconOnTop",
+               labelRight: L("Position icon above text"),
+               labelWidth: uiConfig.labelWidthCheckbox,
+               on: {
+                  onChange: () => {
+                     this.onChange();
+                  },
+               },
+            },
+            {
+               id: ids.darkTheme,
+               view: "checkbox",
+               name: "darkTheme",
+               labelRight: L("Use Dark Theme"),
+               labelWidth: uiConfig.labelWidthCheckbox,
+               on: {
+                  onChange: () => {
+                     this.onChange();
+                  },
+               },
+            },
+            {
+               id: ids.sidebarWidth,
+               view: "counter",
+               name: "sidebarWidth",
+               label: L("Width of Sidebar"),
+               labelWidth: uiConfig.labelWidthXLarge,
+               on: {
+                  onChange: () => {
+                     this.onChange();
+                  },
+               },
+            },
+            {
+               id: ids.sidebarPos,
+               view: "richselect",
+               name: "sidebarPos",
+               label: L("Position of Sidebar"),
+               labelWidth: uiConfig.labelWidthXLarge,
+               options: [
+                  { id: "left", value: L("Left") },
+                  { id: "right", value: L("Right") },
+               ],
+               on: {
+                  onChange: () => {
+                     this.onChange();
+                  },
+               },
+            },
+            // [button] : add tab
+            {
+               view: "button",
+               css: "webix_primary",
+               value: L("Add Tab"),
+               click: () => {
+                  this.CurrentView.tabPopup.show();
+               },
+            },
+         ]);
+      }
+
+      async init(AB) {
+         await super.init(AB);
+
+         const baseView = this.CurrentView;
+
+         if (!baseView.tabPopup) {
+            baseView.tabPopup = new TabPopup(baseView);
+
+            await baseView.tabPopup.init(AB);
+         }
+
+         if (!this.__tabPopupSave) {
+            this.__tabPopupSave = baseView.tabPopup.on("saved", () => {
+               this.onChange();
+            });
+         }
+      }
+
+      populate(view) {
+         super.populate(view);
+
+         const ids = this.ids;
+
+         $$(ids.height).setValue(view.settings.height);
+         $$(ids.minWidth).setValue(view.settings.minWidth);
+         $$(ids.stackTabs).setValue(view.settings.stackTabs);
+         $$(ids.darkTheme).setValue(view.settings.darkTheme);
+         $$(ids.sidebarWidth).setValue(view.settings.sidebarWidth);
+         $$(ids.sidebarPos).setValue(view.settings.sidebarPos);
+         $$(ids.iconOnTop).setValue(view.settings.iconOnTop);
+
+         if (view.settings.stackTabs) {
+            $$(ids.sidebarWidth).show();
+            $$(ids.sidebarPos).show();
+            $$(ids.iconOnTop).hide();
+         } else {
+            $$(ids.sidebarWidth).hide();
+            $$(ids.sidebarPos).hide();
+            $$(ids.iconOnTop).show();
+         }
+      }
+
+      /**
+       * @method values
+       * return the values for this form.
+       * @return {obj}
+       */
+      values() {
+         const values = super.values();
+
+         const ids = this.ids;
+         const $component = $$(ids.component);
+
+         values.settings = $component.getValues();
+
+         return values;
+      }
+
+      /**
+       * @method FieldClass()
+       * A method to return the proper ABViewXXX Definition.
+       * NOTE: Must be overwritten by the Child Class
+       */
+      ViewClass() {
+         return super._ViewClass("tab");
+      }
+   };
+}
+
+
+/***/ }),
+
+/***/ "./src/plugins/web_view_tab/FNAbviewtabEditor.js":
+/*!*******************************************************!*\
+  !*** ./src/plugins/web_view_tab/FNAbviewtabEditor.js ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FNAbviewtabEditor)
+/* harmony export */ });
+/* harmony import */ var _rootPages_Designer_interface_common_ui_tab_form_popup__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../rootPages/Designer/interface_common/ui_tab_form_popup */ "./src/rootPages/Designer/interface_common/ui_tab_form_popup.js");
+// FNAbviewtab Editor
+// An Editor wrapper for the ABView Component.
+// The Editor is displayed in the ABDesigner as a view is worked on.
+// The Editor allows a widget to be moved and placed on the canvas.
+//
+
+
+
+function FNAbviewtabEditor({ AB, ABViewEditorPlugin }) {
+   const BASE_ID = "interface_editor_viewtab";
+
+   const L = AB.Label();
+
+   const TabPopup = (0,_rootPages_Designer_interface_common_ui_tab_form_popup__WEBPACK_IMPORTED_MODULE_0__["default"])(AB);
+
+   return class ABAbviewtabEditor extends ABViewEditorPlugin {
+      /**
+       * @method getPluginKey
+       * return the plugin key for this editor.
+       * @return {string} plugin key
+       */
+      static getPluginKey() {
+         return this.key;
+      }
+
+      /**
+       * @method getPluginType
+       * return the plugin type for this editor.
+       * plugin types are how our ClassManager knows how to store
+       * the plugin.
+       * @return {string} plugin type
+       */
+      static getPluginType() {
+         return "editor-view";
+         // editor-view : will display in the editor panel of the ABDesigner
+      }
+
+      static get key() {
+         return "tab";
+      }
+
+      constructor(view, base = BASE_ID) {
+         // base: {string} unique base id reference
+         super(base, {
+            view: "",
+         });
+
+         this.AB = AB;
+         this.view = view;
+         this.component = this.view.component();
+      }
+
+      ui() {
+         const ids = this.ids;
+         const baseView = this.view;
+         const component = this.component;
+         const componentUI = this.component.ui()?.rows[0];
+
+         if (componentUI.rows) {
+            componentUI.rows[0].id = ids.component;
+            componentUI.rows[0].tabbar = {
+               height: 60,
+               type: "bottom",
+               css: baseView.settings.darkTheme ? "webix_dark" : "",
+               on: {
+                  onItemClick: (id, e) => {
+                     const tabID = $$(ids.component).getValue();
+                     const tab = baseView.views((view) => view.id === tabID)[0];
+                     const currIndex = baseView._views.findIndex(
+                        (view) => view.id === tabID
+                     );
+
+                     // Rename
+                     if (e.target.classList.contains("rename")) {
+                        baseView.tabPopup.show(tab);
+                     }
+                     // Reorder back
+                     else if (e.target.classList.contains("move-back")) {
+                        baseView.viewReorder(tabID, currIndex - 1);
+
+                        // refresh editor view
+                        baseView.emit("properties.updated", baseView);
+                     }
+                     // Reorder next
+                     else if (e.target.classList.contains("move-next")) {
+                        baseView.viewReorder(tabID, currIndex + 1);
+
+                        // refresh editor view
+                        baseView.emit("properties.updated", baseView);
+                     }
+                  },
+               },
+            };
+
+            // Add action buttons
+            for (
+               let i = 0;
+               i < (componentUI.rows[0]?.cells ?? []).length;
+               i++
+            ) {
+               let _cell = componentUI.rows[0].cells[i];
+               // Add 'move back' icon
+               _cell.header = `<i class="fa fa-caret-left move-back ab-tab-back"></i>${componentUI.rows[0]?.cells[i].header}`;
+
+               let currView = baseView.views((v) => v.id == _cell.body.id)[0];
+               if (!currView || (currView.warningsAll() || []).length > 0) {
+                  // Add warnings icon
+                  _cell.header += this.WARNING_ICON;
+               }
+
+               // Add 'edit' icon
+               _cell.header +=
+                  ' <i class="fa fa-pencil-square rename ab-tab-edit"></i>';
+
+               // Add 'move next' icon
+               _cell.header +=
+                  ' <i class="fa fa-caret-right move-next ab-tab-next"></i>';
+            }
+         } else if (componentUI.cols) {
+            // if we detect colums we are using sidebar and need to format the onItemClick event differently
+            let viewIndex = 1;
+            let tabIndex = 0;
+
+            if (baseView.settings.sidebarPos === "right") {
+               // the sidebar is in the second column now so we need to reference it properly
+               viewIndex = 0;
+               tabIndex = 1;
+            }
+
+            componentUI.cols[viewIndex].id = ids.component;
+            componentUI.cols[tabIndex].on = {
+               onItemClick: (id, e) => {
+                  const tabID = id.replace("_menu", "");
+                  const tab = baseView.views((view) => view.id == tabID)[0];
+                  const currIndex = baseView._views.findIndex(
+                     (view) => view.id === tabID
+                  );
+
+                  component.onShow(tabID);
+
+                  // Rename
+                  if (e.target.classList.contains("rename"))
+                     baseView.tabPopup.show(tab);
+                  // Reorder back
+                  else if (e.target.classList.contains("move-back")) {
+                     baseView.viewReorder(tabID, currIndex - 1);
+
+                     // refresh editor view
+                     baseView.emit("properties.updated", baseView);
+                  }
+                  // Reorder next
+                  else if (e.target.classList.contains("move-next")) {
+                     baseView.viewReorder(tabID, currIndex + 1);
+
+                     // refresh editor view
+                     baseView.emit("properties.updated", baseView);
+                  }
+               },
+            };
+
+            // Add action buttons
+            for (
+               let i = 0;
+               i < (componentUI.cols[tabIndex].data ?? []).length;
+               i++
+            ) {
+               // Add 'edit' icon
+               componentUI.cols[tabIndex].data[i].value =
+                  componentUI.cols[tabIndex].data[i].value +
+                  ' <i class="fa fa-pencil rename ab-tab-edit"></i>';
+               // Add 'move up' icon
+               componentUI.cols[tabIndex].data[i].value +=
+                  '<i class="fa fa-caret-up move-back ab-tab-up"></i>';
+               // Add 'move down' icon
+               componentUI.cols[tabIndex].data[i].value +=
+                  ' <i class="fa fa-caret-down move-next ab-tab-down"></i>';
+            }
+         }
+
+         return {
+            _dashboardID: ids.component,
+            rows: [componentUI],
+         };
+      }
+
+      async init(AB) {
+         this.AB = AB;
+
+         const ids = this.ids;
+
+         await this.component.init(this.AB);
+
+         const $component = $$(ids.component);
+
+         if ($component) {
+            const tabID = $component.getValue();
+            const tab = this.view.views((v) => v.id === tabID)[0];
+
+            let warnText = "";
+            if (!tab || (tab.warningsAll() || []).length > 0) {
+               warnText = this.WARNING_ICON;
+            }
+
+            // Add actions buttons - Edit , Delete
+            if ($component.config.view === "tabview") {
+               webix.ui({
+                  container: $component.getMultiview().$view,
+                  view: "template",
+                  autoheight: false,
+                  height: 1,
+                  width: 0,
+                  template: [
+                     '<div class="ab-component-tools ab-layout-view ab-tab-tools">',
+                     '<i class="fa fa-trash ab-component-remove"></i>',
+                     '<i class="fa fa-edit ab-component-edit"></i>',
+                     warnText,
+                     "</div>",
+                  ].join(""),
+                  onClick: {
+                     "ab-component-edit": (e, id, trg) => {
+                        this.tabEdit(e, id, trg);
+                     },
+                     "ab-component-remove": (e, id, trg) => {
+                        this.tabRemove(e, id, trg);
+                     },
+                  },
+               });
+            } else if ($component.config.view === "multiview") {
+               webix.ui({
+                  container: $component.$view,
+                  view: "template",
+                  autoheight: false,
+                  height: 1,
+                  width: 0,
+                  template: [
+                     '<div class="ab-component-tools ab-layout-view ab-tab-tools">',
+                     warnText,
+                     '<i class="fa fa-trash ab-component-remove"></i>',
+                     '<i class="fa fa-edit ab-component-edit"></i>',
+                     "</div>",
+                  ].join(""),
+                  onClick: {
+                     "ab-component-edit": (e) => {
+                        this.tabEdit(e);
+                     },
+                     "ab-component-remove": (e) => {
+                        this.tabRemove(e);
+                     },
+                  },
+               });
+            }
+         }
+
+         const baseView = this.view;
+
+         if (!baseView.tabPopup) {
+            baseView.tabPopup = new TabPopup(baseView);
+            baseView.tabPopup.init(AB);
+         }
+
+         // this.component.onShow();
+         // in our editor, we provide accessLv = 2
+      }
+
+      // templateBlock(tab) {
+      // 	const _template = [
+      // 		'<div class="ab-component-in-page">',
+      // 		'<div id="' + ids.view + '_#objID#" >',
+      // 		'<i class="fa fa-#icon#"></i>',
+      // 		' #label#',
+      // 		'</div>',
+      // 		'</div>'
+      // 	].join('');
+
+      // 	return _template
+      // 		.replace('#objID#', tab.id)
+      // 		.replace('#icon#', tab.icon)
+      // 		.replace('#label#', tab.label);
+      // }
+
+      tabEdit(element) {
+         const tabID = $$(this.ids.component).getValue();
+         const view = this.view.views((view) => view.id == tabID)[0];
+
+         if (!view) return false;
+
+         // NOTE: let webix finish this onClick event, before
+         // calling .populateInterfaceWorkspace() which will replace
+         // the interface elements with the edited view.  (apparently
+         // that causes errors.)
+         setTimeout(() => {
+            try {
+               this.emit("view.edit", view);
+            } catch (err) {
+               console.error(err);
+            }
+         }, 50);
+
+         element.preventDefault();
+
+         return false;
+      }
+
+      tabRemove(element) {
+         const ids = this.ids;
+
+         const $component = $$(ids.component);
+
+         const tabID = $component.getValue();
+         const deletedView = this.view.views((view) => view.id == tabID)[0];
+
+         if (deletedView) {
+            webix.confirm({
+               title: L("Delete tab"),
+               text: L("Do you want to delete <b>{0}</b>?", [
+                  deletedView.label,
+               ]),
+               callback: (result) => {
+                  if (result) {
+                     // this.viewDestroy(deletedView);
+                     deletedView.destroy();
+
+                     const componentUI = this.component.ui();
+
+                     // remove tab option
+                     if (componentUI.rows) $component.removeView(tabID);
+                     else {
+                        let $sidebar = null;
+
+                        for (let i = 0; i < componentUI.cols.length; i++)
+                           if (componentUI.cols[i].view === "sidebar") {
+                              $sidebar = $$(componentUI.cols[i].id);
+
+                              break;
+                           }
+
+                        $sidebar.remove(`${tabID}_menu`);
+                     }
+                  }
+               },
+            });
+         }
+
+         element.preventDefault();
+
+         return false;
+      }
+
+      detatch() {
+         this.component.detatch?.();
+      }
+
+      onShow() {
+         this.component.onShow();
+      }
+   };
+}
+
+
+/***/ }),
+
 /***/ "./src/rootPages/Designer/editors/EditorManager.js":
 /*!*********************************************************!*\
   !*** ./src/rootPages/Designer/editors/EditorManager.js ***!
@@ -72088,14 +72927,14 @@ var PropertyMgr = null;
          __webpack_require__(/*! ./views/ABViewKanban */ "./src/rootPages/Designer/properties/views/ABViewKanban.js"),
          __webpack_require__(/*! ./views/ABViewLabel */ "./src/rootPages/Designer/properties/views/ABViewLabel.js"),
          __webpack_require__(/*! ./views/ABViewLayout */ "./src/rootPages/Designer/properties/views/ABViewLayout.js"),
-         __webpack_require__(/*! ./views/ABViewList */ "./src/rootPages/Designer/properties/views/ABViewList.js"),
+         // require("./views/ABViewList"),
          __webpack_require__(/*! ./views/ABViewMenu */ "./src/rootPages/Designer/properties/views/ABViewMenu.js"),
          __webpack_require__(/*! ./views/ABViewPage */ "./src/rootPages/Designer/properties/views/ABViewPage.js"),
          __webpack_require__(/*! ./views/ABViewPDFImporter */ "./src/rootPages/Designer/properties/views/ABViewPDFImporter.js"),
          __webpack_require__(/*! ./views/ABViewPivot */ "./src/rootPages/Designer/properties/views/ABViewPivot.js"),
          __webpack_require__(/*! ./views/ABViewReportsManager */ "./src/rootPages/Designer/properties/views/ABViewReportsManager.js"),
          __webpack_require__(/*! ./views/ABViewScheduler */ "./src/rootPages/Designer/properties/views/ABViewScheduler.js"),
-         __webpack_require__(/*! ./views/ABViewTab */ "./src/rootPages/Designer/properties/views/ABViewTab.js"),
+         // require("./views/ABViewTab"),
          __webpack_require__(/*! ./views/ABViewText */ "./src/rootPages/Designer/properties/views/ABViewText.js"),
       ].forEach((V) => {
          Views.push(V.default(AB));
@@ -107381,196 +108220,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/rootPages/Designer/properties/views/ABViewList.js":
-/*!***************************************************************!*\
-  !*** ./src/rootPages/Designer/properties/views/ABViewList.js ***!
-  \***************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* export default binding */ __WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _ABView__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABView */ "./src/rootPages/Designer/properties/views/ABView.js");
-/*
- * ABViewList
- * A Property manager for our ABViewList definitions
- */
-
-
-
-/* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__(AB) {
-   const BASE_ID = "properties_abview_list";
-
-   const ABView = (0,_ABView__WEBPACK_IMPORTED_MODULE_0__["default"])(AB);
-   const L = ABView.L();
-   const uiConfig = AB.UISettings.config();
-
-   class ABViewListProperty extends ABView {
-      constructor() {
-         super(BASE_ID, {
-            datacollection: "",
-            field: "",
-            height: "",
-         });
-      }
-
-      static get key() {
-         return "list";
-      }
-
-      ui() {
-         // const defaultValues = this.defaultValues();
-         const ids = this.ids;
-
-         return super.ui([
-            {
-               id: ids.datacollection,
-               name: "dataviewID",
-               view: "richselect",
-               label: L("Data Source"),
-               labelWidth: uiConfig.labelWidthLarge,
-               on: {
-                  onChange: (dcId, oldDcId) => {
-                     if (dcId == oldDcId) return;
-
-                     // Update field options in property
-                     this.propertyUpdateFieldOptions(dcId);
-                     this.onChange();
-                  },
-               },
-            },
-            {
-               id: ids.field,
-               name: "field",
-               view: "richselect",
-               label: L("Field"),
-               labelWidth: uiConfig.labelWidthLarge,
-               on: {
-                  onChange: () => {
-                     this.onChange();
-                  },
-               },
-            },
-            {
-               id: ids.height,
-               view: "counter",
-               name: "height",
-               label: L("Height:"),
-               labelWidth: uiConfig.labelWidthLarge,
-               on: {
-                  onChange: () => {
-                     this.onChange();
-                  },
-               },
-            },
-         ]);
-      }
-
-      async init(AB) {
-         this.AB = AB;
-
-         await super.init(AB);
-      }
-
-      /**
-       * @method propertyUpdateFieldOptions
-       * Populate fields of object to select list in property
-       * @param {string} dvId - id of ABDatacollection
-       */
-      propertyUpdateFieldOptions(dvId) {
-         var datacollection = this.AB.datacollectionByID(dvId);
-         var object = datacollection ? datacollection.datasource : null;
-
-         // Pull field list
-         var fieldOptions = [];
-         if (object != null) {
-            fieldOptions = object.fields().map((f) => {
-               return {
-                  id: f.id,
-                  value: f.label,
-               };
-            });
-         }
-
-         const ids = this.ids;
-         $$(ids.field).define("options", fieldOptions);
-         $$(ids.field).refresh();
-      }
-
-      populate(view) {
-         super.populate(view);
-
-         const ids = this.ids;
-
-         var dcID = view.settings.dataviewID ? view.settings.dataviewID : null;
-         var $dc = $$(ids.datacollection);
-
-         // Pull data collections to options
-         var dcOptions = view.application.datacollectionsIncluded().map((d) => {
-            return {
-               id: d.id,
-               value: d.label,
-               icon:
-                  d.sourceType == "query" ? "fa fa-filter" : "fa fa-database",
-            };
-         });
-         $dc.define("options", dcOptions);
-         $dc.define("value", dcID);
-         $dc.refresh();
-
-         this.propertyUpdateFieldOptions(dcID);
-
-         $$(ids.field).setValue(view.settings.field);
-         $$(ids.height).setValue(view.settings.height);
-      }
-
-      defaultValues() {
-         const ViewClass = this.ViewClass();
-
-         let values = null;
-
-         if (ViewClass) {
-            values = ViewClass.defaultValues();
-         }
-
-         return values;
-      }
-
-      /**
-       * @method values
-       * return the values for this form.
-       * @return {obj}
-       */
-      values() {
-         const ids = this.ids;
-
-         const $component = $$(ids.component);
-
-         const values = super.values();
-
-         values.settings = $component.getValues();
-
-         return values;
-      }
-
-      /**
-       * @method FieldClass()
-       * A method to return the proper ABViewXXX Definition.
-       * NOTE: Must be overwritten by the Child Class
-       */
-      ViewClass() {
-         return super._ViewClass("list");
-      }
-   }
-
-   return ABViewListProperty;
-}
-
-
-/***/ }),
-
 /***/ "./src/rootPages/Designer/properties/views/ABViewMenu.js":
 /*!***************************************************************!*\
   !*** ./src/rootPages/Designer/properties/views/ABViewMenu.js ***!
@@ -110393,238 +111042,6 @@ __webpack_require__.r(__webpack_exports__);
    }
 
    return ABViewSchedulerProperty;
-}
-
-
-/***/ }),
-
-/***/ "./src/rootPages/Designer/properties/views/ABViewTab.js":
-/*!**************************************************************!*\
-  !*** ./src/rootPages/Designer/properties/views/ABViewTab.js ***!
-  \**************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* export default binding */ __WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _ABView__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABView */ "./src/rootPages/Designer/properties/views/ABView.js");
-/* harmony import */ var _interface_common_ui_tab_form_popup__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../interface_common/ui_tab_form_popup */ "./src/rootPages/Designer/interface_common/ui_tab_form_popup.js");
-/*
- * ABViewTab
- * A Property manager for our ABViewTab definitions
- */
-
-
-
-
-/* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__(AB) {
-   const BASE_ID = "properties_abview_tab";
-
-   const ABView = (0,_ABView__WEBPACK_IMPORTED_MODULE_0__["default"])(AB);
-   const uiConfig = AB.Config.uiSettings();
-   const L = ABView.L();
-
-   const TabPopup = (0,_interface_common_ui_tab_form_popup__WEBPACK_IMPORTED_MODULE_1__["default"])(AB);
-
-   class ABViewTabProperty extends ABView {
-      constructor() {
-         super(BASE_ID, {
-            sidebarWidth: "",
-            sidebarPos: "",
-            iconOnTop: "",
-            height: "",
-            minWidth: "",
-            stackTabs: "",
-            darkTheme: "",
-         });
-      }
-
-      static get key() {
-         return "tab";
-      }
-
-      ui() {
-         const ids = this.ids;
-
-         return super.ui([
-            {
-               id: ids.height,
-               name: "height",
-               view: "counter",
-               label: L("Height"),
-               on: {
-                  onChange: () => {
-                     this.onChange();
-                  },
-               },
-            },
-            {
-               id: ids.minWidth,
-               view: "counter",
-               name: "minWidth",
-               label: L("Minimum width"),
-               on: {
-                  onChange: () => {
-                     this.onChange();
-                  },
-               },
-            },
-            {
-               id: ids.stackTabs,
-               view: "checkbox",
-               name: "stackTabs",
-               labelRight: L("Stack Tabs Vertically"),
-               labelWidth: uiConfig.labelWidthCheckbox,
-               on: {
-                  onChange: (newValue) => {
-                     if (newValue == 1) {
-                        $$(ids.sidebarWidth).show();
-                        $$(ids.sidebarPos).show();
-                        $$(ids.iconOnTop).hide();
-                     } else {
-                        $$(ids.sidebarWidth).hide();
-                        $$(ids.sidebarPos).hide();
-                        $$(ids.iconOnTop).show();
-                     }
-                     this.onChange();
-                  },
-               },
-            },
-            {
-               id: ids.iconOnTop,
-               view: "checkbox",
-               name: "iconOnTop",
-               labelRight: L("Position icon above text"),
-               labelWidth: uiConfig.labelWidthCheckbox,
-               on: {
-                  onChange: () => {
-                     this.onChange();
-                  },
-               },
-            },
-            {
-               id: ids.darkTheme,
-               view: "checkbox",
-               name: "darkTheme",
-               labelRight: L("Use Dark Theme"),
-               labelWidth: uiConfig.labelWidthCheckbox,
-               on: {
-                  onChange: () => {
-                     this.onChange();
-                  },
-               },
-            },
-            {
-               id: ids.sidebarWidth,
-               view: "counter",
-               name: "sidebarWidth",
-               label: L("Width of Sidebar"),
-               labelWidth: uiConfig.labelWidthXLarge,
-               on: {
-                  onChange: () => {
-                     this.onChange();
-                  },
-               },
-            },
-            {
-               id: ids.sidebarPos,
-               view: "richselect",
-               name: "sidebarPos",
-               label: L("Position of Sidebar"),
-               labelWidth: uiConfig.labelWidthXLarge,
-               options: [
-                  { id: "left", value: L("Left") },
-                  { id: "right", value: L("Right") },
-               ],
-               on: {
-                  onChange: () => {
-                     this.onChange();
-                  },
-               },
-            },
-            // [button] : add tab
-            {
-               view: "button",
-               css: "webix_primary",
-               value: L("Add Tab"),
-               click: () => {
-                  this.CurrentView.tabPopup.show();
-               },
-            },
-         ]);
-      }
-
-      async init(AB) {
-         await super.init(AB);
-
-         const baseView = this.CurrentView;
-
-         if (!baseView.tabPopup) {
-            baseView.tabPopup = new TabPopup(baseView);
-
-            await baseView.tabPopup.init(AB);
-         }
-
-         if (!this.__tabPopupSave) {
-            this.__tabPopupSave = baseView.tabPopup.on("saved", () => {
-               this.onChange();
-            });
-         }
-      }
-
-      populate(view) {
-         super.populate(view);
-
-         const ids = this.ids;
-
-         $$(ids.height).setValue(view.settings.height);
-         $$(ids.minWidth).setValue(view.settings.minWidth);
-         $$(ids.stackTabs).setValue(view.settings.stackTabs);
-         $$(ids.darkTheme).setValue(view.settings.darkTheme);
-         $$(ids.sidebarWidth).setValue(view.settings.sidebarWidth);
-         $$(ids.sidebarPos).setValue(view.settings.sidebarPos);
-         $$(ids.iconOnTop).setValue(view.settings.iconOnTop);
-
-         if (view.settings.stackTabs) {
-            $$(ids.sidebarWidth).show();
-            $$(ids.sidebarPos).show();
-            $$(ids.iconOnTop).hide();
-         } else {
-            $$(ids.sidebarWidth).hide();
-            $$(ids.sidebarPos).hide();
-            $$(ids.iconOnTop).show();
-         }
-      }
-
-      /**
-       * @method values
-       * return the values for this form.
-       * @return {obj}
-       */
-      values() {
-         const values = super.values();
-
-         const ids = this.ids;
-         const $component = $$(ids.component);
-
-         values.settings = $component.getValues();
-
-         return values;
-      }
-
-      /**
-       * @method FieldClass()
-       * A method to return the proper ABViewXXX Definition.
-       * NOTE: Must be overwritten by the Child Class
-       */
-      ViewClass() {
-         return super._ViewClass("tab");
-      }
-   }
-
-   return ABViewTabProperty;
 }
 
 
@@ -176954,7 +177371,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _src_application_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./src/application.js */ "./src/application.js");
 /* harmony import */ var _src_labels_labels_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./src/labels/labels.js */ "./src/labels/labels.js");
 /* harmony import */ var _src_labels_labels_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_src_labels_labels_js__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _styles_Designer_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./styles/Designer.css */ "./styles/Designer.css");
+/* harmony import */ var _src_plugins_index_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./src/plugins/index.js */ "./src/plugins/index.js");
+/* harmony import */ var _styles_Designer_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./styles/Designer.css */ "./styles/Designer.css");
 /**
  * @fileoverview This file registers the ABDesigner plugin with the global `__AB_Plugins` array.
  * The plugin includes definitions, labels, scripts, and stylesheets required for the ABDesigner functionality.
@@ -176972,6 +177390,7 @@ __webpack_require__.r(__webpack_exports__);
  * @property {function} scripts - Function to return the array of script URLs required by the plugin.
  * @property {function} stylesheets - Function to return the array of stylesheet URLs required by the plugin.
  */
+
 
 
 
@@ -176996,6 +177415,9 @@ window.__AB_Plugins.push({
       // load any custom js or css
       AB.scriptLoadAll(this.scripts());
       AB.cssLoadAll(this.stylesheets());
+
+      // load any included plugins
+      _src_plugins_index_js__WEBPACK_IMPORTED_MODULE_3__["default"].load(AB);
 
       // At this point, the Plugin should already have loaded all it's definitions
       // into the AB Factory
