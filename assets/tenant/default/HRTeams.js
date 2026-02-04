@@ -3176,7 +3176,7 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                            id: self.ids.teamFormSubmit,
                            view: "button",
                            value: self.label("Save"),
-                           disabled: true,
+                           // disabled: true,
                            css: "webix_primary",
                            async click() {
                               let newValue = $$(self.ids.teamForm).getValues();
@@ -7874,7 +7874,7 @@ __webpack_require__.r(__webpack_exports__);
 
 const plugin = {
    /* global VERSION -- injected by webpack define plugin */
-   version: "1.0.9",
+   version: "1.0.10",
    key: "HRTeams",
    apply: function (AB) {
       const ABView = AB.Class.ABViewManager.viewClass("view");
