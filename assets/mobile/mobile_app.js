@@ -35117,7 +35117,7 @@ class ABModel extends _core_ABModelCore__WEBPACK_IMPORTED_MODULE_0__["default"] 
             return;
          }
 
-         if (this.isCsvPacked(data)) {
+         if (this.isCsvPacked && this.isCsvPacked(data)) {
             let lengthPacked = JSON.stringify(data).length;
             data = this.csvUnpack(data);
 
@@ -42365,7 +42365,7 @@ class ABFieldFile extends _core_dataFields_ABFieldFileCore__WEBPACK_IMPORTED_MOD
          `<div class="file-data-field-icon" style="text-align: center; height: inherit; display: table-cell; vertical-align: middle; border: 2px dotted #CCC; background: #FFF; border-radius: 10px; font-size: 11px; line-height: 13px; padding: 0 10px; ${iconDisplay}"><i class="fa fa-file fa-2x" style="opacity: 0.6; font-size: 32px; margin-top: 3px; margin-bottom: 5px;"></i>${
             editable ? `<br/>${L("Drag and drop or click here")}` : ""
          }</div>`,
-         `<div class="file-data-field-name" style=" width:100%; height:100%; position:relative; "><a target="_blank" href="${fileURL}">${
+         `<div class="file-data-field-name" style=" width:100%; height:100%; position:relative; "><a class="external" target="_blank" href="${fileURL}">${
             name || ""
          }</a>${
             editable
@@ -60909,7 +60909,6 @@ class NetworkRestSocket extends _NetworkRest__WEBPACK_IMPORTED_MODULE_0__["defau
                      let model = obj.model();
                      if (ev != "ab.datacollection.delete") {
                         // if data is packed, then unpack it
-                        let model = obj.model();
                         if (model.isCsvPacked(values)) {
                            let lengthPacked = JSON.stringify(data).length;
                            values = model.csvUnpack(values);

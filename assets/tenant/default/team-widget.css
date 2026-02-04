@@ -1,0 +1,594 @@
+@import url("https://fonts.googleapis.com/css2?family=Jomhuria&display=swap");
+
+org-chart .node:hover {
+  background-color: #fff;
+}
+
+org-chart .node.focused {
+  background-color: #fff;
+}
+
+org-chart .node {
+   position: relative;
+   border: 2px dashed transparent;
+   text-align: center;
+   justify-content: center;
+   width: 330px !important;
+   font-family: "Roboto", sans-serif;
+   font-style: normal;
+   font-weight: 400;
+   font-size: 14px;
+   color: #000000;
+}
+
+org-chart .node .spacer {
+   border: none;
+   width: 100%;
+   height: 15px;
+}
+
+org-chart .node .title {
+   position: relative;
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+   background: #ef3340;
+   border-radius: 15px 15px 0px 0px;
+   width: 100%;
+   font-weight: 500;
+   font-size: 18px;
+   color: #ffffff;
+   z-index: 1;
+   height: 40px;
+}
+
+org-chart .node .content {
+   position: relative;
+   top: -15px;
+   width: 100%;
+   min-height: 325px;
+   border-radius: 0 0 15px 15px;
+   display: flex;
+   flex-direction: column;
+   margin: 0 auto;
+   background: #ecebeb;
+   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+org-chart tr.lines .topLine {
+   border-top: 2px solid black;
+}
+
+org-chart tr.lines .rightLine {
+   border-right: 1px solid black;
+   float: none;
+   border-radius: 0;
+}
+
+org-chart tr.lines .leftLine {
+   border-left: 1px solid black;
+   float: none;
+   border-radius: 0;
+}
+
+org-chart tr.lines .downLine {
+   background-color: black;
+   margin: 0 auto;
+   height: 20px;
+   width: 2px;
+   float: none;
+}
+
+.search-dialog-box {
+   border-radius: 15px;
+   padding: 10px 20px;
+}
+
+.search-dialog-box .webix_win_title .webix_template {
+   text-align: left;
+   font-size: 26px;
+   padding: 4px 0px;
+}
+
+.search-dialog-box .webix_list_item {
+   align-content: center;
+}
+
+.team-group-section {
+   width: 100%;
+   padding: 8px;
+}
+
+.team-group-section.responsibility-centre {
+   background-color: #e2edd6;
+   border-bottom: dashed #c6dbaf;
+}
+
+.team-group-section.leader {
+   background-color: #dff2ff;
+   border-bottom: dashed #c8dded;
+}
+
+.team-group-title {
+   font-size: 16px;
+   font-weight: 400;
+   text-align: left;
+   color: #7a7676;
+   margin: 0px 3px 8px 0px;
+}
+
+.team-group-content {
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   gap: 3px;
+}
+
+.team-group-record {
+   height: 55px;
+   padding: 5px;
+   width: 100%;
+   border-width: 1px;
+   border-style: solid;
+   border-radius: 4px;
+   border-color: #ffffffb3;
+   background: #ffffff;
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   font-size: 18px;
+   cursor: move;
+}
+
+.team-group-record:hover {
+   filter: brightness(0.87);
+}
+
+.team-group-record-initials {
+    width: 40px;
+    font-size: 18px;
+    font-weight: 500;
+    height: 40px;
+    background-color: #dadad8;
+    border-radius: 40%;
+    line-height: 40px;
+    margin-right: 5px;
+}
+
+.team-group-record-initials .team-group-record-display {
+   justify-content: center;
+}
+
+.team-group-record-job-title {
+   color: #797979;
+   font-size: 12px !important;
+   font-weight: 400 !important;
+   justify-content: left !important;
+}
+
+.team-group-record-display {
+   display: flex;
+   font-size: 14px;
+   font-weight: 500;
+   flex-direction: row;
+   gap: 10px;
+}
+
+.team-group-record-display > .team-group-record-display:first-child {
+   justify-content: end;
+}
+
+.team-group-record-display > .team-group-record-display:last-child {
+   justify-content: start;
+}
+
+.team-group-record-display img {
+   border-radius: 50%;
+   width: 30px;
+   height: 30px;
+}
+
+.team-group-record-display svg {
+   margin: 0px 3px;
+   width: 12px;
+   height: 12px;
+   padding: 2px 8px;
+   background-color: skyblue;
+   border-radius: 5px;
+   display: inline-block;
+}
+
+/* TODO (Guy): Now we are hardcoding for each display. */
+.team-group-record-display-hardcode {
+   display: flex;
+   flex-direction: row;
+}
+
+.rc-record {
+   position: relative;
+   height: 35px;
+   line-height: 35px;
+   width: 100%;
+   border-radius: 4px;
+   background: #ffffff;
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   font-size: 14px;
+   font-weight: 500;
+   cursor: move;
+}
+
+.rc-record-name {
+   align-items: center;
+   text-align: center;
+   width: 100%;
+}
+
+.display-block {
+   /* display: flex;
+   flex: 0.6;
+   justify-content: center; */
+}
+
+.display-block.display-block-right {
+   height: 33px;
+   display: flex;
+   flex: 0.20;
+   background-color: #036;
+   border-radius: 10px;
+   color: #fff;
+}
+
+.display-block.display-block-right > .team-group-record-display {
+   flex-direction: row;
+   align-items: center;
+   justify-content: center;
+   height: 100%;
+}
+
+.team-button-section {
+   display: flex;
+   flex-direction: row;
+   padding: 3px;
+   gap: 6px;
+   justify-content: flex-end;
+   margin-right: 5px;
+   height: 40px;
+}
+
+.team-button {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 2px;
+   width: 28px;
+   height: 28px;
+   padding: 2px 4px;
+   background: #a7a7a7;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+   font-size: 13px;
+   color: white !important;
+}
+.team-button:hover {
+   background: #807f7f;
+}
+
+.team-chart-toolbar {
+   display: flex;
+   flex-direction: row;
+   align-items: flex-start;
+   padding: 17px 24px;
+   gap: 10px;
+   width: 254px;
+   background: #ffffff;
+   box-shadow: 0px -1px 4px rgba(0, 0, 0, 0.25);
+   border-radius: 20px;
+}
+
+.filter-button {
+   border-radius: 10px;
+   background: #fff;
+   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+   color: #5b5b5b;
+   font-family: Roboto;
+   font-size: 20px;
+   font-style: normal;
+   font-weight: 500;
+   line-height: normal;
+   padding: 7px 15px;
+   position: absolute;
+}
+
+.filter-button:hover {
+   background: #e0e0e0;
+   color: #303030;
+}
+
+.filter-popup {
+   border-radius: 15px;
+   background: #fff;
+   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.active-text {
+   color: #ffffff;
+   font-family: "Jomhuria", sans-serif;
+   height: 6.5px;
+   font-size: 8px;
+   font-weight: 400;
+   text-align: center;
+}
+
+.is-active {
+   background: #4bc90f;
+   cursor: default;
+}
+
+.is-inactive {
+   background: grey;
+   cursor: default;
+}
+
+.team-form-header .webix_el_label {
+   cursor: move !important;
+}
+
+.team-form-button {
+   padding: 3px 10px;
+   text-align: center;
+   font-weight: 400;
+   font-size: 17px;
+   font-family: "Roboto" sans-serif;
+   color: white;
+   background: #1a3e72;
+   border-radius: 10px;
+}
+
+.team-form-button:hover {
+   background: #0e2341;
+}
+
+.team-form-button:disabled {
+   background: #AAA;
+}
+
+.filter-apply > div > button > span {
+   color: #303030 !important;
+}
+
+@keyframes skeleton {
+   0% { background-color: #ddd; }
+   50%   { background-color: #eee; }
+   100% { background-color: #ddd}
+}
+
+/* -- DATA PANEL -- */
+.data-panel-button {
+   /* position: fixed; */
+   right: 8px;
+   /* display: flex; */
+}
+
+.data-panel-button .fa-users {
+   margin-right: 5px;
+}
+
+.data-panel-close {
+   background: #5b5b5b;
+   color: #FFF;
+   border-radius: 5px;
+   padding: 4px 5px;
+   float: right;
+}
+
+.data-panel-close:hover {
+   background: #FFF;
+   color: #5b5b5b;
+   border: 1px solid #5b5b5b;
+}
+
+.data-panel-employee {
+   cursor: move;
+   margin-top: 1px;
+   padding-left: 7px;
+   border-radius: 4px;
+   background-color: #ecebeb;
+   height: 33px;
+   font-family: "Roboto", sans-serif;
+   font-size: 16px;
+   line-height: 33px;
+}
+
+.data-panel-employee:hover {
+   background-color: #dcdcdc;
+}
+
+.data-panel-employee .initials {
+   border-radius: 4px;
+   text-align: center;
+   font-weight: 500;
+   width: 35px;
+   display: inline-block;
+   background-color: #fff;
+   height: 25px;
+   line-height: 25px;
+}
+
+.data-panel-employee-list .webix_list_item {
+   border-bottom: unset;
+   background: transparent;
+   overflow: auto;
+   max-height: 95%;
+}
+
+.data-panel-open {
+   background: #FFF;
+   color: #5b5b5b;
+   font-family: "Roboto";
+   font-size: 17px;
+   font-weight: 900;
+   border-radius: 10px;
+   float: right !important;
+}
+
+.data-panel-open:hover {
+   background: #5b5b5b;
+   color: #FFF !important;
+}
+
+.data-panel-popup {
+   border-radius: 10px;
+   background: #fff;
+   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+   padding: 10px;
+}
+
+/* .data-panel-tabbar {
+   border-width: 1px 0px 1px 0px !important;
+   padding: 5px;
+}*/
+
+.data-panel-tabbar .webix_all_tabs {
+   float: left;
+   display: flex;
+   gap: 10px;
+   height: 30px;
+}
+
+.data-panel-tabbar .webix_all_tabs .webix_item_tab {
+   color: #000;
+   border-radius: 4px;
+   background: #FFF;
+   font-family: "Roboto", sans-serif;
+   font-size: 16px;
+   line-height: normal;
+   box-shadow: none;
+   border: none;
+   display: flex;
+   width: 100px !important;
+   /* height: 24px; */
+   justify-content: center;
+   align-items: center;
+}
+
+.data-panel-tabbar .webix_all_tabs .webix_selected {
+   color: #FFF;
+   background: #000 !important;
+}
+
+.data-panel-tabbar .webix_all_tabs .webix_item_tab:hover {
+   color: #000;
+   background: rgba(0, 0, 0, 0.20) !important;
+   box-shadow: none;
+}
+
+.data-panel-tabbar .webix_all_tabs .webix_item_tab:focus {
+   color: #FFF;
+   background: #222 !important;
+   box-shadow: none;
+}
+
+/* .data-panel-tabview .webix_multiview {
+   margin-top: 0px !important;
+}
+
+.data-panel-tabview .webix_multiview .webix_list {
+   height: 530px !important;
+} */
+
+.switch-data-panel {
+   visibility: hidden;
+}
+
+/* following a comment here: https://docs.webix.com/api__refs__ui.popup.html
+ * so that the popup doesn't close. Not sure if we want to do it this way */
+.webix_modal {
+   width: 0;
+   height: 0;
+}
+
+org-chart .team-group-record > .record-edit-icon {
+   cursor: pointer;
+   visibility: hidden;
+   padding: 4px;
+   position: fixed;
+   right: 3px;
+   color: #9f9e9e;
+}
+
+org-chart .team-group-record:hover > .record-edit-icon {
+   visibility: visible;
+}
+
+org-chart .team-group-record:hover > .record-edit-icon:hover {
+   color: #606060 !important;
+}
+
+
+org-chart .rc-record > .record-edit-icon {
+    position: absolute;
+    visibility: hidden;
+    color: #9f9e9e;
+    cursor: pointer;
+    margin-left: 280px;
+    margin-top: 3px;
+}
+org-chart .rc-record:hover > .record-edit-icon {
+   visibility: visible;
+}
+
+org-chart .rc-record:hover > .record-edit-icon:hover {
+   color: #606060 !important;
+}
+
+.record-loading-icon {
+   color: #606060 !important;
+   visibility: hidden;
+   padding: 4px;
+   position: absolute;
+   margin-left: 265px;
+}
+
+.cursor-move {
+   cursor: move;
+}
+
+.progress-status {
+   border-radius: 10px;
+   background: #fff;
+   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+   color: #5b5b5b;
+   font-family: Roboto;
+   font-size: 28px;
+   font-style: normal;
+   font-weight: 500;
+   line-height: normal;
+   padding: 3px 12px;
+   position: absolute;
+}
+
+.progress-status-spin {
+   animation: progress-status-spin 1s linear infinite;
+}
+
+.progress-status-done {
+   color: #3CB371;
+   font-size: 30px;
+   padding: 2px 12px;
+   animation: progress-status-done 0.5s ease-out forwards;
+}
+
+@keyframes progress-status-spin {
+   0% { transform: rotate(0deg); }
+   100% { transform: rotate(360deg); }
+}
+
+@keyframes progress-status-done {
+    0% { transform: scale(0.5); opacity: 0; }
+    80% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); opacity: 1; }
+}
