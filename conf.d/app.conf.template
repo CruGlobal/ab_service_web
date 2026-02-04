@@ -1,0 +1,108 @@
+upstream webapp {
+    # See https://nginx.org/en/docs/http/ngx_http_upstream_module.html#upstream
+    zone backend_zone 64k;
+    resolver 10.16.0.2 valid=5s ipv6=off;
+    server ${UPSTREAM_APP_HOST}:${UPSTREAM_APP_PORT} resolve;
+}
+
+map $http_x_forwarded_proto $thescheme {
+    default $scheme;
+    http http;
+    https https;
+}
+
+server {
+    listen 80 default_server;
+    listen [::]:80;
+    server_name localhost;
+    gzip_static on;
+    root /app/assets;
+
+    location = /monitors/lb {
+        return 200 'OK';
+        add_header Content-Type text/plain;
+        access_log off;
+    }
+
+    # / -> /app/assets/index.html
+    # Serves the main index.html, `no-cache` policy for freshness
+    location = / {
+        add_header Cache-Control "no-cache";
+        try_files /index.html =404;
+    }
+
+    # /home
+    # depreciated - redirect to /
+    location = /home {
+        return 301 /;
+    }
+
+    # /data -> /data
+    # This is where our uploads volume gets mounted
+    location /data/ {
+        alias /data/;
+    }
+
+    # /assets -> /app/assets
+    location /assets/ {
+        add_header Cache-Control "max-age=31536000";
+        alias /app/assets/;
+    }
+
+    # /assets/tenant -> /app/assets/tenant
+    # `no-cache` policy bc cahce busting not configured for ABDesigner.js
+    location /assets/tenant {
+        add_header Cache-Control "no-cache";
+        alias /app/assets/tenant;
+    }
+
+    # /font(s) -> /app/assets/font(s)
+    location ~ ^/(font|fonts)/ {
+        add_header Cache-Control "max-age=31536000";
+    }
+
+    # /version -> respond with the version number
+    location /version {
+        default_type text/plain;
+        add_header Cache-Control "no-cache";
+        add_header Content-Type "text/plain";
+        root /app;
+        index version;
+    }
+
+    # /version_hrteam -> respond with the version number
+    location /version_hrteam {
+        default_type text/plain;
+        add_header Cache-Control "no-cache";
+        add_header Content-Type "text/plain";
+        root /app/assets/tenant/default;
+        index version_hrteam;
+    }
+
+    location / {
+        try_files $uri $uri/index.html @app;
+    }
+
+    location @app {
+        proxy_pass         http://webapp;
+        proxy_http_version 1.1;
+        proxy_read_timeout 180s;
+        proxy_set_header   Connection "upgrade";
+        proxy_set_header   Upgrade $http_upgrade;
+        proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header   Host $host;
+        proxy_set_header   X-Forwarded-Host $host;
+        proxy_set_header   X-Real-IP $remote_addr_value;
+        proxy_set_header   X-Forwarded-Proto $thescheme;
+        proxy_set_header   X-Amzn-Trace-Id $http_x_amzn_trace_id;
+        proxy_set_header   X-Request-Start "t=${msec}";
+        proxy_redirect     off;
+
+    }
+
+    error_page 500 502 503 504 /500.html;
+    client_max_body_size 4G;
+    keepalive_timeout 10;
+
+    include /etc/nginx/server-conf.d/*.conf;
+}
