@@ -66,9 +66,13 @@ const PROGRESS_STATUS_WIDTH = 80;
 const PROGRESS_STATUS_DELAY = 500;
 const PROGRESS_STATUS_KEY_COMMON = "common";
 const PROGRESS_STATUS_KEY_PRINCIPAL = "principal";
+const PROGRESS_STATUS_KEY_TEAM = "team";
 const PROGRESS_STATUS_VALUE_COMMON_INIT_PAGE = "Initializing page";
 const PROGRESS_STATUS_VALUE_COMMON_INIT_DCs = "Initializing DCs";
 const PROGRESS_STATUS_VALUE_COMMON_CHANGE_ENTITY = "Changing to a new entity";
+const PROGRESS_STATUS_VALUE_COMMON_REFRESHING = "Refreshing";
+const PROGRESS_STATUS_VALUE_TEAM_CREATING = "Creating a team";
+const PROGRESS_STATUS_VALUE_TEAM_UPDATING = "Updating a team";
 const TIMEOUT_RETRY_PAGEDATA = 15000;
 
 //TODO (Guy): These should be ABDesigner settings.
@@ -77,6 +81,7 @@ const CONTENT_LINK_DATAPANEL_COLUMNNAME = "custrecord_ccc_team_assign_emp_id";
 const DATAPANEL_EMERITUS_STATUS_COLUMNNAME = "custentity_ccc_emeritus_status";
 const DATAPANEL_INITIALS_COLUMNNAME = "initials";
 const DATAPANEL_ORG_STATUS_COLUMNNAME = "custentity_ccc_org_status";
+const DATAPANEL_PREFERRED_NAME = "custentity_ccc_preferred_name";
 const DATAPANEL_SUPERVISOR_COLUMNNAME = "custentity_ccc_supervisor";
 const EXTERNAL_SUPPORT_COLUMNNAME = "custrecord_whq_team_is_external_support";
 const RESPONSIBILITY_ASSIGNMENT_COLUMNNAME =
@@ -379,128 +384,6 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                         isRefreshed = true;
                      }
                   }
-                  if (isRefreshed) {
-                     try {
-                        const dataPanelDisplayDC =
-                           _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.contentDisplays.find(
-                              (e) =>
-                                 e.datasource ===
-                                 _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.dataPanels[0].datasource
-                           );
-                        const groupLeaderID =
-                           _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.contentGroup.getData(
-                              (e) =>
-                                 e[CONTENT_GROUP_NAME_COLUMNNAME] === "Leader"
-                           )[0].id;
-                        const currentStaffValue = dataPanelDisplayDC.getData(
-                           (e) => e.id == dataPK
-                        )[0];
-                        const currentSupervisorValue =
-                           dataPanelDisplayDC.getData(
-                              (e) =>
-                                 e.id ==
-                                 currentStaffValue[
-                                    DATAPANEL_SUPERVISOR_COLUMNNAME
-                                 ]
-                           )[0];
-                        const leaderValues = _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.content
-                           .getData((contentValue) => {
-                              if (
-                                 contentValue[contentGroupByColumnName] ==
-                                 groupLeaderID
-                              )
-                                 for (const $contentRecord of $contentRecords)
-                                    if (
-                                       contentValue.id ==
-                                       $contentRecord.id.split("_")[1]
-                                    )
-                                       return true;
-                              return false;
-                           })
-                           .map((e) => e[CONTENT_LINK_DATAPANEL_COLUMNNAME]);
-                        const newSupervisorValue = await new Promise(
-                           (resolve, reject) => {
-                              this._fnShowSearchDialogBox({
-                                 title: [
-                                    "<b>",
-                                    `${this.label(
-                                       "Change Supervisor for"
-                                    )}&nbsp`,
-                                    `<span style="color: #1ca1c1;">${currentStaffValue.lastname} ${currentStaffValue.firstname}</span>`,
-                                    "</b>",
-                                 ].join(""),
-                                 detail: [
-                                    '<div style="display: flex; align-items: center; background: #f8f9fa; border-left: 5px solid #2c88d9; border-radius: 4px; padding: 20px 30px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); font-size: 18px; height: 80%;">',
-                                    '<div style="display: flex; flex-direction: column; margin-right: 60px;">',
-                                    `<span><b>${this.label(
-                                       "Current"
-                                    )}</b></span>`,
-                                    `<span><b>${this.label(
-                                       "Supervisor"
-                                    )}:</b></span>`,
-                                    "</div>",
-                                    `<div style="color: #4a4a4a; font-weight: 400;">${
-                                       currentSupervisorValue
-                                          ? `${currentSupervisorValue.lastname} ${currentSupervisorValue.firstname}`
-                                          : this.label("No supervisor")
-                                    }</div>`,
-                                    "</div>",
-                                 ].join(""),
-                                 searchTitle: [
-                                    '<b style="font-size: 18px;">',
-                                    `<div style="display: inline-block;">${this.label(
-                                       "Team Leaders in"
-                                    )}&nbsp</div>`,
-                                    `<span style="color: #1ca1c1;">${teamValue[teamNameColumnName]}</span>`,
-                                    "<b>",
-                                 ].join(""),
-                                 searchPlaceholder: `${this.label(
-                                    "Search other staff by name"
-                                 )}...`,
-                                 data: dataPanelDisplayDC
-                                    .getData((e) => e.id != dataPK)
-                                    .sort(this._utils.sortByEmployeeLastname)
-                                    .map((e) => ({
-                                       id: e.id,
-                                       template: [
-                                          `<div class="team-group-record-initials" style="background: #1ca1c1; text-align: center; display: inline-block; border-radius: 100%; color: #ffffff;">${e[DATAPANEL_INITIALS_COLUMNNAME]}</div>`,
-                                          `${e.lastname} ${e.firstname}`,
-                                       ].join(""),
-                                       searchValue:
-                                          `${e[DATAPANEL_INITIALS_COLUMNNAME]} ${e.lastname} ${e.firstname}`.toLowerCase(),
-                                    })),
-                                 suggestionFilter: (e) =>
-                                    leaderValues.indexOf(e.id) > -1,
-                                 buttonLabel: this.label(
-                                    "Assign New Supervisor"
-                                 ),
-                                 onOK: resolve,
-                                 onCancel: reject,
-                              });
-                           }
-                        );
-                        if (
-                           newSupervisorValue &&
-                           (currentSupervisorValue?.id ?? "") !=
-                              newSupervisorValue
-                        ) {
-                           {
-                           }
-
-                           dataPanelDisplayDC.model.update(
-                              currentStaffValue.id,
-                              {
-                                 [DATAPANEL_SUPERVISOR_COLUMNNAME]:
-                                    newSupervisorValue,
-                                 customform: 166,
-                              }
-                           );
-                        }
-                     } catch {
-                        this._fnReadyRecord($teamRecord);
-                        return;
-                     }
-                  }
                   for (const $draggedNode of draggedNodes)
                      this._fnBusyRecord($draggedNode);
                   for (const existingRecord of existingRecords)
@@ -577,6 +460,121 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                            return;
                         }
                      }
+                  }
+
+                  try {
+                     const dataPanelDisplayDC =
+                        _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.contentDisplays.find(
+                           (e) =>
+                              e.datasource ===
+                              _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.dataPanels[0].datasource
+                        );
+                     const groupLeaderID =
+                        _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.contentGroup.getData(
+                           (e) => e[CONTENT_GROUP_NAME_COLUMNNAME] === "Leader"
+                        )[0].id;
+                     const currentStaffValue = dataPanelDisplayDC.getData(
+                        (e) =>
+                           e.id ==
+                           updatedValue[CONTENT_LINK_DATAPANEL_COLUMNNAME]
+                     )[0];
+                     const currentSupervisorValue = dataPanelDisplayDC.getData(
+                        (e) =>
+                           e.id ==
+                           currentStaffValue[DATAPANEL_SUPERVISOR_COLUMNNAME]
+                     )[0];
+                     const leaderValues = _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.content
+                        .getData(
+                           (contentValue) =>
+                              contentValue[contentGroupByColumnName] ==
+                                 groupLeaderID &&
+                              contentValue[contentFieldLinkColumnName] ==
+                                 newTeamDataPK
+                        )
+                        .map((e) => e[CONTENT_LINK_DATAPANEL_COLUMNNAME]);
+                     const newSupervisorValue = await new Promise(
+                        (resolve, reject) => {
+                           this._fnShowSearchDialogBox({
+                              title: [
+                                 "<b>",
+                                 `${this.label("Change Supervisor for")}&nbsp`,
+                                 `<span style="color: #1ca1c1;">${currentStaffValue.lastname} ${currentStaffValue.firstname}</span>`,
+                                 "</b>",
+                              ].join(""),
+                              detail: [
+                                 '<div style="display: flex; align-items: center; background: #f8f9fa; border-left: 5px solid #2c88d9; border-radius: 4px; padding: 20px 30px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); font-size: 18px; height: 80%;">',
+                                 '<div style="display: flex; flex-direction: column; margin-right: 60px;">',
+                                 `<span><b>${this.label(
+                                    "Current Supervisor"
+                                 )}</b></span>`,
+                                 "</div>",
+                                 `<div style="color: #4a4a4a; font-weight: 400;">${
+                                    currentSupervisorValue
+                                       ? `${currentSupervisorValue.lastname} ${currentSupervisorValue.firstname}`
+                                       : this.label("No supervisor")
+                                 }</div>`,
+                                 "</div>",
+                              ].join(""),
+                              searchTitle: [
+                                 '<b style="font-size: 18px;">',
+                                 `<div style="display: inline-block;">${this.label(
+                                    "Team Leaders in"
+                                 )}&nbsp</div>`,
+                                 `<span style="color: #1ca1c1;">${teamValue[teamNameColumnName]}</span>`,
+                                 "<b>",
+                              ].join(""),
+                              searchPlaceholder: `${this.label(
+                                 "Search other staff by name"
+                              )}...`,
+                              data: dataPanelDisplayDC
+                                 .getData((e) => e.id != currentStaffValue.id)
+                                 .sort(this._utils.sortByEmployeeLastname)
+                                 .map((e) => ({
+                                    id: e.id,
+                                    template: [
+                                       `<div class="team-group-record-initials" style="background: #1ca1c1; text-align: center; display: inline-block; border-radius: 100%; color: #ffffff;">${e[DATAPANEL_INITIALS_COLUMNNAME]}</div>`,
+                                       `${e.lastname} ${e.firstname}`,
+                                    ].join(""),
+                                    searchValue:
+                                       `${e[DATAPANEL_INITIALS_COLUMNNAME]} ${e.lastname} ${e.firstname}`.toLowerCase(),
+                                 })),
+                              suggestionFilter: (e) =>
+                                 leaderValues.indexOf(e.id) > -1,
+                              buttonLabel: this.label("Assign New Supervisor"),
+                              onOK: (supervisorID) => {
+                                 this.AB.Webix.confirm({
+                                    text: this.label(
+                                       "Are you sure you want to change the supervisor?"
+                                    ),
+                                    ok: this.label("Yes"),
+                                    cancel: this.label("No"),
+                                 })
+                                    .then(() => {
+                                       resolve(supervisorID);
+                                    })
+                                    .fail(() => {
+                                       resolve(currentSupervisorValue.id);
+                                    });
+                              },
+                              onCancel: () => {
+                                 resolve(currentSupervisorValue.id);
+                              },
+                           });
+                        }
+                     );
+                     if (
+                        newSupervisorValue &&
+                        (currentSupervisorValue?.id ?? "") != newSupervisorValue
+                     )
+                        dataPanelDisplayDC.model.update(currentStaffValue.id, {
+                           [DATAPANEL_SUPERVISOR_COLUMNNAME]:
+                              newSupervisorValue,
+                           customform: 166,
+                        });
+                  } catch (err) {
+                     this._fnReadyRecord($teamRecord);
+                     console.error(err);
+                     return;
                   }
 
                   // This is move form another team node
@@ -780,23 +778,17 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
             const dragedRecord = JSON.parse(
                eventDetail.draggedNode.dataset.source
             )._rawData;
-            const dc = this.datacollection;
+            const newParentNodeValue = JSON.parse(
+               eventDetail.dropZone.dataset.source
+            )._rawData;
             dragedRecord[
                // Parent node definition.
                this._getLinkedColumnNameByConnectFieldID(this.settings.teamLink)
-            ] = JSON.parse(eventDetail.dropZone.dataset.source)._rawData.id;
+            ] = newParentNodeValue.id;
+            dragedRecord[EXTERNAL_SUPPORT_COLUMNNAME] =
+               newParentNodeValue[EXTERNAL_SUPPORT_COLUMNNAME];
             try {
-               await this.updateData(
-                  dc,
-                  this._parseFormValueByType(dc, dragedRecord, dragedRecord)
-               );
-            } catch (err) {
-               // TODO (Guy): The update data error.
-               console.error(err);
-            }
-            try {
-               //TODO (Guy): This should update only the specific node.
-               await this.refresh(false);
+               await this.teamEdit(dragedRecord);
             } catch (err) {
                // TODO (Guy): The update data error.
                console.error(err);
@@ -1353,15 +1345,15 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                css: "search-dialog-box",
                head: title,
                position: "center",
-               width: 550,
+               width: 480,
                body: {
-                  height: 680,
+                  height: 460,
                   rows: [
                      {
                         view: "template",
-                        height: 125,
+                        height: 100,
                         css: {
-                           "padding-top": "6%",
+                           "padding-top": "12px",
                         },
                         template: detail,
                      },
@@ -1369,17 +1361,17 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                         view: "label",
                         label: searchTitle,
                         css: {
-                           padding: "12px 0px",
+                           padding: "4px 0px",
                         },
                         height: 50,
                      },
                      {
                         view: "search",
                         placeholder: searchPlaceholder,
-                        height: 45,
+                        height: 40,
                         keyPressTimeout: 100,
                         css: {
-                           "margin-bottom": "24px",
+                           "margin-bottom": "8px",
                         },
                         on: {
                            onTimedKeyPress() {
@@ -1406,7 +1398,7 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                         type: {
                            height: 50,
                         },
-                        height: 300,
+                        height: 150,
                         select: true,
                         scroll: "auto",
                         css: {
@@ -1425,9 +1417,6 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                      },
                      {
                         height: 50,
-                        css: {
-                           "mergin-bottom": "10px",
-                        },
                         cols: [
                            {},
                            {
@@ -1437,7 +1426,6 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                               )}</span>`,
                               width: 120,
                               click() {
-                                 onCancel();
                                  $window.close();
                               },
                            },
@@ -1462,6 +1450,7 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                },
                on: {
                   onHide: () => {
+                     onCancel();
                      $window.destructor();
                   },
                },
@@ -2034,8 +2023,19 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                   break;
                default:
                   while (currentDataRecords.length > 0) {
-                     const currentDataRecordValue =
-                        currentDataRecords.pop()[displayedColumnName];
+                     // TODO (Guy): hardcoded
+                     const currentDataRecord = currentDataRecords.pop();
+                     let currentDataRecordValue =
+                        currentDataRecord[displayedColumnName];
+                     switch (displayedColumnName) {
+                        case "firstname":
+                           currentDataRecordValue =
+                              currentDataRecord[DATAPANEL_PREFERRED_NAME] ||
+                              currentDataRecordValue;
+                           break;
+                        default:
+                           break;
+                     }
                      $currentDisplay.appendChild(
                         document.createTextNode(
                            contentDisplayedFieldMappingDataObj[
@@ -3490,6 +3490,8 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
 
          this._initialized = true;
 
+         await this._utils.waitDOM();
+
          if (this._isShown) this.refresh();
 
          this._strategyCodeOpts = _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.strategyCode
@@ -3669,6 +3671,10 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
             // alert("WHAT !!!");
             return;
          }
+         this._addProgressStatusQueue(
+            PROGRESS_STATUS_KEY_COMMON,
+            PROGRESS_STATUS_VALUE_COMMON_REFRESHING
+         );
 
          this.switchDataPanel(this._selectedDataPanel);
 
@@ -3729,6 +3735,10 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                ok: this.label("OK"),
                text: this.label("No team is assigned to this entity"),
             });
+         this._removeProgressStatusQueue(
+            PROGRESS_STATUS_KEY_COMMON,
+            PROGRESS_STATUS_VALUE_COMMON_REFRESHING
+         );
       }
 
       async updateData(dc, value) {
@@ -3902,6 +3912,16 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
       async teamAddChild(value, isServerSideUpdate = true, children = []) {
          if (this.__orgchart == null) return;
          this.busy();
+         const teamNameColumnName = this.AB.definitionByID(
+            this.settings.teamName
+         ).columnName;
+         let progressStatusValue = `${PROGRESS_STATUS_VALUE_TEAM_CREATING} - ${
+            value.id ?? `${this.label("Creating new ID")}...`
+         } (${value[teamNameColumnName]})`;
+         this._addProgressStatusQueue(
+            PROGRESS_STATUS_KEY_TEAM,
+            progressStatusValue
+         );
          const teamLinkTeamColumnName =
             this._getLinkedColumnNameByConnectFieldID(this.settings.teamLink);
          const teamObjPK = this.datacollection.datasource.PK();
@@ -3918,9 +3938,22 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
          if (isServerSideUpdate) {
             try {
                value = await this.createData(this.datacollection, value);
+               this._removeProgressStatusQueue(
+                  PROGRESS_STATUS_KEY_TEAM,
+                  progressStatusValue
+               );
+               progressStatusValue = `${PROGRESS_STATUS_VALUE_TEAM_CREATING} - ${value.id} (${value[teamNameColumnName]})`;
+               this._addProgressStatusQueue(
+                  PROGRESS_STATUS_KEY_TEAM,
+                  progressStatusValue
+               );
             } catch (err) {
                // TODO (Guy): The update error.
                console.error(err);
+               this._removeProgressStatusQueue(
+                  PROGRESS_STATUS_KEY_TEAM,
+                  progressStatusValue
+               );
                this.ready();
                return;
             }
@@ -3975,12 +4008,20 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                this._getLinkedColumnNameByConnectFieldID(
                   this.settings.contentField
                );
-            await this._utils.waitDOM();
+            await Promise.all([
+               ...this._getAllDCs().map((dc) => this._utils.waitDCReady(dc)),
+               this._utils.waitDOM(),
+            ]);
             for (const contentRecord of _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.content.getData(
                (e) => e[contentLinkedColumnName] == teamValuePK
-            ))
+            )) {
                this._addContentRecordToGroup(contentRecord);
+            }
          }
+         this._removeProgressStatusQueue(
+            PROGRESS_STATUS_KEY_TEAM,
+            progressStatusValue
+         );
          this.ready();
       }
 
@@ -4091,12 +4132,24 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
          let _rawData = values;
          const teamDC = this.datacollection;
          const teamObj = teamDC.datasource;
+         const teamNameColumnName = this.AB.definitionByID(
+            this.settings.teamName
+         ).columnName;
+         const progressStatusValue = `${PROGRESS_STATUS_VALUE_TEAM_UPDATING} - ${_rawData.id} (${_rawData[teamNameColumnName]})`;
+         this._addProgressStatusQueue(
+            PROGRESS_STATUS_KEY_TEAM,
+            progressStatusValue
+         );
          if (isServerSideUpdate) {
             try {
                _rawData = await this.updateData(teamDC, _rawData);
             } catch (err) {
                // TODO (Guy): the update error
                console.error(err);
+               this._removeProgressStatusQueue(
+                  PROGRESS_STATUS_KEY_TEAM,
+                  progressStatusValue
+               );
                this.ready();
                return;
             }
@@ -4111,6 +4164,10 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
             _rawData[this.AB.definitionByID(settings.teamInactive).columnName]
          ) {
             this.__orgchart.removeNodes($node);
+            this._removeProgressStatusQueue(
+               PROGRESS_STATUS_KEY_TEAM,
+               progressStatusValue
+            );
             this.ready();
             return;
          }
@@ -4126,6 +4183,10 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                _rawData,
                false,
                this._getChildChartDataByID(_rawData.id)?.children
+            );
+            this._removeProgressStatusQueue(
+               PROGRESS_STATUS_KEY_TEAM,
+               progressStatusValue
             );
             this.ready();
             return;
@@ -4167,6 +4228,10 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
          newChartData.filteredOut = this.filterTeam(newChartData);
          $node.dataset.source = JSON.stringify(newChartData);
          $node.querySelector(".title").innerHTML = teamValueName;
+         this._removeProgressStatusQueue(
+            PROGRESS_STATUS_KEY_TEAM,
+            progressStatusValue
+         );
          this.ready();
       }
 
@@ -7874,7 +7939,7 @@ __webpack_require__.r(__webpack_exports__);
 
 const plugin = {
    /* global VERSION -- injected by webpack define plugin */
-   version: "1.0.10",
+   version: "1.0.11",
    key: "HRTeams",
    apply: function (AB) {
       const ABView = AB.Class.ABViewManager.viewClass("view");
