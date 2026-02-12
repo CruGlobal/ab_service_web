@@ -8030,7 +8030,16 @@ module.exports = class ABMLClassCore extends ABEmitter {
       }
 
       if (typeof json.translations == "string") {
-         json.translations = JSON.parse(json.translations);
+         try {
+            json.translations = JSON.parse(json.translations);
+         } catch (e) {
+            console.error(`===============================================`);
+            console.error(`Error parsing translations: ${e}`);
+            console.error(`json.translations: [${json.translations}]`);
+            console.error(`obj.name: ${obj.name}`);
+            console.error(`obj.id: ${obj.id || obj.uuid}`);
+            console.error(`===============================================`);
+         }
       }
 
       var currLanguage = languageCode || this.languageDefault();
@@ -87683,4 +87692,4 @@ module.exports = class ABCustomEditList {
 /***/ })
 
 }]);
-//# sourceMappingURL=AB.5bad2a775689484e4940.js.map
+//# sourceMappingURL=AB.c1d9b71fbee30df9c97b.js.map
