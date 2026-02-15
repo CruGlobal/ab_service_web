@@ -69174,13 +69174,9 @@ function FNAbviewtabEditor({ AB, ABViewEditorPlugin }) {
 
       constructor(view, base = BASE_ID) {
          // base: {string} unique base id reference
-         super(base, {
+         super(view, base, {
             view: "",
          });
-
-         this.AB = AB;
-         this.view = view;
-         this.component = this.view.component();
       }
 
       ui() {
@@ -70372,7 +70368,7 @@ var myClass = null;
          ui() {
             let key = ABViewContainerEditor.key;
             let Defaults =
-               AB.Class.ABViewManager.viewClass(key).defaultValues();
+               AB.ClassManager.viewClass(key).defaultValues();
             return {
                _dashboardID: this.ids.component,
                rows: [
@@ -71748,10 +71744,19 @@ let myClass = null;
          ui() {
             const menu = this.component.ui();
 
+            // NOTE: we want our editors to have a { layout .rows[0]=component } structure
+            // the menu already has a layout around it, so just use that one
+            // and prepare it for the ABDesigner editor format:
+            menu._dashboardID = this.component.ids.menu;
+
+            return menu;
+            /*
             return {
+               _dashboardID: this.component.ids.menu,
                type: "space",
                rows: [menu, {}],
             };
+            */
          }
 
          init(AB) {
@@ -81110,7 +81115,7 @@ __webpack_require__.r(__webpack_exports__);
       refreshDefaultButton() {
          const ids = this.ids;
          const ABViewFormButton =
-            this.AB.Class.ABViewManager.viewClass("button");
+            this.AB.ClassManager.viewClass("button");
 
          // If default button is not exists, then skip this
          let defaultButton = this.views(
@@ -101286,7 +101291,7 @@ __webpack_require__.r(__webpack_exports__);
          });
 
          this.AB = AB;
-         ABViewPropertyDefaults = this.AB.Class.ABViewManager.viewClass(
+         ABViewPropertyDefaults = this.AB.ClassManager.viewClass(
             "conditionalcontainer"
          ).defaultValues();
       }
@@ -102365,7 +102370,7 @@ __webpack_require__.r(__webpack_exports__);
 
          this.AB = AB;
          ABViewDataviewPropertyComponentDefaults =
-            this.AB.Class.ABViewManager.viewClass("dataview").defaultValues();
+            this.AB.ClassManager.viewClass("dataview").defaultValues();
 
          this.linkPageComponent = new LinkPageProperty(AB, base);
       }
@@ -102513,7 +102518,7 @@ __webpack_require__.r(__webpack_exports__);
 
          this.AB = AB;
          ABViewDetailPropertyComponentDefaults =
-            this.AB.Class.ABViewManager.viewClass("detail").defaultValues();
+            this.AB.ClassManager.viewClass("detail").defaultValues();
       }
 
       static get key() {
@@ -103336,7 +103341,7 @@ __webpack_require__.r(__webpack_exports__);
 
          this.AB = AB;
          ABViewDocxBuilderPropertyComponentDefaults =
-            this.AB.Class.ABViewManager.viewClass(
+            this.AB.ClassManager.viewClass(
                "docxBuilder"
             ).defaultValues();
       }
@@ -103794,7 +103799,7 @@ __webpack_require__.r(__webpack_exports__);
 
          this.AB = AB;
          ABViewFormPropertyComponentDefaults =
-            this.AB.Class.ABViewManager.viewClass("form").defaultValues();
+            this.AB.ClassManager.viewClass("form").defaultValues();
       }
 
       static get key() {
@@ -104347,7 +104352,7 @@ __webpack_require__.r(__webpack_exports__);
       refreshDefaultButton() {
          const ids = this.ids;
          const ABViewFormButton =
-            this.AB.Class.ABViewManager.viewClass("button");
+            this.AB.ClassManager.viewClass("button");
 
          // If default button is not exists, then skip this
          let defaultButton = this.views(
@@ -108269,7 +108274,7 @@ __webpack_require__.r(__webpack_exports__);
 
          this.AB = AB;
          ABViewMenuPropertyComponentDefaults =
-            this.AB.Class.ABViewManager.viewClass("menu").defaultValues();
+            this.AB.ClassManager.viewClass("menu").defaultValues();
       }
 
       static get key() {
@@ -109009,7 +109014,9 @@ __webpack_require__.r(__webpack_exports__);
          });
 
          // add tabs
-         const ABViewTab = this.AB.Class.ABViewManager.viewClass("tab");
+         // ABViewManager.viewClass() is depreciated.  Use ClassManager.viewClass() instead.
+         //const ABViewTab = this.AB.Class.ABViewManager.viewClass("tab");
+         const ABViewTab = this.AB.ClassManager.viewClass("tab");
          page
             .views((v) => v instanceof ABViewTab)
             .forEach((tab, tabIndex) => {
@@ -125165,7 +125172,7 @@ __webpack_require__.r(__webpack_exports__);
          this.ColumnEditor = (0,_ui_work_interface_workspace_editor__WEBPACK_IMPORTED_MODULE_2__["default"])(AB);
          this.ColumnDetails = (0,_ui_work_interface_workspace_details__WEBPACK_IMPORTED_MODULE_3__["default"])(AB);
 
-         this.classABViewPage = AB.Class.ABViewManager.viewClass("page");
+         this.classABViewPage = AB.ClassManager.viewClass("page");
       }
 
       // webix UI definition:
