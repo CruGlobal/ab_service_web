@@ -8030,7 +8030,16 @@ module.exports = class ABMLClassCore extends ABEmitter {
       }
 
       if (typeof json.translations == "string") {
-         json.translations = JSON.parse(json.translations);
+         try {
+            json.translations = JSON.parse(json.translations);
+         } catch (e) {
+            console.error(`===============================================`);
+            console.error(`Error parsing translations: ${e}`);
+            console.error(`json.translations: [${json.translations}]`);
+            console.error(`obj.name: ${obj.name}`);
+            console.error(`obj.id: ${obj.id || obj.uuid}`);
+            console.error(`===============================================`);
+         }
       }
 
       var currLanguage = languageCode || this.languageDefault();
@@ -35545,6 +35554,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   pluginRegister: () => (/* binding */ pluginRegister),
 /* harmony export */   registerLocalPlugins: () => (/* binding */ registerLocalPlugins),
 /* harmony export */   viewAll: () => (/* binding */ viewAll),
+/* harmony export */   viewClass: () => (/* binding */ viewClass),
 /* harmony export */   viewCreate: () => (/* binding */ viewCreate),
 /* harmony export */   viewEditorAll: () => (/* binding */ viewEditorAll),
 /* harmony export */   viewEditorCreate: () => (/* binding */ viewEditorCreate),
@@ -35561,6 +35571,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _plugins_ABViewEditorPlugin_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./plugins/ABViewEditorPlugin.js */ 98487);
 /* harmony import */ var _views_ABViewContainer_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./views/ABViewContainer.js */ 76528);
 /* harmony import */ var _views_ABViewContainer_js__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_views_ABViewContainer_js__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _ABViewManager_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./ABViewManager.js */ 40765);
+/* harmony import */ var _ABViewManager_js__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_ABViewManager_js__WEBPACK_IMPORTED_MODULE_10__);
 
 
 
@@ -35572,6 +35584,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 // some views need to reference ABViewContainer,
+
+
+// MIGRATION: ABViewManager is depreciated.  Use ABClassManager instead.
 
 
 const classRegistry = {
@@ -35653,6 +35668,17 @@ function allObjectProperties() {
 //    if (!ObjectClass) throw new Error(`Unknown object type: ${key}`);
 //    return new ObjectClass(config);
 //  }
+
+function viewClass(type) {
+   var ViewClass = classRegistry.ViewTypes.get(type);
+   if (!ViewClass) {
+      ViewClass = _ABViewManager_js__WEBPACK_IMPORTED_MODULE_10___default().viewClass(type, false);
+      if (!ViewClass) {
+         throw new Error(`Unknown View type: ${type}`);
+      }
+   }
+   return ViewClass;
+}
 
 function viewCreate(type, config, application, parent) {
    const ViewClass = classRegistry.ViewTypes.get(type);
@@ -39800,6 +39826,23 @@ module.exports = class ABViewManager extends ABViewManagerCore {
          view = super.newView(values, application, parent);
       }
       return view;
+   }
+
+   static viewClass(key, showWarning = true) {
+      let viewClass = null;
+      if (showWarning) {
+         console.log(
+            "ABViewManager.viewClass() is depreciated.  Use ClassManager.viewClass() instead.",
+            key
+         );
+      }
+
+      try {
+         viewClass = ClassManager.viewClass(key);
+      } catch (error) {
+         viewClass = super.viewClass(key);
+      }
+      return viewClass;
    }
 };
 
@@ -87683,4 +87726,4 @@ module.exports = class ABCustomEditList {
 /***/ })
 
 }]);
-//# sourceMappingURL=AB.5bad2a775689484e4940.js.map
+//# sourceMappingURL=AB.96f38b8d0918983ec1f4.js.map
