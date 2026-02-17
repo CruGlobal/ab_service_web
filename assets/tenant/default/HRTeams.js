@@ -492,8 +492,13 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                                  newTeamDataPK
                         )
                         .map((e) => e[CONTENT_LINK_DATAPANEL_COLUMNNAME]);
+
                      const newSupervisorValue = await new Promise(
                         (resolve, reject) => {
+                           if (updatedValue[contentFieldLinkColumnName] == newTeamDataPK) {
+                              resolve(currentSupervisorValue?.id);
+                              return;
+                           }
                            this._fnShowSearchDialogBox({
                               title: [
                                  "<b>",
@@ -553,11 +558,11 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                                        resolve(supervisorID);
                                     })
                                     .fail(() => {
-                                       resolve(currentSupervisorValue.id);
+                                       resolve(currentSupervisorValue?.id);
                                     });
                               },
                               onCancel: () => {
-                                 resolve(currentSupervisorValue.id);
+                                 resolve(currentSupervisorValue?.id);
                               },
                            });
                         }
@@ -781,17 +786,37 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
             const newParentNodeValue = JSON.parse(
                eventDetail.dropZone.dataset.source
             )._rawData;
-            dragedRecord[
-               // Parent node definition.
-               this._getLinkedColumnNameByConnectFieldID(this.settings.teamLink)
-            ] = newParentNodeValue.id;
-            dragedRecord[EXTERNAL_SUPPORT_COLUMNNAME] =
-               newParentNodeValue[EXTERNAL_SUPPORT_COLUMNNAME];
-            try {
-               await this.teamEdit(dragedRecord);
-            } catch (err) {
-               // TODO (Guy): The update data error.
-               console.error(err);
+
+            // Parent node definition.
+            const linkedTeamColumnName = this._getLinkedColumnNameByConnectFieldID(this.settings.teamLink);
+            if (dragedRecord[linkedTeamColumnName] == newParentNodeValue.id) return;
+            const oldParentNodeValue = this.datacollection.getData(e => e.id == dragedRecord[linkedTeamColumnName])[0];
+            const topNodeColumnName = this.AB.definitionByID(
+               this.settings.topTeam
+            ).columnName;
+            if (
+               oldParentNodeValue[topNodeColumnName] == "1"
+                  && dragedRecord[EXTERNAL_SUPPORT_COLUMNNAME] == "1"
+            ) {
+               this.AB.Webix.alert({
+                  text:
+                     this.label("External support teams cannot be moved."),
+                  ok: this.label("Got it!"),
+               });
+               this._refreshOrgChart();
+               await this._utils.waitDOM();
+               this._refreshRcView
+               this._refreshContentView();
+            } else {
+               dragedRecord[linkedTeamColumnName] = newParentNodeValue.id;
+               dragedRecord[EXTERNAL_SUPPORT_COLUMNNAME] =
+                  newParentNodeValue[EXTERNAL_SUPPORT_COLUMNNAME];
+               try {
+                  await this.teamEdit(dragedRecord);
+               } catch (err) {
+                  // TODO (Guy): The update data error.
+                  console.error(err);
+               }
             }
             this.ready();
          };
@@ -2028,6 +2053,9 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                      let currentDataRecordValue =
                         currentDataRecord[displayedColumnName];
                      switch (displayedColumnName) {
+                        case "lastname":
+                           currentDataRecordValue = `${currentDataRecordValue},`;
+                           break;
                         case "firstname":
                            currentDataRecordValue =
                               currentDataRecord[DATAPANEL_PREFERRED_NAME] ||
@@ -2899,46 +2927,6 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
          ] = this.AB.Account.email();
       }
 
-      _showDataPanel() {
-         let $panel = $$(this.ids.dataPanelPopup);
-         if (!$panel) {
-            $panel = this.AB.Webix.ui({
-               id: this.ids.dataPanelPopup,
-               view: "popup",
-               width: 250,
-               body: this._uiDataPanel(),
-               css: "data-panel-popup",
-               modal: true,
-               resize: true,
-            });
-         }
-
-         // toggle
-         if ($panel.isVisible()) {
-            $panel.hide();
-            return;
-         }
-
-         const $dpButtonWebix = $$(this.ids.dataPanelButton).$view;
-         const $dpButtonElem =
-            $dpButtonWebix.querySelector(".data-panel-button");
-         // Ensure the popup will stay to the right when resizing
-         if (!this._resizeObserver) {
-            this._resizeObserver = new ResizeObserver(([e]) => {
-               // Hide the panel when the widget is hidden (ex. switched to another App)
-               if (e.contentRect.width == 0 && e.contentRect.height == 0) {
-                  return $panel.hide();
-               }
-               // $panel.show($dpButtonElem, { x: -30, y: -35 });
-               $panel.show($dpButtonElem, { pos: "bottom", x: -30 });
-            });
-         }
-         this._resizeObserver.observe($dpButtonWebix);
-         // $panel.show($dpButtonElem, { x: -30, y: -35 });
-         $panel.show($dpButtonElem, { pos: "bottom", x: -30 });
-         this._refreshDataPanel();
-      }
-
       _showTeamFormPopup(mode, value) {
          if (value.__parentID) {
             value[
@@ -3585,7 +3573,7 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
          });
       }
 
-      async _refreshContentView() {
+      _refreshContentView() {
          const contentRecs = _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.content.getData();
          for (const contentRec of contentRecs)
             this._addContentRecordToGroup(contentRec);
@@ -6623,6 +6611,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+// TODO (Guy): Add these to the property.
+const DATAPANEL_FIRSTNAME_COLUMNNAME = "firstname";
+const DATAPANEL_LASTNAME_COLUMNNAME = "lastname";
+const DATAPANEL_PREFERRED_NAME_COLUMNNAME = "custentity_ccc_preferred_name";
 class StaffDataPanel extends _DataPanel_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    static get icon() {
       return "fa-user";
@@ -6782,7 +6774,7 @@ class StaffDataPanel extends _DataPanel_js__WEBPACK_IMPORTED_MODULE_0__["default
                   template: (data) =>
                      `<div class="data-panel-employee"><span class="initials">${
                         data.initials
-                     }</span> ${panelObj.displayData(data)}</div>`,
+                     }</span>${data[DATAPANEL_LASTNAME_COLUMNNAME]}, ${data[DATAPANEL_PREFERRED_NAME_COLUMNNAME] || data[DATAPANEL_FIRSTNAME_COLUMNNAME]}</div>`,
                   borderless: true,
                   // css: "data-panel-employee-list",
                   data: [],
@@ -7939,7 +7931,7 @@ __webpack_require__.r(__webpack_exports__);
 
 const plugin = {
    /* global VERSION -- injected by webpack define plugin */
-   version: "1.0.11",
+   version: "1.0.12",
    key: "HRTeams",
    apply: function (AB) {
       const ABView = AB.Class.ABViewManager.viewClass("view");
