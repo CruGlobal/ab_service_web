@@ -2597,12 +2597,14 @@ module.exports = class ABApplicationCore extends ABMLClass {
    /**
     * @method viewNew()
     *
-    * return an instance of a new (unsaved) ABView.
+    * return an instance of a new (unsaved) ABView tied to this ABApplication.
     *
+    * @param {object} values  view definition/settings
+    * @param {ABView} [parent=null]  parent view of the new view
     * @return {ABView}
     */
-   viewNew(values, application, parent) {
-      return this.ViewManager.newView(values, application, parent);
+   viewNew(values, parent = null) {
+      return this.ViewManager.newView(values, this, parent);
    }
 
    ///
@@ -7392,7 +7394,7 @@ class ABFactory extends EventEmitter {
       if (!this._mockApp) {
          this._mockApp = this.applicationNew({});
       }
-      return this._mockApp.viewNew(values, this._mockApp);
+      return this._mockApp.viewNew(values, null);
    }
 
    //
@@ -20796,7 +20798,7 @@ module.exports = class ABMobilePageCore extends ABMobileView {
       // NOTE: this returns a new ABView component.
       // when creating a new page, the 3rd param should be null, to signify
       // the top level component.
-      var page = this.application.viewNew(values, this.application, null);
+      var page = this.application.viewNew(values, null);
       page.parent = this;
       return page;
    }
@@ -20996,11 +20998,7 @@ module.exports = class ABMobileViewCore extends ABMLClass {
     */
    static newInstance(application, parent) {
       // return a new instance from ABViewManager:
-      return application.viewNew(
-         { key: this.common().key },
-         application,
-         parent
-      );
+      return application.viewNew({ key: this.common().key }, parent);
    }
 
    viewKey() {
@@ -21139,7 +21137,7 @@ module.exports = class ABMobileViewCore extends ABMLClass {
       (values.viewIDs || []).forEach((id) => {
          var def = this.AB.definitionByID(id);
          if (def) {
-            views.push(this.application.viewNew(def, this.application, this));
+            views.push(this.application.viewNew(def, this));
          } else {
             this.__missingViews.push(id);
          }
@@ -21481,12 +21479,8 @@ module.exports = class ABMobileViewCore extends ABMLClass {
     * @method viewNew()
     * @return {ABView}
     */
-   viewNew(values, application, parent) {
-      return this.application.viewNew(
-         values,
-         application || this.application,
-         parent || this
-      );
+   viewNew(values, parent) {
+      return this.application.viewNew(values, parent || this);
    }
 
    /**
@@ -21740,7 +21734,7 @@ module.exports = class ABMobileViewCore extends ABMLClass {
       }
 
       // copy from settings
-      let result = this.viewNew(config, this.application, parent);
+      let result = this.viewNew(config, parent);
 
       // change id
       if (parent == null) {
@@ -21814,7 +21808,7 @@ module.exports = class ABMobileViewCore extends ABMLClass {
       }
 
       // copy from settings
-      let result = this.application.viewNew(config, this.application, parent);
+      let result = this.application.viewNew(config, parent);
 
       // keep the parent
       result.parent = parent || this.parent;
@@ -29521,7 +29515,6 @@ module.exports = class ABViewConditionalContainerCore extends ABViewContainer {
                   removable: false,
                },
             },
-            application,
             this
          );
 
@@ -29537,7 +29530,6 @@ module.exports = class ABViewConditionalContainerCore extends ABViewContainer {
                   removable: false,
                },
             },
-            application,
             this
          );
 
@@ -29791,11 +29783,7 @@ module.exports = class ABViewCore extends ABMLClass {
     */
    static newInstance(application, parent) {
       // return a new instance from ABViewManager:
-      return application.viewNew(
-         { key: this.common().key },
-         application,
-         parent
-      );
+      return application.viewNew({ key: this.common().key }, parent);
    }
 
    viewKey() {
@@ -29938,7 +29926,7 @@ module.exports = class ABViewCore extends ABMLClass {
       (values.viewIDs || []).forEach((id) => {
          var def = this.AB.definitionByID(id);
          if (def) {
-            views.push(this.application.viewNew(def, this.application, this));
+            views.push(this.application.viewNew(def, this));
          } else {
             this.__missingViews.push(id);
          }
@@ -30279,15 +30267,10 @@ module.exports = class ABViewCore extends ABMLClass {
    /**
     * @method viewNew()
     *
-    *
     * @return {ABView}
     */
-   viewNew(values, application, parent) {
-      return this.application.viewNew(
-         values,
-         application || this.application,
-         parent || this
-      );
+   viewNew(values, parent) {
+      return this.application.viewNew(values, parent || this);
    }
 
    /**
@@ -30529,7 +30512,7 @@ module.exports = class ABViewCore extends ABMLClass {
       }
 
       // copy from settings
-      let result = this.viewNew(config, this.application, parent);
+      let result = this.viewNew(config, parent);
 
       // change id
       if (parent == null) {
@@ -30603,7 +30586,7 @@ module.exports = class ABViewCore extends ABMLClass {
       }
 
       // copy from settings
-      let result = this.application.viewNew(config, this.application, parent);
+      let result = this.application.viewNew(config, parent);
 
       // keep the parent
       result.parent = parent || this.parent;
@@ -33411,7 +33394,6 @@ module.exports = class ABViewLayoutCore extends ABViewWidget {
             {
                key: ABViewContainer.common().key,
             },
-            this.application,
             this
          )
       );
@@ -34213,7 +34195,7 @@ module.exports = class ABViewPageCore extends ABViewContainer {
       // NOTE: this returns a new ABView component.
       // when creating a new page, the 3rd param should be null, to signify
       // the top level component.
-      var page = this.application.viewNew(values, this.application, null);
+      var page = this.application.viewNew(values, null);
       page.parent = this;
       return page;
    }
@@ -43325,11 +43307,7 @@ module.exports = class ABField extends ABFieldCore {
             values.settings.objectId = this.object.id;
             values.settings.fieldId = this.id;
 
-            const ABFieldPlaceholder = application.viewNew(
-               values,
-               application,
-               parent
-            ); // ABViewManager.newView(values, application, parent);
+            const ABFieldPlaceholder = application.viewNew(values, parent);
             // ABFieldPlaceholder.formatTitle();
             // ABFieldPlaceholder.text = "ABFieldPlaceholder";
 
@@ -43361,11 +43339,7 @@ module.exports = class ABField extends ABFieldCore {
             values.settings.objectId = this.object.id;
             values.settings.fieldId = this.id;
 
-            const ABFieldPlaceholder = application.viewNew(
-               values,
-               application,
-               parent
-            ); // ABViewManager.newView(values, application, parent);
+            const ABFieldPlaceholder = application.viewNew(values, parent);
 
             return ABFieldPlaceholder;
          },
@@ -50452,7 +50426,6 @@ class ABViewPlugin extends (_views_ABView_js__WEBPACK_IMPORTED_MODULE_0___defaul
       // return a new instance from ABViewManager:
       return application.viewNew(
          { key: this.common().key, plugin_key: this.getPluginKey() },
-         application,
          parent
       );
    }
@@ -50763,7 +50736,6 @@ class ABViewWidgetPlugin extends (_views_ABViewWidget_js__WEBPACK_IMPORTED_MODUL
       // return a new instance from ABViewManager:
       return application.viewNew(
          { key: this.common().key, plugin_key: this.getPluginKey() },
-         application,
          parent
       );
    }
@@ -87755,4 +87727,4 @@ module.exports = class ABCustomEditList {
 /***/ })
 
 }]);
-//# sourceMappingURL=AB.591a465a827964bfe251.js.map
+//# sourceMappingURL=AB.669da30540183dd57d40.js.map
