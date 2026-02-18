@@ -50755,14 +50755,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _view_text_FNAbviewtext_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./view_text/FNAbviewtext.js */ 88229);
+/* harmony import */ var _view_image_FNAbviewimage_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./view_image/FNAbviewimage.js */ 58661);
+/* harmony import */ var _view_text_FNAbviewtext_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./view_text/FNAbviewtext.js */ 88229);
 /* harmony import */ var _view_list_FNAbviewlist_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./view_list/FNAbviewlist.js */ 62467);
 /* harmony import */ var _view_tab_FNAbviewtab_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./view_tab/FNAbviewtab.js */ 95757);
 
 
 
 
-const AllPlugins = [_view_tab_FNAbviewtab_js__WEBPACK_IMPORTED_MODULE_0__["default"], _view_list_FNAbviewlist_js__WEBPACK_IMPORTED_MODULE_1__["default"], _view_text_FNAbviewtext_js__WEBPACK_IMPORTED_MODULE_2__["default"]];
+
+const AllPlugins = [_view_tab_FNAbviewtab_js__WEBPACK_IMPORTED_MODULE_0__["default"], _view_list_FNAbviewlist_js__WEBPACK_IMPORTED_MODULE_1__["default"], _view_image_FNAbviewimage_js__WEBPACK_IMPORTED_MODULE_2__["default"], _view_text_FNAbviewtext_js__WEBPACK_IMPORTED_MODULE_3__["default"]];
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
    load: (AB) => {
@@ -50771,6 +50773,208 @@ const AllPlugins = [_view_tab_FNAbviewtab_js__WEBPACK_IMPORTED_MODULE_0__["defau
       });
    },
 });
+
+
+/***/ }),
+
+/***/ 58661:
+/*!**************************************************************************!*\
+  !*** ./AppBuilder/platform/plugins/included/view_image/FNAbviewimage.js ***!
+  \**************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FNAbviewimage)
+/* harmony export */ });
+/* harmony import */ var _FNAbviewimageComponent_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FNAbviewimageComponent.js */ 23498);
+
+
+// FNAbviewimage Web
+// A web side import for an ABView.
+//
+function FNAbviewimage({
+   /*AB,*/
+   ABViewWidgetPlugin,
+   ABViewComponentPlugin,
+   ABViewContainer,
+}) {
+   const ABAbviewimageComponent = (0,_FNAbviewimageComponent_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
+      ABViewComponentPlugin,
+   });
+
+   const ABViewImagePropertyComponentDefaults = {
+      filename: "",
+      width: 200,
+      height: 100,
+   };
+
+   const ABViewDefaults = {
+      key: "image", // {string} unique key for this view
+      icon: "picture-o", // {string} fa-[icon] reference for this view
+      labelKey: "Image", // {string} the multilingual label key for the class label
+   };
+
+   class ABViewImageCore extends ABViewWidgetPlugin {
+      constructor(values, application, parent, defaultValues) {
+         super(values, application, parent, defaultValues || ABViewDefaults);
+      }
+
+      static common() {
+         return ABViewDefaults;
+      }
+
+      static defaultValues() {
+         return ABViewImagePropertyComponentDefaults;
+      }
+
+      ///
+      /// Instance Methods
+      ///
+
+      /**
+       * @method componentList
+       * return the list of components available on this view to display in the editor.
+       */
+      componentList() {
+         return [];
+      }
+
+      /**
+       * @property datacollection
+       * return data source
+       * NOTE: this view doesn't track a DataCollection.
+       * @return {ABDataCollection}
+       */
+      get datacollection() {
+         return null;
+      }
+
+      /**
+       * @method fromValues()
+       *
+       * initialze this object with the given set of values.
+       * @param {obj} values
+       */
+      fromValues(values) {
+         super.fromValues(values);
+
+         // convert from "0" => 0
+         this.settings.width = parseInt(
+            this.settings.width || ABViewImagePropertyComponentDefaults.width
+         );
+         this.settings.height = parseInt(
+            this.settings.height || ABViewImagePropertyComponentDefaults.height
+         );
+      }
+   }
+
+   return class ABViewImage extends ABViewImageCore {
+      /**
+       * @method getPluginKey
+       * return the plugin key for this view.
+       * @return {string} plugin key
+       */
+      static getPluginKey() {
+         return this.common().key;
+      }
+
+      /**
+       * @method component()
+       * return a UI component based upon this view.
+       * @return {obj} UI component
+       */
+      component(parentId) {
+         return new ABAbviewimageComponent(this, parentId);
+      }
+
+      // constructor(values, application, parent, defaultValues) {
+      //    super(values, application, parent, defaultValues);
+      // }
+
+      //
+      //	Editor Related
+      //
+
+      warningsEval() {
+         super.warningsEval();
+
+         if (!this.settings.filename) {
+            this.warningsMessage(`has no image set`);
+         }
+      }
+   };
+}
+
+
+/***/ }),
+
+/***/ 23498:
+/*!***********************************************************************************!*\
+  !*** ./AppBuilder/platform/plugins/included/view_image/FNAbviewimageComponent.js ***!
+  \***********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FNAbviewimageComponent)
+/* harmony export */ });
+function FNAbviewimageComponent({
+   /*AB,*/
+   ABViewComponentPlugin,
+}) {
+   return class ABAbviewimageComponent extends ABViewComponentPlugin {
+      constructor(baseView, idBase, ids) {
+         super(
+            baseView,
+            idBase || `ABViewImage_${baseView.id}`,
+            Object.assign({ image: "" }, ids)
+         );
+      }
+
+      ui() {
+         const settings = this.settings;
+         const _ui = super.ui([
+            {
+               cols: [
+                  {
+                     id: this.ids.image,
+                     view: "template",
+                     template: "",
+                     height: settings.height,
+                     width: settings.width,
+                  },
+                  {},
+               ],
+            },
+         ]);
+
+         delete _ui.type;
+
+         return _ui;
+      }
+
+      async init(AB) {
+         await super.init(AB);
+
+         const $image = $$(this.ids.image);
+         if (!$image) return;
+
+         const settings = this.settings;
+
+         if (settings.filename)
+            $image.define(
+               "template",
+               `<img src="/file/${settings.filename}" height="${settings.height}" width="${settings.width}">`
+            );
+         else $image.define("template", "");
+
+         $image.refresh();
+      }
+   };
+}
 
 
 /***/ }),
@@ -87727,4 +87931,4 @@ module.exports = class ABCustomEditList {
 /***/ })
 
 }]);
-//# sourceMappingURL=AB.669da30540183dd57d40.js.map
+//# sourceMappingURL=AB.966742b59f6d173c9a18.js.map
