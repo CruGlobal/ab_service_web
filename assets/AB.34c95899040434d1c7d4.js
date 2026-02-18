@@ -12459,7 +12459,7 @@ var AllViews = [
    __webpack_require__(/*! ../platform/views/ABViewDataview */ 6286),
    __webpack_require__(/*! ../platform/views/ABViewDocxBuilder */ 4634),
    __webpack_require__(/*! ../platform/views/ABViewGrid */ 87627),
-   __webpack_require__(/*! ../platform/views/ABViewImage */ 84234),
+   // require("../platform/views/ABViewImage"),
    __webpack_require__(/*! ../platform/views/ABViewLabel */ 66933),
    __webpack_require__(/*! ../platform/views/ABViewLayout */ 30077),
    // require("../platform/views/ABViewList"),
@@ -33040,83 +33040,6 @@ module.exports = class ABViewGridCore extends ABViewWidget {
 
    copyUpdateProperyList() {
       return ["detailsPage", "detailsTab", "editPage", "editTab"];
-   }
-};
-
-
-/***/ }),
-
-/***/ 35161:
-/*!**************************************************!*\
-  !*** ./AppBuilder/core/views/ABViewImageCore.js ***!
-  \**************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-const ABViewWidget = __webpack_require__(/*! ../../platform/views/ABViewWidget */ 87039);
-
-const ABViewImagePropertyComponentDefaults = {
-   filename: "",
-   width: 200,
-   height: 100,
-};
-
-const ABViewDefaults = {
-   key: "image", // {string} unique key for this view
-   icon: "picture-o", // {string} fa-[icon] reference for this view
-   labelKey: "Image", // {string} the multilingual label key for the class label
-};
-
-module.exports = class ABViewImageCore extends ABViewWidget {
-   constructor(values, application, parent, defaultValues) {
-      super(values, application, parent, defaultValues || ABViewDefaults);
-   }
-
-   static common() {
-      return ABViewDefaults;
-   }
-
-   static defaultValues() {
-      return ABViewImagePropertyComponentDefaults;
-   }
-
-   ///
-   /// Instance Methods
-   ///
-
-   /**
-    * @method componentList
-    * return the list of components available on this view to display in the editor.
-    */
-   componentList() {
-      return [];
-   }
-
-   /**
-    * @property datacollection
-    * return data source
-    * NOTE: this view doesn't track a DataCollection.
-    * @return {ABDataCollection}
-    */
-   get datacollection() {
-      return null;
-   }
-
-   /**
-    * @method fromValues()
-    *
-    * initialze this object with the given set of values.
-    * @param {obj} values
-    */
-   fromValues(values) {
-      super.fromValues(values);
-
-      // convert from "0" => 0
-      this.settings.width = parseInt(
-         this.settings.width || ABViewImagePropertyComponentDefaults.width
-      );
-      this.settings.height = parseInt(
-         this.settings.height || ABViewImagePropertyComponentDefaults.height
-      );
    }
 };
 
@@ -60431,47 +60354,6 @@ class AB_Work_Object_Workspace_PopupSortFields extends _ui_ClassUI__WEBPACK_IMPO
 
 /***/ }),
 
-/***/ 84234:
-/*!**************************************************!*\
-  !*** ./AppBuilder/platform/views/ABViewImage.js ***!
-  \**************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-const ABViewImageCore = __webpack_require__(/*! ../../core/views/ABViewImageCore */ 35161);
-const ABViewImageComponent = __webpack_require__(/*! ./viewComponent/ABViewImageComponent */ 11226);
-
-let L = (...params) => AB.Multilingual.label(...params);
-
-module.exports = class ABViewImage extends ABViewImageCore {
-   // constructor(values, application, parent, defaultValues) {
-   //    super(values, application, parent, defaultValues);
-   // }
-
-   //
-   //	Editor Related
-   //
-
-   /**
-    * @method component()
-    * return a UI component based upon this view.
-    * @return {obj} UI component
-    */
-   component() {
-      return new ABViewImageComponent(this);
-   }
-
-   warningsEval() {
-      super.warningsEval();
-
-      if (!this.settings.filename) {
-         this.warningsMessage(`has no image set`);
-      }
-   }
-};
-
-
-/***/ }),
-
 /***/ 13128:
 /*!***************************************************!*\
   !*** ./AppBuilder/platform/views/ABViewKanban.js ***!
@@ -73469,67 +73351,6 @@ class ABViewGridComponent extends _ABViewComponent__WEBPACK_IMPORTED_MODULE_0__[
       this.ready();
    }
 }
-
-
-/***/ }),
-
-/***/ 11226:
-/*!*************************************************************************!*\
-  !*** ./AppBuilder/platform/views/viewComponent/ABViewImageComponent.js ***!
-  \*************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-const ABViewComponent = (__webpack_require__(/*! ./ABViewComponent */ 23687)["default"]);
-
-module.exports = class ABViewImageComponent extends ABViewComponent {
-   constructor(baseView, idBase, ids) {
-      super(
-         baseView,
-         idBase || `ABViewImage_${baseView.id}`,
-         Object.assign({ image: "" }, ids)
-      );
-   }
-
-   ui() {
-      const settings = this.settings;
-      const _ui = super.ui([
-         {
-            cols: [
-               {
-                  id: this.ids.image,
-                  view: "template",
-                  template: "",
-                  height: settings.height,
-                  width: settings.width,
-               },
-               {},
-            ],
-         },
-      ]);
-
-      delete _ui.type;
-
-      return _ui;
-   }
-
-   async init(AB) {
-      await super.init(AB);
-
-      const $image = $$(this.ids.image);
-      if (!$image) return;
-
-      const settings = this.settings;
-
-      if (settings.filename)
-         $image.define(
-            "template",
-            `<img src="/file/${settings.filename}" height="${settings.height}" width="${settings.width}">`
-         );
-      else $image.define("template", "");
-
-      $image.refresh();
-   }
-};
 
 
 /***/ }),
@@ -87931,4 +87752,4 @@ module.exports = class ABCustomEditList {
 /***/ })
 
 }]);
-//# sourceMappingURL=AB.966742b59f6d173c9a18.js.map
+//# sourceMappingURL=AB.34c95899040434d1c7d4.js.map
