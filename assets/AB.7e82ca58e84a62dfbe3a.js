@@ -50678,16 +50678,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _view_image_FNAbviewimage_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./view_image/FNAbviewimage.js */ 58661);
-/* harmony import */ var _view_text_FNAbviewtext_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./view_text/FNAbviewtext.js */ 88229);
 /* harmony import */ var _view_list_FNAbviewlist_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./view_list/FNAbviewlist.js */ 62467);
 /* harmony import */ var _view_tab_FNAbviewtab_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./view_tab/FNAbviewtab.js */ 95757);
+/* harmony import */ var _view_text_FNAbviewtext_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./view_text/FNAbviewtext.js */ 88229);
+/* harmony import */ var _view_image_FNAbviewimage_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./view_image/FNAbviewimage.js */ 58661);
+/* harmony import */ var _view_data_select_FNAbviewdataselect_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./view_data-select/FNAbviewdataselect.js */ 78612);
 
 
 
 
 
-const AllPlugins = [_view_tab_FNAbviewtab_js__WEBPACK_IMPORTED_MODULE_0__["default"], _view_list_FNAbviewlist_js__WEBPACK_IMPORTED_MODULE_1__["default"], _view_image_FNAbviewimage_js__WEBPACK_IMPORTED_MODULE_2__["default"], _view_text_FNAbviewtext_js__WEBPACK_IMPORTED_MODULE_3__["default"]];
+
+const AllPlugins = [_view_tab_FNAbviewtab_js__WEBPACK_IMPORTED_MODULE_0__["default"], _view_list_FNAbviewlist_js__WEBPACK_IMPORTED_MODULE_1__["default"], _view_text_FNAbviewtext_js__WEBPACK_IMPORTED_MODULE_2__["default"], _view_image_FNAbviewimage_js__WEBPACK_IMPORTED_MODULE_3__["default"], _view_data_select_FNAbviewdataselect_js__WEBPACK_IMPORTED_MODULE_4__["default"]];
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
    load: (AB) => {
@@ -50696,6 +50698,197 @@ const AllPlugins = [_view_tab_FNAbviewtab_js__WEBPACK_IMPORTED_MODULE_0__["defau
       });
    },
 });
+
+
+/***/ }),
+
+/***/ 78612:
+/*!*************************************************************************************!*\
+  !*** ./AppBuilder/platform/plugins/included/view_data-select/FNAbviewdataselect.js ***!
+  \*************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FNAbviewdataselect)
+/* harmony export */ });
+/* harmony import */ var _FNAbviewdataselectComponent_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FNAbviewdataselectComponent.js */ 3845);
+
+
+// FNAbviewdataselect Web
+// A web side import for an ABView.
+//
+function FNAbviewdataselect({
+   /*AB,*/
+   ABViewWidgetPlugin,
+   ABViewComponentPlugin,
+   ABViewContainer,
+}) {
+   const ABAbviewdataselectComponent = (0,_FNAbviewdataselectComponent_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
+      ABViewComponentPlugin,
+   });
+
+   const ABViewDataSelectPropertyComponentDefaults = {
+      dataviewID: null, // uuid of ABDatacollection
+   };
+
+   const ABViewDefaults = {
+      key: "data-select", // {string} unique key for this view
+      icon: "chevron-circle-down", // {string} fa-[icon] reference for this view
+      labelKey: "Data Select", // {string} the multilingual label key for the class label
+   };
+
+   class ABViewDataSelectCore extends ABViewWidgetPlugin {
+      constructor(values, application, parent, defaultValues) {
+         super(values, application, parent, defaultValues ?? ABViewDefaults);
+      }
+
+      static common() {
+         return ABViewDefaults;
+      }
+
+      static defaultValues() {
+         return ABViewDataSelectPropertyComponentDefaults;
+      }
+
+      ///
+      /// Instance Methods
+      ///
+
+      /**
+       * @method fromValues()
+       *
+       * initialze this object with the given set of values.
+       * @param {obj} values
+       */
+      fromValues(values) {
+         super.fromValues(values);
+      }
+
+      /**
+       * @method componentList
+       * return the list of components available on this view to display in the editor.
+       */
+      componentList() {
+         return [];
+      }
+   }
+
+   return class ABViewDataSelect extends ABViewDataSelectCore {
+      /**
+       * @method getPluginKey
+       * return the plugin key for this view.
+       * @return {string} plugin key
+       */
+      static getPluginKey() {
+         return this.common().key;
+      }
+
+      /**
+       * @method component()
+       * return a UI component based upon this view.
+       * @return {obj} UI component
+       */
+      component(parentId) {
+         return new ABAbviewdataselectComponent(this, parentId);
+      }
+
+      warningsEval() {
+         super.warningsEval();
+
+         let DC = this.datacollection;
+         if (!DC) {
+            this.warningsMessage(
+               `can't resolve it's datacollection[${this.settings.dataviewID}]`
+            );
+         } else {
+            if (this.settings.viewType == "connected") {
+               const object = DC.datasource;
+               const [field] = object.fields(
+                  (f) => f.columnName === this.settings.field
+               );
+               if (!field) {
+                  this.warningsMessage(`can't resolve field reference`);
+               }
+            }
+         }
+      }
+   };
+}
+
+
+/***/ }),
+
+/***/ 3845:
+/*!**********************************************************************************************!*\
+  !*** ./AppBuilder/platform/plugins/included/view_data-select/FNAbviewdataselectComponent.js ***!
+  \**********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FNAbviewdataselectComponent)
+/* harmony export */ });
+function FNAbviewdataselectComponent({
+   /*AB,*/
+   ABViewComponentPlugin,
+}) {
+   return class ABAbviewdataselectComponent extends ABViewComponentPlugin {
+      constructor(baseView, idbase, ids) {
+         super(
+            baseView,
+            idbase || `ABViewDataSelect_${baseView.id}`,
+            Object.assign(
+               {
+                  select: "",
+               },
+               ids
+            )
+         );
+      }
+
+      ui() {
+         const _ui = super.ui([
+            {
+               view: "combo",
+               id: this.ids.select,
+               on: {
+                  onChange: (n, o) => {
+                     if (n !== o) this.cursorChange(n);
+                  },
+               },
+            },
+         ]);
+         delete _ui.type;
+
+         return _ui;
+      }
+
+      async onShow() {
+         super.onShow();
+         const dc = this.datacollection;
+         if (!dc) return;
+         await dc.waitReady();
+         const labelField = this.AB.definitionByID(
+            this.settings.labelField
+         )?.columnName;
+         const options = dc
+            .getData()
+            .map((o) => ({ id: o.id, value: o[labelField] }))
+            .sort((a, b) => (a.value > b.value ? 1 : -1));
+         const $select = $$(this.ids.select);
+         $select.define("options", options);
+         $select.refresh();
+         $select.setValue(dc.getCursor().id);
+      }
+
+      cursorChange(n) {
+         this.datacollection.setCursor(n);
+      }
+   };
+}
 
 
 /***/ }),
@@ -87752,4 +87945,4 @@ module.exports = class ABCustomEditList {
 /***/ })
 
 }]);
-//# sourceMappingURL=AB.34c95899040434d1c7d4.js.map
+//# sourceMappingURL=AB.7e82ca58e84a62dfbe3a.js.map
