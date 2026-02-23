@@ -492,13 +492,8 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                                  newTeamDataPK
                         )
                         .map((e) => e[CONTENT_LINK_DATAPANEL_COLUMNNAME]);
-
                      const newSupervisorValue = await new Promise(
                         (resolve, reject) => {
-                           if (updatedValue[contentFieldLinkColumnName] == newTeamDataPK) {
-                              resolve(currentSupervisorValue?.id);
-                              return;
-                           }
                            this._fnShowSearchDialogBox({
                               title: [
                                  "<b>",
@@ -7931,7 +7926,7 @@ __webpack_require__.r(__webpack_exports__);
 
 const plugin = {
    /* global VERSION -- injected by webpack define plugin */
-   version: "1.0.12",
+   version: "1.0.13",
    key: "HRTeams",
    apply: function (AB) {
       const ABView = AB.Class.ABViewManager.viewClass("view");
