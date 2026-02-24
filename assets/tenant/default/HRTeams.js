@@ -236,7 +236,7 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                   rcData[fieldRcTeam.columnName] || [];
                rcData[fieldRcTeam.columnName].push(teamId);
                rcData[fieldRcTeam.relationName()] =
-                  rcData[fieldRcTeam.relationName()] ?? [];
+                  rcData[fieldRcTeam.relationName()] || [];
                rcData[fieldRcTeam.relationName()].push(teamData);
             }
 
@@ -245,14 +245,14 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
 
             // Relate Team to RC
             teamData[fieldTeamRC.columnName] =
-               teamData[fieldTeamRC.columnName] ?? [];
+               teamData[fieldTeamRC.columnName] || [];
             teamData[fieldTeamRC.columnName].push(rcData.id);
 
             const relatedRC = this.AB.cloneDeep(rcData);
             // Prevent circular reference
             delete relatedRC[fieldRcTeam.relationName()];
             teamData[fieldTeamRC.relationName()] =
-               teamData[fieldTeamRC.relationName()] ?? [];
+               teamData[fieldTeamRC.relationName()] || [];
             teamData[fieldTeamRC.relationName()].push(relatedRC);
 
             try {
@@ -492,13 +492,8 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                                  newTeamDataPK
                         )
                         .map((e) => e[CONTENT_LINK_DATAPANEL_COLUMNNAME]);
-
                      const newSupervisorValue = await new Promise(
                         (resolve, reject) => {
-                           if (updatedValue[contentFieldLinkColumnName] == newTeamDataPK) {
-                              resolve(currentSupervisorValue?.id);
-                              return;
-                           }
                            this._fnShowSearchDialogBox({
                               title: [
                                  "<b>",
@@ -1751,10 +1746,10 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
 
          // Unrelate the RC from the team.
          teamData[contentFieldLink.columnName] = (
-            teamData[contentFieldLink.columnName] ?? []
+            teamData[contentFieldLink.columnName] || []
          ).filter((relatedTeam) => relatedTeam.id ?? relatedTeam != rcId);
          teamData[contentFieldLink.relationName()] = (
-            teamData[contentFieldLink.relationName()] ?? []
+            teamData[contentFieldLink.relationName()] || []
          ).filter((relatedTeam) => relatedTeam.id ?? relatedTeam != rcId);
 
          await dc.datasource.model().update(teamData.id, teamData);
@@ -3560,12 +3555,12 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
          )[0];
 
          const teamRecords = teamDC.getData();
-         (teamRecords ?? []).forEach((team) => {
+         (teamRecords || []).forEach((team) => {
             // Clean up
             this._cleanUpRcView(team);
 
             const rcs = team[fieldRc.relationName()];
-            (rcs ?? []).forEach((rc) => {
+            (rcs || []).forEach((rc) => {
                if (!rc) return;
 
                this._addRcToGroup(team, rc);
@@ -7931,7 +7926,7 @@ __webpack_require__.r(__webpack_exports__);
 
 const plugin = {
    /* global VERSION -- injected by webpack define plugin */
-   version: "1.0.12",
+   version: "1.0.14",
    key: "HRTeams",
    apply: function (AB) {
       const ABView = AB.Class.ABViewManager.viewClass("view");
