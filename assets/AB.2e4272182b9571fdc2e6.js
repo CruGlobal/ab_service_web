@@ -36691,6 +36691,20 @@ module.exports = class ABModel extends ABModelCore {
             let lengthPacked = JSON.stringify(data).length;
             data = this.csvUnpack(data);
 
+            // Fix TypeError: Converting circular structure to JSON
+            const getCircularReplacer = () => {
+               const seen = new WeakSet();
+               return (key, value) => {
+                  if (typeof value === "object" && value !== null) {
+                     if (seen.has(value)) {
+                        return;
+                     }
+                     seen.add(value);
+                  }
+                  return value;
+               };
+            };
+
             // JOHNNY: getting "RangeError: Invalid string length"
             // when data.data is too large. So we are just going
             // to .stringify() the rows individually and count the
@@ -36699,10 +36713,16 @@ module.exports = class ABModel extends ABModelCore {
             let lengthUnpacked = 0;
             if (Array.isArray(data.data)) {
                for (var d = 0; d < data.data.length; d++) {
-                  lengthUnpacked += JSON.stringify(data.data[d]).length;
+                  lengthUnpacked += JSON.stringify(
+                     data.data[d],
+                     getCircularReplacer()
+                  ).length;
                }
             } else {
-               lengthUnpacked += JSON.stringify(data.data).length;
+               lengthUnpacked += JSON.stringify(
+                  data.data,
+                  getCircularReplacer()
+               ).length;
             }
 
             Object.keys(data)
@@ -88722,4 +88742,4 @@ module.exports = class ABCustomEditList {
 /***/ })
 
 }]);
-//# sourceMappingURL=AB.bb60d5c6d21524263e81.js.map
+//# sourceMappingURL=AB.2e4272182b9571fdc2e6.js.map
