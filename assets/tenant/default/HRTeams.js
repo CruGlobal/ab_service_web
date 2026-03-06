@@ -565,12 +565,18 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                      if (
                         newSupervisorValue &&
                         (currentSupervisorValue?.id ?? "") != newSupervisorValue
-                     )
+                     ) {
                         dataPanelDisplayDC.model.update(currentStaffValue.id, {
                            [DATAPANEL_SUPERVISOR_COLUMNNAME]:
                               newSupervisorValue,
                            customform: 166,
                         });
+                        this.AB.Webix.alert({
+                           text: this.label("Changing a supervisor will take some time to update. You won't see the change immediately."),
+                           type:"alert-error",
+                           ok: this.label("Got it!"),
+                        });
+                     }
                   } catch (err) {
                      this._fnReadyRecord($teamRecord);
                      console.error(err);
@@ -649,11 +655,14 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                   this._fnReadyRecord($draggedNode);
                }
                if (isRefreshed) {
-                  draggedNodes.forEach(($draggedNode) => {
-                     $draggedNode.remove();
+                  this._addContentRecordToGroup(updatedValue, () => {
+                     draggedNodes.forEach(($draggedNode) => {
+                        $draggedNode.remove();
+                     });
+                     this._fnReadyRecord($teamRecord);
                   });
-                  this._addContentRecordToGroup(updatedValue);
                   this._refreshDataPanel();
+                  return;
                }
             } catch (err) {
                // TODO (Guy): The update data error.
@@ -1455,6 +1464,7 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                               label: buttonLabel,
                               width: 210,
                               click() {
+                                 $window.blockEvent();
                                  onOK(
                                     $window
                                        .getChildViews()[1]
@@ -1462,6 +1472,7 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                                        .getSelectedId()
                                  );
                                  $window.close();
+                                 $window.destructor();
                               },
                            },
                         ],
@@ -1584,7 +1595,7 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
          });
       }
 
-      _addContentRecordToGroup(contentRecord) {
+      _addContentRecordToGroup(contentRecord, callback) {
          const linkedContentColumnName = this.AB.definitionByID(
             this.AB.definitionByID(this.settings.contentField).settings
                .linkColumn
@@ -1645,6 +1656,7 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                   childContentRecord[principalColumnName] === 1;
                if (isNewChildPrincipal && !isChildPrincipal) {
                   $child.before($newChild);
+                  callback?.();
                   return;
                } else if (!isNewChildPrincipal && isChildPrincipal) continue;
                const childDataPanelRecord = dataPanelDC.getData(
@@ -1658,9 +1670,11 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                   ] === 1;
                if (dataPanelRecord == null) {
                   $child.after($newChild);
+                  callback?.();
                   return;
                } else if (!isNewChildEmeritus && isChildEmeritus) {
                   $child.before($newChild);
+                  callback?.();
                   return;
                } else if (isNewChildEmeritus && !isChildEmeritus) continue;
                const sortingResult = this._utils.sortByEmployeeLastname(
@@ -1669,6 +1683,7 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                );
                if (sortingResult === -1) {
                   $child.before($newChild);
+                  callback?.();
                   return;
                } else if (sortingResult === 0) {
                   if (
@@ -1679,10 +1694,12 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                   )
                      $child.before($newChild);
                   else $child.after($newChild);
+                  callback?.();
                   return;
                }
             }
             $groupSection.appendChild($newChild);
+            callback?.();
          })();
       }
 
@@ -7926,7 +7943,7 @@ __webpack_require__.r(__webpack_exports__);
 
 const plugin = {
    /* global VERSION -- injected by webpack define plugin */
-   version: "1.0.14",
+   version: "1.0.15",
    key: "HRTeams",
    apply: function (AB) {
       const ABView = AB.Class.ABViewManager.viewClass("view");
