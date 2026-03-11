@@ -6799,6 +6799,7 @@ class StaffDataPanel extends _DataPanel_js__WEBPACK_IMPORTED_MODULE_0__["default
                         const contentLinkedColumnName =
                            contentLinkedField.columnName;
                         this.clearAll();
+                        const searchText = $$(self.ids.dataPanel).getParentView().getChildViews()[0].getValue().toLowerCase();
                         this.define(
                            "data",
                            // TODO (Guy): Hardcode Employee DC.
@@ -6826,7 +6827,9 @@ class StaffDataPanel extends _DataPanel_js__WEBPACK_IMPORTED_MODULE_0__["default
                                          dataPanelDC.id === dataPanelDCID
                                    )
                                    .getData()
-                           ).sort(self._utils.sortByEmployeeLastname)
+                           )
+                              .filter((e) => `${e.initials}${e[DATAPANEL_LASTNAME_COLUMNNAME]}, ${e[DATAPANEL_PREFERRED_NAME_COLUMNNAME] || e[DATAPANEL_FIRSTNAME_COLUMNNAME]}`.toLowerCase().indexOf(searchText) > -1)
+                              .sort(self._utils.sortByEmployeeLastname)
                         );
                         await self._utils.waitDOM();
                         const $itemElements =
@@ -6866,6 +6869,17 @@ class StaffDataPanel extends _DataPanel_js__WEBPACK_IMPORTED_MODULE_0__["default
       return {
          type: "clean",
          rows: [
+            {
+               view:"search",
+               placeholder:"Search..",
+               keyPressTimeout: 100,
+               on: {
+                  onTimedKeyPress: () => {
+                     $$($$(this.ids.dataPanel).getChildViews()[0].getValue()).callEvent("onViewShow");
+                     // .getChildViews()[1].getChildViews()[0].callEvent("onViewShow");
+                  }
+               }
+            },
             {
                id: this.ids.dataPanel,
                view: "tabview",
@@ -7943,7 +7957,7 @@ __webpack_require__.r(__webpack_exports__);
 
 const plugin = {
    /* global VERSION -- injected by webpack define plugin */
-   version: "1.0.15",
+   version: "1.0.16",
    key: "HRTeams",
    apply: function (AB) {
       const ABView = AB.Class.ABViewManager.viewClass("view");
