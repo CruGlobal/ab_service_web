@@ -1,10 +1,10 @@
 (self["webpackChunkab_platform_web"] = self["webpackChunkab_platform_web"] || []).push([["sailsio"],{
 
-/***/ 40968:
+/***/ 40968
 /*!*************************!*\
   !*** ./init/sailsIo.js ***!
   \*************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -26,17 +26,17 @@ const fnConnect = () => {
 io.socket.on("connect", fnConnect);
 
 
-/***/ }),
+/***/ },
 
-/***/ 25660:
+/***/ 25660
 /*!********************!*\
   !*** ws (ignored) ***!
   \********************/
-/***/ (() => {
+() {
 
 /* (ignored) */
 
-/***/ })
+/***/ }
 
 },
 /******/ __webpack_require__ => { // webpackRuntimeModules

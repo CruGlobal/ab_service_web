@@ -1,10 +1,10 @@
 (self["webpackChunkab_platform_web"] = self["webpackChunkab_platform_web"] || []).push([["AB"],{
 
-/***/ 35358:
+/***/ 35358
 /*!***************************************************!*\
   !*** ./node_modules/moment/locale/ sync ^\.\/.*$ ***!
   \***************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 var map = {
 	"./af": 19183,
@@ -303,46 +303,46 @@ webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
 webpackContext.id = 35358;
 
-/***/ }),
+/***/ },
 
-/***/ 21353:
+/***/ 21353
 /*!*********************************!*\
   !*** ./AppBuilder/ABFactory.js ***!
   \*********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _core_ABFactoryCore__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./core/ABFactoryCore */ 66124);
-/* harmony import */ var _core_ABFactoryCore__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_core_ABFactoryCore__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ 84529);
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! moment */ 41655);
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var nanoid__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! nanoid */ 27869);
-/* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! uuid */ 15460);
-/* harmony import */ var _utils_performance__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../utils/performance */ 76431);
-/* harmony import */ var _platform_FilterComplex__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./platform/FilterComplex */ 46334);
-/* harmony import */ var _platform_FilterComplex__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_platform_FilterComplex__WEBPACK_IMPORTED_MODULE_12__);
-/* harmony import */ var _platform_views_ABViewGridPopupSortFields__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./platform/views/ABViewGridPopupSortFields */ 216);
-/* harmony import */ var papaparse__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! papaparse */ 24691);
-/* harmony import */ var papaparse__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(papaparse__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _config_Config_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../config/Config.js */ 97970);
-/* harmony import */ var _resources_Account_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../resources/Account.js */ 42674);
+/* harmony import */ var _core_ABFactoryCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./core/ABFactoryCore */ 66124);
+/* harmony import */ var _core_ABFactoryCore__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_core_ABFactoryCore__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ 84529);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! moment */ 41655);
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var nanoid__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! nanoid */ 27869);
+/* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! uuid */ 15460);
+/* harmony import */ var _utils_performance__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../utils/performance */ 76431);
+/* harmony import */ var _platform_FilterComplex__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./platform/FilterComplex */ 46334);
+/* harmony import */ var _platform_FilterComplex__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_platform_FilterComplex__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _platform_views_ABViewGridPopupSortFields__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./platform/views/ABViewGridPopupSortFields */ 216);
+/* harmony import */ var papaparse__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! papaparse */ 24691);
+/* harmony import */ var papaparse__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(papaparse__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _config_Config_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../config/Config.js */ 97970);
+/* harmony import */ var _resources_Account_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../resources/Account.js */ 42674);
 /* harmony import */ var _ui_ClassUI_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../ui/ClassUI.js */ 93692);
-/* harmony import */ var _factory_utils_Dialog_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./_factory_utils/Dialog.js */ 79750);
-/* harmony import */ var _resources_Multilingual_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../resources/Multilingual.js */ 34224);
-/* harmony import */ var _resources_Network_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../resources/Network.js */ 46147);
-/* harmony import */ var _platform_plugins_included_index_js__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./platform/plugins/included/index.js */ 30188);
-/* harmony import */ var _resources_Storage_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../resources/Storage.js */ 97112);
-/* harmony import */ var _core_ABViewManagerCore__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./core/ABViewManagerCore */ 74834);
-/* harmony import */ var _core_ABViewManagerCore__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_core_ABViewManagerCore__WEBPACK_IMPORTED_MODULE_13__);
-/* harmony import */ var _resources_Tenant_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../resources/Tenant.js */ 38913);
-/* harmony import */ var _uiSettings_config_js__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./uiSettings/config.js */ 37468);
-/* harmony import */ var _platform_views_viewComponent_ABViewComponent_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./platform/views/viewComponent/ABViewComponent.js */ 23687);
+/* harmony import */ var _factory_utils_Dialog_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./_factory_utils/Dialog.js */ 79750);
+/* harmony import */ var _resources_Multilingual_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../resources/Multilingual.js */ 34224);
+/* harmony import */ var _resources_Network_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../resources/Network.js */ 46147);
+/* harmony import */ var _platform_plugins_included_index_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./platform/plugins/included/index.js */ 30188);
+/* harmony import */ var _resources_Storage_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../resources/Storage.js */ 97112);
+/* harmony import */ var _core_ABViewManagerCore__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./core/ABViewManagerCore */ 74834);
+/* harmony import */ var _core_ABViewManagerCore__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(_core_ABViewManagerCore__WEBPACK_IMPORTED_MODULE_17__);
+/* harmony import */ var _resources_Tenant_js__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../resources/Tenant.js */ 38913);
+/* harmony import */ var _uiSettings_config_js__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./uiSettings/config.js */ 37468);
+/* harmony import */ var _platform_views_viewComponent_ABViewComponent_js__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./platform/views/viewComponent/ABViewComponent.js */ 23687);
 
 
 
@@ -438,32 +438,32 @@ class ABValidator {
 // AppBuilder Objects
 //
 
-class ABFactory extends (_core_ABFactoryCore__WEBPACK_IMPORTED_MODULE_3___default()) {
+class ABFactory extends (_core_ABFactoryCore__WEBPACK_IMPORTED_MODULE_0___default()) {
    constructor(definitions) {
       super(definitions);
 
       // Common Reference to Configuration Values
-      this.Config = _config_Config_js__WEBPACK_IMPORTED_MODULE_4__["default"];
+      this.Config = _config_Config_js__WEBPACK_IMPORTED_MODULE_9__["default"];
 
       //
       // Resources
       //
-      this.Account = _resources_Account_js__WEBPACK_IMPORTED_MODULE_5__["default"];
-      this.Dialog = _factory_utils_Dialog_js__WEBPACK_IMPORTED_MODULE_6__["default"];
-      this.Multilingual = _resources_Multilingual_js__WEBPACK_IMPORTED_MODULE_7__["default"];
-      this.Network = _resources_Network_js__WEBPACK_IMPORTED_MODULE_8__["default"];
-      this.Storage = _resources_Storage_js__WEBPACK_IMPORTED_MODULE_9__["default"];
-      this.Tenant = _resources_Tenant_js__WEBPACK_IMPORTED_MODULE_10__["default"];
+      this.Account = _resources_Account_js__WEBPACK_IMPORTED_MODULE_10__["default"];
+      this.Dialog = _factory_utils_Dialog_js__WEBPACK_IMPORTED_MODULE_12__["default"];
+      this.Multilingual = _resources_Multilingual_js__WEBPACK_IMPORTED_MODULE_13__["default"];
+      this.Network = _resources_Network_js__WEBPACK_IMPORTED_MODULE_14__["default"];
+      this.Storage = _resources_Storage_js__WEBPACK_IMPORTED_MODULE_16__["default"];
+      this.Tenant = _resources_Tenant_js__WEBPACK_IMPORTED_MODULE_18__["default"];
       this.Webix = webix;
 
       // Plugin Classes
       this.ClassUI = _ui_ClassUI_js__WEBPACK_IMPORTED_MODULE_11__["default"];
 
       // additional Class definitions
-      this.Class.FilterComplex = (_platform_FilterComplex__WEBPACK_IMPORTED_MODULE_12___default());
-      this.Class.ABViewManager = (_core_ABViewManagerCore__WEBPACK_IMPORTED_MODULE_13___default());
-      this.Class.SortPopup = _platform_views_ABViewGridPopupSortFields__WEBPACK_IMPORTED_MODULE_14__["default"];
-      this.Class.ABViewComponent = _platform_views_viewComponent_ABViewComponent_js__WEBPACK_IMPORTED_MODULE_15__["default"];
+      this.Class.FilterComplex = (_platform_FilterComplex__WEBPACK_IMPORTED_MODULE_6___default());
+      this.Class.ABViewManager = (_core_ABViewManagerCore__WEBPACK_IMPORTED_MODULE_17___default());
+      this.Class.SortPopup = _platform_views_ABViewGridPopupSortFields__WEBPACK_IMPORTED_MODULE_7__["default"];
+      this.Class.ABViewComponent = _platform_views_viewComponent_ABViewComponent_js__WEBPACK_IMPORTED_MODULE_20__["default"];
 
       // Temp placeholders until Resources are implemented:
       this.Analytics = {
@@ -481,9 +481,9 @@ class ABFactory extends (_core_ABFactoryCore__WEBPACK_IMPORTED_MODULE_3___defaul
          }
       };
 
-      this.performance = _utils_performance__WEBPACK_IMPORTED_MODULE_16__["default"];
+      this.performance = _utils_performance__WEBPACK_IMPORTED_MODULE_5__["default"];
 
-      this.UISettings = _uiSettings_config_js__WEBPACK_IMPORTED_MODULE_17__["default"];
+      this.UISettings = _uiSettings_config_js__WEBPACK_IMPORTED_MODULE_19__["default"];
 
       this.Validation = {
          validator: () => {
@@ -796,8 +796,8 @@ class ABFactory extends (_core_ABFactoryCore__WEBPACK_IMPORTED_MODULE_3___defaul
             if (options.ignoreTime) dateText = dateText.replace(/T.*/, "");
 
             let result = options.format
-               ? moment__WEBPACK_IMPORTED_MODULE_1___default()(dateText, options.format)
-               : moment__WEBPACK_IMPORTED_MODULE_1___default()(dateText);
+               ? moment__WEBPACK_IMPORTED_MODULE_2___default()(dateText, options.format)
+               : moment__WEBPACK_IMPORTED_MODULE_2___default()(dateText);
 
             let supportFormats = [
                "YYYY-MM-DD",
@@ -810,7 +810,7 @@ class ABFactory extends (_core_ABFactoryCore__WEBPACK_IMPORTED_MODULE_3___defaul
 
             supportFormats.forEach((format) => {
                if (!result || !result.isValid())
-                  result = moment__WEBPACK_IMPORTED_MODULE_1___default()(dateText, format);
+                  result = moment__WEBPACK_IMPORTED_MODULE_2___default()(dateText, format);
             });
 
             return new Date(result);
@@ -830,7 +830,7 @@ class ABFactory extends (_core_ABFactoryCore__WEBPACK_IMPORTED_MODULE_3___defaul
          toDateFormat: (date, options) => {
             if (!date) return "";
 
-            let momentObj = moment__WEBPACK_IMPORTED_MODULE_1___default()(date);
+            let momentObj = moment__WEBPACK_IMPORTED_MODULE_2___default()(date);
 
             if (options.localeCode) momentObj.locale(options.localeCode);
 
@@ -847,7 +847,7 @@ class ABFactory extends (_core_ABFactoryCore__WEBPACK_IMPORTED_MODULE_3___defaul
           * @return {Date}
           */
          subtractDate: (date, number, unit) => {
-            return moment__WEBPACK_IMPORTED_MODULE_1___default()(date).subtract(number, unit).toDate();
+            return moment__WEBPACK_IMPORTED_MODULE_2___default()(date).subtract(number, unit).toDate();
          },
 
          /**
@@ -860,7 +860,7 @@ class ABFactory extends (_core_ABFactoryCore__WEBPACK_IMPORTED_MODULE_3___defaul
           * @return {Date}
           */
          addDate: (date, number, unit) => {
-            return moment__WEBPACK_IMPORTED_MODULE_1___default()(date).add(number, unit).toDate();
+            return moment__WEBPACK_IMPORTED_MODULE_2___default()(date).add(number, unit).toDate();
          },
 
          /**
@@ -1212,7 +1212,7 @@ class ABFactory extends (_core_ABFactoryCore__WEBPACK_IMPORTED_MODULE_3___defaul
     * @param {json} info Additional related information concerning the issue.
     */
    notify(domain, error, info) {
-      _utils_performance__WEBPACK_IMPORTED_MODULE_16__["default"].notify(domain, error, info);
+      _utils_performance__WEBPACK_IMPORTED_MODULE_5__["default"].notify(domain, error, info);
    }
 
    plugins() {
@@ -1226,7 +1226,7 @@ class ABFactory extends (_core_ABFactoryCore__WEBPACK_IMPORTED_MODULE_3___defaul
       // This is a placeholder for a local plugin load.
       // The platform version of this method will load the plugins from
       // /platform/plugins/local/
-      return _platform_plugins_included_index_js__WEBPACK_IMPORTED_MODULE_18__["default"].load(this);
+      return _platform_plugins_included_index_js__WEBPACK_IMPORTED_MODULE_15__["default"].load(this);
    }
 
    //
@@ -1237,7 +1237,7 @@ class ABFactory extends (_core_ABFactoryCore__WEBPACK_IMPORTED_MODULE_3___defaul
    }
 
    cloneDeep(value) {
-      return lodash__WEBPACK_IMPORTED_MODULE_0___default().cloneDeep(value);
+      return lodash__WEBPACK_IMPORTED_MODULE_1___default().cloneDeep(value);
    }
 
    /**
@@ -1247,7 +1247,7 @@ class ABFactory extends (_core_ABFactoryCore__WEBPACK_IMPORTED_MODULE_3___defaul
     * @returns {object} the merged object
     */
    defaultsDeep(target, source) {
-      return lodash__WEBPACK_IMPORTED_MODULE_0___default().defaultsDeep(target, source);
+      return lodash__WEBPACK_IMPORTED_MODULE_1___default().defaultsDeep(target, source);
    }
 
    error(message, ...rest) {
@@ -1282,7 +1282,7 @@ class ABFactory extends (_core_ABFactoryCore__WEBPACK_IMPORTED_MODULE_3___defaul
    }
 
    jobID() {
-      return (0,nanoid__WEBPACK_IMPORTED_MODULE_19__.nanoid)();
+      return (0,nanoid__WEBPACK_IMPORTED_MODULE_3__.nanoid)();
    }
 
    Label() {
@@ -1310,7 +1310,7 @@ class ABFactory extends (_core_ABFactoryCore__WEBPACK_IMPORTED_MODULE_3___defaul
    }
 
    isNil(value) {
-      return lodash__WEBPACK_IMPORTED_MODULE_0___default().isNil(value);
+      return lodash__WEBPACK_IMPORTED_MODULE_1___default().isNil(value);
    }
 
    /**
@@ -1328,39 +1328,39 @@ class ABFactory extends (_core_ABFactoryCore__WEBPACK_IMPORTED_MODULE_3___defaul
    }
 
    merge(...params) {
-      return lodash__WEBPACK_IMPORTED_MODULE_0___default().merge(...params);
+      return lodash__WEBPACK_IMPORTED_MODULE_1___default().merge(...params);
    }
 
    orderBy(...params) {
-      return lodash__WEBPACK_IMPORTED_MODULE_0___default().orderBy(...params);
+      return lodash__WEBPACK_IMPORTED_MODULE_1___default().orderBy(...params);
    }
 
    uniq(...params) {
-      return lodash__WEBPACK_IMPORTED_MODULE_0___default().uniq(...params);
+      return lodash__WEBPACK_IMPORTED_MODULE_1___default().uniq(...params);
    }
 
    kebabCase(...params) {
-      return lodash__WEBPACK_IMPORTED_MODULE_0___default().kebabCase(...params);
+      return lodash__WEBPACK_IMPORTED_MODULE_1___default().kebabCase(...params);
    }
 
    sumBy(...params) {
-      return lodash__WEBPACK_IMPORTED_MODULE_0___default().sumBy(...params);
+      return lodash__WEBPACK_IMPORTED_MODULE_1___default().sumBy(...params);
    }
 
    meanBy(...params) {
-      return lodash__WEBPACK_IMPORTED_MODULE_0___default().meanBy(...params);
+      return lodash__WEBPACK_IMPORTED_MODULE_1___default().meanBy(...params);
    }
 
    maxBy(...params) {
-      return lodash__WEBPACK_IMPORTED_MODULE_0___default().maxBy(...params);
+      return lodash__WEBPACK_IMPORTED_MODULE_1___default().maxBy(...params);
    }
 
    minBy(...params) {
-      return lodash__WEBPACK_IMPORTED_MODULE_0___default().minBy(...params);
+      return lodash__WEBPACK_IMPORTED_MODULE_1___default().minBy(...params);
    }
 
    uuid() {
-      return (0,uuid__WEBPACK_IMPORTED_MODULE_20__["default"])();
+      return (0,uuid__WEBPACK_IMPORTED_MODULE_4__["default"])();
    }
 
    warn(message, ...rest) {
@@ -1371,7 +1371,7 @@ class ABFactory extends (_core_ABFactoryCore__WEBPACK_IMPORTED_MODULE_3___defaul
    }
 
    isString(...params) {
-      return lodash__WEBPACK_IMPORTED_MODULE_0___default().isString(params);
+      return lodash__WEBPACK_IMPORTED_MODULE_1___default().isString(params);
    }
 
    async scriptLoad(url) {
@@ -1426,27 +1426,27 @@ class ABFactory extends (_core_ABFactoryCore__WEBPACK_IMPORTED_MODULE_3___defaul
    }
 
    csvToJson(csvData) {
-      return papaparse__WEBPACK_IMPORTED_MODULE_2___default().parse(csvData, {
+      return papaparse__WEBPACK_IMPORTED_MODULE_8___default().parse(csvData, {
          header: true,
          skipEmptyLines: true,
       });
    }
 
    jsonToCsv(jsonData) {
-      return papaparse__WEBPACK_IMPORTED_MODULE_2___default().unparse(jsonData);
+      return papaparse__WEBPACK_IMPORTED_MODULE_8___default().unparse(jsonData);
    }
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ABFactory);
 
 
-/***/ }),
+/***/ },
 
-/***/ 79750:
+/***/ 79750
 /*!*********************************************!*\
   !*** ./AppBuilder/_factory_utils/Dialog.js ***!
   \*********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -1593,13 +1593,13 @@ __webpack_require__.r(__webpack_exports__);
 });
 
 
-/***/ }),
+/***/ },
 
-/***/ 43872:
+/***/ 43872
 /*!**********************************************!*\
   !*** ./AppBuilder/core/ABApplicationCore.js ***!
   \**********************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /**
  * ABApplicationCore
@@ -2622,13 +2622,13 @@ module.exports = class ABApplicationCore extends ABMLClass {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 25618:
+/***/ 25618
 /*!****************************************************!*\
   !*** ./AppBuilder/core/ABApplicationMobileCore.js ***!
   \****************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /**
  * ABApplicationMobileCore
@@ -2696,13 +2696,13 @@ module.exports = class ABApplicationMobileCore extends ABApplication {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 59002:
+/***/ 59002
 /*!*************************************************!*\
   !*** ./AppBuilder/core/ABDataCollectionCore.js ***!
   \*************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /*
  * ABDataCollection
@@ -6208,13 +6208,13 @@ module.exports = class ABDataCollectionCore extends ABMLClass {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 23211:
+/***/ 23211
 /*!*********************************************!*\
   !*** ./AppBuilder/core/ABDefinitionCore.js ***!
   \*********************************************/
-/***/ ((module) => {
+(module) {
 
 // import ABApplication from "./ABApplication"
 
@@ -6308,13 +6308,13 @@ module.exports = class ABDefinitionCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 66124:
+/***/ 66124
 /*!******************************************!*\
   !*** ./AppBuilder/core/ABFactoryCore.js ***!
   \******************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /*
  * ABFactoryCore
@@ -7500,13 +7500,13 @@ class ABFactory extends EventEmitter {
 module.exports = ABFactory;
 
 
-/***/ }),
+/***/ },
 
-/***/ 634:
+/***/ 634
 /*!*******************************************!*\
   !*** ./AppBuilder/core/ABFieldManager.js ***!
   \*******************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /*
  * ABFieldManager
@@ -7604,13 +7604,13 @@ module.exports = class ABFieldManager {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 16943:
+/***/ 16943
 /*!***************************************!*\
   !*** ./AppBuilder/core/ABHintCore.js ***!
   \***************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 // import ABApplication from "./ABApplication"
 
@@ -7757,13 +7757,13 @@ module.exports = class ABHintCore extends ABMLClass {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 17030:
+/***/ 17030
 /*!****************************************!*\
   !*** ./AppBuilder/core/ABIndexCore.js ***!
   \****************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABMLClass = __webpack_require__(/*! ../platform/ABMLClass */ 72982);
 
@@ -7884,13 +7884,13 @@ module.exports = class ABIndexCore extends ABMLClass {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 45597:
+/***/ 45597
 /*!******************************************!*\
   !*** ./AppBuilder/core/ABMLClassCore.js ***!
   \******************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /**
  * ABMLClassCore
@@ -8147,13 +8147,13 @@ module.exports = class ABMLClassCore extends ABEmitter {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 53903:
+/***/ 53903
 /*!****************************************!*\
   !*** ./AppBuilder/core/ABModelCore.js ***!
   \****************************************/
-/***/ ((module) => {
+(module) {
 
 //
 // ABModelCore
@@ -9591,13 +9591,13 @@ module.exports = class ABModelCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 41227:
+/***/ 41227
 /*!********************************************!*\
   !*** ./AppBuilder/core/ABObjectApiCore.js ***!
   \********************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABObject = __webpack_require__(/*! ../platform/ABObject */ 84154);
 const ABModelApi = __webpack_require__(/*! ../platform/ABModelApi */ 64238);
@@ -9729,13 +9729,13 @@ module.exports = class ABObjectApiCore extends ABObject {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 70074:
+/***/ 70074
 /*!****************************************************!*\
   !*** ./AppBuilder/core/ABObjectApiNetsuiteCore.js ***!
   \****************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABObjectApi = __webpack_require__(/*! ../platform/ABObjectApi */ 30008);
 const ABModelApiNetsuite = __webpack_require__(/*! ../platform/ABModelApiNetsuite */ 95627);
@@ -9860,13 +9860,13 @@ module.exports = class ABObjectApiNetsuiteCore extends ABObjectApi {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 82505:
+/***/ 82505
 /*!*****************************************!*\
   !*** ./AppBuilder/core/ABObjectCore.js ***!
   \*****************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /**
  * ABObjectCore
@@ -10955,13 +10955,13 @@ module.exports = class ABObjectCore extends ABMLClass {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 98143:
+/***/ 98143
 /*!**********************************************!*\
   !*** ./AppBuilder/core/ABObjectQueryCore.js ***!
   \**********************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 //
 // ABObjectQuery
@@ -11649,13 +11649,13 @@ module.exports = class ABObjectQueryCore extends ABObject {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 68895:
+/***/ 68895
 /*!******************************************!*\
   !*** ./AppBuilder/core/ABProcessCore.js ***!
   \******************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 // import ABApplication from "./ABApplication"
 
@@ -12295,13 +12295,13 @@ var queryPreviousTasks = (
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 72880:
+/***/ 72880
 /*!***************************************!*\
   !*** ./AppBuilder/core/ABStepCore.js ***!
   \***************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 // import ABApplication from "./ABApplication"
 
@@ -12425,13 +12425,13 @@ module.exports = class ABStepCore extends ABMLClass {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 74834:
+/***/ 74834
 /*!**********************************************!*\
   !*** ./AppBuilder/core/ABViewManagerCore.js ***!
   \**********************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /*
  * ABViewManager
@@ -12461,7 +12461,7 @@ var AllViews = [
    __webpack_require__(/*! ../platform/views/ABViewGrid */ 87627),
    // require("../platform/views/ABViewImage"),
    // require("../platform/views/ABViewLabel"),
-   __webpack_require__(/*! ../platform/views/ABViewLayout */ 30077),
+   // require("../platform/views/ABViewLayout"),
    // require("../platform/views/ABViewList"),
    __webpack_require__(/*! ../platform/views/ABViewMenu */ 46672),
    __webpack_require__(/*! ../platform/views/ABViewPage */ 44),
@@ -12597,13 +12597,13 @@ function isPlugin(key) {
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 31828:
+/***/ 31828
 /*!****************************************************!*\
   !*** ./AppBuilder/core/ABViewManagerMobileCore.js ***!
   \****************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /*
  * ABViewManagerMobile
@@ -12709,13 +12709,13 @@ module.exports = class ABViewManagerCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 70205:
+/***/ 70205
 /*!**********************************************!*\
   !*** ./AppBuilder/core/FilterComplexCore.js ***!
   \**********************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABComponent = __webpack_require__(/*! ../platform/ABComponent */ 85450);
 // const ABObjectQuery = require("../platform/ABObjectQuery");
@@ -14223,13 +14223,13 @@ module.exports = class FilterComplexCore extends ABComponent {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 7605:
+/***/ 7605
 /*!******************************************!*\
   !*** ./AppBuilder/core/RowFilterCore.js ***!
   \******************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABComponent = __webpack_require__(/*! ../platform/ABComponent */ 85450);
 
@@ -15045,13 +15045,13 @@ module.exports = class RowFilterCore extends ABComponent {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 46027:
+/***/ 46027
 /*!************************************************************!*\
   !*** ./AppBuilder/core/dataFields/ABFieldAutoIndexCore.js ***!
   \************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /*
  * ABFieldAutoIndex
@@ -15207,13 +15207,13 @@ module.exports = class ABFieldAutoIndexCore extends ABField {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 97026:
+/***/ 97026
 /*!**********************************************************!*\
   !*** ./AppBuilder/core/dataFields/ABFieldBooleanCore.js ***!
   \**********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /*
  * ABFieldBoolean
@@ -15331,13 +15331,13 @@ module.exports = class ABFieldBooleanCore extends ABField {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 41442:
+/***/ 41442
 /*!************************************************************!*\
   !*** ./AppBuilder/core/dataFields/ABFieldCalculateCore.js ***!
   \************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /*
  * ABFieldCalculate
@@ -15683,13 +15683,13 @@ module.exports = class ABFieldCalculateCore extends ABField {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 76215:
+/***/ 76215
 /*!**********************************************************!*\
   !*** ./AppBuilder/core/dataFields/ABFieldCombineCore.js ***!
   \**********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /*
  * ABFieldCombine
@@ -15854,13 +15854,13 @@ module.exports = class ABFieldCombineCore extends ABField {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 83520:
+/***/ 83520
 /*!**********************************************************!*\
   !*** ./AppBuilder/core/dataFields/ABFieldConnectCore.js ***!
   \**********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /*
  * ABFieldConnect
@@ -16317,13 +16317,13 @@ module.exports = class ABFieldConnectCore extends ABField {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 79786:
+/***/ 79786
 /*!***************************************************!*\
   !*** ./AppBuilder/core/dataFields/ABFieldCore.js ***!
   \***************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /*
  * ABFieldCore
@@ -16684,13 +16684,13 @@ module.exports = class ABFieldCore extends ABMLClass {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 33574:
+/***/ 33574
 /*!*******************************************************!*\
   !*** ./AppBuilder/core/dataFields/ABFieldDateCore.js ***!
   \*******************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /*
  * ABFieldDate
@@ -17158,13 +17158,13 @@ module.exports = class ABFieldDateCore extends ABField {
 module.exports.RegEx = "^[0-9]{4}-[0-9]{2}-[0-9]{2}$";
 
 
-/***/ }),
+/***/ },
 
-/***/ 32127:
+/***/ 32127
 /*!***********************************************************!*\
   !*** ./AppBuilder/core/dataFields/ABFieldDateTimeCore.js ***!
   \***********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /*
  * ABFieldDateTime
@@ -17390,13 +17390,13 @@ module.exports.RegEx =
    "^[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}$";
 
 
-/***/ }),
+/***/ },
 
-/***/ 5470:
+/***/ 5470
 /*!********************************************************!*\
   !*** ./AppBuilder/core/dataFields/ABFieldEmailCore.js ***!
   \********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /*
  * ABFieldEmail
@@ -17537,13 +17537,13 @@ module.exports = class ABFieldEmailCore extends ABField {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 58588:
+/***/ 58588
 /*!*******************************************************!*\
   !*** ./AppBuilder/core/dataFields/ABFieldFileCore.js ***!
   \*******************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /*
  * ABFieldFile
@@ -17737,13 +17737,13 @@ module.exports = class ABFieldFileCore extends ABField {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 17980:
+/***/ 17980
 /*!**********************************************************!*\
   !*** ./AppBuilder/core/dataFields/ABFieldFormulaCore.js ***!
   \**********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /*
  * ABFieldFormula
@@ -18033,13 +18033,13 @@ module.exports = class ABFieldFormulaCore extends ABField {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 65351:
+/***/ 65351
 /*!********************************************************!*\
   !*** ./AppBuilder/core/dataFields/ABFieldImageCore.js ***!
   \********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /*
  * ABFieldImageCore
@@ -18181,13 +18181,13 @@ module.exports = class ABFieldImageCore extends ABField {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 46292:
+/***/ 46292
 /*!*******************************************************!*\
   !*** ./AppBuilder/core/dataFields/ABFieldJsonCore.js ***!
   \*******************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /*
  * ABFieldJson
@@ -18281,13 +18281,13 @@ module.exports = class ABFieldJsonCore extends ABField {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 33710:
+/***/ 33710
 /*!*******************************************************!*\
   !*** ./AppBuilder/core/dataFields/ABFieldListCore.js ***!
   \*******************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /*
  * ABFieldListCore
@@ -18560,13 +18560,13 @@ module.exports = class ABFieldListCore extends ABField {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 12387:
+/***/ 12387
 /*!***********************************************************!*\
   !*** ./AppBuilder/core/dataFields/ABFieldLongTextCore.js ***!
   \***********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /*
  * ABFieldLongText
@@ -18772,13 +18772,13 @@ module.exports = class ABFieldLongText extends ABField {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 18383:
+/***/ 18383
 /*!*********************************************************!*\
   !*** ./AppBuilder/core/dataFields/ABFieldNumberCore.js ***!
   \*********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /*
  * ABFieldNumber
@@ -19173,13 +19173,13 @@ module.exports = class ABFieldNumberCore extends ABField {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 70355:
+/***/ 70355
 /*!*********************************************************!*\
   !*** ./AppBuilder/core/dataFields/ABFieldStringCore.js ***!
   \*********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /*
  * ABFieldString
@@ -19382,13 +19382,13 @@ module.exports = class ABFieldStringCore extends ABField {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 30497:
+/***/ 30497
 /*!**************************************************************!*\
   !*** ./AppBuilder/core/dataFields/ABFieldTextFormulaCore.js ***!
   \**************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /*
  * ABFieldTextFormula
@@ -20126,13 +20126,13 @@ module.exports = class ABFieldTextFormulaCore extends ABField {
 // }
 
 
-/***/ }),
+/***/ },
 
-/***/ 66606:
+/***/ 66606
 /*!*******************************************************!*\
   !*** ./AppBuilder/core/dataFields/ABFieldTreeCore.js ***!
   \*******************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /*
  * ABFieldTreeCore
@@ -20291,13 +20291,13 @@ module.exports = class ABFieldTreeCore extends ABFieldSelectivity {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 87901:
+/***/ 87901
 /*!*******************************************************!*\
   !*** ./AppBuilder/core/dataFields/ABFieldUserCore.js ***!
   \*******************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /*
  * ABFieldUser
@@ -20437,13 +20437,13 @@ module.exports = class ABFieldUserCore extends ABFieldConnect {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 41782:
+/***/ 41782
 /*!****************************************************!*\
   !*** ./AppBuilder/core/mobile/ABMobilePageCore.js ***!
   \****************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /*
  * ABMobilePageCore
@@ -20921,13 +20921,13 @@ module.exports = class ABMobilePageCore extends ABMobileView {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 49688:
+/***/ 49688
 /*!****************************************************!*\
   !*** ./AppBuilder/core/mobile/ABMobileViewCore.js ***!
   \****************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /*
  * ABViewCore
@@ -21901,13 +21901,13 @@ module.exports = class ABMobileViewCore extends ABMLClass {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 94411:
+/***/ 94411
 /*!**********************************************************!*\
   !*** ./AppBuilder/core/mobile/ABMobileViewCustomCore.js ***!
   \**********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABMobileView = __webpack_require__(/*! ../../platform/mobile/ABMobileView */ 94463);
 
@@ -21969,13 +21969,13 @@ module.exports = class ABViewCustomCore extends ABMobileView {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 32894:
+/***/ 32894
 /*!**************************************************************!*\
   !*** ./AppBuilder/core/mobile/ABMobileViewFormButtonCore.js ***!
   \**************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABMobileView = __webpack_require__(/*! ../../platform/mobile/ABMobileView */ 94463);
 
@@ -22097,13 +22097,13 @@ module.exports = class ABMobileViewFormButtonCore extends ABMobileView {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 62995:
+/***/ 62995
 /*!****************************************************************!*\
   !*** ./AppBuilder/core/mobile/ABMobileViewFormCheckboxCore.js ***!
   \****************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABMobileViewFormItem = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem */ 36646);
 
@@ -22137,13 +22137,13 @@ module.exports = class ABMobileViewFormCheckboxCore extends (
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 92580:
+/***/ 92580
 /*!***************************************************************!*\
   !*** ./AppBuilder/core/mobile/ABMobileViewFormConnectCore.js ***!
   \***************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABMobileViewFormItem = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem */ 36646);
 
@@ -22204,13 +22204,13 @@ module.exports = class ABMobileViewFormConnectCore extends (
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 85246:
+/***/ 85246
 /*!********************************************************!*\
   !*** ./AppBuilder/core/mobile/ABMobileViewFormCore.js ***!
   \********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABMobileView = __webpack_require__(/*! ../../platform/mobile/ABMobileView */ 94463);
 
@@ -22471,13 +22471,13 @@ module.exports = class ABMobileViewFormCore extends ABMobileView {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 53053:
+/***/ 53053
 /*!**************************************************************!*\
   !*** ./AppBuilder/core/mobile/ABMobileViewFormCustomCore.js ***!
   \**************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABMobileViewFormItem = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem */ 36646);
 
@@ -22512,13 +22512,13 @@ module.exports = class ABMobileViewFormCustomCore extends ABMobileViewFormItem {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 9810:
+/***/ 9810
 /*!************************************************************!*\
   !*** ./AppBuilder/core/mobile/ABMobileViewFormDateCore.js ***!
   \************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABMobileViewFormItem = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem */ 36646);
 
@@ -22558,13 +22558,13 @@ module.exports = class ABMobileViewFormDatepickerCore extends (
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 75123:
+/***/ 75123
 /*!****************************************************************!*\
   !*** ./AppBuilder/core/mobile/ABMobileViewFormDatetimeCore.js ***!
   \****************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABMobileViewFormItem = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem */ 36646);
 
@@ -22604,13 +22604,13 @@ module.exports = class ABMobileViewFormDatetimeCore extends (
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 81138:
+/***/ 81138
 /*!*************************************************************!*\
   !*** ./AppBuilder/core/mobile/ABMobileViewFormEmailCore.js ***!
   \*************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABMobileViewFormItem = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem */ 36646);
 
@@ -22648,13 +22648,13 @@ module.exports = class ABMobileViewFormEmailCore extends ABMobileViewFormItem {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 77208:
+/***/ 77208
 /*!************************************************************!*\
   !*** ./AppBuilder/core/mobile/ABMobileViewFormFileCore.js ***!
   \************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABMobileViewFormItem = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem */ 36646);
 
@@ -22689,13 +22689,13 @@ module.exports = class ABMobileViewFormFileCore extends ABMobileViewFormItem {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 33696:
+/***/ 33696
 /*!***************************************************************!*\
   !*** ./AppBuilder/core/mobile/ABMobileViewFormFormulaCore.js ***!
   \***************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABMobileViewFormItem = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem */ 36646);
 
@@ -22732,13 +22732,13 @@ module.exports = class ABMobileViewFormFormulaCore extends (
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 35675:
+/***/ 35675
 /*!*************************************************************!*\
   !*** ./AppBuilder/core/mobile/ABMobileViewFormImageCore.js ***!
   \*************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABMobileViewFormFile = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormFile */ 52895);
 
@@ -22773,13 +22773,13 @@ module.exports = class ABMobileViewFormImageCore extends ABMobileViewFormFile {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 88117:
+/***/ 88117
 /*!************************************************************!*\
   !*** ./AppBuilder/core/mobile/ABMobileViewFormItemCore.js ***!
   \************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABMobileView = __webpack_require__(/*! ../../platform/mobile/ABMobileView */ 94463);
 
@@ -22842,13 +22842,13 @@ module.exports = class ABMobileViewFormItemCore extends ABMobileView {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 24979:
+/***/ 24979
 /*!**************************************************************!*\
   !*** ./AppBuilder/core/mobile/ABMobileViewFormNumberCore.js ***!
   \**************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABMobileViewFormItem = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem */ 36646);
 
@@ -22920,13 +22920,13 @@ module.exports = class ABMobileViewFormNumberCore extends ABMobileViewFormItem {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 28592:
+/***/ 28592
 /*!****************************************************************!*\
   !*** ./AppBuilder/core/mobile/ABMobileViewFormReadonlyCore.js ***!
   \****************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABMobileViewFormCustom = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormCustom */ 66934);
 
@@ -22958,13 +22958,13 @@ module.exports = class ABMobileViewFormReadonly extends ABMobileViewFormCustom {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 1066:
+/***/ 1066
 /*!**********************************************************************!*\
   !*** ./AppBuilder/core/mobile/ABMobileViewFormSelectMultipleCore.js ***!
   \**********************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABMobileViewFormSelectSingle = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormSelectSingle */ 86681);
 
@@ -23000,13 +23000,13 @@ module.exports = class ABMobileViewFormSelectMultipleCore extends (
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 11310:
+/***/ 11310
 /*!********************************************************************!*\
   !*** ./AppBuilder/core/mobile/ABMobileViewFormSelectSingleCore.js ***!
   \********************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABMobileViewFormItem = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem */ 36646);
 
@@ -23042,13 +23042,13 @@ module.exports = class ABMobileViewFormSelectSingleCore extends (
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 36866:
+/***/ 36866
 /*!***************************************************************!*\
   !*** ./AppBuilder/core/mobile/ABMobileViewFormTextboxCore.js ***!
   \***************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABMobileViewFormItem = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem */ 36646);
 
@@ -23099,13 +23099,13 @@ module.exports = class ABMobileViewFormTextboxCore extends (
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 18118:
+/***/ 18118
 /*!*********************************************************!*\
   !*** ./AppBuilder/core/mobile/ABMobileViewLabelCore.js ***!
   \*********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABMobileView = __webpack_require__(/*! ../../platform/mobile/ABMobileView */ 94463);
 
@@ -23215,13 +23215,13 @@ module.exports = class ABMobileViewLabelCore extends ABMobileView {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 22448:
+/***/ 22448
 /*!********************************************************!*\
   !*** ./AppBuilder/core/mobile/ABMobileViewListCore.js ***!
   \********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABMobileView = __webpack_require__(/*! ../../platform/mobile/ABMobileView */ 94463);
 
@@ -23283,13 +23283,13 @@ module.exports = class ABViewLabelCore extends ABMobileView {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 12355:
+/***/ 12355
 /*!************************************************************!*\
   !*** ./AppBuilder/core/mobile/ABMobileViewTimelineCore.js ***!
   \************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABMobileView = __webpack_require__(/*! ../../platform/mobile/ABMobileView */ 94463);
 
@@ -23351,13 +23351,13 @@ module.exports = class ABViewTimelineCore extends ABMobileView {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 83735:
+/***/ 83735
 /*!******************************************************!*\
   !*** ./AppBuilder/core/process/ABProcessLaneCore.js ***!
   \******************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /**
  * ABProcessLane
@@ -23436,13 +23436,13 @@ module.exports = class ABProcessLaneCore extends ABProcessParticipant {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 12934:
+/***/ 12934
 /*!*************************************************************!*\
   !*** ./AppBuilder/core/process/ABProcessParticipantCore.js ***!
   \*************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /**
  * ABProcessParticipant
@@ -23605,13 +23605,13 @@ module.exports = class ABProcessParticipantCore extends ABMLClass {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 94148:
+/***/ 94148
 /*!*********************************************************!*\
   !*** ./AppBuilder/core/process/ABProcessTaskManager.js ***!
   \*********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /*
  * ABProcessTaskManager
@@ -23752,13 +23752,13 @@ module.exports = {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 91832:
+/***/ 91832
 /*!***************************************************************!*\
   !*** ./AppBuilder/core/process/tasks/ABProcessElementCore.js ***!
   \***************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 var ABMLClass = __webpack_require__(/*! ../../../platform/ABMLClass */ 72982);
 
@@ -24259,13 +24259,13 @@ module.exports = class ABProcessTaskCore extends ABMLClass {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 15581:
+/***/ 15581
 /*!***********************************************************!*\
   !*** ./AppBuilder/core/process/tasks/ABProcessEndCore.js ***!
   \***********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABProcessElement = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 54919);
 
@@ -24374,13 +24374,13 @@ module.exports = class ABProcessTaskEndCore extends ABProcessElement {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 30286:
+/***/ 30286
 /*!************************************************************************!*\
   !*** ./AppBuilder/core/process/tasks/ABProcessGatewayExclusiveCore.js ***!
   \************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABProcessElement = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 54919);
 
@@ -24533,13 +24533,13 @@ module.exports = class ABProcessGatewayExclusiveCore extends ABProcessElement {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 24535:
+/***/ 24535
 /*!*****************************************************************!*\
   !*** ./AppBuilder/core/process/tasks/ABProcessTaskEmailCore.js ***!
   \*****************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 // import ABApplication from "./ABApplication"
 // const ABApplication = require("./ABApplication"); // NOTE: change to require()
@@ -24685,13 +24685,13 @@ module.exports = class ABProcessTaskEmailCore extends ABProcessElement {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 56288:
+/***/ 56288
 /*!********************************************************************************************!*\
   !*** ./AppBuilder/core/process/tasks/ABProcessTaskServiceAccountingBatchProcessingCore.js ***!
   \********************************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABProcessElement = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 54919);
 
@@ -24856,13 +24856,13 @@ module.exports = class AccountingBatchProcessingCore extends ABProcessElement {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 49081:
+/***/ 49081
 /*!************************************************************************************!*\
   !*** ./AppBuilder/core/process/tasks/ABProcessTaskServiceAccountingFPCloseCore.js ***!
   \************************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABProcessElement = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 54919);
 
@@ -25033,13 +25033,13 @@ module.exports = class AccountingFPCloseCore extends ABProcessElement {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 73274:
+/***/ 73274
 /*!****************************************************************************************!*\
   !*** ./AppBuilder/core/process/tasks/ABProcessTaskServiceAccountingFPYearCloseCore.js ***!
   \****************************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABProcessElement = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 54919);
 
@@ -25211,13 +25211,13 @@ module.exports = class AccountingFPYearCloseCore extends ABProcessElement {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 75358:
+/***/ 75358
 /*!**************************************************************************************!*\
   !*** ./AppBuilder/core/process/tasks/ABProcessTaskServiceAccountingJEArchiveCore.js ***!
   \**************************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABProcessElement = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 54919);
 
@@ -25382,13 +25382,13 @@ module.exports = class AccountingJEArchiveCore extends ABProcessElement {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 11204:
+/***/ 11204
 /*!**********************************************************************!*\
   !*** ./AppBuilder/core/process/tasks/ABProcessTaskServiceApiCore.js ***!
   \**********************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABProcessElement = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 54919);
 
@@ -25468,13 +25468,13 @@ module.exports = class ApiTaskCore extends ABProcessElement {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 92328:
+/***/ 92328
 /*!****************************************************************************!*\
   !*** ./AppBuilder/core/process/tasks/ABProcessTaskServiceCalculateCore.js ***!
   \****************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABProcessElement = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 54919);
 
@@ -25548,13 +25548,13 @@ module.exports = class CalculateTaskCore extends ABProcessElement {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 83164:
+/***/ 83164
 /*!*******************************************************************!*\
   !*** ./AppBuilder/core/process/tasks/ABProcessTaskServiceCore.js ***!
   \*******************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /**
  * ABProcessTaskServiceCore
@@ -25721,13 +25721,13 @@ module.exports = class ABProcessTaskServiceCore extends ABProcessElement {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 74119:
+/***/ 74119
 /*!**************************************************************************************!*\
   !*** ./AppBuilder/core/process/tasks/ABProcessTaskServiceGetResetPasswordUrlCore.js ***!
   \**************************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 // import ABApplication from "./ABApplication"
 // const ABApplication = require("./ABApplication"); // NOTE: change to require()
@@ -25797,13 +25797,13 @@ module.exports = class ABProcessTaskGetResetPasswordUrlCore extends (
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 38640:
+/***/ 38640
 /*!*******************************************************************************!*\
   !*** ./AppBuilder/core/process/tasks/ABProcessTaskServiceInsertRecordCore.js ***!
   \*******************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABProcessElement = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 54919);
 
@@ -25969,13 +25969,13 @@ module.exports = class InsertRecordCore extends ABProcessElement {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 89024:
+/***/ 89024
 /*!************************************************************************!*\
   !*** ./AppBuilder/core/process/tasks/ABProcessTaskServiceQueryCore.js ***!
   \************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABProcessElement = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 54919);
 
@@ -26124,13 +26124,13 @@ module.exports = class ABProcessTaskServiceQueryCore extends ABProcessElement {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 89874:
+/***/ 89874
 /*!**********************************************************************!*\
   !*** ./AppBuilder/core/process/tasks/ABProcessTaskSubProcessCore.js ***!
   \**********************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABProcessElement = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 54919);
 
@@ -26571,13 +26571,13 @@ module.exports = class SubProcessCore extends ABProcessElement {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 79425:
+/***/ 79425
 /*!************************************************************************!*\
   !*** ./AppBuilder/core/process/tasks/ABProcessTaskUserApprovalCore.js ***!
   \************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABProcessElement = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 54919);
 
@@ -26830,13 +26830,13 @@ module.exports = class ABProcessTaskUserApprovalCore extends ABProcessElement {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 85722:
+/***/ 85722
 /*!****************************************************************!*\
   !*** ./AppBuilder/core/process/tasks/ABProcessTaskUserCore.js ***!
   \****************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /**
  * ABProcessTaskUserCore
@@ -26946,13 +26946,13 @@ module.exports = class ABProcessTaskUserCore extends ABProcessElement {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 2057:
+/***/ 2057
 /*!************************************************************************!*\
   !*** ./AppBuilder/core/process/tasks/ABProcessTaskUserExternalCore.js ***!
   \************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 // import ABApplication from "./ABApplication"
 // const ABApplication = require("./ABApplication"); // NOTE: change to require()
@@ -27038,13 +27038,13 @@ module.exports = class ABProcessTaskUserExternalCore extends ABProcessElement {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 88828:
+/***/ 88828
 /*!********************************************************************!*\
   !*** ./AppBuilder/core/process/tasks/ABProcessTaskUserFormCore.js ***!
   \********************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABProcessElement = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 54919);
 
@@ -27140,13 +27140,13 @@ module.exports = class ABProcessTaskUserFormCore extends ABProcessElement {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 88580:
+/***/ 88580
 /*!***************************************************************!*\
   !*** ./AppBuilder/core/process/tasks/ABProcessTriggerCore.js ***!
   \***************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABProcessElement = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 54919);
 
@@ -27226,13 +27226,13 @@ module.exports = class ABProcessTriggerCore extends ABProcessElement {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 27208:
+/***/ 27208
 /*!************************************************************************!*\
   !*** ./AppBuilder/core/process/tasks/ABProcessTriggerLifecycleCore.js ***!
   \************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 // import ABApplication from "./ABApplication"
 // const ABApplication = require("./ABApplication"); // NOTE: change to require()
@@ -27443,13 +27443,13 @@ module.exports = class ABProcessTriggerLifecycle extends ABProcessTrigger {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 26837:
+/***/ 26837
 /*!********************************************************************!*\
   !*** ./AppBuilder/core/process/tasks/ABProcessTriggerTimerCore.js ***!
   \********************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABProcessTrigger = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessTrigger.js */ 46091);
 
@@ -27620,13 +27620,13 @@ module.exports = class ABProcessTriggerTimer extends ABProcessTrigger {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 3111:
+/***/ 3111
 /*!****************************************!*\
   !*** ./AppBuilder/core/ql/ABQLCore.js ***!
   \****************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /*
  * ABQL
@@ -27808,13 +27808,13 @@ class ABQLCore extends ABEmitter {
 module.exports = ABQLCore;
 
 
-/***/ }),
+/***/ },
 
-/***/ 71268:
+/***/ 71268
 /*!********************************************!*\
   !*** ./AppBuilder/core/ql/ABQLFindCore.js ***!
   \********************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /*
  * ABQLFindCore
@@ -27855,13 +27855,13 @@ ABQLFindCore.NextQLOps = NextQLOps;
 module.exports = ABQLFindCore;
 
 
-/***/ }),
+/***/ },
 
-/***/ 71678:
+/***/ 71678
 /*!***********************************************!*\
   !*** ./AppBuilder/core/ql/ABQLManagerCore.js ***!
   \***********************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /*
  * ABQLManagerCore
@@ -27914,13 +27914,13 @@ const ABQLManagerCore = {
 module.exports = ABQLManagerCore;
 
 
-/***/ }),
+/***/ },
 
-/***/ 13360:
+/***/ 13360
 /*!**************************************************!*\
   !*** ./AppBuilder/core/ql/ABQLRootObjectCore.js ***!
   \**************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /*
  * ABQLRootObjectCore
@@ -28000,13 +28000,13 @@ ABQLObjectCore.NextQLOps = NextQLOps;
 module.exports = ABQLObjectCore;
 
 
-/***/ }),
+/***/ },
 
-/***/ 5194:
+/***/ 5194
 /*!***************************************!*\
   !*** ./AppBuilder/core/ql/ABQLRow.js ***!
   \***************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /*
  * ABQLRow
@@ -28023,13 +28023,13 @@ const QLPluck = __webpack_require__(/*! ../../platform/ql/ABQLRowPluck */ 2701);
 module.exports = [QLUpdate, QLSave, QLPluck];
 
 
-/***/ }),
+/***/ },
 
-/***/ 56146:
+/***/ 56146
 /*!************************************************!*\
   !*** ./AppBuilder/core/ql/ABQLRowPluckCore.js ***!
   \************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /*
 /*
@@ -28119,13 +28119,13 @@ ABQLRowPluckCore.NextQLOps = []; // Static NextQLOps
 module.exports = ABQLRowPluckCore;
 
 
-/***/ }),
+/***/ },
 
-/***/ 44728:
+/***/ 44728
 /*!***********************************************!*\
   !*** ./AppBuilder/core/ql/ABQLRowSaveCore.js ***!
   \***********************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /*
 /*
@@ -28148,13 +28148,13 @@ ABQLRowSaveCore.NextQLOps = [];
 module.exports = ABQLRowSaveCore;
 
 
-/***/ }),
+/***/ },
 
-/***/ 15692:
+/***/ 15692
 /*!*************************************************!*\
   !*** ./AppBuilder/core/ql/ABQLRowUpdateCore.js ***!
   \*************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /*
  * ABQLRowUpdateCore
@@ -28197,13 +28197,13 @@ ABQLRowUpdateCore.NextQLOps = [];
 module.exports = ABQLRowUpdateCore;
 
 
-/***/ }),
+/***/ },
 
-/***/ 40002:
+/***/ 40002
 /*!***************************************!*\
   !*** ./AppBuilder/core/ql/ABQLSet.js ***!
   \***************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /*
  * ABQLSet
@@ -28220,13 +28220,13 @@ module.exports = [
 ];
 
 
-/***/ }),
+/***/ },
 
-/***/ 80953:
+/***/ 80953
 /*!************************************************!*\
   !*** ./AppBuilder/core/ql/ABQLSetFirstCore.js ***!
   \************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /*
 /*
@@ -28261,13 +28261,13 @@ ABQLSetFirstCore.NextQLOps = ABQLRow;
 module.exports = ABQLSetFirstCore;
 
 
-/***/ }),
+/***/ },
 
-/***/ 58410:
+/***/ 58410
 /*!************************************************!*\
   !*** ./AppBuilder/core/ql/ABQLSetPluckCore.js ***!
   \************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /*
 /*
@@ -28357,13 +28357,13 @@ ABQLSetPluckCore.NextQLOps = [];
 module.exports = ABQLSetPluckCore;
 
 
-/***/ }),
+/***/ },
 
-/***/ 42720:
+/***/ 42720
 /*!***********************************************!*\
   !*** ./AppBuilder/core/ql/ABQLSetSaveCore.js ***!
   \***********************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /*
 /*
@@ -28453,13 +28453,13 @@ ABQLSetSaveCore.NextQLOps = [];
 module.exports = ABQLSetSaveCore;
 
 
-/***/ }),
+/***/ },
 
-/***/ 40477:
+/***/ 40477
 /*!********************************************************!*\
   !*** ./AppBuilder/core/views/ABViewCSVExporterCore.js ***!
   \********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewWidget = __webpack_require__(/*! ../../platform/views/ABViewWidget */ 87039);
 
@@ -28531,13 +28531,13 @@ module.exports = class ABViewCSVExporterCore extends ABViewWidget {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 62554:
+/***/ 62554
 /*!********************************************************!*\
   !*** ./AppBuilder/core/views/ABViewCSVImporterCore.js ***!
   \********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewWidget = __webpack_require__(/*! ../../platform/views/ABViewWidget */ 87039);
 
@@ -28692,13 +28692,13 @@ module.exports = class ABViewCSVImporterCore extends ABViewWidget {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 10493:
+/***/ 10493
 /*!******************************************************!*\
   !*** ./AppBuilder/core/views/ABViewChartAreaCore.js ***!
   \******************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewChartContainer = __webpack_require__(/*! ../../platform/views/ABViewChartContainer */ 27448);
 
@@ -28785,13 +28785,13 @@ module.exports = class ABViewChartAreaCore extends ABViewChartContainer {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 39377:
+/***/ 39377
 /*!*****************************************************!*\
   !*** ./AppBuilder/core/views/ABViewChartBarCore.js ***!
   \*****************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewChartContainer = __webpack_require__(/*! ../../platform/views/ABViewChartContainer */ 27448);
 
@@ -28882,13 +28882,13 @@ module.exports = class ABViewChartBarCore extends ABViewChartContainer {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 97612:
+/***/ 97612
 /*!**************************************************!*\
   !*** ./AppBuilder/core/views/ABViewChartCore.js ***!
   \**************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewContainer = __webpack_require__(/*! ../../platform/views/ABViewContainer */ 76528);
 
@@ -29027,13 +29027,13 @@ module.exports = class ABViewChartCore extends ABViewContainer {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 69622:
+/***/ 69622
 /*!******************************************************!*\
   !*** ./AppBuilder/core/views/ABViewChartLineCore.js ***!
   \******************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewChartContainer = __webpack_require__(/*! ../../platform/views/ABViewChartContainer */ 27448);
 
@@ -29125,13 +29125,13 @@ module.exports = class ABViewChartLineCore extends ABViewChartContainer {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 80958:
+/***/ 80958
 /*!*****************************************************!*\
   !*** ./AppBuilder/core/views/ABViewChartPieCore.js ***!
   \*****************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewChartContainer = __webpack_require__(/*! ../../platform/views/ABViewChartContainer */ 27448);
 
@@ -29212,13 +29212,13 @@ module.exports = class ABViewChartPieCore extends ABViewChartContainer {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 33529:
+/***/ 33529
 /*!****************************************************!*\
   !*** ./AppBuilder/core/views/ABViewCommentCore.js ***!
   \****************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewWidget = __webpack_require__(/*! ../../platform/views/ABViewWidget */ 87039);
 
@@ -29362,13 +29362,13 @@ module.exports = class ABViewCommentCore extends ABViewWidget {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 42939:
+/***/ 42939
 /*!*****************************************************************!*\
   !*** ./AppBuilder/core/views/ABViewConditionalContainerCore.js ***!
   \*****************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewContainer = __webpack_require__(/*! ../../platform/views/ABViewContainer */ 76528);
 
@@ -29444,13 +29444,13 @@ module.exports = class ABViewConditionalContainerCore extends ABViewContainer {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 39508:
+/***/ 39508
 /*!**************************************************************!*\
   !*** ./AppBuilder/core/views/ABViewConnectDataFilterCore.js ***!
   \**************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewWidget = __webpack_require__(/*! ../../platform/views/ABViewWidget */ 87039);
 
@@ -29492,13 +29492,13 @@ module.exports = class ABViewConnectDataFilterCore extends ABViewWidget {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 68091:
+/***/ 68091
 /*!******************************************************!*\
   !*** ./AppBuilder/core/views/ABViewContainerCore.js ***!
   \******************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /*
  * ABViewContainerCore
@@ -29594,13 +29594,13 @@ module.exports = class ABViewContainerCore extends ABView {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 83156:
+/***/ 83156
 /*!*********************************************!*\
   !*** ./AppBuilder/core/views/ABViewCore.js ***!
   \*********************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /*
  * ABViewCore
@@ -30567,13 +30567,13 @@ module.exports = class ABViewCore extends ABMLClass {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 79382:
+/***/ 79382
 /*!*******************************************************!*\
   !*** ./AppBuilder/core/views/ABViewDataFilterCore.js ***!
   \*******************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewWidget = __webpack_require__(/*! ../../platform/views/ABViewWidget */ 87039);
 
@@ -30628,13 +30628,13 @@ module.exports = class ABViewDataFilterCore extends ABViewWidget {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 46021:
+/***/ 46021
 /*!*****************************************************!*\
   !*** ./AppBuilder/core/views/ABViewDataviewCore.js ***!
   \*****************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewDetail = __webpack_require__(/*! ../../platform/views/ABViewDetail */ 86566);
 
@@ -30722,13 +30722,13 @@ module.exports = class ABViewDataviewCore extends ABViewDetail {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 75024:
+/***/ 75024
 /*!***********************************************************!*\
   !*** ./AppBuilder/core/views/ABViewDetailCheckboxCore.js ***!
   \***********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewDetailItem = __webpack_require__(/*! ../../platform/views/ABViewDetailItem */ 26345);
 
@@ -30765,13 +30765,13 @@ module.exports = class ABViewDetailCheckboxCore extends ABViewDetailItem {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 12193:
+/***/ 12193
 /*!**********************************************************!*\
   !*** ./AppBuilder/core/views/ABViewDetailConnectCore.js ***!
   \**********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 // const ABViewDetailSelectivity = require("../../platform/views/ABViewDetailSelectivity");
 const ABViewDetailItem = __webpack_require__(/*! ../../platform/views/ABViewDetailItem */ 26345);
@@ -30806,13 +30806,13 @@ module.exports = class ABViewDetailConnectCore extends ABViewDetailItem {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 42917:
+/***/ 42917
 /*!***************************************************!*\
   !*** ./AppBuilder/core/views/ABViewDetailCore.js ***!
   \***************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewContainer = __webpack_require__(/*! ../../platform/views/ABViewContainer */ 76528);
 
@@ -30920,13 +30920,13 @@ module.exports = class ABViewDetailCore extends ABViewContainer {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 6918:
+/***/ 6918
 /*!*********************************************************!*\
   !*** ./AppBuilder/core/views/ABViewDetailCustomCore.js ***!
   \*********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewDetailItem = __webpack_require__(/*! ../../platform/views/ABViewDetailItem */ 26345);
 
@@ -30963,13 +30963,13 @@ module.exports = class ABViewDetailCustomCore extends ABViewDetailItem {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 50074:
+/***/ 50074
 /*!********************************************************!*\
   !*** ./AppBuilder/core/views/ABViewDetailImageCore.js ***!
   \********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewDetailItem = __webpack_require__(/*! ../../platform/views/ABViewDetailItem */ 26345);
 
@@ -31032,13 +31032,13 @@ module.exports = class ABViewDetailImageCore extends ABViewDetailItem {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 75086:
+/***/ 75086
 /*!*******************************************************!*\
   !*** ./AppBuilder/core/views/ABViewDetailItemCore.js ***!
   \*******************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewWidget = __webpack_require__(/*! ../../platform/views/ABViewWidget */ 87039);
 
@@ -31123,13 +31123,13 @@ module.exports = class ABViewDetailItemCore extends ABViewWidget {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 66710:
+/***/ 66710
 /*!*******************************************************!*\
   !*** ./AppBuilder/core/views/ABViewDetailTextCore.js ***!
   \*******************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewDetailItem = __webpack_require__(/*! ../../platform/views/ABViewDetailItem */ 26345);
 
@@ -31188,13 +31188,13 @@ module.exports = class ABViewDetailTextCore extends ABViewDetailItem {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 6549:
+/***/ 6549
 /*!*******************************************************!*\
   !*** ./AppBuilder/core/views/ABViewDetailTreeCore.js ***!
   \*******************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewDetailItem = __webpack_require__(/*! ../../platform/views/ABViewDetailItem */ 26345);
 
@@ -31231,13 +31231,13 @@ module.exports = class ABViewDetailTextCore extends ABViewDetailItem {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 72481:
+/***/ 72481
 /*!********************************************************!*\
   !*** ./AppBuilder/core/views/ABViewDocxBuilderCore.js ***!
   \********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewWidget = __webpack_require__(/*! ../../platform/views/ABViewWidget */ 87039);
 
@@ -31343,13 +31343,13 @@ module.exports = class ABViewDocxBuilderCore extends ABViewWidget {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 95994:
+/***/ 95994
 /*!*******************************************************!*\
   !*** ./AppBuilder/core/views/ABViewFormButtonCore.js ***!
   \*******************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABView = __webpack_require__(/*! ../../platform/views/ABView */ 30747);
 
@@ -31478,13 +31478,13 @@ module.exports = class ABViewFormButtonCore extends ABView {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 14647:
+/***/ 14647
 /*!*********************************************************!*\
   !*** ./AppBuilder/core/views/ABViewFormCheckboxCore.js ***!
   \*********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewFormItem = __webpack_require__(/*! ../../platform/views/ABViewFormItem */ 86962);
 
@@ -31524,13 +31524,13 @@ module.exports = class ABViewFormCheckboxCore extends ABViewFormItem {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 78424:
+/***/ 78424
 /*!********************************************************!*\
   !*** ./AppBuilder/core/views/ABViewFormConnectCore.js ***!
   \********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewFormItem = __webpack_require__(/*! ../../platform/views/ABViewFormItem */ 86962);
 
@@ -31605,13 +31605,13 @@ module.exports = class ABViewFormConnectCore extends ABViewFormItem {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 25378:
+/***/ 25378
 /*!*************************************************!*\
   !*** ./AppBuilder/core/views/ABViewFormCore.js ***!
   \*************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewContainer = __webpack_require__(/*! ../../platform/views/ABViewContainer */ 76528);
 const ABViewFormItem = __webpack_require__(/*! ../../platform/views/ABViewFormItem */ 86962);
@@ -31854,13 +31854,13 @@ module.exports = class ABViewFormCore extends ABViewContainer {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 6209:
+/***/ 6209
 /*!*******************************************************!*\
   !*** ./AppBuilder/core/views/ABViewFormCustomCore.js ***!
   \*******************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewFormItem = __webpack_require__(/*! ../../platform/views/ABViewFormItem */ 86962);
 
@@ -31903,13 +31903,13 @@ module.exports = class ABViewFormCustom extends ABViewFormItem {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 43548:
+/***/ 43548
 /*!***********************************************************!*\
   !*** ./AppBuilder/core/views/ABViewFormDatepickerCore.js ***!
   \***********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewFormItem = __webpack_require__(/*! ../../platform/views/ABViewFormItem */ 86962);
 
@@ -31955,13 +31955,13 @@ module.exports = class ABViewFormDatepickerCore extends ABViewFormItem {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 64049:
+/***/ 64049
 /*!*****************************************************!*\
   !*** ./AppBuilder/core/views/ABViewFormItemCore.js ***!
   \*****************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABView = __webpack_require__(/*! ../../platform/views/ABView */ 30747);
 
@@ -32024,13 +32024,13 @@ module.exports = class ABViewFormComponentCore extends ABView {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 73404:
+/***/ 73404
 /*!*****************************************************!*\
   !*** ./AppBuilder/core/views/ABViewFormJsonCore.js ***!
   \*****************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewFormItem = __webpack_require__(/*! ../../platform/views/ABViewFormItem */ 86962);
 
@@ -32072,13 +32072,13 @@ module.exports = class ABViewFormJsonCore extends ABViewFormItem {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 41191:
+/***/ 41191
 /*!*******************************************************!*\
   !*** ./AppBuilder/core/views/ABViewFormNumberCore.js ***!
   \*******************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewFormItem = __webpack_require__(/*! ../../platform/views/ABViewFormItem */ 86962);
 
@@ -32158,13 +32158,13 @@ module.exports = class ABViewFormNumberCore extends ABViewFormItem {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 2700:
+/***/ 2700
 /*!*********************************************************!*\
   !*** ./AppBuilder/core/views/ABViewFormReadonlyCore.js ***!
   \*********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewFormCustom = __webpack_require__(/*! ../../platform/views/ABViewFormCustom */ 96234);
 
@@ -32204,13 +32204,13 @@ module.exports = class ABViewFormReadonly extends ABViewFormCustom {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 84510:
+/***/ 84510
 /*!***************************************************************!*\
   !*** ./AppBuilder/core/views/ABViewFormSelectMultipleCore.js ***!
   \***************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewFormItem = __webpack_require__(/*! ../../platform/views/ABViewFormItem */ 86962);
 
@@ -32252,13 +32252,13 @@ module.exports = class ABViewFormSelectMultipleCore extends ABViewFormItem {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 33218:
+/***/ 33218
 /*!*************************************************************!*\
   !*** ./AppBuilder/core/views/ABViewFormSelectSingleCore.js ***!
   \*************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewFormItem = __webpack_require__(/*! ../../platform/views/ABViewFormItem */ 86962);
 
@@ -32300,13 +32300,13 @@ module.exports = class ABViewFormSelectSingleCore extends ABViewFormItem {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 97694:
+/***/ 97694
 /*!********************************************************!*\
   !*** ./AppBuilder/core/views/ABViewFormTextboxCore.js ***!
   \********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewFormItem = __webpack_require__(/*! ../../platform/views/ABViewFormItem */ 86962);
 
@@ -32348,13 +32348,13 @@ module.exports = class ABViewFormTextboxCore extends ABViewFormItem {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 38566:
+/***/ 38566
 /*!*****************************************************!*\
   !*** ./AppBuilder/core/views/ABViewFormTreeCore.js ***!
   \*****************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewFormCustom = __webpack_require__(/*! ../../platform/views/ABViewFormCustom */ 96234);
 
@@ -32389,13 +32389,13 @@ module.exports = class ABViewFormTreeCore extends ABViewFormCustom {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 86674:
+/***/ 86674
 /*!**************************************************!*\
   !*** ./AppBuilder/core/views/ABViewGanttCore.js ***!
   \**************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewWidget = __webpack_require__(/*! ../../platform/views/ABViewWidget */ 87039);
 
@@ -32481,13 +32481,13 @@ module.exports = class ABViewGanttCore extends ABViewWidget {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 93396:
+/***/ 93396
 /*!*************************************************!*\
   !*** ./AppBuilder/core/views/ABViewGridCore.js ***!
   \*************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewWidget = __webpack_require__(/*! ../../platform/views/ABViewWidget */ 87039);
 
@@ -32875,13 +32875,13 @@ module.exports = class ABViewGridCore extends ABViewWidget {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 11075:
+/***/ 11075
 /*!***************************************************!*\
   !*** ./AppBuilder/core/views/ABViewKanbanCore.js ***!
   \***************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewWidget = __webpack_require__(/*! ../../platform/views/ABViewWidget */ 87039);
 
@@ -32973,104 +32973,13 @@ module.exports = class ABViewKanbanCore extends ABViewWidget {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 54970:
-/*!***************************************************!*\
-  !*** ./AppBuilder/core/views/ABViewLayoutCore.js ***!
-  \***************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-const ABViewContainer = __webpack_require__(/*! ../../platform/views/ABViewContainer */ 76528);
-const ABViewWidget = __webpack_require__(/*! ../../platform/views/ABViewWidget */ 87039);
-
-const PropertyComponentDefaults = {
-   label: "",
-   numColumns: 1, // The number of columns for this layout
-};
-
-const ABViewDefaults = {
-   key: "layout", // {string} unique key for this view
-   icon: "columns", // {string} fa-[icon] reference for this view
-   labelKey: "Layout", // {string} the multilingual label key for the class label
-};
-
-module.exports = class ABViewLayoutCore extends ABViewWidget {
-   /**
-    * @param {obj} values  key=>value hash of ABView values
-    * @param {ABApplication} application the application object this view is under
-    * @param {ABView} parent the ABView this view is a child of. (can be null)
-    */
-   constructor(values, application, parent, defaultValues) {
-      super(values, application, parent, defaultValues || ABViewDefaults);
-   }
-
-   static common() {
-      return ABViewDefaults;
-   }
-
-   static defaultValues() {
-      return PropertyComponentDefaults;
-   }
-
-   /**
-    * @method addColumn
-    * method to actually add a new ABView as one of our columns.
-    * This is called by the static .addView() method.
-    */
-   addColumn() {
-      this._views.push(
-         this.application.viewNew(
-            {
-               key: ABViewContainer.common().key,
-            },
-            this
-         )
-      );
-   }
-
-   /**
-    * @method componentList
-    * return the list of components available on this view to display in the editor.
-    * @param {bool} isEdited  is this component currently in the Interface Editor
-    * @return {array} of ABView objects.
-    */
-   componentList(isEdited) {
-      if (isEdited) {
-         // if the layout component is being edited in the editor (isEdited == true)
-         // then we return [];
-         return [];
-      } else {
-         // the layout view doesn't care what components are offered, it get's
-         // the list from it's parent view.
-         // ## NOTE: layout views should not be root views.
-         if (this.parent) {
-            return this.parent.componentList(false);
-         } else {
-            return [];
-         }
-      }
-   }
-
-   /**
-    * @property datacollection
-    * return data source
-    * NOTE: this view doesn't track a DataCollection.
-    * @return {ABDataCollection}
-    */
-   get datacollection() {
-      return null;
-   }
-};
-
-
-/***/ }),
-
-/***/ 65419:
+/***/ 65419
 /*!*************************************************!*\
   !*** ./AppBuilder/core/views/ABViewMenuCore.js ***!
   \*************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewWidget = __webpack_require__(/*! ../../platform/views/ABViewWidget */ 87039);
 
@@ -33381,13 +33290,13 @@ module.exports = class ABViewMenuCore extends ABViewWidget {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 19532:
+/***/ 19532
 /*!********************************************************!*\
   !*** ./AppBuilder/core/views/ABViewPDFImporterCore.js ***!
   \********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewWidget = __webpack_require__(/*! ../../platform/views/ABViewWidget */ 87039);
 
@@ -33493,13 +33402,13 @@ module.exports = class ABViewPDFImporterCore extends ABViewWidget {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 36183:
+/***/ 36183
 /*!*************************************************!*\
   !*** ./AppBuilder/core/views/ABViewPageCore.js ***!
   \*************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /*
  * ABViewPage
@@ -33974,13 +33883,13 @@ module.exports = class ABViewPageCore extends ABViewContainer {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 94400:
+/***/ 94400
 /*!**************************************************!*\
   !*** ./AppBuilder/core/views/ABViewPivotCore.js ***!
   \**************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewWidget = __webpack_require__(/*! ../../platform/views/ABViewWidget */ 87039);
 
@@ -34085,13 +33994,13 @@ module.exports = class ABViewPivotCore extends ABViewWidget {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 74238:
+/***/ 74238
 /*!***********************************************************!*\
   !*** ./AppBuilder/core/views/ABViewReportsManagerCore.js ***!
   \***********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewWidget = __webpack_require__(/*! ../../platform/views/ABViewWidget */ 87039);
 
@@ -34200,13 +34109,13 @@ module.exports = class ABViewReportsManagerCore extends ABViewWidget {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 74441:
+/***/ 74441
 /*!******************************************************!*\
   !*** ./AppBuilder/core/views/ABViewSchedulerCore.js ***!
   \******************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewWidget = __webpack_require__(/*! ../../platform/views/ABViewWidget */ 87039);
 
@@ -34364,13 +34273,13 @@ module.exports = class ABViewSchedulerCore extends ABViewWidget {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 65472:
+/***/ 65472
 /*!***************************************************!*\
   !*** ./AppBuilder/core/views/ABViewWidgetCore.js ***!
   \***************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABView = __webpack_require__(/*! ../../platform/views/ABView */ 30747);
 
@@ -34424,13 +34333,13 @@ module.exports = class ABViewWidgetCore extends ABView {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 27223:
+/***/ 27223
 /*!**********************************************!*\
   !*** ./AppBuilder/platform/ABApplication.js ***!
   \**********************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const _ = __webpack_require__(/*! lodash */ 84529);
 
@@ -34869,13 +34778,13 @@ module.exports = class ABClassApplication extends ABApplicationCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 31221:
+/***/ 31221
 /*!****************************************************!*\
   !*** ./AppBuilder/platform/ABApplicationMobile.js ***!
   \****************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const _ = __webpack_require__(/*! lodash */ 84529);
 
@@ -34924,13 +34833,13 @@ module.exports = class ABClassApplicationMobile extends (
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 56938:
+/***/ 56938
 /*!***********************************************!*\
   !*** ./AppBuilder/platform/ABClassManager.js ***!
   \***********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -35152,13 +35061,13 @@ function registerLocalPlugins(API) {
 // };
 
 
-/***/ }),
+/***/ },
 
-/***/ 85450:
+/***/ 85450
 /*!********************************************!*\
   !*** ./AppBuilder/platform/ABComponent.js ***!
   \********************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABEmitter = __webpack_require__(/*! ./ABEmitter */ 89327);
 
@@ -35336,13 +35245,13 @@ module.exports = class ABComponent extends ABEmitter {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 66429:
+/***/ 66429
 /*!*************************************************!*\
   !*** ./AppBuilder/platform/ABDataCollection.js ***!
   \*************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABObjectQuery = __webpack_require__(/*! ./ABObjectQuery */ 55532);
 const ABDataCollectionCore = __webpack_require__(/*! ../core/ABDataCollectionCore */ 59002);
@@ -35940,13 +35849,13 @@ module.exports = class ABDataCollection extends ABDataCollectionCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 8592:
+/***/ 8592
 /*!*********************************************!*\
   !*** ./AppBuilder/platform/ABDefinition.js ***!
   \*********************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 var ABDefinitionCore = __webpack_require__(/*! ../core/ABDefinitionCore */ 23211);
 
@@ -35957,13 +35866,13 @@ module.exports = class ABDefinition extends ABDefinitionCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 89327:
+/***/ 89327
 /*!******************************************!*\
   !*** ./AppBuilder/platform/ABEmitter.js ***!
   \******************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /**
  * ABEmitter
@@ -35981,13 +35890,13 @@ module.exports = class ABEmitter extends EventEmitter {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 5964:
+/***/ 5964
 /*!***************************************!*\
   !*** ./AppBuilder/platform/ABHint.js ***!
   \***************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABHintCore = __webpack_require__(/*! ../core/ABHintCore */ 16943);
 
@@ -36264,13 +36173,13 @@ module.exports = class ABHint extends ABHintCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 99553:
+/***/ 99553
 /*!****************************************!*\
   !*** ./AppBuilder/platform/ABIndex.js ***!
   \****************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABIndexCore = __webpack_require__(/*! ../core/ABIndexCore */ 17030);
 
@@ -36359,13 +36268,13 @@ module.exports = class ABIndex extends ABIndexCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 72982:
+/***/ 72982
 /*!******************************************!*\
   !*** ./AppBuilder/platform/ABMLClass.js ***!
   \******************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /**
  * ABMLClass
@@ -36475,13 +36384,13 @@ module.exports = class ABMLClass extends ABMLClassCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 90940:
+/***/ 90940
 /*!****************************************!*\
   !*** ./AppBuilder/platform/ABModel.js ***!
   \****************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABModelCore = __webpack_require__(/*! ../core/ABModelCore */ 53903);
 
@@ -37120,13 +37029,13 @@ module.exports = class ABModel extends ABModelCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 64238:
+/***/ 64238
 /*!*******************************************!*\
   !*** ./AppBuilder/platform/ABModelApi.js ***!
   \*******************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 //
 // ABModelAPI
@@ -37210,13 +37119,13 @@ module.exports = class ABModelAPI extends ABModel {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 95627:
+/***/ 95627
 /*!***************************************************!*\
   !*** ./AppBuilder/platform/ABModelApiNetsuite.js ***!
   \***************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 //
 // ABModelAPINetsuite
@@ -37280,13 +37189,13 @@ module.exports = class ABModelAPINetsuite extends ABModel {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 61422:
+/***/ 61422
 /*!*********************************************!*\
   !*** ./AppBuilder/platform/ABModelQuery.js ***!
   \*********************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 //
 // ABModelQuery
@@ -37359,13 +37268,13 @@ module.exports = class ABModelQuery extends ABModel {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 84154:
+/***/ 84154
 /*!*****************************************!*\
   !*** ./AppBuilder/platform/ABObject.js ***!
   \*****************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABObjectCore = __webpack_require__(/*! ../core/ABObjectCore */ 82505);
 
@@ -38163,13 +38072,13 @@ module.exports = class ABObject extends ABObjectCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 30008:
+/***/ 30008
 /*!********************************************!*\
   !*** ./AppBuilder/platform/ABObjectApi.js ***!
   \********************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const atomicjs = __webpack_require__(/*! atomicjs */ 33005);
 const ABObjectApiCore = __webpack_require__(/*! ../core/ABObjectApiCore */ 41227);
@@ -38253,13 +38162,13 @@ module.exports = class ABObjectApi extends ABObjectApiCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 25285:
+/***/ 25285
 /*!****************************************************!*\
   !*** ./AppBuilder/platform/ABObjectApiNetsuite.js ***!
   \****************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABObjectApiNetsuiteCore = __webpack_require__(/*! ../core/ABObjectApiNetsuiteCore */ 70074);
 
@@ -38335,13 +38244,13 @@ module.exports = class ABObjectApiNetsuite extends ABObjectApiNetsuiteCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 31761:
+/***/ 31761
 /*!*************************************************!*\
   !*** ./AppBuilder/platform/ABObjectExternal.js ***!
   \*************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABObject = __webpack_require__(/*! ./ABObject */ 84154);
 
@@ -38353,13 +38262,13 @@ const ABObject = __webpack_require__(/*! ./ABObject */ 84154);
 module.exports = class ABObjectExternal extends ABObject {};
 
 
-/***/ }),
+/***/ },
 
-/***/ 9983:
+/***/ 9983
 /*!***********************************************!*\
   !*** ./AppBuilder/platform/ABObjectImport.js ***!
   \***********************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABObject = __webpack_require__(/*! ./ABObject */ 84154);
 
@@ -38373,13 +38282,13 @@ const ABObject = __webpack_require__(/*! ./ABObject */ 84154);
 module.exports = class ABObjectImport extends ABObject {};
 
 
-/***/ }),
+/***/ },
 
-/***/ 55532:
+/***/ 55532
 /*!**********************************************!*\
   !*** ./AppBuilder/platform/ABObjectQuery.js ***!
   \**********************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 //
 // ABObjectQuery
@@ -38737,13 +38646,13 @@ module.exports = class ABObjectQuery extends ABObjectQueryCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 36676:
+/***/ 36676
 /*!******************************************!*\
   !*** ./AppBuilder/platform/ABProcess.js ***!
   \******************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABProcessCore = __webpack_require__(/*! ../core/ABProcessCore */ 68895);
 
@@ -39010,13 +38919,13 @@ module.exports = class ABProcess extends ABProcessCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 39631:
+/***/ 39631
 /*!***************************************!*\
   !*** ./AppBuilder/platform/ABStep.js ***!
   \***************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABStepCore = __webpack_require__(/*! ../core/ABStepCore */ 72880);
 
@@ -39211,13 +39120,13 @@ module.exports = class ABStep extends ABStepCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 40765:
+/***/ 40765
 /*!**********************************************!*\
   !*** ./AppBuilder/platform/ABViewManager.js ***!
   \**********************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewManagerCore = __webpack_require__(/*! ../core/ABViewManagerCore */ 74834);
 const ClassManager = __webpack_require__(/*! ./ABClassManager */ 56938);
@@ -39263,26 +39172,26 @@ module.exports = class ABViewManager extends ABViewManagerCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 55443:
+/***/ 55443
 /*!****************************************************!*\
   !*** ./AppBuilder/platform/ABViewManagerMobile.js ***!
   \****************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewManagerMobileCore = __webpack_require__(/*! ../core/ABViewManagerMobileCore */ 31828);
 
 module.exports = class ABViewManagerMobile extends ABViewManagerMobileCore {};
 
 
-/***/ }),
+/***/ },
 
-/***/ 72618:
+/***/ 72618
 /*!********************************************!*\
   !*** ./AppBuilder/platform/CSVImporter.js ***!
   \********************************************/
-/***/ ((module) => {
+(module) {
 
 var L = null;
 // multilingual Label fn()
@@ -39447,13 +39356,13 @@ module.exports = class CSVImporter {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 46334:
+/***/ 46334
 /*!**********************************************!*\
   !*** ./AppBuilder/platform/FilterComplex.js ***!
   \**********************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const FilterComplexCore = __webpack_require__(/*! ../core/FilterComplexCore */ 70205);
 
@@ -40608,13 +40517,13 @@ module.exports = class FilterComplex extends FilterComplexCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 75782:
+/***/ 75782
 /*!******************************************!*\
   !*** ./AppBuilder/platform/RowFilter.js ***!
   \******************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const RowFilterCore = __webpack_require__(/*! ../core/RowFilterCore */ 7605);
 
@@ -41906,13 +41815,13 @@ module.exports = class RowFilter extends RowFilterCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 18815:
+/***/ 18815
 /*!*******************************************!*\
   !*** ./AppBuilder/platform/RowUpdater.js ***!
   \*******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -42539,13 +42448,13 @@ class RowUpdater extends _ui_ClassUI__WEBPACK_IMPORTED_MODULE_0__["default"] {
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (RowUpdater);
 
 
-/***/ }),
+/***/ },
 
-/***/ 35709:
+/***/ 35709
 /*!***************************************************!*\
   !*** ./AppBuilder/platform/dataFields/ABField.js ***!
   \***************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /*
  * ABField
@@ -43048,13 +42957,13 @@ module.exports = class ABField extends ABFieldCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 2232:
+/***/ 2232
 /*!************************************************************!*\
   !*** ./AppBuilder/platform/dataFields/ABFieldAutoIndex.js ***!
   \************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABFieldAutoIndexCore = __webpack_require__(/*! ../../core/dataFields/ABFieldAutoIndexCore */ 46027);
 
@@ -43128,13 +43037,13 @@ module.exports = class ABFieldAutoIndex extends ABFieldAutoIndexCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 81093:
+/***/ 81093
 /*!**********************************************************!*\
   !*** ./AppBuilder/platform/dataFields/ABFieldBoolean.js ***!
   \**********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABFieldBooleanCore = __webpack_require__(/*! ../../core/dataFields/ABFieldBooleanCore */ 97026);
 
@@ -43222,13 +43131,13 @@ module.exports = class ABFieldBoolean extends ABFieldBooleanCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 43925:
+/***/ 43925
 /*!************************************************************!*\
   !*** ./AppBuilder/platform/dataFields/ABFieldCalculate.js ***!
   \************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABFieldCalculateCore = __webpack_require__(/*! ../../core/dataFields/ABFieldCalculateCore */ 41442);
 
@@ -43299,13 +43208,13 @@ module.exports = class ABFieldCalculate extends ABFieldCalculateCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 78388:
+/***/ 78388
 /*!**********************************************************!*\
   !*** ./AppBuilder/platform/dataFields/ABFieldCombine.js ***!
   \**********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABFieldCombineCore = __webpack_require__(/*! ../../core/dataFields/ABFieldCombineCore */ 76215);
 
@@ -43393,13 +43302,13 @@ module.exports = class ABFieldCombine extends ABFieldCombineCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 95399:
+/***/ 95399
 /*!**********************************************************!*\
   !*** ./AppBuilder/platform/dataFields/ABFieldConnect.js ***!
   \**********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABFieldConnectCore = __webpack_require__(/*! ../../core/dataFields/ABFieldConnectCore */ 83520);
 
@@ -44382,13 +44291,13 @@ module.exports = class ABFieldConnect extends ABFieldConnectCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 65025:
+/***/ 65025
 /*!*******************************************************!*\
   !*** ./AppBuilder/platform/dataFields/ABFieldDate.js ***!
   \*******************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABFieldDateCore = __webpack_require__(/*! ../../core/dataFields/ABFieldDateCore */ 33574);
 
@@ -44556,13 +44465,13 @@ module.exports = class ABFieldDate extends ABFieldDateCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 91540:
+/***/ 91540
 /*!***********************************************************!*\
   !*** ./AppBuilder/platform/dataFields/ABFieldDateTime.js ***!
   \***********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABFieldDateTimeCore = __webpack_require__(/*! ../../core/dataFields/ABFieldDateTimeCore */ 32127);
 
@@ -44713,13 +44622,13 @@ module.exports = class ABFieldDateTime extends ABFieldDateTimeCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 41633:
+/***/ 41633
 /*!********************************************************!*\
   !*** ./AppBuilder/platform/dataFields/ABFieldEmail.js ***!
   \********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABFieldEmailCore = __webpack_require__(/*! ../../core/dataFields/ABFieldEmailCore */ 5470);
 
@@ -44810,13 +44719,13 @@ module.exports = class ABFieldEmail extends ABFieldEmailCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 83963:
+/***/ 83963
 /*!*******************************************************!*\
   !*** ./AppBuilder/platform/dataFields/ABFieldFile.js ***!
   \*******************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABFieldFileCore = __webpack_require__(/*! ../../core/dataFields/ABFieldFileCore */ 58588);
 
@@ -45288,13 +45197,13 @@ module.exports = class ABFieldFile extends ABFieldFileCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 29491:
+/***/ 29491
 /*!**********************************************************!*\
   !*** ./AppBuilder/platform/dataFields/ABFieldFormula.js ***!
   \**********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABFieldFormulaCore = __webpack_require__(/*! ../../core/dataFields/ABFieldFormulaCore */ 17980);
 
@@ -45366,13 +45275,13 @@ module.exports = class ABFieldFormula extends ABFieldFormulaCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 9932:
+/***/ 9932
 /*!********************************************************!*\
   !*** ./AppBuilder/platform/dataFields/ABFieldImage.js ***!
   \********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABFieldImageCore = __webpack_require__(/*! ../../core/dataFields/ABFieldImageCore */ 65351);
 
@@ -46032,13 +45941,13 @@ module.exports = class ABFieldImage extends ABFieldImageCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 29563:
+/***/ 29563
 /*!*******************************************************!*\
   !*** ./AppBuilder/platform/dataFields/ABFieldJson.js ***!
   \*******************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABFieldJsonCore = __webpack_require__(/*! ../../core/dataFields/ABFieldJsonCore */ 46292);
 
@@ -46134,13 +46043,13 @@ module.exports = class ABFieldJson extends ABFieldJsonCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 75809:
+/***/ 75809
 /*!*******************************************************!*\
   !*** ./AppBuilder/platform/dataFields/ABFieldList.js ***!
   \*******************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABFieldListCore = __webpack_require__(/*! ../../core/dataFields/ABFieldListCore */ 33710);
 
@@ -46623,13 +46532,13 @@ function _getSelectedOptions(field, rowData = {}) {
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 32592:
+/***/ 32592
 /*!***********************************************************!*\
   !*** ./AppBuilder/platform/dataFields/ABFieldLongText.js ***!
   \***********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABFieldLongTextCore = __webpack_require__(/*! ../../core/dataFields/ABFieldLongTextCore */ 12387);
 
@@ -46749,13 +46658,13 @@ module.exports = class ABFieldLongText extends ABFieldLongTextCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 89652:
+/***/ 89652
 /*!*********************************************************!*\
   !*** ./AppBuilder/platform/dataFields/ABFieldNumber.js ***!
   \*********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABFieldNumberCore = __webpack_require__(/*! ../../core/dataFields/ABFieldNumberCore */ 18383);
 
@@ -46839,13 +46748,13 @@ module.exports = class ABFieldNumber extends ABFieldNumberCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 96600:
+/***/ 96600
 /*!**************************************************************!*\
   !*** ./AppBuilder/platform/dataFields/ABFieldSelectivity.js ***!
   \**************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /*
  * ABFieldSelectivity
@@ -47206,13 +47115,13 @@ module.exports = class ABFieldSelectivity extends ABField {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 18912:
+/***/ 18912
 /*!*********************************************************!*\
   !*** ./AppBuilder/platform/dataFields/ABFieldString.js ***!
   \*********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABFieldStringCore = __webpack_require__(/*! ../../core/dataFields/ABFieldStringCore */ 70355);
 
@@ -47372,13 +47281,13 @@ module.exports = class ABFieldString extends ABFieldStringCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 51706:
+/***/ 51706
 /*!**************************************************************!*\
   !*** ./AppBuilder/platform/dataFields/ABFieldTextFormula.js ***!
   \**************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABFieldTextFormulaCore = __webpack_require__(/*! ../../core/dataFields/ABFieldTextFormulaCore */ 30497);
 
@@ -47463,13 +47372,13 @@ module.exports = class ABFieldTextFormula extends ABFieldTextFormulaCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 73849:
+/***/ 73849
 /*!*******************************************************!*\
   !*** ./AppBuilder/platform/dataFields/ABFieldTree.js ***!
   \*******************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABFieldTreeCore = __webpack_require__(/*! ../../core/dataFields/ABFieldTreeCore */ 66606);
 
@@ -47934,13 +47843,13 @@ module.exports = class ABFieldTree extends ABFieldTreeCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 46430:
+/***/ 46430
 /*!*******************************************************!*\
   !*** ./AppBuilder/platform/dataFields/ABFieldUser.js ***!
   \*******************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABFieldConnectCore = __webpack_require__(/*! ../../core/dataFields/ABFieldConnectCore */ 83520);
 const ABFieldUserCore = __webpack_require__(/*! ../../core/dataFields/ABFieldUserCore */ 87901);
@@ -48214,13 +48123,13 @@ module.exports = class ABFieldUser extends ABFieldUserCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 38241:
+/***/ 38241
 /*!****************************************************!*\
   !*** ./AppBuilder/platform/mobile/ABMobilePage.js ***!
   \****************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABMobilePageCore = __webpack_require__(/*! ../../core/mobile/ABMobilePageCore */ 41782);
 
@@ -48305,13 +48214,13 @@ module.exports = class ABMobilePage extends ABMobilePageCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 94463:
+/***/ 94463
 /*!****************************************************!*\
   !*** ./AppBuilder/platform/mobile/ABMobileView.js ***!
   \****************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABMobileViewCore = __webpack_require__(/*! ../../core/mobile/ABMobileViewCore.js */ 49688);
 
@@ -48420,13 +48329,13 @@ module.exports = class ABMobileView extends ABMobileViewCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 44496:
+/***/ 44496
 /*!**********************************************************!*\
   !*** ./AppBuilder/platform/mobile/ABMobileViewCustom.js ***!
   \**********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABMobileViewCustomCore = __webpack_require__(/*! ../../core/mobile/ABMobileViewCustomCore */ 94411);
 
@@ -48443,13 +48352,13 @@ module.exports = class ABMobileViewCustom extends ABMobileViewCustomCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 57753:
+/***/ 57753
 /*!********************************************************!*\
   !*** ./AppBuilder/platform/mobile/ABMobileViewForm.js ***!
   \********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABMobileViewFormCore = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormCore */ 85246);
 
@@ -48520,13 +48429,13 @@ module.exports = class ABMobileViewForm extends ABMobileViewFormCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 49985:
+/***/ 49985
 /*!**************************************************************!*\
   !*** ./AppBuilder/platform/mobile/ABMobileViewFormButton.js ***!
   \**************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABMobileViewFormButtonCore = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormButtonCore */ 32894);
 
@@ -48535,13 +48444,13 @@ module.exports = class ABMobileViewFormButton extends (
 ) {};
 
 
-/***/ }),
+/***/ },
 
-/***/ 92944:
+/***/ 92944
 /*!****************************************************************!*\
   !*** ./AppBuilder/platform/mobile/ABMobileViewFormCheckbox.js ***!
   \****************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABMobileViewFormCheckboxCore = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormCheckboxCore */ 62995);
 
@@ -48550,13 +48459,13 @@ module.exports = class ABMobileViewFormCheckbox extends (
 ) {};
 
 
-/***/ }),
+/***/ },
 
-/***/ 11523:
+/***/ 11523
 /*!***************************************************************!*\
   !*** ./AppBuilder/platform/mobile/ABMobileViewFormConnect.js ***!
   \***************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABMobileViewFormConnectCore = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormConnectCore */ 92580);
 
@@ -48653,13 +48562,13 @@ module.exports = class ABMobileViewFormConnect extends (
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 66934:
+/***/ 66934
 /*!**************************************************************!*\
   !*** ./AppBuilder/platform/mobile/ABMobileViewFormCustom.js ***!
   \**************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABMobileViewFormCustomCore = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormCustomCore */ 53053);
 
@@ -48668,26 +48577,26 @@ module.exports = class ABMobileViewFormCustom extends (
 ) {};
 
 
-/***/ }),
+/***/ },
 
-/***/ 53733:
+/***/ 53733
 /*!************************************************************!*\
   !*** ./AppBuilder/platform/mobile/ABMobileViewFormDate.js ***!
   \************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABMobileViewFormDateCore = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormDateCore */ 9810);
 
 module.exports = class ABMobileViewFormDate extends ABMobileViewFormDateCore {};
 
 
-/***/ }),
+/***/ },
 
-/***/ 16304:
+/***/ 16304
 /*!****************************************************************!*\
   !*** ./AppBuilder/platform/mobile/ABMobileViewFormDatetime.js ***!
   \****************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABMobileViewFormDatetimeCore = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormDatetimeCore */ 75123);
 
@@ -48696,13 +48605,13 @@ module.exports = class ABMobileViewFormDatetime extends (
 ) {};
 
 
-/***/ }),
+/***/ },
 
-/***/ 86829:
+/***/ 86829
 /*!*************************************************************!*\
   !*** ./AppBuilder/platform/mobile/ABMobileViewFormEmail.js ***!
   \*************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABMobileViewFormEmailCore = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormEmailCore */ 81138);
 
@@ -48711,26 +48620,26 @@ module.exports = class ABMobileViewFormEmail extends (
 ) {};
 
 
-/***/ }),
+/***/ },
 
-/***/ 52895:
+/***/ 52895
 /*!************************************************************!*\
   !*** ./AppBuilder/platform/mobile/ABMobileViewFormFile.js ***!
   \************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABMobileViewFormFileCore = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormFileCore */ 77208);
 
 module.exports = class ABMobileViewFormFile extends ABMobileViewFormFileCore {};
 
 
-/***/ }),
+/***/ },
 
-/***/ 88671:
+/***/ 88671
 /*!***************************************************************!*\
   !*** ./AppBuilder/platform/mobile/ABMobileViewFormFormula.js ***!
   \***************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABMobileViewFormFormulaCore = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormFormulaCore */ 33696);
 
@@ -48739,13 +48648,13 @@ module.exports = class ABMobileViewFormFormula extends (
 ) {};
 
 
-/***/ }),
+/***/ },
 
-/***/ 20008:
+/***/ 20008
 /*!*************************************************************!*\
   !*** ./AppBuilder/platform/mobile/ABMobileViewFormImage.js ***!
   \*************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABMobileViewFormImageCore = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormImageCore */ 35675);
 
@@ -48754,13 +48663,13 @@ module.exports = class ABMobileViewFormImage extends (
 ) {};
 
 
-/***/ }),
+/***/ },
 
-/***/ 36646:
+/***/ 36646
 /*!************************************************************!*\
   !*** ./AppBuilder/platform/mobile/ABMobileViewFormItem.js ***!
   \************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABMobileViewFormItemCore = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormItemCore */ 88117);
 
@@ -48775,13 +48684,13 @@ module.exports = class ABMobileViewFormItem extends ABMobileViewFormItemCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 78720:
+/***/ 78720
 /*!**************************************************************!*\
   !*** ./AppBuilder/platform/mobile/ABMobileViewFormNumber.js ***!
   \**************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABMobileViewFormNumberCore = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormNumberCore */ 24979);
 
@@ -48790,13 +48699,13 @@ module.exports = class ABMobileViewFormNumber extends (
 ) {};
 
 
-/***/ }),
+/***/ },
 
-/***/ 61031:
+/***/ 61031
 /*!****************************************************************!*\
   !*** ./AppBuilder/platform/mobile/ABMobileViewFormReadonly.js ***!
   \****************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABMobileViewFormReadonlyCore = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormReadonlyCore */ 28592);
 
@@ -48805,13 +48714,13 @@ module.exports = class ABMobileViewFormReadonly extends (
 ) {};
 
 
-/***/ }),
+/***/ },
 
-/***/ 38101:
+/***/ 38101
 /*!**********************************************************************!*\
   !*** ./AppBuilder/platform/mobile/ABMobileViewFormSelectMultiple.js ***!
   \**********************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABMobileViewFormSelectMultipleCore = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormSelectMultipleCore */ 1066);
 
@@ -48820,13 +48729,13 @@ module.exports = class ABMobileViewFormSelectMultiple extends (
 ) {};
 
 
-/***/ }),
+/***/ },
 
-/***/ 86681:
+/***/ 86681
 /*!********************************************************************!*\
   !*** ./AppBuilder/platform/mobile/ABMobileViewFormSelectSingle.js ***!
   \********************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABMobileViewFormSelectSingleCore = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormSelectSingleCore */ 11310);
 
@@ -48835,13 +48744,13 @@ module.exports = class ABMobileViewFormSelectSingle extends (
 ) {};
 
 
-/***/ }),
+/***/ },
 
-/***/ 72805:
+/***/ 72805
 /*!***************************************************************!*\
   !*** ./AppBuilder/platform/mobile/ABMobileViewFormTextbox.js ***!
   \***************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABMobileViewFormTextboxCore = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormTextboxCore */ 36866);
 
@@ -48855,13 +48764,13 @@ module.exports = class ABMobileViewFormTextbox extends (
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 521:
+/***/ 521
 /*!*********************************************************!*\
   !*** ./AppBuilder/platform/mobile/ABMobileViewLabel.js ***!
   \*********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABMobileViewLabelCore = __webpack_require__(/*! ../../core/mobile/ABMobileViewLabelCore */ 18118);
 // const ABViewLabelComponent = require("./viewComponent/ABViewLabelComponent");
@@ -48891,13 +48800,13 @@ module.exports = class ABMobileViewLabel extends ABMobileViewLabelCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 53767:
+/***/ 53767
 /*!********************************************************!*\
   !*** ./AppBuilder/platform/mobile/ABMobileViewList.js ***!
   \********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABMobileViewListCore = __webpack_require__(/*! ../../core/mobile/ABMobileViewListCore */ 22448);
 
@@ -48920,13 +48829,13 @@ module.exports = class ABMobileViewList extends ABMobileViewListCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 41768:
+/***/ 41768
 /*!************************************************************!*\
   !*** ./AppBuilder/platform/mobile/ABMobileViewTimeline.js ***!
   \************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABMobileViewTimelineCore = __webpack_require__(/*! ../../core/mobile/ABMobileViewTimelineCore */ 12355);
 
@@ -48949,13 +48858,13 @@ module.exports = class ABMobileViewTimeline extends ABMobileViewTimelineCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 56419:
+/***/ 56419
 /*!********************************************************!*\
   !*** ./AppBuilder/platform/plugins/ABClassUIPlugin.js ***!
   \********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -49236,13 +49145,13 @@ class ABClassUIPlugin extends _ui_ClassUI_js__WEBPACK_IMPORTED_MODULE_0__["defau
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 84364:
+/***/ 84364
 /*!******************************************************!*\
   !*** ./AppBuilder/platform/plugins/ABModelPlugin.js ***!
   \******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -49254,13 +49163,13 @@ const ABModel = __webpack_require__(/*! ../ABModel */ 90940);
 class ABModelPlugin extends ABModel {}
 
 
-/***/ }),
+/***/ },
 
-/***/ 84788:
+/***/ 84788
 /*!*******************************************************!*\
   !*** ./AppBuilder/platform/plugins/ABObjectPlugin.js ***!
   \*******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -49361,13 +49270,13 @@ class ABObjectPlugin extends (_ABObject_js__WEBPACK_IMPORTED_MODULE_0___default(
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 56965:
+/***/ 56965
 /*!*****************************************************************!*\
   !*** ./AppBuilder/platform/plugins/ABPropertiesObjectPlugin.js ***!
   \*****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -49650,13 +49559,13 @@ class ABPropertiesObjectPlugin extends _ABUIPlugin_js__WEBPACK_IMPORTED_MODULE_0
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 4341:
+/***/ 4341
 /*!***************************************************!*\
   !*** ./AppBuilder/platform/plugins/ABUIPlugin.js ***!
   \***************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -49881,13 +49790,13 @@ class ABUIPlugin extends _ui_ClassUI_js__WEBPACK_IMPORTED_MODULE_0__["default"] 
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 7105:
+/***/ 7105
 /*!**************************************************************!*\
   !*** ./AppBuilder/platform/plugins/ABViewComponentPlugin.js ***!
   \**************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -49904,13 +49813,13 @@ class ABViewComponentPlugin extends _views_viewComponent_ABViewComponent_js__WEB
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 98487:
+/***/ 98487
 /*!***********************************************************!*\
   !*** ./AppBuilder/platform/plugins/ABViewEditorPlugin.js ***!
   \***********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -50043,13 +49952,13 @@ class ABViewEditorPlugin extends _ABClassUIPlugin_js__WEBPACK_IMPORTED_MODULE_0_
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 65006:
+/***/ 65006
 /*!*****************************************************!*\
   !*** ./AppBuilder/platform/plugins/ABViewPlugin.js ***!
   \*****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -50090,13 +49999,13 @@ class ABViewPlugin extends (_views_ABView_js__WEBPACK_IMPORTED_MODULE_0___defaul
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 49243:
+/***/ 49243
 /*!***************************************************************!*\
   !*** ./AppBuilder/platform/plugins/ABViewPropertiesPlugin.js ***!
   \***************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -50353,13 +50262,13 @@ class ABViewPropertiesPlugin extends _ABClassUIPlugin_js__WEBPACK_IMPORTED_MODUL
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 76554:
+/***/ 76554
 /*!***********************************************************!*\
   !*** ./AppBuilder/platform/plugins/ABViewWidgetPlugin.js ***!
   \***********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -50400,27 +50309,31 @@ class ABViewWidgetPlugin extends (_views_ABViewWidget_js__WEBPACK_IMPORTED_MODUL
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 30188:
+/***/ 30188
 /*!*******************************************************!*\
   !*** ./AppBuilder/platform/plugins/included/index.js ***!
   \*******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _view_list_FNAbviewlist_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./view_list/FNAbviewlist.js */ 62467);
-/* harmony import */ var _view_tab_FNAbviewtab_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./view_tab/FNAbviewtab.js */ 95757);
-/* harmony import */ var _view_label_FNAbviewlabel_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./view_label/FNAbviewlabel.js */ 31697);
-/* harmony import */ var _view_text_FNAbviewtext_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./view_text/FNAbviewtext.js */ 88229);
+/* harmony import */ var _view_list_FNAbviewlist_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./view_list/FNAbviewlist.js */ 62467);
+/* harmony import */ var _view_tab_FNAbviewtab_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./view_tab/FNAbviewtab.js */ 95757);
+/* harmony import */ var _view_label_FNAbviewlabel_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./view_label/FNAbviewlabel.js */ 31697);
+/* harmony import */ var _view_text_FNAbviewtext_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./view_text/FNAbviewtext.js */ 88229);
 /* harmony import */ var _view_image_FNAbviewimage_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./view_image/FNAbviewimage.js */ 58661);
 /* harmony import */ var _view_data_select_FNAbviewdataselect_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./view_data-select/FNAbviewdataselect.js */ 78612);
 /* harmony import */ var _view_pdfImporter_FNAbviewpdfimporter_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./view_pdfImporter/FNAbviewpdfimporter.js */ 27377);
 /* harmony import */ var _view_carousel_FNAbviewcarousel_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./view_carousel/FNAbviewcarousel.js */ 77739);
+/* harmony import */ var _view_layout_FNAbviewlayout_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./view_layout/FNAbviewlayout.js */ 22031);
+/* harmony import */ var _view_comment_FNAbviewcomment_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./view_comment/FNAbviewcomment.js */ 85253);
+
+
 
 
 
@@ -50432,14 +50345,16 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const AllPlugins = [
-   _view_tab_FNAbviewtab_js__WEBPACK_IMPORTED_MODULE_0__["default"],
-   _view_list_FNAbviewlist_js__WEBPACK_IMPORTED_MODULE_1__["default"],
-   _view_text_FNAbviewtext_js__WEBPACK_IMPORTED_MODULE_2__["default"],
-   _view_label_FNAbviewlabel_js__WEBPACK_IMPORTED_MODULE_3__["default"],
+   _view_tab_FNAbviewtab_js__WEBPACK_IMPORTED_MODULE_1__["default"],
+   _view_list_FNAbviewlist_js__WEBPACK_IMPORTED_MODULE_0__["default"],
+   _view_text_FNAbviewtext_js__WEBPACK_IMPORTED_MODULE_3__["default"],
+   _view_label_FNAbviewlabel_js__WEBPACK_IMPORTED_MODULE_2__["default"],
    _view_image_FNAbviewimage_js__WEBPACK_IMPORTED_MODULE_4__["default"],
    _view_data_select_FNAbviewdataselect_js__WEBPACK_IMPORTED_MODULE_5__["default"],
    _view_pdfImporter_FNAbviewpdfimporter_js__WEBPACK_IMPORTED_MODULE_6__["default"],
    _view_carousel_FNAbviewcarousel_js__WEBPACK_IMPORTED_MODULE_7__["default"],
+   _view_layout_FNAbviewlayout_js__WEBPACK_IMPORTED_MODULE_8__["default"],
+   _view_comment_FNAbviewcomment_js__WEBPACK_IMPORTED_MODULE_9__["default"],
 ];
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -50451,13 +50366,13 @@ const AllPlugins = [
 });
 
 
-/***/ }),
+/***/ },
 
-/***/ 77739:
+/***/ 77739
 /*!********************************************************************************!*\
   !*** ./AppBuilder/platform/plugins/included/view_carousel/FNAbviewcarousel.js ***!
   \********************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -50657,13 +50572,13 @@ function FNAbviewcarousel({
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 65832:
+/***/ 65832
 /*!*****************************************************************************************!*\
   !*** ./AppBuilder/platform/plugins/included/view_carousel/FNAbviewcarouselComponent.js ***!
   \*****************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -51208,13 +51123,560 @@ function FNAbviewcarouselComponent({
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 78612:
+/***/ 85253
+/*!******************************************************************************!*\
+  !*** ./AppBuilder/platform/plugins/included/view_comment/FNAbviewcomment.js ***!
+  \******************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FNAbviewcomment)
+/* harmony export */ });
+/* harmony import */ var _FNAbviewcommentComponent_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FNAbviewcommentComponent.js */ 89386);
+
+
+// FNAbviewcomment Web
+// A web side import for an ABView.
+//
+function FNAbviewcomment({
+   /*AB,*/
+   ABViewWidgetPlugin,
+   ABViewComponentPlugin,
+   ABViewContainer,
+}) {
+   const ABAbviewcommentComponent = (0,_FNAbviewcommentComponent_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
+      ABViewComponentPlugin,
+   });
+
+   const ABViewCommentPropertyComponentDefaults = {
+      dataviewID: null,
+      columnUser: null,
+      columnComment: null,
+      columnDate: null,
+      height: 300,
+      label: "", // label is required and you can add more if the component needs them
+      // format:0  	// 0 - normal, 1 - title, 2 - description
+   };
+
+   const ABViewDefaults = {
+      key: "comment", // {string} unique key for this view
+      icon: "comments", // {string} fa-[icon] reference for this view
+      labelKey: "Comment", // {string} the multilingual label key for the class label
+   };
+
+   class ABViewCommentCore extends ABViewWidgetPlugin {
+      constructor(values, application, parent, defaultValues) {
+         super(values, application, parent, defaultValues || ABViewDefaults);
+      }
+
+      static common() {
+         return ABViewDefaults;
+      }
+
+      static defaultValues() {
+         return ABViewCommentPropertyComponentDefaults;
+      }
+
+      ///
+      /// Instance Methods
+      ///
+
+      /**
+       * @method fromValues()
+       *
+       * initialze this object with the given set of values.
+       * @param {obj} values
+       */
+      fromValues(values) {
+         super.fromValues(values);
+
+         // convert from "0" => 0
+         // this.settings.format = parseInt(this.settings.format);
+         // if this is being instantiated on a read from the Property UI,
+         this.settings.height = parseInt(this.settings.height || 0);
+      }
+
+      /**
+       * @method componentList
+       * return the list of components available on this view to display in the editor.
+       */
+      componentList() {
+         return [];
+      }
+
+      getCurrentUserId() {
+         const userObject = this.getUsers();
+         const currentUser = this.AB.Account.username();
+         //Anonymous User = 0
+
+         if (!userObject) return;
+
+         return userObject.findIndex((e) => e.value === currentUser) + 1;
+      }
+
+      getUsers() {
+         return this.AB.Account.userList().map((e) => {
+            return {
+               id: e.username,
+               value: e.username,
+               image: e.image_id,
+            };
+         });
+      }
+
+      getUserField() {
+         var dv = this.datacollection;
+         if (!dv) return null;
+
+         var obj = dv.datasource;
+         if (!obj) return null;
+
+         return obj.fieldByID(this.settings.columnUser);
+      }
+
+      getCommentField() {
+         var dv = this.datacollection;
+         if (!dv) return null;
+
+         var obj = dv.datasource;
+         if (!obj) return null;
+
+         return obj.fieldByID(this.settings.columnComment);
+      }
+
+      getDateField() {
+         var dv = this.datacollection;
+         if (!dv) return null;
+
+         var obj = dv.datasource;
+         if (!obj) return null;
+
+         return obj.fieldByID(this.settings.columnDate);
+      }
+
+      getUserData() {
+         let UserImageField = this.AB.objectUser().fieldByID(
+            "6383ce19-b344-44ee-87e6-decced7361f8"
+         );
+
+         var userObject = this.getUsers();
+         var userList = [];
+
+         if (!userObject) return;
+
+         userObject.forEach((item, index) => {
+            var imageURL = "";
+            if (item.image) {
+               imageURL = UserImageField.urlImage(item.image);
+            }
+            var user = { id: index + 1, value: item.value, image: imageURL };
+            userList.push(user);
+         });
+         return userList;
+      }
+
+      model() {
+         let dv = this.datacollection;
+         if (!dv) return null; // TODO: refactor in v2
+
+         // get ABModel
+         let model = dv.model; // already notified
+         if (!model) return null;
+
+         return model;
+      }
+   }
+
+   return class ABViewComment extends ABViewCommentCore {
+      /**
+       * @method getPluginKey
+       * return the plugin key for this view.
+       * @return {string} plugin key
+       */
+      static getPluginKey() {
+         return this.common().key;
+      }
+
+      /**
+       * @method component()
+       * return a UI component based upon this view.
+       * @return {obj} UI component
+       */
+      component(parentId) {
+         return new ABAbviewcommentComponent(this, parentId);
+      }
+
+      // constructor(values, application, parent, defaultValues) {
+      //    super(values, application, parent, defaultValues);
+      // }
+
+      warningsEval() {
+         super.warningsEval();
+
+         let field = this.getUserField();
+         if (!field) {
+            this.warningsMessage(
+               `can't resolve user field[${this.settings.columnUser}]`
+            );
+         }
+
+         field = this.getCommentField();
+         if (!field) {
+            this.warningsMessage(
+               `can't resolve comment field[${this.settings.columnComment}]`
+            );
+         }
+
+         field = this.getDateField();
+         if (!field) {
+            this.warningsMessage(
+               `can't resolve date field[${this.settings.columnDate}]`
+            );
+         }
+      }
+   };
+}
+
+
+/***/ },
+
+/***/ 89386
+/*!***************************************************************************************!*\
+  !*** ./AppBuilder/platform/plugins/included/view_comment/FNAbviewcommentComponent.js ***!
+  \***************************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FNAbviewcommentComponent)
+/* harmony export */ });
+function FNAbviewcommentComponent({
+   /*AB,*/
+   ABViewComponentPlugin,
+}) {
+   return class ABAbviewcommentComponent extends ABViewComponentPlugin {
+      constructor(baseView, idBase, ids) {
+         super(
+            baseView,
+            idBase || `ABViewComment_${baseView.id}`,
+            Object.assign(
+               {
+                  comment: "",
+               },
+               ids
+            )
+         );
+      }
+
+      ui() {
+         const baseView = this.view;
+         const _ui = super.ui([
+            {
+               id: this.ids.comment,
+               view: "comments",
+               users: baseView.getUserData(),
+               currentUser: baseView.getCurrentUserId(),
+               height: this.settings.height,
+               data: this.getCommentData(),
+               on: {
+                  onBeforeAdd: (id, obj, index) => {
+                     this.addComment(obj.text, new Date());
+                  },
+                  // NOTE: no update event of comment widget !!
+                  // Updating event handles in .init function
+                  // https://docs.webix.com/api__ui.comments_onbeforeeditstart_event.html#comment-4509366150
+
+                  // onAfterEditStart: function (rowId) {
+                  //    let item = this.getItem(rowId);
+
+                  //    _logic.updateComment(rowId, item);
+                  // },
+                  onAfterDelete: (rowId) => {
+                     this.deleteComment(rowId);
+                  },
+               },
+            },
+         ]);
+
+         delete _ui.type;
+
+         return _ui;
+      }
+
+      async init(AB) {
+         await super.init(AB);
+
+         const baseView = this.view;
+
+         baseView.__dvEvents = baseView.__dvEvents || {};
+
+         const ids = this.ids;
+         const $comment = $$(ids.comment);
+
+         if ($comment) {
+            const $commentList = $comment.queryView({ view: "list" });
+
+            if ($commentList) {
+               // Updating comment event
+               if (!baseView.__dvEvents.onStoreUpdated)
+                  baseView.__dvEvents.onStoreUpdated =
+                     $commentList.data.attachEvent(
+                        "onStoreUpdated",
+                        (rowId, data, operate) => {
+                           if (operate === "update") {
+                              this.updateComment(rowId, (data || {}).text);
+                           }
+                        }
+                     );
+
+               // Implement progress bar
+               webix.extend($commentList, webix.ProgressBar);
+            }
+         }
+
+         const dv = this.datacollection;
+
+         if (!dv) return;
+
+         // bind dc to component
+         // dv.bind($$(ids.comment));
+
+         if (!baseView.__dvEvents.create)
+            baseView.__dvEvents.create = dv.on("create", () =>
+               this.refreshComment()
+            );
+
+         if (!baseView.__dvEvents.update)
+            baseView.__dvEvents.update = dv.on("update", () =>
+               this.refreshComment()
+            );
+
+         if (!baseView.__dvEvents.delete)
+            baseView.__dvEvents.delete = dv.on("delete", () =>
+               this.refreshComment()
+            );
+
+         if (!baseView.__dvEvents.loadData)
+            baseView.__dvEvents.loadData = dv.on("loadData", () =>
+               this.refreshComment()
+            );
+
+         $comment.refresh();
+      }
+
+      getCommentData() {
+         const baseView = this.view;
+         const dv = this.datacollection;
+
+         if (!dv) return null;
+
+         const userCol = baseView.getUserField();
+         const commentCol = baseView.getCommentField();
+         const dateCol = baseView.getDateField();
+
+         if (!userCol || !commentCol) return null;
+
+         const userColName = userCol.columnName;
+         const commentColName = commentCol.columnName;
+         const dateColName = dateCol ? dateCol.columnName : null;
+         const dataObject = dv.getData();
+         const dataList = [];
+
+         dataObject.forEach((item, index) => {
+            if (item[commentColName]) {
+               const user = baseView.getUserData().find((user) => {
+                  return user.value === item[userColName];
+               });
+               const data = {
+                  id: item.id,
+                  user_id: user ? user.id : 0,
+                  date: item[dateColName] ? new Date(item[dateColName]) : null,
+                  default_date: new Date(item["created_at"]),
+                  text: item[commentColName],
+               };
+
+               dataList.push(data);
+            }
+         });
+
+         dataList.sort(function (a, b) {
+            if (dateColName)
+               return new Date(a.date).getTime() - new Date(b.date).getTime();
+            else
+               return (
+                  new Date(a.default_date).getTime() -
+                  new Date(b.default_date).getTime()
+               );
+         });
+
+         return dataList;
+      }
+
+      refreshComment() {
+         const baseView = this.view;
+
+         if (baseView.__refreshTimeout) clearTimeout(baseView.__refreshTimeout);
+
+         this.busy();
+
+         const ids = this.ids;
+
+         baseView.__refreshTimeout = setTimeout(() => {
+            const $comment = $$(ids.comment);
+
+            if (!$comment) return;
+
+            // clear comments
+            const $commentList = $comment.queryView({ view: "list" });
+
+            if ($commentList) $commentList.clearAll();
+
+            // populate comments
+            const commentData = this.getCommentData();
+
+            if (commentData) {
+               $comment.parse(commentData);
+            }
+
+            // scroll to the last item
+            if ($commentList) $commentList.scrollTo(0, Number.MAX_SAFE_INTEGER);
+
+            delete baseView.__refreshTimeout;
+
+            this.ready();
+         }, 90);
+      }
+
+      addComment(commentText, dateTime) {
+         this.saveData(commentText, dateTime);
+      }
+
+      async updateComment(rowId, commentText) {
+         const baseView = this.view;
+         const model = baseView.model();
+
+         if (!model) return; // already notified
+
+         const commentField = baseView.getCommentField();
+
+         if (!commentField) return; // already notified
+
+         const values = {};
+
+         values[commentField.columnName] = commentText ?? "";
+
+         return await model.update(rowId, values);
+      }
+
+      async deleteComment(rowId) {
+         const baseView = this.view;
+         const model = baseView.model();
+
+         if (!model) return;
+
+         return await model.delete(rowId);
+      }
+
+      busy() {
+         const ids = this.ids;
+         const $comment = $$(ids.comment);
+
+         if (!$comment) return;
+
+         const $commentList = $comment.queryView({ view: "list" });
+
+         if (!$commentList) return;
+
+         $commentList.disable();
+
+         if ($commentList.showProgress)
+            $commentList.showProgress({ type: "icon" });
+      }
+
+      ready() {
+         const ids = this.ids;
+         const $comment = $$(ids.comment);
+
+         if (!$comment) return;
+
+         const $commentList = $comment.queryView({ view: "list" });
+
+         if (!$commentList) return;
+
+         $commentList.enable();
+
+         if ($commentList.hideProgress) $commentList.hideProgress();
+      }
+
+      async saveData(commentText, dateTime) {
+         if (!commentText) return;
+
+         const dv = this.datacollection;
+
+         if (!dv) return;
+
+         const baseView = this.view;
+         const model = baseView.model();
+         const ab = this.AB;
+
+         if (!model) {
+            ab.notify.builder(
+               {},
+               {
+                  message:
+                     "ABViewComment.saveData(): could not pull a model to work with.",
+                  viewName: baseView.label,
+               }
+            );
+
+            return;
+         }
+
+         const comment = {};
+         const userField = baseView.getUserField();
+
+         if (userField) comment[userField.columnName] = ab.Account.username();
+
+         const commentField = baseView.getCommentField();
+
+         if (commentField) comment[commentField.columnName] = commentText;
+
+         const dateField = baseView.getDateField();
+
+         if (dateField) comment[dateField.columnName] = dateTime;
+
+         // add parent cursor to default
+         const dvLink = dv.datacollectionLink;
+
+         if (dvLink?.getCursor()) {
+            const objectLink = dvLink.datasource;
+            const fieldLink = dv.fieldLink;
+
+            if (objectLink && fieldLink) {
+               comment[fieldLink.columnName] = {};
+               comment[fieldLink.columnName][objectLink.PK()] =
+                  dvLink.getCursor().id;
+            }
+         }
+
+         return await model.create(comment);
+      }
+   };
+}
+
+
+/***/ },
+
+/***/ 78612
 /*!*************************************************************************************!*\
   !*** ./AppBuilder/platform/plugins/included/view_data-select/FNAbviewdataselect.js ***!
   \*************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -51326,13 +51788,13 @@ function FNAbviewdataselect({
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 3845:
+/***/ 3845
 /*!**********************************************************************************************!*\
   !*** ./AppBuilder/platform/plugins/included/view_data-select/FNAbviewdataselectComponent.js ***!
   \**********************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -51399,13 +51861,13 @@ function FNAbviewdataselectComponent({
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 58661:
+/***/ 58661
 /*!**************************************************************************!*\
   !*** ./AppBuilder/platform/plugins/included/view_image/FNAbviewimage.js ***!
   \**************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -51532,13 +51994,13 @@ function FNAbviewimage({
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 23498:
+/***/ 23498
 /*!***********************************************************************************!*\
   !*** ./AppBuilder/platform/plugins/included/view_image/FNAbviewimageComponent.js ***!
   \***********************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -51601,13 +52063,13 @@ function FNAbviewimageComponent({
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 64326:
+/***/ 64326
 /*!***********************************************************************************!*\
   !*** ./AppBuilder/platform/plugins/included/view_label/FNAbviewLabelComponent.js ***!
   \***********************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -51699,13 +52161,13 @@ function FNAbviewLabelComponent({
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 31697:
+/***/ 31697
 /*!**************************************************************************!*\
   !*** ./AppBuilder/platform/plugins/included/view_label/FNAbviewlabel.js ***!
   \**************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -51882,13 +52344,242 @@ function FNViewLabel({
 
 
 
-/***/ }),
+/***/ },
 
-/***/ 62467:
+/***/ 22031
+/*!****************************************************************************!*\
+  !*** ./AppBuilder/platform/plugins/included/view_layout/FNAbviewlayout.js ***!
+  \****************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FNAbviewlayout)
+/* harmony export */ });
+/* harmony import */ var _FNAbviewlayoutComponent_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FNAbviewlayoutComponent.js */ 82620);
+
+
+// FNAbviewlayout Web
+// A web side import for an ABView.
+//
+function FNAbviewlayout({
+   /*AB,*/
+   ABViewWidgetPlugin,
+   ABViewComponentPlugin,
+   ABViewContainer,
+}) {
+   const ABAbviewlayoutComponent = (0,_FNAbviewlayoutComponent_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
+      ABViewComponentPlugin,
+   });
+
+   const PropertyComponentDefaults = {
+      label: "",
+      numColumns: 1, // The number of columns for this layout
+   };
+
+   const ABViewDefaults = {
+      key: "layout", // {string} unique key for this view
+      icon: "columns", // {string} fa-[icon] reference for this view
+      labelKey: "Layout", // {string} the multilingual label key for the class label
+   };
+
+   class ABViewLayoutCore extends ABViewWidgetPlugin {
+      /**
+       * @param {obj} values  key=>value hash of ABView values
+       * @param {ABApplication} application the application object this view is under
+       * @param {ABView} parent the ABView this view is a child of. (can be null)
+       */
+      constructor(values, application, parent, defaultValues) {
+         super(values, application, parent, defaultValues || ABViewDefaults);
+      }
+
+      static common() {
+         return ABViewDefaults;
+      }
+
+      static defaultValues() {
+         return PropertyComponentDefaults;
+      }
+
+      /**
+       * @method addColumn
+       * method to actually add a new ABView as one of our columns.
+       * This is called by the static .addView() method.
+       */
+      addColumn() {
+         this._views.push(
+            this.application.viewNew(
+               {
+                  key: ABViewContainer.common().key,
+               },
+               this
+            )
+         );
+      }
+
+      /**
+       * @method componentList
+       * return the list of components available on this view to display in the editor.
+       * @param {bool} isEdited  is this component currently in the Interface Editor
+       * @return {array} of ABView objects.
+       */
+      componentList(isEdited) {
+         if (isEdited) {
+            // if the layout component is being edited in the editor (isEdited == true)
+            // then we return [];
+            return [];
+         } else {
+            // the layout view doesn't care what components are offered, it get's
+            // the list from it's parent view.
+            // ## NOTE: layout views should not be root views.
+            if (this.parent) {
+               return this.parent.componentList(false);
+            } else {
+               return [];
+            }
+         }
+      }
+
+      /**
+       * @property datacollection
+       * return data source
+       * NOTE: this view doesn't track a DataCollection.
+       * @return {ABDataCollection}
+       */
+      get datacollection() {
+         return null;
+      }
+   }
+
+   return class ABViewLayout extends ABViewLayoutCore {
+      /**
+       * @method getPluginKey
+       * return the plugin key for this view.
+       * @return {string} plugin key
+       */
+      static getPluginKey() {
+         return this.common().key;
+      }
+
+      /**
+       * @method component()
+       * return a UI component based upon this view.
+       * @return {obj} UI component
+       */
+      component(parentId) {
+         return new ABAbviewlayoutComponent(this, parentId);
+      }
+
+      warningsEval() {
+         super.warningsEval();
+
+         if (this._views.length == 0) {
+            this.warningsMessage("has no columns set.");
+         }
+      }
+   };
+}
+
+
+/***/ },
+
+/***/ 82620
+/*!*************************************************************************************!*\
+  !*** ./AppBuilder/platform/plugins/included/view_layout/FNAbviewlayoutComponent.js ***!
+  \*************************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FNAbviewlayoutComponent)
+/* harmony export */ });
+function FNAbviewlayoutComponent({
+   /*AB,*/
+   ABViewComponentPlugin,
+}) {
+   return class ABAbviewlayoutComponent extends ABViewComponentPlugin {
+      constructor(baseView, idBase, ids) {
+         super(baseView, idBase || `ABViewLayout_${baseView.id}`, ids);
+
+         const viewComponents = this.viewComponents ?? {}; // { viewId: viewComponent, ..., viewIdn: viewComponent }
+
+         baseView.views().forEach((v) => {
+            viewComponents[v.id] = v.component();
+         });
+
+         this.viewComponents = viewComponents;
+      }
+
+      ui() {
+         const viewComponents = this.viewComponents;
+         const uiComponents = Object.keys(viewComponents)
+            .map((vId) => viewComponents[vId].ui())
+            .filter((ui) => ui);
+
+         if (uiComponents.length == 0) {
+            uiComponents.push({});
+            uiComponents.push({
+               view: "label",
+               label: this.label("no content"),
+            });
+            uiComponents.push({});
+         }
+
+         const _ui = super.ui([
+            {
+               view: "layout",
+               cols: uiComponents,
+            },
+         ]);
+
+         delete _ui.type;
+
+         return _ui;
+      }
+
+      async init(AB, accessLevel) {
+         await super.init(AB);
+
+         const baseView = this.view;
+
+         // make sure each of our child views get .init() called
+         baseView.views().forEach((v) => {
+            const component = this.viewComponents[v.id];
+
+            // initial sub-component
+            component?.init(AB, accessLevel);
+
+            // Trigger 'changePage' event to parent
+            baseView.eventAdd({
+               emitter: v,
+               eventName: "changePage",
+               listener: (pageId) => {
+                  baseView.changePage(pageId);
+               },
+            });
+         });
+      }
+
+      onShow() {
+         // calll .onShow in child components
+         this.view.views().forEach((v) => {
+            const component = this.viewComponents[v.id];
+            component?.onShow();
+         });
+      }
+   };
+}
+
+
+/***/ },
+
+/***/ 62467
 /*!************************************************************************!*\
   !*** ./AppBuilder/platform/plugins/included/view_list/FNAbviewlist.js ***!
   \************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -51991,13 +52682,13 @@ function FNAbviewlist({
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 68768:
+/***/ 68768
 /*!*********************************************************************************!*\
   !*** ./AppBuilder/platform/plugins/included/view_list/FNAbviewlistComponent.js ***!
   \*********************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -52061,13 +52752,13 @@ function FNAbviewlistComponent({
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 27377:
+/***/ 27377
 /*!**************************************************************************************!*\
   !*** ./AppBuilder/platform/plugins/included/view_pdfImporter/FNAbviewpdfimporter.js ***!
   \**************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -52213,13 +52904,13 @@ function FNAbviewpdfimporter({
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 15110:
+/***/ 15110
 /*!***********************************************************************************************!*\
   !*** ./AppBuilder/platform/plugins/included/view_pdfImporter/FNAbviewpdfimporterComponent.js ***!
   \***********************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -52950,13 +53641,13 @@ function FNAbviewpdfimporterComponent({
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 95757:
+/***/ 95757
 /*!**********************************************************************!*\
   !*** ./AppBuilder/platform/plugins/included/view_tab/FNAbviewtab.js ***!
   \**********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -53095,13 +53786,13 @@ function FNAbviewtab({
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 89618:
+/***/ 89618
 /*!*******************************************************************************!*\
   !*** ./AppBuilder/platform/plugins/included/view_tab/FNAbviewtabComponent.js ***!
   \*******************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -53692,13 +54383,13 @@ function FNAbviewtabComponent({
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 88229:
+/***/ 88229
 /*!************************************************************************!*\
   !*** ./AppBuilder/platform/plugins/included/view_text/FNAbviewtext.js ***!
   \************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -53959,13 +54650,13 @@ function FNAbviewtext({
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 44586:
+/***/ 44586
 /*!*********************************************************************************!*\
   !*** ./AppBuilder/platform/plugins/included/view_text/FNAbviewtextComponent.js ***!
   \*********************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -54047,13 +54738,13 @@ function FNAbviewtextComponent({
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 41260:
+/***/ 41260
 /*!******************************************************!*\
   !*** ./AppBuilder/platform/process/ABProcessLane.js ***!
   \******************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /**
  * ABProcessLane
@@ -54202,13 +54893,13 @@ module.exports = class ABProcessLane extends ABProcessLaneCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 22945:
+/***/ 22945
 /*!*************************************************************!*\
   !*** ./AppBuilder/platform/process/ABProcessParticipant.js ***!
   \*************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /**
  * ABProcessParticipant
@@ -54321,13 +55012,13 @@ module.exports = class ABProcessParticipant extends ABProcessParticipantCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 54919:
+/***/ 54919
 /*!***************************************************************!*\
   !*** ./AppBuilder/platform/process/tasks/ABProcessElement.js ***!
   \***************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABProcessElementCore = __webpack_require__(/*! ../../../core/process/tasks/ABProcessElementCore.js */ 91832);
 
@@ -54615,13 +55306,13 @@ module.exports = class ABProcessElement extends ABProcessElementCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 99814:
+/***/ 99814
 /*!***********************************************************!*\
   !*** ./AppBuilder/platform/process/tasks/ABProcessEnd.js ***!
   \***********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABProcessEndCore = __webpack_require__(/*! ../../../core/process/tasks/ABProcessEndCore.js */ 15581);
 
@@ -54648,13 +55339,13 @@ module.exports = class ABProcessEnd extends ABProcessEndCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 7073:
+/***/ 7073
 /*!************************************************************************!*\
   !*** ./AppBuilder/platform/process/tasks/ABProcessGatewayExclusive.js ***!
   \************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABProcessGatewayExclusiveCore = __webpack_require__(/*! ../../../core/process/tasks/ABProcessGatewayExclusiveCore.js */ 30286);
 
@@ -54733,13 +55424,13 @@ module.exports = class ABProcessGatewayExclusive extends (
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 38252:
+/***/ 38252
 /*!*****************************************************************!*\
   !*** ./AppBuilder/platform/process/tasks/ABProcessTaskEmail.js ***!
   \*****************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 // import ABApplication from "./ABApplication"
 // const ABApplication = require("./ABApplication"); // NOTE: change to require()
@@ -54853,26 +55544,26 @@ module.exports = class ABProcessTaskEmail extends ABProcessTaskEmailCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 91075:
+/***/ 91075
 /*!*******************************************************************!*\
   !*** ./AppBuilder/platform/process/tasks/ABProcessTaskService.js ***!
   \*******************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABProcessTaskServiceCore = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskServiceCore.js */ 83164);
 
 module.exports = class ABProcessTaskService extends ABProcessTaskServiceCore {};
 
 
-/***/ }),
+/***/ },
 
-/***/ 22327:
+/***/ 22327
 /*!********************************************************************************************!*\
   !*** ./AppBuilder/platform/process/tasks/ABProcessTaskServiceAccountingBatchProcessing.js ***!
   \********************************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const AccountingBatchProcessingCore = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskServiceAccountingBatchProcessingCore.js */ 56288);
 
@@ -55257,13 +55948,13 @@ module.exports = class AccountingBatchProcessing extends (
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 4002:
+/***/ 4002
 /*!************************************************************************************!*\
   !*** ./AppBuilder/platform/process/tasks/ABProcessTaskServiceAccountingFPClose.js ***!
   \************************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const AccountingFPCloseCore = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskServiceAccountingFPCloseCore.js */ 49081);
 
@@ -55687,13 +56378,13 @@ module.exports = class AccountingFPClose extends AccountingFPCloseCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 32893:
+/***/ 32893
 /*!****************************************************************************************!*\
   !*** ./AppBuilder/platform/process/tasks/ABProcessTaskServiceAccountingFPYearClose.js ***!
   \****************************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const AccountingFPYearCloseCore = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskServiceAccountingFPYearCloseCore.js */ 73274);
 
@@ -56143,13 +56834,13 @@ module.exports = class AccountingFPYearClose extends AccountingFPYearCloseCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 67441:
+/***/ 67441
 /*!**************************************************************************************!*\
   !*** ./AppBuilder/platform/process/tasks/ABProcessTaskServiceAccountingJEArchive.js ***!
   \**************************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const AccountingJEArchiveCore = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskServiceAccountingJEArchiveCore.js */ 75358);
 
@@ -56495,13 +57186,13 @@ module.exports = class AccountingJEArchive extends AccountingJEArchiveCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 8691:
+/***/ 8691
 /*!**********************************************************************!*\
   !*** ./AppBuilder/platform/process/tasks/ABProcessTaskServiceApi.js ***!
   \**********************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ApiTaskCore = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskServiceApiCore.js */ 11204);
 
@@ -56585,13 +57276,13 @@ module.exports = class ApiTask extends ApiTaskCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 36719:
+/***/ 36719
 /*!****************************************************************************!*\
   !*** ./AppBuilder/platform/process/tasks/ABProcessTaskServiceCalculate.js ***!
   \****************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const CalculateTaskCore = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskServiceCalculateCore.js */ 92328);
 
@@ -56630,13 +57321,13 @@ module.exports = class CalculateTask extends CalculateTaskCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 83532:
+/***/ 83532
 /*!**************************************************************************************!*\
   !*** ./AppBuilder/platform/process/tasks/ABProcessTaskServiceGetResetPasswordUrl.js ***!
   \**************************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 // import ABApplication from "./ABApplication"
 // const ABApplication = require("./ABApplication"); // NOTE: change to require()
@@ -56668,13 +57359,13 @@ module.exports = class ABProcessTaskServiceGetResetPasswordUrl extends (
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 39895:
+/***/ 39895
 /*!*******************************************************************************!*\
   !*** ./AppBuilder/platform/process/tasks/ABProcessTaskServiceInsertRecord.js ***!
   \*******************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const InsertRecordTaskCore = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskServiceInsertRecordCore.js */ 38640);
 
@@ -56707,13 +57398,13 @@ module.exports = class InsertRecordTask extends InsertRecordTaskCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 78655:
+/***/ 78655
 /*!************************************************************************!*\
   !*** ./AppBuilder/platform/process/tasks/ABProcessTaskServiceQuery.js ***!
   \************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABProcessTaskServiceQueryCore = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskServiceQueryCore.js */ 89024);
 
@@ -56779,13 +57470,13 @@ module.exports = class ABProcessTaskServiceQuery extends (
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 58317:
+/***/ 58317
 /*!**********************************************************************!*\
   !*** ./AppBuilder/platform/process/tasks/ABProcessTaskSubProcess.js ***!
   \**********************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const SubProcessCore = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskSubProcessCore.js */ 89874);
 
@@ -56979,26 +57670,26 @@ module.exports = class SubProcess extends SubProcessCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 38205:
+/***/ 38205
 /*!****************************************************************!*\
   !*** ./AppBuilder/platform/process/tasks/ABProcessTaskUser.js ***!
   \****************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABProcessTaskUserCore = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskUserCore.js */ 85722);
 
 module.exports = class ABProcessTaskUser extends ABProcessTaskUserCore {};
 
 
-/***/ }),
+/***/ },
 
-/***/ 2282:
+/***/ 2282
 /*!************************************************************************!*\
   !*** ./AppBuilder/platform/process/tasks/ABProcessTaskUserApproval.js ***!
   \************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABProcessTaskUserApprovalCore = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskUserApprovalCore.js */ 79425);
 
@@ -57007,13 +57698,13 @@ module.exports = class ABProcessTaskUserApproval extends (
 ) {};
 
 
-/***/ }),
+/***/ },
 
-/***/ 66066:
+/***/ 66066
 /*!************************************************************************!*\
   !*** ./AppBuilder/platform/process/tasks/ABProcessTaskUserExternal.js ***!
   \************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 // import ABApplication from "./ABApplication"
 // const ABApplication = require("./ABApplication"); // NOTE: change to require()
@@ -57024,13 +57715,13 @@ module.exports = class ABProcessTaskUserExternal extends (
 ) {};
 
 
-/***/ }),
+/***/ },
 
-/***/ 5035:
+/***/ 5035
 /*!********************************************************************!*\
   !*** ./AppBuilder/platform/process/tasks/ABProcessTaskUserForm.js ***!
   \********************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABProcessTaskUserFormCore = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskUserFormCore.js */ 88828);
 
@@ -57039,13 +57730,13 @@ module.exports = class ABProcessTaskUserForm extends (
 ) {};
 
 
-/***/ }),
+/***/ },
 
-/***/ 46091:
+/***/ 46091
 /*!***************************************************************!*\
   !*** ./AppBuilder/platform/process/tasks/ABProcessTrigger.js ***!
   \***************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 // import ABApplication from "./ABApplication"
 // const ABApplication = require("./ABApplication"); // NOTE: change to require()
@@ -57056,13 +57747,13 @@ let L = (...params) => AB.Multilingual.label(...params);
 module.exports = class ABProcessTrigger extends ABProcessTriggerCore {};
 
 
-/***/ }),
+/***/ },
 
-/***/ 73295:
+/***/ 73295
 /*!************************************************************************!*\
   !*** ./AppBuilder/platform/process/tasks/ABProcessTriggerLifecycle.js ***!
   \************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABProcessTriggerLifecycleCore = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTriggerLifecycleCore.js */ 27208);
 
@@ -57071,13 +57762,13 @@ module.exports = class ABProcessTriggerLifecycle extends (
 ) {};
 
 
-/***/ }),
+/***/ },
 
-/***/ 12774:
+/***/ 12774
 /*!********************************************************************!*\
   !*** ./AppBuilder/platform/process/tasks/ABProcessTriggerTimer.js ***!
   \********************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABProcessTriggerTimerCore = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTriggerTimerCore.js */ 26837);
 
@@ -57110,13 +57801,13 @@ module.exports = class ABProcessTriggerTimer extends ABProcessTriggerTimerCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 28388:
+/***/ 28388
 /*!****************************************!*\
   !*** ./AppBuilder/platform/ql/ABQL.js ***!
   \****************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /*
  * ABQL
@@ -57963,13 +58654,13 @@ class ABQL extends ABQLCore {
 module.exports = ABQL;
 
 
-/***/ }),
+/***/ },
 
-/***/ 93723:
+/***/ 93723
 /*!********************************************!*\
   !*** ./AppBuilder/platform/ql/ABQLFind.js ***!
   \********************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /*
  * ABQLFind
@@ -57992,13 +58683,13 @@ class ABQLFind extends ABQLFindCore {
 module.exports = ABQLFind;
 
 
-/***/ }),
+/***/ },
 
-/***/ 86113:
+/***/ 86113
 /*!***********************************************!*\
   !*** ./AppBuilder/platform/ql/ABQLManager.js ***!
   \***********************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /*
  * ABQLManager
@@ -58167,13 +58858,13 @@ const ABQLManager = {
 module.exports = ABQLManager;
 
 
-/***/ }),
+/***/ },
 
-/***/ 4335:
+/***/ 4335
 /*!**************************************************!*\
   !*** ./AppBuilder/platform/ql/ABQLRootObject.js ***!
   \**************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /*
  * ABQLRootObject
@@ -58256,13 +58947,13 @@ class ABQLObject extends ABQLRootObjectCore {
 module.exports = ABQLObject;
 
 
-/***/ }),
+/***/ },
 
-/***/ 2701:
+/***/ 2701
 /*!************************************************!*\
   !*** ./AppBuilder/platform/ql/ABQLRowPluck.js ***!
   \************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABQLRowPluckCore = __webpack_require__(/*! ../../core/ql/ABQLRowPluckCore.js */ 56146);
 
@@ -58286,13 +58977,13 @@ class ABQLRowPluck extends ABQLRowPluckCore {
 module.exports = ABQLRowPluck;
 
 
-/***/ }),
+/***/ },
 
-/***/ 58204:
+/***/ 58204
 /*!***********************************************!*\
   !*** ./AppBuilder/platform/ql/ABQLRowSave.js ***!
   \***********************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /*
  * ABQLRowSave
@@ -58313,13 +59004,13 @@ class ABQLRowSave extends ABQLRowSaveCore {
 module.exports = ABQLRowSave;
 
 
-/***/ }),
+/***/ },
 
-/***/ 89891:
+/***/ 89891
 /*!*************************************************!*\
   !*** ./AppBuilder/platform/ql/ABQLRowUpdate.js ***!
   \*************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /*
  * ABQLRowUpdate
@@ -58347,13 +59038,13 @@ class ABQLRowUpdate extends ABQLRowUpdateCore {
 module.exports = ABQLRowUpdate;
 
 
-/***/ }),
+/***/ },
 
-/***/ 33954:
+/***/ 33954
 /*!************************************************!*\
   !*** ./AppBuilder/platform/ql/ABQLSetFirst.js ***!
   \************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /*
  * ABQLSetFirst
@@ -58377,13 +59068,13 @@ class ABQLSetFirst extends ABQLSetFirstCore {
 module.exports = ABQLSetFirst;
 
 
-/***/ }),
+/***/ },
 
-/***/ 8885:
+/***/ 8885
 /*!************************************************!*\
   !*** ./AppBuilder/platform/ql/ABQLSetPluck.js ***!
   \************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /*
  * ABQLSetPluck
@@ -58518,13 +59209,13 @@ class ABQLSetPluck extends ABQLSetPluckCore {
 module.exports = ABQLSetPluck;
 
 
-/***/ }),
+/***/ },
 
-/***/ 38919:
+/***/ 38919
 /*!***********************************************!*\
   !*** ./AppBuilder/platform/ql/ABQLSetSave.js ***!
   \***********************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /*
  * ABQLSetSave
@@ -58580,13 +59271,13 @@ class ABQLSetSave extends ABQLSetSaveCore {
 module.exports = ABQLSetSave;
 
 
-/***/ }),
+/***/ },
 
-/***/ 30747:
+/***/ 30747
 /*!*********************************************!*\
   !*** ./AppBuilder/platform/views/ABView.js ***!
   \*********************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewCore = __webpack_require__(/*! ../../core/views/ABViewCore.js */ 83156);
 const ABViewComponent = (__webpack_require__(/*! ./viewComponent/ABViewComponent */ 23687)["default"]);
@@ -58706,13 +59397,13 @@ module.exports = class ABView extends ABViewCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 73006:
+/***/ 73006
 /*!********************************************************!*\
   !*** ./AppBuilder/platform/views/ABViewCSVExporter.js ***!
   \********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewCSVExporterCore = __webpack_require__(/*! ../../core/views/ABViewCSVExporterCore */ 40477);
 const ABViewCSVExporterComponent = __webpack_require__(/*! ./viewComponent/ABViewCSVExporterComponent */ 59254);
@@ -58740,13 +59431,13 @@ module.exports = class ABViewCSVExporter extends ABViewCSVExporterCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 9869:
+/***/ 9869
 /*!********************************************************!*\
   !*** ./AppBuilder/platform/views/ABViewCSVImporter.js ***!
   \********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewCSVImporterCore = __webpack_require__(/*! ../../core/views/ABViewCSVImporterCore */ 62554);
 const ABViewCSVImporterComponent = __webpack_require__(/*! ./viewComponent/ABViewCSVImporterComponent */ 86499);
@@ -58778,13 +59469,13 @@ module.exports = class ABViewCSVImporter extends ABViewCSVImporterCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 18963:
+/***/ 18963
 /*!**************************************************!*\
   !*** ./AppBuilder/platform/views/ABViewChart.js ***!
   \**************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewChartCore = __webpack_require__(/*! ../../core/views/ABViewChartCore */ 97612);
 const ABViewChartComponent = __webpack_require__(/*! ./viewComponent/ABViewChartComponent */ 72185);
@@ -59002,13 +59693,13 @@ module.exports = class ABViewChart extends ABViewChartCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 39414:
+/***/ 39414
 /*!******************************************************!*\
   !*** ./AppBuilder/platform/views/ABViewChartArea.js ***!
   \******************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewChartAreaCore = __webpack_require__(/*! ../../core/views/ABViewChartAreaCore */ 10493);
 const ABViewChartAreaComponent = __webpack_require__(/*! ./viewComponent/ABViewChartAreaComponent */ 66406);
@@ -59029,13 +59720,13 @@ module.exports = class ABViewChartArea extends ABViewChartAreaCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 45898:
+/***/ 45898
 /*!*****************************************************!*\
   !*** ./AppBuilder/platform/views/ABViewChartBar.js ***!
   \*****************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewChartBarCore = __webpack_require__(/*! ../../core/views/ABViewChartBarCore */ 39377);
 const ABViewChartBarComponent = __webpack_require__(/*! ./viewComponent/ABViewChartBarComponent */ 13160);
@@ -59056,13 +59747,13 @@ module.exports = class ABViewChartBar extends ABViewChartBarCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 27448:
+/***/ 27448
 /*!***********************************************************!*\
   !*** ./AppBuilder/platform/views/ABViewChartContainer.js ***!
   \***********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewWidget = __webpack_require__(/*! ./ABViewWidget */ 87039);
 const ABViewChartContainerComponent = __webpack_require__(/*! ./viewComponent/ABViewChartContainerComponent */ 64494);
@@ -59083,13 +59774,13 @@ module.exports = class ABViewChartContainer extends ABViewWidget {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 69457:
+/***/ 69457
 /*!******************************************************!*\
   !*** ./AppBuilder/platform/views/ABViewChartLine.js ***!
   \******************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewChartLineCore = __webpack_require__(/*! ../../core/views/ABViewChartLineCore */ 69622);
 const ABViewChartLineComponent = __webpack_require__(/*! ./viewComponent/ABViewChartLineComponent */ 71971);
@@ -59110,13 +59801,13 @@ module.exports = class ABViewChartLine extends ABViewChartLineCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 74945:
+/***/ 74945
 /*!*****************************************************!*\
   !*** ./AppBuilder/platform/views/ABViewChartPie.js ***!
   \*****************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewChartPieCore = __webpack_require__(/*! ../../core/views/ABViewChartPieCore */ 80958);
 const ABViewChartPieComponent = __webpack_require__(/*! ./viewComponent/ABViewChartPieComponent */ 98013);
@@ -59137,13 +59828,13 @@ module.exports = class ABViewChartPie extends ABViewChartPieCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 90514:
+/***/ 90514
 /*!****************************************************!*\
   !*** ./AppBuilder/platform/views/ABViewComment.js ***!
   \****************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewCommentCore = __webpack_require__(/*! ../../core/views/ABViewCommentCore */ 33529);
 const ABViewCommentComponent = __webpack_require__(/*! ./viewComponent/ABViewCommentComponent */ 47886);
@@ -59189,13 +59880,13 @@ module.exports = class ABViewComment extends ABViewCommentCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 68640:
+/***/ 68640
 /*!*****************************************************************!*\
   !*** ./AppBuilder/platform/views/ABViewConditionalContainer.js ***!
   \*****************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewConditionalContainerCore = __webpack_require__(/*! ../../core/views/ABViewConditionalContainerCore */ 42939);
 const ABViewConditionalContainerComponent = __webpack_require__(/*! ./viewComponent/ABViewConditionalContainerComponent */ 53382);
@@ -59246,13 +59937,13 @@ module.exports = class ABViewConditionalContainer extends (
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 82859:
+/***/ 82859
 /*!**************************************************************!*\
   !*** ./AppBuilder/platform/views/ABViewConnectDataFilter.js ***!
   \**************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -59277,13 +59968,13 @@ class ABViewConnectDataFilter extends (_core_views_ABViewConnectDataFilterCore__
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 76528:
+/***/ 76528
 /*!******************************************************!*\
   !*** ./AppBuilder/platform/views/ABViewContainer.js ***!
   \******************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewContainerCore = __webpack_require__(/*! ../../core/views/ABViewContainerCore */ 68091);
 const ABViewContainerComponent = __webpack_require__(/*! ./viewComponent/ABViewContainerComponent */ 71980);
@@ -59319,13 +60010,13 @@ module.exports = class ABViewContainer extends ABViewContainerCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 70153:
+/***/ 70153
 /*!*******************************************************!*\
   !*** ./AppBuilder/platform/views/ABViewDataFilter.js ***!
   \*******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -59372,13 +60063,13 @@ class ABViewDataFilter extends (_core_views_ABViewDataFilterCore__WEBPACK_IMPORT
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 6286:
+/***/ 6286
 /*!*****************************************************!*\
   !*** ./AppBuilder/platform/views/ABViewDataview.js ***!
   \*****************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewDataviewCore = __webpack_require__(/*! ../../core/views/ABViewDataviewCore */ 46021);
 const ABViewDataviewComponent = __webpack_require__(/*! ./viewComponent/ABViewDataviewComponent */ 65812);
@@ -59425,13 +60116,13 @@ module.exports = class ABViewDataview extends ABViewDataviewCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 86566:
+/***/ 86566
 /*!***************************************************!*\
   !*** ./AppBuilder/platform/views/ABViewDetail.js ***!
   \***************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewDetailCore = __webpack_require__(/*! ../../core/views/ABViewDetailCore */ 42917);
 const ABViewDetailComponent = __webpack_require__(/*! ./viewComponent/ABViewDetailComponent */ 97376);
@@ -59466,13 +60157,13 @@ module.exports = class ABViewDetail extends ABViewDetailCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 4055:
+/***/ 4055
 /*!***********************************************************!*\
   !*** ./AppBuilder/platform/views/ABViewDetailCheckbox.js ***!
   \***********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewDetailCheckboxCore = __webpack_require__(/*! ../../core/views/ABViewDetailCheckboxCore */ 75024);
 const ABViewDetailCheckboxComponent = __webpack_require__(/*! ./viewComponent/ABViewDetailCheckboxComponent */ 8903);
@@ -59489,13 +60180,13 @@ module.exports = class ABViewDetailCheckbox extends ABViewDetailCheckboxCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 13506:
+/***/ 13506
 /*!**********************************************************!*\
   !*** ./AppBuilder/platform/views/ABViewDetailConnect.js ***!
   \**********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewDetailConnectCore = __webpack_require__(/*! ../../core/views/ABViewDetailConnectCore */ 12193);
 const ABViewPropertyAddPage =
@@ -59537,13 +60228,13 @@ module.exports = class ABViewDetailConnect extends ABViewDetailConnectCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 88169:
+/***/ 88169
 /*!*********************************************************!*\
   !*** ./AppBuilder/platform/views/ABViewDetailCustom.js ***!
   \*********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewDetailCustomCore = __webpack_require__(/*! ../../core/views/ABViewDetailCustomCore */ 6918);
 const ABViewDetailCustomComponent = __webpack_require__(/*! ./viewComponent/ABViewDetailCustomComponent */ 52021);
@@ -59560,13 +60251,13 @@ module.exports = class ABViewDetailCustom extends ABViewDetailCustomCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 66573:
+/***/ 66573
 /*!********************************************************!*\
   !*** ./AppBuilder/platform/views/ABViewDetailImage.js ***!
   \********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewDetailImageCore = __webpack_require__(/*! ../../core/views/ABViewDetailImageCore */ 50074);
 const ABViewDetailImageComponent = __webpack_require__(/*! ./viewComponent/ABViewDetailImageComponent */ 58731);
@@ -59583,13 +60274,13 @@ module.exports = class ABViewDetailImage extends ABViewDetailImageCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 26345:
+/***/ 26345
 /*!*******************************************************!*\
   !*** ./AppBuilder/platform/views/ABViewDetailItem.js ***!
   \*******************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewDetailItemCore = __webpack_require__(/*! ../../core/views/ABViewDetailItemCore */ 75086);
 const ABViewDetailItemComponent = __webpack_require__(/*! ./viewComponent/ABViewDetailItemComponent */ 32673);
@@ -59610,13 +60301,13 @@ module.exports = class ABViewDetailItem extends ABViewDetailItemCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 91905:
+/***/ 91905
 /*!*******************************************************!*\
   !*** ./AppBuilder/platform/views/ABViewDetailText.js ***!
   \*******************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewDetailTextCore = __webpack_require__(/*! ../../core/views/ABViewDetailTextCore */ 66710);
 const ABViewDetailTextComponent = __webpack_require__(/*! ./viewComponent/ABViewDetailTextComponent */ 71417);
@@ -59642,13 +60333,13 @@ module.exports = class ABViewDetailText extends ABViewDetailTextCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 20158:
+/***/ 20158
 /*!*******************************************************!*\
   !*** ./AppBuilder/platform/views/ABViewDetailTree.js ***!
   \*******************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewDetailTreeCore = __webpack_require__(/*! ../../core/views/ABViewDetailTreeCore */ 6549);
 const ABViewDetailTreeComponent = __webpack_require__(/*! ./viewComponent/ABViewDetailTreeComponent */ 42216);
@@ -59674,13 +60365,13 @@ module.exports = class ABViewDetailTree extends ABViewDetailTreeCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 4634:
+/***/ 4634
 /*!********************************************************!*\
   !*** ./AppBuilder/platform/views/ABViewDocxBuilder.js ***!
   \********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewDocxBuilderCore = __webpack_require__(/*! ../../core/views/ABViewDocxBuilderCore */ 72481);
 const ABViewDocxBuilderComponent = __webpack_require__(/*! ./viewComponent/ABViewDocxBuilderComponent */ 36942);
@@ -59729,13 +60420,13 @@ module.exports = class ABViewDocxBuilder extends ABViewDocxBuilderCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 10365:
+/***/ 10365
 /*!*************************************************!*\
   !*** ./AppBuilder/platform/views/ABViewForm.js ***!
   \*************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewFormCore = __webpack_require__(/*! ../../core/views/ABViewFormCore */ 25378);
 const ABViewFormComponent = __webpack_require__(/*! ./viewComponent/ABViewFormComponent */ 98165);
@@ -60323,13 +61014,13 @@ module.exports = class ABViewForm extends ABViewFormCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 45341:
+/***/ 45341
 /*!*******************************************************!*\
   !*** ./AppBuilder/platform/views/ABViewFormButton.js ***!
   \*******************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewFormButtonCore = __webpack_require__(/*! ../../core/views/ABViewFormButtonCore */ 95994);
 const ABViewFormButtonComponent = __webpack_require__(/*! ./viewComponent/ABViewFormButtonComponent */ 91645);
@@ -60346,13 +61037,13 @@ module.exports = class ABViewFormButton extends ABViewFormButtonCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 96276:
+/***/ 96276
 /*!*********************************************************!*\
   !*** ./AppBuilder/platform/views/ABViewFormCheckbox.js ***!
   \*********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewFormCheckboxCore = __webpack_require__(/*! ../../core/views/ABViewFormCheckboxCore */ 14647);
 const ABViewFormCheckboxComponent = __webpack_require__(/*! ./viewComponent/ABViewFormCheckboxComponent */ 14134);
@@ -60369,13 +61060,13 @@ module.exports = class ABViewFormCheckbox extends ABViewFormCheckboxCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 77927:
+/***/ 77927
 /*!********************************************************!*\
   !*** ./AppBuilder/platform/views/ABViewFormConnect.js ***!
   \********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewFormConnectCore = __webpack_require__(/*! ../../core/views/ABViewFormConnectCore */ 78424);
 const ABViewFormConnectComponent = __webpack_require__(/*! ./viewComponent/ABViewFormConnectComponent */ 64161);
@@ -60481,13 +61172,13 @@ module.exports = class ABViewFormConnect extends ABViewFormConnectCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 96234:
+/***/ 96234
 /*!*******************************************************!*\
   !*** ./AppBuilder/platform/views/ABViewFormCustom.js ***!
   \*******************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewFormCustomCore = __webpack_require__(/*! ../../core/views/ABViewFormCustomCore */ 6209);
 const ABViewFormCustomComponent = __webpack_require__(/*! ./viewComponent/ABViewFormCustomComponent */ 37416);
@@ -60504,13 +61195,13 @@ module.exports = class ABViewFormCustom extends ABViewFormCustomCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 19835:
+/***/ 19835
 /*!***********************************************************!*\
   !*** ./AppBuilder/platform/views/ABViewFormDatepicker.js ***!
   \***********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewFormDatepickerCore = __webpack_require__(/*! ../../core/views/ABViewFormDatepickerCore */ 43548);
 const ABViewFormDatepickerComponent = __webpack_require__(/*! ./viewComponent/ABViewFormDatepickerComponent */ 58419);
@@ -60527,13 +61218,13 @@ module.exports = class ABViewFormDatepicker extends ABViewFormDatepickerCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 86962:
+/***/ 86962
 /*!*****************************************************!*\
   !*** ./AppBuilder/platform/views/ABViewFormItem.js ***!
   \*****************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewFormItemCore = __webpack_require__(/*! ../../core/views/ABViewFormItemCore */ 64049);
 const ABViewFormItemComponent = __webpack_require__(/*! ./viewComponent/ABViewFormItemComponent */ 8772);
@@ -60579,13 +61270,13 @@ module.exports = class ABViewFormItem extends ABViewFormItemCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 71803:
+/***/ 71803
 /*!*****************************************************!*\
   !*** ./AppBuilder/platform/views/ABViewFormJson.js ***!
   \*****************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewFormJsonCore = __webpack_require__(/*! ../../core/views/ABViewFormJsonCore */ 73404);
 const ABViewFormJsonComponent = __webpack_require__(/*! ./viewComponent/ABViewFormJsonComponent */ 29119);
@@ -60602,13 +61293,13 @@ module.exports = class ABViewFormJson extends ABViewFormJsonCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 45140:
+/***/ 45140
 /*!*******************************************************!*\
   !*** ./AppBuilder/platform/views/ABViewFormNumber.js ***!
   \*******************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewFormNumberCore = __webpack_require__(/*! ../../core/views/ABViewFormNumberCore */ 41191);
 const ABViewFormNumberComponent = __webpack_require__(/*! ./viewComponent/ABViewFormNumberComponent */ 10246);
@@ -60625,13 +61316,13 @@ module.exports = class ABViewFormNumber extends ABViewFormNumberCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 19235:
+/***/ 19235
 /*!*********************************************************!*\
   !*** ./AppBuilder/platform/views/ABViewFormReadonly.js ***!
   \*********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewFormReadonlyCore = __webpack_require__(/*! ../../core/views/ABViewFormReadonlyCore */ 2700);
 const ABViewFormReadonlyComponent = __webpack_require__(/*! ./viewComponent/ABViewFormReadonlyComponent */ 71207);
@@ -60648,13 +61339,13 @@ module.exports = class ABViewFormReadonly extends ABViewFormReadonlyCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 71881:
+/***/ 71881
 /*!***************************************************************!*\
   !*** ./AppBuilder/platform/views/ABViewFormSelectMultiple.js ***!
   \***************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewFormSelectMultipleCore = __webpack_require__(/*! ../../core/views/ABViewFormSelectMultipleCore */ 84510);
 const ABViewFormSelectMultipleComponent = __webpack_require__(/*! ./viewComponent/ABViewFormSelectMultipleComponent */ 55977);
@@ -60673,13 +61364,13 @@ module.exports = class ABViewFormSelectMultiple extends (
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 46125:
+/***/ 46125
 /*!*************************************************************!*\
   !*** ./AppBuilder/platform/views/ABViewFormSelectSingle.js ***!
   \*************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewFormSelectSingleCore = __webpack_require__(/*! ../../core/views/ABViewFormSelectSingleCore */ 33218);
 const ABViewFormSelectSingleComponent = __webpack_require__(/*! ./viewComponent/ABViewFormSelectSingleComponent */ 37117);
@@ -60698,13 +61389,13 @@ module.exports = class ABViewFormSelectSingle extends (
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 10449:
+/***/ 10449
 /*!********************************************************!*\
   !*** ./AppBuilder/platform/views/ABViewFormTextbox.js ***!
   \********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewFormTextboxCore = __webpack_require__(/*! ../../core/views/ABViewFormTextboxCore */ 97694);
 const ABViewFormTextboxComponent = __webpack_require__(/*! ./viewComponent/ABViewFormTextboxComponent */ 25411);
@@ -60721,13 +61412,13 @@ module.exports = class ABViewFormTextbox extends ABViewFormTextboxCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 35865:
+/***/ 35865
 /*!*****************************************************!*\
   !*** ./AppBuilder/platform/views/ABViewFormTree.js ***!
   \*****************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewFormTreeCore = __webpack_require__(/*! ../../core/views/ABViewFormTreeCore */ 38566);
 const ABViewFormTreeComponent = __webpack_require__(/*! ./viewComponent/ABViewFormTreeComponent */ 48585);
@@ -60745,13 +61436,13 @@ module.exports = class ABViewFormTree extends ABViewFormTreeCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 71616:
+/***/ 71616
 /*!****************************************************!*\
   !*** ./AppBuilder/platform/views/ABViewFormURL.js ***!
   \****************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewForm = __webpack_require__(/*! ./ABViewForm */ 10365);
 
@@ -60795,13 +61486,13 @@ module.exports = class ABViewFormURL extends ABViewForm {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 70973:
+/***/ 70973
 /*!**************************************************!*\
   !*** ./AppBuilder/platform/views/ABViewGantt.js ***!
   \**************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -60853,13 +61544,13 @@ class ABViewGantt extends ABViewGanttCore {
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 87627:
+/***/ 87627
 /*!*************************************************!*\
   !*** ./AppBuilder/platform/views/ABViewGrid.js ***!
   \*************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -60960,13 +61651,13 @@ class ABViewGrid extends ABViewGridCore {
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 49627:
+/***/ 49627
 /*!************************************************************!*\
   !*** ./AppBuilder/platform/views/ABViewGridPopupExport.js ***!
   \************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -61215,13 +61906,13 @@ class ABWorkObjectPopupExport extends _ui_ClassUI__WEBPACK_IMPORTED_MODULE_0__["
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 33692:
+/***/ 33692
 /*!****************************************************************!*\
   !*** ./AppBuilder/platform/views/ABViewGridPopupMassUpdate.js ***!
   \****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -61473,13 +62164,13 @@ class ABViewGridPopupMassUpdate extends _ui_ClassUI__WEBPACK_IMPORTED_MODULE_0__
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 216:
+/***/ 216
 /*!****************************************************************!*\
   !*** ./AppBuilder/platform/views/ABViewGridPopupSortFields.js ***!
   \****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -62072,13 +62763,13 @@ class AB_Work_Object_Workspace_PopupSortFields extends _ui_ClassUI__WEBPACK_IMPO
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 13128:
+/***/ 13128
 /*!***************************************************!*\
   !*** ./AppBuilder/platform/views/ABViewKanban.js ***!
   \***************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -62123,13 +62814,13 @@ class ABViewKanban extends ABViewKanbanCore {
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 35823:
+/***/ 35823
 /*!****************************************************************!*\
   !*** ./AppBuilder/platform/views/ABViewKanbanFormSidePanel.js ***!
   \****************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /*
  * ABViewKanbanFormSidePanel
@@ -62389,44 +63080,13 @@ module.exports = class ABWorkObjectKanBan extends ABViewComponent {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 30077:
-/*!***************************************************!*\
-  !*** ./AppBuilder/platform/views/ABViewLayout.js ***!
-  \***************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-const ABViewLayoutCore = __webpack_require__(/*! ../../core/views/ABViewLayoutCore */ 54970);
-const ABViewLayoutComponent = __webpack_require__(/*! ./viewComponent/ABViewLayoutComponent */ 45717);
-
-module.exports = class ABViewLayout extends ABViewLayoutCore {
-   /**
-    * @function component()
-    * return a UI component based upon this view.
-    * @return {obj} UI component
-    */
-   component() {
-      return new ABViewLayoutComponent(this);
-   }
-
-   warningsEval() {
-      super.warningsEval();
-
-      if (this._views.length == 0) {
-         this.warningsMessage("has no columns set.");
-      }
-   }
-};
-
-
-/***/ }),
-
-/***/ 46672:
+/***/ 46672
 /*!*************************************************!*\
   !*** ./AppBuilder/platform/views/ABViewMenu.js ***!
   \*************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewMenuCore = __webpack_require__(/*! ../../core/views/ABViewMenuCore */ 65419);
 const ABViewMenuComponent = __webpack_require__(/*! ./viewComponent/ABViewMenuComponent */ 75210);
@@ -62443,13 +63103,13 @@ module.exports = class ABViewMenu extends ABViewMenuCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 51547:
+/***/ 51547
 /*!********************************************************!*\
   !*** ./AppBuilder/platform/views/ABViewPDFImporter.js ***!
   \********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewPDFImporterCore = __webpack_require__(/*! ../../core/views/ABViewPDFImporterCore */ 19532);
 const ABViewPDFImporterComponent = __webpack_require__(/*! ./viewComponent/ABViewPDFImporterComponent */ 96505);
@@ -62466,13 +63126,13 @@ module.exports = class ABViewPDFImporter extends ABViewPDFImporterCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 44:
+/***/ 44
 /*!*************************************************!*\
   !*** ./AppBuilder/platform/views/ABViewPage.js ***!
   \*************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewPageCore = __webpack_require__(/*! ../../core/views/ABViewPageCore */ 36183);
 
@@ -62540,13 +63200,13 @@ module.exports = class ABViewPage extends ABViewPageCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 86087:
+/***/ 86087
 /*!**************************************************!*\
   !*** ./AppBuilder/platform/views/ABViewPivot.js ***!
   \**************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewPivotCore = __webpack_require__(/*! ../../core/views/ABViewPivotCore */ 94400);
 const ABViewPivotComponent = __webpack_require__(/*! ./viewComponent/ABViewPivotComponent */ 88525);
@@ -62580,13 +63240,13 @@ module.exports = class ABViewPivot extends ABViewPivotCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 87929:
+/***/ 87929
 /*!***********************************************************!*\
   !*** ./AppBuilder/platform/views/ABViewReportsManager.js ***!
   \***********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewReportsManagerCore = __webpack_require__(/*! ../../core/views/ABViewReportsManagerCore */ 74238);
 const ABViewReportsManagerComponent = __webpack_require__(/*! ./viewComponent/ABViewReportsManagerComponent */ 24965);
@@ -62611,13 +63271,13 @@ module.exports = class ABViewReportsManager extends ABViewReportsManagerCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 36506:
+/***/ 36506
 /*!******************************************************!*\
   !*** ./AppBuilder/platform/views/ABViewScheduler.js ***!
   \******************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewSchedulerCore = __webpack_require__(/*! ../../core/views/ABViewSchedulerCore */ 74441);
 const ABViewSchedulerComponent = __webpack_require__(/*! ./viewComponent/ABViewSchedulerComponent */ 37514);
@@ -62642,13 +63302,13 @@ module.exports = class ABViewScheduler extends ABViewSchedulerCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 87039:
+/***/ 87039
 /*!***************************************************!*\
   !*** ./AppBuilder/platform/views/ABViewWidget.js ***!
   \***************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewWidgetCore = __webpack_require__(/*! ../../core/views/ABViewWidgetCore */ 65472);
 
@@ -62683,13 +63343,13 @@ module.exports = class ABViewWidget extends ABViewWidgetCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 59254:
+/***/ 59254
 /*!*******************************************************************************!*\
   !*** ./AppBuilder/platform/views/viewComponent/ABViewCSVExporterComponent.js ***!
   \*******************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewComponent = (__webpack_require__(/*! ./ABViewComponent */ 23687)["default"]);
 
@@ -62827,13 +63487,13 @@ module.exports = class ABViewCSVExporterComponent extends ABViewComponent {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 86499:
+/***/ 86499
 /*!*******************************************************************************!*\
   !*** ./AppBuilder/platform/views/viewComponent/ABViewCSVImporterComponent.js ***!
   \*******************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewComponent = (__webpack_require__(/*! ./ABViewComponent */ 23687)["default"]);
 const CSVImporter = __webpack_require__(/*! ../../CSVImporter */ 72618);
@@ -64751,13 +65411,13 @@ module.exports = class ABViewCSVImporterComponent extends ABViewComponent {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 66406:
+/***/ 66406
 /*!*****************************************************************************!*\
   !*** ./AppBuilder/platform/views/viewComponent/ABViewChartAreaComponent.js ***!
   \*****************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewChartContainerComponent = __webpack_require__(/*! ./ABViewChartContainerComponent */ 64494);
 
@@ -64817,13 +65477,13 @@ module.exports = class ABViewChartAreaComponent extends (
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 13160:
+/***/ 13160
 /*!****************************************************************************!*\
   !*** ./AppBuilder/platform/views/viewComponent/ABViewChartBarComponent.js ***!
   \****************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewChartContainerComponent = __webpack_require__(/*! ./ABViewChartContainerComponent */ 64494);
 
@@ -64879,13 +65539,13 @@ module.exports = class ABViewChartBarComponent extends (
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 72185:
+/***/ 72185
 /*!*************************************************************************!*\
   !*** ./AppBuilder/platform/views/viewComponent/ABViewChartComponent.js ***!
   \*************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewContainerComponent = __webpack_require__(/*! ./ABViewContainerComponent */ 71980);
 
@@ -64951,13 +65611,13 @@ module.exports = class ABViewChartComponent extends ABViewContainerComponent {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 64494:
+/***/ 64494
 /*!**********************************************************************************!*\
   !*** ./AppBuilder/platform/views/viewComponent/ABViewChartContainerComponent.js ***!
   \**********************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewComponent = (__webpack_require__(/*! ./ABViewComponent */ 23687)["default"]);
 
@@ -65016,13 +65676,13 @@ module.exports = class ABViewChartContainerComponent extends ABViewComponent {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 71971:
+/***/ 71971
 /*!*****************************************************************************!*\
   !*** ./AppBuilder/platform/views/viewComponent/ABViewChartLineComponent.js ***!
   \*****************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewChartContainerComponent = __webpack_require__(/*! ./ABViewChartContainerComponent */ 64494);
 
@@ -65065,13 +65725,13 @@ module.exports = class ABViewChartLineComponent extends (
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 98013:
+/***/ 98013
 /*!****************************************************************************!*\
   !*** ./AppBuilder/platform/views/viewComponent/ABViewChartPieComponent.js ***!
   \****************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewChartContainerComponent = __webpack_require__(/*! ./ABViewChartContainerComponent */ 64494);
 
@@ -65105,13 +65765,13 @@ module.exports = class ABViewChartPieComponent extends (
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 47886:
+/***/ 47886
 /*!***************************************************************************!*\
   !*** ./AppBuilder/platform/views/viewComponent/ABViewCommentComponent.js ***!
   \***************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewComponent = (__webpack_require__(/*! ./ABViewComponent */ 23687)["default"]);
 
@@ -65425,13 +66085,13 @@ module.exports = class ABViewCommentComponent extends ABViewComponent {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 23687:
+/***/ 23687
 /*!********************************************************************!*\
   !*** ./AppBuilder/platform/views/viewComponent/ABViewComponent.js ***!
   \********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -65638,13 +66298,13 @@ class ABViewComponent extends _ui_ClassUI__WEBPACK_IMPORTED_MODULE_0__["default"
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 53382:
+/***/ 53382
 /*!****************************************************************************************!*\
   !*** ./AppBuilder/platform/views/viewComponent/ABViewConditionalContainerComponent.js ***!
   \****************************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewContainerComponent = __webpack_require__(/*! ./ABViewContainerComponent */ 71980);
 
@@ -65815,13 +66475,13 @@ module.exports = class ABViewConditionalContainerComponent extends (
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 77577:
+/***/ 77577
 /*!*************************************************************************************!*\
   !*** ./AppBuilder/platform/views/viewComponent/ABViewConnectDataFilterComponent.js ***!
   \*************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -65971,13 +66631,13 @@ class ABViewConnectDataFilterComponent extends _ABViewComponent__WEBPACK_IMPORTE
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 71980:
+/***/ 71980
 /*!*****************************************************************************!*\
   !*** ./AppBuilder/platform/views/viewComponent/ABViewContainerComponent.js ***!
   \*****************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewComponent = (__webpack_require__(/*! ./ABViewComponent */ 23687)["default"]);
 
@@ -66168,30 +66828,30 @@ module.exports = class ABViewContainerComponent extends ABViewComponent {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 56397:
+/***/ 56397
 /*!******************************************************************************!*\
   !*** ./AppBuilder/platform/views/viewComponent/ABViewDataFilterComponent.js ***!
   \******************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABViewDataFilterComponent)
 /* harmony export */ });
-/* harmony import */ var _ABViewComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ABViewComponent */ 23687);
-/* harmony import */ var _ABViewGridPopupSortFields__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../ABViewGridPopupSortFields */ 216);
-/* harmony import */ var _viewProperties_ABViewPropertyFilterData__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../viewProperties/ABViewPropertyFilterData */ 95889);
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ 84529);
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _ABViewComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABViewComponent */ 23687);
+/* harmony import */ var _ABViewGridPopupSortFields__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../ABViewGridPopupSortFields */ 216);
+/* harmony import */ var _viewProperties_ABViewPropertyFilterData__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../viewProperties/ABViewPropertyFilterData */ 95889);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! lodash */ 84529);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_3__);
 
 
 
 
 
-class ABViewDataFilterComponent extends _ABViewComponent__WEBPACK_IMPORTED_MODULE_1__["default"] {
+class ABViewDataFilterComponent extends _ABViewComponent__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(baseView, idbase, ids) {
       super(
          baseView,
@@ -66217,7 +66877,7 @@ class ABViewDataFilterComponent extends _ABViewComponent__WEBPACK_IMPORTED_MODUL
 
       // {ABViewGridPopupSortFields}
       // The popup for adding sort criteria to our grid.
-      this.PopupSortComponent = new _ABViewGridPopupSortFields__WEBPACK_IMPORTED_MODULE_2__["default"](
+      this.PopupSortComponent = new _ABViewGridPopupSortFields__WEBPACK_IMPORTED_MODULE_1__["default"](
          `ABViewDataFilter_Sort_Popup_${this.settings.dataviewID}`
       );
       this.PopupSortComponent.init(ab);
@@ -66225,7 +66885,7 @@ class ABViewDataFilterComponent extends _ABViewComponent__WEBPACK_IMPORTED_MODUL
          this.callbackSortData(sortOptions);
       });
 
-      this.filterHelper = new _viewProperties_ABViewPropertyFilterData__WEBPACK_IMPORTED_MODULE_3__["default"](
+      this.filterHelper = new _viewProperties_ABViewPropertyFilterData__WEBPACK_IMPORTED_MODULE_2__["default"](
          this.AB,
          `ABViewDataFilter_Filter_Popup_${this.settings.dataviewID}`
       );
@@ -66528,7 +67188,7 @@ class ABViewDataFilterComponent extends _ABViewComponent__WEBPACK_IMPORTED_MODUL
     */
    async callbackSortData(sortRules = []) {
       const dc = this.datacollection;
-      if (!lodash__WEBPACK_IMPORTED_MODULE_0___default().isEqual(dc?.settings?.objectWorkspace?.sortFields, sortRules)) {
+      if (!lodash__WEBPACK_IMPORTED_MODULE_3___default().isEqual(dc?.settings?.objectWorkspace?.sortFields, sortRules)) {
          dc.settings.objectWorkspace.sortFields = sortRules;
          await this.datacollection.reloadData();
       }
@@ -66546,7 +67206,7 @@ class ABViewDataFilterComponent extends _ABViewComponent__WEBPACK_IMPORTED_MODUL
     */
    callbackFilterData(fnFilter, filterRules = []) {
       const dc = this.datacollection;
-      if (!lodash__WEBPACK_IMPORTED_MODULE_0___default().isEqual(dc?.__filterCond, filterRules)) {
+      if (!lodash__WEBPACK_IMPORTED_MODULE_3___default().isEqual(dc?.__filterCond, filterRules)) {
          dc.filterCondition(filterRules);
          dc.reloadData();
          this.updateUI();
@@ -66616,13 +67276,13 @@ class ABViewDataFilterComponent extends _ABViewComponent__WEBPACK_IMPORTED_MODUL
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 65812:
+/***/ 65812
 /*!****************************************************************************!*\
   !*** ./AppBuilder/platform/views/viewComponent/ABViewDataviewComponent.js ***!
   \****************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewComponent = (__webpack_require__(/*! ./ABViewComponent */ 23687)["default"]);
 const ABViewDetailComponent = __webpack_require__(/*! ./ABViewDetailComponent */ 97376);
@@ -67017,13 +67677,13 @@ module.exports = class ABViewDataviewComponent extends ABViewComponent {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 8903:
+/***/ 8903
 /*!**********************************************************************************!*\
   !*** ./AppBuilder/platform/views/viewComponent/ABViewDetailCheckboxComponent.js ***!
   \**********************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewDetailItemComponent = __webpack_require__(/*! ./ABViewDetailItemComponent */ 32673);
 
@@ -67067,13 +67727,13 @@ module.exports = class ABViewDetailCheckboxComponent extends (
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 97376:
+/***/ 97376
 /*!**************************************************************************!*\
   !*** ./AppBuilder/platform/views/viewComponent/ABViewDetailComponent.js ***!
   \**************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABObjectQuery = __webpack_require__(/*! ../../ABObjectQuery */ 55532);
 const ABViewContainerComponent = __webpack_require__(/*! ./ABViewContainerComponent */ 71980);
@@ -67305,13 +67965,13 @@ module.exports = class ABViewDetailComponent extends ABViewContainerComponent {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 76154:
+/***/ 76154
 /*!*********************************************************************************!*\
   !*** ./AppBuilder/platform/views/viewComponent/ABViewDetailConnectComponent.js ***!
   \*********************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewDetailItemComponent = __webpack_require__(/*! ./ABViewDetailItemComponent */ 32673);
 
@@ -67359,13 +68019,13 @@ module.exports = class ABViewDetailConnectComponent extends (
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 52021:
+/***/ 52021
 /*!********************************************************************************!*\
   !*** ./AppBuilder/platform/views/viewComponent/ABViewDetailCustomComponent.js ***!
   \********************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewDetailItemComponent = __webpack_require__(/*! ./ABViewDetailItemComponent */ 32673);
 
@@ -67444,13 +68104,13 @@ module.exports = class ABViewDetailCustomComponent extends (
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 58731:
+/***/ 58731
 /*!*******************************************************************************!*\
   !*** ./AppBuilder/platform/views/viewComponent/ABViewDetailImageComponent.js ***!
   \*******************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewDetailItemComponent = __webpack_require__(/*! ./ABViewDetailItemComponent */ 32673);
 
@@ -67520,13 +68180,13 @@ module.exports = class ABViewDetailImageComponent extends (
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 32673:
+/***/ 32673
 /*!******************************************************************************!*\
   !*** ./AppBuilder/platform/views/viewComponent/ABViewDetailItemComponent.js ***!
   \******************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewComponent = (__webpack_require__(/*! ./ABViewComponent */ 23687)["default"]);
 
@@ -67669,13 +68329,13 @@ module.exports = class ABViewDetailItemComponent extends ABViewComponent {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 71417:
+/***/ 71417
 /*!******************************************************************************!*\
   !*** ./AppBuilder/platform/views/viewComponent/ABViewDetailTextComponent.js ***!
   \******************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewDetailItemComponent = __webpack_require__(/*! ./ABViewDetailItemComponent */ 32673);
 
@@ -67710,13 +68370,13 @@ module.exports = class ABViewDetailTextComponent extends (
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 42216:
+/***/ 42216
 /*!******************************************************************************!*\
   !*** ./AppBuilder/platform/views/viewComponent/ABViewDetailTreeComponent.js ***!
   \******************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewDetailItemComponent = __webpack_require__(/*! ./ABViewDetailItemComponent */ 32673);
 
@@ -67813,13 +68473,13 @@ module.exports = class ABViewDetailTreeComponent extends (
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 36942:
+/***/ 36942
 /*!*******************************************************************************!*\
   !*** ./AppBuilder/platform/views/viewComponent/ABViewDocxBuilderComponent.js ***!
   \*******************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const Docxtemplater = __webpack_require__(/*! ../../../../js/docxtemplater.v3.0.12.min.js */ 26831);
 const ImageModule = __webpack_require__(/*! ../../../../js/docxtemplater-image-module.v3.0.2.min.js */ 32477);
@@ -68693,13 +69353,13 @@ module.exports = class ABViewDocxBuilderComponent extends ABViewComponent {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 91645:
+/***/ 91645
 /*!******************************************************************************!*\
   !*** ./AppBuilder/platform/views/viewComponent/ABViewFormButtonComponent.js ***!
   \******************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewFormItemComponent = __webpack_require__(/*! ./ABViewFormItemComponent */ 8772);
 
@@ -68942,13 +69602,13 @@ module.exports = class ABViewFormButton extends ABViewFormItemComponent {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 14134:
+/***/ 14134
 /*!********************************************************************************!*\
   !*** ./AppBuilder/platform/views/viewComponent/ABViewFormCheckboxComponent.js ***!
   \********************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewFormItemComponent = __webpack_require__(/*! ./ABViewFormItemComponent */ 8772);
 
@@ -68967,13 +69627,13 @@ module.exports = class ABViewFormCheckboxComponent extends (
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 98165:
+/***/ 98165
 /*!************************************************************************!*\
   !*** ./AppBuilder/platform/views/viewComponent/ABViewFormComponent.js ***!
   \************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewComponent = (__webpack_require__(/*! ./ABViewComponent */ 23687)["default"]);
 const ABViewFormItem = __webpack_require__(/*! ../ABViewFormItem */ 86962);
@@ -69563,13 +70223,13 @@ module.exports = class ABViewFormComponent extends ABViewComponent {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 64161:
+/***/ 64161
 /*!*******************************************************************************!*\
   !*** ./AppBuilder/platform/views/viewComponent/ABViewFormConnectComponent.js ***!
   \*******************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewFormItemComponent = __webpack_require__(/*! ./ABViewFormItemComponent */ 8772);
 
@@ -70247,13 +70907,13 @@ module.exports = class ABViewFormConnectComponent extends (
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 37416:
+/***/ 37416
 /*!******************************************************************************!*\
   !*** ./AppBuilder/platform/views/viewComponent/ABViewFormCustomComponent.js ***!
   \******************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewFormItemComponent = __webpack_require__(/*! ./ABViewFormItemComponent */ 8772);
 const ABFieldImage = __webpack_require__(/*! ../../dataFields/ABFieldImage */ 9932);
@@ -70445,13 +71105,13 @@ module.exports = class ABViewFormCustomComponent extends (
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 58419:
+/***/ 58419
 /*!**********************************************************************************!*\
   !*** ./AppBuilder/platform/views/viewComponent/ABViewFormDatepickerComponent.js ***!
   \**********************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewFormItemComponent = __webpack_require__(/*! ./ABViewFormItemComponent */ 8772);
 
@@ -70575,13 +71235,13 @@ module.exports = class ABViewFormDatepickerComponent extends (
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 8772:
+/***/ 8772
 /*!****************************************************************************!*\
   !*** ./AppBuilder/platform/views/viewComponent/ABViewFormItemComponent.js ***!
   \****************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewComponent = (__webpack_require__(/*! ./ABViewComponent */ 23687)["default"]);
 
@@ -70686,13 +71346,13 @@ module.exports = class ABViewFormItemComponent extends ABViewComponent {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 29119:
+/***/ 29119
 /*!****************************************************************************!*\
   !*** ./AppBuilder/platform/views/viewComponent/ABViewFormJsonComponent.js ***!
   \****************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewFormItemComponent = __webpack_require__(/*! ./ABViewFormItemComponent */ 8772);
 
@@ -70862,13 +71522,13 @@ module.exports = class ABViewFormJsonComponent extends ABViewFormItemComponent {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 10246:
+/***/ 10246
 /*!******************************************************************************!*\
   !*** ./AppBuilder/platform/views/viewComponent/ABViewFormNumberComponent.js ***!
   \******************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewFormItemComponent = __webpack_require__(/*! ./ABViewFormItemComponent */ 8772);
 const NumberTextInput = __webpack_require__(/*! ../../../../webix_custom_components/numbertext */ 90212);
@@ -70897,13 +71557,13 @@ module.exports = class ABViewFormNumberComponent extends (
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 71207:
+/***/ 71207
 /*!********************************************************************************!*\
   !*** ./AppBuilder/platform/views/viewComponent/ABViewFormReadonlyComponent.js ***!
   \********************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewFormItemComponent = __webpack_require__(/*! ./ABViewFormItemComponent */ 8772);
 
@@ -71031,13 +71691,13 @@ module.exports = class ABViewFormReadonlyComponent extends (
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 55977:
+/***/ 55977
 /*!**************************************************************************************!*\
   !*** ./AppBuilder/platform/views/viewComponent/ABViewFormSelectMultipleComponent.js ***!
   \**************************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewFormItemComponent = __webpack_require__(/*! ./ABViewFormItemComponent */ 8772);
 
@@ -71133,13 +71793,13 @@ module.exports = class ABViewFormSelectMultipleComponentComponent extends (
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 37117:
+/***/ 37117
 /*!************************************************************************************!*\
   !*** ./AppBuilder/platform/views/viewComponent/ABViewFormSelectSingleComponent.js ***!
   \************************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewFormItemComponent = __webpack_require__(/*! ./ABViewFormItemComponent */ 8772);
 
@@ -71217,13 +71877,13 @@ module.exports = class ABViewFormSelectSingleComponentComponent extends (
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 25411:
+/***/ 25411
 /*!*******************************************************************************!*\
   !*** ./AppBuilder/platform/views/viewComponent/ABViewFormTextboxComponent.js ***!
   \*******************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewFormItemComponent = __webpack_require__(/*! ./ABViewFormItemComponent */ 8772);
 
@@ -71308,13 +71968,13 @@ module.exports = class ABViewFormTextboxComponent extends (
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 48585:
+/***/ 48585
 /*!****************************************************************************!*\
   !*** ./AppBuilder/platform/views/viewComponent/ABViewFormTreeComponent.js ***!
   \****************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewFormItemComponent = __webpack_require__(/*! ./ABViewFormItemComponent */ 8772);
 
@@ -71394,13 +72054,13 @@ module.exports = class ABViewFormTreeComponent extends ABViewFormItemComponent {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 91715:
+/***/ 91715
 /*!*************************************************************************!*\
   !*** ./AppBuilder/platform/views/viewComponent/ABViewGanttComponent.js ***!
   \*************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -71996,13 +72656,13 @@ class ABViewGanttComponent extends _ABViewComponent__WEBPACK_IMPORTED_MODULE_0__
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 37531:
+/***/ 37531
 /*!************************************************************************!*\
   !*** ./AppBuilder/platform/views/viewComponent/ABViewGridComponent.js ***!
   \************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -74421,13 +75081,13 @@ class ABViewGridComponent extends _ABViewComponent__WEBPACK_IMPORTED_MODULE_0__[
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 10966:
+/***/ 10966
 /*!**************************************************************************!*\
   !*** ./AppBuilder/platform/views/viewComponent/ABViewKanbanComponent.js ***!
   \**************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewComponent = (__webpack_require__(/*! ./ABViewComponent */ 23687)["default"]);
 const ABFormSidePanel = __webpack_require__(/*! ../ABViewKanbanFormSidePanel */ 35823);
@@ -75008,96 +75668,13 @@ module.exports = class ABViewKanbanComponent extends ABViewComponent {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 45717:
-/*!**************************************************************************!*\
-  !*** ./AppBuilder/platform/views/viewComponent/ABViewLayoutComponent.js ***!
-  \**************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-const ABViewComponent = (__webpack_require__(/*! ./ABViewComponent */ 23687)["default"]);
-
-module.exports = class ABViewLayoutComponent extends ABViewComponent {
-   constructor(baseView, idBase, ids) {
-      super(baseView, idBase || `ABViewLayout_${baseView.id}`, ids);
-
-      const viewComponents = this.viewComponents ?? {}; // { viewId: viewComponent, ..., viewIdn: viewComponent }
-
-      baseView.views().forEach((v) => {
-         viewComponents[v.id] = v.component();
-      });
-
-      this.viewComponents = viewComponents;
-   }
-
-   ui() {
-      const viewComponents = this.viewComponents;
-      const uiComponents = Object.keys(viewComponents)
-         .map((vId) => viewComponents[vId].ui())
-         .filter((ui) => ui);
-
-      if (uiComponents.length == 0) {
-         uiComponents.push({});
-         uiComponents.push({
-            view: "label",
-            label: this.label("no content"),
-         });
-         uiComponents.push({});
-      }
-
-      const _ui = super.ui([
-         {
-            view: "layout",
-            cols: uiComponents,
-         },
-      ]);
-
-      delete _ui.type;
-
-      return _ui;
-   }
-
-   async init(AB, accessLevel) {
-      await super.init(AB);
-
-      const baseView = this.view;
-
-      // make sure each of our child views get .init() called
-      baseView.views().forEach((v) => {
-         const component = this.viewComponents[v.id];
-
-         // initial sub-component
-         component?.init(AB, accessLevel);
-
-         // Trigger 'changePage' event to parent
-         baseView.eventAdd({
-            emitter: v,
-            eventName: "changePage",
-            listener: (pageId) => {
-               baseView.changePage(pageId);
-            },
-         });
-      });
-   }
-
-   onShow() {
-      // calll .onShow in child components
-      this.view.views().forEach((v) => {
-         const component = this.viewComponents[v.id];
-         component?.onShow();
-      });
-   }
-};
-
-
-/***/ }),
-
-/***/ 75210:
+/***/ 75210
 /*!************************************************************************!*\
   !*** ./AppBuilder/platform/views/viewComponent/ABViewMenuComponent.js ***!
   \************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewComponent = (__webpack_require__(/*! ./ABViewComponent */ 23687)["default"]);
 
@@ -75353,13 +75930,13 @@ module.exports = class ABViewMenuComponent extends ABViewComponent {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 96505:
+/***/ 96505
 /*!*******************************************************************************!*\
   !*** ./AppBuilder/platform/views/viewComponent/ABViewPDFImporterComponent.js ***!
   \*******************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewComponent = (__webpack_require__(/*! ./ABViewComponent */ 23687)["default"]);
 
@@ -76076,13 +76653,13 @@ module.exports = class ABViewPDFImporterComponent extends ABViewComponent {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 88525:
+/***/ 88525
 /*!*************************************************************************!*\
   !*** ./AppBuilder/platform/views/viewComponent/ABViewPivotComponent.js ***!
   \*************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewComponent = (__webpack_require__(/*! ./ABViewComponent */ 23687)["default"]);
 const ABFieldCalculate = __webpack_require__(/*! ../../dataFields/ABFieldCalculate */ 43925);
@@ -76214,13 +76791,13 @@ module.exports = class ABViewPivotComponent extends ABViewComponent {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 24965:
+/***/ 24965
 /*!**********************************************************************************!*\
   !*** ./AppBuilder/platform/views/viewComponent/ABViewReportsManagerComponent.js ***!
   \**********************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewComponent = (__webpack_require__(/*! ./ABViewComponent */ 23687)["default"]);
 
@@ -77215,13 +77792,13 @@ module.exports = class ABViewReportsManagerComponent extends ABViewComponent {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 37514:
+/***/ 37514
 /*!*****************************************************************************!*\
   !*** ./AppBuilder/platform/views/viewComponent/ABViewSchedulerComponent.js ***!
   \*****************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewComponent = (__webpack_require__(/*! ./ABViewComponent */ 23687)["default"]);
 
@@ -77573,13 +78150,13 @@ module.exports = class ABViewSchedulerComponent extends ABViewComponent {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 3419:
+/***/ 3419
 /*!********************************************************************!*\
   !*** ./AppBuilder/platform/views/viewProperties/ABViewProperty.js ***!
   \********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -77689,13 +78266,13 @@ class ABViewProperty extends _ui_ClassUI__WEBPACK_IMPORTED_MODULE_0__["default"]
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 64947:
+/***/ 64947
 /*!***************************************************************************!*\
   !*** ./AppBuilder/platform/views/viewProperties/ABViewPropertyAddPage.js ***!
   \***************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -78094,13 +78671,13 @@ class ABViewPropertyAddPage extends _ABViewProperty__WEBPACK_IMPORTED_MODULE_0__
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 24904:
+/***/ 24904
 /*!****************************************************************************!*\
   !*** ./AppBuilder/platform/views/viewProperties/ABViewPropertyEditPage.js ***!
   \****************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -78272,21 +78849,21 @@ class ABViewPropertyEditPage extends _ABViewPropertyAddPage__WEBPACK_IMPORTED_MO
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 95889:
+/***/ 95889
 /*!******************************************************************************!*\
   !*** ./AppBuilder/platform/views/viewProperties/ABViewPropertyFilterData.js ***!
   \******************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABViewPropertyFilterData)
 /* harmony export */ });
-/* harmony import */ var _ABViewProperty__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ABViewProperty */ 3419);
-/* harmony import */ var _viewComponent_ABViewComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../viewComponent/ABViewComponent */ 23687);
+/* harmony import */ var _ABViewProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABViewProperty */ 3419);
+/* harmony import */ var _viewComponent_ABViewComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../viewComponent/ABViewComponent */ 23687);
 /*
  * ABViewPropertyFilterData
  * This is a displayable ui component that will manage displaying a
@@ -78328,14 +78905,14 @@ class FilterRuleSettings extends ABMLClass {
    }
 }
 
-class ABViewPropertyFilterDataComponent extends _viewComponent_ABViewComponent__WEBPACK_IMPORTED_MODULE_0__["default"] {
+class ABViewPropertyFilterDataComponent extends _viewComponent_ABViewComponent__WEBPACK_IMPORTED_MODULE_1__["default"] {
    constructor(viewPropertyFilterData, idBase) {
       var base = idBase || viewPropertyFilterData.idBase;
       super(base, {});
    }
 }
 
-class ABViewPropertyFilterData extends _ABViewProperty__WEBPACK_IMPORTED_MODULE_1__["default"] {
+class ABViewPropertyFilterData extends _ABViewProperty__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(AB, idBase) {
       super(idBase, {
          buttonAddfilter: "",
@@ -78820,27 +79397,27 @@ class ABViewPropertyFilterData extends _ABViewProperty__WEBPACK_IMPORTED_MODULE_
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 42588:
+/***/ 42588
 /*!****************************************************************************!*\
   !*** ./AppBuilder/platform/views/viewProperties/ABViewPropertyLinkPage.js ***!
   \****************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABViewPropertyLinkPage)
 /* harmony export */ });
-/* harmony import */ var _ABViewProperty__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ABViewProperty */ 3419);
-/* harmony import */ var _viewComponent_ABViewComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../viewComponent/ABViewComponent */ 23687);
+/* harmony import */ var _ABViewProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABViewProperty */ 3419);
+/* harmony import */ var _viewComponent_ABViewComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../viewComponent/ABViewComponent */ 23687);
 
 
 
 let L = (...params) => AB.Multilingual.label(...params);
 
-class ABViewPropertyLinkPageComponent extends _viewComponent_ABViewComponent__WEBPACK_IMPORTED_MODULE_0__["default"] {
+class ABViewPropertyLinkPageComponent extends _viewComponent_ABViewComponent__WEBPACK_IMPORTED_MODULE_1__["default"] {
    constructor(linkPageHelper, idBase) {
       let base = idBase || `ABViewPropertyLinkPage_xxx`;
       super(base, {});
@@ -78881,7 +79458,7 @@ class ABViewPropertyLinkPageComponent extends _viewComponent_ABViewComponent__WE
    }
 }
 
-class ABViewPropertyLinkPage extends _ABViewProperty__WEBPACK_IMPORTED_MODULE_1__["default"] {
+class ABViewPropertyLinkPage extends _ABViewProperty__WEBPACK_IMPORTED_MODULE_0__["default"] {
    // constructor() {
    //    super();
    // }
@@ -78918,13 +79495,13 @@ class ABViewPropertyLinkPage extends _ABViewProperty__WEBPACK_IMPORTED_MODULE_1_
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 69902:
+/***/ 69902
 /*!*********************************************************************!*\
   !*** ./AppBuilder/rules/ABViewQueryBuilderObjectFieldConditions.js ***!
   \*********************************************************************/
-/***/ ((module) => {
+(module) {
 
 //
 // ABViewQueryBuilderObjectFieldConditions
@@ -79294,13 +79871,13 @@ module.exports = class ABViewQueryBuilderObjectFieldConditions {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 7704:
+/***/ 7704
 /*!****************************************!*\
   !*** ./AppBuilder/rules/ABViewRule.js ***!
   \****************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 //
 // ABViewRule
@@ -79779,13 +80356,13 @@ module.exports = class ABViewRule {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 92866:
+/***/ 92866
 /*!**********************************************!*\
   !*** ./AppBuilder/rules/ABViewRuleAction.js ***!
   \**********************************************/
-/***/ ((module) => {
+(module) {
 
 //
 // ABViewRuleAction
@@ -80052,13 +80629,13 @@ module.exports = class ABViewRuleAction {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 61376:
+/***/ 61376
 /*!********************************************!*\
   !*** ./AppBuilder/rules/ABViewRuleList.js ***!
   \********************************************/
-/***/ ((module) => {
+(module) {
 
 //
 // ABViewRuleList
@@ -80467,13 +81044,13 @@ module.exports = class ABViewRuleList {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 1148:
+/***/ 1148
 /*!***********************************************************!*\
   !*** ./AppBuilder/rules/ABViewRuleListFormRecordRules.js ***!
   \***********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 //
 // ABViewRuleListFormRecordRules
@@ -80551,13 +81128,13 @@ module.exports = class ABViewRuleListFormRecordRules extends ABViewRuleList {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 41171:
+/***/ 41171
 /*!***********************************************************!*\
   !*** ./AppBuilder/rules/ABViewRuleListFormSubmitRules.js ***!
   \***********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 //
 // ABViewRuleListFormSubmitRules
@@ -80614,13 +81191,13 @@ module.exports = class ABViewRuleListFormSubmitRules extends ABViewRuleList {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 75589:
+/***/ 75589
 /*!***************************************************************************************!*\
   !*** ./AppBuilder/rules/ruleActions/ABViewRuleActionFormRecordRuleInsertConnected.js ***!
   \***************************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 //
 // ABViewRuleActionFormRecordRuleInsertConnected
@@ -80755,13 +81332,13 @@ module.exports = class ABViewRuleActionFormRecordRuleInsertConnected extends (
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 39090:
+/***/ 39090
 /*!***************************************************************************************!*\
   !*** ./AppBuilder/rules/ruleActions/ABViewRuleActionFormRecordRuleRemoveConnected.js ***!
   \***************************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 //
 // ABViewRuleActionFormRecordRuleRemoveConnected
@@ -80825,13 +81402,13 @@ module.exports = class ABViewRuleActionFormRecordRuleRemoveConnected extends (
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 77436:
+/***/ 77436
 /*!******************************************************************************!*\
   !*** ./AppBuilder/rules/ruleActions/ABViewRuleActionFormRecordRuleUpdate.js ***!
   \******************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 //
 // ABViewRuleActionFormRecordRuleUpdate
@@ -80866,13 +81443,13 @@ module.exports = class ABViewRuleActionFormRecordRuleUpdate extends (
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 95109:
+/***/ 95109
 /*!***************************************************************************************!*\
   !*** ./AppBuilder/rules/ruleActions/ABViewRuleActionFormRecordRuleUpdateConnected.js ***!
   \***************************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 //
 // ABViewRuleActionFormRecordRuleUpdateConnected
@@ -81413,13 +81990,13 @@ module.exports = class ABViewRuleActionFormRecordRuleUpdateConnected extends (
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 22398:
+/***/ 22398
 /*!**********************************************************************************!*\
   !*** ./AppBuilder/rules/ruleActions/ABViewRuleActionFormSubmitRuleClosePopup.js ***!
   \**********************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 //
 // ABViewRuleActionFormSubmitRuleClosePopup
@@ -81527,13 +82104,13 @@ module.exports = class ABViewRuleActionFormSubmitRuleClosePopup extends (
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 76471:
+/***/ 76471
 /*!**************************************************************************************!*\
   !*** ./AppBuilder/rules/ruleActions/ABViewRuleActionFormSubmitRuleConfirmMessage.js ***!
   \**************************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 //
 // ABViewRuleActionFormSubmitRuleConfirmMessage
@@ -81692,13 +82269,13 @@ module.exports = class ABViewRuleActionFormSubmitRuleConfirmMessage extends (
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 5798:
+/***/ 5798
 /*!*****************************************************************************!*\
   !*** ./AppBuilder/rules/ruleActions/ABViewRuleActionFormSubmitRuleEmail.js ***!
   \*****************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 //
 // ABViewRuleActionFormSubmitRuleWebsite
@@ -82446,13 +83023,13 @@ module.exports = class ABViewRuleActionFormSubmitRuleEmail extends (
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 19134:
+/***/ 19134
 /*!*********************************************************************************!*\
   !*** ./AppBuilder/rules/ruleActions/ABViewRuleActionFormSubmitRuleExistPage.js ***!
   \*********************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 //
 // ABViewRuleActionFormSubmitRuleExistPage
@@ -82721,13 +83298,13 @@ module.exports = class ABViewRuleActionFormSubmitRuleExistPage extends (
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 92635:
+/***/ 92635
 /*!**********************************************************************************!*\
   !*** ./AppBuilder/rules/ruleActions/ABViewRuleActionFormSubmitRuleParentPage.js ***!
   \**********************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 //
 // ABViewRuleActionFormSubmitRuleParentPage
@@ -82827,13 +83404,13 @@ module.exports = class ABViewRuleActionFormSubmitRuleParentPage extends (
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 1963:
+/***/ 1963
 /*!*******************************************************************************!*\
   !*** ./AppBuilder/rules/ruleActions/ABViewRuleActionFormSubmitRuleWebsite.js ***!
   \*******************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 //
 // ABViewRuleActionFormSubmitRuleWebsite
@@ -82989,13 +83566,13 @@ module.exports = class ABViewRuleActionFormSubmitRuleWebsite extends (
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 13370:
+/***/ 13370
 /*!***********************************************************************!*\
   !*** ./AppBuilder/rules/ruleActions/ABViewRuleActionObjectUpdater.js ***!
   \***********************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 // ABViewRuleActionObjectUpdater
 //
@@ -84357,21 +84934,21 @@ module.exports = class ABViewRuleActionObjectUpdater extends ABViewRuleAction {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 37468:
+/***/ 37468
 /*!*****************************************!*\
   !*** ./AppBuilder/uiSettings/config.js ***!
   \*****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _configDesktop__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./configDesktop */ 82270);
-/* harmony import */ var _configMobile__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./configMobile */ 45178);
+/* harmony import */ var _configDesktop__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./configDesktop */ 82270);
+/* harmony import */ var _configMobile__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./configMobile */ 45178);
 /* harmony import */ var _icons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./icons */ 51458);
 /**
  * @class config
@@ -84387,21 +84964,21 @@ __webpack_require__.r(__webpack_exports__);
    config: function () {
       // TODO: decide which config file to return here:
       if (window.innerWidth < 768) {
-         return _configMobile__WEBPACK_IMPORTED_MODULE_0__["default"];
+         return _configMobile__WEBPACK_IMPORTED_MODULE_1__["default"];
       }
-      return _configDesktop__WEBPACK_IMPORTED_MODULE_1__["default"];
+      return _configDesktop__WEBPACK_IMPORTED_MODULE_0__["default"];
    },
    icons: _icons__WEBPACK_IMPORTED_MODULE_2__["default"].icons,
 });
 
 
-/***/ }),
+/***/ },
 
-/***/ 82270:
+/***/ 82270
 /*!************************************************!*\
   !*** ./AppBuilder/uiSettings/configDesktop.js ***!
   \************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -84465,13 +85042,13 @@ __webpack_require__.r(__webpack_exports__);
 });
 
 
-/***/ }),
+/***/ },
 
-/***/ 45178:
+/***/ 45178
 /*!***********************************************!*\
   !*** ./AppBuilder/uiSettings/configMobile.js ***!
   \***********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -84533,13 +85110,13 @@ __webpack_require__.r(__webpack_exports__);
 });
 
 
-/***/ }),
+/***/ },
 
-/***/ 51458:
+/***/ 51458
 /*!****************************************!*\
   !*** ./AppBuilder/uiSettings/icons.js ***!
   \****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -85338,36 +85915,38 @@ __webpack_require__.r(__webpack_exports__);
 });
 
 
-/***/ }),
+/***/ },
 
-/***/ 32477:
+/***/ 32477
 /*!*****************************************************!*\
   !*** ./js/docxtemplater-image-module.v3.0.2.min.js ***!
   \*****************************************************/
-/***/ ((module) => {
+(module) {
 
-(function(f){if(true){module.exports=f()}else { var g; }})(function(){var define,module,exports;return function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=undefined;if(!u&&a)return require(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=undefined;for(var o=0;o<r.length;o++)s(r[o]);return s}({1:[function(require,module,exports){"use strict";var DocUtils=require("docxtemplater").DocUtils;DocUtils.convertPixelsToEmus=function(pixel){return Math.round(pixel*9525)};module.exports=DocUtils},{docxtemplater:5}],2:[function(require,module,exports){"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function")}}var DocUtils=require("./docUtils");var extensionRegex=/[^.]+\.([^.]+)/;var rels={getPrefix:function getPrefix(fileType){return fileType==="docx"?"word":"ppt"},getFileTypeName:function getFileTypeName(fileType){return fileType==="docx"?"document":"presentation"},getRelsFileName:function getRelsFileName(fileName){return fileName.replace(/^.*?([a-zA-Z0-9]+)\.xml$/,"$1")+".xml.rels"},getRelsFilePath:function getRelsFilePath(fileName,fileType){var relsFileName=rels.getRelsFileName(fileName);var prefix=fileType==="pptx"?"ppt/slides":"word";return prefix+"/_rels/"+relsFileName}};module.exports=function(){function ImgManager(zip,fileName,xmlDocuments,fileType){_classCallCheck(this,ImgManager);this.fileName=fileName;this.prefix=rels.getPrefix(fileType);this.zip=zip;this.xmlDocuments=xmlDocuments;this.fileTypeName=rels.getFileTypeName(fileType);this.mediaPrefix=fileType==="pptx"?"../media":"media";var relsFilePath=rels.getRelsFilePath(fileName,fileType);this.relsDoc=xmlDocuments[relsFilePath]||this.createEmptyRelsDoc(xmlDocuments,relsFilePath)}_createClass(ImgManager,[{key:"createEmptyRelsDoc",value:function createEmptyRelsDoc(xmlDocuments,relsFileName){var mainRels=this.prefix+"/_rels/"+this.fileTypeName+".xml.rels";var doc=xmlDocuments[mainRels];if(!doc){var err=new Error("Could not copy from empty relsdoc");err.properties={mainRels:mainRels,relsFileName:relsFileName,files:Object.keys(this.zip.files)};throw err}var relsDoc=DocUtils.str2xml(DocUtils.xml2str(doc));var relationships=relsDoc.getElementsByTagName("Relationships")[0];var relationshipChilds=relationships.getElementsByTagName("Relationship");for(var i=0,l=relationshipChilds.length;i<l;i++){relationships.removeChild(relationshipChilds[i])}xmlDocuments[relsFileName]=relsDoc;return relsDoc}},{key:"loadImageRels",value:function loadImageRels(){var iterable=this.relsDoc.getElementsByTagName("Relationship");return Array.prototype.reduce.call(iterable,function(max,relationship){var id=relationship.getAttribute("Id");if(/^rId[0-9]+$/.test(id)){return Math.max(max,parseInt(id.substr(3),10))}return max},0)}},{key:"addExtensionRels",value:function addExtensionRels(contentType,extension){var contentTypeDoc=this.xmlDocuments["[Content_Types].xml"];var defaultTags=contentTypeDoc.getElementsByTagName("Default");var extensionRegistered=Array.prototype.some.call(defaultTags,function(tag){return tag.getAttribute("Extension")===extension});if(extensionRegistered){return}var types=contentTypeDoc.getElementsByTagName("Types")[0];var newTag=contentTypeDoc.createElement("Default");newTag.namespaceURI=null;newTag.setAttribute("ContentType",contentType);newTag.setAttribute("Extension",extension);types.appendChild(newTag)}},{key:"addImageRels",value:function addImageRels(imageName,imageData,i){if(i==null){i=0}var realImageName=i===0?imageName:imageName+("("+i+")");var imagePath=this.prefix+"/media/"+realImageName;if(this.zip.files[imagePath]!=null){return this.addImageRels(imageName,imageData,i+1)}var image={name:imagePath,data:imageData,options:{binary:true}};this.zip.file(image.name,image.data,image.options);var extension=realImageName.replace(extensionRegex,"$1");this.addExtensionRels("image/"+extension,extension);var relationships=this.relsDoc.getElementsByTagName("Relationships")[0];var newTag=this.relsDoc.createElement("Relationship");newTag.namespaceURI=null;var maxRid=this.loadImageRels()+1;newTag.setAttribute("Id","rId"+maxRid);newTag.setAttribute("Type","http://schemas.openxmlformats.org/officeDocument/2006/relationships/image");newTag.setAttribute("Target",this.mediaPrefix+"/"+realImageName);relationships.appendChild(newTag);return maxRid}}]);return ImgManager}()},{"./docUtils":1}],3:[function(require,module,exports){"use strict";module.exports={getImageXml:function getImageXml(rId,size){return('<w:drawing>\n\t\t<wp:inline distT="0" distB="0" distL="0" distR="0">\n\t\t\t<wp:extent cx="'+size[0]+'" cy="'+size[1]+'"/>\n\t\t\t<wp:effectExtent l="0" t="0" r="0" b="0"/>\n\t\t\t<wp:docPr id="2" name="Image 2" descr="image"/>\n\t\t\t<wp:cNvGraphicFramePr>\n\t\t\t\t<a:graphicFrameLocks xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" noChangeAspect="1"/>\n\t\t\t</wp:cNvGraphicFramePr>\n\t\t\t<a:graphic xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main">\n\t\t\t\t<a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture">\n\t\t\t\t\t<pic:pic xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture">\n\t\t\t\t\t\t<pic:nvPicPr>\n\t\t\t\t\t\t\t<pic:cNvPr id="0" name="Picture 1" descr="image"/>\n\t\t\t\t\t\t\t<pic:cNvPicPr>\n\t\t\t\t\t\t\t\t<a:picLocks noChangeAspect="1" noChangeArrowheads="1"/>\n\t\t\t\t\t\t\t</pic:cNvPicPr>\n\t\t\t\t\t\t</pic:nvPicPr>\n\t\t\t\t\t\t<pic:blipFill>\n\t\t\t\t\t\t\t<a:blip r:embed="rId'+rId+'">\n\t\t\t\t\t\t\t\t<a:extLst>\n\t\t\t\t\t\t\t\t\t<a:ext uri="{28A0092B-C50C-407E-A947-70E740481C1C}">\n\t\t\t\t\t\t\t\t\t\t<a14:useLocalDpi xmlns:a14="http://schemas.microsoft.com/office/drawing/2010/main" val="0"/>\n\t\t\t\t\t\t\t\t\t</a:ext>\n\t\t\t\t\t\t\t\t</a:extLst>\n\t\t\t\t\t\t\t</a:blip>\n\t\t\t\t\t\t\t<a:srcRect/>\n\t\t\t\t\t\t\t<a:stretch>\n\t\t\t\t\t\t\t\t<a:fillRect/>\n\t\t\t\t\t\t\t</a:stretch>\n\t\t\t\t\t\t</pic:blipFill>\n\t\t\t\t\t\t<pic:spPr bwMode="auto">\n\t\t\t\t\t\t\t<a:xfrm>\n\t\t\t\t\t\t\t\t<a:off x="0" y="0"/>\n\t\t\t\t\t\t\t\t<a:ext cx="'+size[0]+'" cy="'+size[1]+'"/>\n\t\t\t\t\t\t\t</a:xfrm>\n\t\t\t\t\t\t\t<a:prstGeom prst="rect">\n\t\t\t\t\t\t\t\t<a:avLst/>\n\t\t\t\t\t\t\t</a:prstGeom>\n\t\t\t\t\t\t\t<a:noFill/>\n\t\t\t\t\t\t\t<a:ln>\n\t\t\t\t\t\t\t\t<a:noFill/>\n\t\t\t\t\t\t\t</a:ln>\n\t\t\t\t\t\t</pic:spPr>\n\t\t\t\t\t</pic:pic>\n\t\t\t\t</a:graphicData>\n\t\t\t</a:graphic>\n\t\t</wp:inline>\n\t</w:drawing>\n\t\t').replace(/\t|\n/g,"")},getImageXmlCentered:function getImageXmlCentered(rId,size){return('<w:p>\n\t\t\t<w:pPr>\n\t\t\t\t<w:jc w:val="center"/>\n\t\t\t</w:pPr>\n\t\t\t<w:r>\n\t\t\t\t<w:rPr/>\n\t\t\t\t<w:drawing>\n\t\t\t\t\t<wp:inline distT="0" distB="0" distL="0" distR="0">\n\t\t\t\t\t<wp:extent cx="'+size[0]+'" cy="'+size[1]+'"/>\n\t\t\t\t\t<wp:docPr id="0" name="Picture" descr=""/>\n\t\t\t\t\t<a:graphic xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main">\n\t\t\t\t\t\t<a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture">\n\t\t\t\t\t\t<pic:pic xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture">\n\t\t\t\t\t\t\t<pic:nvPicPr>\n\t\t\t\t\t\t\t<pic:cNvPr id="0" name="Picture" descr=""/>\n\t\t\t\t\t\t\t<pic:cNvPicPr>\n\t\t\t\t\t\t\t\t<a:picLocks noChangeAspect="1" noChangeArrowheads="1"/>\n\t\t\t\t\t\t\t</pic:cNvPicPr>\n\t\t\t\t\t\t\t</pic:nvPicPr>\n\t\t\t\t\t\t\t<pic:blipFill>\n\t\t\t\t\t\t\t<a:blip r:embed="rId'+rId+'"/>\n\t\t\t\t\t\t\t<a:stretch>\n\t\t\t\t\t\t\t\t<a:fillRect/>\n\t\t\t\t\t\t\t</a:stretch>\n\t\t\t\t\t\t\t</pic:blipFill>\n\t\t\t\t\t\t\t<pic:spPr bwMode="auto">\n\t\t\t\t\t\t\t<a:xfrm>\n\t\t\t\t\t\t\t\t<a:off x="0" y="0"/>\n\t\t\t\t\t\t\t\t<a:ext cx="'+size[0]+'" cy="'+size[1]+'"/>\n\t\t\t\t\t\t\t</a:xfrm>\n\t\t\t\t\t\t\t<a:prstGeom prst="rect">\n\t\t\t\t\t\t\t\t<a:avLst/>\n\t\t\t\t\t\t\t</a:prstGeom>\n\t\t\t\t\t\t\t<a:noFill/>\n\t\t\t\t\t\t\t<a:ln w="9525">\n\t\t\t\t\t\t\t\t<a:noFill/>\n\t\t\t\t\t\t\t\t<a:miter lim="800000"/>\n\t\t\t\t\t\t\t\t<a:headEnd/>\n\t\t\t\t\t\t\t\t<a:tailEnd/>\n\t\t\t\t\t\t\t</a:ln>\n\t\t\t\t\t\t\t</pic:spPr>\n\t\t\t\t\t\t</pic:pic>\n\t\t\t\t\t\t</a:graphicData>\n\t\t\t\t\t</a:graphic>\n\t\t\t\t\t</wp:inline>\n\t\t\t\t</w:drawing>\n\t\t\t</w:r>\n\t\t</w:p>\n\t\t').replace(/\t|\n/g,"")},getPptxImageXml:function getPptxImageXml(rId,size,offset){return('<p:pic>\n\t\t\t<p:nvPicPr>\n\t\t\t\t<p:cNvPr id="6" name="Picture 2"/>\n\t\t\t\t<p:cNvPicPr>\n\t\t\t\t\t<a:picLocks noChangeAspect="1" noChangeArrowheads="1"/>\n\t\t\t\t</p:cNvPicPr>\n\t\t\t\t<p:nvPr/>\n\t\t\t</p:nvPicPr>\n\t\t\t<p:blipFill>\n\t\t\t\t<a:blip r:embed="rId'+rId+'" cstate="print">\n\t\t\t\t\t<a:extLst>\n\t\t\t\t\t\t<a:ext uri="{28A0092B-C50C-407E-A947-70E740481C1C}">\n\t\t\t\t\t\t\t<a14:useLocalDpi xmlns:a14="http://schemas.microsoft.com/office/drawing/2010/main" val="0"/>\n\t\t\t\t\t\t</a:ext>\n\t\t\t\t\t</a:extLst>\n\t\t\t\t</a:blip>\n\t\t\t\t<a:srcRect/>\n\t\t\t\t<a:stretch>\n\t\t\t\t\t<a:fillRect/>\n\t\t\t\t</a:stretch>\n\t\t\t</p:blipFill>\n\t\t\t<p:spPr bwMode="auto">\n\t\t\t\t<a:xfrm>\n\t\t\t\t\t<a:off x="'+offset.x+'" y="'+offset.y+'"/>\n\t\t\t\t\t<a:ext cx="'+size[0]+'" cy="'+size[1]+'"/>\n\t\t\t\t</a:xfrm>\n\t\t\t\t<a:prstGeom prst="rect">\n\t\t\t\t\t<a:avLst/>\n\t\t\t\t</a:prstGeom>\n\t\t\t\t<a:noFill/>\n\t\t\t\t<a:ln>\n\t\t\t\t\t<a:noFill/>\n\t\t\t\t</a:ln>\n\t\t\t\t<a:effectLst/>\n\t\t\t\t<a:extLst>\n\t\t\t\t\t<a:ext uri="{909E8E84-426E-40DD-AFC4-6F175D3DCCD1}">\n\t\t\t\t\t\t<a14:hiddenFill xmlns:a14="http://schemas.microsoft.com/office/drawing/2010/main">\n\t\t\t\t\t\t\t<a:solidFill>\n\t\t\t\t\t\t\t\t<a:schemeClr val="accent1"/>\n\t\t\t\t\t\t\t</a:solidFill>\n\t\t\t\t\t\t</a14:hiddenFill>\n\t\t\t\t\t</a:ext>\n\t\t\t\t\t<a:ext uri="{91240B29-F687-4F45-9708-019B960494DF}">\n\t\t\t\t\t\t<a14:hiddenLine xmlns:a14="http://schemas.microsoft.com/office/drawing/2010/main" w="9525">\n\t\t\t\t\t\t\t<a:solidFill>\n\t\t\t\t\t\t\t\t<a:schemeClr val="tx1"/>\n\t\t\t\t\t\t\t</a:solidFill>\n\t\t\t\t\t\t\t<a:miter lim="800000"/>\n\t\t\t\t\t\t\t<a:headEnd/>\n\t\t\t\t\t\t\t<a:tailEnd/>\n\t\t\t\t\t\t</a14:hiddenLine>\n\t\t\t\t\t</a:ext>\n\t\t\t\t\t<a:ext uri="{AF507438-7753-43E0-B8FC-AC1667EBCBE1}">\n\t\t\t\t\t\t<a14:hiddenEffects xmlns:a14="http://schemas.microsoft.com/office/drawing/2010/main">\n\t\t\t\t\t\t\t<a:effectLst>\n\t\t\t\t\t\t\t\t<a:outerShdw dist="35921" dir="2700000" algn="ctr" rotWithShape="0">\n\t\t\t\t\t\t\t\t\t<a:schemeClr val="bg2"/>\n\t\t\t\t\t\t\t\t</a:outerShdw>\n\t\t\t\t\t\t\t</a:effectLst>\n\t\t\t\t\t\t</a14:hiddenEffects>\n\t\t\t\t\t</a:ext>\n\t\t\t\t</a:extLst>\n\t\t\t</p:spPr>\n\t\t</p:pic>\n\t\t').replace(/\t|\n/g,"")}}},{}],4:[function(require,module,exports){"use strict";function _defineProperty(obj,key,value){if(key in obj){Object.defineProperty(obj,key,{value:value,enumerable:true,configurable:true,writable:true})}else{obj[key]=value}return obj}var memoize=require("./memoize");var DOMParser=require("xmldom").DOMParser;var XMLSerializer=require("xmldom").XMLSerializer;var Errors=require("./errors");var DocUtils={};function parser(tag){return _defineProperty({},"get",function get(scope){if(tag==="."){return scope}return scope[tag]})}DocUtils.defaults={nullGetter:function nullGetter(part){if(!part.module){return"undefined"}if(part.module==="rawxml"){return""}return""},parser:memoize(parser),fileType:"docx",delimiters:{start:"{",end:"}"}};DocUtils.mergeObjects=function(){var resObj={};var obj=void 0,keys=void 0;for(var i=0;i<arguments.length;i+=1){obj=arguments[i];keys=Object.keys(obj);for(var j=0;j<keys.length;j+=1){resObj[keys[j]]=obj[keys[j]]}}return resObj};DocUtils.xml2str=function(xmlNode){var a=new XMLSerializer;return a.serializeToString(xmlNode)};DocUtils.decodeUtf8=function(s){try{if(s===undefined){return undefined}return decodeURIComponent(escape(DocUtils.convertSpaces(s)))}catch(e){var err=new Error("End");err.properties.data=s;err.properties.explanation="Could not decode string to UTF8";throw err}};DocUtils.encodeUtf8=function(s){return unescape(encodeURIComponent(s))};DocUtils.str2xml=function(str,errorHandler){var parser=new DOMParser({errorHandler:errorHandler});return parser.parseFromString(str,"text/xml")};DocUtils.charMap={"&":"&amp;","'":"&apos;","<":"&lt;",">":"&gt;"};var regexStripRegexp=/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g;DocUtils.escapeRegExp=function(str){return str.replace(regexStripRegexp,"\\$&")};DocUtils.charMapRegexes=Object.keys(DocUtils.charMap).map(function(endChar){var startChar=DocUtils.charMap[endChar];return{rstart:new RegExp(DocUtils.escapeRegExp(startChar),"g"),rend:new RegExp(DocUtils.escapeRegExp(endChar),"g"),start:startChar,end:endChar}});DocUtils.wordToUtf8=function(string){var r=void 0;for(var i=0,l=DocUtils.charMapRegexes.length;i<l;i++){r=DocUtils.charMapRegexes[i];string=string.replace(r.rstart,r.end)}return string};DocUtils.utf8ToWord=function(string){if(typeof string!=="string"){string=string.toString()}var r=void 0;for(var i=0,l=DocUtils.charMapRegexes.length;i<l;i++){r=DocUtils.charMapRegexes[i];string=string.replace(r.rend,r.start)}return string};DocUtils.cloneDeep=function(obj){return JSON.parse(JSON.stringify(obj))};DocUtils.concatArrays=function(arrays){return arrays.reduce(function(result,array){Array.prototype.push.apply(result,array);return result},[])};var spaceRegexp=new RegExp(String.fromCharCode(160),"g");DocUtils.convertSpaces=function(s){return s.replace(spaceRegexp," ")};DocUtils.pregMatchAll=function(regex,content){var matchArray=[];var match=void 0;while((match=regex.exec(content))!=null){matchArray.push({array:match,offset:match.index})}return matchArray};DocUtils.sizeOfObject=function(obj){return Object.keys(obj).length};function throwXmlTagNotFound(options){var err=new Errors.XTTemplateError("No tag '"+options.element+"' was found at the "+options.position);err.properties={id:"no_xml_tag_found_at_"+options.position,explanation:"No tag '"+options.element+"' was found at the "+options.position,parsed:options.parsed,index:options.index,element:options.element};throw err}DocUtils.getRight=function(parsed,element,index){for(var i=index,l=parsed.length;i<l;i++){var part=parsed[i];if(part.value==="</"+element+">"){return i}}throwXmlTagNotFound({position:"right",element:element,parsed:parsed,index:index})};DocUtils.getLeft=function(parsed,element,index){var parts=parsed.slice(0,index);for(var i=parts.length-1;i>=0;i--){var part=parts[i];if(part.value.indexOf("<"+element)===0&&[">"," "].indexOf(part.value[element.length+1])!==-1){return i}}throwXmlTagNotFound({position:"left",element:element,parsed:parsed,index:index})};module.exports=DocUtils;DocUtils.traits=require("./traits");DocUtils.moduleWrapper=require("./module-wrapper")},{"./errors":6,"./memoize":9,"./module-wrapper":11,"./traits":20,xmldom:23}],5:[function(require,module,exports){"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function")}}var DocUtils=require("./doc-utils");var wrapper=DocUtils.moduleWrapper;var Docxtemplater=function(){function Docxtemplater(){_classCallCheck(this,Docxtemplater);if(arguments.length>0){throw new Error("The constructor with parameters have been removed in docxtemplater 3.0, please check the upgrade guide.")}this.compiled={};this.modules=[];this.setOptions({})}_createClass(Docxtemplater,[{key:"attachModule",value:function attachModule(module){this.modules.push(wrapper(module));return this}},{key:"setOptions",value:function setOptions(options){var _this=this;this.options=options;Object.keys(DocUtils.defaults).forEach(function(key){var defaultValue=DocUtils.defaults[key];_this[key]=_this.options[key]!=null?_this.options[key]:defaultValue});if(this.fileType==="docx"||this.fileType==="pptx"){this.fileTypeConfig=Docxtemplater.FileTypeConfig[this.fileType]}this.fileTypeConfig=this.options.fileTypeConfig||this.fileTypeConfig;this.options.xmlFileNames=[];return this}},{key:"loadZip",value:function loadZip(zip){if(zip.loadAsync){throw new Error("Docxtemplater doesn't handle JSZip version >=3, see changelog")}this.zip=zip;return this}},{key:"compileFile",value:function compileFile(fileName){var currentFile=this.createTemplateClass(fileName);currentFile.parse();this.compiled[fileName]=currentFile}},{key:"compile",value:function compile(){this.templatedFiles=this.fileTypeConfig.getTemplatedFiles(this.zip)}},{key:"render",value:function render(){var _this2=this;this.modules=this.fileTypeConfig.baseModules.map(function(moduleFunction){return moduleFunction()}).concat(this.modules);this.options=this.modules.reduce(function(options,module){return module.optionsTransformer(options,_this2)},this.options);this.xmlDocuments=this.options.xmlFileNames.reduce(function(xmlDocuments,fileName){var content=_this2.zip.files[fileName].asText();xmlDocuments[fileName]=DocUtils.str2xml(content);return xmlDocuments},{});this.modules.forEach(function(module){module.set({zip:_this2.zip,xmlDocuments:_this2.xmlDocuments,data:_this2.data})});this.compile();this.modules.forEach(function(module){module.set({compiled:_this2.compiled})});this.templatedFiles.forEach(function(fileName){if(_this2.zip.files[fileName]!=null){_this2.compileFile(fileName)}});this.mapper=this.modules.reduce(function(value,module){return module.getRenderedMap(value)},{});Object.keys(this.mapper).forEach(function(to){var mapped=_this2.mapper[to];var from=mapped.from;var currentFile=_this2.compiled[from];currentFile.setTags(mapped.data);currentFile.render();_this2.zip.file(to,currentFile.content)});Object.keys(this.xmlDocuments).forEach(function(fileName){_this2.zip.remove(fileName);var content=DocUtils.encodeUtf8(DocUtils.xml2str(_this2.xmlDocuments[fileName]));return _this2.zip.file(fileName,content,{})});return this}},{key:"setData",value:function setData(data){this.data=data;return this}},{key:"getZip",value:function getZip(){return this.zip}},{key:"createTemplateClass",value:function createTemplateClass(path){var usedData=this.zip.files[path].asText();return this.createTemplateClassFromContent(usedData,path)}},{key:"createTemplateClassFromContent",value:function createTemplateClassFromContent(content,filePath){var _this3=this;var xmltOptions={filePath:filePath};Object.keys(DocUtils.defaults).forEach(function(key){xmltOptions[key]=_this3[key]});xmltOptions.fileTypeConfig=this.fileTypeConfig;xmltOptions.modules=this.modules;return new Docxtemplater.XmlTemplater(content,xmltOptions)}},{key:"getFullText",value:function getFullText(path){return this.createTemplateClass(path||this.fileTypeConfig.textPath).getFullText()}},{key:"getTemplatedFiles",value:function getTemplatedFiles(){this.compile();return this.templatedFiles}}]);return Docxtemplater}();Docxtemplater.DocUtils=require("./doc-utils");Docxtemplater.Errors=require("./errors");Docxtemplater.XmlTemplater=require("./xml-templater");Docxtemplater.FileTypeConfig=require("./file-type-config");Docxtemplater.XmlMatcher=require("./xml-matcher");module.exports=Docxtemplater},{"./doc-utils":4,"./errors":6,"./file-type-config":7,"./xml-matcher":21,"./xml-templater":22}],6:[function(require,module,exports){"use strict";function XTError(message){this.name="GenericError";this.message=message;this.stack=new Error(message).stack}XTError.prototype=Error.prototype;function XTTemplateError(message){this.name="TemplateError";this.message=message;this.stack=new Error(message).stack}XTTemplateError.prototype=new XTError;function XTScopeParserError(message){this.name="ScopeParserError";this.message=message;this.stack=new Error(message).stack}XTScopeParserError.prototype=new XTError;function XTInternalError(message){this.name="InternalError";this.properties={explanation:"InternalError"};this.message=message;this.stack=new Error(message).stack}XTInternalError.prototype=new XTError;module.exports={XTError:XTError,XTTemplateError:XTTemplateError,XTInternalError:XTInternalError,XTScopeParserError:XTScopeParserError}},{}],7:[function(require,module,exports){"use strict";var loopModule=require("./modules/loop");var spacePreserveModule=require("./modules/space-preserve");var rawXmlModule=require("./modules/rawxml");var expandPairTrait=require("./modules/expand-pair-trait");var render=require("./modules/render");var PptXFileTypeConfig={getTemplatedFiles:function getTemplatedFiles(zip){var slideTemplates=zip.file(/ppt\/(slides|slideMasters)\/(slide|slideMaster)\d+\.xml/).map(function(file){return file.name});return slideTemplates.concat(["ppt/presentation.xml"])},textPath:"ppt/slides/slide1.xml",tagsXmlTextArray:["a:t","m:t"],tagsXmlLexedArray:["p:sp","a:tc","a:tr","a:table","a:p","a:r"],tagRawXml:"p:sp",tagTextXml:"a:t",baseModules:[render,expandPairTrait,rawXmlModule,loopModule]};var DocXFileTypeConfig={getTemplatedFiles:function getTemplatedFiles(zip){var slideTemplates=zip.file(/word\/(header|footer)\d+\.xml/).map(function(file){return file.name});return slideTemplates.concat(["word/document.xml"])},textPath:"word/document.xml",tagsXmlTextArray:["w:t","m:t"],tagsXmlLexedArray:["w:tc","w:tr","w:table","w:p","w:r"],tagRawXml:"w:p",tagTextXml:"w:t",baseModules:[render,spacePreserveModule,expandPairTrait,rawXmlModule,loopModule]};module.exports={docx:DocXFileTypeConfig,pptx:PptXFileTypeConfig}},{"./modules/expand-pair-trait":12,"./modules/loop":13,"./modules/rawxml":14,"./modules/render":15,"./modules/space-preserve":16}],8:[function(require,module,exports){"use strict";var Errors=require("./errors");var DocUtils=require("./doc-utils");function inRange(range,match){return range[0]<=match.offset&&match.offset<range[1]}function updateInTextTag(part,inTextTag){if(part.type==="tag"&&part.position==="start"&&part.text){if(inTextTag){throw new Error("Malformed xml : Already in text tag")}return true}if(part.type==="tag"&&part.position==="end"&&part.text){if(!inTextTag){throw new Error("Malformed xml : Already not in text tag")}return false}return inTextTag}function offsetSort(a,b){return a.offset-b.offset}function getTag(tag){var start=1;if(tag[1]==="/"){start=2}var index=tag.indexOf(" ");var end=index===-1?tag.length-1:index;return{tag:tag.slice(start,end),position:start===1?"start":"end"}}function tagMatcher(content,textMatchArray,othersMatchArray){var cursor=0;var contentLength=content.length;var allMatches=DocUtils.concatArrays([textMatchArray.map(function(tag){return{tag:tag,text:true}}),othersMatchArray.map(function(tag){return{tag:tag,text:false}})]).reduce(function(allMatches,t){allMatches[t.tag]=t.text;return allMatches},{});var totalMatches=[];while(cursor<contentLength){cursor=content.indexOf("<",cursor);if(cursor===-1){break}var offset=cursor;cursor=content.indexOf(">",cursor);var tagText=content.slice(offset,cursor+1);var _getTag=getTag(tagText),tag=_getTag.tag,position=_getTag.position;var text=allMatches[tag];if(text==null){continue}totalMatches.push({type:"tag",position:position,text:text,offset:offset,value:tagText})}return totalMatches}function throwUnopenedTagException(options){var err=new Errors.XTTemplateError("Unopened tag");err.properties={xtag:options.xtag.split(" ")[0],id:"unopened_tag",context:options.xtag,explanation:"The tag beginning with '"+options.xtag.substr(0,10)+"' is unclosed"};throw err}function throwUnclosedTagException(options){var err=new Errors.XTTemplateError("Unclosed tag");err.properties={xtag:options.xtag.split(" ")[0].substr(1),id:"unclosed_tag",context:options.xtag,explanation:"The tag beginning with '"+options.xtag.substr(0,10)+"' is unclosed"};throw err}function assertDelimiterOrdered(delimiterMatches,fullText){var inDelimiter=false;var lastDelimiterMatch={offset:0};var xtag=void 0;delimiterMatches.forEach(function(delimiterMatch){xtag=fullText.substr(lastDelimiterMatch.offset,delimiterMatch.offset-lastDelimiterMatch.offset);if(delimiterMatch.position==="start"&&inDelimiter||delimiterMatch.position==="end"&&!inDelimiter){if(delimiterMatch.position==="start"){throwUnclosedTagException({xtag:xtag})}else{throwUnopenedTagException({xtag:xtag})}}inDelimiter=!inDelimiter;lastDelimiterMatch=delimiterMatch});var delimiterMatch={offset:fullText.length};xtag=fullText.substr(lastDelimiterMatch.offset,delimiterMatch.offset-lastDelimiterMatch.offset);if(inDelimiter){throwUnclosedTagException({xtag:xtag})}}function getAllIndexes(arr,val,position){var indexes=[];var offset=-1;do{offset=arr.indexOf(val,offset+1);if(offset!==-1){indexes.push({offset:offset,position:position})}}while(offset!==-1);return indexes}function Reader(innerContentParts){var _this=this;this.innerContentParts=innerContentParts;this.full="";this.parseDelimiters=function(delimiters){_this.full=_this.innerContentParts.join("");var offset=0;_this.ranges=_this.innerContentParts.map(function(part){offset+=part.length;return offset-part.length});var delimiterMatches=DocUtils.concatArrays([getAllIndexes(_this.full,delimiters.start,"start"),getAllIndexes(_this.full,delimiters.end,"end")]).sort(offsetSort);assertDelimiterOrdered(delimiterMatches,_this.full);var delimiterLength={start:delimiters.start.length,end:delimiters.end.length};var cutNext=0;var delimiterIndex=0;_this.parsed=_this.ranges.map(function(offset,i){var range=[offset,offset+this.innerContentParts[i].length];var partContent=this.innerContentParts[i];var delimitersInOffset=[];while(delimiterIndex<delimiterMatches.length&&inRange(range,delimiterMatches[delimiterIndex])){delimitersInOffset.push(delimiterMatches[delimiterIndex]);delimiterIndex++}var parts=[];var cursor=0;if(cutNext>0){cursor=cutNext;cutNext=0}delimitersInOffset.forEach(function(delimiterInOffset){var value=partContent.substr(cursor,delimiterInOffset.offset-offset-cursor);if(value.length>0){parts.push({type:"content",value:value})}parts.push({type:"delimiter",position:delimiterInOffset.position});cursor=delimiterInOffset.offset-offset+delimiterLength[delimiterInOffset.position]});cutNext=cursor-partContent.length;var value=partContent.substr(cursor);if(value.length>0){parts.push({type:"content",value:value})}return parts},_this)}}module.exports={parse:function parse(xmlparsed,delimiters){var inTextTag=false;var innerContentParts=[];xmlparsed.forEach(function(part){inTextTag=updateInTextTag(part,inTextTag);if(inTextTag&&part.type==="content"){innerContentParts.push(part.value)}});var reader=new Reader(innerContentParts);reader.parseDelimiters(delimiters);var newArray=[];var index=0;xmlparsed.forEach(function(part){inTextTag=updateInTextTag(part,inTextTag);if(part.type==="content"){part.position=inTextTag?"insidetag":"outsidetag"}if(inTextTag&&part.type==="content"){Array.prototype.push.apply(newArray,reader.parsed[index].map(function(p){if(p.type==="content"){p.position="insidetag"}return p}));index++}else{newArray.push(part)}});return newArray},xmlparse:function xmlparse(content,xmltags){var matches=tagMatcher(content,xmltags.text,xmltags.other);var cursor=0;var parsed=matches.reduce(function(parsed,match){var value=content.substr(cursor,match.offset-cursor);if(value.length>0){parsed.push({type:"content",value:value})}cursor=match.offset+match.value.length;delete match.offset;if(match.value.length>0){parsed.push(match)}return parsed},[]);var value=content.substr(cursor);if(value.length>0){parsed.push({type:"content",value:value})}return parsed}}},{"./doc-utils":4,"./errors":6}],9:[function(require,module,exports){"use strict";function memoize(func){var stringifyJson=JSON.stringify,cache={};function cachedfun(){var hash=stringifyJson(arguments);return hash in cache?cache[hash]:cache[hash]=func.apply(this,arguments)}return cachedfun}module.exports=memoize},{}],10:[function(require,module,exports){"use strict";function getMinFromArrays(arrays,state){var minIndex=-1;for(var i=0,l=arrays.length;i<l;i++){if(state[i]>=arrays[i].length){continue}if(minIndex===-1||arrays[i][state[i]].offset<arrays[minIndex][state[minIndex]].offset){minIndex=i}}if(minIndex===-1){throw new Error("minIndex negative")}return minIndex}module.exports=function(arrays){var totalLength=arrays.reduce(function(sum,array){return sum+array.length},0);arrays=arrays.filter(function(array){return array.length>0});var resultArray=new Array(totalLength);var state=arrays.map(function(){return 0});var i=0;while(i<=totalLength-1){var arrayIndex=getMinFromArrays(arrays,state);resultArray[i]=arrays[arrayIndex][state[arrayIndex]];state[arrayIndex]++;i++}return resultArray}},{}],11:[function(require,module,exports){"use strict";function emptyFun(){}function identity(i){return i}module.exports=function(module){var defaults={set:emptyFun,parse:emptyFun,render:emptyFun,getTraits:emptyFun,optionsTransformer:identity,getRenderedMap:identity,postparse:identity};if(Object.keys(defaults).every(function(key){return!module[key]})){throw new Error("This module cannot be wrapped, because it doesn't define any of the necessary functions")}Object.keys(defaults).forEach(function(key){module[key]=module[key]||defaults[key]});return module}},{}],12:[function(require,module,exports){"use strict";var traitName="expandPair";var mergeSort=require("../mergesort");var DocUtils=require("../doc-utils");var wrapper=require("../module-wrapper");var _require=require("../traits"),getExpandToDefault=_require.getExpandToDefault;var Errors=require("../errors");function throwUnmatchedLoopException(options){var location=options.location;var t=location==="start"?"unclosed":"unopened";var T=location==="start"?"Unclosed":"Unopened";var err=new Errors.XTTemplateError(T+" loop");var tag=options.part.value;err.properties={id:t+"_loop",explanation:"The loop with tag "+tag+" is "+t,xtag:tag};throw err}function throwClosingTagNotMatchOpeningTag(options){var tags=options.tags;var err=new Errors.XTTemplateError("Closing tag does not match opening tag");err.properties={id:"closing_tag_does_not_match_opening_tag",explanation:'The tag "'+tags[0].value+'" is closed by the tag "'+tags[1].value+'"',openingtag:tags[0].value,closingtag:tags[1].value};throw err}function getOpenCountChange(part){switch(part.location){case"start":return 1;case"end":return-1;default:throw new Error("Location should be one of 'start' or 'end' (given : "+part.location+")")}}function getPairs(traits){if(traits.length===0){return[]}var countOpen=1;var firstTrait=traits[0];for(var i=1;i<traits.length;i++){var currentTrait=traits[i];countOpen+=getOpenCountChange(currentTrait.part);if(countOpen===0){if(currentTrait.part.value!==firstTrait.part.value&&currentTrait.part.value!==""){throwClosingTagNotMatchOpeningTag({tags:[firstTrait.part,currentTrait.part]})}var outer=getPairs(traits.slice(i+1));
+(function(f){if(true){module.exports=f()}else // removed by dead control flow
+{ var g; }})(function(){var define,module,exports;return function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=undefined;if(!u&&a)return require(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=undefined;for(var o=0;o<r.length;o++)s(r[o]);return s}({1:[function(require,module,exports){"use strict";var DocUtils=require("docxtemplater").DocUtils;DocUtils.convertPixelsToEmus=function(pixel){return Math.round(pixel*9525)};module.exports=DocUtils},{docxtemplater:5}],2:[function(require,module,exports){"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function")}}var DocUtils=require("./docUtils");var extensionRegex=/[^.]+\.([^.]+)/;var rels={getPrefix:function getPrefix(fileType){return fileType==="docx"?"word":"ppt"},getFileTypeName:function getFileTypeName(fileType){return fileType==="docx"?"document":"presentation"},getRelsFileName:function getRelsFileName(fileName){return fileName.replace(/^.*?([a-zA-Z0-9]+)\.xml$/,"$1")+".xml.rels"},getRelsFilePath:function getRelsFilePath(fileName,fileType){var relsFileName=rels.getRelsFileName(fileName);var prefix=fileType==="pptx"?"ppt/slides":"word";return prefix+"/_rels/"+relsFileName}};module.exports=function(){function ImgManager(zip,fileName,xmlDocuments,fileType){_classCallCheck(this,ImgManager);this.fileName=fileName;this.prefix=rels.getPrefix(fileType);this.zip=zip;this.xmlDocuments=xmlDocuments;this.fileTypeName=rels.getFileTypeName(fileType);this.mediaPrefix=fileType==="pptx"?"../media":"media";var relsFilePath=rels.getRelsFilePath(fileName,fileType);this.relsDoc=xmlDocuments[relsFilePath]||this.createEmptyRelsDoc(xmlDocuments,relsFilePath)}_createClass(ImgManager,[{key:"createEmptyRelsDoc",value:function createEmptyRelsDoc(xmlDocuments,relsFileName){var mainRels=this.prefix+"/_rels/"+this.fileTypeName+".xml.rels";var doc=xmlDocuments[mainRels];if(!doc){var err=new Error("Could not copy from empty relsdoc");err.properties={mainRels:mainRels,relsFileName:relsFileName,files:Object.keys(this.zip.files)};throw err}var relsDoc=DocUtils.str2xml(DocUtils.xml2str(doc));var relationships=relsDoc.getElementsByTagName("Relationships")[0];var relationshipChilds=relationships.getElementsByTagName("Relationship");for(var i=0,l=relationshipChilds.length;i<l;i++){relationships.removeChild(relationshipChilds[i])}xmlDocuments[relsFileName]=relsDoc;return relsDoc}},{key:"loadImageRels",value:function loadImageRels(){var iterable=this.relsDoc.getElementsByTagName("Relationship");return Array.prototype.reduce.call(iterable,function(max,relationship){var id=relationship.getAttribute("Id");if(/^rId[0-9]+$/.test(id)){return Math.max(max,parseInt(id.substr(3),10))}return max},0)}},{key:"addExtensionRels",value:function addExtensionRels(contentType,extension){var contentTypeDoc=this.xmlDocuments["[Content_Types].xml"];var defaultTags=contentTypeDoc.getElementsByTagName("Default");var extensionRegistered=Array.prototype.some.call(defaultTags,function(tag){return tag.getAttribute("Extension")===extension});if(extensionRegistered){return}var types=contentTypeDoc.getElementsByTagName("Types")[0];var newTag=contentTypeDoc.createElement("Default");newTag.namespaceURI=null;newTag.setAttribute("ContentType",contentType);newTag.setAttribute("Extension",extension);types.appendChild(newTag)}},{key:"addImageRels",value:function addImageRels(imageName,imageData,i){if(i==null){i=0}var realImageName=i===0?imageName:imageName+("("+i+")");var imagePath=this.prefix+"/media/"+realImageName;if(this.zip.files[imagePath]!=null){return this.addImageRels(imageName,imageData,i+1)}var image={name:imagePath,data:imageData,options:{binary:true}};this.zip.file(image.name,image.data,image.options);var extension=realImageName.replace(extensionRegex,"$1");this.addExtensionRels("image/"+extension,extension);var relationships=this.relsDoc.getElementsByTagName("Relationships")[0];var newTag=this.relsDoc.createElement("Relationship");newTag.namespaceURI=null;var maxRid=this.loadImageRels()+1;newTag.setAttribute("Id","rId"+maxRid);newTag.setAttribute("Type","http://schemas.openxmlformats.org/officeDocument/2006/relationships/image");newTag.setAttribute("Target",this.mediaPrefix+"/"+realImageName);relationships.appendChild(newTag);return maxRid}}]);return ImgManager}()},{"./docUtils":1}],3:[function(require,module,exports){"use strict";module.exports={getImageXml:function getImageXml(rId,size){return('<w:drawing>\n\t\t<wp:inline distT="0" distB="0" distL="0" distR="0">\n\t\t\t<wp:extent cx="'+size[0]+'" cy="'+size[1]+'"/>\n\t\t\t<wp:effectExtent l="0" t="0" r="0" b="0"/>\n\t\t\t<wp:docPr id="2" name="Image 2" descr="image"/>\n\t\t\t<wp:cNvGraphicFramePr>\n\t\t\t\t<a:graphicFrameLocks xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" noChangeAspect="1"/>\n\t\t\t</wp:cNvGraphicFramePr>\n\t\t\t<a:graphic xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main">\n\t\t\t\t<a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture">\n\t\t\t\t\t<pic:pic xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture">\n\t\t\t\t\t\t<pic:nvPicPr>\n\t\t\t\t\t\t\t<pic:cNvPr id="0" name="Picture 1" descr="image"/>\n\t\t\t\t\t\t\t<pic:cNvPicPr>\n\t\t\t\t\t\t\t\t<a:picLocks noChangeAspect="1" noChangeArrowheads="1"/>\n\t\t\t\t\t\t\t</pic:cNvPicPr>\n\t\t\t\t\t\t</pic:nvPicPr>\n\t\t\t\t\t\t<pic:blipFill>\n\t\t\t\t\t\t\t<a:blip r:embed="rId'+rId+'">\n\t\t\t\t\t\t\t\t<a:extLst>\n\t\t\t\t\t\t\t\t\t<a:ext uri="{28A0092B-C50C-407E-A947-70E740481C1C}">\n\t\t\t\t\t\t\t\t\t\t<a14:useLocalDpi xmlns:a14="http://schemas.microsoft.com/office/drawing/2010/main" val="0"/>\n\t\t\t\t\t\t\t\t\t</a:ext>\n\t\t\t\t\t\t\t\t</a:extLst>\n\t\t\t\t\t\t\t</a:blip>\n\t\t\t\t\t\t\t<a:srcRect/>\n\t\t\t\t\t\t\t<a:stretch>\n\t\t\t\t\t\t\t\t<a:fillRect/>\n\t\t\t\t\t\t\t</a:stretch>\n\t\t\t\t\t\t</pic:blipFill>\n\t\t\t\t\t\t<pic:spPr bwMode="auto">\n\t\t\t\t\t\t\t<a:xfrm>\n\t\t\t\t\t\t\t\t<a:off x="0" y="0"/>\n\t\t\t\t\t\t\t\t<a:ext cx="'+size[0]+'" cy="'+size[1]+'"/>\n\t\t\t\t\t\t\t</a:xfrm>\n\t\t\t\t\t\t\t<a:prstGeom prst="rect">\n\t\t\t\t\t\t\t\t<a:avLst/>\n\t\t\t\t\t\t\t</a:prstGeom>\n\t\t\t\t\t\t\t<a:noFill/>\n\t\t\t\t\t\t\t<a:ln>\n\t\t\t\t\t\t\t\t<a:noFill/>\n\t\t\t\t\t\t\t</a:ln>\n\t\t\t\t\t\t</pic:spPr>\n\t\t\t\t\t</pic:pic>\n\t\t\t\t</a:graphicData>\n\t\t\t</a:graphic>\n\t\t</wp:inline>\n\t</w:drawing>\n\t\t').replace(/\t|\n/g,"")},getImageXmlCentered:function getImageXmlCentered(rId,size){return('<w:p>\n\t\t\t<w:pPr>\n\t\t\t\t<w:jc w:val="center"/>\n\t\t\t</w:pPr>\n\t\t\t<w:r>\n\t\t\t\t<w:rPr/>\n\t\t\t\t<w:drawing>\n\t\t\t\t\t<wp:inline distT="0" distB="0" distL="0" distR="0">\n\t\t\t\t\t<wp:extent cx="'+size[0]+'" cy="'+size[1]+'"/>\n\t\t\t\t\t<wp:docPr id="0" name="Picture" descr=""/>\n\t\t\t\t\t<a:graphic xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main">\n\t\t\t\t\t\t<a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture">\n\t\t\t\t\t\t<pic:pic xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture">\n\t\t\t\t\t\t\t<pic:nvPicPr>\n\t\t\t\t\t\t\t<pic:cNvPr id="0" name="Picture" descr=""/>\n\t\t\t\t\t\t\t<pic:cNvPicPr>\n\t\t\t\t\t\t\t\t<a:picLocks noChangeAspect="1" noChangeArrowheads="1"/>\n\t\t\t\t\t\t\t</pic:cNvPicPr>\n\t\t\t\t\t\t\t</pic:nvPicPr>\n\t\t\t\t\t\t\t<pic:blipFill>\n\t\t\t\t\t\t\t<a:blip r:embed="rId'+rId+'"/>\n\t\t\t\t\t\t\t<a:stretch>\n\t\t\t\t\t\t\t\t<a:fillRect/>\n\t\t\t\t\t\t\t</a:stretch>\n\t\t\t\t\t\t\t</pic:blipFill>\n\t\t\t\t\t\t\t<pic:spPr bwMode="auto">\n\t\t\t\t\t\t\t<a:xfrm>\n\t\t\t\t\t\t\t\t<a:off x="0" y="0"/>\n\t\t\t\t\t\t\t\t<a:ext cx="'+size[0]+'" cy="'+size[1]+'"/>\n\t\t\t\t\t\t\t</a:xfrm>\n\t\t\t\t\t\t\t<a:prstGeom prst="rect">\n\t\t\t\t\t\t\t\t<a:avLst/>\n\t\t\t\t\t\t\t</a:prstGeom>\n\t\t\t\t\t\t\t<a:noFill/>\n\t\t\t\t\t\t\t<a:ln w="9525">\n\t\t\t\t\t\t\t\t<a:noFill/>\n\t\t\t\t\t\t\t\t<a:miter lim="800000"/>\n\t\t\t\t\t\t\t\t<a:headEnd/>\n\t\t\t\t\t\t\t\t<a:tailEnd/>\n\t\t\t\t\t\t\t</a:ln>\n\t\t\t\t\t\t\t</pic:spPr>\n\t\t\t\t\t\t</pic:pic>\n\t\t\t\t\t\t</a:graphicData>\n\t\t\t\t\t</a:graphic>\n\t\t\t\t\t</wp:inline>\n\t\t\t\t</w:drawing>\n\t\t\t</w:r>\n\t\t</w:p>\n\t\t').replace(/\t|\n/g,"")},getPptxImageXml:function getPptxImageXml(rId,size,offset){return('<p:pic>\n\t\t\t<p:nvPicPr>\n\t\t\t\t<p:cNvPr id="6" name="Picture 2"/>\n\t\t\t\t<p:cNvPicPr>\n\t\t\t\t\t<a:picLocks noChangeAspect="1" noChangeArrowheads="1"/>\n\t\t\t\t</p:cNvPicPr>\n\t\t\t\t<p:nvPr/>\n\t\t\t</p:nvPicPr>\n\t\t\t<p:blipFill>\n\t\t\t\t<a:blip r:embed="rId'+rId+'" cstate="print">\n\t\t\t\t\t<a:extLst>\n\t\t\t\t\t\t<a:ext uri="{28A0092B-C50C-407E-A947-70E740481C1C}">\n\t\t\t\t\t\t\t<a14:useLocalDpi xmlns:a14="http://schemas.microsoft.com/office/drawing/2010/main" val="0"/>\n\t\t\t\t\t\t</a:ext>\n\t\t\t\t\t</a:extLst>\n\t\t\t\t</a:blip>\n\t\t\t\t<a:srcRect/>\n\t\t\t\t<a:stretch>\n\t\t\t\t\t<a:fillRect/>\n\t\t\t\t</a:stretch>\n\t\t\t</p:blipFill>\n\t\t\t<p:spPr bwMode="auto">\n\t\t\t\t<a:xfrm>\n\t\t\t\t\t<a:off x="'+offset.x+'" y="'+offset.y+'"/>\n\t\t\t\t\t<a:ext cx="'+size[0]+'" cy="'+size[1]+'"/>\n\t\t\t\t</a:xfrm>\n\t\t\t\t<a:prstGeom prst="rect">\n\t\t\t\t\t<a:avLst/>\n\t\t\t\t</a:prstGeom>\n\t\t\t\t<a:noFill/>\n\t\t\t\t<a:ln>\n\t\t\t\t\t<a:noFill/>\n\t\t\t\t</a:ln>\n\t\t\t\t<a:effectLst/>\n\t\t\t\t<a:extLst>\n\t\t\t\t\t<a:ext uri="{909E8E84-426E-40DD-AFC4-6F175D3DCCD1}">\n\t\t\t\t\t\t<a14:hiddenFill xmlns:a14="http://schemas.microsoft.com/office/drawing/2010/main">\n\t\t\t\t\t\t\t<a:solidFill>\n\t\t\t\t\t\t\t\t<a:schemeClr val="accent1"/>\n\t\t\t\t\t\t\t</a:solidFill>\n\t\t\t\t\t\t</a14:hiddenFill>\n\t\t\t\t\t</a:ext>\n\t\t\t\t\t<a:ext uri="{91240B29-F687-4F45-9708-019B960494DF}">\n\t\t\t\t\t\t<a14:hiddenLine xmlns:a14="http://schemas.microsoft.com/office/drawing/2010/main" w="9525">\n\t\t\t\t\t\t\t<a:solidFill>\n\t\t\t\t\t\t\t\t<a:schemeClr val="tx1"/>\n\t\t\t\t\t\t\t</a:solidFill>\n\t\t\t\t\t\t\t<a:miter lim="800000"/>\n\t\t\t\t\t\t\t<a:headEnd/>\n\t\t\t\t\t\t\t<a:tailEnd/>\n\t\t\t\t\t\t</a14:hiddenLine>\n\t\t\t\t\t</a:ext>\n\t\t\t\t\t<a:ext uri="{AF507438-7753-43E0-B8FC-AC1667EBCBE1}">\n\t\t\t\t\t\t<a14:hiddenEffects xmlns:a14="http://schemas.microsoft.com/office/drawing/2010/main">\n\t\t\t\t\t\t\t<a:effectLst>\n\t\t\t\t\t\t\t\t<a:outerShdw dist="35921" dir="2700000" algn="ctr" rotWithShape="0">\n\t\t\t\t\t\t\t\t\t<a:schemeClr val="bg2"/>\n\t\t\t\t\t\t\t\t</a:outerShdw>\n\t\t\t\t\t\t\t</a:effectLst>\n\t\t\t\t\t\t</a14:hiddenEffects>\n\t\t\t\t\t</a:ext>\n\t\t\t\t</a:extLst>\n\t\t\t</p:spPr>\n\t\t</p:pic>\n\t\t').replace(/\t|\n/g,"")}}},{}],4:[function(require,module,exports){"use strict";function _defineProperty(obj,key,value){if(key in obj){Object.defineProperty(obj,key,{value:value,enumerable:true,configurable:true,writable:true})}else{obj[key]=value}return obj}var memoize=require("./memoize");var DOMParser=require("xmldom").DOMParser;var XMLSerializer=require("xmldom").XMLSerializer;var Errors=require("./errors");var DocUtils={};function parser(tag){return _defineProperty({},"get",function get(scope){if(tag==="."){return scope}return scope[tag]})}DocUtils.defaults={nullGetter:function nullGetter(part){if(!part.module){return"undefined"}if(part.module==="rawxml"){return""}return""},parser:memoize(parser),fileType:"docx",delimiters:{start:"{",end:"}"}};DocUtils.mergeObjects=function(){var resObj={};var obj=void 0,keys=void 0;for(var i=0;i<arguments.length;i+=1){obj=arguments[i];keys=Object.keys(obj);for(var j=0;j<keys.length;j+=1){resObj[keys[j]]=obj[keys[j]]}}return resObj};DocUtils.xml2str=function(xmlNode){var a=new XMLSerializer;return a.serializeToString(xmlNode)};DocUtils.decodeUtf8=function(s){try{if(s===undefined){return undefined}return decodeURIComponent(escape(DocUtils.convertSpaces(s)))}catch(e){var err=new Error("End");err.properties.data=s;err.properties.explanation="Could not decode string to UTF8";throw err}};DocUtils.encodeUtf8=function(s){return unescape(encodeURIComponent(s))};DocUtils.str2xml=function(str,errorHandler){var parser=new DOMParser({errorHandler:errorHandler});return parser.parseFromString(str,"text/xml")};DocUtils.charMap={"&":"&amp;","'":"&apos;","<":"&lt;",">":"&gt;"};var regexStripRegexp=/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g;DocUtils.escapeRegExp=function(str){return str.replace(regexStripRegexp,"\\$&")};DocUtils.charMapRegexes=Object.keys(DocUtils.charMap).map(function(endChar){var startChar=DocUtils.charMap[endChar];return{rstart:new RegExp(DocUtils.escapeRegExp(startChar),"g"),rend:new RegExp(DocUtils.escapeRegExp(endChar),"g"),start:startChar,end:endChar}});DocUtils.wordToUtf8=function(string){var r=void 0;for(var i=0,l=DocUtils.charMapRegexes.length;i<l;i++){r=DocUtils.charMapRegexes[i];string=string.replace(r.rstart,r.end)}return string};DocUtils.utf8ToWord=function(string){if(typeof string!=="string"){string=string.toString()}var r=void 0;for(var i=0,l=DocUtils.charMapRegexes.length;i<l;i++){r=DocUtils.charMapRegexes[i];string=string.replace(r.rend,r.start)}return string};DocUtils.cloneDeep=function(obj){return JSON.parse(JSON.stringify(obj))};DocUtils.concatArrays=function(arrays){return arrays.reduce(function(result,array){Array.prototype.push.apply(result,array);return result},[])};var spaceRegexp=new RegExp(String.fromCharCode(160),"g");DocUtils.convertSpaces=function(s){return s.replace(spaceRegexp," ")};DocUtils.pregMatchAll=function(regex,content){var matchArray=[];var match=void 0;while((match=regex.exec(content))!=null){matchArray.push({array:match,offset:match.index})}return matchArray};DocUtils.sizeOfObject=function(obj){return Object.keys(obj).length};function throwXmlTagNotFound(options){var err=new Errors.XTTemplateError("No tag '"+options.element+"' was found at the "+options.position);err.properties={id:"no_xml_tag_found_at_"+options.position,explanation:"No tag '"+options.element+"' was found at the "+options.position,parsed:options.parsed,index:options.index,element:options.element};throw err}DocUtils.getRight=function(parsed,element,index){for(var i=index,l=parsed.length;i<l;i++){var part=parsed[i];if(part.value==="</"+element+">"){return i}}throwXmlTagNotFound({position:"right",element:element,parsed:parsed,index:index})};DocUtils.getLeft=function(parsed,element,index){var parts=parsed.slice(0,index);for(var i=parts.length-1;i>=0;i--){var part=parts[i];if(part.value.indexOf("<"+element)===0&&[">"," "].indexOf(part.value[element.length+1])!==-1){return i}}throwXmlTagNotFound({position:"left",element:element,parsed:parsed,index:index})};module.exports=DocUtils;DocUtils.traits=require("./traits");DocUtils.moduleWrapper=require("./module-wrapper")},{"./errors":6,"./memoize":9,"./module-wrapper":11,"./traits":20,xmldom:23}],5:[function(require,module,exports){"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function")}}var DocUtils=require("./doc-utils");var wrapper=DocUtils.moduleWrapper;var Docxtemplater=function(){function Docxtemplater(){_classCallCheck(this,Docxtemplater);if(arguments.length>0){throw new Error("The constructor with parameters have been removed in docxtemplater 3.0, please check the upgrade guide.")}this.compiled={};this.modules=[];this.setOptions({})}_createClass(Docxtemplater,[{key:"attachModule",value:function attachModule(module){this.modules.push(wrapper(module));return this}},{key:"setOptions",value:function setOptions(options){var _this=this;this.options=options;Object.keys(DocUtils.defaults).forEach(function(key){var defaultValue=DocUtils.defaults[key];_this[key]=_this.options[key]!=null?_this.options[key]:defaultValue});if(this.fileType==="docx"||this.fileType==="pptx"){this.fileTypeConfig=Docxtemplater.FileTypeConfig[this.fileType]}this.fileTypeConfig=this.options.fileTypeConfig||this.fileTypeConfig;this.options.xmlFileNames=[];return this}},{key:"loadZip",value:function loadZip(zip){if(zip.loadAsync){throw new Error("Docxtemplater doesn't handle JSZip version >=3, see changelog")}this.zip=zip;return this}},{key:"compileFile",value:function compileFile(fileName){var currentFile=this.createTemplateClass(fileName);currentFile.parse();this.compiled[fileName]=currentFile}},{key:"compile",value:function compile(){this.templatedFiles=this.fileTypeConfig.getTemplatedFiles(this.zip)}},{key:"render",value:function render(){var _this2=this;this.modules=this.fileTypeConfig.baseModules.map(function(moduleFunction){return moduleFunction()}).concat(this.modules);this.options=this.modules.reduce(function(options,module){return module.optionsTransformer(options,_this2)},this.options);this.xmlDocuments=this.options.xmlFileNames.reduce(function(xmlDocuments,fileName){var content=_this2.zip.files[fileName].asText();xmlDocuments[fileName]=DocUtils.str2xml(content);return xmlDocuments},{});this.modules.forEach(function(module){module.set({zip:_this2.zip,xmlDocuments:_this2.xmlDocuments,data:_this2.data})});this.compile();this.modules.forEach(function(module){module.set({compiled:_this2.compiled})});this.templatedFiles.forEach(function(fileName){if(_this2.zip.files[fileName]!=null){_this2.compileFile(fileName)}});this.mapper=this.modules.reduce(function(value,module){return module.getRenderedMap(value)},{});Object.keys(this.mapper).forEach(function(to){var mapped=_this2.mapper[to];var from=mapped.from;var currentFile=_this2.compiled[from];currentFile.setTags(mapped.data);currentFile.render();_this2.zip.file(to,currentFile.content)});Object.keys(this.xmlDocuments).forEach(function(fileName){_this2.zip.remove(fileName);var content=DocUtils.encodeUtf8(DocUtils.xml2str(_this2.xmlDocuments[fileName]));return _this2.zip.file(fileName,content,{})});return this}},{key:"setData",value:function setData(data){this.data=data;return this}},{key:"getZip",value:function getZip(){return this.zip}},{key:"createTemplateClass",value:function createTemplateClass(path){var usedData=this.zip.files[path].asText();return this.createTemplateClassFromContent(usedData,path)}},{key:"createTemplateClassFromContent",value:function createTemplateClassFromContent(content,filePath){var _this3=this;var xmltOptions={filePath:filePath};Object.keys(DocUtils.defaults).forEach(function(key){xmltOptions[key]=_this3[key]});xmltOptions.fileTypeConfig=this.fileTypeConfig;xmltOptions.modules=this.modules;return new Docxtemplater.XmlTemplater(content,xmltOptions)}},{key:"getFullText",value:function getFullText(path){return this.createTemplateClass(path||this.fileTypeConfig.textPath).getFullText()}},{key:"getTemplatedFiles",value:function getTemplatedFiles(){this.compile();return this.templatedFiles}}]);return Docxtemplater}();Docxtemplater.DocUtils=require("./doc-utils");Docxtemplater.Errors=require("./errors");Docxtemplater.XmlTemplater=require("./xml-templater");Docxtemplater.FileTypeConfig=require("./file-type-config");Docxtemplater.XmlMatcher=require("./xml-matcher");module.exports=Docxtemplater},{"./doc-utils":4,"./errors":6,"./file-type-config":7,"./xml-matcher":21,"./xml-templater":22}],6:[function(require,module,exports){"use strict";function XTError(message){this.name="GenericError";this.message=message;this.stack=new Error(message).stack}XTError.prototype=Error.prototype;function XTTemplateError(message){this.name="TemplateError";this.message=message;this.stack=new Error(message).stack}XTTemplateError.prototype=new XTError;function XTScopeParserError(message){this.name="ScopeParserError";this.message=message;this.stack=new Error(message).stack}XTScopeParserError.prototype=new XTError;function XTInternalError(message){this.name="InternalError";this.properties={explanation:"InternalError"};this.message=message;this.stack=new Error(message).stack}XTInternalError.prototype=new XTError;module.exports={XTError:XTError,XTTemplateError:XTTemplateError,XTInternalError:XTInternalError,XTScopeParserError:XTScopeParserError}},{}],7:[function(require,module,exports){"use strict";var loopModule=require("./modules/loop");var spacePreserveModule=require("./modules/space-preserve");var rawXmlModule=require("./modules/rawxml");var expandPairTrait=require("./modules/expand-pair-trait");var render=require("./modules/render");var PptXFileTypeConfig={getTemplatedFiles:function getTemplatedFiles(zip){var slideTemplates=zip.file(/ppt\/(slides|slideMasters)\/(slide|slideMaster)\d+\.xml/).map(function(file){return file.name});return slideTemplates.concat(["ppt/presentation.xml"])},textPath:"ppt/slides/slide1.xml",tagsXmlTextArray:["a:t","m:t"],tagsXmlLexedArray:["p:sp","a:tc","a:tr","a:table","a:p","a:r"],tagRawXml:"p:sp",tagTextXml:"a:t",baseModules:[render,expandPairTrait,rawXmlModule,loopModule]};var DocXFileTypeConfig={getTemplatedFiles:function getTemplatedFiles(zip){var slideTemplates=zip.file(/word\/(header|footer)\d+\.xml/).map(function(file){return file.name});return slideTemplates.concat(["word/document.xml"])},textPath:"word/document.xml",tagsXmlTextArray:["w:t","m:t"],tagsXmlLexedArray:["w:tc","w:tr","w:table","w:p","w:r"],tagRawXml:"w:p",tagTextXml:"w:t",baseModules:[render,spacePreserveModule,expandPairTrait,rawXmlModule,loopModule]};module.exports={docx:DocXFileTypeConfig,pptx:PptXFileTypeConfig}},{"./modules/expand-pair-trait":12,"./modules/loop":13,"./modules/rawxml":14,"./modules/render":15,"./modules/space-preserve":16}],8:[function(require,module,exports){"use strict";var Errors=require("./errors");var DocUtils=require("./doc-utils");function inRange(range,match){return range[0]<=match.offset&&match.offset<range[1]}function updateInTextTag(part,inTextTag){if(part.type==="tag"&&part.position==="start"&&part.text){if(inTextTag){throw new Error("Malformed xml : Already in text tag")}return true}if(part.type==="tag"&&part.position==="end"&&part.text){if(!inTextTag){throw new Error("Malformed xml : Already not in text tag")}return false}return inTextTag}function offsetSort(a,b){return a.offset-b.offset}function getTag(tag){var start=1;if(tag[1]==="/"){start=2}var index=tag.indexOf(" ");var end=index===-1?tag.length-1:index;return{tag:tag.slice(start,end),position:start===1?"start":"end"}}function tagMatcher(content,textMatchArray,othersMatchArray){var cursor=0;var contentLength=content.length;var allMatches=DocUtils.concatArrays([textMatchArray.map(function(tag){return{tag:tag,text:true}}),othersMatchArray.map(function(tag){return{tag:tag,text:false}})]).reduce(function(allMatches,t){allMatches[t.tag]=t.text;return allMatches},{});var totalMatches=[];while(cursor<contentLength){cursor=content.indexOf("<",cursor);if(cursor===-1){break}var offset=cursor;cursor=content.indexOf(">",cursor);var tagText=content.slice(offset,cursor+1);var _getTag=getTag(tagText),tag=_getTag.tag,position=_getTag.position;var text=allMatches[tag];if(text==null){continue}totalMatches.push({type:"tag",position:position,text:text,offset:offset,value:tagText})}return totalMatches}function throwUnopenedTagException(options){var err=new Errors.XTTemplateError("Unopened tag");err.properties={xtag:options.xtag.split(" ")[0],id:"unopened_tag",context:options.xtag,explanation:"The tag beginning with '"+options.xtag.substr(0,10)+"' is unclosed"};throw err}function throwUnclosedTagException(options){var err=new Errors.XTTemplateError("Unclosed tag");err.properties={xtag:options.xtag.split(" ")[0].substr(1),id:"unclosed_tag",context:options.xtag,explanation:"The tag beginning with '"+options.xtag.substr(0,10)+"' is unclosed"};throw err}function assertDelimiterOrdered(delimiterMatches,fullText){var inDelimiter=false;var lastDelimiterMatch={offset:0};var xtag=void 0;delimiterMatches.forEach(function(delimiterMatch){xtag=fullText.substr(lastDelimiterMatch.offset,delimiterMatch.offset-lastDelimiterMatch.offset);if(delimiterMatch.position==="start"&&inDelimiter||delimiterMatch.position==="end"&&!inDelimiter){if(delimiterMatch.position==="start"){throwUnclosedTagException({xtag:xtag})}else{throwUnopenedTagException({xtag:xtag})}}inDelimiter=!inDelimiter;lastDelimiterMatch=delimiterMatch});var delimiterMatch={offset:fullText.length};xtag=fullText.substr(lastDelimiterMatch.offset,delimiterMatch.offset-lastDelimiterMatch.offset);if(inDelimiter){throwUnclosedTagException({xtag:xtag})}}function getAllIndexes(arr,val,position){var indexes=[];var offset=-1;do{offset=arr.indexOf(val,offset+1);if(offset!==-1){indexes.push({offset:offset,position:position})}}while(offset!==-1);return indexes}function Reader(innerContentParts){var _this=this;this.innerContentParts=innerContentParts;this.full="";this.parseDelimiters=function(delimiters){_this.full=_this.innerContentParts.join("");var offset=0;_this.ranges=_this.innerContentParts.map(function(part){offset+=part.length;return offset-part.length});var delimiterMatches=DocUtils.concatArrays([getAllIndexes(_this.full,delimiters.start,"start"),getAllIndexes(_this.full,delimiters.end,"end")]).sort(offsetSort);assertDelimiterOrdered(delimiterMatches,_this.full);var delimiterLength={start:delimiters.start.length,end:delimiters.end.length};var cutNext=0;var delimiterIndex=0;_this.parsed=_this.ranges.map(function(offset,i){var range=[offset,offset+this.innerContentParts[i].length];var partContent=this.innerContentParts[i];var delimitersInOffset=[];while(delimiterIndex<delimiterMatches.length&&inRange(range,delimiterMatches[delimiterIndex])){delimitersInOffset.push(delimiterMatches[delimiterIndex]);delimiterIndex++}var parts=[];var cursor=0;if(cutNext>0){cursor=cutNext;cutNext=0}delimitersInOffset.forEach(function(delimiterInOffset){var value=partContent.substr(cursor,delimiterInOffset.offset-offset-cursor);if(value.length>0){parts.push({type:"content",value:value})}parts.push({type:"delimiter",position:delimiterInOffset.position});cursor=delimiterInOffset.offset-offset+delimiterLength[delimiterInOffset.position]});cutNext=cursor-partContent.length;var value=partContent.substr(cursor);if(value.length>0){parts.push({type:"content",value:value})}return parts},_this)}}module.exports={parse:function parse(xmlparsed,delimiters){var inTextTag=false;var innerContentParts=[];xmlparsed.forEach(function(part){inTextTag=updateInTextTag(part,inTextTag);if(inTextTag&&part.type==="content"){innerContentParts.push(part.value)}});var reader=new Reader(innerContentParts);reader.parseDelimiters(delimiters);var newArray=[];var index=0;xmlparsed.forEach(function(part){inTextTag=updateInTextTag(part,inTextTag);if(part.type==="content"){part.position=inTextTag?"insidetag":"outsidetag"}if(inTextTag&&part.type==="content"){Array.prototype.push.apply(newArray,reader.parsed[index].map(function(p){if(p.type==="content"){p.position="insidetag"}return p}));index++}else{newArray.push(part)}});return newArray},xmlparse:function xmlparse(content,xmltags){var matches=tagMatcher(content,xmltags.text,xmltags.other);var cursor=0;var parsed=matches.reduce(function(parsed,match){var value=content.substr(cursor,match.offset-cursor);if(value.length>0){parsed.push({type:"content",value:value})}cursor=match.offset+match.value.length;delete match.offset;if(match.value.length>0){parsed.push(match)}return parsed},[]);var value=content.substr(cursor);if(value.length>0){parsed.push({type:"content",value:value})}return parsed}}},{"./doc-utils":4,"./errors":6}],9:[function(require,module,exports){"use strict";function memoize(func){var stringifyJson=JSON.stringify,cache={};function cachedfun(){var hash=stringifyJson(arguments);return hash in cache?cache[hash]:cache[hash]=func.apply(this,arguments)}return cachedfun}module.exports=memoize},{}],10:[function(require,module,exports){"use strict";function getMinFromArrays(arrays,state){var minIndex=-1;for(var i=0,l=arrays.length;i<l;i++){if(state[i]>=arrays[i].length){continue}if(minIndex===-1||arrays[i][state[i]].offset<arrays[minIndex][state[minIndex]].offset){minIndex=i}}if(minIndex===-1){throw new Error("minIndex negative")}return minIndex}module.exports=function(arrays){var totalLength=arrays.reduce(function(sum,array){return sum+array.length},0);arrays=arrays.filter(function(array){return array.length>0});var resultArray=new Array(totalLength);var state=arrays.map(function(){return 0});var i=0;while(i<=totalLength-1){var arrayIndex=getMinFromArrays(arrays,state);resultArray[i]=arrays[arrayIndex][state[arrayIndex]];state[arrayIndex]++;i++}return resultArray}},{}],11:[function(require,module,exports){"use strict";function emptyFun(){}function identity(i){return i}module.exports=function(module){var defaults={set:emptyFun,parse:emptyFun,render:emptyFun,getTraits:emptyFun,optionsTransformer:identity,getRenderedMap:identity,postparse:identity};if(Object.keys(defaults).every(function(key){return!module[key]})){throw new Error("This module cannot be wrapped, because it doesn't define any of the necessary functions")}Object.keys(defaults).forEach(function(key){module[key]=module[key]||defaults[key]});return module}},{}],12:[function(require,module,exports){"use strict";var traitName="expandPair";var mergeSort=require("../mergesort");var DocUtils=require("../doc-utils");var wrapper=require("../module-wrapper");var _require=require("../traits"),getExpandToDefault=_require.getExpandToDefault;var Errors=require("../errors");function throwUnmatchedLoopException(options){var location=options.location;var t=location==="start"?"unclosed":"unopened";var T=location==="start"?"Unclosed":"Unopened";var err=new Errors.XTTemplateError(T+" loop");var tag=options.part.value;err.properties={id:t+"_loop",explanation:"The loop with tag "+tag+" is "+t,xtag:tag};throw err}function throwClosingTagNotMatchOpeningTag(options){var tags=options.tags;var err=new Errors.XTTemplateError("Closing tag does not match opening tag");err.properties={id:"closing_tag_does_not_match_opening_tag",explanation:'The tag "'+tags[0].value+'" is closed by the tag "'+tags[1].value+'"',openingtag:tags[0].value,closingtag:tags[1].value};throw err}function getOpenCountChange(part){switch(part.location){case"start":return 1;case"end":return-1;default:throw new Error("Location should be one of 'start' or 'end' (given : "+part.location+")")}}function getPairs(traits){if(traits.length===0){return[]}var countOpen=1;var firstTrait=traits[0];for(var i=1;i<traits.length;i++){var currentTrait=traits[i];countOpen+=getOpenCountChange(currentTrait.part);if(countOpen===0){if(currentTrait.part.value!==firstTrait.part.value&&currentTrait.part.value!==""){throwClosingTagNotMatchOpeningTag({tags:[firstTrait.part,currentTrait.part]})}var outer=getPairs(traits.slice(i+1));
 return[[firstTrait,currentTrait]].concat(outer)}}var part=firstTrait.part;throwUnmatchedLoopException({part:part,location:part.location})}var expandPairTrait={name:"ExpandPairTrait",postparse:function postparse(parsed,_ref){var getTraits=_ref.getTraits,_postparse=_ref.postparse;var traits=getTraits(traitName,parsed);traits=traits.map(function(trait){return trait||[]});traits=mergeSort(traits);var pairs=getPairs(traits);var expandedPairs=pairs.map(function(pair){var expandTo=pair[0].part.expandTo;if(expandTo==="auto"){expandTo=getExpandToDefault(parsed.slice(pair[0].offset,pair[1].offset))}if(!expandTo){return[pair[0].offset,pair[1].offset]}var left=DocUtils.getLeft(parsed,expandTo,pair[0].offset);var right=DocUtils.getRight(parsed,expandTo,pair[1].offset);return[left,right]});var currentPairIndex=0;var innerParts=void 0;return parsed.reduce(function(newParsed,part,i){var inPair=currentPairIndex<pairs.length&&expandedPairs[currentPairIndex][0]<=i;var pair=pairs[currentPairIndex];var expandedPair=expandedPairs[currentPairIndex];if(!inPair){newParsed.push(part);return newParsed}if(expandedPair[0]===i){innerParts=[]}if(pair[0].offset!==i&&pair[1].offset!==i){innerParts.push(part)}if(expandedPair[1]===i){var basePart=parsed[pair[0].offset];delete basePart.location;delete basePart.expandTo;basePart.subparsed=_postparse(innerParts);newParsed.push(basePart);currentPairIndex++}return newParsed},[])}};module.exports=function(){return wrapper(expandPairTrait)}},{"../doc-utils":4,"../errors":6,"../mergesort":10,"../module-wrapper":11,"../traits":20}],13:[function(require,module,exports){"use strict";var DocUtils=require("../doc-utils");var dashInnerRegex=/^-([^\s]+)\s(.+)$/;var wrapper=require("../module-wrapper");var moduleName="loop";var loopModule={name:"LoopModule",parse:function parse(placeHolderContent){var module=moduleName;var type="placeholder";if(placeHolderContent[0]==="#"){return{type:type,value:placeHolderContent.substr(1),expandTo:"auto",module:module,location:"start",inverted:false}}if(placeHolderContent[0]==="^"){return{type:type,value:placeHolderContent.substr(1),expandTo:"auto",module:module,location:"start",inverted:true}}if(placeHolderContent[0]==="/"){return{type:type,value:placeHolderContent.substr(1),module:module,location:"end"}}if(placeHolderContent[0]==="-"){var value=placeHolderContent.replace(dashInnerRegex,"$2");var expandTo=placeHolderContent.replace(dashInnerRegex,"$1");return{type:type,value:value,expandTo:expandTo,module:module,location:"start",inverted:false}}return null},getTraits:function getTraits(traitName,parsed){if(traitName!=="expandPair"){return}return parsed.reduce(function(tags,part,offset){if(part.type==="placeholder"&&part.module===moduleName){tags.push({part:part,offset:offset})}return tags},[])},render:function render(part,options){if(!part.type==="placeholder"||part.module!==moduleName){return null}var totalValue=[];function loopOver(scope){var scopeManager=options.scopeManager.createSubScopeManager(scope,part.value);totalValue.push(options.render(DocUtils.mergeObjects({},options,{compiled:part.subparsed,tags:{},scopeManager:scopeManager})))}options.scopeManager.loopOver(part.value,loopOver,part.inverted);return{value:totalValue.join("")}}};module.exports=function(){return wrapper(loopModule)}},{"../doc-utils":4,"../module-wrapper":11}],14:[function(require,module,exports){"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function")}}var DocUtils=require("../doc-utils");var Errors=require("../errors");var moduleName="rawxml";var wrapper=require("../module-wrapper");function throwRawTagShouldBeOnlyTextInParagraph(options){var err=new Errors.XTTemplateError("Raw tag should be the only text in paragraph");var tag=options.part.value;err.properties={id:"raw_xml_tag_should_be_only_text_in_paragraph",explanation:"The tag "+tag,xtag:options.part.value,paragraphParts:options.paragraphParts};throw err}function getInner(_ref){var part=_ref.part,left=_ref.left,right=_ref.right,postparsed=_ref.postparsed,index=_ref.index;var paragraphParts=postparsed.slice(left+1,right);paragraphParts.forEach(function(p,i){if(i===index-left-1){return}if(p.type==="placeholder"||p.type==="content"&&p.position==="insidetag"){throwRawTagShouldBeOnlyTextInParagraph({paragraphParts:paragraphParts,part:part})}});return part}var RawXmlModule=function(){function RawXmlModule(){_classCallCheck(this,RawXmlModule);this.name="RawXmlModule"}_createClass(RawXmlModule,[{key:"optionsTransformer",value:function optionsTransformer(options,docxtemplater){this.fileTypeConfig=docxtemplater.fileTypeConfig;return options}},{key:"parse",value:function parse(placeHolderContent){var type="placeholder";if(placeHolderContent[0]!=="@"){return null}return{type:type,value:placeHolderContent.substr(1),module:moduleName}}},{key:"postparse",value:function postparse(parsed){return DocUtils.traits.expandToOne(parsed,{moduleName:moduleName,getInner:getInner,expandTo:this.fileTypeConfig.tagRawXml})}},{key:"render",value:function render(part,options){if(part.module!==moduleName){return null}var value=options.scopeManager.getValue(part.value);if(value==null){value=options.nullGetter(part)}return{value:value}}}]);return RawXmlModule}();module.exports=function(){return wrapper(new RawXmlModule)}},{"../doc-utils":4,"../errors":6,"../module-wrapper":11}],15:[function(require,module,exports){"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function")}}var wrapper=require("../module-wrapper");var Render=function(){function Render(){_classCallCheck(this,Render);this.name="Render"}_createClass(Render,[{key:"set",value:function set(obj){if(obj.compiled){this.compiled=obj.compiled}if(obj.data!=null){this.data=obj.data}}},{key:"getRenderedMap",value:function getRenderedMap(mapper){var _this=this;return Object.keys(this.compiled).reduce(function(mapper,from){mapper[from]={from:from,data:_this.data};return mapper},mapper)}}]);return Render}();module.exports=function(){return wrapper(new Render)}},{"../module-wrapper":11}],16:[function(require,module,exports){"use strict";var wrapper=require("../module-wrapper");var spacePreserve={name:"SpacePreserveModule",postparse:function postparse(parsed){var chunk=[];var inChunk=false;var result=parsed.reduce(function(parsed,part){if(part.type==="tag"&&part.position==="start"&&part.text&&part.value==="<w:t>"){inChunk=true}if(inChunk){if(part.type==="placeholder"&&!part.module){chunk[0].value='<w:t xml:space="preserve">'}chunk.push(part)}else{parsed.push(part)}if(part.type==="tag"&&part.position==="end"&&part.text&&part.value==="</w:t>"){Array.prototype.push.apply(parsed,chunk);inChunk=false;chunk=[]}return parsed},[]);Array.prototype.push.apply(result,chunk);return result}};module.exports=function(){return wrapper(spacePreserve)}},{"../module-wrapper":11}],17:[function(require,module,exports){"use strict";var DocUtils=require("./doc-utils");var parser={postparse:function postparse(parsed,modules){function getTraits(traitName,parsed){return modules.map(function(module){return module.getTraits(traitName,parsed)})}function postparse(parsed){return modules.reduce(function(parsed,module){return module.postparse(parsed,{postparse:postparse,getTraits:getTraits})},parsed)}return postparse(parsed)},parse:function parse(lexed,modules){function moduleParse(placeHolderContent,parsed){var moduleParsed=void 0;for(var i=0,l=modules.length;i<l;i++){var _module=modules[i];moduleParsed=_module.parse(placeHolderContent);if(moduleParsed){parsed.push(moduleParsed);return moduleParsed}}return null}var inPlaceHolder=false;var placeHolderContent=void 0;var tailParts=[];return lexed.reduce(function(parsed,token){if(token.type==="delimiter"){inPlaceHolder=token.position==="start";if(token.position==="end"){placeHolderContent=DocUtils.wordToUtf8(placeHolderContent);if(!moduleParse(placeHolderContent,parsed)){parsed.push({type:"placeholder",value:placeHolderContent})}Array.prototype.push.apply(parsed,tailParts);tailParts=[];return parsed}placeHolderContent="";return parsed}if(inPlaceHolder){if(token.type==="content"&&token.position==="insidetag"){placeHolderContent+=token.value}else{tailParts.push(token)}return parsed}parsed.push(token);return parsed},[])}};module.exports=parser},{"./doc-utils":4}],18:[function(require,module,exports){"use strict";var ScopeManager=require("./scope-manager");var DocUtils=require("./doc-utils");function moduleRender(part,options){var moduleRendered=void 0;for(var i=0,l=options.modules.length;i<l;i++){var _module=options.modules[i];moduleRendered=_module.render(part,options);if(moduleRendered){return moduleRendered}}return false}function render(options){options.render=render;options.modules=options.modules;if(!options.scopeManager){options.scopeManager=ScopeManager.createBaseScopeManager(options)}return options.compiled.map(function(part){var moduleRendered=moduleRender(part,options);if(moduleRendered){return moduleRendered.value}if(part.type==="placeholder"){var value=options.scopeManager.getValue(part.value);if(value==null){value=options.nullGetter(part)}return DocUtils.utf8ToWord(value)}if(part.type==="content"||part.type==="tag"){return part.value}throw new Error('Unimplemented tag type "'+part.type+'"')}).join("")}module.exports=render},{"./doc-utils":4,"./scope-manager":19}],19:[function(require,module,exports){"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function")}}var Errors=require("./errors");var ScopeManager=function(){function ScopeManager(options){_classCallCheck(this,ScopeManager);this.scopePath=options.scopePath;this.scopeList=options.scopeList;this.parser=options.parser}_createClass(ScopeManager,[{key:"loopOver",value:function loopOver(tag,callback,inverted){inverted=inverted||false;return this.loopOverValue(this.getValue(tag),callback,inverted)}},{key:"functorIfInverted",value:function functorIfInverted(inverted,functor,value){if(inverted){functor(value)}}},{key:"isValueFalsy",value:function isValueFalsy(value,type){return value==null||!value||type==="[object Array]"&&value.length===0}},{key:"loopOverValue",value:function loopOverValue(value,functor,inverted){var type=Object.prototype.toString.call(value);var currentValue=this.scopeList[this.num];if(this.isValueFalsy(value,type)){return this.functorIfInverted(inverted,functor,currentValue)}if(type==="[object Array]"){for(var i=0,scope;i<value.length;i++){scope=value[i];this.functorIfInverted(!inverted,functor,scope)}return}if(type==="[object Object]"){return this.functorIfInverted(!inverted,functor,value)}if(value===true){return this.functorIfInverted(!inverted,functor,currentValue)}}},{key:"getValue",value:function getValue(tag,num){this.num=num==null?this.scopeList.length-1:num;var err=void 0;var parser=void 0;var result=void 0;var scope=this.scopeList[this.num];try{parser=this.parser(tag)}catch(error){err=new Errors.XTScopeParserError("Scope parser compilation failed");err.properties={id:"scopeparser_compilation_failed",tag:tag,explanation:"The scope parser for the tag "+tag+" failed to compile",rootError:error};throw err}try{result=parser.get(scope,{num:this.num,scopeList:this.scopeList})}catch(error){err=new Errors.XTScopeParserError("Scope parser execution failed");err.properties={id:"scopeparser_execution_failed",explanation:"The scope parser for the tag "+tag+" failed to execute",scope:scope,tag:tag,rootError:error};throw err}if(result==null&&this.num>0){return this.getValue(tag,this.num-1)}return result}},{key:"createSubScopeManager",value:function createSubScopeManager(scope,tag){var options={scopePath:this.scopePath.slice(0),scopeList:this.scopeList.slice(0)};options.parser=this.parser;options.scopeList=this.scopeList.concat(scope);options.scopePath=this.scopePath.concat(tag);return new ScopeManager(options)}}]);return ScopeManager}();ScopeManager.createBaseScopeManager=function(_ref){var parser=_ref.parser,tags=_ref.tags;var options={parser:parser,tags:tags};options.scopePath=[];options.scopeList=[tags];return new ScopeManager(options)};module.exports=ScopeManager},{"./errors":6}],20:[function(require,module,exports){"use strict";var DocUtils=require("./doc-utils");var Errors=require("./errors");function throwRawTagNotInParagraph(options){var err=new Errors.XTTemplateError("Raw tag not in paragraph");var tag=options.part.value;err.properties={id:"raw_tag_outerxml_invalid",explanation:'The tag "'+tag+'"',rootError:options.rootError,xtag:tag};throw err}function lastTagIsOpenTag(array,tag){if(array.length===0){return false}var lastTag=array[array.length-1];var innerLastTag=lastTag.tag.substr(1);var innerCurrentTag=tag.substr(2,tag.length-3);return innerLastTag.indexOf(innerCurrentTag)===0}function addTag(array,tag){array.push({tag:tag});return array}function getListXmlElements(parts){var tags=parts.filter(function(part){return part.type==="tag"}).map(function(part){return part.value});var result=[];for(var i=0,tag;i<tags.length;i++){tag=tags[i];if(tag[1]==="/"){if(lastTagIsOpenTag(result,tag)){result.pop()}else{result=addTag(result,tag)}}else if(tag[tag.length-1]!=="/"){result=addTag(result,tag)}}return result}function getExpandToDefault(parts){var xmlElements=getListXmlElements(parts);for(var i=0;i<xmlElements.length;i++){var xmlElement=xmlElements[i];if(xmlElement.tag.indexOf("<w:tc")===0){return"w:tr"}}return false}function expandOne(part,postparsed,options){var expandTo=part.expandTo||options.expandTo;var index=postparsed.indexOf(part);if(!expandTo){return postparsed}var right=void 0,left=void 0;try{right=DocUtils.getRight(postparsed,expandTo,index);left=DocUtils.getLeft(postparsed,expandTo,index)}catch(rootError){throwRawTagNotInParagraph({part:part,rootError:rootError})}var leftParts=postparsed.slice(left,index);var rightParts=postparsed.slice(index+1,right+1);var inner=options.getInner({index:index,part:part,leftParts:leftParts,rightParts:rightParts,left:left,right:right,postparsed:postparsed});var type=Object.prototype.toString.call(inner);if(type==="[object Array]"){inner=DocUtils.concatArrays(inner)}return DocUtils.concatArrays([postparsed.slice(0,left),[inner],postparsed.slice(right+1)])}function expandToOne(postparsed,options){var expandToElements=postparsed.reduce(function(elements,part){if(part.type==="placeholder"&&part.module===options.moduleName){elements.push(part)}return elements},[]);expandToElements.forEach(function(part){postparsed=expandOne(part,postparsed,options)});return postparsed}module.exports={expandToOne:expandToOne,getExpandToDefault:getExpandToDefault}},{"./doc-utils":4,"./errors":6}],21:[function(require,module,exports){"use strict";var DocUtils=require("./doc-utils");var memoize=require("./memoize");function handleRecursiveCase(res){function replacerUnshift(){var pn={array:Array.prototype.slice.call(arguments)};pn.array.shift();var match=pn.array[0]+pn.array[1];pn.array.unshift(match);pn.array.pop();var offset=pn.array.pop();pn.offset=offset;pn.first=true;res.matches.unshift(pn);res.charactersAdded.unshift(0);return res.charactersAddedCumulative.unshift(0)}if(res.content.indexOf("<")===-1&&res.content.indexOf(">")===-1){res.content.replace(/^()([^<>]*)$/,replacerUnshift)}var r=new RegExp("^()([^<]+)</(?:"+res.tagsXmlArrayJoined+")>");res.content.replace(r,replacerUnshift);function replacerPush(){var pn={array:Array.prototype.slice.call(arguments)};pn.array.pop();var offset=pn.array.pop();pn.offset=offset;pn.last=true;res.matches.push(pn);res.charactersAdded.push(0);return res.charactersAddedCumulative.push(0)}r=new RegExp("(<(?:"+res.tagsXmlArrayJoined+")[^>]*>)([^>]+)$");res.content.replace(r,replacerPush);return res}function xmlMatcher(content,tagsXmlArray){var res={};res.content=content;res.tagsXmlArray=tagsXmlArray;res.tagsXmlArrayJoined=res.tagsXmlArray.join("|");var regexp=new RegExp("(<(?:"+res.tagsXmlArrayJoined+")[^>]*>)([^<>]*)</(?:"+res.tagsXmlArrayJoined+")>","g");res.matches=DocUtils.pregMatchAll(regexp,res.content);res.charactersAddedCumulative=res.matches.map(function(){return 0});res.charactersAdded=res.matches.map(function(){return 0});return handleRecursiveCase(res)}var memoized=memoize(xmlMatcher);module.exports=function(content,tagsXmlArray){return DocUtils.cloneDeep(memoized(content,tagsXmlArray))}},{"./doc-utils":4,"./memoize":9}],22:[function(require,module,exports){"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function")}}var DocUtils=require("./doc-utils");var ScopeManager=require("./scope-manager");var xmlMatcher=require("./xml-matcher");var Errors=require("./errors");var Lexer=require("./lexer");var Parser=require("./parser.js");var _render=require("./render.js");function _getFullText(content,tagsXmlArray){var matcher=xmlMatcher(content,tagsXmlArray);var result=matcher.matches.map(function(match){return match.array[2]});return DocUtils.wordToUtf8(DocUtils.convertSpaces(result.join("")))}module.exports=function(){function XmlTemplater(content,options){_classCallCheck(this,XmlTemplater);this.fromJson(options);this.setModules({inspect:{filePath:this.filePath}});this.load(content)}_createClass(XmlTemplater,[{key:"load",value:function load(content){if(typeof content!=="string"){var err=new Errors.XTInternalError("Content must be a string");err.properties.id="xmltemplater_content_must_be_string";throw err}this.content=content}},{key:"setTags",value:function setTags(tags){this.tags=tags!=null?tags:{};this.scopeManager=ScopeManager.createBaseScopeManager({tags:this.tags,parser:this.parser});return this}},{key:"fromJson",value:function fromJson(options){this.filePath=options.filePath;this.modules=options.modules;this.fileTypeConfig=options.fileTypeConfig;Object.keys(DocUtils.defaults).map(function(key){this[key]=options[key]!=null?options[key]:DocUtils.defaults[key]},this)}},{key:"getFullText",value:function getFullText(){return _getFullText(this.content,this.fileTypeConfig.tagsXmlTextArray)}},{key:"setModules",value:function setModules(obj){this.modules.forEach(function(module){module.set(obj)})}},{key:"parse",value:function parse(){this.xmllexed=Lexer.xmlparse(this.content,{text:this.fileTypeConfig.tagsXmlTextArray,other:this.fileTypeConfig.tagsXmlLexedArray});this.setModules({inspect:{xmllexed:this.xmllexed}});this.lexed=Lexer.parse(this.xmllexed,this.delimiters);this.setModules({inspect:{lexed:this.lexed}});this.parsed=Parser.parse(this.lexed,this.modules);this.setModules({inspect:{parsed:this.parsed}});this.postparsed=Parser.postparse(this.parsed,this.modules);return this}},{key:"render",value:function render(){this.setModules({inspect:{postparsed:this.postparsed}});this.content=_render({compiled:this.postparsed,tags:this.tags,modules:this.modules,parser:this.parser,nullGetter:this.nullGetter,filePath:this.filePath});this.setModules({inspect:{content:this.content}});return this}}]);return XmlTemplater}()},{"./doc-utils":4,"./errors":6,"./lexer":8,"./parser.js":17,"./render.js":18,"./scope-manager":19,"./xml-matcher":21}],23:[function(require,module,exports){function DOMParser(options){this.options=options||{locator:{}}}DOMParser.prototype.parseFromString=function(source,mimeType){var options=this.options;var sax=new XMLReader;var domBuilder=options.domBuilder||new DOMHandler;var errorHandler=options.errorHandler;var locator=options.locator;var defaultNSMap=options.xmlns||{};var entityMap={lt:"<",gt:">",amp:"&",quot:'"',apos:"'"};if(locator){domBuilder.setDocumentLocator(locator)}sax.errorHandler=buildErrorHandler(errorHandler,domBuilder,locator);sax.domBuilder=options.domBuilder||domBuilder;if(/\/x?html?$/.test(mimeType)){entityMap.nbsp=" ";entityMap.copy="©";defaultNSMap[""]="http://www.w3.org/1999/xhtml"}defaultNSMap.xml=defaultNSMap.xml||"http://www.w3.org/XML/1998/namespace";if(source){sax.parse(source,defaultNSMap,entityMap)}else{sax.errorHandler.error("invalid doc source")}return domBuilder.doc};function buildErrorHandler(errorImpl,domBuilder,locator){if(!errorImpl){if(domBuilder instanceof DOMHandler){return domBuilder}errorImpl=domBuilder}var errorHandler={};var isCallback=errorImpl instanceof Function;locator=locator||{};function build(key){var fn=errorImpl[key];if(!fn&&isCallback){fn=errorImpl.length==2?function(msg){errorImpl(key,msg)}:errorImpl}errorHandler[key]=fn&&function(msg){fn("[xmldom "+key+"]\t"+msg+_locator(locator))}||function(){}}build("warning");build("error");build("fatalError");return errorHandler}function DOMHandler(){this.cdata=false}function position(locator,node){node.lineNumber=locator.lineNumber;node.columnNumber=locator.columnNumber}DOMHandler.prototype={startDocument:function(){this.doc=(new DOMImplementation).createDocument(null,null,null);if(this.locator){this.doc.documentURI=this.locator.systemId}},startElement:function(namespaceURI,localName,qName,attrs){var doc=this.doc;var el=doc.createElementNS(namespaceURI,qName||localName);var len=attrs.length;appendElement(this,el);this.currentElement=el;this.locator&&position(this.locator,el);for(var i=0;i<len;i++){var namespaceURI=attrs.getURI(i);var value=attrs.getValue(i);var qName=attrs.getQName(i);var attr=doc.createAttributeNS(namespaceURI,qName);this.locator&&position(attrs.getLocator(i),attr);attr.value=attr.nodeValue=value;el.setAttributeNode(attr)}},endElement:function(namespaceURI,localName,qName){var current=this.currentElement;var tagName=current.tagName;this.currentElement=current.parentNode},startPrefixMapping:function(prefix,uri){},endPrefixMapping:function(prefix){},processingInstruction:function(target,data){var ins=this.doc.createProcessingInstruction(target,data);this.locator&&position(this.locator,ins);appendElement(this,ins)},ignorableWhitespace:function(ch,start,length){},characters:function(chars,start,length){chars=_toString.apply(this,arguments);if(chars){if(this.cdata){var charNode=this.doc.createCDATASection(chars)}else{var charNode=this.doc.createTextNode(chars)}if(this.currentElement){this.currentElement.appendChild(charNode)}else if(/^\s*$/.test(chars)){this.doc.appendChild(charNode)}this.locator&&position(this.locator,charNode)}},skippedEntity:function(name){},endDocument:function(){this.doc.normalize()},setDocumentLocator:function(locator){if(this.locator=locator){locator.lineNumber=0}},comment:function(chars,start,length){chars=_toString.apply(this,arguments);var comm=this.doc.createComment(chars);this.locator&&position(this.locator,comm);appendElement(this,comm)},startCDATA:function(){this.cdata=true},endCDATA:function(){this.cdata=false},startDTD:function(name,publicId,systemId){var impl=this.doc.implementation;if(impl&&impl.createDocumentType){var dt=impl.createDocumentType(name,publicId,systemId);this.locator&&position(this.locator,dt);appendElement(this,dt)}},warning:function(error){console.warn("[xmldom warning]\t"+error,_locator(this.locator))},error:function(error){console.error("[xmldom error]\t"+error,_locator(this.locator))},fatalError:function(error){console.error("[xmldom fatalError]\t"+error,_locator(this.locator));throw error}};function _locator(l){if(l){return"\n@"+(l.systemId||"")+"#[line:"+l.lineNumber+",col:"+l.columnNumber+"]"}}function _toString(chars,start,length){if(typeof chars=="string"){return chars.substr(start,length)}else{if(chars.length>=start+length||start){return new java.lang.String(chars,start,length)+""}return chars}}"endDTD,startEntity,endEntity,attributeDecl,elementDecl,externalEntityDecl,internalEntityDecl,resolveEntity,getExternalSubset,notationDecl,unparsedEntityDecl".replace(/\w+/g,function(key){DOMHandler.prototype[key]=function(){return null}});function appendElement(hander,node){if(!hander.currentElement){hander.doc.appendChild(node)}else{hander.currentElement.appendChild(node)}}var XMLReader=require("./sax").XMLReader;var DOMImplementation=exports.DOMImplementation=require("./dom").DOMImplementation;exports.XMLSerializer=require("./dom").XMLSerializer;exports.DOMParser=DOMParser},{"./dom":24,"./sax":25}],24:[function(require,module,exports){function copy(src,dest){for(var p in src){dest[p]=src[p]}}function _extends(Class,Super){var pt=Class.prototype;if(Object.create){var ppt=Object.create(Super.prototype);pt.__proto__=ppt}if(!(pt instanceof Super)){function t(){}t.prototype=Super.prototype;t=new t;copy(pt,t);Class.prototype=pt=t}if(pt.constructor!=Class){if(typeof Class!="function"){console.error("unknow Class:"+Class)}pt.constructor=Class}}var htmlns="http://www.w3.org/1999/xhtml";var NodeType={};var ELEMENT_NODE=NodeType.ELEMENT_NODE=1;var ATTRIBUTE_NODE=NodeType.ATTRIBUTE_NODE=2;var TEXT_NODE=NodeType.TEXT_NODE=3;var CDATA_SECTION_NODE=NodeType.CDATA_SECTION_NODE=4;var ENTITY_REFERENCE_NODE=NodeType.ENTITY_REFERENCE_NODE=5;var ENTITY_NODE=NodeType.ENTITY_NODE=6;var PROCESSING_INSTRUCTION_NODE=NodeType.PROCESSING_INSTRUCTION_NODE=7;var COMMENT_NODE=NodeType.COMMENT_NODE=8;var DOCUMENT_NODE=NodeType.DOCUMENT_NODE=9;var DOCUMENT_TYPE_NODE=NodeType.DOCUMENT_TYPE_NODE=10;var DOCUMENT_FRAGMENT_NODE=NodeType.DOCUMENT_FRAGMENT_NODE=11;var NOTATION_NODE=NodeType.NOTATION_NODE=12;var ExceptionCode={};var ExceptionMessage={};var INDEX_SIZE_ERR=ExceptionCode.INDEX_SIZE_ERR=(ExceptionMessage[1]="Index size error",1);var DOMSTRING_SIZE_ERR=ExceptionCode.DOMSTRING_SIZE_ERR=(ExceptionMessage[2]="DOMString size error",2);var HIERARCHY_REQUEST_ERR=ExceptionCode.HIERARCHY_REQUEST_ERR=(ExceptionMessage[3]="Hierarchy request error",3);var WRONG_DOCUMENT_ERR=ExceptionCode.WRONG_DOCUMENT_ERR=(ExceptionMessage[4]="Wrong document",4);var INVALID_CHARACTER_ERR=ExceptionCode.INVALID_CHARACTER_ERR=(ExceptionMessage[5]="Invalid character",5);var NO_DATA_ALLOWED_ERR=ExceptionCode.NO_DATA_ALLOWED_ERR=(ExceptionMessage[6]="No data allowed",6);var NO_MODIFICATION_ALLOWED_ERR=ExceptionCode.NO_MODIFICATION_ALLOWED_ERR=(ExceptionMessage[7]="No modification allowed",7);var NOT_FOUND_ERR=ExceptionCode.NOT_FOUND_ERR=(ExceptionMessage[8]="Not found",8);var NOT_SUPPORTED_ERR=ExceptionCode.NOT_SUPPORTED_ERR=(ExceptionMessage[9]="Not supported",9);var INUSE_ATTRIBUTE_ERR=ExceptionCode.INUSE_ATTRIBUTE_ERR=(ExceptionMessage[10]="Attribute in use",10);var INVALID_STATE_ERR=ExceptionCode.INVALID_STATE_ERR=(ExceptionMessage[11]="Invalid state",11);var SYNTAX_ERR=ExceptionCode.SYNTAX_ERR=(ExceptionMessage[12]="Syntax error",12);var INVALID_MODIFICATION_ERR=ExceptionCode.INVALID_MODIFICATION_ERR=(ExceptionMessage[13]="Invalid modification",13);var NAMESPACE_ERR=ExceptionCode.NAMESPACE_ERR=(ExceptionMessage[14]="Invalid namespace",14);var INVALID_ACCESS_ERR=ExceptionCode.INVALID_ACCESS_ERR=(ExceptionMessage[15]="Invalid access",15);function DOMException(code,message){if(message instanceof Error){var error=message}else{error=this;Error.call(this,ExceptionMessage[code]);this.message=ExceptionMessage[code];if(Error.captureStackTrace)Error.captureStackTrace(this,DOMException)}error.code=code;if(message)this.message=this.message+": "+message;return error}DOMException.prototype=Error.prototype;copy(ExceptionCode,DOMException);function NodeList(){}NodeList.prototype={length:0,item:function(index){return this[index]||null},toString:function(isHTML,nodeFilter){for(var buf=[],i=0;i<this.length;i++){serializeToString(this[i],buf,isHTML,nodeFilter)}return buf.join("")}};function LiveNodeList(node,refresh){this._node=node;this._refresh=refresh;_updateLiveList(this)}function _updateLiveList(list){var inc=list._node._inc||list._node.ownerDocument._inc;if(list._inc!=inc){var ls=list._refresh(list._node);__set__(list,"length",ls.length);copy(ls,list);list._inc=inc}}LiveNodeList.prototype.item=function(i){_updateLiveList(this);return this[i]};_extends(LiveNodeList,NodeList);function NamedNodeMap(){}function _findNodeIndex(list,node){var i=list.length;while(i--){if(list[i]===node){return i}}}function _addNamedNode(el,list,newAttr,oldAttr){if(oldAttr){list[_findNodeIndex(list,oldAttr)]=newAttr}else{list[list.length++]=newAttr}if(el){newAttr.ownerElement=el;var doc=el.ownerDocument;if(doc){oldAttr&&_onRemoveAttribute(doc,el,oldAttr);_onAddAttribute(doc,el,newAttr)}}}function _removeNamedNode(el,list,attr){var i=_findNodeIndex(list,attr);if(i>=0){var lastIndex=list.length-1;while(i<lastIndex){list[i]=list[++i]}list.length=lastIndex;if(el){var doc=el.ownerDocument;if(doc){_onRemoveAttribute(doc,el,attr);attr.ownerElement=null}}}else{throw DOMException(NOT_FOUND_ERR,new Error(el.tagName+"@"+attr))}}NamedNodeMap.prototype={length:0,item:NodeList.prototype.item,getNamedItem:function(key){var i=this.length;while(i--){var attr=this[i];if(attr.nodeName==key){return attr}}},setNamedItem:function(attr){var el=attr.ownerElement;if(el&&el!=this._ownerElement){throw new DOMException(INUSE_ATTRIBUTE_ERR)}var oldAttr=this.getNamedItem(attr.nodeName);_addNamedNode(this._ownerElement,this,attr,oldAttr);return oldAttr},setNamedItemNS:function(attr){var el=attr.ownerElement,oldAttr;if(el&&el!=this._ownerElement){throw new DOMException(INUSE_ATTRIBUTE_ERR)}oldAttr=this.getNamedItemNS(attr.namespaceURI,attr.localName);_addNamedNode(this._ownerElement,this,attr,oldAttr);return oldAttr},removeNamedItem:function(key){var attr=this.getNamedItem(key);_removeNamedNode(this._ownerElement,this,attr);return attr},removeNamedItemNS:function(namespaceURI,localName){var attr=this.getNamedItemNS(namespaceURI,localName);_removeNamedNode(this._ownerElement,this,attr);return attr},getNamedItemNS:function(namespaceURI,localName){var i=this.length;while(i--){var node=this[i];if(node.localName==localName&&node.namespaceURI==namespaceURI){return node}}return null}};function DOMImplementation(features){this._features={};if(features){for(var feature in features){this._features=features[feature]}}}DOMImplementation.prototype={hasFeature:function(feature,version){var versions=this._features[feature.toLowerCase()];if(versions&&(!version||version in versions)){
 return true}else{return false}},createDocument:function(namespaceURI,qualifiedName,doctype){var doc=new Document;doc.implementation=this;doc.childNodes=new NodeList;doc.doctype=doctype;if(doctype){doc.appendChild(doctype)}if(qualifiedName){var root=doc.createElementNS(namespaceURI,qualifiedName);doc.appendChild(root)}return doc},createDocumentType:function(qualifiedName,publicId,systemId){var node=new DocumentType;node.name=qualifiedName;node.nodeName=qualifiedName;node.publicId=publicId;node.systemId=systemId;return node}};function Node(){}Node.prototype={firstChild:null,lastChild:null,previousSibling:null,nextSibling:null,attributes:null,parentNode:null,childNodes:null,ownerDocument:null,nodeValue:null,namespaceURI:null,prefix:null,localName:null,insertBefore:function(newChild,refChild){return _insertBefore(this,newChild,refChild)},replaceChild:function(newChild,oldChild){this.insertBefore(newChild,oldChild);if(oldChild){this.removeChild(oldChild)}},removeChild:function(oldChild){return _removeChild(this,oldChild)},appendChild:function(newChild){return this.insertBefore(newChild,null)},hasChildNodes:function(){return this.firstChild!=null},cloneNode:function(deep){return cloneNode(this.ownerDocument||this,this,deep)},normalize:function(){var child=this.firstChild;while(child){var next=child.nextSibling;if(next&&next.nodeType==TEXT_NODE&&child.nodeType==TEXT_NODE){this.removeChild(next);child.appendData(next.data)}else{child.normalize();child=next}}},isSupported:function(feature,version){return this.ownerDocument.implementation.hasFeature(feature,version)},hasAttributes:function(){return this.attributes.length>0},lookupPrefix:function(namespaceURI){var el=this;while(el){var map=el._nsMap;if(map){for(var n in map){if(map[n]==namespaceURI){return n}}}el=el.nodeType==ATTRIBUTE_NODE?el.ownerDocument:el.parentNode}return null},lookupNamespaceURI:function(prefix){var el=this;while(el){var map=el._nsMap;if(map){if(prefix in map){return map[prefix]}}el=el.nodeType==ATTRIBUTE_NODE?el.ownerDocument:el.parentNode}return null},isDefaultNamespace:function(namespaceURI){var prefix=this.lookupPrefix(namespaceURI);return prefix==null}};function _xmlEncoder(c){return c=="<"&&"&lt;"||c==">"&&"&gt;"||c=="&"&&"&amp;"||c=='"'&&"&quot;"||"&#"+c.charCodeAt()+";"}copy(NodeType,Node);copy(NodeType,Node.prototype);function _visitNode(node,callback){if(callback(node)){return true}if(node=node.firstChild){do{if(_visitNode(node,callback)){return true}}while(node=node.nextSibling)}}function Document(){}function _onAddAttribute(doc,el,newAttr){doc&&doc._inc++;var ns=newAttr.namespaceURI;if(ns=="http://www.w3.org/2000/xmlns/"){el._nsMap[newAttr.prefix?newAttr.localName:""]=newAttr.value}}function _onRemoveAttribute(doc,el,newAttr,remove){doc&&doc._inc++;var ns=newAttr.namespaceURI;if(ns=="http://www.w3.org/2000/xmlns/"){delete el._nsMap[newAttr.prefix?newAttr.localName:""]}}function _onUpdateChild(doc,el,newChild){if(doc&&doc._inc){doc._inc++;var cs=el.childNodes;if(newChild){cs[cs.length++]=newChild}else{var child=el.firstChild;var i=0;while(child){cs[i++]=child;child=child.nextSibling}cs.length=i}}}function _removeChild(parentNode,child){var previous=child.previousSibling;var next=child.nextSibling;if(previous){previous.nextSibling=next}else{parentNode.firstChild=next}if(next){next.previousSibling=previous}else{parentNode.lastChild=previous}_onUpdateChild(parentNode.ownerDocument,parentNode);return child}function _insertBefore(parentNode,newChild,nextChild){var cp=newChild.parentNode;if(cp){cp.removeChild(newChild)}if(newChild.nodeType===DOCUMENT_FRAGMENT_NODE){var newFirst=newChild.firstChild;if(newFirst==null){return newChild}var newLast=newChild.lastChild}else{newFirst=newLast=newChild}var pre=nextChild?nextChild.previousSibling:parentNode.lastChild;newFirst.previousSibling=pre;newLast.nextSibling=nextChild;if(pre){pre.nextSibling=newFirst}else{parentNode.firstChild=newFirst}if(nextChild==null){parentNode.lastChild=newLast}else{nextChild.previousSibling=newLast}do{newFirst.parentNode=parentNode}while(newFirst!==newLast&&(newFirst=newFirst.nextSibling));_onUpdateChild(parentNode.ownerDocument||parentNode,parentNode);if(newChild.nodeType==DOCUMENT_FRAGMENT_NODE){newChild.firstChild=newChild.lastChild=null}return newChild}function _appendSingleChild(parentNode,newChild){var cp=newChild.parentNode;if(cp){var pre=parentNode.lastChild;cp.removeChild(newChild);var pre=parentNode.lastChild}var pre=parentNode.lastChild;newChild.parentNode=parentNode;newChild.previousSibling=pre;newChild.nextSibling=null;if(pre){pre.nextSibling=newChild}else{parentNode.firstChild=newChild}parentNode.lastChild=newChild;_onUpdateChild(parentNode.ownerDocument,parentNode,newChild);return newChild}Document.prototype={nodeName:"#document",nodeType:DOCUMENT_NODE,doctype:null,documentElement:null,_inc:1,insertBefore:function(newChild,refChild){if(newChild.nodeType==DOCUMENT_FRAGMENT_NODE){var child=newChild.firstChild;while(child){var next=child.nextSibling;this.insertBefore(child,refChild);child=next}return newChild}if(this.documentElement==null&&newChild.nodeType==ELEMENT_NODE){this.documentElement=newChild}return _insertBefore(this,newChild,refChild),newChild.ownerDocument=this,newChild},removeChild:function(oldChild){if(this.documentElement==oldChild){this.documentElement=null}return _removeChild(this,oldChild)},importNode:function(importedNode,deep){return importNode(this,importedNode,deep)},getElementById:function(id){var rtv=null;_visitNode(this.documentElement,function(node){if(node.nodeType==ELEMENT_NODE){if(node.getAttribute("id")==id){rtv=node;return true}}});return rtv},createElement:function(tagName){var node=new Element;node.ownerDocument=this;node.nodeName=tagName;node.tagName=tagName;node.childNodes=new NodeList;var attrs=node.attributes=new NamedNodeMap;attrs._ownerElement=node;return node},createDocumentFragment:function(){var node=new DocumentFragment;node.ownerDocument=this;node.childNodes=new NodeList;return node},createTextNode:function(data){var node=new Text;node.ownerDocument=this;node.appendData(data);return node},createComment:function(data){var node=new Comment;node.ownerDocument=this;node.appendData(data);return node},createCDATASection:function(data){var node=new CDATASection;node.ownerDocument=this;node.appendData(data);return node},createProcessingInstruction:function(target,data){var node=new ProcessingInstruction;node.ownerDocument=this;node.tagName=node.target=target;node.nodeValue=node.data=data;return node},createAttribute:function(name){var node=new Attr;node.ownerDocument=this;node.name=name;node.nodeName=name;node.localName=name;node.specified=true;return node},createEntityReference:function(name){var node=new EntityReference;node.ownerDocument=this;node.nodeName=name;return node},createElementNS:function(namespaceURI,qualifiedName){var node=new Element;var pl=qualifiedName.split(":");var attrs=node.attributes=new NamedNodeMap;node.childNodes=new NodeList;node.ownerDocument=this;node.nodeName=qualifiedName;node.tagName=qualifiedName;node.namespaceURI=namespaceURI;if(pl.length==2){node.prefix=pl[0];node.localName=pl[1]}else{node.localName=qualifiedName}attrs._ownerElement=node;return node},createAttributeNS:function(namespaceURI,qualifiedName){var node=new Attr;var pl=qualifiedName.split(":");node.ownerDocument=this;node.nodeName=qualifiedName;node.name=qualifiedName;node.namespaceURI=namespaceURI;node.specified=true;if(pl.length==2){node.prefix=pl[0];node.localName=pl[1]}else{node.localName=qualifiedName}return node}};_extends(Document,Node);function Element(){this._nsMap={}}Element.prototype={nodeType:ELEMENT_NODE,hasAttribute:function(name){return this.getAttributeNode(name)!=null},getAttribute:function(name){var attr=this.getAttributeNode(name);return attr&&attr.value||""},getAttributeNode:function(name){return this.attributes.getNamedItem(name)},setAttribute:function(name,value){var attr=this.ownerDocument.createAttribute(name);attr.value=attr.nodeValue=""+value;this.setAttributeNode(attr)},removeAttribute:function(name){var attr=this.getAttributeNode(name);attr&&this.removeAttributeNode(attr)},appendChild:function(newChild){if(newChild.nodeType===DOCUMENT_FRAGMENT_NODE){return this.insertBefore(newChild,null)}else{return _appendSingleChild(this,newChild)}},setAttributeNode:function(newAttr){return this.attributes.setNamedItem(newAttr)},setAttributeNodeNS:function(newAttr){return this.attributes.setNamedItemNS(newAttr)},removeAttributeNode:function(oldAttr){return this.attributes.removeNamedItem(oldAttr.nodeName)},removeAttributeNS:function(namespaceURI,localName){var old=this.getAttributeNodeNS(namespaceURI,localName);old&&this.removeAttributeNode(old)},hasAttributeNS:function(namespaceURI,localName){return this.getAttributeNodeNS(namespaceURI,localName)!=null},getAttributeNS:function(namespaceURI,localName){var attr=this.getAttributeNodeNS(namespaceURI,localName);return attr&&attr.value||""},setAttributeNS:function(namespaceURI,qualifiedName,value){var attr=this.ownerDocument.createAttributeNS(namespaceURI,qualifiedName);attr.value=attr.nodeValue=""+value;this.setAttributeNode(attr)},getAttributeNodeNS:function(namespaceURI,localName){return this.attributes.getNamedItemNS(namespaceURI,localName)},getElementsByTagName:function(tagName){return new LiveNodeList(this,function(base){var ls=[];_visitNode(base,function(node){if(node!==base&&node.nodeType==ELEMENT_NODE&&(tagName==="*"||node.tagName==tagName)){ls.push(node)}});return ls})},getElementsByTagNameNS:function(namespaceURI,localName){return new LiveNodeList(this,function(base){var ls=[];_visitNode(base,function(node){if(node!==base&&node.nodeType===ELEMENT_NODE&&(namespaceURI==="*"||node.namespaceURI===namespaceURI)&&(localName==="*"||node.localName==localName)){ls.push(node)}});return ls})}};Document.prototype.getElementsByTagName=Element.prototype.getElementsByTagName;Document.prototype.getElementsByTagNameNS=Element.prototype.getElementsByTagNameNS;_extends(Element,Node);function Attr(){}Attr.prototype.nodeType=ATTRIBUTE_NODE;_extends(Attr,Node);function CharacterData(){}CharacterData.prototype={data:"",substringData:function(offset,count){return this.data.substring(offset,offset+count)},appendData:function(text){text=this.data+text;this.nodeValue=this.data=text;this.length=text.length},insertData:function(offset,text){this.replaceData(offset,0,text)},appendChild:function(newChild){throw new Error(ExceptionMessage[HIERARCHY_REQUEST_ERR])},deleteData:function(offset,count){this.replaceData(offset,count,"")},replaceData:function(offset,count,text){var start=this.data.substring(0,offset);var end=this.data.substring(offset+count);text=start+text+end;this.nodeValue=this.data=text;this.length=text.length}};_extends(CharacterData,Node);function Text(){}Text.prototype={nodeName:"#text",nodeType:TEXT_NODE,splitText:function(offset){var text=this.data;var newText=text.substring(offset);text=text.substring(0,offset);this.data=this.nodeValue=text;this.length=text.length;var newNode=this.ownerDocument.createTextNode(newText);if(this.parentNode){this.parentNode.insertBefore(newNode,this.nextSibling)}return newNode}};_extends(Text,CharacterData);function Comment(){}Comment.prototype={nodeName:"#comment",nodeType:COMMENT_NODE};_extends(Comment,CharacterData);function CDATASection(){}CDATASection.prototype={nodeName:"#cdata-section",nodeType:CDATA_SECTION_NODE};_extends(CDATASection,CharacterData);function DocumentType(){}DocumentType.prototype.nodeType=DOCUMENT_TYPE_NODE;_extends(DocumentType,Node);function Notation(){}Notation.prototype.nodeType=NOTATION_NODE;_extends(Notation,Node);function Entity(){}Entity.prototype.nodeType=ENTITY_NODE;_extends(Entity,Node);function EntityReference(){}EntityReference.prototype.nodeType=ENTITY_REFERENCE_NODE;_extends(EntityReference,Node);function DocumentFragment(){}DocumentFragment.prototype.nodeName="#document-fragment";DocumentFragment.prototype.nodeType=DOCUMENT_FRAGMENT_NODE;_extends(DocumentFragment,Node);function ProcessingInstruction(){}ProcessingInstruction.prototype.nodeType=PROCESSING_INSTRUCTION_NODE;_extends(ProcessingInstruction,Node);function XMLSerializer(){}XMLSerializer.prototype.serializeToString=function(node,isHtml,nodeFilter){return nodeSerializeToString.call(node,isHtml,nodeFilter)};Node.prototype.toString=nodeSerializeToString;function nodeSerializeToString(isHtml,nodeFilter){var buf=[];var refNode=this.nodeType==9?this.documentElement:this;var prefix=refNode.prefix;var uri=refNode.namespaceURI;if(uri&&prefix==null){var prefix=refNode.lookupPrefix(uri);if(prefix==null){var visibleNamespaces=[{namespace:uri,prefix:null}]}}serializeToString(this,buf,isHtml,nodeFilter,visibleNamespaces);return buf.join("")}function needNamespaceDefine(node,isHTML,visibleNamespaces){var prefix=node.prefix||"";var uri=node.namespaceURI;if(!prefix&&!uri){return false}if(prefix==="xml"&&uri==="http://www.w3.org/XML/1998/namespace"||uri=="http://www.w3.org/2000/xmlns/"){return false}var i=visibleNamespaces.length;while(i--){var ns=visibleNamespaces[i];if(ns.prefix==prefix){return ns.namespace!=uri}}return true}function serializeToString(node,buf,isHTML,nodeFilter,visibleNamespaces){if(nodeFilter){node=nodeFilter(node);if(node){if(typeof node=="string"){buf.push(node);return}}else{return}}switch(node.nodeType){case ELEMENT_NODE:if(!visibleNamespaces)visibleNamespaces=[];var startVisibleNamespaces=visibleNamespaces.length;var attrs=node.attributes;var len=attrs.length;var child=node.firstChild;var nodeName=node.tagName;isHTML=htmlns===node.namespaceURI||isHTML;buf.push("<",nodeName);for(var i=0;i<len;i++){var attr=attrs.item(i);if(attr.prefix=="xmlns"){visibleNamespaces.push({prefix:attr.localName,namespace:attr.value})}else if(attr.nodeName=="xmlns"){visibleNamespaces.push({prefix:"",namespace:attr.value})}}for(var i=0;i<len;i++){var attr=attrs.item(i);if(needNamespaceDefine(attr,isHTML,visibleNamespaces)){var prefix=attr.prefix||"";var uri=attr.namespaceURI;var ns=prefix?" xmlns:"+prefix:" xmlns";buf.push(ns,'="',uri,'"');visibleNamespaces.push({prefix:prefix,namespace:uri})}serializeToString(attr,buf,isHTML,nodeFilter,visibleNamespaces)}if(needNamespaceDefine(node,isHTML,visibleNamespaces)){var prefix=node.prefix||"";var uri=node.namespaceURI;var ns=prefix?" xmlns:"+prefix:" xmlns";buf.push(ns,'="',uri,'"');visibleNamespaces.push({prefix:prefix,namespace:uri})}if(child||isHTML&&!/^(?:meta|link|img|br|hr|input)$/i.test(nodeName)){buf.push(">");if(isHTML&&/^script$/i.test(nodeName)){while(child){if(child.data){buf.push(child.data)}else{serializeToString(child,buf,isHTML,nodeFilter,visibleNamespaces)}child=child.nextSibling}}else{while(child){serializeToString(child,buf,isHTML,nodeFilter,visibleNamespaces);child=child.nextSibling}}buf.push("</",nodeName,">")}else{buf.push("/>")}return;case DOCUMENT_NODE:case DOCUMENT_FRAGMENT_NODE:var child=node.firstChild;while(child){serializeToString(child,buf,isHTML,nodeFilter,visibleNamespaces);child=child.nextSibling}return;case ATTRIBUTE_NODE:return buf.push(" ",node.name,'="',node.value.replace(/[<&"]/g,_xmlEncoder),'"');case TEXT_NODE:return buf.push(node.data.replace(/[<&]/g,_xmlEncoder));case CDATA_SECTION_NODE:return buf.push("<![CDATA[",node.data,"]]>");case COMMENT_NODE:return buf.push("<!--",node.data,"-->");case DOCUMENT_TYPE_NODE:var pubid=node.publicId;var sysid=node.systemId;buf.push("<!DOCTYPE ",node.name);if(pubid){buf.push(' PUBLIC "',pubid);if(sysid&&sysid!="."){buf.push('" "',sysid)}buf.push('">')}else if(sysid&&sysid!="."){buf.push(' SYSTEM "',sysid,'">')}else{var sub=node.internalSubset;if(sub){buf.push(" [",sub,"]")}buf.push(">")}return;case PROCESSING_INSTRUCTION_NODE:return buf.push("<?",node.target," ",node.data,"?>");case ENTITY_REFERENCE_NODE:return buf.push("&",node.nodeName,";");default:buf.push("??",node.nodeName)}}function importNode(doc,node,deep){var node2;switch(node.nodeType){case ELEMENT_NODE:node2=node.cloneNode(false);node2.ownerDocument=doc;case DOCUMENT_FRAGMENT_NODE:break;case ATTRIBUTE_NODE:deep=true;break}if(!node2){node2=node.cloneNode(false)}node2.ownerDocument=doc;node2.parentNode=null;if(deep){var child=node.firstChild;while(child){node2.appendChild(importNode(doc,child,deep));child=child.nextSibling}}return node2}function cloneNode(doc,node,deep){var node2=new node.constructor;for(var n in node){var v=node[n];if(typeof v!="object"){if(v!=node2[n]){node2[n]=v}}}if(node.childNodes){node2.childNodes=new NodeList}node2.ownerDocument=doc;switch(node2.nodeType){case ELEMENT_NODE:var attrs=node.attributes;var attrs2=node2.attributes=new NamedNodeMap;var len=attrs.length;attrs2._ownerElement=node2;for(var i=0;i<len;i++){node2.setAttributeNode(cloneNode(doc,attrs.item(i),true))}break;case ATTRIBUTE_NODE:deep=true}if(deep){var child=node.firstChild;while(child){node2.appendChild(cloneNode(doc,child,deep));child=child.nextSibling}}return node2}function __set__(object,key,value){object[key]=value}try{if(Object.defineProperty){Object.defineProperty(LiveNodeList.prototype,"length",{get:function(){_updateLiveList(this);return this.$$length}});Object.defineProperty(Node.prototype,"textContent",{get:function(){return getTextContent(this)},set:function(data){switch(this.nodeType){case ELEMENT_NODE:case DOCUMENT_FRAGMENT_NODE:while(this.firstChild){this.removeChild(this.firstChild)}if(data||String(data)){this.appendChild(this.ownerDocument.createTextNode(data))}break;default:this.data=data;this.value=data;this.nodeValue=data}}});function getTextContent(node){switch(node.nodeType){case ELEMENT_NODE:case DOCUMENT_FRAGMENT_NODE:var buf=[];node=node.firstChild;while(node){if(node.nodeType!==7&&node.nodeType!==8){buf.push(getTextContent(node))}node=node.nextSibling}return buf.join("");default:return node.nodeValue}}__set__=function(object,key,value){object["$$"+key]=value}}}catch(e){}exports.DOMImplementation=DOMImplementation;exports.XMLSerializer=XMLSerializer},{}],25:[function(require,module,exports){var nameStartChar=/[A-Z_a-z\xC0-\xD6\xD8-\xF6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD]/;var nameChar=new RegExp("[\\-\\.0-9"+nameStartChar.source.slice(1,-1)+"\\u00B7\\u0300-\\u036F\\u203F-\\u2040]");var tagNamePattern=new RegExp("^"+nameStartChar.source+nameChar.source+"*(?::"+nameStartChar.source+nameChar.source+"*)?$");var S_TAG=0;var S_ATTR=1;var S_ATTR_SPACE=2;var S_EQ=3;var S_ATTR_NOQUOT_VALUE=4;var S_ATTR_END=5;var S_TAG_SPACE=6;var S_TAG_CLOSE=7;function XMLReader(){}XMLReader.prototype={parse:function(source,defaultNSMap,entityMap){var domBuilder=this.domBuilder;domBuilder.startDocument();_copy(defaultNSMap,defaultNSMap={});parse(source,defaultNSMap,entityMap,domBuilder,this.errorHandler);domBuilder.endDocument()}};function parse(source,defaultNSMapCopy,entityMap,domBuilder,errorHandler){function fixedFromCharCode(code){if(code>65535){code-=65536;var surrogate1=55296+(code>>10),surrogate2=56320+(code&1023);return String.fromCharCode(surrogate1,surrogate2)}else{return String.fromCharCode(code)}}function entityReplacer(a){var k=a.slice(1,-1);if(k in entityMap){return entityMap[k]}else if(k.charAt(0)==="#"){return fixedFromCharCode(parseInt(k.substr(1).replace("x","0x")))}else{errorHandler.error("entity not found:"+a);return a}}function appendText(end){if(end>start){var xt=source.substring(start,end).replace(/&#?\w+;/g,entityReplacer);locator&&position(start);domBuilder.characters(xt,0,end-start);start=end}}function position(p,m){while(p>=lineEnd&&(m=linePattern.exec(source))){lineStart=m.index;lineEnd=lineStart+m[0].length;locator.lineNumber++}locator.columnNumber=p-lineStart+1}var lineStart=0;var lineEnd=0;var linePattern=/.*(?:\r\n?|\n)|.*$/g;var locator=domBuilder.locator;var parseStack=[{currentNSMap:defaultNSMapCopy}];var closeMap={};var start=0;while(true){try{var tagStart=source.indexOf("<",start);if(tagStart<0){if(!source.substr(start).match(/^\s*$/)){var doc=domBuilder.doc;var text=doc.createTextNode(source.substr(start));doc.appendChild(text);domBuilder.currentElement=text}return}if(tagStart>start){appendText(tagStart)}switch(source.charAt(tagStart+1)){case"/":var end=source.indexOf(">",tagStart+3);var tagName=source.substring(tagStart+2,end);var config=parseStack.pop();if(end<0){tagName=source.substring(tagStart+2).replace(/[\s<].*/,"");errorHandler.error("end tag name: "+tagName+" is not complete:"+config.tagName);end=tagStart+1+tagName.length}else if(tagName.match(/\s</)){tagName=tagName.replace(/[\s<].*/,"");errorHandler.error("end tag name: "+tagName+" maybe not complete");end=tagStart+1+tagName.length}var localNSMap=config.localNSMap;var endMatch=config.tagName==tagName;var endIgnoreCaseMach=endMatch||config.tagName&&config.tagName.toLowerCase()==tagName.toLowerCase();if(endIgnoreCaseMach){domBuilder.endElement(config.uri,config.localName,tagName);if(localNSMap){for(var prefix in localNSMap){domBuilder.endPrefixMapping(prefix)}}if(!endMatch){errorHandler.fatalError("end tag name: "+tagName+" is not match the current start tagName:"+config.tagName)}}else{parseStack.push(config)}end++;break;case"?":locator&&position(tagStart);end=parseInstruction(source,tagStart,domBuilder);break;case"!":locator&&position(tagStart);end=parseDCC(source,tagStart,domBuilder,errorHandler);break;default:locator&&position(tagStart);var el=new ElementAttributes;var currentNSMap=parseStack[parseStack.length-1].currentNSMap;var end=parseElementStartPart(source,tagStart,el,currentNSMap,entityReplacer,errorHandler);var len=el.length;if(!el.closed&&fixSelfClosed(source,end,el.tagName,closeMap)){el.closed=true;if(!entityMap.nbsp){errorHandler.warning("unclosed xml attribute")}}if(locator&&len){var locator2=copyLocator(locator,{});for(var i=0;i<len;i++){var a=el[i];position(a.offset);a.locator=copyLocator(locator,{})}domBuilder.locator=locator2;if(appendElement(el,domBuilder,currentNSMap)){parseStack.push(el)}domBuilder.locator=locator}else{if(appendElement(el,domBuilder,currentNSMap)){parseStack.push(el)}}if(el.uri==="http://www.w3.org/1999/xhtml"&&!el.closed){end=parseHtmlSpecialContent(source,end,el.tagName,entityReplacer,domBuilder)}else{end++}}}catch(e){errorHandler.error("element parse error: "+e);end=-1}if(end>start){start=end}else{appendText(Math.max(tagStart,start)+1)}}}function copyLocator(f,t){t.lineNumber=f.lineNumber;t.columnNumber=f.columnNumber;return t}function parseElementStartPart(source,start,el,currentNSMap,entityReplacer,errorHandler){var attrName;var value;var p=++start;var s=S_TAG;while(true){var c=source.charAt(p);switch(c){case"=":if(s===S_ATTR){attrName=source.slice(start,p);s=S_EQ}else if(s===S_ATTR_SPACE){s=S_EQ}else{throw new Error("attribute equal must after attrName")}break;case"'":case'"':if(s===S_EQ||s===S_ATTR){if(s===S_ATTR){errorHandler.warning('attribute value must after "="');attrName=source.slice(start,p)}start=p+1;p=source.indexOf(c,start);if(p>0){value=source.slice(start,p).replace(/&#?\w+;/g,entityReplacer);el.add(attrName,value,start-1);s=S_ATTR_END}else{throw new Error("attribute value no end '"+c+"' match")}}else if(s==S_ATTR_NOQUOT_VALUE){value=source.slice(start,p).replace(/&#?\w+;/g,entityReplacer);el.add(attrName,value,start);errorHandler.warning('attribute "'+attrName+'" missed start quot('+c+")!!");start=p+1;s=S_ATTR_END}else{throw new Error('attribute value must after "="')}break;case"/":switch(s){case S_TAG:el.setTagName(source.slice(start,p));case S_ATTR_END:case S_TAG_SPACE:case S_TAG_CLOSE:s=S_TAG_CLOSE;el.closed=true;case S_ATTR_NOQUOT_VALUE:case S_ATTR:case S_ATTR_SPACE:break;default:throw new Error("attribute invalid close char('/')")}break;case"":errorHandler.error("unexpected end of input");if(s==S_TAG){el.setTagName(source.slice(start,p))}return p;case">":switch(s){case S_TAG:el.setTagName(source.slice(start,p));case S_ATTR_END:case S_TAG_SPACE:case S_TAG_CLOSE:break;case S_ATTR_NOQUOT_VALUE:case S_ATTR:value=source.slice(start,p);if(value.slice(-1)==="/"){el.closed=true;value=value.slice(0,-1)}case S_ATTR_SPACE:if(s===S_ATTR_SPACE){value=attrName}if(s==S_ATTR_NOQUOT_VALUE){errorHandler.warning('attribute "'+value+'" missed quot(")!!');el.add(attrName,value.replace(/&#?\w+;/g,entityReplacer),start)}else{if(currentNSMap[""]!=="http://www.w3.org/1999/xhtml"||!value.match(/^(?:disabled|checked|selected)$/i)){errorHandler.warning('attribute "'+value+'" missed value!! "'+value+'" instead!!')}el.add(value,value,start)}break;case S_EQ:throw new Error("attribute value missed!!")}return p;case"":c=" ";default:if(c<=" "){switch(s){case S_TAG:el.setTagName(source.slice(start,p));s=S_TAG_SPACE;break;case S_ATTR:attrName=source.slice(start,p);s=S_ATTR_SPACE;break;case S_ATTR_NOQUOT_VALUE:var value=source.slice(start,p).replace(/&#?\w+;/g,entityReplacer);errorHandler.warning('attribute "'+value+'" missed quot(")!!');el.add(attrName,value,start);case S_ATTR_END:s=S_TAG_SPACE;break}}else{switch(s){case S_ATTR_SPACE:var tagName=el.tagName;if(currentNSMap[""]!=="http://www.w3.org/1999/xhtml"||!attrName.match(/^(?:disabled|checked|selected)$/i)){errorHandler.warning('attribute "'+attrName+'" missed value!! "'+attrName+'" instead2!!')}el.add(attrName,attrName,start);start=p;s=S_ATTR;break;case S_ATTR_END:errorHandler.warning('attribute space is required"'+attrName+'"!!');case S_TAG_SPACE:s=S_ATTR;start=p;break;case S_EQ:s=S_ATTR_NOQUOT_VALUE;start=p;break;case S_TAG_CLOSE:throw new Error("elements closed character '/' and '>' must be connected to")}}}p++}}function appendElement(el,domBuilder,currentNSMap){var tagName=el.tagName;var localNSMap=null;var i=el.length;while(i--){var a=el[i];var qName=a.qName;var value=a.value;var nsp=qName.indexOf(":");if(nsp>0){var prefix=a.prefix=qName.slice(0,nsp);var localName=qName.slice(nsp+1);var nsPrefix=prefix==="xmlns"&&localName}else{localName=qName;prefix=null;nsPrefix=qName==="xmlns"&&""}a.localName=localName;if(nsPrefix!==false){if(localNSMap==null){localNSMap={};_copy(currentNSMap,currentNSMap={})}currentNSMap[nsPrefix]=localNSMap[nsPrefix]=value;a.uri="http://www.w3.org/2000/xmlns/";domBuilder.startPrefixMapping(nsPrefix,value)}}var i=el.length;while(i--){a=el[i];var prefix=a.prefix;if(prefix){if(prefix==="xml"){a.uri="http://www.w3.org/XML/1998/namespace"}if(prefix!=="xmlns"){a.uri=currentNSMap[prefix||""]}}}var nsp=tagName.indexOf(":");if(nsp>0){prefix=el.prefix=tagName.slice(0,nsp);localName=el.localName=tagName.slice(nsp+1)}else{prefix=null;localName=el.localName=tagName}var ns=el.uri=currentNSMap[prefix||""];domBuilder.startElement(ns,localName,tagName,el);if(el.closed){domBuilder.endElement(ns,localName,tagName);if(localNSMap){for(prefix in localNSMap){domBuilder.endPrefixMapping(prefix)}}}else{el.currentNSMap=currentNSMap;el.localNSMap=localNSMap;return true}}function parseHtmlSpecialContent(source,elStartEnd,tagName,entityReplacer,domBuilder){if(/^(?:script|textarea)$/i.test(tagName)){var elEndStart=source.indexOf("</"+tagName+">",elStartEnd);var text=source.substring(elStartEnd+1,elEndStart);if(/[&<]/.test(text)){if(/^script$/i.test(tagName)){domBuilder.characters(text,0,text.length);return elEndStart}text=text.replace(/&#?\w+;/g,entityReplacer);domBuilder.characters(text,0,text.length);return elEndStart}}return elStartEnd+1}function fixSelfClosed(source,elStartEnd,tagName,closeMap){var pos=closeMap[tagName];if(pos==null){pos=source.lastIndexOf("</"+tagName+">");if(pos<elStartEnd){pos=source.lastIndexOf("</"+tagName)}closeMap[tagName]=pos}return pos<elStartEnd}function _copy(source,target){for(var n in source){target[n]=source[n]}}function parseDCC(source,start,domBuilder,errorHandler){var next=source.charAt(start+2);switch(next){case"-":if(source.charAt(start+3)==="-"){var end=source.indexOf("-->",start+4);if(end>start){domBuilder.comment(source,start+4,end-start-4);return end+3}else{errorHandler.error("Unclosed comment");return-1}}else{return-1}default:if(source.substr(start+3,6)=="CDATA["){var end=source.indexOf("]]>",start+9);domBuilder.startCDATA();domBuilder.characters(source,start+9,end-start-9);domBuilder.endCDATA();return end+3}var matchs=split(source,start);var len=matchs.length;if(len>1&&/!doctype/i.test(matchs[0][0])){var name=matchs[1][0];var pubid=len>3&&/^public$/i.test(matchs[2][0])&&matchs[3][0];var sysid=len>4&&matchs[4][0];var lastMatch=matchs[len-1];domBuilder.startDTD(name,pubid&&pubid.replace(/^(['"])(.*?)\1$/,"$2"),sysid&&sysid.replace(/^(['"])(.*?)\1$/,"$2"));domBuilder.endDTD();return lastMatch.index+lastMatch[0].length}}return-1}function parseInstruction(source,start,domBuilder){var end=source.indexOf("?>",start);if(end){var match=source.substring(start,end).match(/^<\?(\S*)\s*([\s\S]*?)\s*$/);if(match){var len=match[0].length;domBuilder.processingInstruction(match[1],match[2]);return end+2}else{return-1}}return-1}function ElementAttributes(source){}ElementAttributes.prototype={setTagName:function(tagName){if(!tagNamePattern.test(tagName)){throw new Error("invalid tagName:"+tagName)}this.tagName=tagName},add:function(qName,value,offset){if(!tagNamePattern.test(qName)){throw new Error("invalid attribute:"+qName)}this[this.length++]={qName:qName,value:value,offset:offset}},length:0,getLocalName:function(i){return this[i].localName},getLocator:function(i){return this[i].locator},getQName:function(i){return this[i].qName},getURI:function(i){return this[i].uri},getValue:function(i){return this[i].value}};function _set_proto_(thiz,parent){thiz.__proto__=parent;return thiz}if(!(_set_proto_({},_set_proto_.prototype)instanceof _set_proto_)){_set_proto_=function(thiz,parent){function p(){}p.prototype=parent;p=new p;for(parent in thiz){p[parent]=thiz[parent]}return p}}function split(source,start){var match;var buf=[];var reg=/'[^']+'|"[^"]+"|[^\s<>\/=]+=?|(\/?\s*>|<)/g;reg.lastIndex=start;reg.exec(source);while(match=reg.exec(source)){buf.push(match);if(match[1])return buf}}exports.XMLReader=XMLReader},{}],"/src/js/index.js":[function(require,module,exports){"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function")}}var templates=require("./templates");var DocUtils=require("docxtemplater").DocUtils;var DOMParser=require("xmldom").DOMParser;function isNaN(number){return!(number===number)}var ImgManager=require("./imgManager");var moduleName="open-xml-templating/docxtemplater-image-module";function getInnerDocx(_ref){var part=_ref.part;return part}function getInnerPptx(_ref2){var part=_ref2.part,left=_ref2.left,right=_ref2.right,postparsed=_ref2.postparsed;var xmlString=postparsed.slice(left+1,right).reduce(function(concat,item){return concat+item.value},"");var xmlDoc=(new DOMParser).parseFromString("<xml>"+xmlString+"</xml>");var offset=xmlDoc.getElementsByTagName("a:off");var ext=xmlDoc.getElementsByTagName("a:ext");part.ext={cx:parseInt(ext[0].getAttribute("cx"),10),cy:parseInt(ext[0].getAttribute("cy"),10)};part.offset={x:parseInt(offset[0].getAttribute("x"),10),y:parseInt(offset[0].getAttribute("y"),10)};return part}var ImageModule=function(){function ImageModule(options){_classCallCheck(this,ImageModule);this.name="ImageModule";this.options=options||{};this.imgManagers={};if(this.options.centered==null){this.options.centered=false}if(this.options.getImage==null){throw new Error("You should pass getImage")}if(this.options.getSize==null){throw new Error("You should pass getSize")}this.imageNumber=1}_createClass(ImageModule,[{key:"optionsTransformer",value:function optionsTransformer(options,docxtemplater){
 var relsFiles=docxtemplater.zip.file(/\.xml\.rels/).concat(docxtemplater.zip.file(/\[Content_Types\].xml/)).map(function(file){return file.name});this.fileTypeConfig=docxtemplater.fileTypeConfig;this.fileType=docxtemplater.fileType;this.zip=docxtemplater.zip;options.xmlFileNames=options.xmlFileNames.concat(relsFiles);return options}},{key:"set",value:function set(options){if(options.zip){this.zip=options.zip}if(options.xmlDocuments){this.xmlDocuments=options.xmlDocuments}}},{key:"parse",value:function parse(placeHolderContent){var module=moduleName;var type="placeholder";if(placeHolderContent.substring(0,2)==="%%"){return{type:type,value:placeHolderContent.substr(2),module:module,centered:true}}if(placeHolderContent.substring(0,1)==="%"){return{type:type,value:placeHolderContent.substr(1),module:module,centered:false}}return null}},{key:"postparse",value:function postparse(parsed){var expandTo=void 0;var getInner=void 0;if(this.fileType==="pptx"){expandTo="p:sp";getInner=getInnerPptx}else{expandTo=this.options.centered?"w:p":"w:t";getInner=getInnerDocx}return DocUtils.traits.expandToOne(parsed,{moduleName:moduleName,getInner:getInner,expandTo:expandTo})}},{key:"render",value:function render(part,options){this.imgManagers[options.filePath]=this.imgManagers[options.filePath]||new ImgManager(this.zip,options.filePath,this.xmlDocuments,this.fileType);var imgManager=this.imgManagers[options.filePath];if(!part.type==="placeholder"||part.module!==moduleName){return null}try{var tagValue=options.scopeManager.getValue(part.value);if(!tagValue){throw new Error("tagValue is empty")}var imgBuffer=this.options.getImage(tagValue,part.value);var rId=imgManager.addImageRels(this.getNextImageName(),imgBuffer);var sizePixel=this.options.getSize(imgBuffer,tagValue,part.value);return this.getRenderedPart(part,rId,sizePixel)}catch(e){return{value:this.fileTypeConfig.tagTextXml}}}},{key:"getRenderedPart",value:function getRenderedPart(part,rId,sizePixel){if(isNaN(rId)){throw new Error("rId is NaN, aborting")}var size=[DocUtils.convertPixelsToEmus(sizePixel[0]),DocUtils.convertPixelsToEmus(sizePixel[1])];var centered=this.options.centered||part.centered;var newText=void 0;if(this.fileType==="pptx"){newText=this.getRenderedPartPptx(part,rId,size,centered)}else{newText=this.getRenderedPartDocx(rId,size,centered)}return{value:newText}}},{key:"getRenderedPartPptx",value:function getRenderedPartPptx(part,rId,size,centered){var offset={x:part.offset.x,y:part.offset.y};var cellCX=part.ext.cx;var cellCY=part.ext.cy;var imgW=size[0];var imgH=size[1];if(centered){offset.x+=cellCX/2-imgW/2;offset.y+=cellCY/2-imgH/2}return templates.getPptxImageXml(rId,[imgW,imgH],offset)}},{key:"getRenderedPartDocx",value:function getRenderedPartDocx(rId,size,centered){return centered?templates.getImageXmlCentered(rId,size):templates.getImageXml(rId,size)}},{key:"getNextImageName",value:function getNextImageName(){var name="image_generated_"+this.imageNumber+".png";this.imageNumber++;return name}}]);return ImageModule}();module.exports=ImageModule},{"./imgManager":2,"./templates":3,docxtemplater:5,xmldom:23}]},{},[])("/src/js/index.js")});
 
-/***/ }),
+/***/ },
 
-/***/ 26831:
+/***/ 26831
 /*!*****************************************!*\
   !*** ./js/docxtemplater.v3.0.12.min.js ***!
   \*****************************************/
-/***/ ((module) => {
+(module) {
 
-(function(f){if(true){module.exports=f()}else { var g; }})(function(){var define,module,exports;return function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=undefined;if(!u&&a)return require(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=undefined;for(var o=0;o<r.length;o++)s(r[o]);return s}({1:[function(require,module,exports){"use strict";function _defineProperty(obj,key,value){if(key in obj){Object.defineProperty(obj,key,{value:value,enumerable:true,configurable:true,writable:true})}else{obj[key]=value}return obj}var memoize=require("./memoize");var DOMParser=require("xmldom").DOMParser;var XMLSerializer=require("xmldom").XMLSerializer;var Errors=require("./errors");var DocUtils={};function parser(tag){return _defineProperty({},"get",function get(scope){if(tag==="."){return scope}return scope[tag]})}DocUtils.defaults={nullGetter:function nullGetter(part){if(!part.module){return"undefined"}if(part.module==="rawxml"){return""}return""},parser:memoize(parser),delimiters:{start:"{",end:"}"}};DocUtils.mergeObjects=function(){var resObj={};var obj=void 0,keys=void 0;for(var i=0;i<arguments.length;i+=1){obj=arguments[i];keys=Object.keys(obj);for(var j=0;j<keys.length;j+=1){resObj[keys[j]]=obj[keys[j]]}}return resObj};DocUtils.xml2str=function(xmlNode){var a=new XMLSerializer;return a.serializeToString(xmlNode)};DocUtils.decodeUtf8=function(s){try{if(s===undefined){return undefined}return decodeURIComponent(escape(DocUtils.convertSpaces(s)))}catch(e){var err=new Error("End");err.properties.data=s;err.properties.explanation="Could not decode string to UTF8";throw err}};DocUtils.encodeUtf8=function(s){return unescape(encodeURIComponent(s))};DocUtils.str2xml=function(str,errorHandler){var parser=new DOMParser({errorHandler:errorHandler});return parser.parseFromString(str,"text/xml")};DocUtils.charMap={"&":"&amp;","'":"&apos;","<":"&lt;",">":"&gt;"};var regexStripRegexp=/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g;DocUtils.escapeRegExp=function(str){return str.replace(regexStripRegexp,"\\$&")};DocUtils.charMapRegexes=Object.keys(DocUtils.charMap).map(function(endChar){var startChar=DocUtils.charMap[endChar];return{rstart:new RegExp(DocUtils.escapeRegExp(startChar),"g"),rend:new RegExp(DocUtils.escapeRegExp(endChar),"g"),start:startChar,end:endChar}});DocUtils.wordToUtf8=function(string){var r=void 0;for(var i=0,l=DocUtils.charMapRegexes.length;i<l;i++){r=DocUtils.charMapRegexes[i];string=string.replace(r.rstart,r.end)}return string};DocUtils.utf8ToWord=function(string){if(typeof string!=="string"){string=string.toString()}var r=void 0;for(var i=0,l=DocUtils.charMapRegexes.length;i<l;i++){r=DocUtils.charMapRegexes[i];string=string.replace(r.rend,r.start)}return string};DocUtils.cloneDeep=function(obj){return JSON.parse(JSON.stringify(obj))};DocUtils.concatArrays=function(arrays){return arrays.reduce(function(result,array){Array.prototype.push.apply(result,array);return result},[])};var spaceRegexp=new RegExp(String.fromCharCode(160),"g");DocUtils.convertSpaces=function(s){return s.replace(spaceRegexp," ")};DocUtils.pregMatchAll=function(regex,content){var matchArray=[];var match=void 0;while((match=regex.exec(content))!=null){matchArray.push({array:match,offset:match.index})}return matchArray};DocUtils.sizeOfObject=function(obj){return Object.keys(obj).length};function throwXmlTagNotFound(options){var err=new Errors.XTTemplateError("No tag '"+options.element+"' was found at the "+options.position);err.properties={id:"no_xml_tag_found_at_"+options.position,explanation:"No tag '"+options.element+"' was found at the "+options.position,parsed:options.parsed,index:options.index,element:options.element};throw err}DocUtils.getRight=function(parsed,element,index){for(var i=index,l=parsed.length;i<l;i++){var part=parsed[i];if(part.value==="</"+element+">"){return i}}throwXmlTagNotFound({position:"right",element:element,parsed:parsed,index:index})};DocUtils.getLeft=function(parsed,element,index){for(var i=index;i>=0;i--){var part=parsed[i];if(part.value.indexOf("<"+element)===0&&[">"," "].indexOf(part.value[element.length+1])!==-1){return i}}throwXmlTagNotFound({position:"left",element:element,parsed:parsed,index:index})};module.exports=DocUtils},{"./errors":2,"./memoize":5,xmldom:19}],2:[function(require,module,exports){"use strict";function XTError(message){this.name="GenericError";this.message=message;this.stack=new Error(message).stack}XTError.prototype=Error.prototype;function XTTemplateError(message){this.name="TemplateError";this.message=message;this.stack=new Error(message).stack}XTTemplateError.prototype=new XTError;function XTScopeParserError(message){this.name="ScopeParserError";this.message=message;this.stack=new Error(message).stack}XTScopeParserError.prototype=new XTError;function XTInternalError(message){this.name="InternalError";this.properties={explanation:"InternalError"};this.message=message;this.stack=new Error(message).stack}XTInternalError.prototype=new XTError;module.exports={XTError:XTError,XTTemplateError:XTTemplateError,XTInternalError:XTInternalError,XTScopeParserError:XTScopeParserError}},{}],3:[function(require,module,exports){"use strict";var loopModule=require("./modules/loop");var spacePreserveModule=require("./modules/space-preserve");var rawXmlModule=require("./modules/rawxml");var expandPairTrait=require("./modules/expand-pair-trait");var render=require("./modules/render");var PptXFileTypeConfig={getTemplatedFiles:function getTemplatedFiles(zip){var slideTemplates=zip.file(/ppt\/(slides|slideMasters)\/(slide|slideMaster)\d+\.xml/).map(function(file){return file.name});return slideTemplates.concat(["ppt/presentation.xml"])},textPath:"ppt/slides/slide1.xml",tagsXmlTextArray:["a:t","m:t"],tagsXmlLexedArray:["p:sp","a:tc","a:tr","a:table","a:p","a:r"],tagRawXml:"p:sp",tagTextXml:"a:t",baseModules:[render,expandPairTrait,rawXmlModule,loopModule]};var DocXFileTypeConfig={getTemplatedFiles:function getTemplatedFiles(zip){var slideTemplates=zip.file(/word\/(header|footer)\d+\.xml/).map(function(file){return file.name});return slideTemplates.concat(["word/document.xml"])},textPath:"word/document.xml",tagsXmlTextArray:["w:t","m:t"],tagsXmlLexedArray:["w:tc","w:tr","w:table","w:p","w:r"],tagRawXml:"w:p",tagTextXml:"w:t",baseModules:[render,spacePreserveModule,expandPairTrait,rawXmlModule,loopModule]};module.exports={docx:DocXFileTypeConfig,pptx:PptXFileTypeConfig}},{"./modules/expand-pair-trait":8,"./modules/loop":9,"./modules/rawxml":10,"./modules/render":11,"./modules/space-preserve":12}],4:[function(require,module,exports){"use strict";var Errors=require("./errors");var DocUtils=require("./doc-utils");function inRange(range,match){return range[0]<=match.offset&&match.offset<range[1]}function updateInTextTag(part,inTextTag){if(part.type==="tag"&&part.position==="start"&&part.text){if(inTextTag){throw new Error("Malformed xml : Already in text tag")}return true}if(part.type==="tag"&&part.position==="end"&&part.text){if(!inTextTag){throw new Error("Malformed xml : Already not in text tag")}return false}return inTextTag}function offsetSort(a,b){return a.offset-b.offset}function getTag(tag){var start=1;if(tag[1]==="/"){start=2}var index=tag.indexOf(" ");var end=index===-1?tag.length-1:index;return{tag:tag.slice(start,end),position:start===1?"start":"end"}}function tagMatcher(content,textMatchArray,othersMatchArray){var cursor=0;var contentLength=content.length;var allMatches=DocUtils.concatArrays([textMatchArray.map(function(tag){return{tag:tag,text:true}}),othersMatchArray.map(function(tag){return{tag:tag,text:false}})]).reduce(function(allMatches,t){allMatches[t.tag]=t.text;return allMatches},{});var totalMatches=[];while(cursor<contentLength){cursor=content.indexOf("<",cursor);if(cursor===-1){break}var offset=cursor;cursor=content.indexOf(">",cursor);var tagText=content.slice(offset,cursor+1);var _getTag=getTag(tagText),tag=_getTag.tag,position=_getTag.position;var text=allMatches[tag];if(text==null){continue}totalMatches.push({type:"tag",position:position,text:text,offset:offset,value:tagText})}return totalMatches}function throwUnopenedTagException(options){var err=new Errors.XTTemplateError("Unopened tag");err.properties={xtag:options.xtag.split(" ")[0],id:"unopened_tag",context:options.xtag,explanation:"The tag beginning with '"+options.xtag.substr(0,10)+"' is unclosed"};throw err}function throwUnclosedTagException(options){var err=new Errors.XTTemplateError("Unclosed tag");err.properties={xtag:options.xtag.split(" ")[0].substr(1),id:"unclosed_tag",context:options.xtag,explanation:"The tag beginning with '"+options.xtag.substr(0,10)+"' is unclosed"};throw err}function assertDelimiterOrdered(delimiterMatches,fullText){var inDelimiter=false;var lastDelimiterMatch={offset:0};var xtag=void 0;delimiterMatches.forEach(function(delimiterMatch){xtag=fullText.substr(lastDelimiterMatch.offset,delimiterMatch.offset-lastDelimiterMatch.offset);if(delimiterMatch.position==="start"&&inDelimiter||delimiterMatch.position==="end"&&!inDelimiter){if(delimiterMatch.position==="start"){throwUnclosedTagException({xtag:xtag})}else{throwUnopenedTagException({xtag:xtag})}}inDelimiter=!inDelimiter;lastDelimiterMatch=delimiterMatch});var delimiterMatch={offset:fullText.length};xtag=fullText.substr(lastDelimiterMatch.offset,delimiterMatch.offset-lastDelimiterMatch.offset);if(inDelimiter){throwUnclosedTagException({xtag:xtag})}}function getAllIndexes(arr,val,position){var indexes=[];var offset=-1;do{offset=arr.indexOf(val,offset+1);if(offset!==-1){indexes.push({offset:offset,position:position})}}while(offset!==-1);return indexes}function Reader(innerContentParts){var _this=this;this.innerContentParts=innerContentParts;this.full="";this.parseDelimiters=function(delimiters){_this.full=_this.innerContentParts.join("");var offset=0;_this.ranges=_this.innerContentParts.map(function(part){offset+=part.length;return offset-part.length});var delimiterMatches=DocUtils.concatArrays([getAllIndexes(_this.full,delimiters.start,"start"),getAllIndexes(_this.full,delimiters.end,"end")]).sort(offsetSort);assertDelimiterOrdered(delimiterMatches,_this.full);var delimiterLength={start:delimiters.start.length,end:delimiters.end.length};var cutNext=0;var delimiterIndex=0;_this.parsed=_this.ranges.map(function(offset,i){var range=[offset,offset+this.innerContentParts[i].length];var partContent=this.innerContentParts[i];var delimitersInOffset=[];while(delimiterIndex<delimiterMatches.length&&inRange(range,delimiterMatches[delimiterIndex])){delimitersInOffset.push(delimiterMatches[delimiterIndex]);delimiterIndex++}var parts=[];var cursor=0;if(cutNext>0){cursor=cutNext;cutNext=0}delimitersInOffset.forEach(function(delimiterInOffset){var value=partContent.substr(cursor,delimiterInOffset.offset-offset-cursor);if(value.length>0){parts.push({type:"content",value:value})}parts.push({type:"delimiter",position:delimiterInOffset.position});cursor=delimiterInOffset.offset-offset+delimiterLength[delimiterInOffset.position]});cutNext=cursor-partContent.length;var value=partContent.substr(cursor);if(value.length>0){parts.push({type:"content",value:value})}return parts},_this)}}module.exports={parse:function parse(xmlparsed,delimiters){var inTextTag=false;var innerContentParts=[];xmlparsed.forEach(function(part){inTextTag=updateInTextTag(part,inTextTag);if(inTextTag&&part.type==="content"){innerContentParts.push(part.value)}});var reader=new Reader(innerContentParts);reader.parseDelimiters(delimiters);var newArray=[];var index=0;xmlparsed.forEach(function(part){inTextTag=updateInTextTag(part,inTextTag);if(part.type==="content"){part.position=inTextTag?"insidetag":"outsidetag"}if(inTextTag&&part.type==="content"){Array.prototype.push.apply(newArray,reader.parsed[index].map(function(p){if(p.type==="content"){p.position="insidetag"}return p}));index++}else{newArray.push(part)}});return newArray},xmlparse:function xmlparse(content,xmltags){var matches=tagMatcher(content,xmltags.text,xmltags.other);var cursor=0;var parsed=matches.reduce(function(parsed,match){var value=content.substr(cursor,match.offset-cursor);if(value.length>0){parsed.push({type:"content",value:value})}cursor=match.offset+match.value.length;delete match.offset;if(match.value.length>0){parsed.push(match)}return parsed},[]);var value=content.substr(cursor);if(value.length>0){parsed.push({type:"content",value:value})}return parsed}}},{"./doc-utils":1,"./errors":2}],5:[function(require,module,exports){"use strict";function memoize(func){var stringifyJson=JSON.stringify,cache={};function cachedfun(){var hash=stringifyJson(arguments);return hash in cache?cache[hash]:cache[hash]=func.apply(this,arguments)}return cachedfun}module.exports=memoize},{}],6:[function(require,module,exports){"use strict";function getMinFromArrays(arrays,state){var minIndex=-1;for(var i=0,l=arrays.length;i<l;i++){if(state[i]>=arrays[i].length){continue}if(minIndex===-1||arrays[i][state[i]].offset<arrays[minIndex][state[minIndex]].offset){minIndex=i}}if(minIndex===-1){throw new Error("minIndex negative")}return minIndex}module.exports=function(arrays){var totalLength=arrays.reduce(function(sum,array){return sum+array.length},0);arrays=arrays.filter(function(array){return array.length>0});var resultArray=new Array(totalLength);var state=arrays.map(function(){return 0});var i=0;while(i<=totalLength-1){var arrayIndex=getMinFromArrays(arrays,state);resultArray[i]=arrays[arrayIndex][state[arrayIndex]];state[arrayIndex]++;i++}return resultArray}},{}],7:[function(require,module,exports){"use strict";function emptyFun(){}function identity(i){return i}module.exports=function(module){var defaults={set:emptyFun,parse:emptyFun,render:emptyFun,getTraits:emptyFun,optionsTransformer:identity,getRenderedMap:identity,postparse:identity};if(Object.keys(defaults).every(function(key){return!module[key]})){throw new Error("This module cannot be wrapped, because it doesn't define any of the necessary functions")}Object.keys(defaults).forEach(function(key){module[key]=module[key]||defaults[key]});return module}},{}],8:[function(require,module,exports){"use strict";var traitName="expandPair";var mergeSort=require("../mergesort");var DocUtils=require("../doc-utils");var wrapper=require("../module-wrapper");var _require=require("../traits"),getExpandToDefault=_require.getExpandToDefault;var Errors=require("../errors");function throwUnmatchedLoopException(options){var location=options.location;var t=location==="start"?"unclosed":"unopened";var T=location==="start"?"Unclosed":"Unopened";var err=new Errors.XTTemplateError(T+" loop");var tag=options.part.value;err.properties={id:t+"_loop",explanation:"The loop with tag "+tag+" is "+t,xtag:tag};throw err}function throwClosingTagNotMatchOpeningTag(options){var tags=options.tags;var err=new Errors.XTTemplateError("Closing tag does not match opening tag");err.properties={id:"closing_tag_does_not_match_opening_tag",explanation:'The tag "'+tags[0].value+'" is closed by the tag "'+tags[1].value+'"',openingtag:tags[0].value,closingtag:tags[1].value};throw err}function getOpenCountChange(part){switch(part.location){case"start":return 1;case"end":return-1;default:throw new Error("Location should be one of 'start' or 'end' (given : "+part.location+")")}}function getPairs(traits){if(traits.length===0){return[]}var countOpen=1;var firstTrait=traits[0];for(var i=1;i<traits.length;i++){var currentTrait=traits[i];countOpen+=getOpenCountChange(currentTrait.part);if(countOpen===0){if(currentTrait.part.value!==firstTrait.part.value&&currentTrait.part.value!==""){throwClosingTagNotMatchOpeningTag({tags:[firstTrait.part,currentTrait.part]})}var outer=getPairs(traits.slice(i+1));return[[firstTrait,currentTrait]].concat(outer)}}var part=firstTrait.part;throwUnmatchedLoopException({part:part,location:part.location})}var expandPairTrait={name:"ExpandPairTrait",postparse:function postparse(parsed,_ref){var getTraits=_ref.getTraits,_postparse=_ref.postparse;var traits=getTraits(traitName,parsed);traits=traits.map(function(trait){return trait||[]});traits=mergeSort(traits);var pairs=getPairs(traits);var expandedPairs=pairs.map(function(pair){var expandTo=pair[0].part.expandTo;if(expandTo==="auto"){expandTo=getExpandToDefault(parsed.slice(pair[0].offset,pair[1].offset))}if(!expandTo){return[pair[0].offset,pair[1].offset]}var left=DocUtils.getLeft(parsed,expandTo,pair[0].offset);var right=DocUtils.getRight(parsed,expandTo,pair[1].offset);return[left,right]});var currentPairIndex=0;var innerParts=void 0;return parsed.reduce(function(newParsed,part,i){var inPair=currentPairIndex<pairs.length&&expandedPairs[currentPairIndex][0]<=i;var pair=pairs[currentPairIndex];var expandedPair=expandedPairs[currentPairIndex];if(!inPair){newParsed.push(part);return newParsed}if(expandedPair[0]===i){innerParts=[]}if(pair[0].offset!==i&&pair[1].offset!==i){innerParts.push(part)}if(expandedPair[1]===i){var basePart=parsed[pair[0].offset];delete basePart.location;delete basePart.expandTo;basePart.subparsed=_postparse(innerParts);newParsed.push(basePart);currentPairIndex++}return newParsed},[])}};module.exports=function(){return wrapper(expandPairTrait)}},{"../doc-utils":1,"../errors":2,"../mergesort":6,"../module-wrapper":7,"../traits":16}],9:[function(require,module,exports){"use strict";var DocUtils=require("../doc-utils");var dashInnerRegex=/^-([^\s]+)\s(.+)$/;var wrapper=require("../module-wrapper");var moduleName="loop";var loopModule={name:"LoopModule",parse:function parse(placeHolderContent){var module=moduleName;var type="placeholder";if(placeHolderContent[0]==="#"){return{type:type,value:placeHolderContent.substr(1),expandTo:"auto",module:module,location:"start",inverted:false}}if(placeHolderContent[0]==="^"){return{type:type,value:placeHolderContent.substr(1),expandTo:"auto",module:module,location:"start",inverted:true}}if(placeHolderContent[0]==="/"){return{type:type,value:placeHolderContent.substr(1),module:module,location:"end"}}if(placeHolderContent[0]==="-"){var value=placeHolderContent.replace(dashInnerRegex,"$2");var expandTo=placeHolderContent.replace(dashInnerRegex,"$1");return{type:type,value:value,expandTo:expandTo,module:module,location:"start",inverted:false}}return null},getTraits:function getTraits(traitName,parsed){if(traitName!=="expandPair"){return}return parsed.reduce(function(tags,part,offset){if(part.type==="placeholder"&&part.module===moduleName){tags.push({part:part,offset:offset})}return tags},[])},render:function render(part,options){if(!part.type==="placeholder"||part.module!==moduleName){return null}var totalValue=[];function loopOver(scope){var scopeManager=options.scopeManager.createSubScopeManager(scope,part.value);totalValue.push(options.render(DocUtils.mergeObjects({},options,{compiled:part.subparsed,tags:{},scopeManager:scopeManager})))}options.scopeManager.loopOver(part.value,loopOver,part.inverted);return{value:totalValue.join("")}}};module.exports=function(){return wrapper(loopModule)}},{"../doc-utils":1,"../module-wrapper":7}],10:[function(require,module,exports){"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function")}}var DocUtils=require("../doc-utils");var Errors=require("../errors");var moduleName="rawxml";var wrapper=require("../module-wrapper");function throwRawTagShouldBeOnlyTextInParagraph(options){var err=new Errors.XTTemplateError("Raw tag should be the only text in paragraph");var tag=options.part.value;err.properties={id:"raw_xml_tag_should_be_only_text_in_paragraph",explanation:"The tag "+tag,xtag:options.part.value,paragraphParts:options.paragraphParts};throw err}function getInner(_ref){var part=_ref.part,left=_ref.left,right=_ref.right,postparsed=_ref.postparsed,index=_ref.index;var paragraphParts=postparsed.slice(left+1,right);paragraphParts.forEach(function(p,i){if(i===index-left-1){return}if(p.type==="placeholder"||p.type==="content"&&p.position==="insidetag"){throwRawTagShouldBeOnlyTextInParagraph({paragraphParts:paragraphParts,part:part})}});return part}var RawXmlModule=function(){function RawXmlModule(){_classCallCheck(this,RawXmlModule);this.name="RawXmlModule"}_createClass(RawXmlModule,[{key:"optionsTransformer",value:function optionsTransformer(options,docxtemplater){this.fileTypeConfig=docxtemplater.fileTypeConfig;return options}},{key:"parse",value:function parse(placeHolderContent){var type="placeholder";if(placeHolderContent[0]!=="@"){return null}return{type:type,value:placeHolderContent.substr(1),module:moduleName}}},{key:"postparse",value:function postparse(parsed){return DocUtils.traits.expandToOne(parsed,{moduleName:moduleName,getInner:getInner,expandTo:this.fileTypeConfig.tagRawXml})}},{key:"render",value:function render(part,options){if(part.module!==moduleName){return null}var value=options.scopeManager.getValue(part.value);if(value==null){value=options.nullGetter(part)}return{value:value}}}]);return RawXmlModule}();module.exports=function(){return wrapper(new RawXmlModule)}},{"../doc-utils":1,"../errors":2,"../module-wrapper":7}],11:[function(require,module,exports){"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function")}}var wrapper=require("../module-wrapper");var Render=function(){function Render(){_classCallCheck(this,Render);this.name="Render"}_createClass(Render,[{key:"set",value:function set(obj){if(obj.compiled){this.compiled=obj.compiled}if(obj.data!=null){this.data=obj.data}}},{key:"getRenderedMap",value:function getRenderedMap(mapper){var _this=this;return Object.keys(this.compiled).reduce(function(mapper,from){mapper[from]={from:from,data:_this.data};return mapper},mapper)}}]);return Render}();module.exports=function(){return wrapper(new Render)}},{"../module-wrapper":7}],12:[function(require,module,exports){"use strict";var wrapper=require("../module-wrapper");var spacePreserve={name:"SpacePreserveModule",postparse:function postparse(parsed){var chunk=[];var inChunk=false;var result=parsed.reduce(function(parsed,part){if(part.type==="tag"&&part.position==="start"&&part.text&&part.value==="<w:t>"){inChunk=true}if(inChunk){if(part.type==="placeholder"&&!part.module){chunk[0].value='<w:t xml:space="preserve">'}chunk.push(part)}else{parsed.push(part)}if(part.type==="tag"&&part.position==="end"&&part.text&&part.value==="</w:t>"){Array.prototype.push.apply(parsed,chunk);inChunk=false;chunk=[]}return parsed},[]);Array.prototype.push.apply(result,chunk);return result}};module.exports=function(){return wrapper(spacePreserve)}},{"../module-wrapper":7}],13:[function(require,module,exports){"use strict";var DocUtils=require("./doc-utils");var parser={postparse:function postparse(parsed,modules){function getTraits(traitName,parsed){return modules.map(function(module){return module.getTraits(traitName,parsed)})}function postparse(parsed){return modules.reduce(function(parsed,module){return module.postparse(parsed,{postparse:postparse,getTraits:getTraits})},parsed)}return postparse(parsed)},parse:function parse(lexed,modules){function moduleParse(placeHolderContent,parsed){var moduleParsed=void 0;for(var i=0,l=modules.length;i<l;i++){var _module=modules[i];moduleParsed=_module.parse(placeHolderContent);if(moduleParsed){parsed.push(moduleParsed);return moduleParsed}}return null}var inPlaceHolder=false;var placeHolderContent=void 0;var tailParts=[];return lexed.reduce(function(parsed,token){if(token.type==="delimiter"){inPlaceHolder=token.position==="start";if(token.position==="end"){placeHolderContent=DocUtils.wordToUtf8(placeHolderContent);if(!moduleParse(placeHolderContent,parsed)){parsed.push({type:"placeholder",value:placeHolderContent})}Array.prototype.push.apply(parsed,tailParts);tailParts=[];return parsed}placeHolderContent="";return parsed}if(inPlaceHolder){if(token.type==="content"&&token.position==="insidetag"){placeHolderContent+=token.value}else{tailParts.push(token)}return parsed}parsed.push(token);return parsed},[])}};module.exports=parser},{"./doc-utils":1}],14:[function(require,module,exports){"use strict";var ScopeManager=require("./scope-manager");var DocUtils=require("./doc-utils");function moduleRender(part,options){var moduleRendered=void 0;for(var i=0,l=options.modules.length;i<l;i++){var _module=options.modules[i];moduleRendered=_module.render(part,options);if(moduleRendered){return moduleRendered}}return false}function render(options){options.render=render;options.modules=options.modules;if(!options.scopeManager){options.scopeManager=ScopeManager.createBaseScopeManager(options)}return options.compiled.map(function(part){var moduleRendered=moduleRender(part,options);if(moduleRendered){return moduleRendered.value}if(part.type==="placeholder"){var value=options.scopeManager.getValue(part.value);if(value==null){value=options.nullGetter(part)}return DocUtils.utf8ToWord(value)}if(part.type==="content"||part.type==="tag"){return part.value}throw new Error('Unimplemented tag type "'+part.type+'"')}).join("")}module.exports=render},{"./doc-utils":1,"./scope-manager":15}],15:[function(require,module,exports){"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function")}}var Errors=require("./errors");var ScopeManager=function(){function ScopeManager(options){_classCallCheck(this,ScopeManager);this.scopePath=options.scopePath;this.scopeList=options.scopeList;this.parser=options.parser}_createClass(ScopeManager,[{key:"loopOver",value:function loopOver(tag,callback,inverted){inverted=inverted||false;return this.loopOverValue(this.getValue(tag),callback,inverted)}},{key:"functorIfInverted",value:function functorIfInverted(inverted,functor,value){if(inverted){functor(value)}}},{key:"isValueFalsy",value:function isValueFalsy(value,type){return value==null||!value||type==="[object Array]"&&value.length===0}},{key:"loopOverValue",value:function loopOverValue(value,functor,inverted){var type=Object.prototype.toString.call(value);var currentValue=this.scopeList[this.num];if(this.isValueFalsy(value,type)){return this.functorIfInverted(inverted,functor,currentValue)}if(type==="[object Array]"){for(var i=0,scope;i<value.length;i++){scope=value[i];this.functorIfInverted(!inverted,functor,scope)}return}if(type==="[object Object]"){return this.functorIfInverted(!inverted,functor,value)}if(value===true){return this.functorIfInverted(!inverted,functor,currentValue)}}},{key:"getValue",value:function getValue(tag,num){this.num=num==null?this.scopeList.length-1:num;var err=void 0;var parser=void 0;var result=void 0;var scope=this.scopeList[this.num];try{parser=this.parser(tag)}catch(error){err=new Errors.XTScopeParserError("Scope parser compilation failed");err.properties={id:"scopeparser_compilation_failed",tag:tag,explanation:"The scope parser for the tag "+tag+" failed to compile",rootError:error};throw err}try{result=parser.get(scope,{num:this.num,scopeList:this.scopeList})}catch(error){err=new Errors.XTScopeParserError("Scope parser execution failed");err.properties={id:"scopeparser_execution_failed",explanation:"The scope parser for the tag "+tag+" failed to execute",scope:scope,tag:tag,rootError:error};throw err}if(result==null&&this.num>0){return this.getValue(tag,this.num-1)}return result}},{key:"createSubScopeManager",value:function createSubScopeManager(scope,tag){var options={scopePath:this.scopePath.slice(0),scopeList:this.scopeList.slice(0)};options.parser=this.parser;options.scopeList=this.scopeList.concat(scope);options.scopePath=this.scopePath.concat(tag);return new ScopeManager(options)}}]);return ScopeManager}();ScopeManager.createBaseScopeManager=function(_ref){var parser=_ref.parser,tags=_ref.tags;var options={parser:parser,tags:tags};options.scopePath=[];options.scopeList=[tags];return new ScopeManager(options)};module.exports=ScopeManager},{"./errors":2}],16:[function(require,module,exports){"use strict";var DocUtils=require("./doc-utils");var Errors=require("./errors");function throwRawTagNotInParagraph(options){var err=new Errors.XTTemplateError("Raw tag not in paragraph");var tag=options.part.value;err.properties={id:"raw_tag_outerxml_invalid",explanation:'The tag "'+tag+'"',rootError:options.rootError,xtag:tag,postparsed:options.postparsed,expandTo:options.expandTo,index:options.index};throw err}function lastTagIsOpenTag(array,tag){if(array.length===0){return false}var lastTag=array[array.length-1];var innerLastTag=lastTag.tag.substr(1);var innerCurrentTag=tag.substr(2,tag.length-3);return innerLastTag.indexOf(innerCurrentTag)===0}function addTag(array,tag){array.push({tag:tag});return array}function getListXmlElements(parts){var tags=parts.filter(function(part){return part.type==="tag"}).map(function(part){return part.value});var result=[];for(var i=0,tag;i<tags.length;i++){tag=tags[i];if(tag[1]==="/"){if(lastTagIsOpenTag(result,tag)){result.pop()}else{result=addTag(result,tag)}}else if(tag[tag.length-1]!=="/"){result=addTag(result,tag)}}return result}function getExpandToDefault(parts){var xmlElements=getListXmlElements(parts);for(var i=0;i<xmlElements.length;i++){var xmlElement=xmlElements[i];if(xmlElement.tag.indexOf("<w:tc")===0){return"w:tr"}if(xmlElement.tag.indexOf("<a:tc")===0){return"a:tr"}}return false}function expandOne(part,postparsed,options){var expandTo=part.expandTo||options.expandTo;var index=postparsed.indexOf(part);if(!expandTo){return postparsed}var right=void 0,left=void 0;try{right=DocUtils.getRight(postparsed,expandTo,index);left=DocUtils.getLeft(postparsed,expandTo,index)}catch(rootError){if(rootError instanceof Errors.XTTemplateError){throwRawTagNotInParagraph({part:part,rootError:rootError,postparsed:postparsed,expandTo:expandTo,index:index})}throw rootError}var leftParts=postparsed.slice(left,index);var rightParts=postparsed.slice(index+1,right+1);var inner=options.getInner({index:index,part:part,leftParts:leftParts,rightParts:rightParts,left:left,right:right,postparsed:postparsed});if(!inner.length){inner.expanded=[leftParts,rightParts];inner=[inner]}return DocUtils.concatArrays([postparsed.slice(0,left),inner,postparsed.slice(right+1)])}function expandToOne(postparsed,options){var expandToElements=postparsed.reduce(function(elements,part){if(part.type==="placeholder"&&part.module===options.moduleName){elements.push(part)}return elements},[]);expandToElements.forEach(function(part){postparsed=expandOne(part,postparsed,options)});return postparsed}module.exports={expandToOne:expandToOne,getExpandToDefault:getExpandToDefault}},{"./doc-utils":1,"./errors":2}],17:[function(require,module,exports){"use strict";var DocUtils=require("./doc-utils");var memoize=require("./memoize");function handleRecursiveCase(res){function replacerUnshift(){var pn={array:Array.prototype.slice.call(arguments)};pn.array.shift();var match=pn.array[0]+pn.array[1];pn.array.unshift(match);pn.array.pop();var offset=pn.array.pop();pn.offset=offset;pn.first=true;res.matches.unshift(pn);res.charactersAdded.unshift(0);return res.charactersAddedCumulative.unshift(0)}if(res.content.indexOf("<")===-1&&res.content.indexOf(">")===-1){res.content.replace(/^()([^<>]*)$/,replacerUnshift)}var r=new RegExp("^()([^<]+)</(?:"+res.tagsXmlArrayJoined+")>");res.content.replace(r,replacerUnshift);function replacerPush(){var pn={array:Array.prototype.slice.call(arguments)};pn.array.pop();var offset=pn.array.pop();pn.offset=offset;pn.last=true;res.matches.push(pn);res.charactersAdded.push(0);return res.charactersAddedCumulative.push(0)}r=new RegExp("(<(?:"+res.tagsXmlArrayJoined+")[^>]*>)([^>]+)$");res.content.replace(r,replacerPush);return res}function xmlMatcher(content,tagsXmlArray){var res={};res.content=content;res.tagsXmlArray=tagsXmlArray;res.tagsXmlArrayJoined=res.tagsXmlArray.join("|");var regexp=new RegExp("(<(?:"+res.tagsXmlArrayJoined+")[^>]*>)([^<>]*)</(?:"+res.tagsXmlArrayJoined+")>","g");res.matches=DocUtils.pregMatchAll(regexp,res.content);res.charactersAddedCumulative=res.matches.map(function(){return 0});res.charactersAdded=res.matches.map(function(){return 0});return handleRecursiveCase(res)}var memoized=memoize(xmlMatcher);module.exports=function(content,tagsXmlArray){return DocUtils.cloneDeep(memoized(content,tagsXmlArray))}},{"./doc-utils":1,"./memoize":5}],18:[function(require,module,exports){"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function")}}var DocUtils=require("./doc-utils");var ScopeManager=require("./scope-manager");var xmlMatcher=require("./xml-matcher");var Errors=require("./errors");var Lexer=require("./lexer");var Parser=require("./parser.js");var _render=require("./render.js");function _getFullText(content,tagsXmlArray){var matcher=xmlMatcher(content,tagsXmlArray);var result=matcher.matches.map(function(match){return match.array[2]});return DocUtils.wordToUtf8(DocUtils.convertSpaces(result.join("")))}module.exports=function(){function XmlTemplater(content,options){_classCallCheck(this,XmlTemplater);this.fromJson(options);this.setModules({inspect:{filePath:this.filePath}});this.load(content)}_createClass(XmlTemplater,[{key:"load",value:function load(content){if(typeof content!=="string"){var err=new Errors.XTInternalError("Content must be a string");err.properties.id="xmltemplater_content_must_be_string";throw err}this.content=content}},{key:"setTags",value:function setTags(tags){this.tags=tags!=null?tags:{};this.scopeManager=ScopeManager.createBaseScopeManager({tags:this.tags,parser:this.parser});return this}},{key:"fromJson",value:function fromJson(options){this.filePath=options.filePath;this.modules=options.modules;this.fileTypeConfig=options.fileTypeConfig;Object.keys(DocUtils.defaults).map(function(key){this[key]=options[key]!=null?options[key]:DocUtils.defaults[key]},this)}},{key:"getFullText",value:function getFullText(){return _getFullText(this.content,this.fileTypeConfig.tagsXmlTextArray)}},{key:"setModules",value:function setModules(obj){this.modules.forEach(function(module){module.set(obj)})}},{key:"parse",value:function parse(){this.xmllexed=Lexer.xmlparse(this.content,{text:this.fileTypeConfig.tagsXmlTextArray,other:this.fileTypeConfig.tagsXmlLexedArray});this.setModules({inspect:{xmllexed:this.xmllexed}});this.lexed=Lexer.parse(this.xmllexed,this.delimiters);this.setModules({inspect:{lexed:this.lexed}});this.parsed=Parser.parse(this.lexed,this.modules);this.setModules({inspect:{parsed:this.parsed}});this.postparsed=Parser.postparse(this.parsed,this.modules);return this}},{key:"render",value:function render(to){this.filePath=to;this.setModules({inspect:{postparsed:this.postparsed}});this.content=_render({compiled:this.postparsed,tags:this.tags,modules:this.modules,parser:this.parser,nullGetter:this.nullGetter,filePath:this.filePath});this.setModules({inspect:{content:this.content}});return this}}]);return XmlTemplater}()},{"./doc-utils":1,"./errors":2,"./lexer":4,"./parser.js":13,"./render.js":14,"./scope-manager":15,"./xml-matcher":17}],19:[function(require,module,exports){function DOMParser(options){this.options=options||{locator:{}}}DOMParser.prototype.parseFromString=function(source,mimeType){var options=this.options;var sax=new XMLReader;var domBuilder=options.domBuilder||new DOMHandler;var errorHandler=options.errorHandler;var locator=options.locator;var defaultNSMap=options.xmlns||{};var entityMap={lt:"<",gt:">",amp:"&",quot:'"',apos:"'"};if(locator){domBuilder.setDocumentLocator(locator)}sax.errorHandler=buildErrorHandler(errorHandler,domBuilder,locator);sax.domBuilder=options.domBuilder||domBuilder;if(/\/x?html?$/.test(mimeType)){entityMap.nbsp=" ";entityMap.copy="©";defaultNSMap[""]="http://www.w3.org/1999/xhtml"}defaultNSMap.xml=defaultNSMap.xml||"http://www.w3.org/XML/1998/namespace";if(source){sax.parse(source,defaultNSMap,entityMap)}else{sax.errorHandler.error("invalid doc source")}return domBuilder.doc};function buildErrorHandler(errorImpl,domBuilder,locator){if(!errorImpl){if(domBuilder instanceof DOMHandler){return domBuilder}errorImpl=domBuilder}var errorHandler={};var isCallback=errorImpl instanceof Function;locator=locator||{};function build(key){var fn=errorImpl[key];if(!fn&&isCallback){fn=errorImpl.length==2?function(msg){errorImpl(key,msg)}:errorImpl}errorHandler[key]=fn&&function(msg){fn("[xmldom "+key+"]\t"+msg+_locator(locator))}||function(){}}build("warning");build("error");build("fatalError");return errorHandler}function DOMHandler(){this.cdata=false}function position(locator,node){node.lineNumber=locator.lineNumber;node.columnNumber=locator.columnNumber}DOMHandler.prototype={startDocument:function(){this.doc=(new DOMImplementation).createDocument(null,null,null);if(this.locator){this.doc.documentURI=this.locator.systemId}},startElement:function(namespaceURI,localName,qName,attrs){var doc=this.doc;var el=doc.createElementNS(namespaceURI,qName||localName);var len=attrs.length;appendElement(this,el);this.currentElement=el;this.locator&&position(this.locator,el);for(var i=0;i<len;i++){var namespaceURI=attrs.getURI(i);var value=attrs.getValue(i);var qName=attrs.getQName(i);var attr=doc.createAttributeNS(namespaceURI,qName);this.locator&&position(attrs.getLocator(i),attr);attr.value=attr.nodeValue=value;el.setAttributeNode(attr)}},endElement:function(namespaceURI,localName,qName){var current=this.currentElement;var tagName=current.tagName;this.currentElement=current.parentNode},startPrefixMapping:function(prefix,uri){},endPrefixMapping:function(prefix){},processingInstruction:function(target,data){var ins=this.doc.createProcessingInstruction(target,data);this.locator&&position(this.locator,ins);appendElement(this,ins)},ignorableWhitespace:function(ch,start,length){},characters:function(chars,start,length){chars=_toString.apply(this,arguments);if(chars){if(this.cdata){var charNode=this.doc.createCDATASection(chars)}else{var charNode=this.doc.createTextNode(chars)}if(this.currentElement){this.currentElement.appendChild(charNode)}else if(/^\s*$/.test(chars)){this.doc.appendChild(charNode)}this.locator&&position(this.locator,charNode)}},skippedEntity:function(name){},endDocument:function(){this.doc.normalize()},setDocumentLocator:function(locator){if(this.locator=locator){locator.lineNumber=0}},comment:function(chars,start,length){chars=_toString.apply(this,arguments);var comm=this.doc.createComment(chars);this.locator&&position(this.locator,comm);appendElement(this,comm)},startCDATA:function(){this.cdata=true},endCDATA:function(){this.cdata=false},startDTD:function(name,publicId,systemId){var impl=this.doc.implementation;if(impl&&impl.createDocumentType){var dt=impl.createDocumentType(name,publicId,systemId);this.locator&&position(this.locator,dt);appendElement(this,dt)}},warning:function(error){console.warn("[xmldom warning]\t"+error,_locator(this.locator))},error:function(error){console.error("[xmldom error]\t"+error,_locator(this.locator))},fatalError:function(error){console.error("[xmldom fatalError]\t"+error,_locator(this.locator));throw error}};function _locator(l){if(l){return"\n@"+(l.systemId||"")+"#[line:"+l.lineNumber+",col:"+l.columnNumber+"]"}}function _toString(chars,start,length){if(typeof chars=="string"){return chars.substr(start,length)}else{if(chars.length>=start+length||start){return new java.lang.String(chars,start,length)+""}return chars}}"endDTD,startEntity,endEntity,attributeDecl,elementDecl,externalEntityDecl,internalEntityDecl,resolveEntity,getExternalSubset,notationDecl,unparsedEntityDecl".replace(/\w+/g,function(key){DOMHandler.prototype[key]=function(){return null}});function appendElement(hander,node){if(!hander.currentElement){hander.doc.appendChild(node)}else{hander.currentElement.appendChild(node)}}var XMLReader=require("./sax").XMLReader;var DOMImplementation=exports.DOMImplementation=require("./dom").DOMImplementation;exports.XMLSerializer=require("./dom").XMLSerializer;exports.DOMParser=DOMParser},{"./dom":20,"./sax":21}],20:[function(require,module,exports){function copy(src,dest){for(var p in src){dest[p]=src[p]}}function _extends(Class,Super){var pt=Class.prototype;if(Object.create){var ppt=Object.create(Super.prototype);pt.__proto__=ppt}if(!(pt instanceof Super)){function t(){}t.prototype=Super.prototype;t=new t;copy(pt,t);Class.prototype=pt=t}if(pt.constructor!=Class){if(typeof Class!="function"){console.error("unknow Class:"+Class)}pt.constructor=Class}}var htmlns="http://www.w3.org/1999/xhtml";var NodeType={};var ELEMENT_NODE=NodeType.ELEMENT_NODE=1;var ATTRIBUTE_NODE=NodeType.ATTRIBUTE_NODE=2;var TEXT_NODE=NodeType.TEXT_NODE=3;var CDATA_SECTION_NODE=NodeType.CDATA_SECTION_NODE=4;var ENTITY_REFERENCE_NODE=NodeType.ENTITY_REFERENCE_NODE=5;var ENTITY_NODE=NodeType.ENTITY_NODE=6;var PROCESSING_INSTRUCTION_NODE=NodeType.PROCESSING_INSTRUCTION_NODE=7;var COMMENT_NODE=NodeType.COMMENT_NODE=8;var DOCUMENT_NODE=NodeType.DOCUMENT_NODE=9;var DOCUMENT_TYPE_NODE=NodeType.DOCUMENT_TYPE_NODE=10;var DOCUMENT_FRAGMENT_NODE=NodeType.DOCUMENT_FRAGMENT_NODE=11;var NOTATION_NODE=NodeType.NOTATION_NODE=12;var ExceptionCode={};var ExceptionMessage={};var INDEX_SIZE_ERR=ExceptionCode.INDEX_SIZE_ERR=(ExceptionMessage[1]="Index size error",1);var DOMSTRING_SIZE_ERR=ExceptionCode.DOMSTRING_SIZE_ERR=(ExceptionMessage[2]="DOMString size error",2);var HIERARCHY_REQUEST_ERR=ExceptionCode.HIERARCHY_REQUEST_ERR=(ExceptionMessage[3]="Hierarchy request error",3);var WRONG_DOCUMENT_ERR=ExceptionCode.WRONG_DOCUMENT_ERR=(ExceptionMessage[4]="Wrong document",4);var INVALID_CHARACTER_ERR=ExceptionCode.INVALID_CHARACTER_ERR=(ExceptionMessage[5]="Invalid character",5);var NO_DATA_ALLOWED_ERR=ExceptionCode.NO_DATA_ALLOWED_ERR=(ExceptionMessage[6]="No data allowed",6);var NO_MODIFICATION_ALLOWED_ERR=ExceptionCode.NO_MODIFICATION_ALLOWED_ERR=(ExceptionMessage[7]="No modification allowed",7);var NOT_FOUND_ERR=ExceptionCode.NOT_FOUND_ERR=(ExceptionMessage[8]="Not found",8);var NOT_SUPPORTED_ERR=ExceptionCode.NOT_SUPPORTED_ERR=(ExceptionMessage[9]="Not supported",9);var INUSE_ATTRIBUTE_ERR=ExceptionCode.INUSE_ATTRIBUTE_ERR=(ExceptionMessage[10]="Attribute in use",10);var INVALID_STATE_ERR=ExceptionCode.INVALID_STATE_ERR=(ExceptionMessage[11]="Invalid state",11);var SYNTAX_ERR=ExceptionCode.SYNTAX_ERR=(ExceptionMessage[12]="Syntax error",12);var INVALID_MODIFICATION_ERR=ExceptionCode.INVALID_MODIFICATION_ERR=(ExceptionMessage[13]="Invalid modification",13);var NAMESPACE_ERR=ExceptionCode.NAMESPACE_ERR=(ExceptionMessage[14]="Invalid namespace",14);var INVALID_ACCESS_ERR=ExceptionCode.INVALID_ACCESS_ERR=(ExceptionMessage[15]="Invalid access",15);function DOMException(code,message){if(message instanceof Error){var error=message}else{error=this;Error.call(this,ExceptionMessage[code]);this.message=ExceptionMessage[code];if(Error.captureStackTrace)Error.captureStackTrace(this,DOMException)}error.code=code;if(message)this.message=this.message+": "+message;return error}DOMException.prototype=Error.prototype;copy(ExceptionCode,DOMException);function NodeList(){}NodeList.prototype={length:0,item:function(index){return this[index]||null},toString:function(isHTML,nodeFilter){for(var buf=[],i=0;i<this.length;i++){serializeToString(this[i],buf,isHTML,nodeFilter)}return buf.join("")}};function LiveNodeList(node,refresh){this._node=node;this._refresh=refresh;_updateLiveList(this)}function _updateLiveList(list){var inc=list._node._inc||list._node.ownerDocument._inc;if(list._inc!=inc){var ls=list._refresh(list._node);__set__(list,"length",ls.length);copy(ls,list);list._inc=inc}}LiveNodeList.prototype.item=function(i){_updateLiveList(this);return this[i]};_extends(LiveNodeList,NodeList);function NamedNodeMap(){}function _findNodeIndex(list,node){var i=list.length;while(i--){if(list[i]===node){return i}}}function _addNamedNode(el,list,newAttr,oldAttr){if(oldAttr){list[_findNodeIndex(list,oldAttr)]=newAttr}else{list[list.length++]=newAttr}if(el){newAttr.ownerElement=el;var doc=el.ownerDocument;if(doc){oldAttr&&_onRemoveAttribute(doc,el,oldAttr);_onAddAttribute(doc,el,newAttr)}}}function _removeNamedNode(el,list,attr){var i=_findNodeIndex(list,attr);if(i>=0){var lastIndex=list.length-1;while(i<lastIndex){list[i]=list[++i]}list.length=lastIndex;if(el){var doc=el.ownerDocument;if(doc){_onRemoveAttribute(doc,el,attr);attr.ownerElement=null}}}else{throw DOMException(NOT_FOUND_ERR,new Error(el.tagName+"@"+attr))}}NamedNodeMap.prototype={length:0,item:NodeList.prototype.item,getNamedItem:function(key){var i=this.length;while(i--){var attr=this[i];if(attr.nodeName==key){return attr}}},setNamedItem:function(attr){var el=attr.ownerElement;if(el&&el!=this._ownerElement){throw new DOMException(INUSE_ATTRIBUTE_ERR)}var oldAttr=this.getNamedItem(attr.nodeName);_addNamedNode(this._ownerElement,this,attr,oldAttr);return oldAttr},setNamedItemNS:function(attr){var el=attr.ownerElement,oldAttr;if(el&&el!=this._ownerElement){throw new DOMException(INUSE_ATTRIBUTE_ERR)}oldAttr=this.getNamedItemNS(attr.namespaceURI,attr.localName);_addNamedNode(this._ownerElement,this,attr,oldAttr);return oldAttr},removeNamedItem:function(key){var attr=this.getNamedItem(key);_removeNamedNode(this._ownerElement,this,attr);return attr},removeNamedItemNS:function(namespaceURI,localName){var attr=this.getNamedItemNS(namespaceURI,localName);_removeNamedNode(this._ownerElement,this,attr);return attr},getNamedItemNS:function(namespaceURI,localName){var i=this.length;while(i--){var node=this[i];if(node.localName==localName&&node.namespaceURI==namespaceURI){return node}}return null}};function DOMImplementation(features){this._features={};if(features){for(var feature in features){this._features=features[feature]}}}DOMImplementation.prototype={hasFeature:function(feature,version){var versions=this._features[feature.toLowerCase()];if(versions&&(!version||version in versions)){return true}else{return false}},createDocument:function(namespaceURI,qualifiedName,doctype){var doc=new Document;doc.implementation=this;doc.childNodes=new NodeList;doc.doctype=doctype;if(doctype){doc.appendChild(doctype)}if(qualifiedName){var root=doc.createElementNS(namespaceURI,qualifiedName);doc.appendChild(root)}return doc},createDocumentType:function(qualifiedName,publicId,systemId){var node=new DocumentType;node.name=qualifiedName;node.nodeName=qualifiedName;node.publicId=publicId;node.systemId=systemId;return node}};function Node(){}Node.prototype={firstChild:null,lastChild:null,previousSibling:null,nextSibling:null,attributes:null,parentNode:null,childNodes:null,ownerDocument:null,nodeValue:null,namespaceURI:null,prefix:null,localName:null,insertBefore:function(newChild,refChild){return _insertBefore(this,newChild,refChild)},replaceChild:function(newChild,oldChild){this.insertBefore(newChild,oldChild);if(oldChild){this.removeChild(oldChild)}},removeChild:function(oldChild){return _removeChild(this,oldChild)},appendChild:function(newChild){return this.insertBefore(newChild,null)},hasChildNodes:function(){return this.firstChild!=null},cloneNode:function(deep){return cloneNode(this.ownerDocument||this,this,deep)},normalize:function(){var child=this.firstChild;while(child){var next=child.nextSibling;if(next&&next.nodeType==TEXT_NODE&&child.nodeType==TEXT_NODE){this.removeChild(next);child.appendData(next.data)}else{child.normalize();child=next}}},isSupported:function(feature,version){return this.ownerDocument.implementation.hasFeature(feature,version)},hasAttributes:function(){return this.attributes.length>0},lookupPrefix:function(namespaceURI){var el=this;while(el){var map=el._nsMap;if(map){for(var n in map){if(map[n]==namespaceURI){return n}}}el=el.nodeType==ATTRIBUTE_NODE?el.ownerDocument:el.parentNode}return null},lookupNamespaceURI:function(prefix){var el=this;while(el){var map=el._nsMap;if(map){if(prefix in map){return map[prefix]}}el=el.nodeType==ATTRIBUTE_NODE?el.ownerDocument:el.parentNode}return null},isDefaultNamespace:function(namespaceURI){var prefix=this.lookupPrefix(namespaceURI);return prefix==null}};function _xmlEncoder(c){return c=="<"&&"&lt;"||c==">"&&"&gt;"||c=="&"&&"&amp;"||c=='"'&&"&quot;"||"&#"+c.charCodeAt()+";"}copy(NodeType,Node);copy(NodeType,Node.prototype);function _visitNode(node,callback){if(callback(node)){return true}if(node=node.firstChild){do{if(_visitNode(node,callback)){return true}}while(node=node.nextSibling)}}function Document(){}function _onAddAttribute(doc,el,newAttr){doc&&doc._inc++;var ns=newAttr.namespaceURI;if(ns=="http://www.w3.org/2000/xmlns/"){el._nsMap[newAttr.prefix?newAttr.localName:""]=newAttr.value}}function _onRemoveAttribute(doc,el,newAttr,remove){doc&&doc._inc++;var ns=newAttr.namespaceURI;if(ns=="http://www.w3.org/2000/xmlns/"){delete el._nsMap[newAttr.prefix?newAttr.localName:""]}}function _onUpdateChild(doc,el,newChild){if(doc&&doc._inc){doc._inc++;var cs=el.childNodes;if(newChild){cs[cs.length++]=newChild}else{var child=el.firstChild;var i=0;while(child){cs[i++]=child;child=child.nextSibling}cs.length=i}}}function _removeChild(parentNode,child){var previous=child.previousSibling;var next=child.nextSibling;if(previous){previous.nextSibling=next}else{parentNode.firstChild=next}if(next){next.previousSibling=previous}else{parentNode.lastChild=previous}_onUpdateChild(parentNode.ownerDocument,parentNode);return child}function _insertBefore(parentNode,newChild,nextChild){var cp=newChild.parentNode;if(cp){cp.removeChild(newChild)}if(newChild.nodeType===DOCUMENT_FRAGMENT_NODE){var newFirst=newChild.firstChild;if(newFirst==null){return newChild}var newLast=newChild.lastChild}else{newFirst=newLast=newChild}var pre=nextChild?nextChild.previousSibling:parentNode.lastChild;newFirst.previousSibling=pre;newLast.nextSibling=nextChild;if(pre){pre.nextSibling=newFirst}else{parentNode.firstChild=newFirst}if(nextChild==null){parentNode.lastChild=newLast}else{nextChild.previousSibling=newLast}do{newFirst.parentNode=parentNode}while(newFirst!==newLast&&(newFirst=newFirst.nextSibling));_onUpdateChild(parentNode.ownerDocument||parentNode,parentNode);if(newChild.nodeType==DOCUMENT_FRAGMENT_NODE){newChild.firstChild=newChild.lastChild=null}return newChild}function _appendSingleChild(parentNode,newChild){var cp=newChild.parentNode;if(cp){var pre=parentNode.lastChild;cp.removeChild(newChild);var pre=parentNode.lastChild}var pre=parentNode.lastChild;newChild.parentNode=parentNode;newChild.previousSibling=pre;newChild.nextSibling=null;if(pre){pre.nextSibling=newChild}else{parentNode.firstChild=newChild}parentNode.lastChild=newChild;_onUpdateChild(parentNode.ownerDocument,parentNode,newChild);return newChild}Document.prototype={nodeName:"#document",nodeType:DOCUMENT_NODE,doctype:null,documentElement:null,_inc:1,insertBefore:function(newChild,refChild){if(newChild.nodeType==DOCUMENT_FRAGMENT_NODE){var child=newChild.firstChild;while(child){var next=child.nextSibling;this.insertBefore(child,refChild);child=next}return newChild}if(this.documentElement==null&&newChild.nodeType==ELEMENT_NODE){this.documentElement=newChild}return _insertBefore(this,newChild,refChild),newChild.ownerDocument=this,newChild},removeChild:function(oldChild){if(this.documentElement==oldChild){this.documentElement=null}return _removeChild(this,oldChild)},importNode:function(importedNode,deep){return importNode(this,importedNode,deep)},getElementById:function(id){var rtv=null;_visitNode(this.documentElement,function(node){if(node.nodeType==ELEMENT_NODE){if(node.getAttribute("id")==id){rtv=node;return true}}});return rtv},createElement:function(tagName){var node=new Element;node.ownerDocument=this;node.nodeName=tagName;node.tagName=tagName;node.childNodes=new NodeList;var attrs=node.attributes=new NamedNodeMap;attrs._ownerElement=node;return node},createDocumentFragment:function(){var node=new DocumentFragment;node.ownerDocument=this;node.childNodes=new NodeList;return node},createTextNode:function(data){var node=new Text;node.ownerDocument=this;node.appendData(data);return node},createComment:function(data){var node=new Comment;node.ownerDocument=this;node.appendData(data);return node},createCDATASection:function(data){var node=new CDATASection;node.ownerDocument=this;node.appendData(data);return node},createProcessingInstruction:function(target,data){var node=new ProcessingInstruction;node.ownerDocument=this;node.tagName=node.target=target;node.nodeValue=node.data=data;return node},createAttribute:function(name){var node=new Attr;node.ownerDocument=this;node.name=name;node.nodeName=name;node.localName=name;node.specified=true;return node},createEntityReference:function(name){var node=new EntityReference;node.ownerDocument=this;node.nodeName=name;return node},createElementNS:function(namespaceURI,qualifiedName){var node=new Element;var pl=qualifiedName.split(":");var attrs=node.attributes=new NamedNodeMap;node.childNodes=new NodeList;node.ownerDocument=this;node.nodeName=qualifiedName;node.tagName=qualifiedName;node.namespaceURI=namespaceURI;if(pl.length==2){node.prefix=pl[0];node.localName=pl[1]}else{node.localName=qualifiedName}attrs._ownerElement=node;return node},createAttributeNS:function(namespaceURI,qualifiedName){var node=new Attr;var pl=qualifiedName.split(":");node.ownerDocument=this;node.nodeName=qualifiedName;node.name=qualifiedName;node.namespaceURI=namespaceURI;node.specified=true;if(pl.length==2){node.prefix=pl[0];node.localName=pl[1]}else{node.localName=qualifiedName}return node}};_extends(Document,Node);function Element(){this._nsMap={}}Element.prototype={nodeType:ELEMENT_NODE,hasAttribute:function(name){return this.getAttributeNode(name)!=null},getAttribute:function(name){var attr=this.getAttributeNode(name);return attr&&attr.value||""},getAttributeNode:function(name){return this.attributes.getNamedItem(name)},setAttribute:function(name,value){var attr=this.ownerDocument.createAttribute(name);attr.value=attr.nodeValue=""+value;this.setAttributeNode(attr)},removeAttribute:function(name){var attr=this.getAttributeNode(name);attr&&this.removeAttributeNode(attr)},appendChild:function(newChild){if(newChild.nodeType===DOCUMENT_FRAGMENT_NODE){return this.insertBefore(newChild,null)}else{return _appendSingleChild(this,newChild)}},setAttributeNode:function(newAttr){return this.attributes.setNamedItem(newAttr)},setAttributeNodeNS:function(newAttr){return this.attributes.setNamedItemNS(newAttr)},removeAttributeNode:function(oldAttr){return this.attributes.removeNamedItem(oldAttr.nodeName)},removeAttributeNS:function(namespaceURI,localName){var old=this.getAttributeNodeNS(namespaceURI,localName);old&&this.removeAttributeNode(old)},hasAttributeNS:function(namespaceURI,localName){return this.getAttributeNodeNS(namespaceURI,localName)!=null},getAttributeNS:function(namespaceURI,localName){var attr=this.getAttributeNodeNS(namespaceURI,localName);return attr&&attr.value||""},setAttributeNS:function(namespaceURI,qualifiedName,value){var attr=this.ownerDocument.createAttributeNS(namespaceURI,qualifiedName);attr.value=attr.nodeValue=""+value;this.setAttributeNode(attr)},getAttributeNodeNS:function(namespaceURI,localName){return this.attributes.getNamedItemNS(namespaceURI,localName)},getElementsByTagName:function(tagName){return new LiveNodeList(this,function(base){var ls=[];_visitNode(base,function(node){if(node!==base&&node.nodeType==ELEMENT_NODE&&(tagName==="*"||node.tagName==tagName)){ls.push(node)}});return ls})},getElementsByTagNameNS:function(namespaceURI,localName){return new LiveNodeList(this,function(base){var ls=[];_visitNode(base,function(node){if(node!==base&&node.nodeType===ELEMENT_NODE&&(namespaceURI==="*"||node.namespaceURI===namespaceURI)&&(localName==="*"||node.localName==localName)){ls.push(node)}});return ls})}};Document.prototype.getElementsByTagName=Element.prototype.getElementsByTagName;Document.prototype.getElementsByTagNameNS=Element.prototype.getElementsByTagNameNS;_extends(Element,Node);function Attr(){}Attr.prototype.nodeType=ATTRIBUTE_NODE;_extends(Attr,Node);function CharacterData(){}CharacterData.prototype={data:"",substringData:function(offset,count){return this.data.substring(offset,offset+count)},appendData:function(text){text=this.data+text;this.nodeValue=this.data=text;this.length=text.length},insertData:function(offset,text){this.replaceData(offset,0,text)},appendChild:function(newChild){throw new Error(ExceptionMessage[HIERARCHY_REQUEST_ERR])},deleteData:function(offset,count){this.replaceData(offset,count,"")},replaceData:function(offset,count,text){var start=this.data.substring(0,offset);var end=this.data.substring(offset+count);text=start+text+end;this.nodeValue=this.data=text;this.length=text.length}};_extends(CharacterData,Node);function Text(){}Text.prototype={nodeName:"#text",nodeType:TEXT_NODE,splitText:function(offset){var text=this.data;var newText=text.substring(offset);text=text.substring(0,offset);this.data=this.nodeValue=text;this.length=text.length;var newNode=this.ownerDocument.createTextNode(newText);if(this.parentNode){this.parentNode.insertBefore(newNode,this.nextSibling)}return newNode}};_extends(Text,CharacterData);function Comment(){}Comment.prototype={nodeName:"#comment",nodeType:COMMENT_NODE};_extends(Comment,CharacterData);function CDATASection(){}CDATASection.prototype={nodeName:"#cdata-section",nodeType:CDATA_SECTION_NODE};_extends(CDATASection,CharacterData);function DocumentType(){}DocumentType.prototype.nodeType=DOCUMENT_TYPE_NODE;_extends(DocumentType,Node);function Notation(){}Notation.prototype.nodeType=NOTATION_NODE;_extends(Notation,Node);function Entity(){}Entity.prototype.nodeType=ENTITY_NODE;_extends(Entity,Node);function EntityReference(){}EntityReference.prototype.nodeType=ENTITY_REFERENCE_NODE;_extends(EntityReference,Node);function DocumentFragment(){}DocumentFragment.prototype.nodeName="#document-fragment";DocumentFragment.prototype.nodeType=DOCUMENT_FRAGMENT_NODE;_extends(DocumentFragment,Node);function ProcessingInstruction(){}ProcessingInstruction.prototype.nodeType=PROCESSING_INSTRUCTION_NODE;_extends(ProcessingInstruction,Node);function XMLSerializer(){}XMLSerializer.prototype.serializeToString=function(node,isHtml,nodeFilter){return nodeSerializeToString.call(node,isHtml,nodeFilter)};Node.prototype.toString=nodeSerializeToString;function nodeSerializeToString(isHtml,nodeFilter){var buf=[];var refNode=this.nodeType==9?this.documentElement:this;var prefix=refNode.prefix;var uri=refNode.namespaceURI;if(uri&&prefix==null){var prefix=refNode.lookupPrefix(uri);if(prefix==null){var visibleNamespaces=[{namespace:uri,prefix:null}]}}serializeToString(this,buf,isHtml,nodeFilter,visibleNamespaces);return buf.join("")}function needNamespaceDefine(node,isHTML,visibleNamespaces){var prefix=node.prefix||"";var uri=node.namespaceURI;if(!prefix&&!uri){return false}if(prefix==="xml"&&uri==="http://www.w3.org/XML/1998/namespace"||uri=="http://www.w3.org/2000/xmlns/"){return false}var i=visibleNamespaces.length;while(i--){var ns=visibleNamespaces[i];if(ns.prefix==prefix){return ns.namespace!=uri}}return true}function serializeToString(node,buf,isHTML,nodeFilter,visibleNamespaces){if(nodeFilter){node=nodeFilter(node);if(node){if(typeof node=="string"){buf.push(node);return}}else{return}}switch(node.nodeType){case ELEMENT_NODE:if(!visibleNamespaces)visibleNamespaces=[];var startVisibleNamespaces=visibleNamespaces.length;var attrs=node.attributes;var len=attrs.length;var child=node.firstChild;var nodeName=node.tagName;isHTML=htmlns===node.namespaceURI||isHTML;buf.push("<",nodeName);for(var i=0;i<len;i++){var attr=attrs.item(i);if(attr.prefix=="xmlns"){visibleNamespaces.push({prefix:attr.localName,namespace:attr.value})}else if(attr.nodeName=="xmlns"){visibleNamespaces.push({prefix:"",namespace:attr.value})}}for(var i=0;i<len;i++){var attr=attrs.item(i);if(needNamespaceDefine(attr,isHTML,visibleNamespaces)){var prefix=attr.prefix||"";var uri=attr.namespaceURI;var ns=prefix?" xmlns:"+prefix:" xmlns";buf.push(ns,'="',uri,'"');visibleNamespaces.push({prefix:prefix,namespace:uri})}serializeToString(attr,buf,isHTML,nodeFilter,visibleNamespaces)}if(needNamespaceDefine(node,isHTML,visibleNamespaces)){var prefix=node.prefix||"";var uri=node.namespaceURI;var ns=prefix?" xmlns:"+prefix:" xmlns";buf.push(ns,'="',uri,'"');visibleNamespaces.push({prefix:prefix,namespace:uri})}if(child||isHTML&&!/^(?:meta|link|img|br|hr|input)$/i.test(nodeName)){buf.push(">");if(isHTML&&/^script$/i.test(nodeName)){while(child){if(child.data){buf.push(child.data)}else{serializeToString(child,buf,isHTML,nodeFilter,visibleNamespaces)}child=child.nextSibling}}else{while(child){serializeToString(child,buf,isHTML,nodeFilter,visibleNamespaces);child=child.nextSibling}}buf.push("</",nodeName,">")}else{buf.push("/>")}return;case DOCUMENT_NODE:case DOCUMENT_FRAGMENT_NODE:var child=node.firstChild;while(child){serializeToString(child,buf,isHTML,nodeFilter,visibleNamespaces);child=child.nextSibling}return;case ATTRIBUTE_NODE:return buf.push(" ",node.name,'="',node.value.replace(/[<&"]/g,_xmlEncoder),'"');case TEXT_NODE:return buf.push(node.data.replace(/[<&]/g,_xmlEncoder));case CDATA_SECTION_NODE:return buf.push("<![CDATA[",node.data,"]]>");case COMMENT_NODE:return buf.push("\x3c!--",node.data,"--\x3e");case DOCUMENT_TYPE_NODE:var pubid=node.publicId;var sysid=node.systemId;buf.push("<!DOCTYPE ",node.name);if(pubid){buf.push(' PUBLIC "',pubid);if(sysid&&sysid!="."){buf.push('" "',sysid)}buf.push('">')}else if(sysid&&sysid!="."){buf.push(' SYSTEM "',sysid,'">')}else{var sub=node.internalSubset;if(sub){buf.push(" [",sub,"]")}buf.push(">")}return;case PROCESSING_INSTRUCTION_NODE:return buf.push("<?",node.target," ",node.data,"?>");case ENTITY_REFERENCE_NODE:return buf.push("&",node.nodeName,";");default:buf.push("??",node.nodeName)}}function importNode(doc,node,deep){var node2;switch(node.nodeType){case ELEMENT_NODE:node2=node.cloneNode(false);node2.ownerDocument=doc;case DOCUMENT_FRAGMENT_NODE:break;case ATTRIBUTE_NODE:deep=true;break}if(!node2){node2=node.cloneNode(false)}node2.ownerDocument=doc;node2.parentNode=null;if(deep){var child=node.firstChild;while(child){node2.appendChild(importNode(doc,child,deep));child=child.nextSibling}}return node2}function cloneNode(doc,node,deep){var node2=new node.constructor;for(var n in node){var v=node[n];if(typeof v!="object"){if(v!=node2[n]){node2[n]=v}}}if(node.childNodes){node2.childNodes=new NodeList}node2.ownerDocument=doc;switch(node2.nodeType){case ELEMENT_NODE:var attrs=node.attributes;var attrs2=node2.attributes=new NamedNodeMap;var len=attrs.length;attrs2._ownerElement=node2;for(var i=0;i<len;i++){node2.setAttributeNode(cloneNode(doc,attrs.item(i),true))}break;case ATTRIBUTE_NODE:deep=true}if(deep){var child=node.firstChild;while(child){node2.appendChild(cloneNode(doc,child,deep));child=child.nextSibling}}return node2}function __set__(object,key,value){object[key]=value}try{if(Object.defineProperty){Object.defineProperty(LiveNodeList.prototype,"length",{get:function(){_updateLiveList(this);return this.$$length}});Object.defineProperty(Node.prototype,"textContent",{get:function(){return getTextContent(this)},set:function(data){switch(this.nodeType){case ELEMENT_NODE:case DOCUMENT_FRAGMENT_NODE:while(this.firstChild){this.removeChild(this.firstChild)}if(data||String(data)){this.appendChild(this.ownerDocument.createTextNode(data))}break;default:this.data=data;this.value=data;this.nodeValue=data}}});function getTextContent(node){switch(node.nodeType){case ELEMENT_NODE:case DOCUMENT_FRAGMENT_NODE:var buf=[];node=node.firstChild;while(node){if(node.nodeType!==7&&node.nodeType!==8){buf.push(getTextContent(node))}node=node.nextSibling}return buf.join("");default:return node.nodeValue}}__set__=function(object,key,value){object["$$"+key]=value}}}catch(e){}exports.DOMImplementation=DOMImplementation;exports.XMLSerializer=XMLSerializer},{}],21:[function(require,module,exports){var nameStartChar=/[A-Z_a-z\xC0-\xD6\xD8-\xF6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD]/;var nameChar=new RegExp("[\\-\\.0-9"+nameStartChar.source.slice(1,-1)+"\\u00B7\\u0300-\\u036F\\u203F-\\u2040]");var tagNamePattern=new RegExp("^"+nameStartChar.source+nameChar.source+"*(?::"+nameStartChar.source+nameChar.source+"*)?$");var S_TAG=0;var S_ATTR=1;var S_ATTR_SPACE=2;var S_EQ=3;var S_ATTR_NOQUOT_VALUE=4;var S_ATTR_END=5;var S_TAG_SPACE=6;var S_TAG_CLOSE=7;function XMLReader(){}XMLReader.prototype={parse:function(source,defaultNSMap,entityMap){var domBuilder=this.domBuilder;domBuilder.startDocument();_copy(defaultNSMap,defaultNSMap={});parse(source,defaultNSMap,entityMap,domBuilder,this.errorHandler);domBuilder.endDocument()}};function parse(source,defaultNSMapCopy,entityMap,domBuilder,errorHandler){function fixedFromCharCode(code){if(code>65535){code-=65536;var surrogate1=55296+(code>>10),surrogate2=56320+(code&1023);return String.fromCharCode(surrogate1,surrogate2)}else{return String.fromCharCode(code)}}function entityReplacer(a){var k=a.slice(1,-1);if(k in entityMap){return entityMap[k]}else if(k.charAt(0)==="#"){return fixedFromCharCode(parseInt(k.substr(1).replace("x","0x")))}else{errorHandler.error("entity not found:"+a);return a}}function appendText(end){if(end>start){var xt=source.substring(start,end).replace(/&#?\w+;/g,entityReplacer);locator&&position(start);domBuilder.characters(xt,0,end-start);start=end}}function position(p,m){while(p>=lineEnd&&(m=linePattern.exec(source))){lineStart=m.index;lineEnd=lineStart+m[0].length;locator.lineNumber++}locator.columnNumber=p-lineStart+1}var lineStart=0;var lineEnd=0;var linePattern=/.*(?:\r\n?|\n)|.*$/g;var locator=domBuilder.locator;var parseStack=[{currentNSMap:defaultNSMapCopy}];var closeMap={};var start=0;while(true){try{var tagStart=source.indexOf("<",start);if(tagStart<0){if(!source.substr(start).match(/^\s*$/)){var doc=domBuilder.doc;var text=doc.createTextNode(source.substr(start));doc.appendChild(text);domBuilder.currentElement=text}return}if(tagStart>start){appendText(tagStart)}switch(source.charAt(tagStart+1)){case"/":var end=source.indexOf(">",tagStart+3);var tagName=source.substring(tagStart+2,end);var config=parseStack.pop();if(end<0){tagName=source.substring(tagStart+2).replace(/[\s<].*/,"");errorHandler.error("end tag name: "+tagName+" is not complete:"+config.tagName);end=tagStart+1+tagName.length}else if(tagName.match(/\s</)){tagName=tagName.replace(/[\s<].*/,"");errorHandler.error("end tag name: "+tagName+" maybe not complete");end=tagStart+1+tagName.length}var localNSMap=config.localNSMap;var endMatch=config.tagName==tagName;var endIgnoreCaseMach=endMatch||config.tagName&&config.tagName.toLowerCase()==tagName.toLowerCase();if(endIgnoreCaseMach){domBuilder.endElement(config.uri,config.localName,tagName);if(localNSMap){for(var prefix in localNSMap){domBuilder.endPrefixMapping(prefix)}}if(!endMatch){errorHandler.fatalError("end tag name: "+tagName+" is not match the current start tagName:"+config.tagName)}}else{parseStack.push(config)}end++;break;case"?":locator&&position(tagStart);end=parseInstruction(source,tagStart,domBuilder);break;case"!":locator&&position(tagStart);end=parseDCC(source,tagStart,domBuilder,errorHandler);break;default:locator&&position(tagStart);var el=new ElementAttributes;var currentNSMap=parseStack[parseStack.length-1].currentNSMap;var end=parseElementStartPart(source,tagStart,el,currentNSMap,entityReplacer,errorHandler);var len=el.length;if(!el.closed&&fixSelfClosed(source,end,el.tagName,closeMap)){el.closed=true;if(!entityMap.nbsp){errorHandler.warning("unclosed xml attribute")}}if(locator&&len){var locator2=copyLocator(locator,{});for(var i=0;i<len;i++){var a=el[i];position(a.offset);a.locator=copyLocator(locator,{})}domBuilder.locator=locator2;if(appendElement(el,domBuilder,currentNSMap)){parseStack.push(el)}domBuilder.locator=locator}else{if(appendElement(el,domBuilder,currentNSMap)){parseStack.push(el)}}if(el.uri==="http://www.w3.org/1999/xhtml"&&!el.closed){end=parseHtmlSpecialContent(source,end,el.tagName,entityReplacer,domBuilder)}else{end++}}}catch(e){errorHandler.error("element parse error: "+e);end=-1}if(end>start){start=end}else{appendText(Math.max(tagStart,start)+1)}}}function copyLocator(f,t){t.lineNumber=f.lineNumber;t.columnNumber=f.columnNumber;return t}function parseElementStartPart(source,start,el,currentNSMap,entityReplacer,errorHandler){var attrName;var value;var p=++start;var s=S_TAG;while(true){var c=source.charAt(p);switch(c){case"=":if(s===S_ATTR){attrName=source.slice(start,p);s=S_EQ}else if(s===S_ATTR_SPACE){s=S_EQ}else{throw new Error("attribute equal must after attrName")}break;case"'":case'"':if(s===S_EQ||s===S_ATTR){if(s===S_ATTR){errorHandler.warning('attribute value must after "="');attrName=source.slice(start,p)}start=p+1;p=source.indexOf(c,start);if(p>0){value=source.slice(start,p).replace(/&#?\w+;/g,entityReplacer);el.add(attrName,value,start-1);s=S_ATTR_END}else{throw new Error("attribute value no end '"+c+"' match")}}else if(s==S_ATTR_NOQUOT_VALUE){value=source.slice(start,p).replace(/&#?\w+;/g,entityReplacer);el.add(attrName,value,start);errorHandler.warning('attribute "'+attrName+'" missed start quot('+c+")!!");start=p+1;s=S_ATTR_END}else{throw new Error('attribute value must after "="')}break;case"/":switch(s){case S_TAG:el.setTagName(source.slice(start,p));case S_ATTR_END:case S_TAG_SPACE:case S_TAG_CLOSE:s=S_TAG_CLOSE;el.closed=true;case S_ATTR_NOQUOT_VALUE:case S_ATTR:case S_ATTR_SPACE:break;default:throw new Error("attribute invalid close char('/')")}break;case"":errorHandler.error("unexpected end of input");if(s==S_TAG){el.setTagName(source.slice(start,p))}return p;case">":switch(s){case S_TAG:el.setTagName(source.slice(start,p));case S_ATTR_END:case S_TAG_SPACE:case S_TAG_CLOSE:break;case S_ATTR_NOQUOT_VALUE:case S_ATTR:value=source.slice(start,p);if(value.slice(-1)==="/"){el.closed=true;value=value.slice(0,-1)}case S_ATTR_SPACE:if(s===S_ATTR_SPACE){value=attrName}if(s==S_ATTR_NOQUOT_VALUE){errorHandler.warning('attribute "'+value+'" missed quot(")!!');el.add(attrName,value.replace(/&#?\w+;/g,entityReplacer),start)}else{if(currentNSMap[""]!=="http://www.w3.org/1999/xhtml"||!value.match(/^(?:disabled|checked|selected)$/i)){errorHandler.warning('attribute "'+value+'" missed value!! "'+value+'" instead!!')}el.add(value,value,start)}break;case S_EQ:throw new Error("attribute value missed!!")}return p;case"":c=" ";default:if(c<=" "){switch(s){case S_TAG:el.setTagName(source.slice(start,p));s=S_TAG_SPACE;break;case S_ATTR:attrName=source.slice(start,p);s=S_ATTR_SPACE;break;case S_ATTR_NOQUOT_VALUE:var value=source.slice(start,p).replace(/&#?\w+;/g,entityReplacer);errorHandler.warning('attribute "'+value+'" missed quot(")!!');el.add(attrName,value,start);case S_ATTR_END:s=S_TAG_SPACE;break}}else{switch(s){case S_ATTR_SPACE:var tagName=el.tagName;if(currentNSMap[""]!=="http://www.w3.org/1999/xhtml"||!attrName.match(/^(?:disabled|checked|selected)$/i)){errorHandler.warning('attribute "'+attrName+'" missed value!! "'+attrName+'" instead2!!')}el.add(attrName,attrName,start);start=p;s=S_ATTR;break;case S_ATTR_END:errorHandler.warning('attribute space is required"'+attrName+'"!!');case S_TAG_SPACE:s=S_ATTR;start=p;break;case S_EQ:s=S_ATTR_NOQUOT_VALUE;start=p;break;case S_TAG_CLOSE:throw new Error("elements closed character '/' and '>' must be connected to")}}}p++}}function appendElement(el,domBuilder,currentNSMap){var tagName=el.tagName;var localNSMap=null;var i=el.length;while(i--){var a=el[i];var qName=a.qName;var value=a.value;var nsp=qName.indexOf(":");if(nsp>0){var prefix=a.prefix=qName.slice(0,nsp);var localName=qName.slice(nsp+1);var nsPrefix=prefix==="xmlns"&&localName}else{localName=qName;prefix=null;nsPrefix=qName==="xmlns"&&""}a.localName=localName;if(nsPrefix!==false){if(localNSMap==null){localNSMap={};_copy(currentNSMap,currentNSMap={})}currentNSMap[nsPrefix]=localNSMap[nsPrefix]=value;a.uri="http://www.w3.org/2000/xmlns/";domBuilder.startPrefixMapping(nsPrefix,value)}}var i=el.length;while(i--){a=el[i];var prefix=a.prefix;if(prefix){if(prefix==="xml"){a.uri="http://www.w3.org/XML/1998/namespace"}if(prefix!=="xmlns"){a.uri=currentNSMap[prefix||""]}}}var nsp=tagName.indexOf(":");if(nsp>0){prefix=el.prefix=tagName.slice(0,nsp);localName=el.localName=tagName.slice(nsp+1)}else{prefix=null;localName=el.localName=tagName}var ns=el.uri=currentNSMap[prefix||""];domBuilder.startElement(ns,localName,tagName,el);if(el.closed){domBuilder.endElement(ns,localName,tagName);if(localNSMap){for(prefix in localNSMap){domBuilder.endPrefixMapping(prefix)}}}else{el.currentNSMap=currentNSMap;el.localNSMap=localNSMap;return true}}function parseHtmlSpecialContent(source,elStartEnd,tagName,entityReplacer,domBuilder){if(/^(?:script|textarea)$/i.test(tagName)){var elEndStart=source.indexOf("</"+tagName+">",elStartEnd);var text=source.substring(elStartEnd+1,elEndStart);if(/[&<]/.test(text)){if(/^script$/i.test(tagName)){domBuilder.characters(text,0,text.length);return elEndStart}text=text.replace(/&#?\w+;/g,entityReplacer);domBuilder.characters(text,0,text.length);return elEndStart}}return elStartEnd+1}function fixSelfClosed(source,elStartEnd,tagName,closeMap){var pos=closeMap[tagName];if(pos==null){pos=source.lastIndexOf("</"+tagName+">");if(pos<elStartEnd){pos=source.lastIndexOf("</"+tagName)}closeMap[tagName]=pos}return pos<elStartEnd}function _copy(source,target){for(var n in source){target[n]=source[n]}}function parseDCC(source,start,domBuilder,errorHandler){var next=source.charAt(start+2);switch(next){case"-":if(source.charAt(start+3)==="-"){var end=source.indexOf("--\x3e",start+4);if(end>start){domBuilder.comment(source,start+4,end-start-4);return end+3}else{errorHandler.error("Unclosed comment");return-1}}else{return-1}default:if(source.substr(start+3,6)=="CDATA["){var end=source.indexOf("]]>",start+9);domBuilder.startCDATA();domBuilder.characters(source,start+9,end-start-9);domBuilder.endCDATA();return end+3}var matchs=split(source,start);var len=matchs.length;if(len>1&&/!doctype/i.test(matchs[0][0])){var name=matchs[1][0];var pubid=len>3&&/^public$/i.test(matchs[2][0])&&matchs[3][0];var sysid=len>4&&matchs[4][0];var lastMatch=matchs[len-1];domBuilder.startDTD(name,pubid&&pubid.replace(/^(['"])(.*?)\1$/,"$2"),sysid&&sysid.replace(/^(['"])(.*?)\1$/,"$2"));domBuilder.endDTD();return lastMatch.index+lastMatch[0].length}}return-1}function parseInstruction(source,start,domBuilder){var end=source.indexOf("?>",start);if(end){var match=source.substring(start,end).match(/^<\?(\S*)\s*([\s\S]*?)\s*$/);if(match){var len=match[0].length;domBuilder.processingInstruction(match[1],match[2]);return end+2}else{return-1}}return-1}function ElementAttributes(source){}ElementAttributes.prototype={setTagName:function(tagName){if(!tagNamePattern.test(tagName)){throw new Error("invalid tagName:"+tagName)}this.tagName=tagName},add:function(qName,value,offset){if(!tagNamePattern.test(qName)){throw new Error("invalid attribute:"+qName)}this[this.length++]={qName:qName,value:value,offset:offset}},length:0,getLocalName:function(i){return this[i].localName},getLocator:function(i){return this[i].locator},getQName:function(i){return this[i].qName},getURI:function(i){return this[i].uri},getValue:function(i){return this[i].value}};function _set_proto_(thiz,parent){thiz.__proto__=parent;return thiz}if(!(_set_proto_({},_set_proto_.prototype)instanceof _set_proto_)){_set_proto_=function(thiz,parent){function p(){}p.prototype=parent;p=new p;for(parent in thiz){p[parent]=thiz[parent]}return p}}function split(source,start){var match;var buf=[];var reg=/'[^']+'|"[^"]+"|[^\s<>\/=]+=?|(\/?\s*>|<)/g;reg.lastIndex=start;reg.exec(source);while(match=reg.exec(source)){buf.push(match);if(match[1])return buf}}exports.XMLReader=XMLReader},{}],"/src/js/docxtemplater.js":[function(require,module,exports){"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function")}}var DocUtils=require("./doc-utils");DocUtils.traits=require("./traits");DocUtils.moduleWrapper=require("./module-wrapper");var wrapper=DocUtils.moduleWrapper;var Docxtemplater=function(){function Docxtemplater(){_classCallCheck(this,Docxtemplater);if(arguments.length>0){throw new Error("The constructor with parameters have been removed in docxtemplater 3.0, please check the upgrade guide.")}this.compiled={};this.modules=[];this.setOptions({})}_createClass(Docxtemplater,[{key:"attachModule",value:function attachModule(module){this.modules.push(wrapper(module));return this}},{key:"setOptions",value:function setOptions(options){var _this=this;this.options=options;Object.keys(DocUtils.defaults).forEach(function(key){var defaultValue=DocUtils.defaults[key];_this[key]=_this.options[key]!=null?_this.options[key]:defaultValue});if(this.zip){this.updateFileTypeConfig()}return this}},{key:"loadZip",value:function loadZip(zip){if(zip.loadAsync){throw new Error("Docxtemplater doesn't handle JSZip version >=3, see changelog")}this.zip=zip;this.updateFileTypeConfig();return this}},{key:"compileFile",value:function compileFile(fileName){var currentFile=this.createTemplateClass(fileName);currentFile.parse();this.compiled[fileName]=currentFile}},{key:"compile",value:function compile(){this.templatedFiles=this.fileTypeConfig.getTemplatedFiles(this.zip);return this}},{key:"updateFileTypeConfig",value:function updateFileTypeConfig(){this.fileType=this.zip.files["word/document.xml"]?"docx":"pptx";this.fileTypeConfig=this.options.fileTypeConfig||Docxtemplater.FileTypeConfig[this.fileType];return this}},{key:"render",value:function render(){var _this2=this;this.options.xmlFileNames=[];this.modules=this.fileTypeConfig.baseModules.map(function(moduleFunction){return moduleFunction()}).concat(this.modules);this.options=this.modules.reduce(function(options,module){return module.optionsTransformer(options,_this2)},this.options);this.xmlDocuments=this.options.xmlFileNames.reduce(function(xmlDocuments,fileName){var content=_this2.zip.files[fileName].asText();xmlDocuments[fileName]=DocUtils.str2xml(content);return xmlDocuments},{});this.modules.forEach(function(module){module.set({zip:_this2.zip,xmlDocuments:_this2.xmlDocuments,data:_this2.data})});this.compile();this.modules.forEach(function(module){module.set({compiled:_this2.compiled})});this.templatedFiles.forEach(function(fileName){if(_this2.zip.files[fileName]!=null){_this2.compileFile(fileName)}});this.mapper=this.modules.reduce(function(value,module){return module.getRenderedMap(value)},{});Object.keys(this.mapper).forEach(function(to){var mapped=_this2.mapper[to];var from=mapped.from;var currentFile=_this2.compiled[from];currentFile.setTags(mapped.data);currentFile.render(to);_this2.zip.file(to,currentFile.content)});Object.keys(this.xmlDocuments).forEach(function(fileName){_this2.zip.remove(fileName);var content=DocUtils.xml2str(_this2.xmlDocuments[fileName]);return _this2.zip.file(fileName,content,{})});return this}},{key:"setData",value:function setData(data){this.data=data;return this}},{key:"getZip",value:function getZip(){return this.zip}},{key:"createTemplateClass",value:function createTemplateClass(path){var usedData=this.zip.files[path].asText();return this.createTemplateClassFromContent(usedData,path)}},{key:"createTemplateClassFromContent",value:function createTemplateClassFromContent(content,filePath){var _this3=this;var xmltOptions={filePath:filePath};Object.keys(DocUtils.defaults).forEach(function(key){xmltOptions[key]=_this3[key]});xmltOptions.fileTypeConfig=this.fileTypeConfig;xmltOptions.modules=this.modules;return new Docxtemplater.XmlTemplater(content,xmltOptions)}},{key:"getFullText",value:function getFullText(path){return this.createTemplateClass(path||this.fileTypeConfig.textPath).getFullText()}},{key:"getTemplatedFiles",value:function getTemplatedFiles(){this.compile();return this.templatedFiles}}]);return Docxtemplater}();Docxtemplater.DocUtils=require("./doc-utils");Docxtemplater.Errors=require("./errors");Docxtemplater.XmlTemplater=require("./xml-templater");Docxtemplater.FileTypeConfig=require("./file-type-config");Docxtemplater.XmlMatcher=require("./xml-matcher");module.exports=Docxtemplater},{"./doc-utils":1,"./errors":2,"./file-type-config":3,"./module-wrapper":7,"./traits":16,"./xml-matcher":17,"./xml-templater":18}]},{},[])("/src/js/docxtemplater.js")});
+(function(f){if(true){module.exports=f()}else // removed by dead control flow
+{ var g; }})(function(){var define,module,exports;return function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=undefined;if(!u&&a)return require(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=undefined;for(var o=0;o<r.length;o++)s(r[o]);return s}({1:[function(require,module,exports){"use strict";function _defineProperty(obj,key,value){if(key in obj){Object.defineProperty(obj,key,{value:value,enumerable:true,configurable:true,writable:true})}else{obj[key]=value}return obj}var memoize=require("./memoize");var DOMParser=require("xmldom").DOMParser;var XMLSerializer=require("xmldom").XMLSerializer;var Errors=require("./errors");var DocUtils={};function parser(tag){return _defineProperty({},"get",function get(scope){if(tag==="."){return scope}return scope[tag]})}DocUtils.defaults={nullGetter:function nullGetter(part){if(!part.module){return"undefined"}if(part.module==="rawxml"){return""}return""},parser:memoize(parser),delimiters:{start:"{",end:"}"}};DocUtils.mergeObjects=function(){var resObj={};var obj=void 0,keys=void 0;for(var i=0;i<arguments.length;i+=1){obj=arguments[i];keys=Object.keys(obj);for(var j=0;j<keys.length;j+=1){resObj[keys[j]]=obj[keys[j]]}}return resObj};DocUtils.xml2str=function(xmlNode){var a=new XMLSerializer;return a.serializeToString(xmlNode)};DocUtils.decodeUtf8=function(s){try{if(s===undefined){return undefined}return decodeURIComponent(escape(DocUtils.convertSpaces(s)))}catch(e){var err=new Error("End");err.properties.data=s;err.properties.explanation="Could not decode string to UTF8";throw err}};DocUtils.encodeUtf8=function(s){return unescape(encodeURIComponent(s))};DocUtils.str2xml=function(str,errorHandler){var parser=new DOMParser({errorHandler:errorHandler});return parser.parseFromString(str,"text/xml")};DocUtils.charMap={"&":"&amp;","'":"&apos;","<":"&lt;",">":"&gt;"};var regexStripRegexp=/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g;DocUtils.escapeRegExp=function(str){return str.replace(regexStripRegexp,"\\$&")};DocUtils.charMapRegexes=Object.keys(DocUtils.charMap).map(function(endChar){var startChar=DocUtils.charMap[endChar];return{rstart:new RegExp(DocUtils.escapeRegExp(startChar),"g"),rend:new RegExp(DocUtils.escapeRegExp(endChar),"g"),start:startChar,end:endChar}});DocUtils.wordToUtf8=function(string){var r=void 0;for(var i=0,l=DocUtils.charMapRegexes.length;i<l;i++){r=DocUtils.charMapRegexes[i];string=string.replace(r.rstart,r.end)}return string};DocUtils.utf8ToWord=function(string){if(typeof string!=="string"){string=string.toString()}var r=void 0;for(var i=0,l=DocUtils.charMapRegexes.length;i<l;i++){r=DocUtils.charMapRegexes[i];string=string.replace(r.rend,r.start)}return string};DocUtils.cloneDeep=function(obj){return JSON.parse(JSON.stringify(obj))};DocUtils.concatArrays=function(arrays){return arrays.reduce(function(result,array){Array.prototype.push.apply(result,array);return result},[])};var spaceRegexp=new RegExp(String.fromCharCode(160),"g");DocUtils.convertSpaces=function(s){return s.replace(spaceRegexp," ")};DocUtils.pregMatchAll=function(regex,content){var matchArray=[];var match=void 0;while((match=regex.exec(content))!=null){matchArray.push({array:match,offset:match.index})}return matchArray};DocUtils.sizeOfObject=function(obj){return Object.keys(obj).length};function throwXmlTagNotFound(options){var err=new Errors.XTTemplateError("No tag '"+options.element+"' was found at the "+options.position);err.properties={id:"no_xml_tag_found_at_"+options.position,explanation:"No tag '"+options.element+"' was found at the "+options.position,parsed:options.parsed,index:options.index,element:options.element};throw err}DocUtils.getRight=function(parsed,element,index){for(var i=index,l=parsed.length;i<l;i++){var part=parsed[i];if(part.value==="</"+element+">"){return i}}throwXmlTagNotFound({position:"right",element:element,parsed:parsed,index:index})};DocUtils.getLeft=function(parsed,element,index){for(var i=index;i>=0;i--){var part=parsed[i];if(part.value.indexOf("<"+element)===0&&[">"," "].indexOf(part.value[element.length+1])!==-1){return i}}throwXmlTagNotFound({position:"left",element:element,parsed:parsed,index:index})};module.exports=DocUtils},{"./errors":2,"./memoize":5,xmldom:19}],2:[function(require,module,exports){"use strict";function XTError(message){this.name="GenericError";this.message=message;this.stack=new Error(message).stack}XTError.prototype=Error.prototype;function XTTemplateError(message){this.name="TemplateError";this.message=message;this.stack=new Error(message).stack}XTTemplateError.prototype=new XTError;function XTScopeParserError(message){this.name="ScopeParserError";this.message=message;this.stack=new Error(message).stack}XTScopeParserError.prototype=new XTError;function XTInternalError(message){this.name="InternalError";this.properties={explanation:"InternalError"};this.message=message;this.stack=new Error(message).stack}XTInternalError.prototype=new XTError;module.exports={XTError:XTError,XTTemplateError:XTTemplateError,XTInternalError:XTInternalError,XTScopeParserError:XTScopeParserError}},{}],3:[function(require,module,exports){"use strict";var loopModule=require("./modules/loop");var spacePreserveModule=require("./modules/space-preserve");var rawXmlModule=require("./modules/rawxml");var expandPairTrait=require("./modules/expand-pair-trait");var render=require("./modules/render");var PptXFileTypeConfig={getTemplatedFiles:function getTemplatedFiles(zip){var slideTemplates=zip.file(/ppt\/(slides|slideMasters)\/(slide|slideMaster)\d+\.xml/).map(function(file){return file.name});return slideTemplates.concat(["ppt/presentation.xml"])},textPath:"ppt/slides/slide1.xml",tagsXmlTextArray:["a:t","m:t"],tagsXmlLexedArray:["p:sp","a:tc","a:tr","a:table","a:p","a:r"],tagRawXml:"p:sp",tagTextXml:"a:t",baseModules:[render,expandPairTrait,rawXmlModule,loopModule]};var DocXFileTypeConfig={getTemplatedFiles:function getTemplatedFiles(zip){var slideTemplates=zip.file(/word\/(header|footer)\d+\.xml/).map(function(file){return file.name});return slideTemplates.concat(["word/document.xml"])},textPath:"word/document.xml",tagsXmlTextArray:["w:t","m:t"],tagsXmlLexedArray:["w:tc","w:tr","w:table","w:p","w:r"],tagRawXml:"w:p",tagTextXml:"w:t",baseModules:[render,spacePreserveModule,expandPairTrait,rawXmlModule,loopModule]};module.exports={docx:DocXFileTypeConfig,pptx:PptXFileTypeConfig}},{"./modules/expand-pair-trait":8,"./modules/loop":9,"./modules/rawxml":10,"./modules/render":11,"./modules/space-preserve":12}],4:[function(require,module,exports){"use strict";var Errors=require("./errors");var DocUtils=require("./doc-utils");function inRange(range,match){return range[0]<=match.offset&&match.offset<range[1]}function updateInTextTag(part,inTextTag){if(part.type==="tag"&&part.position==="start"&&part.text){if(inTextTag){throw new Error("Malformed xml : Already in text tag")}return true}if(part.type==="tag"&&part.position==="end"&&part.text){if(!inTextTag){throw new Error("Malformed xml : Already not in text tag")}return false}return inTextTag}function offsetSort(a,b){return a.offset-b.offset}function getTag(tag){var start=1;if(tag[1]==="/"){start=2}var index=tag.indexOf(" ");var end=index===-1?tag.length-1:index;return{tag:tag.slice(start,end),position:start===1?"start":"end"}}function tagMatcher(content,textMatchArray,othersMatchArray){var cursor=0;var contentLength=content.length;var allMatches=DocUtils.concatArrays([textMatchArray.map(function(tag){return{tag:tag,text:true}}),othersMatchArray.map(function(tag){return{tag:tag,text:false}})]).reduce(function(allMatches,t){allMatches[t.tag]=t.text;return allMatches},{});var totalMatches=[];while(cursor<contentLength){cursor=content.indexOf("<",cursor);if(cursor===-1){break}var offset=cursor;cursor=content.indexOf(">",cursor);var tagText=content.slice(offset,cursor+1);var _getTag=getTag(tagText),tag=_getTag.tag,position=_getTag.position;var text=allMatches[tag];if(text==null){continue}totalMatches.push({type:"tag",position:position,text:text,offset:offset,value:tagText})}return totalMatches}function throwUnopenedTagException(options){var err=new Errors.XTTemplateError("Unopened tag");err.properties={xtag:options.xtag.split(" ")[0],id:"unopened_tag",context:options.xtag,explanation:"The tag beginning with '"+options.xtag.substr(0,10)+"' is unclosed"};throw err}function throwUnclosedTagException(options){var err=new Errors.XTTemplateError("Unclosed tag");err.properties={xtag:options.xtag.split(" ")[0].substr(1),id:"unclosed_tag",context:options.xtag,explanation:"The tag beginning with '"+options.xtag.substr(0,10)+"' is unclosed"};throw err}function assertDelimiterOrdered(delimiterMatches,fullText){var inDelimiter=false;var lastDelimiterMatch={offset:0};var xtag=void 0;delimiterMatches.forEach(function(delimiterMatch){xtag=fullText.substr(lastDelimiterMatch.offset,delimiterMatch.offset-lastDelimiterMatch.offset);if(delimiterMatch.position==="start"&&inDelimiter||delimiterMatch.position==="end"&&!inDelimiter){if(delimiterMatch.position==="start"){throwUnclosedTagException({xtag:xtag})}else{throwUnopenedTagException({xtag:xtag})}}inDelimiter=!inDelimiter;lastDelimiterMatch=delimiterMatch});var delimiterMatch={offset:fullText.length};xtag=fullText.substr(lastDelimiterMatch.offset,delimiterMatch.offset-lastDelimiterMatch.offset);if(inDelimiter){throwUnclosedTagException({xtag:xtag})}}function getAllIndexes(arr,val,position){var indexes=[];var offset=-1;do{offset=arr.indexOf(val,offset+1);if(offset!==-1){indexes.push({offset:offset,position:position})}}while(offset!==-1);return indexes}function Reader(innerContentParts){var _this=this;this.innerContentParts=innerContentParts;this.full="";this.parseDelimiters=function(delimiters){_this.full=_this.innerContentParts.join("");var offset=0;_this.ranges=_this.innerContentParts.map(function(part){offset+=part.length;return offset-part.length});var delimiterMatches=DocUtils.concatArrays([getAllIndexes(_this.full,delimiters.start,"start"),getAllIndexes(_this.full,delimiters.end,"end")]).sort(offsetSort);assertDelimiterOrdered(delimiterMatches,_this.full);var delimiterLength={start:delimiters.start.length,end:delimiters.end.length};var cutNext=0;var delimiterIndex=0;_this.parsed=_this.ranges.map(function(offset,i){var range=[offset,offset+this.innerContentParts[i].length];var partContent=this.innerContentParts[i];var delimitersInOffset=[];while(delimiterIndex<delimiterMatches.length&&inRange(range,delimiterMatches[delimiterIndex])){delimitersInOffset.push(delimiterMatches[delimiterIndex]);delimiterIndex++}var parts=[];var cursor=0;if(cutNext>0){cursor=cutNext;cutNext=0}delimitersInOffset.forEach(function(delimiterInOffset){var value=partContent.substr(cursor,delimiterInOffset.offset-offset-cursor);if(value.length>0){parts.push({type:"content",value:value})}parts.push({type:"delimiter",position:delimiterInOffset.position});cursor=delimiterInOffset.offset-offset+delimiterLength[delimiterInOffset.position]});cutNext=cursor-partContent.length;var value=partContent.substr(cursor);if(value.length>0){parts.push({type:"content",value:value})}return parts},_this)}}module.exports={parse:function parse(xmlparsed,delimiters){var inTextTag=false;var innerContentParts=[];xmlparsed.forEach(function(part){inTextTag=updateInTextTag(part,inTextTag);if(inTextTag&&part.type==="content"){innerContentParts.push(part.value)}});var reader=new Reader(innerContentParts);reader.parseDelimiters(delimiters);var newArray=[];var index=0;xmlparsed.forEach(function(part){inTextTag=updateInTextTag(part,inTextTag);if(part.type==="content"){part.position=inTextTag?"insidetag":"outsidetag"}if(inTextTag&&part.type==="content"){Array.prototype.push.apply(newArray,reader.parsed[index].map(function(p){if(p.type==="content"){p.position="insidetag"}return p}));index++}else{newArray.push(part)}});return newArray},xmlparse:function xmlparse(content,xmltags){var matches=tagMatcher(content,xmltags.text,xmltags.other);var cursor=0;var parsed=matches.reduce(function(parsed,match){var value=content.substr(cursor,match.offset-cursor);if(value.length>0){parsed.push({type:"content",value:value})}cursor=match.offset+match.value.length;delete match.offset;if(match.value.length>0){parsed.push(match)}return parsed},[]);var value=content.substr(cursor);if(value.length>0){parsed.push({type:"content",value:value})}return parsed}}},{"./doc-utils":1,"./errors":2}],5:[function(require,module,exports){"use strict";function memoize(func){var stringifyJson=JSON.stringify,cache={};function cachedfun(){var hash=stringifyJson(arguments);return hash in cache?cache[hash]:cache[hash]=func.apply(this,arguments)}return cachedfun}module.exports=memoize},{}],6:[function(require,module,exports){"use strict";function getMinFromArrays(arrays,state){var minIndex=-1;for(var i=0,l=arrays.length;i<l;i++){if(state[i]>=arrays[i].length){continue}if(minIndex===-1||arrays[i][state[i]].offset<arrays[minIndex][state[minIndex]].offset){minIndex=i}}if(minIndex===-1){throw new Error("minIndex negative")}return minIndex}module.exports=function(arrays){var totalLength=arrays.reduce(function(sum,array){return sum+array.length},0);arrays=arrays.filter(function(array){return array.length>0});var resultArray=new Array(totalLength);var state=arrays.map(function(){return 0});var i=0;while(i<=totalLength-1){var arrayIndex=getMinFromArrays(arrays,state);resultArray[i]=arrays[arrayIndex][state[arrayIndex]];state[arrayIndex]++;i++}return resultArray}},{}],7:[function(require,module,exports){"use strict";function emptyFun(){}function identity(i){return i}module.exports=function(module){var defaults={set:emptyFun,parse:emptyFun,render:emptyFun,getTraits:emptyFun,optionsTransformer:identity,getRenderedMap:identity,postparse:identity};if(Object.keys(defaults).every(function(key){return!module[key]})){throw new Error("This module cannot be wrapped, because it doesn't define any of the necessary functions")}Object.keys(defaults).forEach(function(key){module[key]=module[key]||defaults[key]});return module}},{}],8:[function(require,module,exports){"use strict";var traitName="expandPair";var mergeSort=require("../mergesort");var DocUtils=require("../doc-utils");var wrapper=require("../module-wrapper");var _require=require("../traits"),getExpandToDefault=_require.getExpandToDefault;var Errors=require("../errors");function throwUnmatchedLoopException(options){var location=options.location;var t=location==="start"?"unclosed":"unopened";var T=location==="start"?"Unclosed":"Unopened";var err=new Errors.XTTemplateError(T+" loop");var tag=options.part.value;err.properties={id:t+"_loop",explanation:"The loop with tag "+tag+" is "+t,xtag:tag};throw err}function throwClosingTagNotMatchOpeningTag(options){var tags=options.tags;var err=new Errors.XTTemplateError("Closing tag does not match opening tag");err.properties={id:"closing_tag_does_not_match_opening_tag",explanation:'The tag "'+tags[0].value+'" is closed by the tag "'+tags[1].value+'"',openingtag:tags[0].value,closingtag:tags[1].value};throw err}function getOpenCountChange(part){switch(part.location){case"start":return 1;case"end":return-1;default:throw new Error("Location should be one of 'start' or 'end' (given : "+part.location+")")}}function getPairs(traits){if(traits.length===0){return[]}var countOpen=1;var firstTrait=traits[0];for(var i=1;i<traits.length;i++){var currentTrait=traits[i];countOpen+=getOpenCountChange(currentTrait.part);if(countOpen===0){if(currentTrait.part.value!==firstTrait.part.value&&currentTrait.part.value!==""){throwClosingTagNotMatchOpeningTag({tags:[firstTrait.part,currentTrait.part]})}var outer=getPairs(traits.slice(i+1));return[[firstTrait,currentTrait]].concat(outer)}}var part=firstTrait.part;throwUnmatchedLoopException({part:part,location:part.location})}var expandPairTrait={name:"ExpandPairTrait",postparse:function postparse(parsed,_ref){var getTraits=_ref.getTraits,_postparse=_ref.postparse;var traits=getTraits(traitName,parsed);traits=traits.map(function(trait){return trait||[]});traits=mergeSort(traits);var pairs=getPairs(traits);var expandedPairs=pairs.map(function(pair){var expandTo=pair[0].part.expandTo;if(expandTo==="auto"){expandTo=getExpandToDefault(parsed.slice(pair[0].offset,pair[1].offset))}if(!expandTo){return[pair[0].offset,pair[1].offset]}var left=DocUtils.getLeft(parsed,expandTo,pair[0].offset);var right=DocUtils.getRight(parsed,expandTo,pair[1].offset);return[left,right]});var currentPairIndex=0;var innerParts=void 0;return parsed.reduce(function(newParsed,part,i){var inPair=currentPairIndex<pairs.length&&expandedPairs[currentPairIndex][0]<=i;var pair=pairs[currentPairIndex];var expandedPair=expandedPairs[currentPairIndex];if(!inPair){newParsed.push(part);return newParsed}if(expandedPair[0]===i){innerParts=[]}if(pair[0].offset!==i&&pair[1].offset!==i){innerParts.push(part)}if(expandedPair[1]===i){var basePart=parsed[pair[0].offset];delete basePart.location;delete basePart.expandTo;basePart.subparsed=_postparse(innerParts);newParsed.push(basePart);currentPairIndex++}return newParsed},[])}};module.exports=function(){return wrapper(expandPairTrait)}},{"../doc-utils":1,"../errors":2,"../mergesort":6,"../module-wrapper":7,"../traits":16}],9:[function(require,module,exports){"use strict";var DocUtils=require("../doc-utils");var dashInnerRegex=/^-([^\s]+)\s(.+)$/;var wrapper=require("../module-wrapper");var moduleName="loop";var loopModule={name:"LoopModule",parse:function parse(placeHolderContent){var module=moduleName;var type="placeholder";if(placeHolderContent[0]==="#"){return{type:type,value:placeHolderContent.substr(1),expandTo:"auto",module:module,location:"start",inverted:false}}if(placeHolderContent[0]==="^"){return{type:type,value:placeHolderContent.substr(1),expandTo:"auto",module:module,location:"start",inverted:true}}if(placeHolderContent[0]==="/"){return{type:type,value:placeHolderContent.substr(1),module:module,location:"end"}}if(placeHolderContent[0]==="-"){var value=placeHolderContent.replace(dashInnerRegex,"$2");var expandTo=placeHolderContent.replace(dashInnerRegex,"$1");return{type:type,value:value,expandTo:expandTo,module:module,location:"start",inverted:false}}return null},getTraits:function getTraits(traitName,parsed){if(traitName!=="expandPair"){return}return parsed.reduce(function(tags,part,offset){if(part.type==="placeholder"&&part.module===moduleName){tags.push({part:part,offset:offset})}return tags},[])},render:function render(part,options){if(!part.type==="placeholder"||part.module!==moduleName){return null}var totalValue=[];function loopOver(scope){var scopeManager=options.scopeManager.createSubScopeManager(scope,part.value);totalValue.push(options.render(DocUtils.mergeObjects({},options,{compiled:part.subparsed,tags:{},scopeManager:scopeManager})))}options.scopeManager.loopOver(part.value,loopOver,part.inverted);return{value:totalValue.join("")}}};module.exports=function(){return wrapper(loopModule)}},{"../doc-utils":1,"../module-wrapper":7}],10:[function(require,module,exports){"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function")}}var DocUtils=require("../doc-utils");var Errors=require("../errors");var moduleName="rawxml";var wrapper=require("../module-wrapper");function throwRawTagShouldBeOnlyTextInParagraph(options){var err=new Errors.XTTemplateError("Raw tag should be the only text in paragraph");var tag=options.part.value;err.properties={id:"raw_xml_tag_should_be_only_text_in_paragraph",explanation:"The tag "+tag,xtag:options.part.value,paragraphParts:options.paragraphParts};throw err}function getInner(_ref){var part=_ref.part,left=_ref.left,right=_ref.right,postparsed=_ref.postparsed,index=_ref.index;var paragraphParts=postparsed.slice(left+1,right);paragraphParts.forEach(function(p,i){if(i===index-left-1){return}if(p.type==="placeholder"||p.type==="content"&&p.position==="insidetag"){throwRawTagShouldBeOnlyTextInParagraph({paragraphParts:paragraphParts,part:part})}});return part}var RawXmlModule=function(){function RawXmlModule(){_classCallCheck(this,RawXmlModule);this.name="RawXmlModule"}_createClass(RawXmlModule,[{key:"optionsTransformer",value:function optionsTransformer(options,docxtemplater){this.fileTypeConfig=docxtemplater.fileTypeConfig;return options}},{key:"parse",value:function parse(placeHolderContent){var type="placeholder";if(placeHolderContent[0]!=="@"){return null}return{type:type,value:placeHolderContent.substr(1),module:moduleName}}},{key:"postparse",value:function postparse(parsed){return DocUtils.traits.expandToOne(parsed,{moduleName:moduleName,getInner:getInner,expandTo:this.fileTypeConfig.tagRawXml})}},{key:"render",value:function render(part,options){if(part.module!==moduleName){return null}var value=options.scopeManager.getValue(part.value);if(value==null){value=options.nullGetter(part)}return{value:value}}}]);return RawXmlModule}();module.exports=function(){return wrapper(new RawXmlModule)}},{"../doc-utils":1,"../errors":2,"../module-wrapper":7}],11:[function(require,module,exports){"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function")}}var wrapper=require("../module-wrapper");var Render=function(){function Render(){_classCallCheck(this,Render);this.name="Render"}_createClass(Render,[{key:"set",value:function set(obj){if(obj.compiled){this.compiled=obj.compiled}if(obj.data!=null){this.data=obj.data}}},{key:"getRenderedMap",value:function getRenderedMap(mapper){var _this=this;return Object.keys(this.compiled).reduce(function(mapper,from){mapper[from]={from:from,data:_this.data};return mapper},mapper)}}]);return Render}();module.exports=function(){return wrapper(new Render)}},{"../module-wrapper":7}],12:[function(require,module,exports){"use strict";var wrapper=require("../module-wrapper");var spacePreserve={name:"SpacePreserveModule",postparse:function postparse(parsed){var chunk=[];var inChunk=false;var result=parsed.reduce(function(parsed,part){if(part.type==="tag"&&part.position==="start"&&part.text&&part.value==="<w:t>"){inChunk=true}if(inChunk){if(part.type==="placeholder"&&!part.module){chunk[0].value='<w:t xml:space="preserve">'}chunk.push(part)}else{parsed.push(part)}if(part.type==="tag"&&part.position==="end"&&part.text&&part.value==="</w:t>"){Array.prototype.push.apply(parsed,chunk);inChunk=false;chunk=[]}return parsed},[]);Array.prototype.push.apply(result,chunk);return result}};module.exports=function(){return wrapper(spacePreserve)}},{"../module-wrapper":7}],13:[function(require,module,exports){"use strict";var DocUtils=require("./doc-utils");var parser={postparse:function postparse(parsed,modules){function getTraits(traitName,parsed){return modules.map(function(module){return module.getTraits(traitName,parsed)})}function postparse(parsed){return modules.reduce(function(parsed,module){return module.postparse(parsed,{postparse:postparse,getTraits:getTraits})},parsed)}return postparse(parsed)},parse:function parse(lexed,modules){function moduleParse(placeHolderContent,parsed){var moduleParsed=void 0;for(var i=0,l=modules.length;i<l;i++){var _module=modules[i];moduleParsed=_module.parse(placeHolderContent);if(moduleParsed){parsed.push(moduleParsed);return moduleParsed}}return null}var inPlaceHolder=false;var placeHolderContent=void 0;var tailParts=[];return lexed.reduce(function(parsed,token){if(token.type==="delimiter"){inPlaceHolder=token.position==="start";if(token.position==="end"){placeHolderContent=DocUtils.wordToUtf8(placeHolderContent);if(!moduleParse(placeHolderContent,parsed)){parsed.push({type:"placeholder",value:placeHolderContent})}Array.prototype.push.apply(parsed,tailParts);tailParts=[];return parsed}placeHolderContent="";return parsed}if(inPlaceHolder){if(token.type==="content"&&token.position==="insidetag"){placeHolderContent+=token.value}else{tailParts.push(token)}return parsed}parsed.push(token);return parsed},[])}};module.exports=parser},{"./doc-utils":1}],14:[function(require,module,exports){"use strict";var ScopeManager=require("./scope-manager");var DocUtils=require("./doc-utils");function moduleRender(part,options){var moduleRendered=void 0;for(var i=0,l=options.modules.length;i<l;i++){var _module=options.modules[i];moduleRendered=_module.render(part,options);if(moduleRendered){return moduleRendered}}return false}function render(options){options.render=render;options.modules=options.modules;if(!options.scopeManager){options.scopeManager=ScopeManager.createBaseScopeManager(options)}return options.compiled.map(function(part){var moduleRendered=moduleRender(part,options);if(moduleRendered){return moduleRendered.value}if(part.type==="placeholder"){var value=options.scopeManager.getValue(part.value);if(value==null){value=options.nullGetter(part)}return DocUtils.utf8ToWord(value)}if(part.type==="content"||part.type==="tag"){return part.value}throw new Error('Unimplemented tag type "'+part.type+'"')}).join("")}module.exports=render},{"./doc-utils":1,"./scope-manager":15}],15:[function(require,module,exports){"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function")}}var Errors=require("./errors");var ScopeManager=function(){function ScopeManager(options){_classCallCheck(this,ScopeManager);this.scopePath=options.scopePath;this.scopeList=options.scopeList;this.parser=options.parser}_createClass(ScopeManager,[{key:"loopOver",value:function loopOver(tag,callback,inverted){inverted=inverted||false;return this.loopOverValue(this.getValue(tag),callback,inverted)}},{key:"functorIfInverted",value:function functorIfInverted(inverted,functor,value){if(inverted){functor(value)}}},{key:"isValueFalsy",value:function isValueFalsy(value,type){return value==null||!value||type==="[object Array]"&&value.length===0}},{key:"loopOverValue",value:function loopOverValue(value,functor,inverted){var type=Object.prototype.toString.call(value);var currentValue=this.scopeList[this.num];if(this.isValueFalsy(value,type)){return this.functorIfInverted(inverted,functor,currentValue)}if(type==="[object Array]"){for(var i=0,scope;i<value.length;i++){scope=value[i];this.functorIfInverted(!inverted,functor,scope)}return}if(type==="[object Object]"){return this.functorIfInverted(!inverted,functor,value)}if(value===true){return this.functorIfInverted(!inverted,functor,currentValue)}}},{key:"getValue",value:function getValue(tag,num){this.num=num==null?this.scopeList.length-1:num;var err=void 0;var parser=void 0;var result=void 0;var scope=this.scopeList[this.num];try{parser=this.parser(tag)}catch(error){err=new Errors.XTScopeParserError("Scope parser compilation failed");err.properties={id:"scopeparser_compilation_failed",tag:tag,explanation:"The scope parser for the tag "+tag+" failed to compile",rootError:error};throw err}try{result=parser.get(scope,{num:this.num,scopeList:this.scopeList})}catch(error){err=new Errors.XTScopeParserError("Scope parser execution failed");err.properties={id:"scopeparser_execution_failed",explanation:"The scope parser for the tag "+tag+" failed to execute",scope:scope,tag:tag,rootError:error};throw err}if(result==null&&this.num>0){return this.getValue(tag,this.num-1)}return result}},{key:"createSubScopeManager",value:function createSubScopeManager(scope,tag){var options={scopePath:this.scopePath.slice(0),scopeList:this.scopeList.slice(0)};options.parser=this.parser;options.scopeList=this.scopeList.concat(scope);options.scopePath=this.scopePath.concat(tag);return new ScopeManager(options)}}]);return ScopeManager}();ScopeManager.createBaseScopeManager=function(_ref){var parser=_ref.parser,tags=_ref.tags;var options={parser:parser,tags:tags};options.scopePath=[];options.scopeList=[tags];return new ScopeManager(options)};module.exports=ScopeManager},{"./errors":2}],16:[function(require,module,exports){"use strict";var DocUtils=require("./doc-utils");var Errors=require("./errors");function throwRawTagNotInParagraph(options){var err=new Errors.XTTemplateError("Raw tag not in paragraph");var tag=options.part.value;err.properties={id:"raw_tag_outerxml_invalid",explanation:'The tag "'+tag+'"',rootError:options.rootError,xtag:tag,postparsed:options.postparsed,expandTo:options.expandTo,index:options.index};throw err}function lastTagIsOpenTag(array,tag){if(array.length===0){return false}var lastTag=array[array.length-1];var innerLastTag=lastTag.tag.substr(1);var innerCurrentTag=tag.substr(2,tag.length-3);return innerLastTag.indexOf(innerCurrentTag)===0}function addTag(array,tag){array.push({tag:tag});return array}function getListXmlElements(parts){var tags=parts.filter(function(part){return part.type==="tag"}).map(function(part){return part.value});var result=[];for(var i=0,tag;i<tags.length;i++){tag=tags[i];if(tag[1]==="/"){if(lastTagIsOpenTag(result,tag)){result.pop()}else{result=addTag(result,tag)}}else if(tag[tag.length-1]!=="/"){result=addTag(result,tag)}}return result}function getExpandToDefault(parts){var xmlElements=getListXmlElements(parts);for(var i=0;i<xmlElements.length;i++){var xmlElement=xmlElements[i];if(xmlElement.tag.indexOf("<w:tc")===0){return"w:tr"}if(xmlElement.tag.indexOf("<a:tc")===0){return"a:tr"}}return false}function expandOne(part,postparsed,options){var expandTo=part.expandTo||options.expandTo;var index=postparsed.indexOf(part);if(!expandTo){return postparsed}var right=void 0,left=void 0;try{right=DocUtils.getRight(postparsed,expandTo,index);left=DocUtils.getLeft(postparsed,expandTo,index)}catch(rootError){if(rootError instanceof Errors.XTTemplateError){throwRawTagNotInParagraph({part:part,rootError:rootError,postparsed:postparsed,expandTo:expandTo,index:index})}throw rootError}var leftParts=postparsed.slice(left,index);var rightParts=postparsed.slice(index+1,right+1);var inner=options.getInner({index:index,part:part,leftParts:leftParts,rightParts:rightParts,left:left,right:right,postparsed:postparsed});if(!inner.length){inner.expanded=[leftParts,rightParts];inner=[inner]}return DocUtils.concatArrays([postparsed.slice(0,left),inner,postparsed.slice(right+1)])}function expandToOne(postparsed,options){var expandToElements=postparsed.reduce(function(elements,part){if(part.type==="placeholder"&&part.module===options.moduleName){elements.push(part)}return elements},[]);expandToElements.forEach(function(part){postparsed=expandOne(part,postparsed,options)});return postparsed}module.exports={expandToOne:expandToOne,getExpandToDefault:getExpandToDefault}},{"./doc-utils":1,"./errors":2}],17:[function(require,module,exports){"use strict";var DocUtils=require("./doc-utils");var memoize=require("./memoize");function handleRecursiveCase(res){function replacerUnshift(){var pn={array:Array.prototype.slice.call(arguments)};pn.array.shift();var match=pn.array[0]+pn.array[1];pn.array.unshift(match);pn.array.pop();var offset=pn.array.pop();pn.offset=offset;pn.first=true;res.matches.unshift(pn);res.charactersAdded.unshift(0);return res.charactersAddedCumulative.unshift(0)}if(res.content.indexOf("<")===-1&&res.content.indexOf(">")===-1){res.content.replace(/^()([^<>]*)$/,replacerUnshift)}var r=new RegExp("^()([^<]+)</(?:"+res.tagsXmlArrayJoined+")>");res.content.replace(r,replacerUnshift);function replacerPush(){var pn={array:Array.prototype.slice.call(arguments)};pn.array.pop();var offset=pn.array.pop();pn.offset=offset;pn.last=true;res.matches.push(pn);res.charactersAdded.push(0);return res.charactersAddedCumulative.push(0)}r=new RegExp("(<(?:"+res.tagsXmlArrayJoined+")[^>]*>)([^>]+)$");res.content.replace(r,replacerPush);return res}function xmlMatcher(content,tagsXmlArray){var res={};res.content=content;res.tagsXmlArray=tagsXmlArray;res.tagsXmlArrayJoined=res.tagsXmlArray.join("|");var regexp=new RegExp("(<(?:"+res.tagsXmlArrayJoined+")[^>]*>)([^<>]*)</(?:"+res.tagsXmlArrayJoined+")>","g");res.matches=DocUtils.pregMatchAll(regexp,res.content);res.charactersAddedCumulative=res.matches.map(function(){return 0});res.charactersAdded=res.matches.map(function(){return 0});return handleRecursiveCase(res)}var memoized=memoize(xmlMatcher);module.exports=function(content,tagsXmlArray){return DocUtils.cloneDeep(memoized(content,tagsXmlArray))}},{"./doc-utils":1,"./memoize":5}],18:[function(require,module,exports){"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function")}}var DocUtils=require("./doc-utils");var ScopeManager=require("./scope-manager");var xmlMatcher=require("./xml-matcher");var Errors=require("./errors");var Lexer=require("./lexer");var Parser=require("./parser.js");var _render=require("./render.js");function _getFullText(content,tagsXmlArray){var matcher=xmlMatcher(content,tagsXmlArray);var result=matcher.matches.map(function(match){return match.array[2]});return DocUtils.wordToUtf8(DocUtils.convertSpaces(result.join("")))}module.exports=function(){function XmlTemplater(content,options){_classCallCheck(this,XmlTemplater);this.fromJson(options);this.setModules({inspect:{filePath:this.filePath}});this.load(content)}_createClass(XmlTemplater,[{key:"load",value:function load(content){if(typeof content!=="string"){var err=new Errors.XTInternalError("Content must be a string");err.properties.id="xmltemplater_content_must_be_string";throw err}this.content=content}},{key:"setTags",value:function setTags(tags){this.tags=tags!=null?tags:{};this.scopeManager=ScopeManager.createBaseScopeManager({tags:this.tags,parser:this.parser});return this}},{key:"fromJson",value:function fromJson(options){this.filePath=options.filePath;this.modules=options.modules;this.fileTypeConfig=options.fileTypeConfig;Object.keys(DocUtils.defaults).map(function(key){this[key]=options[key]!=null?options[key]:DocUtils.defaults[key]},this)}},{key:"getFullText",value:function getFullText(){return _getFullText(this.content,this.fileTypeConfig.tagsXmlTextArray)}},{key:"setModules",value:function setModules(obj){this.modules.forEach(function(module){module.set(obj)})}},{key:"parse",value:function parse(){this.xmllexed=Lexer.xmlparse(this.content,{text:this.fileTypeConfig.tagsXmlTextArray,other:this.fileTypeConfig.tagsXmlLexedArray});this.setModules({inspect:{xmllexed:this.xmllexed}});this.lexed=Lexer.parse(this.xmllexed,this.delimiters);this.setModules({inspect:{lexed:this.lexed}});this.parsed=Parser.parse(this.lexed,this.modules);this.setModules({inspect:{parsed:this.parsed}});this.postparsed=Parser.postparse(this.parsed,this.modules);return this}},{key:"render",value:function render(to){this.filePath=to;this.setModules({inspect:{postparsed:this.postparsed}});this.content=_render({compiled:this.postparsed,tags:this.tags,modules:this.modules,parser:this.parser,nullGetter:this.nullGetter,filePath:this.filePath});this.setModules({inspect:{content:this.content}});return this}}]);return XmlTemplater}()},{"./doc-utils":1,"./errors":2,"./lexer":4,"./parser.js":13,"./render.js":14,"./scope-manager":15,"./xml-matcher":17}],19:[function(require,module,exports){function DOMParser(options){this.options=options||{locator:{}}}DOMParser.prototype.parseFromString=function(source,mimeType){var options=this.options;var sax=new XMLReader;var domBuilder=options.domBuilder||new DOMHandler;var errorHandler=options.errorHandler;var locator=options.locator;var defaultNSMap=options.xmlns||{};var entityMap={lt:"<",gt:">",amp:"&",quot:'"',apos:"'"};if(locator){domBuilder.setDocumentLocator(locator)}sax.errorHandler=buildErrorHandler(errorHandler,domBuilder,locator);sax.domBuilder=options.domBuilder||domBuilder;if(/\/x?html?$/.test(mimeType)){entityMap.nbsp=" ";entityMap.copy="©";defaultNSMap[""]="http://www.w3.org/1999/xhtml"}defaultNSMap.xml=defaultNSMap.xml||"http://www.w3.org/XML/1998/namespace";if(source){sax.parse(source,defaultNSMap,entityMap)}else{sax.errorHandler.error("invalid doc source")}return domBuilder.doc};function buildErrorHandler(errorImpl,domBuilder,locator){if(!errorImpl){if(domBuilder instanceof DOMHandler){return domBuilder}errorImpl=domBuilder}var errorHandler={};var isCallback=errorImpl instanceof Function;locator=locator||{};function build(key){var fn=errorImpl[key];if(!fn&&isCallback){fn=errorImpl.length==2?function(msg){errorImpl(key,msg)}:errorImpl}errorHandler[key]=fn&&function(msg){fn("[xmldom "+key+"]\t"+msg+_locator(locator))}||function(){}}build("warning");build("error");build("fatalError");return errorHandler}function DOMHandler(){this.cdata=false}function position(locator,node){node.lineNumber=locator.lineNumber;node.columnNumber=locator.columnNumber}DOMHandler.prototype={startDocument:function(){this.doc=(new DOMImplementation).createDocument(null,null,null);if(this.locator){this.doc.documentURI=this.locator.systemId}},startElement:function(namespaceURI,localName,qName,attrs){var doc=this.doc;var el=doc.createElementNS(namespaceURI,qName||localName);var len=attrs.length;appendElement(this,el);this.currentElement=el;this.locator&&position(this.locator,el);for(var i=0;i<len;i++){var namespaceURI=attrs.getURI(i);var value=attrs.getValue(i);var qName=attrs.getQName(i);var attr=doc.createAttributeNS(namespaceURI,qName);this.locator&&position(attrs.getLocator(i),attr);attr.value=attr.nodeValue=value;el.setAttributeNode(attr)}},endElement:function(namespaceURI,localName,qName){var current=this.currentElement;var tagName=current.tagName;this.currentElement=current.parentNode},startPrefixMapping:function(prefix,uri){},endPrefixMapping:function(prefix){},processingInstruction:function(target,data){var ins=this.doc.createProcessingInstruction(target,data);this.locator&&position(this.locator,ins);appendElement(this,ins)},ignorableWhitespace:function(ch,start,length){},characters:function(chars,start,length){chars=_toString.apply(this,arguments);if(chars){if(this.cdata){var charNode=this.doc.createCDATASection(chars)}else{var charNode=this.doc.createTextNode(chars)}if(this.currentElement){this.currentElement.appendChild(charNode)}else if(/^\s*$/.test(chars)){this.doc.appendChild(charNode)}this.locator&&position(this.locator,charNode)}},skippedEntity:function(name){},endDocument:function(){this.doc.normalize()},setDocumentLocator:function(locator){if(this.locator=locator){locator.lineNumber=0}},comment:function(chars,start,length){chars=_toString.apply(this,arguments);var comm=this.doc.createComment(chars);this.locator&&position(this.locator,comm);appendElement(this,comm)},startCDATA:function(){this.cdata=true},endCDATA:function(){this.cdata=false},startDTD:function(name,publicId,systemId){var impl=this.doc.implementation;if(impl&&impl.createDocumentType){var dt=impl.createDocumentType(name,publicId,systemId);this.locator&&position(this.locator,dt);appendElement(this,dt)}},warning:function(error){console.warn("[xmldom warning]\t"+error,_locator(this.locator))},error:function(error){console.error("[xmldom error]\t"+error,_locator(this.locator))},fatalError:function(error){console.error("[xmldom fatalError]\t"+error,_locator(this.locator));throw error}};function _locator(l){if(l){return"\n@"+(l.systemId||"")+"#[line:"+l.lineNumber+",col:"+l.columnNumber+"]"}}function _toString(chars,start,length){if(typeof chars=="string"){return chars.substr(start,length)}else{if(chars.length>=start+length||start){return new java.lang.String(chars,start,length)+""}return chars}}"endDTD,startEntity,endEntity,attributeDecl,elementDecl,externalEntityDecl,internalEntityDecl,resolveEntity,getExternalSubset,notationDecl,unparsedEntityDecl".replace(/\w+/g,function(key){DOMHandler.prototype[key]=function(){return null}});function appendElement(hander,node){if(!hander.currentElement){hander.doc.appendChild(node)}else{hander.currentElement.appendChild(node)}}var XMLReader=require("./sax").XMLReader;var DOMImplementation=exports.DOMImplementation=require("./dom").DOMImplementation;exports.XMLSerializer=require("./dom").XMLSerializer;exports.DOMParser=DOMParser},{"./dom":20,"./sax":21}],20:[function(require,module,exports){function copy(src,dest){for(var p in src){dest[p]=src[p]}}function _extends(Class,Super){var pt=Class.prototype;if(Object.create){var ppt=Object.create(Super.prototype);pt.__proto__=ppt}if(!(pt instanceof Super)){function t(){}t.prototype=Super.prototype;t=new t;copy(pt,t);Class.prototype=pt=t}if(pt.constructor!=Class){if(typeof Class!="function"){console.error("unknow Class:"+Class)}pt.constructor=Class}}var htmlns="http://www.w3.org/1999/xhtml";var NodeType={};var ELEMENT_NODE=NodeType.ELEMENT_NODE=1;var ATTRIBUTE_NODE=NodeType.ATTRIBUTE_NODE=2;var TEXT_NODE=NodeType.TEXT_NODE=3;var CDATA_SECTION_NODE=NodeType.CDATA_SECTION_NODE=4;var ENTITY_REFERENCE_NODE=NodeType.ENTITY_REFERENCE_NODE=5;var ENTITY_NODE=NodeType.ENTITY_NODE=6;var PROCESSING_INSTRUCTION_NODE=NodeType.PROCESSING_INSTRUCTION_NODE=7;var COMMENT_NODE=NodeType.COMMENT_NODE=8;var DOCUMENT_NODE=NodeType.DOCUMENT_NODE=9;var DOCUMENT_TYPE_NODE=NodeType.DOCUMENT_TYPE_NODE=10;var DOCUMENT_FRAGMENT_NODE=NodeType.DOCUMENT_FRAGMENT_NODE=11;var NOTATION_NODE=NodeType.NOTATION_NODE=12;var ExceptionCode={};var ExceptionMessage={};var INDEX_SIZE_ERR=ExceptionCode.INDEX_SIZE_ERR=(ExceptionMessage[1]="Index size error",1);var DOMSTRING_SIZE_ERR=ExceptionCode.DOMSTRING_SIZE_ERR=(ExceptionMessage[2]="DOMString size error",2);var HIERARCHY_REQUEST_ERR=ExceptionCode.HIERARCHY_REQUEST_ERR=(ExceptionMessage[3]="Hierarchy request error",3);var WRONG_DOCUMENT_ERR=ExceptionCode.WRONG_DOCUMENT_ERR=(ExceptionMessage[4]="Wrong document",4);var INVALID_CHARACTER_ERR=ExceptionCode.INVALID_CHARACTER_ERR=(ExceptionMessage[5]="Invalid character",5);var NO_DATA_ALLOWED_ERR=ExceptionCode.NO_DATA_ALLOWED_ERR=(ExceptionMessage[6]="No data allowed",6);var NO_MODIFICATION_ALLOWED_ERR=ExceptionCode.NO_MODIFICATION_ALLOWED_ERR=(ExceptionMessage[7]="No modification allowed",7);var NOT_FOUND_ERR=ExceptionCode.NOT_FOUND_ERR=(ExceptionMessage[8]="Not found",8);var NOT_SUPPORTED_ERR=ExceptionCode.NOT_SUPPORTED_ERR=(ExceptionMessage[9]="Not supported",9);var INUSE_ATTRIBUTE_ERR=ExceptionCode.INUSE_ATTRIBUTE_ERR=(ExceptionMessage[10]="Attribute in use",10);var INVALID_STATE_ERR=ExceptionCode.INVALID_STATE_ERR=(ExceptionMessage[11]="Invalid state",11);var SYNTAX_ERR=ExceptionCode.SYNTAX_ERR=(ExceptionMessage[12]="Syntax error",12);var INVALID_MODIFICATION_ERR=ExceptionCode.INVALID_MODIFICATION_ERR=(ExceptionMessage[13]="Invalid modification",13);var NAMESPACE_ERR=ExceptionCode.NAMESPACE_ERR=(ExceptionMessage[14]="Invalid namespace",14);var INVALID_ACCESS_ERR=ExceptionCode.INVALID_ACCESS_ERR=(ExceptionMessage[15]="Invalid access",15);function DOMException(code,message){if(message instanceof Error){var error=message}else{error=this;Error.call(this,ExceptionMessage[code]);this.message=ExceptionMessage[code];if(Error.captureStackTrace)Error.captureStackTrace(this,DOMException)}error.code=code;if(message)this.message=this.message+": "+message;return error}DOMException.prototype=Error.prototype;copy(ExceptionCode,DOMException);function NodeList(){}NodeList.prototype={length:0,item:function(index){return this[index]||null},toString:function(isHTML,nodeFilter){for(var buf=[],i=0;i<this.length;i++){serializeToString(this[i],buf,isHTML,nodeFilter)}return buf.join("")}};function LiveNodeList(node,refresh){this._node=node;this._refresh=refresh;_updateLiveList(this)}function _updateLiveList(list){var inc=list._node._inc||list._node.ownerDocument._inc;if(list._inc!=inc){var ls=list._refresh(list._node);__set__(list,"length",ls.length);copy(ls,list);list._inc=inc}}LiveNodeList.prototype.item=function(i){_updateLiveList(this);return this[i]};_extends(LiveNodeList,NodeList);function NamedNodeMap(){}function _findNodeIndex(list,node){var i=list.length;while(i--){if(list[i]===node){return i}}}function _addNamedNode(el,list,newAttr,oldAttr){if(oldAttr){list[_findNodeIndex(list,oldAttr)]=newAttr}else{list[list.length++]=newAttr}if(el){newAttr.ownerElement=el;var doc=el.ownerDocument;if(doc){oldAttr&&_onRemoveAttribute(doc,el,oldAttr);_onAddAttribute(doc,el,newAttr)}}}function _removeNamedNode(el,list,attr){var i=_findNodeIndex(list,attr);if(i>=0){var lastIndex=list.length-1;while(i<lastIndex){list[i]=list[++i]}list.length=lastIndex;if(el){var doc=el.ownerDocument;if(doc){_onRemoveAttribute(doc,el,attr);attr.ownerElement=null}}}else{throw DOMException(NOT_FOUND_ERR,new Error(el.tagName+"@"+attr))}}NamedNodeMap.prototype={length:0,item:NodeList.prototype.item,getNamedItem:function(key){var i=this.length;while(i--){var attr=this[i];if(attr.nodeName==key){return attr}}},setNamedItem:function(attr){var el=attr.ownerElement;if(el&&el!=this._ownerElement){throw new DOMException(INUSE_ATTRIBUTE_ERR)}var oldAttr=this.getNamedItem(attr.nodeName);_addNamedNode(this._ownerElement,this,attr,oldAttr);return oldAttr},setNamedItemNS:function(attr){var el=attr.ownerElement,oldAttr;if(el&&el!=this._ownerElement){throw new DOMException(INUSE_ATTRIBUTE_ERR)}oldAttr=this.getNamedItemNS(attr.namespaceURI,attr.localName);_addNamedNode(this._ownerElement,this,attr,oldAttr);return oldAttr},removeNamedItem:function(key){var attr=this.getNamedItem(key);_removeNamedNode(this._ownerElement,this,attr);return attr},removeNamedItemNS:function(namespaceURI,localName){var attr=this.getNamedItemNS(namespaceURI,localName);_removeNamedNode(this._ownerElement,this,attr);return attr},getNamedItemNS:function(namespaceURI,localName){var i=this.length;while(i--){var node=this[i];if(node.localName==localName&&node.namespaceURI==namespaceURI){return node}}return null}};function DOMImplementation(features){this._features={};if(features){for(var feature in features){this._features=features[feature]}}}DOMImplementation.prototype={hasFeature:function(feature,version){var versions=this._features[feature.toLowerCase()];if(versions&&(!version||version in versions)){return true}else{return false}},createDocument:function(namespaceURI,qualifiedName,doctype){var doc=new Document;doc.implementation=this;doc.childNodes=new NodeList;doc.doctype=doctype;if(doctype){doc.appendChild(doctype)}if(qualifiedName){var root=doc.createElementNS(namespaceURI,qualifiedName);doc.appendChild(root)}return doc},createDocumentType:function(qualifiedName,publicId,systemId){var node=new DocumentType;node.name=qualifiedName;node.nodeName=qualifiedName;node.publicId=publicId;node.systemId=systemId;return node}};function Node(){}Node.prototype={firstChild:null,lastChild:null,previousSibling:null,nextSibling:null,attributes:null,parentNode:null,childNodes:null,ownerDocument:null,nodeValue:null,namespaceURI:null,prefix:null,localName:null,insertBefore:function(newChild,refChild){return _insertBefore(this,newChild,refChild)},replaceChild:function(newChild,oldChild){this.insertBefore(newChild,oldChild);if(oldChild){this.removeChild(oldChild)}},removeChild:function(oldChild){return _removeChild(this,oldChild)},appendChild:function(newChild){return this.insertBefore(newChild,null)},hasChildNodes:function(){return this.firstChild!=null},cloneNode:function(deep){return cloneNode(this.ownerDocument||this,this,deep)},normalize:function(){var child=this.firstChild;while(child){var next=child.nextSibling;if(next&&next.nodeType==TEXT_NODE&&child.nodeType==TEXT_NODE){this.removeChild(next);child.appendData(next.data)}else{child.normalize();child=next}}},isSupported:function(feature,version){return this.ownerDocument.implementation.hasFeature(feature,version)},hasAttributes:function(){return this.attributes.length>0},lookupPrefix:function(namespaceURI){var el=this;while(el){var map=el._nsMap;if(map){for(var n in map){if(map[n]==namespaceURI){return n}}}el=el.nodeType==ATTRIBUTE_NODE?el.ownerDocument:el.parentNode}return null},lookupNamespaceURI:function(prefix){var el=this;while(el){var map=el._nsMap;if(map){if(prefix in map){return map[prefix]}}el=el.nodeType==ATTRIBUTE_NODE?el.ownerDocument:el.parentNode}return null},isDefaultNamespace:function(namespaceURI){var prefix=this.lookupPrefix(namespaceURI);return prefix==null}};function _xmlEncoder(c){return c=="<"&&"&lt;"||c==">"&&"&gt;"||c=="&"&&"&amp;"||c=='"'&&"&quot;"||"&#"+c.charCodeAt()+";"}copy(NodeType,Node);copy(NodeType,Node.prototype);function _visitNode(node,callback){if(callback(node)){return true}if(node=node.firstChild){do{if(_visitNode(node,callback)){return true}}while(node=node.nextSibling)}}function Document(){}function _onAddAttribute(doc,el,newAttr){doc&&doc._inc++;var ns=newAttr.namespaceURI;if(ns=="http://www.w3.org/2000/xmlns/"){el._nsMap[newAttr.prefix?newAttr.localName:""]=newAttr.value}}function _onRemoveAttribute(doc,el,newAttr,remove){doc&&doc._inc++;var ns=newAttr.namespaceURI;if(ns=="http://www.w3.org/2000/xmlns/"){delete el._nsMap[newAttr.prefix?newAttr.localName:""]}}function _onUpdateChild(doc,el,newChild){if(doc&&doc._inc){doc._inc++;var cs=el.childNodes;if(newChild){cs[cs.length++]=newChild}else{var child=el.firstChild;var i=0;while(child){cs[i++]=child;child=child.nextSibling}cs.length=i}}}function _removeChild(parentNode,child){var previous=child.previousSibling;var next=child.nextSibling;if(previous){previous.nextSibling=next}else{parentNode.firstChild=next}if(next){next.previousSibling=previous}else{parentNode.lastChild=previous}_onUpdateChild(parentNode.ownerDocument,parentNode);return child}function _insertBefore(parentNode,newChild,nextChild){var cp=newChild.parentNode;if(cp){cp.removeChild(newChild)}if(newChild.nodeType===DOCUMENT_FRAGMENT_NODE){var newFirst=newChild.firstChild;if(newFirst==null){return newChild}var newLast=newChild.lastChild}else{newFirst=newLast=newChild}var pre=nextChild?nextChild.previousSibling:parentNode.lastChild;newFirst.previousSibling=pre;newLast.nextSibling=nextChild;if(pre){pre.nextSibling=newFirst}else{parentNode.firstChild=newFirst}if(nextChild==null){parentNode.lastChild=newLast}else{nextChild.previousSibling=newLast}do{newFirst.parentNode=parentNode}while(newFirst!==newLast&&(newFirst=newFirst.nextSibling));_onUpdateChild(parentNode.ownerDocument||parentNode,parentNode);if(newChild.nodeType==DOCUMENT_FRAGMENT_NODE){newChild.firstChild=newChild.lastChild=null}return newChild}function _appendSingleChild(parentNode,newChild){var cp=newChild.parentNode;if(cp){var pre=parentNode.lastChild;cp.removeChild(newChild);var pre=parentNode.lastChild}var pre=parentNode.lastChild;newChild.parentNode=parentNode;newChild.previousSibling=pre;newChild.nextSibling=null;if(pre){pre.nextSibling=newChild}else{parentNode.firstChild=newChild}parentNode.lastChild=newChild;_onUpdateChild(parentNode.ownerDocument,parentNode,newChild);return newChild}Document.prototype={nodeName:"#document",nodeType:DOCUMENT_NODE,doctype:null,documentElement:null,_inc:1,insertBefore:function(newChild,refChild){if(newChild.nodeType==DOCUMENT_FRAGMENT_NODE){var child=newChild.firstChild;while(child){var next=child.nextSibling;this.insertBefore(child,refChild);child=next}return newChild}if(this.documentElement==null&&newChild.nodeType==ELEMENT_NODE){this.documentElement=newChild}return _insertBefore(this,newChild,refChild),newChild.ownerDocument=this,newChild},removeChild:function(oldChild){if(this.documentElement==oldChild){this.documentElement=null}return _removeChild(this,oldChild)},importNode:function(importedNode,deep){return importNode(this,importedNode,deep)},getElementById:function(id){var rtv=null;_visitNode(this.documentElement,function(node){if(node.nodeType==ELEMENT_NODE){if(node.getAttribute("id")==id){rtv=node;return true}}});return rtv},createElement:function(tagName){var node=new Element;node.ownerDocument=this;node.nodeName=tagName;node.tagName=tagName;node.childNodes=new NodeList;var attrs=node.attributes=new NamedNodeMap;attrs._ownerElement=node;return node},createDocumentFragment:function(){var node=new DocumentFragment;node.ownerDocument=this;node.childNodes=new NodeList;return node},createTextNode:function(data){var node=new Text;node.ownerDocument=this;node.appendData(data);return node},createComment:function(data){var node=new Comment;node.ownerDocument=this;node.appendData(data);return node},createCDATASection:function(data){var node=new CDATASection;node.ownerDocument=this;node.appendData(data);return node},createProcessingInstruction:function(target,data){var node=new ProcessingInstruction;node.ownerDocument=this;node.tagName=node.target=target;node.nodeValue=node.data=data;return node},createAttribute:function(name){var node=new Attr;node.ownerDocument=this;node.name=name;node.nodeName=name;node.localName=name;node.specified=true;return node},createEntityReference:function(name){var node=new EntityReference;node.ownerDocument=this;node.nodeName=name;return node},createElementNS:function(namespaceURI,qualifiedName){var node=new Element;var pl=qualifiedName.split(":");var attrs=node.attributes=new NamedNodeMap;node.childNodes=new NodeList;node.ownerDocument=this;node.nodeName=qualifiedName;node.tagName=qualifiedName;node.namespaceURI=namespaceURI;if(pl.length==2){node.prefix=pl[0];node.localName=pl[1]}else{node.localName=qualifiedName}attrs._ownerElement=node;return node},createAttributeNS:function(namespaceURI,qualifiedName){var node=new Attr;var pl=qualifiedName.split(":");node.ownerDocument=this;node.nodeName=qualifiedName;node.name=qualifiedName;node.namespaceURI=namespaceURI;node.specified=true;if(pl.length==2){node.prefix=pl[0];node.localName=pl[1]}else{node.localName=qualifiedName}return node}};_extends(Document,Node);function Element(){this._nsMap={}}Element.prototype={nodeType:ELEMENT_NODE,hasAttribute:function(name){return this.getAttributeNode(name)!=null},getAttribute:function(name){var attr=this.getAttributeNode(name);return attr&&attr.value||""},getAttributeNode:function(name){return this.attributes.getNamedItem(name)},setAttribute:function(name,value){var attr=this.ownerDocument.createAttribute(name);attr.value=attr.nodeValue=""+value;this.setAttributeNode(attr)},removeAttribute:function(name){var attr=this.getAttributeNode(name);attr&&this.removeAttributeNode(attr)},appendChild:function(newChild){if(newChild.nodeType===DOCUMENT_FRAGMENT_NODE){return this.insertBefore(newChild,null)}else{return _appendSingleChild(this,newChild)}},setAttributeNode:function(newAttr){return this.attributes.setNamedItem(newAttr)},setAttributeNodeNS:function(newAttr){return this.attributes.setNamedItemNS(newAttr)},removeAttributeNode:function(oldAttr){return this.attributes.removeNamedItem(oldAttr.nodeName)},removeAttributeNS:function(namespaceURI,localName){var old=this.getAttributeNodeNS(namespaceURI,localName);old&&this.removeAttributeNode(old)},hasAttributeNS:function(namespaceURI,localName){return this.getAttributeNodeNS(namespaceURI,localName)!=null},getAttributeNS:function(namespaceURI,localName){var attr=this.getAttributeNodeNS(namespaceURI,localName);return attr&&attr.value||""},setAttributeNS:function(namespaceURI,qualifiedName,value){var attr=this.ownerDocument.createAttributeNS(namespaceURI,qualifiedName);attr.value=attr.nodeValue=""+value;this.setAttributeNode(attr)},getAttributeNodeNS:function(namespaceURI,localName){return this.attributes.getNamedItemNS(namespaceURI,localName)},getElementsByTagName:function(tagName){return new LiveNodeList(this,function(base){var ls=[];_visitNode(base,function(node){if(node!==base&&node.nodeType==ELEMENT_NODE&&(tagName==="*"||node.tagName==tagName)){ls.push(node)}});return ls})},getElementsByTagNameNS:function(namespaceURI,localName){return new LiveNodeList(this,function(base){var ls=[];_visitNode(base,function(node){if(node!==base&&node.nodeType===ELEMENT_NODE&&(namespaceURI==="*"||node.namespaceURI===namespaceURI)&&(localName==="*"||node.localName==localName)){ls.push(node)}});return ls})}};Document.prototype.getElementsByTagName=Element.prototype.getElementsByTagName;Document.prototype.getElementsByTagNameNS=Element.prototype.getElementsByTagNameNS;_extends(Element,Node);function Attr(){}Attr.prototype.nodeType=ATTRIBUTE_NODE;_extends(Attr,Node);function CharacterData(){}CharacterData.prototype={data:"",substringData:function(offset,count){return this.data.substring(offset,offset+count)},appendData:function(text){text=this.data+text;this.nodeValue=this.data=text;this.length=text.length},insertData:function(offset,text){this.replaceData(offset,0,text)},appendChild:function(newChild){throw new Error(ExceptionMessage[HIERARCHY_REQUEST_ERR])},deleteData:function(offset,count){this.replaceData(offset,count,"")},replaceData:function(offset,count,text){var start=this.data.substring(0,offset);var end=this.data.substring(offset+count);text=start+text+end;this.nodeValue=this.data=text;this.length=text.length}};_extends(CharacterData,Node);function Text(){}Text.prototype={nodeName:"#text",nodeType:TEXT_NODE,splitText:function(offset){var text=this.data;var newText=text.substring(offset);text=text.substring(0,offset);this.data=this.nodeValue=text;this.length=text.length;var newNode=this.ownerDocument.createTextNode(newText);if(this.parentNode){this.parentNode.insertBefore(newNode,this.nextSibling)}return newNode}};_extends(Text,CharacterData);function Comment(){}Comment.prototype={nodeName:"#comment",nodeType:COMMENT_NODE};_extends(Comment,CharacterData);function CDATASection(){}CDATASection.prototype={nodeName:"#cdata-section",nodeType:CDATA_SECTION_NODE};_extends(CDATASection,CharacterData);function DocumentType(){}DocumentType.prototype.nodeType=DOCUMENT_TYPE_NODE;_extends(DocumentType,Node);function Notation(){}Notation.prototype.nodeType=NOTATION_NODE;_extends(Notation,Node);function Entity(){}Entity.prototype.nodeType=ENTITY_NODE;_extends(Entity,Node);function EntityReference(){}EntityReference.prototype.nodeType=ENTITY_REFERENCE_NODE;_extends(EntityReference,Node);function DocumentFragment(){}DocumentFragment.prototype.nodeName="#document-fragment";DocumentFragment.prototype.nodeType=DOCUMENT_FRAGMENT_NODE;_extends(DocumentFragment,Node);function ProcessingInstruction(){}ProcessingInstruction.prototype.nodeType=PROCESSING_INSTRUCTION_NODE;_extends(ProcessingInstruction,Node);function XMLSerializer(){}XMLSerializer.prototype.serializeToString=function(node,isHtml,nodeFilter){return nodeSerializeToString.call(node,isHtml,nodeFilter)};Node.prototype.toString=nodeSerializeToString;function nodeSerializeToString(isHtml,nodeFilter){var buf=[];var refNode=this.nodeType==9?this.documentElement:this;var prefix=refNode.prefix;var uri=refNode.namespaceURI;if(uri&&prefix==null){var prefix=refNode.lookupPrefix(uri);if(prefix==null){var visibleNamespaces=[{namespace:uri,prefix:null}]}}serializeToString(this,buf,isHtml,nodeFilter,visibleNamespaces);return buf.join("")}function needNamespaceDefine(node,isHTML,visibleNamespaces){var prefix=node.prefix||"";var uri=node.namespaceURI;if(!prefix&&!uri){return false}if(prefix==="xml"&&uri==="http://www.w3.org/XML/1998/namespace"||uri=="http://www.w3.org/2000/xmlns/"){return false}var i=visibleNamespaces.length;while(i--){var ns=visibleNamespaces[i];if(ns.prefix==prefix){return ns.namespace!=uri}}return true}function serializeToString(node,buf,isHTML,nodeFilter,visibleNamespaces){if(nodeFilter){node=nodeFilter(node);if(node){if(typeof node=="string"){buf.push(node);return}}else{return}}switch(node.nodeType){case ELEMENT_NODE:if(!visibleNamespaces)visibleNamespaces=[];var startVisibleNamespaces=visibleNamespaces.length;var attrs=node.attributes;var len=attrs.length;var child=node.firstChild;var nodeName=node.tagName;isHTML=htmlns===node.namespaceURI||isHTML;buf.push("<",nodeName);for(var i=0;i<len;i++){var attr=attrs.item(i);if(attr.prefix=="xmlns"){visibleNamespaces.push({prefix:attr.localName,namespace:attr.value})}else if(attr.nodeName=="xmlns"){visibleNamespaces.push({prefix:"",namespace:attr.value})}}for(var i=0;i<len;i++){var attr=attrs.item(i);if(needNamespaceDefine(attr,isHTML,visibleNamespaces)){var prefix=attr.prefix||"";var uri=attr.namespaceURI;var ns=prefix?" xmlns:"+prefix:" xmlns";buf.push(ns,'="',uri,'"');visibleNamespaces.push({prefix:prefix,namespace:uri})}serializeToString(attr,buf,isHTML,nodeFilter,visibleNamespaces)}if(needNamespaceDefine(node,isHTML,visibleNamespaces)){var prefix=node.prefix||"";var uri=node.namespaceURI;var ns=prefix?" xmlns:"+prefix:" xmlns";buf.push(ns,'="',uri,'"');visibleNamespaces.push({prefix:prefix,namespace:uri})}if(child||isHTML&&!/^(?:meta|link|img|br|hr|input)$/i.test(nodeName)){buf.push(">");if(isHTML&&/^script$/i.test(nodeName)){while(child){if(child.data){buf.push(child.data)}else{serializeToString(child,buf,isHTML,nodeFilter,visibleNamespaces)}child=child.nextSibling}}else{while(child){serializeToString(child,buf,isHTML,nodeFilter,visibleNamespaces);child=child.nextSibling}}buf.push("</",nodeName,">")}else{buf.push("/>")}return;case DOCUMENT_NODE:case DOCUMENT_FRAGMENT_NODE:var child=node.firstChild;while(child){serializeToString(child,buf,isHTML,nodeFilter,visibleNamespaces);child=child.nextSibling}return;case ATTRIBUTE_NODE:return buf.push(" ",node.name,'="',node.value.replace(/[<&"]/g,_xmlEncoder),'"');case TEXT_NODE:return buf.push(node.data.replace(/[<&]/g,_xmlEncoder));case CDATA_SECTION_NODE:return buf.push("<![CDATA[",node.data,"]]>");case COMMENT_NODE:return buf.push("\x3c!--",node.data,"--\x3e");case DOCUMENT_TYPE_NODE:var pubid=node.publicId;var sysid=node.systemId;buf.push("<!DOCTYPE ",node.name);if(pubid){buf.push(' PUBLIC "',pubid);if(sysid&&sysid!="."){buf.push('" "',sysid)}buf.push('">')}else if(sysid&&sysid!="."){buf.push(' SYSTEM "',sysid,'">')}else{var sub=node.internalSubset;if(sub){buf.push(" [",sub,"]")}buf.push(">")}return;case PROCESSING_INSTRUCTION_NODE:return buf.push("<?",node.target," ",node.data,"?>");case ENTITY_REFERENCE_NODE:return buf.push("&",node.nodeName,";");default:buf.push("??",node.nodeName)}}function importNode(doc,node,deep){var node2;switch(node.nodeType){case ELEMENT_NODE:node2=node.cloneNode(false);node2.ownerDocument=doc;case DOCUMENT_FRAGMENT_NODE:break;case ATTRIBUTE_NODE:deep=true;break}if(!node2){node2=node.cloneNode(false)}node2.ownerDocument=doc;node2.parentNode=null;if(deep){var child=node.firstChild;while(child){node2.appendChild(importNode(doc,child,deep));child=child.nextSibling}}return node2}function cloneNode(doc,node,deep){var node2=new node.constructor;for(var n in node){var v=node[n];if(typeof v!="object"){if(v!=node2[n]){node2[n]=v}}}if(node.childNodes){node2.childNodes=new NodeList}node2.ownerDocument=doc;switch(node2.nodeType){case ELEMENT_NODE:var attrs=node.attributes;var attrs2=node2.attributes=new NamedNodeMap;var len=attrs.length;attrs2._ownerElement=node2;for(var i=0;i<len;i++){node2.setAttributeNode(cloneNode(doc,attrs.item(i),true))}break;case ATTRIBUTE_NODE:deep=true}if(deep){var child=node.firstChild;while(child){node2.appendChild(cloneNode(doc,child,deep));child=child.nextSibling}}return node2}function __set__(object,key,value){object[key]=value}try{if(Object.defineProperty){Object.defineProperty(LiveNodeList.prototype,"length",{get:function(){_updateLiveList(this);return this.$$length}});Object.defineProperty(Node.prototype,"textContent",{get:function(){return getTextContent(this)},set:function(data){switch(this.nodeType){case ELEMENT_NODE:case DOCUMENT_FRAGMENT_NODE:while(this.firstChild){this.removeChild(this.firstChild)}if(data||String(data)){this.appendChild(this.ownerDocument.createTextNode(data))}break;default:this.data=data;this.value=data;this.nodeValue=data}}});function getTextContent(node){switch(node.nodeType){case ELEMENT_NODE:case DOCUMENT_FRAGMENT_NODE:var buf=[];node=node.firstChild;while(node){if(node.nodeType!==7&&node.nodeType!==8){buf.push(getTextContent(node))}node=node.nextSibling}return buf.join("");default:return node.nodeValue}}__set__=function(object,key,value){object["$$"+key]=value}}}catch(e){}exports.DOMImplementation=DOMImplementation;exports.XMLSerializer=XMLSerializer},{}],21:[function(require,module,exports){var nameStartChar=/[A-Z_a-z\xC0-\xD6\xD8-\xF6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD]/;var nameChar=new RegExp("[\\-\\.0-9"+nameStartChar.source.slice(1,-1)+"\\u00B7\\u0300-\\u036F\\u203F-\\u2040]");var tagNamePattern=new RegExp("^"+nameStartChar.source+nameChar.source+"*(?::"+nameStartChar.source+nameChar.source+"*)?$");var S_TAG=0;var S_ATTR=1;var S_ATTR_SPACE=2;var S_EQ=3;var S_ATTR_NOQUOT_VALUE=4;var S_ATTR_END=5;var S_TAG_SPACE=6;var S_TAG_CLOSE=7;function XMLReader(){}XMLReader.prototype={parse:function(source,defaultNSMap,entityMap){var domBuilder=this.domBuilder;domBuilder.startDocument();_copy(defaultNSMap,defaultNSMap={});parse(source,defaultNSMap,entityMap,domBuilder,this.errorHandler);domBuilder.endDocument()}};function parse(source,defaultNSMapCopy,entityMap,domBuilder,errorHandler){function fixedFromCharCode(code){if(code>65535){code-=65536;var surrogate1=55296+(code>>10),surrogate2=56320+(code&1023);return String.fromCharCode(surrogate1,surrogate2)}else{return String.fromCharCode(code)}}function entityReplacer(a){var k=a.slice(1,-1);if(k in entityMap){return entityMap[k]}else if(k.charAt(0)==="#"){return fixedFromCharCode(parseInt(k.substr(1).replace("x","0x")))}else{errorHandler.error("entity not found:"+a);return a}}function appendText(end){if(end>start){var xt=source.substring(start,end).replace(/&#?\w+;/g,entityReplacer);locator&&position(start);domBuilder.characters(xt,0,end-start);start=end}}function position(p,m){while(p>=lineEnd&&(m=linePattern.exec(source))){lineStart=m.index;lineEnd=lineStart+m[0].length;locator.lineNumber++}locator.columnNumber=p-lineStart+1}var lineStart=0;var lineEnd=0;var linePattern=/.*(?:\r\n?|\n)|.*$/g;var locator=domBuilder.locator;var parseStack=[{currentNSMap:defaultNSMapCopy}];var closeMap={};var start=0;while(true){try{var tagStart=source.indexOf("<",start);if(tagStart<0){if(!source.substr(start).match(/^\s*$/)){var doc=domBuilder.doc;var text=doc.createTextNode(source.substr(start));doc.appendChild(text);domBuilder.currentElement=text}return}if(tagStart>start){appendText(tagStart)}switch(source.charAt(tagStart+1)){case"/":var end=source.indexOf(">",tagStart+3);var tagName=source.substring(tagStart+2,end);var config=parseStack.pop();if(end<0){tagName=source.substring(tagStart+2).replace(/[\s<].*/,"");errorHandler.error("end tag name: "+tagName+" is not complete:"+config.tagName);end=tagStart+1+tagName.length}else if(tagName.match(/\s</)){tagName=tagName.replace(/[\s<].*/,"");errorHandler.error("end tag name: "+tagName+" maybe not complete");end=tagStart+1+tagName.length}var localNSMap=config.localNSMap;var endMatch=config.tagName==tagName;var endIgnoreCaseMach=endMatch||config.tagName&&config.tagName.toLowerCase()==tagName.toLowerCase();if(endIgnoreCaseMach){domBuilder.endElement(config.uri,config.localName,tagName);if(localNSMap){for(var prefix in localNSMap){domBuilder.endPrefixMapping(prefix)}}if(!endMatch){errorHandler.fatalError("end tag name: "+tagName+" is not match the current start tagName:"+config.tagName)}}else{parseStack.push(config)}end++;break;case"?":locator&&position(tagStart);end=parseInstruction(source,tagStart,domBuilder);break;case"!":locator&&position(tagStart);end=parseDCC(source,tagStart,domBuilder,errorHandler);break;default:locator&&position(tagStart);var el=new ElementAttributes;var currentNSMap=parseStack[parseStack.length-1].currentNSMap;var end=parseElementStartPart(source,tagStart,el,currentNSMap,entityReplacer,errorHandler);var len=el.length;if(!el.closed&&fixSelfClosed(source,end,el.tagName,closeMap)){el.closed=true;if(!entityMap.nbsp){errorHandler.warning("unclosed xml attribute")}}if(locator&&len){var locator2=copyLocator(locator,{});for(var i=0;i<len;i++){var a=el[i];position(a.offset);a.locator=copyLocator(locator,{})}domBuilder.locator=locator2;if(appendElement(el,domBuilder,currentNSMap)){parseStack.push(el)}domBuilder.locator=locator}else{if(appendElement(el,domBuilder,currentNSMap)){parseStack.push(el)}}if(el.uri==="http://www.w3.org/1999/xhtml"&&!el.closed){end=parseHtmlSpecialContent(source,end,el.tagName,entityReplacer,domBuilder)}else{end++}}}catch(e){errorHandler.error("element parse error: "+e);end=-1}if(end>start){start=end}else{appendText(Math.max(tagStart,start)+1)}}}function copyLocator(f,t){t.lineNumber=f.lineNumber;t.columnNumber=f.columnNumber;return t}function parseElementStartPart(source,start,el,currentNSMap,entityReplacer,errorHandler){var attrName;var value;var p=++start;var s=S_TAG;while(true){var c=source.charAt(p);switch(c){case"=":if(s===S_ATTR){attrName=source.slice(start,p);s=S_EQ}else if(s===S_ATTR_SPACE){s=S_EQ}else{throw new Error("attribute equal must after attrName")}break;case"'":case'"':if(s===S_EQ||s===S_ATTR){if(s===S_ATTR){errorHandler.warning('attribute value must after "="');attrName=source.slice(start,p)}start=p+1;p=source.indexOf(c,start);if(p>0){value=source.slice(start,p).replace(/&#?\w+;/g,entityReplacer);el.add(attrName,value,start-1);s=S_ATTR_END}else{throw new Error("attribute value no end '"+c+"' match")}}else if(s==S_ATTR_NOQUOT_VALUE){value=source.slice(start,p).replace(/&#?\w+;/g,entityReplacer);el.add(attrName,value,start);errorHandler.warning('attribute "'+attrName+'" missed start quot('+c+")!!");start=p+1;s=S_ATTR_END}else{throw new Error('attribute value must after "="')}break;case"/":switch(s){case S_TAG:el.setTagName(source.slice(start,p));case S_ATTR_END:case S_TAG_SPACE:case S_TAG_CLOSE:s=S_TAG_CLOSE;el.closed=true;case S_ATTR_NOQUOT_VALUE:case S_ATTR:case S_ATTR_SPACE:break;default:throw new Error("attribute invalid close char('/')")}break;case"":errorHandler.error("unexpected end of input");if(s==S_TAG){el.setTagName(source.slice(start,p))}return p;case">":switch(s){case S_TAG:el.setTagName(source.slice(start,p));case S_ATTR_END:case S_TAG_SPACE:case S_TAG_CLOSE:break;case S_ATTR_NOQUOT_VALUE:case S_ATTR:value=source.slice(start,p);if(value.slice(-1)==="/"){el.closed=true;value=value.slice(0,-1)}case S_ATTR_SPACE:if(s===S_ATTR_SPACE){value=attrName}if(s==S_ATTR_NOQUOT_VALUE){errorHandler.warning('attribute "'+value+'" missed quot(")!!');el.add(attrName,value.replace(/&#?\w+;/g,entityReplacer),start)}else{if(currentNSMap[""]!=="http://www.w3.org/1999/xhtml"||!value.match(/^(?:disabled|checked|selected)$/i)){errorHandler.warning('attribute "'+value+'" missed value!! "'+value+'" instead!!')}el.add(value,value,start)}break;case S_EQ:throw new Error("attribute value missed!!")}return p;case"":c=" ";default:if(c<=" "){switch(s){case S_TAG:el.setTagName(source.slice(start,p));s=S_TAG_SPACE;break;case S_ATTR:attrName=source.slice(start,p);s=S_ATTR_SPACE;break;case S_ATTR_NOQUOT_VALUE:var value=source.slice(start,p).replace(/&#?\w+;/g,entityReplacer);errorHandler.warning('attribute "'+value+'" missed quot(")!!');el.add(attrName,value,start);case S_ATTR_END:s=S_TAG_SPACE;break}}else{switch(s){case S_ATTR_SPACE:var tagName=el.tagName;if(currentNSMap[""]!=="http://www.w3.org/1999/xhtml"||!attrName.match(/^(?:disabled|checked|selected)$/i)){errorHandler.warning('attribute "'+attrName+'" missed value!! "'+attrName+'" instead2!!')}el.add(attrName,attrName,start);start=p;s=S_ATTR;break;case S_ATTR_END:errorHandler.warning('attribute space is required"'+attrName+'"!!');case S_TAG_SPACE:s=S_ATTR;start=p;break;case S_EQ:s=S_ATTR_NOQUOT_VALUE;start=p;break;case S_TAG_CLOSE:throw new Error("elements closed character '/' and '>' must be connected to")}}}p++}}function appendElement(el,domBuilder,currentNSMap){var tagName=el.tagName;var localNSMap=null;var i=el.length;while(i--){var a=el[i];var qName=a.qName;var value=a.value;var nsp=qName.indexOf(":");if(nsp>0){var prefix=a.prefix=qName.slice(0,nsp);var localName=qName.slice(nsp+1);var nsPrefix=prefix==="xmlns"&&localName}else{localName=qName;prefix=null;nsPrefix=qName==="xmlns"&&""}a.localName=localName;if(nsPrefix!==false){if(localNSMap==null){localNSMap={};_copy(currentNSMap,currentNSMap={})}currentNSMap[nsPrefix]=localNSMap[nsPrefix]=value;a.uri="http://www.w3.org/2000/xmlns/";domBuilder.startPrefixMapping(nsPrefix,value)}}var i=el.length;while(i--){a=el[i];var prefix=a.prefix;if(prefix){if(prefix==="xml"){a.uri="http://www.w3.org/XML/1998/namespace"}if(prefix!=="xmlns"){a.uri=currentNSMap[prefix||""]}}}var nsp=tagName.indexOf(":");if(nsp>0){prefix=el.prefix=tagName.slice(0,nsp);localName=el.localName=tagName.slice(nsp+1)}else{prefix=null;localName=el.localName=tagName}var ns=el.uri=currentNSMap[prefix||""];domBuilder.startElement(ns,localName,tagName,el);if(el.closed){domBuilder.endElement(ns,localName,tagName);if(localNSMap){for(prefix in localNSMap){domBuilder.endPrefixMapping(prefix)}}}else{el.currentNSMap=currentNSMap;el.localNSMap=localNSMap;return true}}function parseHtmlSpecialContent(source,elStartEnd,tagName,entityReplacer,domBuilder){if(/^(?:script|textarea)$/i.test(tagName)){var elEndStart=source.indexOf("</"+tagName+">",elStartEnd);var text=source.substring(elStartEnd+1,elEndStart);if(/[&<]/.test(text)){if(/^script$/i.test(tagName)){domBuilder.characters(text,0,text.length);return elEndStart}text=text.replace(/&#?\w+;/g,entityReplacer);domBuilder.characters(text,0,text.length);return elEndStart}}return elStartEnd+1}function fixSelfClosed(source,elStartEnd,tagName,closeMap){var pos=closeMap[tagName];if(pos==null){pos=source.lastIndexOf("</"+tagName+">");if(pos<elStartEnd){pos=source.lastIndexOf("</"+tagName)}closeMap[tagName]=pos}return pos<elStartEnd}function _copy(source,target){for(var n in source){target[n]=source[n]}}function parseDCC(source,start,domBuilder,errorHandler){var next=source.charAt(start+2);switch(next){case"-":if(source.charAt(start+3)==="-"){var end=source.indexOf("--\x3e",start+4);if(end>start){domBuilder.comment(source,start+4,end-start-4);return end+3}else{errorHandler.error("Unclosed comment");return-1}}else{return-1}default:if(source.substr(start+3,6)=="CDATA["){var end=source.indexOf("]]>",start+9);domBuilder.startCDATA();domBuilder.characters(source,start+9,end-start-9);domBuilder.endCDATA();return end+3}var matchs=split(source,start);var len=matchs.length;if(len>1&&/!doctype/i.test(matchs[0][0])){var name=matchs[1][0];var pubid=len>3&&/^public$/i.test(matchs[2][0])&&matchs[3][0];var sysid=len>4&&matchs[4][0];var lastMatch=matchs[len-1];domBuilder.startDTD(name,pubid&&pubid.replace(/^(['"])(.*?)\1$/,"$2"),sysid&&sysid.replace(/^(['"])(.*?)\1$/,"$2"));domBuilder.endDTD();return lastMatch.index+lastMatch[0].length}}return-1}function parseInstruction(source,start,domBuilder){var end=source.indexOf("?>",start);if(end){var match=source.substring(start,end).match(/^<\?(\S*)\s*([\s\S]*?)\s*$/);if(match){var len=match[0].length;domBuilder.processingInstruction(match[1],match[2]);return end+2}else{return-1}}return-1}function ElementAttributes(source){}ElementAttributes.prototype={setTagName:function(tagName){if(!tagNamePattern.test(tagName)){throw new Error("invalid tagName:"+tagName)}this.tagName=tagName},add:function(qName,value,offset){if(!tagNamePattern.test(qName)){throw new Error("invalid attribute:"+qName)}this[this.length++]={qName:qName,value:value,offset:offset}},length:0,getLocalName:function(i){return this[i].localName},getLocator:function(i){return this[i].locator},getQName:function(i){return this[i].qName},getURI:function(i){return this[i].uri},getValue:function(i){return this[i].value}};function _set_proto_(thiz,parent){thiz.__proto__=parent;return thiz}if(!(_set_proto_({},_set_proto_.prototype)instanceof _set_proto_)){_set_proto_=function(thiz,parent){function p(){}p.prototype=parent;p=new p;for(parent in thiz){p[parent]=thiz[parent]}return p}}function split(source,start){var match;var buf=[];var reg=/'[^']+'|"[^"]+"|[^\s<>\/=]+=?|(\/?\s*>|<)/g;reg.lastIndex=start;reg.exec(source);while(match=reg.exec(source)){buf.push(match);if(match[1])return buf}}exports.XMLReader=XMLReader},{}],"/src/js/docxtemplater.js":[function(require,module,exports){"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function")}}var DocUtils=require("./doc-utils");DocUtils.traits=require("./traits");DocUtils.moduleWrapper=require("./module-wrapper");var wrapper=DocUtils.moduleWrapper;var Docxtemplater=function(){function Docxtemplater(){_classCallCheck(this,Docxtemplater);if(arguments.length>0){throw new Error("The constructor with parameters have been removed in docxtemplater 3.0, please check the upgrade guide.")}this.compiled={};this.modules=[];this.setOptions({})}_createClass(Docxtemplater,[{key:"attachModule",value:function attachModule(module){this.modules.push(wrapper(module));return this}},{key:"setOptions",value:function setOptions(options){var _this=this;this.options=options;Object.keys(DocUtils.defaults).forEach(function(key){var defaultValue=DocUtils.defaults[key];_this[key]=_this.options[key]!=null?_this.options[key]:defaultValue});if(this.zip){this.updateFileTypeConfig()}return this}},{key:"loadZip",value:function loadZip(zip){if(zip.loadAsync){throw new Error("Docxtemplater doesn't handle JSZip version >=3, see changelog")}this.zip=zip;this.updateFileTypeConfig();return this}},{key:"compileFile",value:function compileFile(fileName){var currentFile=this.createTemplateClass(fileName);currentFile.parse();this.compiled[fileName]=currentFile}},{key:"compile",value:function compile(){this.templatedFiles=this.fileTypeConfig.getTemplatedFiles(this.zip);return this}},{key:"updateFileTypeConfig",value:function updateFileTypeConfig(){this.fileType=this.zip.files["word/document.xml"]?"docx":"pptx";this.fileTypeConfig=this.options.fileTypeConfig||Docxtemplater.FileTypeConfig[this.fileType];return this}},{key:"render",value:function render(){var _this2=this;this.options.xmlFileNames=[];this.modules=this.fileTypeConfig.baseModules.map(function(moduleFunction){return moduleFunction()}).concat(this.modules);this.options=this.modules.reduce(function(options,module){return module.optionsTransformer(options,_this2)},this.options);this.xmlDocuments=this.options.xmlFileNames.reduce(function(xmlDocuments,fileName){var content=_this2.zip.files[fileName].asText();xmlDocuments[fileName]=DocUtils.str2xml(content);return xmlDocuments},{});this.modules.forEach(function(module){module.set({zip:_this2.zip,xmlDocuments:_this2.xmlDocuments,data:_this2.data})});this.compile();this.modules.forEach(function(module){module.set({compiled:_this2.compiled})});this.templatedFiles.forEach(function(fileName){if(_this2.zip.files[fileName]!=null){_this2.compileFile(fileName)}});this.mapper=this.modules.reduce(function(value,module){return module.getRenderedMap(value)},{});Object.keys(this.mapper).forEach(function(to){var mapped=_this2.mapper[to];var from=mapped.from;var currentFile=_this2.compiled[from];currentFile.setTags(mapped.data);currentFile.render(to);_this2.zip.file(to,currentFile.content)});Object.keys(this.xmlDocuments).forEach(function(fileName){_this2.zip.remove(fileName);var content=DocUtils.xml2str(_this2.xmlDocuments[fileName]);return _this2.zip.file(fileName,content,{})});return this}},{key:"setData",value:function setData(data){this.data=data;return this}},{key:"getZip",value:function getZip(){return this.zip}},{key:"createTemplateClass",value:function createTemplateClass(path){var usedData=this.zip.files[path].asText();return this.createTemplateClassFromContent(usedData,path)}},{key:"createTemplateClassFromContent",value:function createTemplateClassFromContent(content,filePath){var _this3=this;var xmltOptions={filePath:filePath};Object.keys(DocUtils.defaults).forEach(function(key){xmltOptions[key]=_this3[key]});xmltOptions.fileTypeConfig=this.fileTypeConfig;xmltOptions.modules=this.modules;return new Docxtemplater.XmlTemplater(content,xmltOptions)}},{key:"getFullText",value:function getFullText(path){return this.createTemplateClass(path||this.fileTypeConfig.textPath).getFullText()}},{key:"getTemplatedFiles",value:function getTemplatedFiles(){this.compile();return this.templatedFiles}}]);return Docxtemplater}();Docxtemplater.DocUtils=require("./doc-utils");Docxtemplater.Errors=require("./errors");Docxtemplater.XmlTemplater=require("./xml-templater");Docxtemplater.FileTypeConfig=require("./file-type-config");Docxtemplater.XmlMatcher=require("./xml-matcher");module.exports=Docxtemplater},{"./doc-utils":1,"./errors":2,"./file-type-config":3,"./module-wrapper":7,"./traits":16,"./xml-matcher":17,"./xml-templater":18}]},{},[])("/src/js/docxtemplater.js")});
 
-/***/ }),
+/***/ },
 
-/***/ 56115:
+/***/ 56115
 /*!*************************!*\
   !*** ./js/jszip.min.js ***!
   \*************************/
-/***/ ((module) => {
+(module) {
 
 /*!
 
@@ -85380,18 +85959,19 @@ Dual licenced under the MIT license or GPLv3. See https://raw.github.com/Stuk/js
 JSZip uses the library pako released under the MIT license :
 https://github.com/nodeca/pako/blob/master/LICENSE
 */
-!function(a){if(true)module.exports=a();else { var b; }}(function(){return function a(b,c,d){function e(g,h){if(!c[g]){if(!b[g]){var i=undefined;if(!h&&i)return require(g,!0);if(f)return f(g,!0);var j=new Error("Cannot find module '"+g+"'");throw j.code="MODULE_NOT_FOUND",j}var k=c[g]={exports:{}};b[g][0].call(k.exports,function(a){var c=b[g][1][a];return e(c?c:a)},k,k.exports,a,b,c,d)}return c[g].exports}for(var f=undefined,g=0;g<d.length;g++)e(d[g]);return e}({1:[function(a,b,c){"use strict";function d(a){if(a){this.data=a,this.length=this.data.length,this.index=0,this.zero=0;for(var b=0;b<this.data.length;b++)a[b]=255&a[b]}}var e=a("./dataReader");d.prototype=new e,d.prototype.byteAt=function(a){return this.data[this.zero+a]},d.prototype.lastIndexOfSignature=function(a){for(var b=a.charCodeAt(0),c=a.charCodeAt(1),d=a.charCodeAt(2),e=a.charCodeAt(3),f=this.length-4;f>=0;--f)if(this.data[f]===b&&this.data[f+1]===c&&this.data[f+2]===d&&this.data[f+3]===e)return f-this.zero;return-1},d.prototype.readData=function(a){if(this.checkOffset(a),0===a)return[];var b=this.data.slice(this.zero+this.index,this.zero+this.index+a);return this.index+=a,b},b.exports=d},{"./dataReader":6}],2:[function(a,b,c){"use strict";var d="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";c.encode=function(a,b){for(var c,e,f,g,h,i,j,k="",l=0;l<a.length;)c=a.charCodeAt(l++),e=a.charCodeAt(l++),f=a.charCodeAt(l++),g=c>>2,h=(3&c)<<4|e>>4,i=(15&e)<<2|f>>6,j=63&f,isNaN(e)?i=j=64:isNaN(f)&&(j=64),k=k+d.charAt(g)+d.charAt(h)+d.charAt(i)+d.charAt(j);return k},c.decode=function(a,b){var c,e,f,g,h,i,j,k="",l=0;for(a=a.replace(/[^A-Za-z0-9\+\/\=]/g,"");l<a.length;)g=d.indexOf(a.charAt(l++)),h=d.indexOf(a.charAt(l++)),i=d.indexOf(a.charAt(l++)),j=d.indexOf(a.charAt(l++)),c=g<<2|h>>4,e=(15&h)<<4|i>>2,f=(3&i)<<6|j,k+=String.fromCharCode(c),64!=i&&(k+=String.fromCharCode(e)),64!=j&&(k+=String.fromCharCode(f));return k}},{}],3:[function(a,b,c){"use strict";function d(){this.compressedSize=0,this.uncompressedSize=0,this.crc32=0,this.compressionMethod=null,this.compressedContent=null}d.prototype={getContent:function(){return null},getCompressedContent:function(){return null}},b.exports=d},{}],4:[function(a,b,c){"use strict";c.STORE={magic:"\0\0",compress:function(a,b){return a},uncompress:function(a){return a},compressInputType:null,uncompressInputType:null},c.DEFLATE=a("./flate")},{"./flate":9}],5:[function(a,b,c){"use strict";var d=a("./utils"),e=[0,1996959894,3993919788,2567524794,124634137,1886057615,3915621685,2657392035,249268274,2044508324,3772115230,2547177864,162941995,2125561021,3887607047,2428444049,498536548,1789927666,4089016648,2227061214,450548861,1843258603,4107580753,2211677639,325883990,1684777152,4251122042,2321926636,335633487,1661365465,4195302755,2366115317,997073096,1281953886,3579855332,2724688242,1006888145,1258607687,3524101629,2768942443,901097722,1119000684,3686517206,2898065728,853044451,1172266101,3705015759,2882616665,651767980,1373503546,3369554304,3218104598,565507253,1454621731,3485111705,3099436303,671266974,1594198024,3322730930,2970347812,795835527,1483230225,3244367275,3060149565,1994146192,31158534,2563907772,4023717930,1907459465,112637215,2680153253,3904427059,2013776290,251722036,2517215374,3775830040,2137656763,141376813,2439277719,3865271297,1802195444,476864866,2238001368,4066508878,1812370925,453092731,2181625025,4111451223,1706088902,314042704,2344532202,4240017532,1658658271,366619977,2362670323,4224994405,1303535960,984961486,2747007092,3569037538,1256170817,1037604311,2765210733,3554079995,1131014506,879679996,2909243462,3663771856,1141124467,855842277,2852801631,3708648649,1342533948,654459306,3188396048,3373015174,1466479909,544179635,3110523913,3462522015,1591671054,702138776,2966460450,3352799412,1504918807,783551873,3082640443,3233442989,3988292384,2596254646,62317068,1957810842,3939845945,2647816111,81470997,1943803523,3814918930,2489596804,225274430,2053790376,3826175755,2466906013,167816743,2097651377,4027552580,2265490386,503444072,1762050814,4150417245,2154129355,426522225,1852507879,4275313526,2312317920,282753626,1742555852,4189708143,2394877945,397917763,1622183637,3604390888,2714866558,953729732,1340076626,3518719985,2797360999,1068828381,1219638859,3624741850,2936675148,906185462,1090812512,3747672003,2825379669,829329135,1181335161,3412177804,3160834842,628085408,1382605366,3423369109,3138078467,570562233,1426400815,3317316542,2998733608,733239954,1555261956,3268935591,3050360625,752459403,1541320221,2607071920,3965973030,1969922972,40735498,2617837225,3943577151,1913087877,83908371,2512341634,3803740692,2075208622,213261112,2463272603,3855990285,2094854071,198958881,2262029012,4057260610,1759359992,534414190,2176718541,4139329115,1873836001,414664567,2282248934,4279200368,1711684554,285281116,2405801727,4167216745,1634467795,376229701,2685067896,3608007406,1308918612,956543938,2808555105,3495958263,1231636301,1047427035,2932959818,3654703836,1088359270,936918e3,2847714899,3736837829,1202900863,817233897,3183342108,3401237130,1404277552,615818150,3134207493,3453421203,1423857449,601450431,3009837614,3294710456,1567103746,711928724,3020668471,3272380065,1510334235,755167117];b.exports=function(a,b){if("undefined"==typeof a||!a.length)return 0;var c="string"!==d.getTypeOf(a);"undefined"==typeof b&&(b=0);var f=0,g=0,h=0;b^=-1;for(var i=0,j=a.length;i<j;i++)h=c?a[i]:a.charCodeAt(i),g=255&(b^h),f=e[g],b=b>>>8^f;return b^-1}},{"./utils":22}],6:[function(a,b,c){"use strict";function d(a){this.data=null,this.length=0,this.index=0,this.zero=0}var e=a("./utils");d.prototype={checkOffset:function(a){this.checkIndex(this.index+a)},checkIndex:function(a){if(this.length<this.zero+a||a<0)throw new Error("End of data reached (data length = "+this.length+", asked index = "+a+"). Corrupted zip ?")},setIndex:function(a){this.checkIndex(a),this.index=a},skip:function(a){this.setIndex(this.index+a)},byteAt:function(a){},readInt:function(a){var b,c=0;for(this.checkOffset(a),b=this.index+a-1;b>=this.index;b--)c=(c<<8)+this.byteAt(b);return this.index+=a,c},readString:function(a){return e.transformTo("string",this.readData(a))},readData:function(a){},lastIndexOfSignature:function(a){},readDate:function(){var a=this.readInt(4);return new Date((a>>25&127)+1980,(a>>21&15)-1,a>>16&31,a>>11&31,a>>5&63,(31&a)<<1)}},b.exports=d},{"./utils":22}],7:[function(a,b,c){"use strict";c.base64=!1,c.binary=!1,c.dir=!1,c.createFolders=!1,c.date=null,c.compression=null,c.compressionOptions=null,c.comment=null,c.unixPermissions=null,c.dosPermissions=null},{}],8:[function(a,b,c){"use strict";var d=a("./utils");c.string2binary=function(a){return d.string2binary(a)},c.string2Uint8Array=function(a){return d.transformTo("uint8array",a)},c.uint8Array2String=function(a){return d.transformTo("string",a)},c.string2Blob=function(a){var b=d.transformTo("arraybuffer",a);return d.arrayBuffer2Blob(b)},c.arrayBuffer2Blob=function(a){return d.arrayBuffer2Blob(a)},c.transformTo=function(a,b){return d.transformTo(a,b)},c.getTypeOf=function(a){return d.getTypeOf(a)},c.checkSupport=function(a){return d.checkSupport(a)},c.MAX_VALUE_16BITS=d.MAX_VALUE_16BITS,c.MAX_VALUE_32BITS=d.MAX_VALUE_32BITS,c.pretty=function(a){return d.pretty(a)},c.findCompression=function(a){return d.findCompression(a)},c.isRegExp=function(a){return d.isRegExp(a)}},{"./utils":22}],9:[function(a,b,c){"use strict";var d="undefined"!=typeof Uint8Array&&"undefined"!=typeof Uint16Array&&"undefined"!=typeof Uint32Array,e=a("pako");c.uncompressInputType=d?"uint8array":"array",c.compressInputType=d?"uint8array":"array",c.magic="\b\0",c.compress=function(a,b){return e.deflateRaw(a,{level:b.level||-1})},c.uncompress=function(a){return e.inflateRaw(a)}},{pako:25}],10:[function(a,b,c){"use strict";function d(a,b){return this instanceof d?(this.files={},this.comment=null,this.root="",a&&this.load(a,b),void(this.clone=function(){var a=new d;for(var b in this)"function"!=typeof this[b]&&(a[b]=this[b]);return a})):new d(a,b)}var e=a("./base64");d.prototype=a("./object"),d.prototype.load=a("./load"),d.support=a("./support"),d.defaults=a("./defaults"),d.utils=a("./deprecatedPublicUtils"),d.base64={encode:function(a){return e.encode(a)},decode:function(a){return e.decode(a)}},d.compressions=a("./compressions"),b.exports=d},{"./base64":2,"./compressions":4,"./defaults":7,"./deprecatedPublicUtils":8,"./load":11,"./object":14,"./support":18}],11:[function(a,b,c){"use strict";var d=a("./base64"),e=a("./utf8"),f=a("./utils"),g=a("./zipEntries");b.exports=function(a,b){var c,h,i,j;for(b=f.extend(b||{},{base64:!1,checkCRC32:!1,optimizedBinaryString:!1,createFolders:!1,decodeFileName:e.utf8decode}),b.base64&&(a=d.decode(a)),h=new g(a,b),c=h.files,i=0;i<c.length;i++)j=c[i],this.file(j.fileNameStr,j.decompressed,{binary:!0,optimizedBinaryString:!0,date:j.date,dir:j.dir,comment:j.fileCommentStr.length?j.fileCommentStr:null,unixPermissions:j.unixPermissions,dosPermissions:j.dosPermissions,createFolders:b.createFolders});return h.zipComment.length&&(this.comment=h.zipComment),this}},{"./base64":2,"./utf8":21,"./utils":22,"./zipEntries":23}],12:[function(a,b,c){(function(a){"use strict";b.exports=function(b,c){return new a(b,c)},b.exports.test=function(b){return a.isBuffer(b)}}).call(this,"undefined"!=typeof Buffer?Buffer:void 0)},{}],13:[function(a,b,c){"use strict";function d(a){this.data=a,this.length=this.data.length,this.index=0,this.zero=0}var e=a("./uint8ArrayReader");d.prototype=new e,d.prototype.readData=function(a){this.checkOffset(a);var b=this.data.slice(this.zero+this.index,this.zero+this.index+a);return this.index+=a,b},b.exports=d},{"./uint8ArrayReader":19}],14:[function(a,b,c){"use strict";var d=a("./support"),e=a("./utils"),f=a("./crc32"),g=a("./signature"),h=a("./defaults"),i=a("./base64"),j=a("./compressions"),k=a("./compressedObject"),l=a("./nodeBuffer"),m=a("./utf8"),n=a("./stringWriter"),o=a("./uint8ArrayWriter"),p=function(a){if(a._data instanceof k&&(a._data=a._data.getContent(),a.options.binary=!0,a.options.base64=!1,"uint8array"===e.getTypeOf(a._data))){var b=a._data;a._data=new Uint8Array(b.length),0!==b.length&&a._data.set(b,0)}return a._data},q=function(a){var b=p(a),c=e.getTypeOf(b);return"string"===c?!a.options.binary&&d.nodebuffer?l(b,"utf-8"):a.asBinary():b},r=function(a){var b=p(this);return null===b||"undefined"==typeof b?"":(this.options.base64&&(b=i.decode(b)),b=a&&this.options.binary?D.utf8decode(b):e.transformTo("string",b),a||this.options.binary||(b=e.transformTo("string",D.utf8encode(b))),b)},s=function(a,b,c){this.name=a,this.dir=c.dir,this.date=c.date,this.comment=c.comment,this.unixPermissions=c.unixPermissions,this.dosPermissions=c.dosPermissions,this._data=b,this.options=c,this._initialMetadata={dir:c.dir,date:c.date}};s.prototype={asText:function(){return r.call(this,!0)},asBinary:function(){return r.call(this,!1)},asNodeBuffer:function(){var a=q(this);return e.transformTo("nodebuffer",a)},asUint8Array:function(){var a=q(this);return e.transformTo("uint8array",a)},asArrayBuffer:function(){return this.asUint8Array().buffer}};var t=function(a,b){var c,d="";for(c=0;c<b;c++)d+=String.fromCharCode(255&a),a>>>=8;return d},u=function(a){return a=a||{},a.base64!==!0||null!==a.binary&&void 0!==a.binary||(a.binary=!0),a=e.extend(a,h),a.date=a.date||new Date,null!==a.compression&&(a.compression=a.compression.toUpperCase()),a},v=function(a,b,c){var d,f=e.getTypeOf(b);if(c=u(c),"string"==typeof c.unixPermissions&&(c.unixPermissions=parseInt(c.unixPermissions,8)),c.unixPermissions&&16384&c.unixPermissions&&(c.dir=!0),c.dosPermissions&&16&c.dosPermissions&&(c.dir=!0),c.dir&&(a=x(a)),c.createFolders&&(d=w(a))&&y.call(this,d,!0),c.dir||null===b||"undefined"==typeof b)c.base64=!1,c.binary=!1,b=null,f=null;else if("string"===f)c.binary&&!c.base64&&c.optimizedBinaryString!==!0&&(b=e.string2binary(b));else{if(c.base64=!1,c.binary=!0,!(f||b instanceof k))throw new Error("The data of '"+a+"' is in an unsupported format !");"arraybuffer"===f&&(b=e.transformTo("uint8array",b))}var g=new s(a,b,c);return this.files[a]=g,g},w=function(a){"/"==a.slice(-1)&&(a=a.substring(0,a.length-1));var b=a.lastIndexOf("/");return b>0?a.substring(0,b):""},x=function(a){return"/"!=a.slice(-1)&&(a+="/"),a},y=function(a,b){return b="undefined"!=typeof b&&b,a=x(a),this.files[a]||v.call(this,a,null,{dir:!0,createFolders:b}),this.files[a]},z=function(a,b,c){var d,g=new k;return a._data instanceof k?(g.uncompressedSize=a._data.uncompressedSize,g.crc32=a._data.crc32,0===g.uncompressedSize||a.dir?(b=j.STORE,g.compressedContent="",g.crc32=0):a._data.compressionMethod===b.magic?g.compressedContent=a._data.getCompressedContent():(d=a._data.getContent(),g.compressedContent=b.compress(e.transformTo(b.compressInputType,d),c))):(d=q(a),d&&0!==d.length&&!a.dir||(b=j.STORE,d=""),g.uncompressedSize=d.length,g.crc32=f(d),g.compressedContent=b.compress(e.transformTo(b.compressInputType,d),c)),g.compressedSize=g.compressedContent.length,g.compressionMethod=b.magic,g},A=function(a,b){var c=a;return a||(c=b?16893:33204),(65535&c)<<16},B=function(a,b){return 63&(a||0)},C=function(a,b,c,d,h,i){var j,k,l,n,o=(c.compressedContent,i!==m.utf8encode),p=e.transformTo("string",i(b.name)),q=e.transformTo("string",m.utf8encode(b.name)),r=b.comment||"",s=e.transformTo("string",i(r)),u=e.transformTo("string",m.utf8encode(r)),v=q.length!==b.name.length,w=u.length!==r.length,x=b.options,y="",z="",C="";l=b._initialMetadata.dir!==b.dir?b.dir:x.dir,n=b._initialMetadata.date!==b.date?b.date:x.date;var D=0,E=0;l&&(D|=16),"UNIX"===h?(E=798,D|=A(b.unixPermissions,l)):(E=20,D|=B(b.dosPermissions,l)),j=n.getHours(),j<<=6,j|=n.getMinutes(),j<<=5,j|=n.getSeconds()/2,k=n.getFullYear()-1980,k<<=4,k|=n.getMonth()+1,k<<=5,k|=n.getDate(),v&&(z=t(1,1)+t(f(p),4)+q,y+="up"+t(z.length,2)+z),w&&(C=t(1,1)+t(this.crc32(s),4)+u,y+="uc"+t(C.length,2)+C);var F="";F+="\n\0",F+=o||!v&&!w?"\0\0":"\0\b",F+=c.compressionMethod,F+=t(j,2),F+=t(k,2),F+=t(c.crc32,4),F+=t(c.compressedSize,4),F+=t(c.uncompressedSize,4),F+=t(p.length,2),F+=t(y.length,2);var G=g.LOCAL_FILE_HEADER+F+p+y,H=g.CENTRAL_FILE_HEADER+t(E,2)+F+t(s.length,2)+"\0\0\0\0"+t(D,4)+t(d,4)+p+y+s;return{fileRecord:G,dirRecord:H,compressedObject:c}},D={load:function(a,b){throw new Error("Load method is not defined. Is the file jszip-load.js included ?")},filter:function(a){var b,c,d,f,g=[];for(b in this.files)this.files.hasOwnProperty(b)&&(d=this.files[b],f=new s(d.name,d._data,e.extend(d.options)),c=b.slice(this.root.length,b.length),b.slice(0,this.root.length)===this.root&&a(c,f)&&g.push(f));return g},file:function(a,b,c){if(1===arguments.length){if(e.isRegExp(a)){var d=a;return this.filter(function(a,b){return!b.dir&&d.test(a)})}return this.filter(function(b,c){return!c.dir&&b===a})[0]||null}return a=this.root+a,v.call(this,a,b,c),this},folder:function(a){if(!a)return this;if(e.isRegExp(a))return this.filter(function(b,c){return c.dir&&a.test(b)});var b=this.root+a,c=y.call(this,b),d=this.clone();return d.root=c.name,d},remove:function(a){a=this.root+a;var b=this.files[a];if(b||("/"!=a.slice(-1)&&(a+="/"),b=this.files[a]),b&&!b.dir)delete this.files[a];else for(var c=this.filter(function(b,c){return c.name.slice(0,a.length)===a}),d=0;d<c.length;d++)delete this.files[c[d].name];return this},generate:function(a){a=e.extend(a||{},{base64:!0,compression:"STORE",compressionOptions:null,type:"base64",platform:"DOS",comment:null,mimeType:"application/zip",encodeFileName:m.utf8encode}),e.checkSupport(a.type),"darwin"!==a.platform&&"freebsd"!==a.platform&&"linux"!==a.platform&&"sunos"!==a.platform||(a.platform="UNIX"),"win32"===a.platform&&(a.platform="DOS");var b,c,d=[],f=0,h=0,k=e.transformTo("string",a.encodeFileName(a.comment||this.comment||""));for(var l in this.files)if(this.files.hasOwnProperty(l)){var p=this.files[l],q=p.options.compression||a.compression.toUpperCase(),r=j[q];if(!r)throw new Error(q+" is not a valid compression method !");var s=p.options.compressionOptions||a.compressionOptions||{},u=z.call(this,p,r,s),v=C.call(this,l,p,u,f,a.platform,a.encodeFileName);f+=v.fileRecord.length+u.compressedSize,h+=v.dirRecord.length,d.push(v)}var w="";w=g.CENTRAL_DIRECTORY_END+"\0\0\0\0"+t(d.length,2)+t(d.length,2)+t(h,4)+t(f,4)+t(k.length,2)+k;var x=a.type.toLowerCase();for(b="uint8array"===x||"arraybuffer"===x||"blob"===x||"nodebuffer"===x?new o(f+h+w.length):new n(f+h+w.length),c=0;c<d.length;c++)b.append(d[c].fileRecord),b.append(d[c].compressedObject.compressedContent);for(c=0;c<d.length;c++)b.append(d[c].dirRecord);b.append(w);var y=b.finalize();switch(a.type.toLowerCase()){case"uint8array":case"arraybuffer":case"nodebuffer":return e.transformTo(a.type.toLowerCase(),y);case"blob":return e.arrayBuffer2Blob(e.transformTo("arraybuffer",y),a.mimeType);case"base64":return a.base64?i.encode(y):y;default:return y}},crc32:function(a,b){return f(a,b)},utf8encode:function(a){return e.transformTo("string",m.utf8encode(a))},utf8decode:function(a){return m.utf8decode(a)}};b.exports=D},{"./base64":2,"./compressedObject":3,"./compressions":4,"./crc32":5,"./defaults":7,"./nodeBuffer":12,"./signature":15,"./stringWriter":17,"./support":18,"./uint8ArrayWriter":20,"./utf8":21,"./utils":22}],15:[function(a,b,c){"use strict";c.LOCAL_FILE_HEADER="PK",c.CENTRAL_FILE_HEADER="PK",c.CENTRAL_DIRECTORY_END="PK",c.ZIP64_CENTRAL_DIRECTORY_LOCATOR="PK",c.ZIP64_CENTRAL_DIRECTORY_END="PK",c.DATA_DESCRIPTOR="PK\b"},{}],16:[function(a,b,c){"use strict";function d(a,b){this.data=a,b||(this.data=f.string2binary(this.data)),this.length=this.data.length,this.index=0,this.zero=0}var e=a("./dataReader"),f=a("./utils");d.prototype=new e,d.prototype.byteAt=function(a){return this.data.charCodeAt(this.zero+a)},d.prototype.lastIndexOfSignature=function(a){return this.data.lastIndexOf(a)-this.zero},d.prototype.readData=function(a){this.checkOffset(a);var b=this.data.slice(this.zero+this.index,this.zero+this.index+a);return this.index+=a,b},b.exports=d},{"./dataReader":6,"./utils":22}],17:[function(a,b,c){"use strict";var d=a("./utils"),e=function(){this.data=[]};e.prototype={append:function(a){a=d.transformTo("string",a),this.data.push(a)},finalize:function(){return this.data.join("")}},b.exports=e},{"./utils":22}],18:[function(a,b,c){(function(a){"use strict";if(c.base64=!0,c.array=!0,c.string=!0,c.arraybuffer="undefined"!=typeof ArrayBuffer&&"undefined"!=typeof Uint8Array,c.nodebuffer="undefined"!=typeof a,c.uint8array="undefined"!=typeof Uint8Array,"undefined"==typeof ArrayBuffer)c.blob=!1;else{var b=new ArrayBuffer(0);try{c.blob=0===new Blob([b],{type:"application/zip"}).size}catch(d){try{var e=window.BlobBuilder||window.WebKitBlobBuilder||window.MozBlobBuilder||window.MSBlobBuilder,f=new e;f.append(b),c.blob=0===f.getBlob("application/zip").size}catch(d){c.blob=!1}}}}).call(this,"undefined"!=typeof Buffer?Buffer:void 0)},{}],19:[function(a,b,c){"use strict";function d(a){a&&(this.data=a,this.length=this.data.length,this.index=0,this.zero=0)}var e=a("./arrayReader");d.prototype=new e,d.prototype.readData=function(a){if(this.checkOffset(a),0===a)return new Uint8Array(0);var b=this.data.subarray(this.zero+this.index,this.zero+this.index+a);return this.index+=a,b},b.exports=d},{"./arrayReader":1}],20:[function(a,b,c){"use strict";var d=a("./utils"),e=function(a){this.data=new Uint8Array(a),this.index=0};e.prototype={append:function(a){0!==a.length&&(a=d.transformTo("uint8array",a),this.data.set(a,this.index),this.index+=a.length)},finalize:function(){return this.data}},b.exports=e},{"./utils":22}],21:[function(a,b,c){"use strict";for(var d=a("./utils"),e=a("./support"),f=a("./nodeBuffer"),g=new Array(256),h=0;h<256;h++)g[h]=h>=252?6:h>=248?5:h>=240?4:h>=224?3:h>=192?2:1;g[254]=g[254]=1;var i=function(a){var b,c,d,f,g,h=a.length,i=0;for(f=0;f<h;f++)c=a.charCodeAt(f),55296===(64512&c)&&f+1<h&&(d=a.charCodeAt(f+1),56320===(64512&d)&&(c=65536+(c-55296<<10)+(d-56320),f++)),i+=c<128?1:c<2048?2:c<65536?3:4;for(b=e.uint8array?new Uint8Array(i):new Array(i),g=0,f=0;g<i;f++)c=a.charCodeAt(f),55296===(64512&c)&&f+1<h&&(d=a.charCodeAt(f+1),56320===(64512&d)&&(c=65536+(c-55296<<10)+(d-56320),f++)),c<128?b[g++]=c:c<2048?(b[g++]=192|c>>>6,b[g++]=128|63&c):c<65536?(b[g++]=224|c>>>12,b[g++]=128|c>>>6&63,b[g++]=128|63&c):(b[g++]=240|c>>>18,b[g++]=128|c>>>12&63,b[g++]=128|c>>>6&63,b[g++]=128|63&c);return b},j=function(a,b){var c;for(b=b||a.length,b>a.length&&(b=a.length),c=b-1;c>=0&&128===(192&a[c]);)c--;return c<0?b:0===c?b:c+g[a[c]]>b?c:b},k=function(a){var b,c,e,f,h=a.length,i=new Array(2*h);for(c=0,b=0;b<h;)if(e=a[b++],e<128)i[c++]=e;else if(f=g[e],f>4)i[c++]=65533,b+=f-1;else{for(e&=2===f?31:3===f?15:7;f>1&&b<h;)e=e<<6|63&a[b++],f--;f>1?i[c++]=65533:e<65536?i[c++]=e:(e-=65536,i[c++]=55296|e>>10&1023,i[c++]=56320|1023&e)}return i.length!==c&&(i.subarray?i=i.subarray(0,c):i.length=c),d.applyFromCharCode(i)};c.utf8encode=function(a){return e.nodebuffer?f(a,"utf-8"):i(a)},c.utf8decode=function(a){if(e.nodebuffer)return d.transformTo("nodebuffer",a).toString("utf-8");a=d.transformTo(e.uint8array?"uint8array":"array",a);for(var b=[],c=0,f=a.length,g=65536;c<f;){var h=j(a,Math.min(c+g,f));e.uint8array?b.push(k(a.subarray(c,h))):b.push(k(a.slice(c,h))),c=h}return b.join("")}},{"./nodeBuffer":12,"./support":18,"./utils":22}],22:[function(a,b,c){"use strict";function d(a){return a}function e(a,b){for(var c=0;c<a.length;++c)b[c]=255&a.charCodeAt(c);return b}function f(a){var b=65536,d=[],e=a.length,f=c.getTypeOf(a),g=0,h=!0;try{switch(f){case"uint8array":String.fromCharCode.apply(null,new Uint8Array(0));break;case"nodebuffer":String.fromCharCode.apply(null,j(0))}}catch(i){h=!1}if(!h){for(var k="",l=0;l<a.length;l++)k+=String.fromCharCode(a[l]);return k}for(;g<e&&b>1;)try{"array"===f||"nodebuffer"===f?d.push(String.fromCharCode.apply(null,a.slice(g,Math.min(g+b,e)))):d.push(String.fromCharCode.apply(null,a.subarray(g,Math.min(g+b,e)))),g+=b}catch(i){b=Math.floor(b/2)}return d.join("")}function g(a,b){for(var c=0;c<a.length;c++)b[c]=a[c];return b}var h=a("./support"),i=a("./compressions"),j=a("./nodeBuffer");c.string2binary=function(a){for(var b="",c=0;c<a.length;c++)b+=String.fromCharCode(255&a.charCodeAt(c));return b},c.arrayBuffer2Blob=function(a,b){c.checkSupport("blob"),b=b||"application/zip";try{return new Blob([a],{type:b})}catch(d){try{var e=window.BlobBuilder||window.WebKitBlobBuilder||window.MozBlobBuilder||window.MSBlobBuilder,f=new e;return f.append(a),f.getBlob(b)}catch(d){throw new Error("Bug : can't construct the Blob.")}}},c.applyFromCharCode=f;var k={};k.string={string:d,array:function(a){return e(a,new Array(a.length))},arraybuffer:function(a){return k.string.uint8array(a).buffer},uint8array:function(a){return e(a,new Uint8Array(a.length))},nodebuffer:function(a){return e(a,j(a.length))}},k.array={string:f,array:d,arraybuffer:function(a){return new Uint8Array(a).buffer},uint8array:function(a){return new Uint8Array(a)},nodebuffer:function(a){return j(a)}},k.arraybuffer={string:function(a){return f(new Uint8Array(a))},array:function(a){return g(new Uint8Array(a),new Array(a.byteLength))},arraybuffer:d,uint8array:function(a){return new Uint8Array(a)},nodebuffer:function(a){return j(new Uint8Array(a))}},k.uint8array={string:f,array:function(a){return g(a,new Array(a.length))},arraybuffer:function(a){return a.buffer},uint8array:d,nodebuffer:function(a){return j(a)}},k.nodebuffer={string:f,array:function(a){return g(a,new Array(a.length))},arraybuffer:function(a){return k.nodebuffer.uint8array(a).buffer},uint8array:function(a){return g(a,new Uint8Array(a.length))},nodebuffer:d},c.transformTo=function(a,b){if(b||(b=""),!a)return b;c.checkSupport(a);var d=c.getTypeOf(b),e=k[d][a](b);return e},c.getTypeOf=function(a){return"string"==typeof a?"string":"[object Array]"===Object.prototype.toString.call(a)?"array":h.nodebuffer&&j.test(a)?"nodebuffer":h.uint8array&&a instanceof Uint8Array?"uint8array":h.arraybuffer&&a instanceof ArrayBuffer?"arraybuffer":void 0},c.checkSupport=function(a){var b=h[a.toLowerCase()];if(!b)throw new Error(a+" is not supported by this browser")},c.MAX_VALUE_16BITS=65535,c.MAX_VALUE_32BITS=-1,c.pretty=function(a){var b,c,d="";for(c=0;c<(a||"").length;c++)b=a.charCodeAt(c),d+="\\x"+(b<16?"0":"")+b.toString(16).toUpperCase();return d},c.findCompression=function(a){for(var b in i)if(i.hasOwnProperty(b)&&i[b].magic===a)return i[b];return null},c.isRegExp=function(a){return"[object RegExp]"===Object.prototype.toString.call(a)},c.extend=function(){var a,b,c={};for(a=0;a<arguments.length;a++)for(b in arguments[a])arguments[a].hasOwnProperty(b)&&"undefined"==typeof c[b]&&(c[b]=arguments[a][b]);return c}},{"./compressions":4,"./nodeBuffer":12,"./support":18}],23:[function(a,b,c){"use strict";function d(a,b){this.files=[],this.loadOptions=b,a&&this.load(a)}var e=a("./stringReader"),f=a("./nodeBufferReader"),g=a("./uint8ArrayReader"),h=a("./arrayReader"),i=a("./utils"),j=a("./signature"),k=a("./zipEntry"),l=a("./support");a("./object");d.prototype={checkSignature:function(a){var b=this.reader.readString(4);if(b!==a)throw new Error("Corrupted zip or bug : unexpected signature ("+i.pretty(b)+", expected "+i.pretty(a)+")")},isSignature:function(a,b){var c=this.reader.index;this.reader.setIndex(a);var d=this.reader.readString(4),e=d===b;return this.reader.setIndex(c),e},readBlockEndOfCentral:function(){this.diskNumber=this.reader.readInt(2),this.diskWithCentralDirStart=this.reader.readInt(2),this.centralDirRecordsOnThisDisk=this.reader.readInt(2),this.centralDirRecords=this.reader.readInt(2),this.centralDirSize=this.reader.readInt(4),this.centralDirOffset=this.reader.readInt(4),this.zipCommentLength=this.reader.readInt(2);var a=this.reader.readData(this.zipCommentLength),b=l.uint8array?"uint8array":"array",c=i.transformTo(b,a);this.zipComment=this.loadOptions.decodeFileName(c)},readBlockZip64EndOfCentral:function(){this.zip64EndOfCentralSize=this.reader.readInt(8),this.versionMadeBy=this.reader.readString(2),this.versionNeeded=this.reader.readInt(2),this.diskNumber=this.reader.readInt(4),this.diskWithCentralDirStart=this.reader.readInt(4),this.centralDirRecordsOnThisDisk=this.reader.readInt(8),this.centralDirRecords=this.reader.readInt(8),this.centralDirSize=this.reader.readInt(8),this.centralDirOffset=this.reader.readInt(8),this.zip64ExtensibleData={};for(var a,b,c,d=this.zip64EndOfCentralSize-44,e=0;e<d;)a=this.reader.readInt(2),b=this.reader.readInt(4),c=this.reader.readString(b),this.zip64ExtensibleData[a]={id:a,length:b,value:c}},readBlockZip64EndOfCentralLocator:function(){if(this.diskWithZip64CentralDirStart=this.reader.readInt(4),this.relativeOffsetEndOfZip64CentralDir=this.reader.readInt(8),this.disksCount=this.reader.readInt(4),this.disksCount>1)throw new Error("Multi-volumes zip are not supported")},readLocalFiles:function(){var a,b;for(a=0;a<this.files.length;a++)b=this.files[a],this.reader.setIndex(b.localHeaderOffset),this.checkSignature(j.LOCAL_FILE_HEADER),b.readLocalPart(this.reader),b.handleUTF8(),b.processAttributes()},readCentralDir:function(){var a;for(this.reader.setIndex(this.centralDirOffset);this.reader.readString(4)===j.CENTRAL_FILE_HEADER;)a=new k({zip64:this.zip64},this.loadOptions),a.readCentralPart(this.reader),this.files.push(a);if(this.centralDirRecords!==this.files.length&&0!==this.centralDirRecords&&0===this.files.length)throw new Error("Corrupted zip or bug: expected "+this.centralDirRecords+" records in central dir, got "+this.files.length)},readEndOfCentral:function(){var a=this.reader.lastIndexOfSignature(j.CENTRAL_DIRECTORY_END);if(a<0){var b=!this.isSignature(0,j.LOCAL_FILE_HEADER);throw b?new Error("Can't find end of central directory : is this a zip file ? If it is, see http://stuk.github.io/jszip/documentation/howto/read_zip.html"):new Error("Corrupted zip : can't find end of central directory")}this.reader.setIndex(a);var c=a;if(this.checkSignature(j.CENTRAL_DIRECTORY_END),this.readBlockEndOfCentral(),this.diskNumber===i.MAX_VALUE_16BITS||this.diskWithCentralDirStart===i.MAX_VALUE_16BITS||this.centralDirRecordsOnThisDisk===i.MAX_VALUE_16BITS||this.centralDirRecords===i.MAX_VALUE_16BITS||this.centralDirSize===i.MAX_VALUE_32BITS||this.centralDirOffset===i.MAX_VALUE_32BITS){if(this.zip64=!0,a=this.reader.lastIndexOfSignature(j.ZIP64_CENTRAL_DIRECTORY_LOCATOR),a<0)throw new Error("Corrupted zip : can't find the ZIP64 end of central directory locator");if(this.reader.setIndex(a),this.checkSignature(j.ZIP64_CENTRAL_DIRECTORY_LOCATOR),this.readBlockZip64EndOfCentralLocator(),!this.isSignature(this.relativeOffsetEndOfZip64CentralDir,j.ZIP64_CENTRAL_DIRECTORY_END)&&(this.relativeOffsetEndOfZip64CentralDir=this.reader.lastIndexOfSignature(j.ZIP64_CENTRAL_DIRECTORY_END),this.relativeOffsetEndOfZip64CentralDir<0))throw new Error("Corrupted zip : can't find the ZIP64 end of central directory");this.reader.setIndex(this.relativeOffsetEndOfZip64CentralDir),this.checkSignature(j.ZIP64_CENTRAL_DIRECTORY_END),this.readBlockZip64EndOfCentral()}var d=this.centralDirOffset+this.centralDirSize;this.zip64&&(d+=20,d+=12+this.zip64EndOfCentralSize);var e=c-d;if(e>0)this.isSignature(c,j.CENTRAL_FILE_HEADER)||(this.reader.zero=e);else if(e<0)throw new Error("Corrupted zip: missing "+Math.abs(e)+" bytes.")},prepareReader:function(a){var b=i.getTypeOf(a);if(i.checkSupport(b),"string"!==b||l.uint8array)if("nodebuffer"===b)this.reader=new f(a);else if(l.uint8array)this.reader=new g(i.transformTo("uint8array",a));else{if(!l.array)throw new Error("Unexpected error: unsupported type '"+b+"'");this.reader=new h(i.transformTo("array",a))}else this.reader=new e(a,this.loadOptions.optimizedBinaryString)},load:function(a){this.prepareReader(a),this.readEndOfCentral(),this.readCentralDir(),this.readLocalFiles()}},b.exports=d},{"./arrayReader":1,"./nodeBufferReader":13,"./object":14,"./signature":15,"./stringReader":16,"./support":18,"./uint8ArrayReader":19,"./utils":22,"./zipEntry":24}],24:[function(a,b,c){"use strict";function d(a,b){this.options=a,this.loadOptions=b}var e=a("./stringReader"),f=a("./utils"),g=a("./compressedObject"),h=a("./object"),i=a("./support"),j=0,k=3;d.prototype={isEncrypted:function(){return 1===(1&this.bitFlag)},useUTF8:function(){return 2048===(2048&this.bitFlag)},prepareCompressedContent:function(a,b,c){return function(){var d=a.index;a.setIndex(b);var e=a.readData(c);return a.setIndex(d),e}},prepareContent:function(a,b,c,d,e){return function(){var a=f.transformTo(d.uncompressInputType,this.getCompressedContent()),b=d.uncompress(a);if(b.length!==e)throw new Error("Bug : uncompressed data size mismatch");return b}},readLocalPart:function(a){var b,c;if(a.skip(22),this.fileNameLength=a.readInt(2),c=a.readInt(2),this.fileName=a.readData(this.fileNameLength),a.skip(c),this.compressedSize==-1||this.uncompressedSize==-1)throw new Error("Bug or corrupted zip : didn't get enough informations from the central directory (compressedSize == -1 || uncompressedSize == -1)");if(b=f.findCompression(this.compressionMethod),null===b)throw new Error("Corrupted zip : compression "+f.pretty(this.compressionMethod)+" unknown (inner file : "+f.transformTo("string",this.fileName)+")");if(this.decompressed=new g,this.decompressed.compressedSize=this.compressedSize,this.decompressed.uncompressedSize=this.uncompressedSize,this.decompressed.crc32=this.crc32,this.decompressed.compressionMethod=this.compressionMethod,this.decompressed.getCompressedContent=this.prepareCompressedContent(a,a.index,this.compressedSize,b),this.decompressed.getContent=this.prepareContent(a,a.index,this.compressedSize,b,this.uncompressedSize),this.loadOptions.checkCRC32&&(this.decompressed=f.transformTo("string",this.decompressed.getContent()),h.crc32(this.decompressed)!==this.crc32))throw new Error("Corrupted zip : CRC32 mismatch");
+!function(a){if(true)module.exports=a();else // removed by dead control flow
+{ var b; }}(function(){return function a(b,c,d){function e(g,h){if(!c[g]){if(!b[g]){var i=undefined;if(!h&&i)return require(g,!0);if(f)return f(g,!0);var j=new Error("Cannot find module '"+g+"'");throw j.code="MODULE_NOT_FOUND",j}var k=c[g]={exports:{}};b[g][0].call(k.exports,function(a){var c=b[g][1][a];return e(c?c:a)},k,k.exports,a,b,c,d)}return c[g].exports}for(var f=undefined,g=0;g<d.length;g++)e(d[g]);return e}({1:[function(a,b,c){"use strict";function d(a){if(a){this.data=a,this.length=this.data.length,this.index=0,this.zero=0;for(var b=0;b<this.data.length;b++)a[b]=255&a[b]}}var e=a("./dataReader");d.prototype=new e,d.prototype.byteAt=function(a){return this.data[this.zero+a]},d.prototype.lastIndexOfSignature=function(a){for(var b=a.charCodeAt(0),c=a.charCodeAt(1),d=a.charCodeAt(2),e=a.charCodeAt(3),f=this.length-4;f>=0;--f)if(this.data[f]===b&&this.data[f+1]===c&&this.data[f+2]===d&&this.data[f+3]===e)return f-this.zero;return-1},d.prototype.readData=function(a){if(this.checkOffset(a),0===a)return[];var b=this.data.slice(this.zero+this.index,this.zero+this.index+a);return this.index+=a,b},b.exports=d},{"./dataReader":6}],2:[function(a,b,c){"use strict";var d="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";c.encode=function(a,b){for(var c,e,f,g,h,i,j,k="",l=0;l<a.length;)c=a.charCodeAt(l++),e=a.charCodeAt(l++),f=a.charCodeAt(l++),g=c>>2,h=(3&c)<<4|e>>4,i=(15&e)<<2|f>>6,j=63&f,isNaN(e)?i=j=64:isNaN(f)&&(j=64),k=k+d.charAt(g)+d.charAt(h)+d.charAt(i)+d.charAt(j);return k},c.decode=function(a,b){var c,e,f,g,h,i,j,k="",l=0;for(a=a.replace(/[^A-Za-z0-9\+\/\=]/g,"");l<a.length;)g=d.indexOf(a.charAt(l++)),h=d.indexOf(a.charAt(l++)),i=d.indexOf(a.charAt(l++)),j=d.indexOf(a.charAt(l++)),c=g<<2|h>>4,e=(15&h)<<4|i>>2,f=(3&i)<<6|j,k+=String.fromCharCode(c),64!=i&&(k+=String.fromCharCode(e)),64!=j&&(k+=String.fromCharCode(f));return k}},{}],3:[function(a,b,c){"use strict";function d(){this.compressedSize=0,this.uncompressedSize=0,this.crc32=0,this.compressionMethod=null,this.compressedContent=null}d.prototype={getContent:function(){return null},getCompressedContent:function(){return null}},b.exports=d},{}],4:[function(a,b,c){"use strict";c.STORE={magic:"\0\0",compress:function(a,b){return a},uncompress:function(a){return a},compressInputType:null,uncompressInputType:null},c.DEFLATE=a("./flate")},{"./flate":9}],5:[function(a,b,c){"use strict";var d=a("./utils"),e=[0,1996959894,3993919788,2567524794,124634137,1886057615,3915621685,2657392035,249268274,2044508324,3772115230,2547177864,162941995,2125561021,3887607047,2428444049,498536548,1789927666,4089016648,2227061214,450548861,1843258603,4107580753,2211677639,325883990,1684777152,4251122042,2321926636,335633487,1661365465,4195302755,2366115317,997073096,1281953886,3579855332,2724688242,1006888145,1258607687,3524101629,2768942443,901097722,1119000684,3686517206,2898065728,853044451,1172266101,3705015759,2882616665,651767980,1373503546,3369554304,3218104598,565507253,1454621731,3485111705,3099436303,671266974,1594198024,3322730930,2970347812,795835527,1483230225,3244367275,3060149565,1994146192,31158534,2563907772,4023717930,1907459465,112637215,2680153253,3904427059,2013776290,251722036,2517215374,3775830040,2137656763,141376813,2439277719,3865271297,1802195444,476864866,2238001368,4066508878,1812370925,453092731,2181625025,4111451223,1706088902,314042704,2344532202,4240017532,1658658271,366619977,2362670323,4224994405,1303535960,984961486,2747007092,3569037538,1256170817,1037604311,2765210733,3554079995,1131014506,879679996,2909243462,3663771856,1141124467,855842277,2852801631,3708648649,1342533948,654459306,3188396048,3373015174,1466479909,544179635,3110523913,3462522015,1591671054,702138776,2966460450,3352799412,1504918807,783551873,3082640443,3233442989,3988292384,2596254646,62317068,1957810842,3939845945,2647816111,81470997,1943803523,3814918930,2489596804,225274430,2053790376,3826175755,2466906013,167816743,2097651377,4027552580,2265490386,503444072,1762050814,4150417245,2154129355,426522225,1852507879,4275313526,2312317920,282753626,1742555852,4189708143,2394877945,397917763,1622183637,3604390888,2714866558,953729732,1340076626,3518719985,2797360999,1068828381,1219638859,3624741850,2936675148,906185462,1090812512,3747672003,2825379669,829329135,1181335161,3412177804,3160834842,628085408,1382605366,3423369109,3138078467,570562233,1426400815,3317316542,2998733608,733239954,1555261956,3268935591,3050360625,752459403,1541320221,2607071920,3965973030,1969922972,40735498,2617837225,3943577151,1913087877,83908371,2512341634,3803740692,2075208622,213261112,2463272603,3855990285,2094854071,198958881,2262029012,4057260610,1759359992,534414190,2176718541,4139329115,1873836001,414664567,2282248934,4279200368,1711684554,285281116,2405801727,4167216745,1634467795,376229701,2685067896,3608007406,1308918612,956543938,2808555105,3495958263,1231636301,1047427035,2932959818,3654703836,1088359270,936918e3,2847714899,3736837829,1202900863,817233897,3183342108,3401237130,1404277552,615818150,3134207493,3453421203,1423857449,601450431,3009837614,3294710456,1567103746,711928724,3020668471,3272380065,1510334235,755167117];b.exports=function(a,b){if("undefined"==typeof a||!a.length)return 0;var c="string"!==d.getTypeOf(a);"undefined"==typeof b&&(b=0);var f=0,g=0,h=0;b^=-1;for(var i=0,j=a.length;i<j;i++)h=c?a[i]:a.charCodeAt(i),g=255&(b^h),f=e[g],b=b>>>8^f;return b^-1}},{"./utils":22}],6:[function(a,b,c){"use strict";function d(a){this.data=null,this.length=0,this.index=0,this.zero=0}var e=a("./utils");d.prototype={checkOffset:function(a){this.checkIndex(this.index+a)},checkIndex:function(a){if(this.length<this.zero+a||a<0)throw new Error("End of data reached (data length = "+this.length+", asked index = "+a+"). Corrupted zip ?")},setIndex:function(a){this.checkIndex(a),this.index=a},skip:function(a){this.setIndex(this.index+a)},byteAt:function(a){},readInt:function(a){var b,c=0;for(this.checkOffset(a),b=this.index+a-1;b>=this.index;b--)c=(c<<8)+this.byteAt(b);return this.index+=a,c},readString:function(a){return e.transformTo("string",this.readData(a))},readData:function(a){},lastIndexOfSignature:function(a){},readDate:function(){var a=this.readInt(4);return new Date((a>>25&127)+1980,(a>>21&15)-1,a>>16&31,a>>11&31,a>>5&63,(31&a)<<1)}},b.exports=d},{"./utils":22}],7:[function(a,b,c){"use strict";c.base64=!1,c.binary=!1,c.dir=!1,c.createFolders=!1,c.date=null,c.compression=null,c.compressionOptions=null,c.comment=null,c.unixPermissions=null,c.dosPermissions=null},{}],8:[function(a,b,c){"use strict";var d=a("./utils");c.string2binary=function(a){return d.string2binary(a)},c.string2Uint8Array=function(a){return d.transformTo("uint8array",a)},c.uint8Array2String=function(a){return d.transformTo("string",a)},c.string2Blob=function(a){var b=d.transformTo("arraybuffer",a);return d.arrayBuffer2Blob(b)},c.arrayBuffer2Blob=function(a){return d.arrayBuffer2Blob(a)},c.transformTo=function(a,b){return d.transformTo(a,b)},c.getTypeOf=function(a){return d.getTypeOf(a)},c.checkSupport=function(a){return d.checkSupport(a)},c.MAX_VALUE_16BITS=d.MAX_VALUE_16BITS,c.MAX_VALUE_32BITS=d.MAX_VALUE_32BITS,c.pretty=function(a){return d.pretty(a)},c.findCompression=function(a){return d.findCompression(a)},c.isRegExp=function(a){return d.isRegExp(a)}},{"./utils":22}],9:[function(a,b,c){"use strict";var d="undefined"!=typeof Uint8Array&&"undefined"!=typeof Uint16Array&&"undefined"!=typeof Uint32Array,e=a("pako");c.uncompressInputType=d?"uint8array":"array",c.compressInputType=d?"uint8array":"array",c.magic="\b\0",c.compress=function(a,b){return e.deflateRaw(a,{level:b.level||-1})},c.uncompress=function(a){return e.inflateRaw(a)}},{pako:25}],10:[function(a,b,c){"use strict";function d(a,b){return this instanceof d?(this.files={},this.comment=null,this.root="",a&&this.load(a,b),void(this.clone=function(){var a=new d;for(var b in this)"function"!=typeof this[b]&&(a[b]=this[b]);return a})):new d(a,b)}var e=a("./base64");d.prototype=a("./object"),d.prototype.load=a("./load"),d.support=a("./support"),d.defaults=a("./defaults"),d.utils=a("./deprecatedPublicUtils"),d.base64={encode:function(a){return e.encode(a)},decode:function(a){return e.decode(a)}},d.compressions=a("./compressions"),b.exports=d},{"./base64":2,"./compressions":4,"./defaults":7,"./deprecatedPublicUtils":8,"./load":11,"./object":14,"./support":18}],11:[function(a,b,c){"use strict";var d=a("./base64"),e=a("./utf8"),f=a("./utils"),g=a("./zipEntries");b.exports=function(a,b){var c,h,i,j;for(b=f.extend(b||{},{base64:!1,checkCRC32:!1,optimizedBinaryString:!1,createFolders:!1,decodeFileName:e.utf8decode}),b.base64&&(a=d.decode(a)),h=new g(a,b),c=h.files,i=0;i<c.length;i++)j=c[i],this.file(j.fileNameStr,j.decompressed,{binary:!0,optimizedBinaryString:!0,date:j.date,dir:j.dir,comment:j.fileCommentStr.length?j.fileCommentStr:null,unixPermissions:j.unixPermissions,dosPermissions:j.dosPermissions,createFolders:b.createFolders});return h.zipComment.length&&(this.comment=h.zipComment),this}},{"./base64":2,"./utf8":21,"./utils":22,"./zipEntries":23}],12:[function(a,b,c){(function(a){"use strict";b.exports=function(b,c){return new a(b,c)},b.exports.test=function(b){return a.isBuffer(b)}}).call(this,"undefined"!=typeof Buffer?Buffer:void 0)},{}],13:[function(a,b,c){"use strict";function d(a){this.data=a,this.length=this.data.length,this.index=0,this.zero=0}var e=a("./uint8ArrayReader");d.prototype=new e,d.prototype.readData=function(a){this.checkOffset(a);var b=this.data.slice(this.zero+this.index,this.zero+this.index+a);return this.index+=a,b},b.exports=d},{"./uint8ArrayReader":19}],14:[function(a,b,c){"use strict";var d=a("./support"),e=a("./utils"),f=a("./crc32"),g=a("./signature"),h=a("./defaults"),i=a("./base64"),j=a("./compressions"),k=a("./compressedObject"),l=a("./nodeBuffer"),m=a("./utf8"),n=a("./stringWriter"),o=a("./uint8ArrayWriter"),p=function(a){if(a._data instanceof k&&(a._data=a._data.getContent(),a.options.binary=!0,a.options.base64=!1,"uint8array"===e.getTypeOf(a._data))){var b=a._data;a._data=new Uint8Array(b.length),0!==b.length&&a._data.set(b,0)}return a._data},q=function(a){var b=p(a),c=e.getTypeOf(b);return"string"===c?!a.options.binary&&d.nodebuffer?l(b,"utf-8"):a.asBinary():b},r=function(a){var b=p(this);return null===b||"undefined"==typeof b?"":(this.options.base64&&(b=i.decode(b)),b=a&&this.options.binary?D.utf8decode(b):e.transformTo("string",b),a||this.options.binary||(b=e.transformTo("string",D.utf8encode(b))),b)},s=function(a,b,c){this.name=a,this.dir=c.dir,this.date=c.date,this.comment=c.comment,this.unixPermissions=c.unixPermissions,this.dosPermissions=c.dosPermissions,this._data=b,this.options=c,this._initialMetadata={dir:c.dir,date:c.date}};s.prototype={asText:function(){return r.call(this,!0)},asBinary:function(){return r.call(this,!1)},asNodeBuffer:function(){var a=q(this);return e.transformTo("nodebuffer",a)},asUint8Array:function(){var a=q(this);return e.transformTo("uint8array",a)},asArrayBuffer:function(){return this.asUint8Array().buffer}};var t=function(a,b){var c,d="";for(c=0;c<b;c++)d+=String.fromCharCode(255&a),a>>>=8;return d},u=function(a){return a=a||{},a.base64!==!0||null!==a.binary&&void 0!==a.binary||(a.binary=!0),a=e.extend(a,h),a.date=a.date||new Date,null!==a.compression&&(a.compression=a.compression.toUpperCase()),a},v=function(a,b,c){var d,f=e.getTypeOf(b);if(c=u(c),"string"==typeof c.unixPermissions&&(c.unixPermissions=parseInt(c.unixPermissions,8)),c.unixPermissions&&16384&c.unixPermissions&&(c.dir=!0),c.dosPermissions&&16&c.dosPermissions&&(c.dir=!0),c.dir&&(a=x(a)),c.createFolders&&(d=w(a))&&y.call(this,d,!0),c.dir||null===b||"undefined"==typeof b)c.base64=!1,c.binary=!1,b=null,f=null;else if("string"===f)c.binary&&!c.base64&&c.optimizedBinaryString!==!0&&(b=e.string2binary(b));else{if(c.base64=!1,c.binary=!0,!(f||b instanceof k))throw new Error("The data of '"+a+"' is in an unsupported format !");"arraybuffer"===f&&(b=e.transformTo("uint8array",b))}var g=new s(a,b,c);return this.files[a]=g,g},w=function(a){"/"==a.slice(-1)&&(a=a.substring(0,a.length-1));var b=a.lastIndexOf("/");return b>0?a.substring(0,b):""},x=function(a){return"/"!=a.slice(-1)&&(a+="/"),a},y=function(a,b){return b="undefined"!=typeof b&&b,a=x(a),this.files[a]||v.call(this,a,null,{dir:!0,createFolders:b}),this.files[a]},z=function(a,b,c){var d,g=new k;return a._data instanceof k?(g.uncompressedSize=a._data.uncompressedSize,g.crc32=a._data.crc32,0===g.uncompressedSize||a.dir?(b=j.STORE,g.compressedContent="",g.crc32=0):a._data.compressionMethod===b.magic?g.compressedContent=a._data.getCompressedContent():(d=a._data.getContent(),g.compressedContent=b.compress(e.transformTo(b.compressInputType,d),c))):(d=q(a),d&&0!==d.length&&!a.dir||(b=j.STORE,d=""),g.uncompressedSize=d.length,g.crc32=f(d),g.compressedContent=b.compress(e.transformTo(b.compressInputType,d),c)),g.compressedSize=g.compressedContent.length,g.compressionMethod=b.magic,g},A=function(a,b){var c=a;return a||(c=b?16893:33204),(65535&c)<<16},B=function(a,b){return 63&(a||0)},C=function(a,b,c,d,h,i){var j,k,l,n,o=(c.compressedContent,i!==m.utf8encode),p=e.transformTo("string",i(b.name)),q=e.transformTo("string",m.utf8encode(b.name)),r=b.comment||"",s=e.transformTo("string",i(r)),u=e.transformTo("string",m.utf8encode(r)),v=q.length!==b.name.length,w=u.length!==r.length,x=b.options,y="",z="",C="";l=b._initialMetadata.dir!==b.dir?b.dir:x.dir,n=b._initialMetadata.date!==b.date?b.date:x.date;var D=0,E=0;l&&(D|=16),"UNIX"===h?(E=798,D|=A(b.unixPermissions,l)):(E=20,D|=B(b.dosPermissions,l)),j=n.getHours(),j<<=6,j|=n.getMinutes(),j<<=5,j|=n.getSeconds()/2,k=n.getFullYear()-1980,k<<=4,k|=n.getMonth()+1,k<<=5,k|=n.getDate(),v&&(z=t(1,1)+t(f(p),4)+q,y+="up"+t(z.length,2)+z),w&&(C=t(1,1)+t(this.crc32(s),4)+u,y+="uc"+t(C.length,2)+C);var F="";F+="\n\0",F+=o||!v&&!w?"\0\0":"\0\b",F+=c.compressionMethod,F+=t(j,2),F+=t(k,2),F+=t(c.crc32,4),F+=t(c.compressedSize,4),F+=t(c.uncompressedSize,4),F+=t(p.length,2),F+=t(y.length,2);var G=g.LOCAL_FILE_HEADER+F+p+y,H=g.CENTRAL_FILE_HEADER+t(E,2)+F+t(s.length,2)+"\0\0\0\0"+t(D,4)+t(d,4)+p+y+s;return{fileRecord:G,dirRecord:H,compressedObject:c}},D={load:function(a,b){throw new Error("Load method is not defined. Is the file jszip-load.js included ?")},filter:function(a){var b,c,d,f,g=[];for(b in this.files)this.files.hasOwnProperty(b)&&(d=this.files[b],f=new s(d.name,d._data,e.extend(d.options)),c=b.slice(this.root.length,b.length),b.slice(0,this.root.length)===this.root&&a(c,f)&&g.push(f));return g},file:function(a,b,c){if(1===arguments.length){if(e.isRegExp(a)){var d=a;return this.filter(function(a,b){return!b.dir&&d.test(a)})}return this.filter(function(b,c){return!c.dir&&b===a})[0]||null}return a=this.root+a,v.call(this,a,b,c),this},folder:function(a){if(!a)return this;if(e.isRegExp(a))return this.filter(function(b,c){return c.dir&&a.test(b)});var b=this.root+a,c=y.call(this,b),d=this.clone();return d.root=c.name,d},remove:function(a){a=this.root+a;var b=this.files[a];if(b||("/"!=a.slice(-1)&&(a+="/"),b=this.files[a]),b&&!b.dir)delete this.files[a];else for(var c=this.filter(function(b,c){return c.name.slice(0,a.length)===a}),d=0;d<c.length;d++)delete this.files[c[d].name];return this},generate:function(a){a=e.extend(a||{},{base64:!0,compression:"STORE",compressionOptions:null,type:"base64",platform:"DOS",comment:null,mimeType:"application/zip",encodeFileName:m.utf8encode}),e.checkSupport(a.type),"darwin"!==a.platform&&"freebsd"!==a.platform&&"linux"!==a.platform&&"sunos"!==a.platform||(a.platform="UNIX"),"win32"===a.platform&&(a.platform="DOS");var b,c,d=[],f=0,h=0,k=e.transformTo("string",a.encodeFileName(a.comment||this.comment||""));for(var l in this.files)if(this.files.hasOwnProperty(l)){var p=this.files[l],q=p.options.compression||a.compression.toUpperCase(),r=j[q];if(!r)throw new Error(q+" is not a valid compression method !");var s=p.options.compressionOptions||a.compressionOptions||{},u=z.call(this,p,r,s),v=C.call(this,l,p,u,f,a.platform,a.encodeFileName);f+=v.fileRecord.length+u.compressedSize,h+=v.dirRecord.length,d.push(v)}var w="";w=g.CENTRAL_DIRECTORY_END+"\0\0\0\0"+t(d.length,2)+t(d.length,2)+t(h,4)+t(f,4)+t(k.length,2)+k;var x=a.type.toLowerCase();for(b="uint8array"===x||"arraybuffer"===x||"blob"===x||"nodebuffer"===x?new o(f+h+w.length):new n(f+h+w.length),c=0;c<d.length;c++)b.append(d[c].fileRecord),b.append(d[c].compressedObject.compressedContent);for(c=0;c<d.length;c++)b.append(d[c].dirRecord);b.append(w);var y=b.finalize();switch(a.type.toLowerCase()){case"uint8array":case"arraybuffer":case"nodebuffer":return e.transformTo(a.type.toLowerCase(),y);case"blob":return e.arrayBuffer2Blob(e.transformTo("arraybuffer",y),a.mimeType);case"base64":return a.base64?i.encode(y):y;default:return y}},crc32:function(a,b){return f(a,b)},utf8encode:function(a){return e.transformTo("string",m.utf8encode(a))},utf8decode:function(a){return m.utf8decode(a)}};b.exports=D},{"./base64":2,"./compressedObject":3,"./compressions":4,"./crc32":5,"./defaults":7,"./nodeBuffer":12,"./signature":15,"./stringWriter":17,"./support":18,"./uint8ArrayWriter":20,"./utf8":21,"./utils":22}],15:[function(a,b,c){"use strict";c.LOCAL_FILE_HEADER="PK",c.CENTRAL_FILE_HEADER="PK",c.CENTRAL_DIRECTORY_END="PK",c.ZIP64_CENTRAL_DIRECTORY_LOCATOR="PK",c.ZIP64_CENTRAL_DIRECTORY_END="PK",c.DATA_DESCRIPTOR="PK\b"},{}],16:[function(a,b,c){"use strict";function d(a,b){this.data=a,b||(this.data=f.string2binary(this.data)),this.length=this.data.length,this.index=0,this.zero=0}var e=a("./dataReader"),f=a("./utils");d.prototype=new e,d.prototype.byteAt=function(a){return this.data.charCodeAt(this.zero+a)},d.prototype.lastIndexOfSignature=function(a){return this.data.lastIndexOf(a)-this.zero},d.prototype.readData=function(a){this.checkOffset(a);var b=this.data.slice(this.zero+this.index,this.zero+this.index+a);return this.index+=a,b},b.exports=d},{"./dataReader":6,"./utils":22}],17:[function(a,b,c){"use strict";var d=a("./utils"),e=function(){this.data=[]};e.prototype={append:function(a){a=d.transformTo("string",a),this.data.push(a)},finalize:function(){return this.data.join("")}},b.exports=e},{"./utils":22}],18:[function(a,b,c){(function(a){"use strict";if(c.base64=!0,c.array=!0,c.string=!0,c.arraybuffer="undefined"!=typeof ArrayBuffer&&"undefined"!=typeof Uint8Array,c.nodebuffer="undefined"!=typeof a,c.uint8array="undefined"!=typeof Uint8Array,"undefined"==typeof ArrayBuffer)c.blob=!1;else{var b=new ArrayBuffer(0);try{c.blob=0===new Blob([b],{type:"application/zip"}).size}catch(d){try{var e=window.BlobBuilder||window.WebKitBlobBuilder||window.MozBlobBuilder||window.MSBlobBuilder,f=new e;f.append(b),c.blob=0===f.getBlob("application/zip").size}catch(d){c.blob=!1}}}}).call(this,"undefined"!=typeof Buffer?Buffer:void 0)},{}],19:[function(a,b,c){"use strict";function d(a){a&&(this.data=a,this.length=this.data.length,this.index=0,this.zero=0)}var e=a("./arrayReader");d.prototype=new e,d.prototype.readData=function(a){if(this.checkOffset(a),0===a)return new Uint8Array(0);var b=this.data.subarray(this.zero+this.index,this.zero+this.index+a);return this.index+=a,b},b.exports=d},{"./arrayReader":1}],20:[function(a,b,c){"use strict";var d=a("./utils"),e=function(a){this.data=new Uint8Array(a),this.index=0};e.prototype={append:function(a){0!==a.length&&(a=d.transformTo("uint8array",a),this.data.set(a,this.index),this.index+=a.length)},finalize:function(){return this.data}},b.exports=e},{"./utils":22}],21:[function(a,b,c){"use strict";for(var d=a("./utils"),e=a("./support"),f=a("./nodeBuffer"),g=new Array(256),h=0;h<256;h++)g[h]=h>=252?6:h>=248?5:h>=240?4:h>=224?3:h>=192?2:1;g[254]=g[254]=1;var i=function(a){var b,c,d,f,g,h=a.length,i=0;for(f=0;f<h;f++)c=a.charCodeAt(f),55296===(64512&c)&&f+1<h&&(d=a.charCodeAt(f+1),56320===(64512&d)&&(c=65536+(c-55296<<10)+(d-56320),f++)),i+=c<128?1:c<2048?2:c<65536?3:4;for(b=e.uint8array?new Uint8Array(i):new Array(i),g=0,f=0;g<i;f++)c=a.charCodeAt(f),55296===(64512&c)&&f+1<h&&(d=a.charCodeAt(f+1),56320===(64512&d)&&(c=65536+(c-55296<<10)+(d-56320),f++)),c<128?b[g++]=c:c<2048?(b[g++]=192|c>>>6,b[g++]=128|63&c):c<65536?(b[g++]=224|c>>>12,b[g++]=128|c>>>6&63,b[g++]=128|63&c):(b[g++]=240|c>>>18,b[g++]=128|c>>>12&63,b[g++]=128|c>>>6&63,b[g++]=128|63&c);return b},j=function(a,b){var c;for(b=b||a.length,b>a.length&&(b=a.length),c=b-1;c>=0&&128===(192&a[c]);)c--;return c<0?b:0===c?b:c+g[a[c]]>b?c:b},k=function(a){var b,c,e,f,h=a.length,i=new Array(2*h);for(c=0,b=0;b<h;)if(e=a[b++],e<128)i[c++]=e;else if(f=g[e],f>4)i[c++]=65533,b+=f-1;else{for(e&=2===f?31:3===f?15:7;f>1&&b<h;)e=e<<6|63&a[b++],f--;f>1?i[c++]=65533:e<65536?i[c++]=e:(e-=65536,i[c++]=55296|e>>10&1023,i[c++]=56320|1023&e)}return i.length!==c&&(i.subarray?i=i.subarray(0,c):i.length=c),d.applyFromCharCode(i)};c.utf8encode=function(a){return e.nodebuffer?f(a,"utf-8"):i(a)},c.utf8decode=function(a){if(e.nodebuffer)return d.transformTo("nodebuffer",a).toString("utf-8");a=d.transformTo(e.uint8array?"uint8array":"array",a);for(var b=[],c=0,f=a.length,g=65536;c<f;){var h=j(a,Math.min(c+g,f));e.uint8array?b.push(k(a.subarray(c,h))):b.push(k(a.slice(c,h))),c=h}return b.join("")}},{"./nodeBuffer":12,"./support":18,"./utils":22}],22:[function(a,b,c){"use strict";function d(a){return a}function e(a,b){for(var c=0;c<a.length;++c)b[c]=255&a.charCodeAt(c);return b}function f(a){var b=65536,d=[],e=a.length,f=c.getTypeOf(a),g=0,h=!0;try{switch(f){case"uint8array":String.fromCharCode.apply(null,new Uint8Array(0));break;case"nodebuffer":String.fromCharCode.apply(null,j(0))}}catch(i){h=!1}if(!h){for(var k="",l=0;l<a.length;l++)k+=String.fromCharCode(a[l]);return k}for(;g<e&&b>1;)try{"array"===f||"nodebuffer"===f?d.push(String.fromCharCode.apply(null,a.slice(g,Math.min(g+b,e)))):d.push(String.fromCharCode.apply(null,a.subarray(g,Math.min(g+b,e)))),g+=b}catch(i){b=Math.floor(b/2)}return d.join("")}function g(a,b){for(var c=0;c<a.length;c++)b[c]=a[c];return b}var h=a("./support"),i=a("./compressions"),j=a("./nodeBuffer");c.string2binary=function(a){for(var b="",c=0;c<a.length;c++)b+=String.fromCharCode(255&a.charCodeAt(c));return b},c.arrayBuffer2Blob=function(a,b){c.checkSupport("blob"),b=b||"application/zip";try{return new Blob([a],{type:b})}catch(d){try{var e=window.BlobBuilder||window.WebKitBlobBuilder||window.MozBlobBuilder||window.MSBlobBuilder,f=new e;return f.append(a),f.getBlob(b)}catch(d){throw new Error("Bug : can't construct the Blob.")}}},c.applyFromCharCode=f;var k={};k.string={string:d,array:function(a){return e(a,new Array(a.length))},arraybuffer:function(a){return k.string.uint8array(a).buffer},uint8array:function(a){return e(a,new Uint8Array(a.length))},nodebuffer:function(a){return e(a,j(a.length))}},k.array={string:f,array:d,arraybuffer:function(a){return new Uint8Array(a).buffer},uint8array:function(a){return new Uint8Array(a)},nodebuffer:function(a){return j(a)}},k.arraybuffer={string:function(a){return f(new Uint8Array(a))},array:function(a){return g(new Uint8Array(a),new Array(a.byteLength))},arraybuffer:d,uint8array:function(a){return new Uint8Array(a)},nodebuffer:function(a){return j(new Uint8Array(a))}},k.uint8array={string:f,array:function(a){return g(a,new Array(a.length))},arraybuffer:function(a){return a.buffer},uint8array:d,nodebuffer:function(a){return j(a)}},k.nodebuffer={string:f,array:function(a){return g(a,new Array(a.length))},arraybuffer:function(a){return k.nodebuffer.uint8array(a).buffer},uint8array:function(a){return g(a,new Uint8Array(a.length))},nodebuffer:d},c.transformTo=function(a,b){if(b||(b=""),!a)return b;c.checkSupport(a);var d=c.getTypeOf(b),e=k[d][a](b);return e},c.getTypeOf=function(a){return"string"==typeof a?"string":"[object Array]"===Object.prototype.toString.call(a)?"array":h.nodebuffer&&j.test(a)?"nodebuffer":h.uint8array&&a instanceof Uint8Array?"uint8array":h.arraybuffer&&a instanceof ArrayBuffer?"arraybuffer":void 0},c.checkSupport=function(a){var b=h[a.toLowerCase()];if(!b)throw new Error(a+" is not supported by this browser")},c.MAX_VALUE_16BITS=65535,c.MAX_VALUE_32BITS=-1,c.pretty=function(a){var b,c,d="";for(c=0;c<(a||"").length;c++)b=a.charCodeAt(c),d+="\\x"+(b<16?"0":"")+b.toString(16).toUpperCase();return d},c.findCompression=function(a){for(var b in i)if(i.hasOwnProperty(b)&&i[b].magic===a)return i[b];return null},c.isRegExp=function(a){return"[object RegExp]"===Object.prototype.toString.call(a)},c.extend=function(){var a,b,c={};for(a=0;a<arguments.length;a++)for(b in arguments[a])arguments[a].hasOwnProperty(b)&&"undefined"==typeof c[b]&&(c[b]=arguments[a][b]);return c}},{"./compressions":4,"./nodeBuffer":12,"./support":18}],23:[function(a,b,c){"use strict";function d(a,b){this.files=[],this.loadOptions=b,a&&this.load(a)}var e=a("./stringReader"),f=a("./nodeBufferReader"),g=a("./uint8ArrayReader"),h=a("./arrayReader"),i=a("./utils"),j=a("./signature"),k=a("./zipEntry"),l=a("./support");a("./object");d.prototype={checkSignature:function(a){var b=this.reader.readString(4);if(b!==a)throw new Error("Corrupted zip or bug : unexpected signature ("+i.pretty(b)+", expected "+i.pretty(a)+")")},isSignature:function(a,b){var c=this.reader.index;this.reader.setIndex(a);var d=this.reader.readString(4),e=d===b;return this.reader.setIndex(c),e},readBlockEndOfCentral:function(){this.diskNumber=this.reader.readInt(2),this.diskWithCentralDirStart=this.reader.readInt(2),this.centralDirRecordsOnThisDisk=this.reader.readInt(2),this.centralDirRecords=this.reader.readInt(2),this.centralDirSize=this.reader.readInt(4),this.centralDirOffset=this.reader.readInt(4),this.zipCommentLength=this.reader.readInt(2);var a=this.reader.readData(this.zipCommentLength),b=l.uint8array?"uint8array":"array",c=i.transformTo(b,a);this.zipComment=this.loadOptions.decodeFileName(c)},readBlockZip64EndOfCentral:function(){this.zip64EndOfCentralSize=this.reader.readInt(8),this.versionMadeBy=this.reader.readString(2),this.versionNeeded=this.reader.readInt(2),this.diskNumber=this.reader.readInt(4),this.diskWithCentralDirStart=this.reader.readInt(4),this.centralDirRecordsOnThisDisk=this.reader.readInt(8),this.centralDirRecords=this.reader.readInt(8),this.centralDirSize=this.reader.readInt(8),this.centralDirOffset=this.reader.readInt(8),this.zip64ExtensibleData={};for(var a,b,c,d=this.zip64EndOfCentralSize-44,e=0;e<d;)a=this.reader.readInt(2),b=this.reader.readInt(4),c=this.reader.readString(b),this.zip64ExtensibleData[a]={id:a,length:b,value:c}},readBlockZip64EndOfCentralLocator:function(){if(this.diskWithZip64CentralDirStart=this.reader.readInt(4),this.relativeOffsetEndOfZip64CentralDir=this.reader.readInt(8),this.disksCount=this.reader.readInt(4),this.disksCount>1)throw new Error("Multi-volumes zip are not supported")},readLocalFiles:function(){var a,b;for(a=0;a<this.files.length;a++)b=this.files[a],this.reader.setIndex(b.localHeaderOffset),this.checkSignature(j.LOCAL_FILE_HEADER),b.readLocalPart(this.reader),b.handleUTF8(),b.processAttributes()},readCentralDir:function(){var a;for(this.reader.setIndex(this.centralDirOffset);this.reader.readString(4)===j.CENTRAL_FILE_HEADER;)a=new k({zip64:this.zip64},this.loadOptions),a.readCentralPart(this.reader),this.files.push(a);if(this.centralDirRecords!==this.files.length&&0!==this.centralDirRecords&&0===this.files.length)throw new Error("Corrupted zip or bug: expected "+this.centralDirRecords+" records in central dir, got "+this.files.length)},readEndOfCentral:function(){var a=this.reader.lastIndexOfSignature(j.CENTRAL_DIRECTORY_END);if(a<0){var b=!this.isSignature(0,j.LOCAL_FILE_HEADER);throw b?new Error("Can't find end of central directory : is this a zip file ? If it is, see http://stuk.github.io/jszip/documentation/howto/read_zip.html"):new Error("Corrupted zip : can't find end of central directory")}this.reader.setIndex(a);var c=a;if(this.checkSignature(j.CENTRAL_DIRECTORY_END),this.readBlockEndOfCentral(),this.diskNumber===i.MAX_VALUE_16BITS||this.diskWithCentralDirStart===i.MAX_VALUE_16BITS||this.centralDirRecordsOnThisDisk===i.MAX_VALUE_16BITS||this.centralDirRecords===i.MAX_VALUE_16BITS||this.centralDirSize===i.MAX_VALUE_32BITS||this.centralDirOffset===i.MAX_VALUE_32BITS){if(this.zip64=!0,a=this.reader.lastIndexOfSignature(j.ZIP64_CENTRAL_DIRECTORY_LOCATOR),a<0)throw new Error("Corrupted zip : can't find the ZIP64 end of central directory locator");if(this.reader.setIndex(a),this.checkSignature(j.ZIP64_CENTRAL_DIRECTORY_LOCATOR),this.readBlockZip64EndOfCentralLocator(),!this.isSignature(this.relativeOffsetEndOfZip64CentralDir,j.ZIP64_CENTRAL_DIRECTORY_END)&&(this.relativeOffsetEndOfZip64CentralDir=this.reader.lastIndexOfSignature(j.ZIP64_CENTRAL_DIRECTORY_END),this.relativeOffsetEndOfZip64CentralDir<0))throw new Error("Corrupted zip : can't find the ZIP64 end of central directory");this.reader.setIndex(this.relativeOffsetEndOfZip64CentralDir),this.checkSignature(j.ZIP64_CENTRAL_DIRECTORY_END),this.readBlockZip64EndOfCentral()}var d=this.centralDirOffset+this.centralDirSize;this.zip64&&(d+=20,d+=12+this.zip64EndOfCentralSize);var e=c-d;if(e>0)this.isSignature(c,j.CENTRAL_FILE_HEADER)||(this.reader.zero=e);else if(e<0)throw new Error("Corrupted zip: missing "+Math.abs(e)+" bytes.")},prepareReader:function(a){var b=i.getTypeOf(a);if(i.checkSupport(b),"string"!==b||l.uint8array)if("nodebuffer"===b)this.reader=new f(a);else if(l.uint8array)this.reader=new g(i.transformTo("uint8array",a));else{if(!l.array)throw new Error("Unexpected error: unsupported type '"+b+"'");this.reader=new h(i.transformTo("array",a))}else this.reader=new e(a,this.loadOptions.optimizedBinaryString)},load:function(a){this.prepareReader(a),this.readEndOfCentral(),this.readCentralDir(),this.readLocalFiles()}},b.exports=d},{"./arrayReader":1,"./nodeBufferReader":13,"./object":14,"./signature":15,"./stringReader":16,"./support":18,"./uint8ArrayReader":19,"./utils":22,"./zipEntry":24}],24:[function(a,b,c){"use strict";function d(a,b){this.options=a,this.loadOptions=b}var e=a("./stringReader"),f=a("./utils"),g=a("./compressedObject"),h=a("./object"),i=a("./support"),j=0,k=3;d.prototype={isEncrypted:function(){return 1===(1&this.bitFlag)},useUTF8:function(){return 2048===(2048&this.bitFlag)},prepareCompressedContent:function(a,b,c){return function(){var d=a.index;a.setIndex(b);var e=a.readData(c);return a.setIndex(d),e}},prepareContent:function(a,b,c,d,e){return function(){var a=f.transformTo(d.uncompressInputType,this.getCompressedContent()),b=d.uncompress(a);if(b.length!==e)throw new Error("Bug : uncompressed data size mismatch");return b}},readLocalPart:function(a){var b,c;if(a.skip(22),this.fileNameLength=a.readInt(2),c=a.readInt(2),this.fileName=a.readData(this.fileNameLength),a.skip(c),this.compressedSize==-1||this.uncompressedSize==-1)throw new Error("Bug or corrupted zip : didn't get enough informations from the central directory (compressedSize == -1 || uncompressedSize == -1)");if(b=f.findCompression(this.compressionMethod),null===b)throw new Error("Corrupted zip : compression "+f.pretty(this.compressionMethod)+" unknown (inner file : "+f.transformTo("string",this.fileName)+")");if(this.decompressed=new g,this.decompressed.compressedSize=this.compressedSize,this.decompressed.uncompressedSize=this.uncompressedSize,this.decompressed.crc32=this.crc32,this.decompressed.compressionMethod=this.compressionMethod,this.decompressed.getCompressedContent=this.prepareCompressedContent(a,a.index,this.compressedSize,b),this.decompressed.getContent=this.prepareContent(a,a.index,this.compressedSize,b,this.uncompressedSize),this.loadOptions.checkCRC32&&(this.decompressed=f.transformTo("string",this.decompressed.getContent()),h.crc32(this.decompressed)!==this.crc32))throw new Error("Corrupted zip : CRC32 mismatch");
 },readCentralPart:function(a){if(this.versionMadeBy=a.readInt(2),this.versionNeeded=a.readInt(2),this.bitFlag=a.readInt(2),this.compressionMethod=a.readString(2),this.date=a.readDate(),this.crc32=a.readInt(4),this.compressedSize=a.readInt(4),this.uncompressedSize=a.readInt(4),this.fileNameLength=a.readInt(2),this.extraFieldsLength=a.readInt(2),this.fileCommentLength=a.readInt(2),this.diskNumberStart=a.readInt(2),this.internalFileAttributes=a.readInt(2),this.externalFileAttributes=a.readInt(4),this.localHeaderOffset=a.readInt(4),this.isEncrypted())throw new Error("Encrypted zip are not supported");this.fileName=a.readData(this.fileNameLength),this.readExtraFields(a),this.parseZIP64ExtraField(a),this.fileComment=a.readData(this.fileCommentLength)},processAttributes:function(){this.unixPermissions=null,this.dosPermissions=null;var a=this.versionMadeBy>>8;this.dir=!!(16&this.externalFileAttributes),a===j&&(this.dosPermissions=63&this.externalFileAttributes),a===k&&(this.unixPermissions=this.externalFileAttributes>>16&65535),this.dir||"/"!==this.fileNameStr.slice(-1)||(this.dir=!0)},parseZIP64ExtraField:function(a){if(this.extraFields[1]){var b=new e(this.extraFields[1].value);this.uncompressedSize===f.MAX_VALUE_32BITS&&(this.uncompressedSize=b.readInt(8)),this.compressedSize===f.MAX_VALUE_32BITS&&(this.compressedSize=b.readInt(8)),this.localHeaderOffset===f.MAX_VALUE_32BITS&&(this.localHeaderOffset=b.readInt(8)),this.diskNumberStart===f.MAX_VALUE_32BITS&&(this.diskNumberStart=b.readInt(4))}},readExtraFields:function(a){var b,c,d,e=a.index;for(this.extraFields=this.extraFields||{};a.index<e+this.extraFieldsLength;)b=a.readInt(2),c=a.readInt(2),d=a.readString(c),this.extraFields[b]={id:b,length:c,value:d}},handleUTF8:function(){var a=i.uint8array?"uint8array":"array";if(this.useUTF8())this.fileNameStr=h.utf8decode(this.fileName),this.fileCommentStr=h.utf8decode(this.fileComment);else{var b=this.findExtraFieldUnicodePath();if(null!==b)this.fileNameStr=b;else{var c=f.transformTo(a,this.fileName);this.fileNameStr=this.loadOptions.decodeFileName(c)}var d=this.findExtraFieldUnicodeComment();if(null!==d)this.fileCommentStr=d;else{var e=f.transformTo(a,this.fileComment);this.fileCommentStr=this.loadOptions.decodeFileName(e)}}},findExtraFieldUnicodePath:function(){var a=this.extraFields[28789];if(a){var b=new e(a.value);return 1!==b.readInt(1)?null:h.crc32(this.fileName)!==b.readInt(4)?null:h.utf8decode(b.readString(a.length-5))}return null},findExtraFieldUnicodeComment:function(){var a=this.extraFields[25461];if(a){var b=new e(a.value);return 1!==b.readInt(1)?null:h.crc32(this.fileComment)!==b.readInt(4)?null:h.utf8decode(b.readString(a.length-5))}return null}},b.exports=d},{"./compressedObject":3,"./object":14,"./stringReader":16,"./support":18,"./utils":22}],25:[function(a,b,c){"use strict";var d=a("./lib/utils/common").assign,e=a("./lib/deflate"),f=a("./lib/inflate"),g=a("./lib/zlib/constants"),h={};d(h,e,f,g),b.exports=h},{"./lib/deflate":26,"./lib/inflate":27,"./lib/utils/common":28,"./lib/zlib/constants":31}],26:[function(a,b,c){"use strict";function d(a){if(!(this instanceof d))return new d(a);this.options=i.assign({level:s,method:u,chunkSize:16384,windowBits:15,memLevel:8,strategy:t,to:""},a||{});var b=this.options;b.raw&&b.windowBits>0?b.windowBits=-b.windowBits:b.gzip&&b.windowBits>0&&b.windowBits<16&&(b.windowBits+=16),this.err=0,this.msg="",this.ended=!1,this.chunks=[],this.strm=new l,this.strm.avail_out=0;var c=h.deflateInit2(this.strm,b.level,b.method,b.windowBits,b.memLevel,b.strategy);if(c!==p)throw new Error(k[c]);if(b.header&&h.deflateSetHeader(this.strm,b.header),b.dictionary){var e;if(e="string"==typeof b.dictionary?j.string2buf(b.dictionary):"[object ArrayBuffer]"===m.call(b.dictionary)?new Uint8Array(b.dictionary):b.dictionary,c=h.deflateSetDictionary(this.strm,e),c!==p)throw new Error(k[c]);this._dict_set=!0}}function e(a,b){var c=new d(b);if(c.push(a,!0),c.err)throw c.msg;return c.result}function f(a,b){return b=b||{},b.raw=!0,e(a,b)}function g(a,b){return b=b||{},b.gzip=!0,e(a,b)}var h=a("./zlib/deflate"),i=a("./utils/common"),j=a("./utils/strings"),k=a("./zlib/messages"),l=a("./zlib/zstream"),m=Object.prototype.toString,n=0,o=4,p=0,q=1,r=2,s=-1,t=0,u=8;d.prototype.push=function(a,b){var c,d,e=this.strm,f=this.options.chunkSize;if(this.ended)return!1;d=b===~~b?b:b===!0?o:n,"string"==typeof a?e.input=j.string2buf(a):"[object ArrayBuffer]"===m.call(a)?e.input=new Uint8Array(a):e.input=a,e.next_in=0,e.avail_in=e.input.length;do{if(0===e.avail_out&&(e.output=new i.Buf8(f),e.next_out=0,e.avail_out=f),c=h.deflate(e,d),c!==q&&c!==p)return this.onEnd(c),this.ended=!0,!1;0!==e.avail_out&&(0!==e.avail_in||d!==o&&d!==r)||("string"===this.options.to?this.onData(j.buf2binstring(i.shrinkBuf(e.output,e.next_out))):this.onData(i.shrinkBuf(e.output,e.next_out)))}while((e.avail_in>0||0===e.avail_out)&&c!==q);return d===o?(c=h.deflateEnd(this.strm),this.onEnd(c),this.ended=!0,c===p):d!==r||(this.onEnd(p),e.avail_out=0,!0)},d.prototype.onData=function(a){this.chunks.push(a)},d.prototype.onEnd=function(a){a===p&&("string"===this.options.to?this.result=this.chunks.join(""):this.result=i.flattenChunks(this.chunks)),this.chunks=[],this.err=a,this.msg=this.strm.msg},c.Deflate=d,c.deflate=e,c.deflateRaw=f,c.gzip=g},{"./utils/common":28,"./utils/strings":29,"./zlib/deflate":33,"./zlib/messages":38,"./zlib/zstream":40}],27:[function(a,b,c){"use strict";function d(a){if(!(this instanceof d))return new d(a);this.options=h.assign({chunkSize:16384,windowBits:0,to:""},a||{});var b=this.options;b.raw&&b.windowBits>=0&&b.windowBits<16&&(b.windowBits=-b.windowBits,0===b.windowBits&&(b.windowBits=-15)),!(b.windowBits>=0&&b.windowBits<16)||a&&a.windowBits||(b.windowBits+=32),b.windowBits>15&&b.windowBits<48&&0===(15&b.windowBits)&&(b.windowBits|=15),this.err=0,this.msg="",this.ended=!1,this.chunks=[],this.strm=new l,this.strm.avail_out=0;var c=g.inflateInit2(this.strm,b.windowBits);if(c!==j.Z_OK)throw new Error(k[c]);this.header=new m,g.inflateGetHeader(this.strm,this.header)}function e(a,b){var c=new d(b);if(c.push(a,!0),c.err)throw c.msg;return c.result}function f(a,b){return b=b||{},b.raw=!0,e(a,b)}var g=a("./zlib/inflate"),h=a("./utils/common"),i=a("./utils/strings"),j=a("./zlib/constants"),k=a("./zlib/messages"),l=a("./zlib/zstream"),m=a("./zlib/gzheader"),n=Object.prototype.toString;d.prototype.push=function(a,b){var c,d,e,f,k,l,m=this.strm,o=this.options.chunkSize,p=this.options.dictionary,q=!1;if(this.ended)return!1;d=b===~~b?b:b===!0?j.Z_FINISH:j.Z_NO_FLUSH,"string"==typeof a?m.input=i.binstring2buf(a):"[object ArrayBuffer]"===n.call(a)?m.input=new Uint8Array(a):m.input=a,m.next_in=0,m.avail_in=m.input.length;do{if(0===m.avail_out&&(m.output=new h.Buf8(o),m.next_out=0,m.avail_out=o),c=g.inflate(m,j.Z_NO_FLUSH),c===j.Z_NEED_DICT&&p&&(l="string"==typeof p?i.string2buf(p):"[object ArrayBuffer]"===n.call(p)?new Uint8Array(p):p,c=g.inflateSetDictionary(this.strm,l)),c===j.Z_BUF_ERROR&&q===!0&&(c=j.Z_OK,q=!1),c!==j.Z_STREAM_END&&c!==j.Z_OK)return this.onEnd(c),this.ended=!0,!1;m.next_out&&(0!==m.avail_out&&c!==j.Z_STREAM_END&&(0!==m.avail_in||d!==j.Z_FINISH&&d!==j.Z_SYNC_FLUSH)||("string"===this.options.to?(e=i.utf8border(m.output,m.next_out),f=m.next_out-e,k=i.buf2string(m.output,e),m.next_out=f,m.avail_out=o-f,f&&h.arraySet(m.output,m.output,e,f,0),this.onData(k)):this.onData(h.shrinkBuf(m.output,m.next_out)))),0===m.avail_in&&0===m.avail_out&&(q=!0)}while((m.avail_in>0||0===m.avail_out)&&c!==j.Z_STREAM_END);return c===j.Z_STREAM_END&&(d=j.Z_FINISH),d===j.Z_FINISH?(c=g.inflateEnd(this.strm),this.onEnd(c),this.ended=!0,c===j.Z_OK):d!==j.Z_SYNC_FLUSH||(this.onEnd(j.Z_OK),m.avail_out=0,!0)},d.prototype.onData=function(a){this.chunks.push(a)},d.prototype.onEnd=function(a){a===j.Z_OK&&("string"===this.options.to?this.result=this.chunks.join(""):this.result=h.flattenChunks(this.chunks)),this.chunks=[],this.err=a,this.msg=this.strm.msg},c.Inflate=d,c.inflate=e,c.inflateRaw=f,c.ungzip=e},{"./utils/common":28,"./utils/strings":29,"./zlib/constants":31,"./zlib/gzheader":34,"./zlib/inflate":36,"./zlib/messages":38,"./zlib/zstream":40}],28:[function(a,b,c){"use strict";var d="undefined"!=typeof Uint8Array&&"undefined"!=typeof Uint16Array&&"undefined"!=typeof Int32Array;c.assign=function(a){for(var b=Array.prototype.slice.call(arguments,1);b.length;){var c=b.shift();if(c){if("object"!=typeof c)throw new TypeError(c+"must be non-object");for(var d in c)c.hasOwnProperty(d)&&(a[d]=c[d])}}return a},c.shrinkBuf=function(a,b){return a.length===b?a:a.subarray?a.subarray(0,b):(a.length=b,a)};var e={arraySet:function(a,b,c,d,e){if(b.subarray&&a.subarray)return void a.set(b.subarray(c,c+d),e);for(var f=0;f<d;f++)a[e+f]=b[c+f]},flattenChunks:function(a){var b,c,d,e,f,g;for(d=0,b=0,c=a.length;b<c;b++)d+=a[b].length;for(g=new Uint8Array(d),e=0,b=0,c=a.length;b<c;b++)f=a[b],g.set(f,e),e+=f.length;return g}},f={arraySet:function(a,b,c,d,e){for(var f=0;f<d;f++)a[e+f]=b[c+f]},flattenChunks:function(a){return[].concat.apply([],a)}};c.setTyped=function(a){a?(c.Buf8=Uint8Array,c.Buf16=Uint16Array,c.Buf32=Int32Array,c.assign(c,e)):(c.Buf8=Array,c.Buf16=Array,c.Buf32=Array,c.assign(c,f))},c.setTyped(d)},{}],29:[function(a,b,c){"use strict";function d(a,b){if(b<65537&&(a.subarray&&g||!a.subarray&&f))return String.fromCharCode.apply(null,e.shrinkBuf(a,b));for(var c="",d=0;d<b;d++)c+=String.fromCharCode(a[d]);return c}var e=a("./common"),f=!0,g=!0;try{String.fromCharCode.apply(null,[0])}catch(h){f=!1}try{String.fromCharCode.apply(null,new Uint8Array(1))}catch(h){g=!1}for(var i=new e.Buf8(256),j=0;j<256;j++)i[j]=j>=252?6:j>=248?5:j>=240?4:j>=224?3:j>=192?2:1;i[254]=i[254]=1,c.string2buf=function(a){var b,c,d,f,g,h=a.length,i=0;for(f=0;f<h;f++)c=a.charCodeAt(f),55296===(64512&c)&&f+1<h&&(d=a.charCodeAt(f+1),56320===(64512&d)&&(c=65536+(c-55296<<10)+(d-56320),f++)),i+=c<128?1:c<2048?2:c<65536?3:4;for(b=new e.Buf8(i),g=0,f=0;g<i;f++)c=a.charCodeAt(f),55296===(64512&c)&&f+1<h&&(d=a.charCodeAt(f+1),56320===(64512&d)&&(c=65536+(c-55296<<10)+(d-56320),f++)),c<128?b[g++]=c:c<2048?(b[g++]=192|c>>>6,b[g++]=128|63&c):c<65536?(b[g++]=224|c>>>12,b[g++]=128|c>>>6&63,b[g++]=128|63&c):(b[g++]=240|c>>>18,b[g++]=128|c>>>12&63,b[g++]=128|c>>>6&63,b[g++]=128|63&c);return b},c.buf2binstring=function(a){return d(a,a.length)},c.binstring2buf=function(a){for(var b=new e.Buf8(a.length),c=0,d=b.length;c<d;c++)b[c]=a.charCodeAt(c);return b},c.buf2string=function(a,b){var c,e,f,g,h=b||a.length,j=new Array(2*h);for(e=0,c=0;c<h;)if(f=a[c++],f<128)j[e++]=f;else if(g=i[f],g>4)j[e++]=65533,c+=g-1;else{for(f&=2===g?31:3===g?15:7;g>1&&c<h;)f=f<<6|63&a[c++],g--;g>1?j[e++]=65533:f<65536?j[e++]=f:(f-=65536,j[e++]=55296|f>>10&1023,j[e++]=56320|1023&f)}return d(j,e)},c.utf8border=function(a,b){var c;for(b=b||a.length,b>a.length&&(b=a.length),c=b-1;c>=0&&128===(192&a[c]);)c--;return c<0?b:0===c?b:c+i[a[c]]>b?c:b}},{"./common":28}],30:[function(a,b,c){"use strict";function d(a,b,c,d){for(var e=65535&a|0,f=a>>>16&65535|0,g=0;0!==c;){g=c>2e3?2e3:c,c-=g;do e=e+b[d++]|0,f=f+e|0;while(--g);e%=65521,f%=65521}return e|f<<16|0}b.exports=d},{}],31:[function(a,b,c){"use strict";b.exports={Z_NO_FLUSH:0,Z_PARTIAL_FLUSH:1,Z_SYNC_FLUSH:2,Z_FULL_FLUSH:3,Z_FINISH:4,Z_BLOCK:5,Z_TREES:6,Z_OK:0,Z_STREAM_END:1,Z_NEED_DICT:2,Z_ERRNO:-1,Z_STREAM_ERROR:-2,Z_DATA_ERROR:-3,Z_BUF_ERROR:-5,Z_NO_COMPRESSION:0,Z_BEST_SPEED:1,Z_BEST_COMPRESSION:9,Z_DEFAULT_COMPRESSION:-1,Z_FILTERED:1,Z_HUFFMAN_ONLY:2,Z_RLE:3,Z_FIXED:4,Z_DEFAULT_STRATEGY:0,Z_BINARY:0,Z_TEXT:1,Z_UNKNOWN:2,Z_DEFLATED:8}},{}],32:[function(a,b,c){"use strict";function d(){for(var a,b=[],c=0;c<256;c++){a=c;for(var d=0;d<8;d++)a=1&a?3988292384^a>>>1:a>>>1;b[c]=a}return b}function e(a,b,c,d){var e=f,g=d+c;a^=-1;for(var h=d;h<g;h++)a=a>>>8^e[255&(a^b[h])];return a^-1}var f=d();b.exports=e},{}],33:[function(a,b,c){"use strict";function d(a,b){return a.msg=I[b],b}function e(a){return(a<<1)-(a>4?9:0)}function f(a){for(var b=a.length;--b>=0;)a[b]=0}function g(a){var b=a.state,c=b.pending;c>a.avail_out&&(c=a.avail_out),0!==c&&(E.arraySet(a.output,b.pending_buf,b.pending_out,c,a.next_out),a.next_out+=c,b.pending_out+=c,a.total_out+=c,a.avail_out-=c,b.pending-=c,0===b.pending&&(b.pending_out=0))}function h(a,b){F._tr_flush_block(a,a.block_start>=0?a.block_start:-1,a.strstart-a.block_start,b),a.block_start=a.strstart,g(a.strm)}function i(a,b){a.pending_buf[a.pending++]=b}function j(a,b){a.pending_buf[a.pending++]=b>>>8&255,a.pending_buf[a.pending++]=255&b}function k(a,b,c,d){var e=a.avail_in;return e>d&&(e=d),0===e?0:(a.avail_in-=e,E.arraySet(b,a.input,a.next_in,e,c),1===a.state.wrap?a.adler=G(a.adler,b,e,c):2===a.state.wrap&&(a.adler=H(a.adler,b,e,c)),a.next_in+=e,a.total_in+=e,e)}function l(a,b){var c,d,e=a.max_chain_length,f=a.strstart,g=a.prev_length,h=a.nice_match,i=a.strstart>a.w_size-la?a.strstart-(a.w_size-la):0,j=a.window,k=a.w_mask,l=a.prev,m=a.strstart+ka,n=j[f+g-1],o=j[f+g];a.prev_length>=a.good_match&&(e>>=2),h>a.lookahead&&(h=a.lookahead);do if(c=b,j[c+g]===o&&j[c+g-1]===n&&j[c]===j[f]&&j[++c]===j[f+1]){f+=2,c++;do;while(j[++f]===j[++c]&&j[++f]===j[++c]&&j[++f]===j[++c]&&j[++f]===j[++c]&&j[++f]===j[++c]&&j[++f]===j[++c]&&j[++f]===j[++c]&&j[++f]===j[++c]&&f<m);if(d=ka-(m-f),f=m-ka,d>g){if(a.match_start=b,g=d,d>=h)break;n=j[f+g-1],o=j[f+g]}}while((b=l[b&k])>i&&0!==--e);return g<=a.lookahead?g:a.lookahead}function m(a){var b,c,d,e,f,g=a.w_size;do{if(e=a.window_size-a.lookahead-a.strstart,a.strstart>=g+(g-la)){E.arraySet(a.window,a.window,g,g,0),a.match_start-=g,a.strstart-=g,a.block_start-=g,c=a.hash_size,b=c;do d=a.head[--b],a.head[b]=d>=g?d-g:0;while(--c);c=g,b=c;do d=a.prev[--b],a.prev[b]=d>=g?d-g:0;while(--c);e+=g}if(0===a.strm.avail_in)break;if(c=k(a.strm,a.window,a.strstart+a.lookahead,e),a.lookahead+=c,a.lookahead+a.insert>=ja)for(f=a.strstart-a.insert,a.ins_h=a.window[f],a.ins_h=(a.ins_h<<a.hash_shift^a.window[f+1])&a.hash_mask;a.insert&&(a.ins_h=(a.ins_h<<a.hash_shift^a.window[f+ja-1])&a.hash_mask,a.prev[f&a.w_mask]=a.head[a.ins_h],a.head[a.ins_h]=f,f++,a.insert--,!(a.lookahead+a.insert<ja)););}while(a.lookahead<la&&0!==a.strm.avail_in)}function n(a,b){var c=65535;for(c>a.pending_buf_size-5&&(c=a.pending_buf_size-5);;){if(a.lookahead<=1){if(m(a),0===a.lookahead&&b===J)return ua;if(0===a.lookahead)break}a.strstart+=a.lookahead,a.lookahead=0;var d=a.block_start+c;if((0===a.strstart||a.strstart>=d)&&(a.lookahead=a.strstart-d,a.strstart=d,h(a,!1),0===a.strm.avail_out))return ua;if(a.strstart-a.block_start>=a.w_size-la&&(h(a,!1),0===a.strm.avail_out))return ua}return a.insert=0,b===M?(h(a,!0),0===a.strm.avail_out?wa:xa):a.strstart>a.block_start&&(h(a,!1),0===a.strm.avail_out)?ua:ua}function o(a,b){for(var c,d;;){if(a.lookahead<la){if(m(a),a.lookahead<la&&b===J)return ua;if(0===a.lookahead)break}if(c=0,a.lookahead>=ja&&(a.ins_h=(a.ins_h<<a.hash_shift^a.window[a.strstart+ja-1])&a.hash_mask,c=a.prev[a.strstart&a.w_mask]=a.head[a.ins_h],a.head[a.ins_h]=a.strstart),0!==c&&a.strstart-c<=a.w_size-la&&(a.match_length=l(a,c)),a.match_length>=ja)if(d=F._tr_tally(a,a.strstart-a.match_start,a.match_length-ja),a.lookahead-=a.match_length,a.match_length<=a.max_lazy_match&&a.lookahead>=ja){a.match_length--;do a.strstart++,a.ins_h=(a.ins_h<<a.hash_shift^a.window[a.strstart+ja-1])&a.hash_mask,c=a.prev[a.strstart&a.w_mask]=a.head[a.ins_h],a.head[a.ins_h]=a.strstart;while(0!==--a.match_length);a.strstart++}else a.strstart+=a.match_length,a.match_length=0,a.ins_h=a.window[a.strstart],a.ins_h=(a.ins_h<<a.hash_shift^a.window[a.strstart+1])&a.hash_mask;else d=F._tr_tally(a,0,a.window[a.strstart]),a.lookahead--,a.strstart++;if(d&&(h(a,!1),0===a.strm.avail_out))return ua}return a.insert=a.strstart<ja-1?a.strstart:ja-1,b===M?(h(a,!0),0===a.strm.avail_out?wa:xa):a.last_lit&&(h(a,!1),0===a.strm.avail_out)?ua:va}function p(a,b){for(var c,d,e;;){if(a.lookahead<la){if(m(a),a.lookahead<la&&b===J)return ua;if(0===a.lookahead)break}if(c=0,a.lookahead>=ja&&(a.ins_h=(a.ins_h<<a.hash_shift^a.window[a.strstart+ja-1])&a.hash_mask,c=a.prev[a.strstart&a.w_mask]=a.head[a.ins_h],a.head[a.ins_h]=a.strstart),a.prev_length=a.match_length,a.prev_match=a.match_start,a.match_length=ja-1,0!==c&&a.prev_length<a.max_lazy_match&&a.strstart-c<=a.w_size-la&&(a.match_length=l(a,c),a.match_length<=5&&(a.strategy===U||a.match_length===ja&&a.strstart-a.match_start>4096)&&(a.match_length=ja-1)),a.prev_length>=ja&&a.match_length<=a.prev_length){e=a.strstart+a.lookahead-ja,d=F._tr_tally(a,a.strstart-1-a.prev_match,a.prev_length-ja),a.lookahead-=a.prev_length-1,a.prev_length-=2;do++a.strstart<=e&&(a.ins_h=(a.ins_h<<a.hash_shift^a.window[a.strstart+ja-1])&a.hash_mask,c=a.prev[a.strstart&a.w_mask]=a.head[a.ins_h],a.head[a.ins_h]=a.strstart);while(0!==--a.prev_length);if(a.match_available=0,a.match_length=ja-1,a.strstart++,d&&(h(a,!1),0===a.strm.avail_out))return ua}else if(a.match_available){if(d=F._tr_tally(a,0,a.window[a.strstart-1]),d&&h(a,!1),a.strstart++,a.lookahead--,0===a.strm.avail_out)return ua}else a.match_available=1,a.strstart++,a.lookahead--}return a.match_available&&(d=F._tr_tally(a,0,a.window[a.strstart-1]),a.match_available=0),a.insert=a.strstart<ja-1?a.strstart:ja-1,b===M?(h(a,!0),0===a.strm.avail_out?wa:xa):a.last_lit&&(h(a,!1),0===a.strm.avail_out)?ua:va}function q(a,b){for(var c,d,e,f,g=a.window;;){if(a.lookahead<=ka){if(m(a),a.lookahead<=ka&&b===J)return ua;if(0===a.lookahead)break}if(a.match_length=0,a.lookahead>=ja&&a.strstart>0&&(e=a.strstart-1,d=g[e],d===g[++e]&&d===g[++e]&&d===g[++e])){f=a.strstart+ka;do;while(d===g[++e]&&d===g[++e]&&d===g[++e]&&d===g[++e]&&d===g[++e]&&d===g[++e]&&d===g[++e]&&d===g[++e]&&e<f);a.match_length=ka-(f-e),a.match_length>a.lookahead&&(a.match_length=a.lookahead)}if(a.match_length>=ja?(c=F._tr_tally(a,1,a.match_length-ja),a.lookahead-=a.match_length,a.strstart+=a.match_length,a.match_length=0):(c=F._tr_tally(a,0,a.window[a.strstart]),a.lookahead--,a.strstart++),c&&(h(a,!1),0===a.strm.avail_out))return ua}return a.insert=0,b===M?(h(a,!0),0===a.strm.avail_out?wa:xa):a.last_lit&&(h(a,!1),0===a.strm.avail_out)?ua:va}function r(a,b){for(var c;;){if(0===a.lookahead&&(m(a),0===a.lookahead)){if(b===J)return ua;break}if(a.match_length=0,c=F._tr_tally(a,0,a.window[a.strstart]),a.lookahead--,a.strstart++,c&&(h(a,!1),0===a.strm.avail_out))return ua}return a.insert=0,b===M?(h(a,!0),0===a.strm.avail_out?wa:xa):a.last_lit&&(h(a,!1),0===a.strm.avail_out)?ua:va}function s(a,b,c,d,e){this.good_length=a,this.max_lazy=b,this.nice_length=c,this.max_chain=d,this.func=e}function t(a){a.window_size=2*a.w_size,f(a.head),a.max_lazy_match=D[a.level].max_lazy,a.good_match=D[a.level].good_length,a.nice_match=D[a.level].nice_length,a.max_chain_length=D[a.level].max_chain,a.strstart=0,a.block_start=0,a.lookahead=0,a.insert=0,a.match_length=a.prev_length=ja-1,a.match_available=0,a.ins_h=0}function u(){this.strm=null,this.status=0,this.pending_buf=null,this.pending_buf_size=0,this.pending_out=0,this.pending=0,this.wrap=0,this.gzhead=null,this.gzindex=0,this.method=$,this.last_flush=-1,this.w_size=0,this.w_bits=0,this.w_mask=0,this.window=null,this.window_size=0,this.prev=null,this.head=null,this.ins_h=0,this.hash_size=0,this.hash_bits=0,this.hash_mask=0,this.hash_shift=0,this.block_start=0,this.match_length=0,this.prev_match=0,this.match_available=0,this.strstart=0,this.match_start=0,this.lookahead=0,this.prev_length=0,this.max_chain_length=0,this.max_lazy_match=0,this.level=0,this.strategy=0,this.good_match=0,this.nice_match=0,this.dyn_ltree=new E.Buf16(2*ha),this.dyn_dtree=new E.Buf16(2*(2*fa+1)),this.bl_tree=new E.Buf16(2*(2*ga+1)),f(this.dyn_ltree),f(this.dyn_dtree),f(this.bl_tree),this.l_desc=null,this.d_desc=null,this.bl_desc=null,this.bl_count=new E.Buf16(ia+1),this.heap=new E.Buf16(2*ea+1),f(this.heap),this.heap_len=0,this.heap_max=0,this.depth=new E.Buf16(2*ea+1),f(this.depth),this.l_buf=0,this.lit_bufsize=0,this.last_lit=0,this.d_buf=0,this.opt_len=0,this.static_len=0,this.matches=0,this.insert=0,this.bi_buf=0,this.bi_valid=0}function v(a){var b;return a&&a.state?(a.total_in=a.total_out=0,a.data_type=Z,b=a.state,b.pending=0,b.pending_out=0,b.wrap<0&&(b.wrap=-b.wrap),b.status=b.wrap?na:sa,a.adler=2===b.wrap?0:1,b.last_flush=J,F._tr_init(b),O):d(a,Q)}function w(a){var b=v(a);return b===O&&t(a.state),b}function x(a,b){return a&&a.state?2!==a.state.wrap?Q:(a.state.gzhead=b,O):Q}function y(a,b,c,e,f,g){if(!a)return Q;var h=1;if(b===T&&(b=6),e<0?(h=0,e=-e):e>15&&(h=2,e-=16),f<1||f>_||c!==$||e<8||e>15||b<0||b>9||g<0||g>X)return d(a,Q);8===e&&(e=9);var i=new u;return a.state=i,i.strm=a,i.wrap=h,i.gzhead=null,i.w_bits=e,i.w_size=1<<i.w_bits,i.w_mask=i.w_size-1,i.hash_bits=f+7,i.hash_size=1<<i.hash_bits,i.hash_mask=i.hash_size-1,i.hash_shift=~~((i.hash_bits+ja-1)/ja),i.window=new E.Buf8(2*i.w_size),i.head=new E.Buf16(i.hash_size),i.prev=new E.Buf16(i.w_size),i.lit_bufsize=1<<f+6,i.pending_buf_size=4*i.lit_bufsize,i.pending_buf=new E.Buf8(i.pending_buf_size),i.d_buf=1*i.lit_bufsize,i.l_buf=3*i.lit_bufsize,i.level=b,i.strategy=g,i.method=c,w(a)}function z(a,b){return y(a,b,$,aa,ba,Y)}function A(a,b){var c,h,k,l;if(!a||!a.state||b>N||b<0)return a?d(a,Q):Q;if(h=a.state,!a.output||!a.input&&0!==a.avail_in||h.status===ta&&b!==M)return d(a,0===a.avail_out?S:Q);if(h.strm=a,c=h.last_flush,h.last_flush=b,h.status===na)if(2===h.wrap)a.adler=0,i(h,31),i(h,139),i(h,8),h.gzhead?(i(h,(h.gzhead.text?1:0)+(h.gzhead.hcrc?2:0)+(h.gzhead.extra?4:0)+(h.gzhead.name?8:0)+(h.gzhead.comment?16:0)),i(h,255&h.gzhead.time),i(h,h.gzhead.time>>8&255),i(h,h.gzhead.time>>16&255),i(h,h.gzhead.time>>24&255),i(h,9===h.level?2:h.strategy>=V||h.level<2?4:0),i(h,255&h.gzhead.os),h.gzhead.extra&&h.gzhead.extra.length&&(i(h,255&h.gzhead.extra.length),i(h,h.gzhead.extra.length>>8&255)),h.gzhead.hcrc&&(a.adler=H(a.adler,h.pending_buf,h.pending,0)),h.gzindex=0,h.status=oa):(i(h,0),i(h,0),i(h,0),i(h,0),i(h,0),i(h,9===h.level?2:h.strategy>=V||h.level<2?4:0),i(h,ya),h.status=sa);else{var m=$+(h.w_bits-8<<4)<<8,n=-1;n=h.strategy>=V||h.level<2?0:h.level<6?1:6===h.level?2:3,m|=n<<6,0!==h.strstart&&(m|=ma),m+=31-m%31,h.status=sa,j(h,m),0!==h.strstart&&(j(h,a.adler>>>16),j(h,65535&a.adler)),a.adler=1}if(h.status===oa)if(h.gzhead.extra){for(k=h.pending;h.gzindex<(65535&h.gzhead.extra.length)&&(h.pending!==h.pending_buf_size||(h.gzhead.hcrc&&h.pending>k&&(a.adler=H(a.adler,h.pending_buf,h.pending-k,k)),g(a),k=h.pending,h.pending!==h.pending_buf_size));)i(h,255&h.gzhead.extra[h.gzindex]),h.gzindex++;h.gzhead.hcrc&&h.pending>k&&(a.adler=H(a.adler,h.pending_buf,h.pending-k,k)),h.gzindex===h.gzhead.extra.length&&(h.gzindex=0,h.status=pa)}else h.status=pa;if(h.status===pa)if(h.gzhead.name){k=h.pending;do{if(h.pending===h.pending_buf_size&&(h.gzhead.hcrc&&h.pending>k&&(a.adler=H(a.adler,h.pending_buf,h.pending-k,k)),g(a),k=h.pending,h.pending===h.pending_buf_size)){l=1;break}l=h.gzindex<h.gzhead.name.length?255&h.gzhead.name.charCodeAt(h.gzindex++):0,i(h,l)}while(0!==l);h.gzhead.hcrc&&h.pending>k&&(a.adler=H(a.adler,h.pending_buf,h.pending-k,k)),0===l&&(h.gzindex=0,h.status=qa)}else h.status=qa;if(h.status===qa)if(h.gzhead.comment){k=h.pending;do{if(h.pending===h.pending_buf_size&&(h.gzhead.hcrc&&h.pending>k&&(a.adler=H(a.adler,h.pending_buf,h.pending-k,k)),g(a),k=h.pending,h.pending===h.pending_buf_size)){l=1;break}l=h.gzindex<h.gzhead.comment.length?255&h.gzhead.comment.charCodeAt(h.gzindex++):0,i(h,l)}while(0!==l);h.gzhead.hcrc&&h.pending>k&&(a.adler=H(a.adler,h.pending_buf,h.pending-k,k)),0===l&&(h.status=ra)}else h.status=ra;if(h.status===ra&&(h.gzhead.hcrc?(h.pending+2>h.pending_buf_size&&g(a),h.pending+2<=h.pending_buf_size&&(i(h,255&a.adler),i(h,a.adler>>8&255),a.adler=0,h.status=sa)):h.status=sa),0!==h.pending){if(g(a),0===a.avail_out)return h.last_flush=-1,O}else if(0===a.avail_in&&e(b)<=e(c)&&b!==M)return d(a,S);if(h.status===ta&&0!==a.avail_in)return d(a,S);if(0!==a.avail_in||0!==h.lookahead||b!==J&&h.status!==ta){var o=h.strategy===V?r(h,b):h.strategy===W?q(h,b):D[h.level].func(h,b);if(o!==wa&&o!==xa||(h.status=ta),o===ua||o===wa)return 0===a.avail_out&&(h.last_flush=-1),O;if(o===va&&(b===K?F._tr_align(h):b!==N&&(F._tr_stored_block(h,0,0,!1),b===L&&(f(h.head),0===h.lookahead&&(h.strstart=0,h.block_start=0,h.insert=0))),g(a),0===a.avail_out))return h.last_flush=-1,O}return b!==M?O:h.wrap<=0?P:(2===h.wrap?(i(h,255&a.adler),i(h,a.adler>>8&255),i(h,a.adler>>16&255),i(h,a.adler>>24&255),i(h,255&a.total_in),i(h,a.total_in>>8&255),i(h,a.total_in>>16&255),i(h,a.total_in>>24&255)):(j(h,a.adler>>>16),j(h,65535&a.adler)),g(a),h.wrap>0&&(h.wrap=-h.wrap),0!==h.pending?O:P)}function B(a){var b;return a&&a.state?(b=a.state.status,b!==na&&b!==oa&&b!==pa&&b!==qa&&b!==ra&&b!==sa&&b!==ta?d(a,Q):(a.state=null,b===sa?d(a,R):O)):Q}function C(a,b){var c,d,e,g,h,i,j,k,l=b.length;if(!a||!a.state)return Q;if(c=a.state,g=c.wrap,2===g||1===g&&c.status!==na||c.lookahead)return Q;for(1===g&&(a.adler=G(a.adler,b,l,0)),c.wrap=0,l>=c.w_size&&(0===g&&(f(c.head),c.strstart=0,c.block_start=0,c.insert=0),k=new E.Buf8(c.w_size),E.arraySet(k,b,l-c.w_size,c.w_size,0),b=k,l=c.w_size),h=a.avail_in,i=a.next_in,j=a.input,a.avail_in=l,a.next_in=0,a.input=b,m(c);c.lookahead>=ja;){d=c.strstart,e=c.lookahead-(ja-1);do c.ins_h=(c.ins_h<<c.hash_shift^c.window[d+ja-1])&c.hash_mask,c.prev[d&c.w_mask]=c.head[c.ins_h],c.head[c.ins_h]=d,d++;while(--e);c.strstart=d,c.lookahead=ja-1,m(c)}return c.strstart+=c.lookahead,c.block_start=c.strstart,c.insert=c.lookahead,c.lookahead=0,c.match_length=c.prev_length=ja-1,c.match_available=0,a.next_in=i,a.input=j,a.avail_in=h,c.wrap=g,O}var D,E=a("../utils/common"),F=a("./trees"),G=a("./adler32"),H=a("./crc32"),I=a("./messages"),J=0,K=1,L=3,M=4,N=5,O=0,P=1,Q=-2,R=-3,S=-5,T=-1,U=1,V=2,W=3,X=4,Y=0,Z=2,$=8,_=9,aa=15,ba=8,ca=29,da=256,ea=da+1+ca,fa=30,ga=19,ha=2*ea+1,ia=15,ja=3,ka=258,la=ka+ja+1,ma=32,na=42,oa=69,pa=73,qa=91,ra=103,sa=113,ta=666,ua=1,va=2,wa=3,xa=4,ya=3;D=[new s(0,0,0,0,n),new s(4,4,8,4,o),new s(4,5,16,8,o),new s(4,6,32,32,o),new s(4,4,16,16,p),new s(8,16,32,32,p),new s(8,16,128,128,p),new s(8,32,128,256,p),new s(32,128,258,1024,p),new s(32,258,258,4096,p)],c.deflateInit=z,c.deflateInit2=y,c.deflateReset=w,c.deflateResetKeep=v,c.deflateSetHeader=x,c.deflate=A,c.deflateEnd=B,c.deflateSetDictionary=C,c.deflateInfo="pako deflate (from Nodeca project)"},{"../utils/common":28,"./adler32":30,"./crc32":32,"./messages":38,"./trees":39}],34:[function(a,b,c){"use strict";function d(){this.text=0,this.time=0,this.xflags=0,this.os=0,this.extra=null,this.extra_len=0,this.name="",this.comment="",this.hcrc=0,this.done=!1}b.exports=d},{}],35:[function(a,b,c){"use strict";var d=30,e=12;b.exports=function(a,b){var c,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,A,B,C;c=a.state,f=a.next_in,B=a.input,g=f+(a.avail_in-5),h=a.next_out,C=a.output,i=h-(b-a.avail_out),j=h+(a.avail_out-257),k=c.dmax,l=c.wsize,m=c.whave,n=c.wnext,o=c.window,p=c.hold,q=c.bits,r=c.lencode,s=c.distcode,t=(1<<c.lenbits)-1,u=(1<<c.distbits)-1;a:do{q<15&&(p+=B[f++]<<q,q+=8,p+=B[f++]<<q,q+=8),v=r[p&t];b:for(;;){if(w=v>>>24,p>>>=w,q-=w,w=v>>>16&255,0===w)C[h++]=65535&v;else{if(!(16&w)){if(0===(64&w)){v=r[(65535&v)+(p&(1<<w)-1)];continue b}if(32&w){c.mode=e;break a}a.msg="invalid literal/length code",c.mode=d;break a}x=65535&v,w&=15,w&&(q<w&&(p+=B[f++]<<q,q+=8),x+=p&(1<<w)-1,p>>>=w,q-=w),q<15&&(p+=B[f++]<<q,q+=8,p+=B[f++]<<q,q+=8),v=s[p&u];c:for(;;){if(w=v>>>24,p>>>=w,q-=w,w=v>>>16&255,!(16&w)){if(0===(64&w)){v=s[(65535&v)+(p&(1<<w)-1)];continue c}a.msg="invalid distance code",c.mode=d;break a}if(y=65535&v,w&=15,q<w&&(p+=B[f++]<<q,q+=8,q<w&&(p+=B[f++]<<q,q+=8)),y+=p&(1<<w)-1,y>k){a.msg="invalid distance too far back",c.mode=d;break a}if(p>>>=w,q-=w,w=h-i,y>w){if(w=y-w,w>m&&c.sane){a.msg="invalid distance too far back",c.mode=d;break a}if(z=0,A=o,0===n){if(z+=l-w,w<x){x-=w;do C[h++]=o[z++];while(--w);z=h-y,A=C}}else if(n<w){if(z+=l+n-w,w-=n,w<x){x-=w;do C[h++]=o[z++];while(--w);if(z=0,n<x){w=n,x-=w;do C[h++]=o[z++];while(--w);z=h-y,A=C}}}else if(z+=n-w,w<x){x-=w;do C[h++]=o[z++];while(--w);z=h-y,A=C}for(;x>2;)C[h++]=A[z++],C[h++]=A[z++],C[h++]=A[z++],x-=3;x&&(C[h++]=A[z++],x>1&&(C[h++]=A[z++]))}else{z=h-y;do C[h++]=C[z++],C[h++]=C[z++],C[h++]=C[z++],x-=3;while(x>2);x&&(C[h++]=C[z++],x>1&&(C[h++]=C[z++]))}break}}break}}while(f<g&&h<j);x=q>>3,f-=x,q-=x<<3,p&=(1<<q)-1,a.next_in=f,a.next_out=h,a.avail_in=f<g?5+(g-f):5-(f-g),a.avail_out=h<j?257+(j-h):257-(h-j),c.hold=p,c.bits=q}},{}],36:[function(a,b,c){"use strict";function d(a){return(a>>>24&255)+(a>>>8&65280)+((65280&a)<<8)+((255&a)<<24)}function e(){this.mode=0,this.last=!1,this.wrap=0,this.havedict=!1,this.flags=0,this.dmax=0,this.check=0,this.total=0,this.head=null,this.wbits=0,this.wsize=0,this.whave=0,this.wnext=0,this.window=null,this.hold=0,this.bits=0,this.length=0,this.offset=0,this.extra=0,this.lencode=null,this.distcode=null,this.lenbits=0,this.distbits=0,this.ncode=0,this.nlen=0,this.ndist=0,this.have=0,this.next=null,this.lens=new s.Buf16(320),this.work=new s.Buf16(288),this.lendyn=null,this.distdyn=null,this.sane=0,this.back=0,this.was=0}function f(a){var b;return a&&a.state?(b=a.state,a.total_in=a.total_out=b.total=0,a.msg="",b.wrap&&(a.adler=1&b.wrap),b.mode=L,b.last=0,b.havedict=0,b.dmax=32768,b.head=null,b.hold=0,b.bits=0,b.lencode=b.lendyn=new s.Buf32(pa),b.distcode=b.distdyn=new s.Buf32(qa),b.sane=1,b.back=-1,D):G}function g(a){var b;return a&&a.state?(b=a.state,b.wsize=0,b.whave=0,b.wnext=0,f(a)):G}function h(a,b){var c,d;return a&&a.state?(d=a.state,b<0?(c=0,b=-b):(c=(b>>4)+1,b<48&&(b&=15)),b&&(b<8||b>15)?G:(null!==d.window&&d.wbits!==b&&(d.window=null),d.wrap=c,d.wbits=b,g(a))):G}function i(a,b){var c,d;return a?(d=new e,a.state=d,d.window=null,c=h(a,b),c!==D&&(a.state=null),c):G}function j(a){return i(a,sa)}function k(a){if(ta){var b;for(q=new s.Buf32(512),r=new s.Buf32(32),b=0;b<144;)a.lens[b++]=8;for(;b<256;)a.lens[b++]=9;for(;b<280;)a.lens[b++]=7;for(;b<288;)a.lens[b++]=8;for(w(y,a.lens,0,288,q,0,a.work,{bits:9}),b=0;b<32;)a.lens[b++]=5;w(z,a.lens,0,32,r,0,a.work,{bits:5}),ta=!1}a.lencode=q,a.lenbits=9,a.distcode=r,a.distbits=5}function l(a,b,c,d){var e,f=a.state;return null===f.window&&(f.wsize=1<<f.wbits,f.wnext=0,f.whave=0,f.window=new s.Buf8(f.wsize)),d>=f.wsize?(s.arraySet(f.window,b,c-f.wsize,f.wsize,0),f.wnext=0,f.whave=f.wsize):(e=f.wsize-f.wnext,e>d&&(e=d),s.arraySet(f.window,b,c-d,e,f.wnext),d-=e,d?(s.arraySet(f.window,b,c-d,d,0),f.wnext=d,f.whave=f.wsize):(f.wnext+=e,f.wnext===f.wsize&&(f.wnext=0),f.whave<f.wsize&&(f.whave+=e))),0}function m(a,b){var c,e,f,g,h,i,j,m,n,o,p,q,r,pa,qa,ra,sa,ta,ua,va,wa,xa,ya,za,Aa=0,Ba=new s.Buf8(4),Ca=[16,17,18,0,8,7,9,6,10,5,11,4,12,3,13,2,14,1,15];if(!a||!a.state||!a.output||!a.input&&0!==a.avail_in)return G;c=a.state,c.mode===W&&(c.mode=X),h=a.next_out,f=a.output,j=a.avail_out,g=a.next_in,e=a.input,i=a.avail_in,m=c.hold,n=c.bits,o=i,p=j,xa=D;a:for(;;)switch(c.mode){case L:if(0===c.wrap){c.mode=X;break}for(;n<16;){if(0===i)break a;i--,m+=e[g++]<<n,n+=8}if(2&c.wrap&&35615===m){c.check=0,Ba[0]=255&m,Ba[1]=m>>>8&255,c.check=u(c.check,Ba,2,0),m=0,n=0,c.mode=M;break}if(c.flags=0,c.head&&(c.head.done=!1),!(1&c.wrap)||(((255&m)<<8)+(m>>8))%31){a.msg="incorrect header check",c.mode=ma;break}if((15&m)!==K){a.msg="unknown compression method",c.mode=ma;break}if(m>>>=4,n-=4,wa=(15&m)+8,0===c.wbits)c.wbits=wa;else if(wa>c.wbits){a.msg="invalid window size",c.mode=ma;break}c.dmax=1<<wa,a.adler=c.check=1,c.mode=512&m?U:W,m=0,n=0;break;case M:for(;n<16;){if(0===i)break a;i--,m+=e[g++]<<n,n+=8}if(c.flags=m,(255&c.flags)!==K){a.msg="unknown compression method",c.mode=ma;break}if(57344&c.flags){a.msg="unknown header flags set",c.mode=ma;break}c.head&&(c.head.text=m>>8&1),512&c.flags&&(Ba[0]=255&m,Ba[1]=m>>>8&255,c.check=u(c.check,Ba,2,0)),m=0,n=0,c.mode=N;case N:for(;n<32;){if(0===i)break a;i--,m+=e[g++]<<n,n+=8}c.head&&(c.head.time=m),512&c.flags&&(Ba[0]=255&m,Ba[1]=m>>>8&255,Ba[2]=m>>>16&255,Ba[3]=m>>>24&255,c.check=u(c.check,Ba,4,0)),m=0,n=0,c.mode=O;case O:for(;n<16;){if(0===i)break a;i--,m+=e[g++]<<n,
 n+=8}c.head&&(c.head.xflags=255&m,c.head.os=m>>8),512&c.flags&&(Ba[0]=255&m,Ba[1]=m>>>8&255,c.check=u(c.check,Ba,2,0)),m=0,n=0,c.mode=P;case P:if(1024&c.flags){for(;n<16;){if(0===i)break a;i--,m+=e[g++]<<n,n+=8}c.length=m,c.head&&(c.head.extra_len=m),512&c.flags&&(Ba[0]=255&m,Ba[1]=m>>>8&255,c.check=u(c.check,Ba,2,0)),m=0,n=0}else c.head&&(c.head.extra=null);c.mode=Q;case Q:if(1024&c.flags&&(q=c.length,q>i&&(q=i),q&&(c.head&&(wa=c.head.extra_len-c.length,c.head.extra||(c.head.extra=new Array(c.head.extra_len)),s.arraySet(c.head.extra,e,g,q,wa)),512&c.flags&&(c.check=u(c.check,e,q,g)),i-=q,g+=q,c.length-=q),c.length))break a;c.length=0,c.mode=R;case R:if(2048&c.flags){if(0===i)break a;q=0;do wa=e[g+q++],c.head&&wa&&c.length<65536&&(c.head.name+=String.fromCharCode(wa));while(wa&&q<i);if(512&c.flags&&(c.check=u(c.check,e,q,g)),i-=q,g+=q,wa)break a}else c.head&&(c.head.name=null);c.length=0,c.mode=S;case S:if(4096&c.flags){if(0===i)break a;q=0;do wa=e[g+q++],c.head&&wa&&c.length<65536&&(c.head.comment+=String.fromCharCode(wa));while(wa&&q<i);if(512&c.flags&&(c.check=u(c.check,e,q,g)),i-=q,g+=q,wa)break a}else c.head&&(c.head.comment=null);c.mode=T;case T:if(512&c.flags){for(;n<16;){if(0===i)break a;i--,m+=e[g++]<<n,n+=8}if(m!==(65535&c.check)){a.msg="header crc mismatch",c.mode=ma;break}m=0,n=0}c.head&&(c.head.hcrc=c.flags>>9&1,c.head.done=!0),a.adler=c.check=0,c.mode=W;break;case U:for(;n<32;){if(0===i)break a;i--,m+=e[g++]<<n,n+=8}a.adler=c.check=d(m),m=0,n=0,c.mode=V;case V:if(0===c.havedict)return a.next_out=h,a.avail_out=j,a.next_in=g,a.avail_in=i,c.hold=m,c.bits=n,F;a.adler=c.check=1,c.mode=W;case W:if(b===B||b===C)break a;case X:if(c.last){m>>>=7&n,n-=7&n,c.mode=ja;break}for(;n<3;){if(0===i)break a;i--,m+=e[g++]<<n,n+=8}switch(c.last=1&m,m>>>=1,n-=1,3&m){case 0:c.mode=Y;break;case 1:if(k(c),c.mode=ca,b===C){m>>>=2,n-=2;break a}break;case 2:c.mode=_;break;case 3:a.msg="invalid block type",c.mode=ma}m>>>=2,n-=2;break;case Y:for(m>>>=7&n,n-=7&n;n<32;){if(0===i)break a;i--,m+=e[g++]<<n,n+=8}if((65535&m)!==(m>>>16^65535)){a.msg="invalid stored block lengths",c.mode=ma;break}if(c.length=65535&m,m=0,n=0,c.mode=Z,b===C)break a;case Z:c.mode=$;case $:if(q=c.length){if(q>i&&(q=i),q>j&&(q=j),0===q)break a;s.arraySet(f,e,g,q,h),i-=q,g+=q,j-=q,h+=q,c.length-=q;break}c.mode=W;break;case _:for(;n<14;){if(0===i)break a;i--,m+=e[g++]<<n,n+=8}if(c.nlen=(31&m)+257,m>>>=5,n-=5,c.ndist=(31&m)+1,m>>>=5,n-=5,c.ncode=(15&m)+4,m>>>=4,n-=4,c.nlen>286||c.ndist>30){a.msg="too many length or distance symbols",c.mode=ma;break}c.have=0,c.mode=aa;case aa:for(;c.have<c.ncode;){for(;n<3;){if(0===i)break a;i--,m+=e[g++]<<n,n+=8}c.lens[Ca[c.have++]]=7&m,m>>>=3,n-=3}for(;c.have<19;)c.lens[Ca[c.have++]]=0;if(c.lencode=c.lendyn,c.lenbits=7,ya={bits:c.lenbits},xa=w(x,c.lens,0,19,c.lencode,0,c.work,ya),c.lenbits=ya.bits,xa){a.msg="invalid code lengths set",c.mode=ma;break}c.have=0,c.mode=ba;case ba:for(;c.have<c.nlen+c.ndist;){for(;Aa=c.lencode[m&(1<<c.lenbits)-1],qa=Aa>>>24,ra=Aa>>>16&255,sa=65535&Aa,!(qa<=n);){if(0===i)break a;i--,m+=e[g++]<<n,n+=8}if(sa<16)m>>>=qa,n-=qa,c.lens[c.have++]=sa;else{if(16===sa){for(za=qa+2;n<za;){if(0===i)break a;i--,m+=e[g++]<<n,n+=8}if(m>>>=qa,n-=qa,0===c.have){a.msg="invalid bit length repeat",c.mode=ma;break}wa=c.lens[c.have-1],q=3+(3&m),m>>>=2,n-=2}else if(17===sa){for(za=qa+3;n<za;){if(0===i)break a;i--,m+=e[g++]<<n,n+=8}m>>>=qa,n-=qa,wa=0,q=3+(7&m),m>>>=3,n-=3}else{for(za=qa+7;n<za;){if(0===i)break a;i--,m+=e[g++]<<n,n+=8}m>>>=qa,n-=qa,wa=0,q=11+(127&m),m>>>=7,n-=7}if(c.have+q>c.nlen+c.ndist){a.msg="invalid bit length repeat",c.mode=ma;break}for(;q--;)c.lens[c.have++]=wa}}if(c.mode===ma)break;if(0===c.lens[256]){a.msg="invalid code -- missing end-of-block",c.mode=ma;break}if(c.lenbits=9,ya={bits:c.lenbits},xa=w(y,c.lens,0,c.nlen,c.lencode,0,c.work,ya),c.lenbits=ya.bits,xa){a.msg="invalid literal/lengths set",c.mode=ma;break}if(c.distbits=6,c.distcode=c.distdyn,ya={bits:c.distbits},xa=w(z,c.lens,c.nlen,c.ndist,c.distcode,0,c.work,ya),c.distbits=ya.bits,xa){a.msg="invalid distances set",c.mode=ma;break}if(c.mode=ca,b===C)break a;case ca:c.mode=da;case da:if(i>=6&&j>=258){a.next_out=h,a.avail_out=j,a.next_in=g,a.avail_in=i,c.hold=m,c.bits=n,v(a,p),h=a.next_out,f=a.output,j=a.avail_out,g=a.next_in,e=a.input,i=a.avail_in,m=c.hold,n=c.bits,c.mode===W&&(c.back=-1);break}for(c.back=0;Aa=c.lencode[m&(1<<c.lenbits)-1],qa=Aa>>>24,ra=Aa>>>16&255,sa=65535&Aa,!(qa<=n);){if(0===i)break a;i--,m+=e[g++]<<n,n+=8}if(ra&&0===(240&ra)){for(ta=qa,ua=ra,va=sa;Aa=c.lencode[va+((m&(1<<ta+ua)-1)>>ta)],qa=Aa>>>24,ra=Aa>>>16&255,sa=65535&Aa,!(ta+qa<=n);){if(0===i)break a;i--,m+=e[g++]<<n,n+=8}m>>>=ta,n-=ta,c.back+=ta}if(m>>>=qa,n-=qa,c.back+=qa,c.length=sa,0===ra){c.mode=ia;break}if(32&ra){c.back=-1,c.mode=W;break}if(64&ra){a.msg="invalid literal/length code",c.mode=ma;break}c.extra=15&ra,c.mode=ea;case ea:if(c.extra){for(za=c.extra;n<za;){if(0===i)break a;i--,m+=e[g++]<<n,n+=8}c.length+=m&(1<<c.extra)-1,m>>>=c.extra,n-=c.extra,c.back+=c.extra}c.was=c.length,c.mode=fa;case fa:for(;Aa=c.distcode[m&(1<<c.distbits)-1],qa=Aa>>>24,ra=Aa>>>16&255,sa=65535&Aa,!(qa<=n);){if(0===i)break a;i--,m+=e[g++]<<n,n+=8}if(0===(240&ra)){for(ta=qa,ua=ra,va=sa;Aa=c.distcode[va+((m&(1<<ta+ua)-1)>>ta)],qa=Aa>>>24,ra=Aa>>>16&255,sa=65535&Aa,!(ta+qa<=n);){if(0===i)break a;i--,m+=e[g++]<<n,n+=8}m>>>=ta,n-=ta,c.back+=ta}if(m>>>=qa,n-=qa,c.back+=qa,64&ra){a.msg="invalid distance code",c.mode=ma;break}c.offset=sa,c.extra=15&ra,c.mode=ga;case ga:if(c.extra){for(za=c.extra;n<za;){if(0===i)break a;i--,m+=e[g++]<<n,n+=8}c.offset+=m&(1<<c.extra)-1,m>>>=c.extra,n-=c.extra,c.back+=c.extra}if(c.offset>c.dmax){a.msg="invalid distance too far back",c.mode=ma;break}c.mode=ha;case ha:if(0===j)break a;if(q=p-j,c.offset>q){if(q=c.offset-q,q>c.whave&&c.sane){a.msg="invalid distance too far back",c.mode=ma;break}q>c.wnext?(q-=c.wnext,r=c.wsize-q):r=c.wnext-q,q>c.length&&(q=c.length),pa=c.window}else pa=f,r=h-c.offset,q=c.length;q>j&&(q=j),j-=q,c.length-=q;do f[h++]=pa[r++];while(--q);0===c.length&&(c.mode=da);break;case ia:if(0===j)break a;f[h++]=c.length,j--,c.mode=da;break;case ja:if(c.wrap){for(;n<32;){if(0===i)break a;i--,m|=e[g++]<<n,n+=8}if(p-=j,a.total_out+=p,c.total+=p,p&&(a.adler=c.check=c.flags?u(c.check,f,p,h-p):t(c.check,f,p,h-p)),p=j,(c.flags?m:d(m))!==c.check){a.msg="incorrect data check",c.mode=ma;break}m=0,n=0}c.mode=ka;case ka:if(c.wrap&&c.flags){for(;n<32;){if(0===i)break a;i--,m+=e[g++]<<n,n+=8}if(m!==(4294967295&c.total)){a.msg="incorrect length check",c.mode=ma;break}m=0,n=0}c.mode=la;case la:xa=E;break a;case ma:xa=H;break a;case na:return I;case oa:default:return G}return a.next_out=h,a.avail_out=j,a.next_in=g,a.avail_in=i,c.hold=m,c.bits=n,(c.wsize||p!==a.avail_out&&c.mode<ma&&(c.mode<ja||b!==A))&&l(a,a.output,a.next_out,p-a.avail_out)?(c.mode=na,I):(o-=a.avail_in,p-=a.avail_out,a.total_in+=o,a.total_out+=p,c.total+=p,c.wrap&&p&&(a.adler=c.check=c.flags?u(c.check,f,p,a.next_out-p):t(c.check,f,p,a.next_out-p)),a.data_type=c.bits+(c.last?64:0)+(c.mode===W?128:0)+(c.mode===ca||c.mode===Z?256:0),(0===o&&0===p||b===A)&&xa===D&&(xa=J),xa)}function n(a){if(!a||!a.state)return G;var b=a.state;return b.window&&(b.window=null),a.state=null,D}function o(a,b){var c;return a&&a.state?(c=a.state,0===(2&c.wrap)?G:(c.head=b,b.done=!1,D)):G}function p(a,b){var c,d,e,f=b.length;return a&&a.state?(c=a.state,0!==c.wrap&&c.mode!==V?G:c.mode===V&&(d=1,d=t(d,b,f,0),d!==c.check)?H:(e=l(a,b,f,f))?(c.mode=na,I):(c.havedict=1,D)):G}var q,r,s=a("../utils/common"),t=a("./adler32"),u=a("./crc32"),v=a("./inffast"),w=a("./inftrees"),x=0,y=1,z=2,A=4,B=5,C=6,D=0,E=1,F=2,G=-2,H=-3,I=-4,J=-5,K=8,L=1,M=2,N=3,O=4,P=5,Q=6,R=7,S=8,T=9,U=10,V=11,W=12,X=13,Y=14,Z=15,$=16,_=17,aa=18,ba=19,ca=20,da=21,ea=22,fa=23,ga=24,ha=25,ia=26,ja=27,ka=28,la=29,ma=30,na=31,oa=32,pa=852,qa=592,ra=15,sa=ra,ta=!0;c.inflateReset=g,c.inflateReset2=h,c.inflateResetKeep=f,c.inflateInit=j,c.inflateInit2=i,c.inflate=m,c.inflateEnd=n,c.inflateGetHeader=o,c.inflateSetDictionary=p,c.inflateInfo="pako inflate (from Nodeca project)"},{"../utils/common":28,"./adler32":30,"./crc32":32,"./inffast":35,"./inftrees":37}],37:[function(a,b,c){"use strict";var d=a("../utils/common"),e=15,f=852,g=592,h=0,i=1,j=2,k=[3,4,5,6,7,8,9,10,11,13,15,17,19,23,27,31,35,43,51,59,67,83,99,115,131,163,195,227,258,0,0],l=[16,16,16,16,16,16,16,16,17,17,17,17,18,18,18,18,19,19,19,19,20,20,20,20,21,21,21,21,16,72,78],m=[1,2,3,4,5,7,9,13,17,25,33,49,65,97,129,193,257,385,513,769,1025,1537,2049,3073,4097,6145,8193,12289,16385,24577,0,0],n=[16,16,16,16,17,17,18,18,19,19,20,20,21,21,22,22,23,23,24,24,25,25,26,26,27,27,28,28,29,29,64,64];b.exports=function(a,b,c,o,p,q,r,s){var t,u,v,w,x,y,z,A,B,C=s.bits,D=0,E=0,F=0,G=0,H=0,I=0,J=0,K=0,L=0,M=0,N=null,O=0,P=new d.Buf16(e+1),Q=new d.Buf16(e+1),R=null,S=0;for(D=0;D<=e;D++)P[D]=0;for(E=0;E<o;E++)P[b[c+E]]++;for(H=C,G=e;G>=1&&0===P[G];G--);if(H>G&&(H=G),0===G)return p[q++]=20971520,p[q++]=20971520,s.bits=1,0;for(F=1;F<G&&0===P[F];F++);for(H<F&&(H=F),K=1,D=1;D<=e;D++)if(K<<=1,K-=P[D],K<0)return-1;if(K>0&&(a===h||1!==G))return-1;for(Q[1]=0,D=1;D<e;D++)Q[D+1]=Q[D]+P[D];for(E=0;E<o;E++)0!==b[c+E]&&(r[Q[b[c+E]]++]=E);if(a===h?(N=R=r,y=19):a===i?(N=k,O-=257,R=l,S-=257,y=256):(N=m,R=n,y=-1),M=0,E=0,D=F,x=q,I=H,J=0,v=-1,L=1<<H,w=L-1,a===i&&L>f||a===j&&L>g)return 1;for(var T=0;;){T++,z=D-J,r[E]<y?(A=0,B=r[E]):r[E]>y?(A=R[S+r[E]],B=N[O+r[E]]):(A=96,B=0),t=1<<D-J,u=1<<I,F=u;do u-=t,p[x+(M>>J)+u]=z<<24|A<<16|B|0;while(0!==u);for(t=1<<D-1;M&t;)t>>=1;if(0!==t?(M&=t-1,M+=t):M=0,E++,0===--P[D]){if(D===G)break;D=b[c+r[E]]}if(D>H&&(M&w)!==v){for(0===J&&(J=H),x+=F,I=D-J,K=1<<I;I+J<G&&(K-=P[I+J],!(K<=0));)I++,K<<=1;if(L+=1<<I,a===i&&L>f||a===j&&L>g)return 1;v=M&w,p[v]=H<<24|I<<16|x-q|0}}return 0!==M&&(p[x+M]=D-J<<24|64<<16|0),s.bits=H,0}},{"../utils/common":28}],38:[function(a,b,c){"use strict";b.exports={2:"need dictionary",1:"stream end",0:"","-1":"file error","-2":"stream error","-3":"data error","-4":"insufficient memory","-5":"buffer error","-6":"incompatible version"}},{}],39:[function(a,b,c){"use strict";function d(a){for(var b=a.length;--b>=0;)a[b]=0}function e(a,b,c,d,e){this.static_tree=a,this.extra_bits=b,this.extra_base=c,this.elems=d,this.max_length=e,this.has_stree=a&&a.length}function f(a,b){this.dyn_tree=a,this.max_code=0,this.stat_desc=b}function g(a){return a<256?ia[a]:ia[256+(a>>>7)]}function h(a,b){a.pending_buf[a.pending++]=255&b,a.pending_buf[a.pending++]=b>>>8&255}function i(a,b,c){a.bi_valid>X-c?(a.bi_buf|=b<<a.bi_valid&65535,h(a,a.bi_buf),a.bi_buf=b>>X-a.bi_valid,a.bi_valid+=c-X):(a.bi_buf|=b<<a.bi_valid&65535,a.bi_valid+=c)}function j(a,b,c){i(a,c[2*b],c[2*b+1])}function k(a,b){var c=0;do c|=1&a,a>>>=1,c<<=1;while(--b>0);return c>>>1}function l(a){16===a.bi_valid?(h(a,a.bi_buf),a.bi_buf=0,a.bi_valid=0):a.bi_valid>=8&&(a.pending_buf[a.pending++]=255&a.bi_buf,a.bi_buf>>=8,a.bi_valid-=8)}function m(a,b){var c,d,e,f,g,h,i=b.dyn_tree,j=b.max_code,k=b.stat_desc.static_tree,l=b.stat_desc.has_stree,m=b.stat_desc.extra_bits,n=b.stat_desc.extra_base,o=b.stat_desc.max_length,p=0;for(f=0;f<=W;f++)a.bl_count[f]=0;for(i[2*a.heap[a.heap_max]+1]=0,c=a.heap_max+1;c<V;c++)d=a.heap[c],f=i[2*i[2*d+1]+1]+1,f>o&&(f=o,p++),i[2*d+1]=f,d>j||(a.bl_count[f]++,g=0,d>=n&&(g=m[d-n]),h=i[2*d],a.opt_len+=h*(f+g),l&&(a.static_len+=h*(k[2*d+1]+g)));if(0!==p){do{for(f=o-1;0===a.bl_count[f];)f--;a.bl_count[f]--,a.bl_count[f+1]+=2,a.bl_count[o]--,p-=2}while(p>0);for(f=o;0!==f;f--)for(d=a.bl_count[f];0!==d;)e=a.heap[--c],e>j||(i[2*e+1]!==f&&(a.opt_len+=(f-i[2*e+1])*i[2*e],i[2*e+1]=f),d--)}}function n(a,b,c){var d,e,f=new Array(W+1),g=0;for(d=1;d<=W;d++)f[d]=g=g+c[d-1]<<1;for(e=0;e<=b;e++){var h=a[2*e+1];0!==h&&(a[2*e]=k(f[h]++,h))}}function o(){var a,b,c,d,f,g=new Array(W+1);for(c=0,d=0;d<Q-1;d++)for(ka[d]=c,a=0;a<1<<ba[d];a++)ja[c++]=d;for(ja[c-1]=d,f=0,d=0;d<16;d++)for(la[d]=f,a=0;a<1<<ca[d];a++)ia[f++]=d;for(f>>=7;d<T;d++)for(la[d]=f<<7,a=0;a<1<<ca[d]-7;a++)ia[256+f++]=d;for(b=0;b<=W;b++)g[b]=0;for(a=0;a<=143;)ga[2*a+1]=8,a++,g[8]++;for(;a<=255;)ga[2*a+1]=9,a++,g[9]++;for(;a<=279;)ga[2*a+1]=7,a++,g[7]++;for(;a<=287;)ga[2*a+1]=8,a++,g[8]++;for(n(ga,S+1,g),a=0;a<T;a++)ha[2*a+1]=5,ha[2*a]=k(a,5);ma=new e(ga,ba,R+1,S,W),na=new e(ha,ca,0,T,W),oa=new e(new Array(0),da,0,U,Y)}function p(a){var b;for(b=0;b<S;b++)a.dyn_ltree[2*b]=0;for(b=0;b<T;b++)a.dyn_dtree[2*b]=0;for(b=0;b<U;b++)a.bl_tree[2*b]=0;a.dyn_ltree[2*Z]=1,a.opt_len=a.static_len=0,a.last_lit=a.matches=0}function q(a){a.bi_valid>8?h(a,a.bi_buf):a.bi_valid>0&&(a.pending_buf[a.pending++]=a.bi_buf),a.bi_buf=0,a.bi_valid=0}function r(a,b,c,d){q(a),d&&(h(a,c),h(a,~c)),G.arraySet(a.pending_buf,a.window,b,c,a.pending),a.pending+=c}function s(a,b,c,d){var e=2*b,f=2*c;return a[e]<a[f]||a[e]===a[f]&&d[b]<=d[c]}function t(a,b,c){for(var d=a.heap[c],e=c<<1;e<=a.heap_len&&(e<a.heap_len&&s(b,a.heap[e+1],a.heap[e],a.depth)&&e++,!s(b,d,a.heap[e],a.depth));)a.heap[c]=a.heap[e],c=e,e<<=1;a.heap[c]=d}function u(a,b,c){var d,e,f,h,k=0;if(0!==a.last_lit)do d=a.pending_buf[a.d_buf+2*k]<<8|a.pending_buf[a.d_buf+2*k+1],e=a.pending_buf[a.l_buf+k],k++,0===d?j(a,e,b):(f=ja[e],j(a,f+R+1,b),h=ba[f],0!==h&&(e-=ka[f],i(a,e,h)),d--,f=g(d),j(a,f,c),h=ca[f],0!==h&&(d-=la[f],i(a,d,h)));while(k<a.last_lit);j(a,Z,b)}function v(a,b){var c,d,e,f=b.dyn_tree,g=b.stat_desc.static_tree,h=b.stat_desc.has_stree,i=b.stat_desc.elems,j=-1;for(a.heap_len=0,a.heap_max=V,c=0;c<i;c++)0!==f[2*c]?(a.heap[++a.heap_len]=j=c,a.depth[c]=0):f[2*c+1]=0;for(;a.heap_len<2;)e=a.heap[++a.heap_len]=j<2?++j:0,f[2*e]=1,a.depth[e]=0,a.opt_len--,h&&(a.static_len-=g[2*e+1]);for(b.max_code=j,c=a.heap_len>>1;c>=1;c--)t(a,f,c);e=i;do c=a.heap[1],a.heap[1]=a.heap[a.heap_len--],t(a,f,1),d=a.heap[1],a.heap[--a.heap_max]=c,a.heap[--a.heap_max]=d,f[2*e]=f[2*c]+f[2*d],a.depth[e]=(a.depth[c]>=a.depth[d]?a.depth[c]:a.depth[d])+1,f[2*c+1]=f[2*d+1]=e,a.heap[1]=e++,t(a,f,1);while(a.heap_len>=2);a.heap[--a.heap_max]=a.heap[1],m(a,b),n(f,j,a.bl_count)}function w(a,b,c){var d,e,f=-1,g=b[1],h=0,i=7,j=4;for(0===g&&(i=138,j=3),b[2*(c+1)+1]=65535,d=0;d<=c;d++)e=g,g=b[2*(d+1)+1],++h<i&&e===g||(h<j?a.bl_tree[2*e]+=h:0!==e?(e!==f&&a.bl_tree[2*e]++,a.bl_tree[2*$]++):h<=10?a.bl_tree[2*_]++:a.bl_tree[2*aa]++,h=0,f=e,0===g?(i=138,j=3):e===g?(i=6,j=3):(i=7,j=4))}function x(a,b,c){var d,e,f=-1,g=b[1],h=0,k=7,l=4;for(0===g&&(k=138,l=3),d=0;d<=c;d++)if(e=g,g=b[2*(d+1)+1],!(++h<k&&e===g)){if(h<l){do j(a,e,a.bl_tree);while(0!==--h)}else 0!==e?(e!==f&&(j(a,e,a.bl_tree),h--),j(a,$,a.bl_tree),i(a,h-3,2)):h<=10?(j(a,_,a.bl_tree),i(a,h-3,3)):(j(a,aa,a.bl_tree),i(a,h-11,7));h=0,f=e,0===g?(k=138,l=3):e===g?(k=6,l=3):(k=7,l=4)}}function y(a){var b;for(w(a,a.dyn_ltree,a.l_desc.max_code),w(a,a.dyn_dtree,a.d_desc.max_code),v(a,a.bl_desc),b=U-1;b>=3&&0===a.bl_tree[2*ea[b]+1];b--);return a.opt_len+=3*(b+1)+5+5+4,b}function z(a,b,c,d){var e;for(i(a,b-257,5),i(a,c-1,5),i(a,d-4,4),e=0;e<d;e++)i(a,a.bl_tree[2*ea[e]+1],3);x(a,a.dyn_ltree,b-1),x(a,a.dyn_dtree,c-1)}function A(a){var b,c=4093624447;for(b=0;b<=31;b++,c>>>=1)if(1&c&&0!==a.dyn_ltree[2*b])return I;if(0!==a.dyn_ltree[18]||0!==a.dyn_ltree[20]||0!==a.dyn_ltree[26])return J;for(b=32;b<R;b++)if(0!==a.dyn_ltree[2*b])return J;return I}function B(a){pa||(o(),pa=!0),a.l_desc=new f(a.dyn_ltree,ma),a.d_desc=new f(a.dyn_dtree,na),a.bl_desc=new f(a.bl_tree,oa),a.bi_buf=0,a.bi_valid=0,p(a)}function C(a,b,c,d){i(a,(L<<1)+(d?1:0),3),r(a,b,c,!0)}function D(a){i(a,M<<1,3),j(a,Z,ga),l(a)}function E(a,b,c,d){var e,f,g=0;a.level>0?(a.strm.data_type===K&&(a.strm.data_type=A(a)),v(a,a.l_desc),v(a,a.d_desc),g=y(a),e=a.opt_len+3+7>>>3,f=a.static_len+3+7>>>3,f<=e&&(e=f)):e=f=c+5,c+4<=e&&b!==-1?C(a,b,c,d):a.strategy===H||f===e?(i(a,(M<<1)+(d?1:0),3),u(a,ga,ha)):(i(a,(N<<1)+(d?1:0),3),z(a,a.l_desc.max_code+1,a.d_desc.max_code+1,g+1),u(a,a.dyn_ltree,a.dyn_dtree)),p(a),d&&q(a)}function F(a,b,c){return a.pending_buf[a.d_buf+2*a.last_lit]=b>>>8&255,a.pending_buf[a.d_buf+2*a.last_lit+1]=255&b,a.pending_buf[a.l_buf+a.last_lit]=255&c,a.last_lit++,0===b?a.dyn_ltree[2*c]++:(a.matches++,b--,a.dyn_ltree[2*(ja[c]+R+1)]++,a.dyn_dtree[2*g(b)]++),a.last_lit===a.lit_bufsize-1}var G=a("../utils/common"),H=4,I=0,J=1,K=2,L=0,M=1,N=2,O=3,P=258,Q=29,R=256,S=R+1+Q,T=30,U=19,V=2*S+1,W=15,X=16,Y=7,Z=256,$=16,_=17,aa=18,ba=[0,0,0,0,0,0,0,0,1,1,1,1,2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,0],ca=[0,0,0,0,1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10,11,11,12,12,13,13],da=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,3,7],ea=[16,17,18,0,8,7,9,6,10,5,11,4,12,3,13,2,14,1,15],fa=512,ga=new Array(2*(S+2));d(ga);var ha=new Array(2*T);d(ha);var ia=new Array(fa);d(ia);var ja=new Array(P-O+1);d(ja);var ka=new Array(Q);d(ka);var la=new Array(T);d(la);var ma,na,oa,pa=!1;c._tr_init=B,c._tr_stored_block=C,c._tr_flush_block=E,c._tr_tally=F,c._tr_align=D},{"../utils/common":28}],40:[function(a,b,c){"use strict";function d(){this.input=null,this.next_in=0,this.avail_in=0,this.total_in=0,this.output=null,this.next_out=0,this.avail_out=0,this.total_out=0,this.msg="",this.state=null,this.data_type=2,this.adler=0}b.exports=d},{}]},{},[10])(10)});
 
 
-/***/ }),
+/***/ },
 
-/***/ 42674:
+/***/ 42674
 /*!******************************!*\
   !*** ./resources/Account.js ***!
   \******************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -85522,13 +86102,13 @@ class Account extends EventEmitter {
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new Account());
 
 
-/***/ }),
+/***/ },
 
-/***/ 34224:
+/***/ 34224
 /*!***********************************!*\
   !*** ./resources/Multilingual.js ***!
   \***********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -85749,22 +86329,22 @@ class Multilingual extends MLClass {
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new Multilingual());
 
 
-/***/ }),
+/***/ },
 
-/***/ 46147:
+/***/ 46147
 /*!******************************!*\
   !*** ./resources/Network.js ***!
   \******************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _utils_performance__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/performance */ 76431);
+/* harmony import */ var _utils_performance__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/performance */ 76431);
 /* harmony import */ var _NetworkRest__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./NetworkRest */ 82637);
-/* harmony import */ var _NetworkRestSocket__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NetworkRestSocket */ 39072);
+/* harmony import */ var _NetworkRestSocket__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./NetworkRestSocket */ 39072);
 /*
  * Network.js
  * A network manager for interfacing with our AppBuilder server.
@@ -85822,7 +86402,7 @@ class Network extends EventEmitter {
                break;
 
             case "socket":
-               this._network = new _NetworkRestSocket__WEBPACK_IMPORTED_MODULE_0__["default"](this);
+               this._network = new _NetworkRestSocket__WEBPACK_IMPORTED_MODULE_2__["default"](this);
                break;
 
             case "rest":
@@ -85986,7 +86566,7 @@ class Network extends EventEmitter {
             this._networkSlow = data;
             this.emit("networkslow", this._networkSlow);
             // Tell sentry our network speed changed
-            _utils_performance__WEBPACK_IMPORTED_MODULE_2__["default"].setContext("breadcrumb", {
+            _utils_performance__WEBPACK_IMPORTED_MODULE_0__["default"].setContext("breadcrumb", {
                category: "network",
                message: this._networkSlow
                   ? "Slow network detected"
@@ -86302,13 +86882,13 @@ class Network extends EventEmitter {
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new Network());
 
 
-/***/ }),
+/***/ },
 
-/***/ 82637:
+/***/ 82637
 /*!**********************************!*\
   !*** ./resources/NetworkRest.js ***!
   \**********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -86715,21 +87295,21 @@ class NetworkRest extends EventEmitter {
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (NetworkRest);
 
 
-/***/ }),
+/***/ },
 
-/***/ 39072:
+/***/ 39072
 /*!****************************************!*\
   !*** ./resources/NetworkRestSocket.js ***!
   \****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _utils_performance__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/performance */ 76431);
-/* harmony import */ var _NetworkRest__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NetworkRest */ 82637);
+/* harmony import */ var _utils_performance__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/performance */ 76431);
+/* harmony import */ var _NetworkRest__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./NetworkRest */ 82637);
 /*
  * NetworkRest.js
  * The base Networking class.  This class is responsible for job submissions
@@ -86877,7 +87457,7 @@ function blacklist(key, time = 1000) {
    }, time);
 }
 
-class NetworkRestSocket extends _NetworkRest__WEBPACK_IMPORTED_MODULE_0__["default"] {
+class NetworkRestSocket extends _NetworkRest__WEBPACK_IMPORTED_MODULE_1__["default"] {
    constructor(parent) {
       // {Network} parent
 
@@ -86930,12 +87510,12 @@ class NetworkRestSocket extends _NetworkRest__WEBPACK_IMPORTED_MODULE_0__["defau
                         }
 
                         let jobID = this.AB.jobID();
-                        _utils_performance__WEBPACK_IMPORTED_MODULE_1__["default"].mark(`${ev}:normalization`, {
+                        _utils_performance__WEBPACK_IMPORTED_MODULE_0__["default"].mark(`${ev}:normalization`, {
                            op: "function",
                            data: { jobID },
                         });
                         model.normalizeData(data.data);
-                        _utils_performance__WEBPACK_IMPORTED_MODULE_1__["default"].measure(`${ev}:normalization`);
+                        _utils_performance__WEBPACK_IMPORTED_MODULE_0__["default"].measure(`${ev}:normalization`);
                      }
                   }
                }
@@ -86973,7 +87553,7 @@ class NetworkRestSocket extends _NetworkRest__WEBPACK_IMPORTED_MODULE_0__["defau
             /https?:\/\/[^/]+(\/[^?]+)\??(.*)/
          );
          route = route.replace(/\b[a-fA-F\d-]{36}\b/g, ":ID");
-         _utils_performance__WEBPACK_IMPORTED_MODULE_1__["default"].mark(route, {
+         _utils_performance__WEBPACK_IMPORTED_MODULE_0__["default"].mark(route, {
             op: "websocket.client",
             data: {
                http: {
@@ -87027,9 +87607,9 @@ class NetworkRestSocket extends _NetworkRest__WEBPACK_IMPORTED_MODULE_0__["defau
                }
 
                if (typeof data == "string") {
-                  _utils_performance__WEBPACK_IMPORTED_MODULE_1__["default"].mark("JSON.parse", { op: "serialize" });
+                  _utils_performance__WEBPACK_IMPORTED_MODULE_0__["default"].mark("JSON.parse", { op: "serialize" });
                   data = JSON.parse(data);
-                  _utils_performance__WEBPACK_IMPORTED_MODULE_1__["default"].measure("JSON.parse");
+                  _utils_performance__WEBPACK_IMPORTED_MODULE_0__["default"].measure("JSON.parse");
                }
 
                // Got a JSON response but was the service response an error?
@@ -87043,7 +87623,7 @@ class NetworkRestSocket extends _NetworkRest__WEBPACK_IMPORTED_MODULE_0__["defau
                }
                // Success!
                else {
-                  _utils_performance__WEBPACK_IMPORTED_MODULE_1__["default"].measure(route);
+                  _utils_performance__WEBPACK_IMPORTED_MODULE_0__["default"].measure(route);
                   resolve(data);
                }
             }
@@ -87055,13 +87635,13 @@ class NetworkRestSocket extends _NetworkRest__WEBPACK_IMPORTED_MODULE_0__["defau
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (NetworkRestSocket);
 
 
-/***/ }),
+/***/ },
 
-/***/ 97112:
+/***/ 97112
 /*!******************************!*\
   !*** ./resources/Storage.js ***!
   \******************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -87124,13 +87704,13 @@ class Storage extends EventEmitter {
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new Storage());
 
 
-/***/ }),
+/***/ },
 
-/***/ 72261:
+/***/ 72261
 /*!***********************************!*\
   !*** ./resources/StorageLocal.js ***!
   \***********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -87209,13 +87789,13 @@ class StorageLocal extends EventEmitter {
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new StorageLocal());
 
 
-/***/ }),
+/***/ },
 
-/***/ 38913:
+/***/ 38913
 /*!*****************************!*\
   !*** ./resources/Tenant.js ***!
   \*****************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -87280,13 +87860,13 @@ class Tenant extends EventEmitter {
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new Tenant());
 
 
-/***/ }),
+/***/ },
 
-/***/ 24468:
+/***/ 24468
 /*!***********************************************!*\
   !*** ./webix_custom_components/activelist.js ***!
   \***********************************************/
-/***/ ((module) => {
+(module) {
 
 /*
  * custom_activelist
@@ -87335,13 +87915,13 @@ module.exports = class ABCustomActiveList {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 47876:
+/***/ 47876
 /*!************************************************!*\
   !*** ./webix_custom_components/countfooter.js ***!
   \************************************************/
-/***/ ((module) => {
+(module) {
 
 /*
  * countfooter
@@ -87412,13 +87992,13 @@ module.exports = class ABCountFooter {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 70667:
+/***/ 70667
 /*!***********************************************************!*\
   !*** ./webix_custom_components/customComponentManager.js ***!
   \***********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /*
  * Custom Component Manager
@@ -87463,13 +88043,13 @@ module.exports = class ABCustomComponentManager {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 90149:
+/***/ 90149
 /*!***************************************************!*\
   !*** ./webix_custom_components/datetimepicker.js ***!
   \***************************************************/
-/***/ ((module) => {
+(module) {
 
 /*
  * custom_datetimepicker
@@ -87538,13 +88118,13 @@ module.exports = class ABCustomDateTimePicker {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 24334:
+/***/ 24334
 /*!*********************************************!*\
   !*** ./webix_custom_components/editlist.js ***!
   \*********************************************/
-/***/ ((module) => {
+(module) {
 
 /*
  * custom_editlist
@@ -87595,13 +88175,13 @@ module.exports = class ABCustomEditList {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 89162:
+/***/ 89162
 /*!*********************************************!*\
   !*** ./webix_custom_components/edittree.js ***!
   \*********************************************/
-/***/ ((module) => {
+(module) {
 
 /*
  * custom_edittree
@@ -87652,13 +88232,13 @@ module.exports = class ABCustomEditTree {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 14656:
+/***/ 14656
 /*!*************************************************!*\
   !*** ./webix_custom_components/editunitlist.js ***!
   \*************************************************/
-/***/ ((module) => {
+(module) {
 
 /*
  * custom_editunitlist
@@ -87709,13 +88289,13 @@ module.exports = class ABCustomEditUnitList {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 14038:
+/***/ 14038
 /*!******************************************************!*\
   !*** ./webix_custom_components/focusableTemplate.js ***!
   \******************************************************/
-/***/ ((module) => {
+(module) {
 
 /*
  * custom_activelist
@@ -87767,13 +88347,13 @@ module.exports = class ABCustomFocusableTemplate {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 98817:
+/***/ 98817
 /*!**************************************************!*\
   !*** ./webix_custom_components/formioBuilder.js ***!
   \**************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -87811,7 +88391,7 @@ class ABCustomFormBuilderBuilder extends (_lazyComponent_js__WEBPACK_IMPORTED_MO
     */
    async init() {
       if (this.initialized) return;
-      const { FormBuilder } = await Promise.all(/*! import() */[__webpack_require__.e("formio-init_formio_js"), __webpack_require__.e("vendor-vendors-node_modules_formio_bootstrap3_lib_index_js-node_modules_formio_choices_js_pub-32abf8")]).then(__webpack_require__.bind(__webpack_require__, /*! ../init/formio.js */ 13450));
+      const { FormBuilder } = await Promise.all(/*! import() */[__webpack_require__.e("formio-init_formio_js"), __webpack_require__.e("vendor-vendors-node_modules_formio_bootstrap3_lib_index_js-node_modules_formio_choices_js_pub-00ffbb")]).then(__webpack_require__.bind(__webpack_require__, /*! ../init/formio.js */ 13450));
       this.FormBuilder = FormBuilder;
       // Tell Webix to create an INSTANCE of our custom component:
       this.AB.Webix.protoUI(this.ui(), this.AB.Webix.ui.popup);
@@ -88121,13 +88701,13 @@ class ABCustomFormBuilderBuilder extends (_lazyComponent_js__WEBPACK_IMPORTED_MO
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 20978:
+/***/ 20978
 /*!**************************************************!*\
   !*** ./webix_custom_components/formioPreview.js ***!
   \**************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /*
  * formioBuilder
@@ -88145,7 +88725,7 @@ module.exports = class ABCustomFormIOPreview extends ABLazyCustomComponent {
 
    async init() {
       if (this.initialized) return;
-      const { Form } = await Promise.all(/*! import() */[__webpack_require__.e("formio-init_formio_js"), __webpack_require__.e("vendor-vendors-node_modules_formio_bootstrap3_lib_index_js-node_modules_formio_choices_js_pub-32abf8")]).then(__webpack_require__.bind(__webpack_require__, /*! ../init/formio.js */ 13450));
+      const { Form } = await Promise.all(/*! import() */[__webpack_require__.e("formio-init_formio_js"), __webpack_require__.e("vendor-vendors-node_modules_formio_bootstrap3_lib_index_js-node_modules_formio_choices_js_pub-00ffbb")]).then(__webpack_require__.bind(__webpack_require__, /*! ../init/formio.js */ 13450));
       // Our webix UI definition:
       var _ui = {
          name: this.key,
@@ -88217,13 +88797,13 @@ module.exports = class ABCustomFormIOPreview extends ABLazyCustomComponent {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 80621:
+/***/ 80621
 /*!**************************************************!*\
   !*** ./webix_custom_components/lazyComponent.js ***!
   \**************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /**
  * Base class for any custom webix component that we want to initalize lazily,
@@ -88262,13 +88842,13 @@ module.exports = class ABLazyCustomComponent extends ABEmitter {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 90212:
+/***/ 90212
 /*!***********************************************!*\
   !*** ./webix_custom_components/numbertext.js ***!
   \***********************************************/
-/***/ ((module) => {
+(module) {
 
 /*
  * numbertext
@@ -88329,13 +88909,13 @@ module.exports = class ABCustomNumberText {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 80354:
+/***/ 80354
 /*!*************************************************!*\
   !*** ./webix_custom_components/thaicalendar.js ***!
   \*************************************************/
-/***/ ((module) => {
+(module) {
 
 /*
  * Thai Calendar
@@ -88459,13 +89039,13 @@ module.exports = class ABCustomThaiCalendar {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 83425:
+/***/ 83425
 /*!***********************************************!*\
   !*** ./webix_custom_components/timepicker.js ***!
   \***********************************************/
-/***/ ((module) => {
+(module) {
 
 /*
  * custom_timepicker
@@ -88531,13 +89111,13 @@ module.exports = class ABCustomTimePicker {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 97541:
+/***/ 97541
 /*!********************************************!*\
   !*** ./webix_custom_components/tinyMce.js ***!
   \********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -88568,13 +89148,13 @@ class ABCustomTinyMCE extends (_lazyComponent_js__WEBPACK_IMPORTED_MODULE_0___de
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 50789:
+/***/ 50789
 /*!************************************************!*\
   !*** ./webix_custom_components/totalfooter.js ***!
   \************************************************/
-/***/ ((module) => {
+(module) {
 
 /*
  * totalfooter
@@ -88635,13 +89215,13 @@ module.exports = class ABTotalFooter {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 55846:
+/***/ 55846
 /*!************************************************!*\
   !*** ./webix_custom_components/treesuggest.js ***!
   \************************************************/
-/***/ ((module) => {
+(module) {
 
 /*
  * custom_editlist
@@ -88720,37 +89300,37 @@ module.exports = class ABCustomEditList {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 80236:
+/***/ 80236
 /*!********************!*\
   !*** fs (ignored) ***!
   \********************/
-/***/ (() => {
+() {
 
 /* (ignored) */
 
-/***/ }),
+/***/ },
 
-/***/ 88306:
+/***/ 88306
 /*!********************!*\
   !*** fs (ignored) ***!
   \********************/
-/***/ (() => {
+() {
 
 /* (ignored) */
 
-/***/ }),
+/***/ },
 
-/***/ 81258:
+/***/ 81258
 /*!**********************!*\
   !*** path (ignored) ***!
   \**********************/
-/***/ (() => {
+() {
 
 /* (ignored) */
 
-/***/ })
+/***/ }
 
 }]);
-//# sourceMappingURL=AB.73be4b03e3ccb6a148de.js.map
+//# sourceMappingURL=AB.a960484f9710183ec29d.js.map

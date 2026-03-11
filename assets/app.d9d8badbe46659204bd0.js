@@ -1,11 +1,11 @@
 "use strict";
 (self["webpackChunkab_platform_web"] = self["webpackChunkab_platform_web"] || []).push([["app"],{
 
-/***/ 9866:
+/***/ 9866
 /*!*************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js?url=false!./js/webix/components/gantt/gantt.min.css ***!
   \*************************************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -25,13 +25,13 @@ ___CSS_LOADER_EXPORT___.push([module.id, "@charset \"UTF-8\";.webix_gantt_tree .
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
 
-/***/ }),
+/***/ },
 
-/***/ 6428:
+/***/ 6428
 /*!*******************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js?url=false!./js/webix/components/hint/hint.css ***!
   \*******************************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -51,13 +51,13 @@ ___CSS_LOADER_EXPORT___.push([module.id, ".webix_hint_view.webix_hint_animated .
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
 
-/***/ }),
+/***/ },
 
-/***/ 33550:
+/***/ 33550
 /*!*************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js?url=false!./js/webix/components/query/query.min.css ***!
   \*************************************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -77,13 +77,13 @@ ___CSS_LOADER_EXPORT___.push([module.id, ".wbq-query_list .wbq-field-value,.wbq-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
 
-/***/ }),
+/***/ },
 
-/***/ 97046:
+/***/ 97046
 /*!***************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js?url=false!./js/webix/components/querybuilder/querybuilder.min.css ***!
   \***************************************************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -103,13 +103,13 @@ ___CSS_LOADER_EXPORT___.push([module.id, "@font-face{font-family:Webix Querybuil
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
 
-/***/ }),
+/***/ },
 
-/***/ 67942:
+/***/ 67942
 /*!*****************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js?url=false!./js/webix/components/reports/reports.min.css ***!
   \*****************************************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -129,13 +129,13 @@ ___CSS_LOADER_EXPORT___.push([module.id, "@charset \"UTF-8\";.wbq-query_list .wb
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
 
-/***/ }),
+/***/ },
 
-/***/ 1394:
+/***/ 1394
 /*!*********************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js?url=false!./js/webix/components/scheduler/scheduler.min.css ***!
   \*********************************************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -155,13 +155,13 @@ ___CSS_LOADER_EXPORT___.push([module.id, "@charset \"UTF-8\";@font-face{font-fam
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
 
-/***/ }),
+/***/ },
 
-/***/ 68975:
+/***/ 68975
 /*!****************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js?url=false!./js/webix/webix.css ***!
   \****************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -181,13 +181,13 @@ ___CSS_LOADER_EXPORT___.push([module.id, ".webix_view {\n  font-family: Roboto, 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
 
-/***/ }),
+/***/ },
 
-/***/ 17714:
+/***/ 17714
 /*!*************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js?url=false!./styles/font-awesome.min.css ***!
   \*************************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -207,13 +207,13 @@ ___CSS_LOADER_EXPORT___.push([module.id, "/*!\n *  Font Awesome 4.7.0 by @davega
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
 
-/***/ }),
+/***/ },
 
-/***/ 42412:
+/***/ 42412
 /*!***************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js?url=false!./styles/loader.css ***!
   \***************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -233,13 +233,13 @@ ___CSS_LOADER_EXPORT___.push([module.id, ".lds-default {\n  display: inline-bloc
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
 
-/***/ }),
+/***/ },
 
-/***/ 13631:
+/***/ 13631
 /*!***********************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js?url=false!./styles/ui.css ***!
   \***********************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -259,22 +259,22 @@ ___CSS_LOADER_EXPORT___.push([module.id, ".mainSidebar.webix_sidebar.webix_dark,
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
 
-/***/ }),
+/***/ },
 
-/***/ 97970:
+/***/ 97970
 /*!**************************!*\
   !*** ./config/Config.js ***!
   \**************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _configDesktop__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./configDesktop */ 58228);
+/* harmony import */ var _configDesktop__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./configDesktop */ 58228);
 /* harmony import */ var _configMobile__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./configMobile */ 91264);
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ 84529);
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! lodash */ 84529);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_2__);
 
 
 
@@ -351,7 +351,7 @@ class Config {
       Object.keys(json).forEach((k) => {
          this._config[k] = json[k];
       });
-      (0,lodash__WEBPACK_IMPORTED_MODULE_0__.defaultsDeep)(this._config, configDefaults);
+      (0,lodash__WEBPACK_IMPORTED_MODULE_2__.defaultsDeep)(this._config, configDefaults);
    }
 
    configInbox(json) {
@@ -483,7 +483,7 @@ class Config {
       if (window.innerWidth < 768) {
          return _configMobile__WEBPACK_IMPORTED_MODULE_1__["default"];
       }
-      return _configDesktop__WEBPACK_IMPORTED_MODULE_2__["default"];
+      return _configDesktop__WEBPACK_IMPORTED_MODULE_0__["default"];
    }
 
    /**
@@ -511,13 +511,13 @@ class Config {
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new Config());
 
 
-/***/ }),
+/***/ },
 
-/***/ 58228:
+/***/ 58228
 /*!*********************************!*\
   !*** ./config/configDesktop.js ***!
   \*********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -580,13 +580,13 @@ __webpack_require__.r(__webpack_exports__);
 });
 
 
-/***/ }),
+/***/ },
 
-/***/ 91264:
+/***/ 91264
 /*!********************************!*\
   !*** ./config/configMobile.js ***!
   \********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -647,13 +647,13 @@ __webpack_require__.r(__webpack_exports__);
 });
 
 
-/***/ }),
+/***/ },
 
-/***/ 69547:
+/***/ 69547
 /*!******************!*\
   !*** ./index.js ***!
   \******************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_loader_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/loader.css */ 40267);
@@ -718,13 +718,13 @@ Promise.all([window.__AB_preload, window.__AB_socketReady]).then(() => {
 });
 
 
-/***/ }),
+/***/ },
 
-/***/ 91376:
+/***/ 91376
 /*!***************************!*\
   !*** ./init/Bootstrap.js ***!
   \***************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -733,12 +733,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var events__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! events */ 64785);
 /* harmony import */ var events__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(events__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _config_Config_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../config/Config.js */ 97970);
-/* harmony import */ var _init_initConfig_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../init/initConfig.js */ 37936);
+/* harmony import */ var _init_initConfig_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../init/initConfig.js */ 37936);
 /* harmony import */ var _init_initDiv_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../init/initDiv.js */ 60323);
-/* harmony import */ var _init_initUser_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../init/initUser.js */ 45633);
-/* harmony import */ var _ui_ui_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../ui/ui.js */ 42790);
+/* harmony import */ var _init_initUser_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../init/initUser.js */ 45633);
+/* harmony import */ var _ui_ui_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../ui/ui.js */ 42790);
 /* harmony import */ var _ui_error_noDefs_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../ui/error_noDefs.js */ 47132);
-/* harmony import */ var _utils_performance_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/performance.js */ 76431);
+/* harmony import */ var _utils_performance_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../utils/performance.js */ 76431);
 /*
  * Bootstrap.js
  * This file drives the setup and preparation of the Web Platform.
@@ -795,7 +795,7 @@ class Bootstrap extends EventEmitter {
       // the Webix Object that is our UI display
 
       this.on("error", (err) => {
-         _utils_performance_js__WEBPACK_IMPORTED_MODULE_2__["default"].error(err);
+         _utils_performance_js__WEBPACK_IMPORTED_MODULE_7__["default"].error(err);
       });
    }
 
@@ -832,7 +832,7 @@ class Bootstrap extends EventEmitter {
             );
             $uiWarning.hidden = !networkIsSlow;
             // Tell sentry our network speed changed
-            _utils_performance_js__WEBPACK_IMPORTED_MODULE_2__["default"].setContext("breadcrumb", {
+            _utils_performance_js__WEBPACK_IMPORTED_MODULE_7__["default"].setContext("breadcrumb", {
                category: "network",
                message: networkIsSlow
                   ? "Slow network detected"
@@ -844,27 +844,27 @@ class Bootstrap extends EventEmitter {
 
       preloadMessage("Waiting for the API Server");
 
-      _utils_performance_js__WEBPACK_IMPORTED_MODULE_2__["default"].mark("bootstrap", { op: "function" });
+      _utils_performance_js__WEBPACK_IMPORTED_MODULE_7__["default"].mark("bootstrap", { op: "function" });
       // on the web platform, we need to gather the appropriate configuration
       // information before we can show the UI
       // 1) Find or create the DIV element our UI is to attach to
       //    this DIV element can contain settings pertainent to our setup
-      _utils_performance_js__WEBPACK_IMPORTED_MODULE_2__["default"].mark("initDiv", { op: "ui.render" });
+      _utils_performance_js__WEBPACK_IMPORTED_MODULE_7__["default"].mark("initDiv", { op: "ui.render" });
       await _init_initDiv_js__WEBPACK_IMPORTED_MODULE_3__["default"].init(this);
-      _utils_performance_js__WEBPACK_IMPORTED_MODULE_2__["default"].measure("initDiv");
+      _utils_performance_js__WEBPACK_IMPORTED_MODULE_7__["default"].measure("initDiv");
 
       // 2) Request the User's Configuration Information from the server.
-      _utils_performance_js__WEBPACK_IMPORTED_MODULE_2__["default"].mark("initConfig", { op: "function" });
+      _utils_performance_js__WEBPACK_IMPORTED_MODULE_7__["default"].mark("initConfig", { op: "function" });
       preloadMessage("Getting Configuration Settings");
-      await _init_initConfig_js__WEBPACK_IMPORTED_MODULE_4__["default"].init(this);
-      _utils_performance_js__WEBPACK_IMPORTED_MODULE_2__["default"].measure("initConfig");
+      await _init_initConfig_js__WEBPACK_IMPORTED_MODULE_2__["default"].init(this);
+      _utils_performance_js__WEBPACK_IMPORTED_MODULE_7__["default"].measure("initConfig");
 
-      await _init_initUser_js__WEBPACK_IMPORTED_MODULE_5__["default"].init(this);
+      await _init_initUser_js__WEBPACK_IMPORTED_MODULE_4__["default"].init(this);
       const userInfo = _config_Config_js__WEBPACK_IMPORTED_MODULE_1__["default"].userConfig();
 
       if (userInfo) {
          // load definitions for current user
-         _utils_performance_js__WEBPACK_IMPORTED_MODULE_2__["default"].setContext("user", {
+         _utils_performance_js__WEBPACK_IMPORTED_MODULE_7__["default"].setContext("user", {
             id: userInfo.id,
          });
          // redirect if has refererUrlPWA
@@ -888,17 +888,17 @@ class Bootstrap extends EventEmitter {
          // Keep going if the tenant is using local auth
       }
       // 2.5) Load any plugins
-      _utils_performance_js__WEBPACK_IMPORTED_MODULE_2__["default"].mark("loadPlugins", { op: "function" });
+      _utils_performance_js__WEBPACK_IMPORTED_MODULE_7__["default"].mark("loadPlugins", { op: "function" });
 
       // Plugins are now loaded via the Preloader and stored in
       (window.__AB_Plugins || []).forEach((p) => {
          this.addPlugin(p);
       });
-      _utils_performance_js__WEBPACK_IMPORTED_MODULE_2__["default"].measure("loadPlugins");
+      _utils_performance_js__WEBPACK_IMPORTED_MODULE_7__["default"].measure("loadPlugins");
 
       // 3) Now we have enough info, to create an instance of our
       //    {ABFactory} that drives the rest of the AppBuilder objects
-      _utils_performance_js__WEBPACK_IMPORTED_MODULE_2__["default"].mark("createABFactory", { op: "function" });
+      _utils_performance_js__WEBPACK_IMPORTED_MODULE_7__["default"].mark("createABFactory", { op: "function" });
       preloadMessage("Starting AppBuilder");
 
       const { default: ABFactory } = await loadABFactory;
@@ -1109,7 +1109,7 @@ class Bootstrap extends EventEmitter {
       // NOTE: special case: User has no Roles defined.
       // direct them to our special ErrorNoDefsUI
       if (userInfo && userInfo.roles.length == 0) {
-         _utils_performance_js__WEBPACK_IMPORTED_MODULE_2__["default"].measure("createABFactory");
+         _utils_performance_js__WEBPACK_IMPORTED_MODULE_7__["default"].measure("createABFactory");
          _ui_error_noDefs_js__WEBPACK_IMPORTED_MODULE_6__["default"].init(this.AB);
          _ui_error_noDefs_js__WEBPACK_IMPORTED_MODULE_6__["default"].attach();
          _ui_error_noDefs_js__WEBPACK_IMPORTED_MODULE_6__["default"].show();
@@ -1130,10 +1130,10 @@ class Bootstrap extends EventEmitter {
          const labels = p.labels(this.AB.Multilingual.currentLanguage());
          this.AB.Multilingual.pluginLoadLabels(p.key, labels);
       });
-      _utils_performance_js__WEBPACK_IMPORTED_MODULE_2__["default"].measure("createABFactory");
+      _utils_performance_js__WEBPACK_IMPORTED_MODULE_7__["default"].measure("createABFactory");
 
       // 4) Now we can create the UI and send it the {ABFactory}
-      _utils_performance_js__WEBPACK_IMPORTED_MODULE_2__["default"].mark("initUI", { op: "ui.render" });
+      _utils_performance_js__WEBPACK_IMPORTED_MODULE_7__["default"].mark("initUI", { op: "ui.render" });
       // webix recommends wrapping any webix code in the .ready()
       // function that executes after page loading.
       webix.ready(() => {
@@ -1164,14 +1164,14 @@ class Bootstrap extends EventEmitter {
 
          const div = this.div();
 
-         _ui_ui_js__WEBPACK_IMPORTED_MODULE_7__["default"].attach(div.id);
+         _ui_ui_js__WEBPACK_IMPORTED_MODULE_5__["default"].attach(div.id);
          destroyPreloadUI();
-         this.ui(_ui_ui_js__WEBPACK_IMPORTED_MODULE_7__["default"]);
+         this.ui(_ui_ui_js__WEBPACK_IMPORTED_MODULE_5__["default"]);
          this.ui()
             .init(this.AB)
             .then(() => {
-               _utils_performance_js__WEBPACK_IMPORTED_MODULE_2__["default"].measure("initUI");
-               _utils_performance_js__WEBPACK_IMPORTED_MODULE_2__["default"].measure("bootstrap");
+               _utils_performance_js__WEBPACK_IMPORTED_MODULE_7__["default"].measure("initUI");
+               _utils_performance_js__WEBPACK_IMPORTED_MODULE_7__["default"].measure("bootstrap");
             });
          // this.ui().init() routine handles the remaining
          // bootup/display process.
@@ -1216,13 +1216,13 @@ class Bootstrap extends EventEmitter {
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new Bootstrap());
 
 
-/***/ }),
+/***/ },
 
-/***/ 37936:
+/***/ 37936
 /*!****************************!*\
   !*** ./init/initConfig.js ***!
   \****************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -1250,13 +1250,13 @@ __webpack_require__.r(__webpack_exports__);
 });
 
 
-/***/ }),
+/***/ },
 
-/***/ 60323:
+/***/ 60323
 /*!*************************!*\
   !*** ./init/initDiv.js ***!
   \*************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -1313,13 +1313,13 @@ __webpack_require__.r(__webpack_exports__);
 });
 
 
-/***/ }),
+/***/ },
 
-/***/ 45633:
+/***/ 45633
 /*!**************************!*\
   !*** ./init/initUser.js ***!
   \**************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -1348,13 +1348,13 @@ __webpack_require__.r(__webpack_exports__);
 });
 
 
-/***/ }),
+/***/ },
 
-/***/ 93692:
+/***/ 93692
 /*!***********************!*\
   !*** ./ui/ClassUI.js ***!
   \***********************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -1530,13 +1530,13 @@ class ClassUI extends events__WEBPACK_IMPORTED_MODULE_0__.EventEmitter {
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 73995:
+/***/ 73995
 /*!***************************!*\
   !*** ./ui/ClassUIPage.js ***!
   \***************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -2063,13 +2063,13 @@ class ClassUIPage extends _ClassUI__WEBPACK_IMPORTED_MODULE_0__["default"] {
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ClassUIPage);
 
 
-/***/ }),
+/***/ },
 
-/***/ 47132:
+/***/ 47132
 /*!****************************!*\
   !*** ./ui/error_noDefs.js ***!
   \****************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -2185,13 +2185,13 @@ class ErrorNoDefsUI extends _ClassUI_js__WEBPACK_IMPORTED_MODULE_0__["default"] 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new ErrorNoDefsUI());
 
 
-/***/ }),
+/***/ },
 
-/***/ 59942:
+/***/ 59942
 /*!**********************!*\
   !*** ./ui/portal.js ***!
   \**********************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -2351,13 +2351,13 @@ class Portal extends _ClassUI_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new Portal());
 
 
-/***/ }),
+/***/ },
 
-/***/ 86582:
+/***/ 86582
 /*!*******************************************!*\
   !*** ./ui/portal_access_level_manager.js ***!
   \*******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -2961,13 +2961,13 @@ class PortalAccessLevelManager extends _ClassUI_js__WEBPACK_IMPORTED_MODULE_0__[
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new PortalAccessLevelManager());
 
 
-/***/ }),
+/***/ },
 
-/***/ 48939:
+/***/ 48939
 /*!***************************!*\
   !*** ./ui/portal_auth.js ***!
   \***************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -3042,13 +3042,13 @@ class PortalAuth extends _ClassUI_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new PortalAuth());
 
 
-/***/ }),
+/***/ },
 
-/***/ 24553:
+/***/ 24553
 /*!*********************************!*\
   !*** ./ui/portal_auth_login.js ***!
   \*********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -3133,13 +3133,13 @@ class PortalAuthLogin extends _ClassUI_js__WEBPACK_IMPORTED_MODULE_0__["default"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new PortalAuthLogin());
 
 
-/***/ }),
+/***/ },
 
-/***/ 36402:
+/***/ 36402
 /*!**************************************!*\
   !*** ./ui/portal_auth_login_form.js ***!
   \**************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -3461,13 +3461,13 @@ class PortalAuthLoginForm extends _ClassUI_js__WEBPACK_IMPORTED_MODULE_0__["defa
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new PortalAuthLoginForm());
 
 
-/***/ }),
+/***/ },
 
-/***/ 93012:
+/***/ 93012
 /*!***********************************************!*\
   !*** ./ui/portal_auth_login_resetPassword.js ***!
   \***********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -3670,13 +3670,13 @@ class PortalAuthLoginResetPassword extends _ClassUI_js__WEBPACK_IMPORTED_MODULE_
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new PortalAuthLoginResetPassword());
 
 
-/***/ }),
+/***/ },
 
-/***/ 36612:
+/***/ 36612
 /*!**********************************************!*\
   !*** ./ui/portal_auth_login_resetRequest.js ***!
   \**********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -3931,13 +3931,13 @@ class PortalAuthLoginResetRequest extends _ClassUI_js__WEBPACK_IMPORTED_MODULE_0
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new PortalAuthLoginResetRequest());
 
 
-/***/ }),
+/***/ },
 
-/***/ 21637:
+/***/ 21637
 /*!******************************!*\
   !*** ./ui/portal_loading.js ***!
   \******************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -3973,13 +3973,13 @@ class PortalLoading extends _ClassUI_js__WEBPACK_IMPORTED_MODULE_0__["default"] 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new PortalLoading());
 
 
-/***/ }),
+/***/ },
 
-/***/ 96451:
+/***/ 96451
 /*!***************************************!*\
   !*** ./ui/portal_translation_tool.js ***!
   \***************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -5227,13 +5227,13 @@ class PortalTranslationTool extends _ClassUI_js__WEBPACK_IMPORTED_MODULE_0__["de
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new PortalTranslationTool());
 
 
-/***/ }),
+/***/ },
 
-/***/ 63683:
+/***/ 63683
 /*!***************************************!*\
   !*** ./ui/portal_tutorial_manager.js ***!
   \***************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -6355,27 +6355,27 @@ class PortalTutorialManager extends _ClassUI_js__WEBPACK_IMPORTED_MODULE_0__["de
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new PortalTutorialManager());
 
 
-/***/ }),
+/***/ },
 
-/***/ 25480:
+/***/ 25480
 /*!***************************!*\
   !*** ./ui/portal_work.js ***!
   \***************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _ClassUI_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ClassUI.js */ 93692);
-/* harmony import */ var _ClassUIPage_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./ClassUIPage.js */ 73995);
+/* harmony import */ var _ClassUIPage_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ClassUIPage.js */ 73995);
 /* harmony import */ var _portal_work_inbox_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./portal_work_inbox.js */ 47547);
-/* harmony import */ var _portal_work_inbox_taskWindow_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./portal_work_inbox_taskWindow.js */ 40179);
-/* harmony import */ var _portal_work_user_profile_window_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./portal_work_user_profile_window.js */ 98957);
-/* harmony import */ var _portal_work_user_switcheroo_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./portal_work_user_switcheroo.js */ 18098);
+/* harmony import */ var _portal_work_inbox_taskWindow_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./portal_work_inbox_taskWindow.js */ 40179);
+/* harmony import */ var _portal_work_user_profile_window_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./portal_work_user_profile_window.js */ 98957);
+/* harmony import */ var _portal_work_user_switcheroo_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./portal_work_user_switcheroo.js */ 18098);
 /* harmony import */ var _portal_work_user_qr_window_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./portal_work_user_qr_window.js */ 41239);
-/* harmony import */ var _portal_work_user_mobile_qr_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./portal_work_user_mobile_qr.js */ 16735);
-/* harmony import */ var _portal_work_task_user_form_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./portal_work_task_user_form.js */ 60303);
+/* harmony import */ var _portal_work_user_mobile_qr_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./portal_work_user_mobile_qr.js */ 16735);
+/* harmony import */ var _portal_work_task_user_form_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./portal_work_task_user_form.js */ 60303);
 /* harmony import */ var _portal_access_level_manager_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./portal_access_level_manager.js */ 86582);
 /* harmony import */ var _portal_translation_tool_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./portal_translation_tool.js */ 96451);
 /* harmony import */ var _portal_tutorial_manager_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./portal_tutorial_manager.js */ 63683);
@@ -6459,7 +6459,7 @@ class PortalWork extends _ClassUI_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
                         },
                         onItemClick: async () => {
                            this.busy();
-                           await _portal_work_user_switcheroo_js__WEBPACK_IMPORTED_MODULE_1__["default"].switcherooClear();
+                           await _portal_work_user_switcheroo_js__WEBPACK_IMPORTED_MODULE_5__["default"].switcherooClear();
                            this.ready();
                            $$("portal_work_switcheroo_user_switched").hide();
                         },
@@ -6657,9 +6657,9 @@ class PortalWork extends _ClassUI_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
 
       const allInits = [];
 
-      allInits.push(_portal_work_user_profile_window_js__WEBPACK_IMPORTED_MODULE_3__["default"].init(this.AB));
-      allInits.push(_portal_work_user_switcheroo_js__WEBPACK_IMPORTED_MODULE_1__["default"].init(this.AB));
-      _portal_work_task_user_form_js__WEBPACK_IMPORTED_MODULE_4__["default"].init(this.AB);
+      allInits.push(_portal_work_user_profile_window_js__WEBPACK_IMPORTED_MODULE_4__["default"].init(this.AB));
+      allInits.push(_portal_work_user_switcheroo_js__WEBPACK_IMPORTED_MODULE_5__["default"].init(this.AB));
+      _portal_work_task_user_form_js__WEBPACK_IMPORTED_MODULE_8__["default"].init(this.AB);
 
       // {hash}  { ABViewPage.id : ClassUIPage() }
       // track each of the page containers (instances of ClassUIPage) that
@@ -6696,7 +6696,7 @@ class PortalWork extends _ClassUI_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
       $$("abSidebarMenu").define("data", menu_data);
       this.sidebarResize();
 
-      _portal_work_user_mobile_qr_js__WEBPACK_IMPORTED_MODULE_5__["default"].init(AB);
+      _portal_work_user_mobile_qr_js__WEBPACK_IMPORTED_MODULE_7__["default"].init(AB);
 
       const userMenuOptions = [
          { id: "user_profile", label: L("User Profile"), icon: "user" },
@@ -6827,10 +6827,10 @@ class PortalWork extends _ClassUI_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
                onItemClick: (id) => {
                   switch (id) {
                      case "user_profile":
-                        _portal_work_user_profile_window_js__WEBPACK_IMPORTED_MODULE_3__["default"].show();
+                        _portal_work_user_profile_window_js__WEBPACK_IMPORTED_MODULE_4__["default"].show();
                         break;
                      case "user_switcheroo":
-                        _portal_work_user_switcheroo_js__WEBPACK_IMPORTED_MODULE_1__["default"].show();
+                        _portal_work_user_switcheroo_js__WEBPACK_IMPORTED_MODULE_5__["default"].show();
                         break;
                      case "user_logout":
                         AB.Account.logout();
@@ -6843,8 +6843,8 @@ class PortalWork extends _ClassUI_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
                         // was this one of our Mobile Apps?
                         const mobileApp = this.AB.applicationByID(id);
                         if (mobileApp) {
-                           _portal_work_user_mobile_qr_js__WEBPACK_IMPORTED_MODULE_5__["default"].load(mobileApp);
-                           _portal_work_user_mobile_qr_js__WEBPACK_IMPORTED_MODULE_5__["default"].show();
+                           _portal_work_user_mobile_qr_js__WEBPACK_IMPORTED_MODULE_7__["default"].load(mobileApp);
+                           _portal_work_user_mobile_qr_js__WEBPACK_IMPORTED_MODULE_7__["default"].show();
                         } else {
                            const item = userMenuOptions.filter(
                               (o) => o.id == id
@@ -7025,7 +7025,7 @@ class PortalWork extends _ClassUI_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
       }
 
       if (DefaultPage) {
-         const container = new _ClassUIPage_js__WEBPACK_IMPORTED_MODULE_7__["default"](
+         const container = new _ClassUIPage_js__WEBPACK_IMPORTED_MODULE_1__["default"](
             this.pageID(DefaultPage),
             DefaultPage,
             this.App,
@@ -7056,7 +7056,7 @@ class PortalWork extends _ClassUI_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
             if (pages[j].getUserAccess?.() === 0) continue;
 
             if (!DefaultPage || pages[j].id !== DefaultPage.id) {
-               const cont = new _ClassUIPage_js__WEBPACK_IMPORTED_MODULE_7__["default"](
+               const cont = new _ClassUIPage_js__WEBPACK_IMPORTED_MODULE_1__["default"](
                   this.pageID(pages[j]),
                   pages[j],
                   this.App,
@@ -7090,7 +7090,7 @@ class PortalWork extends _ClassUI_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
       //
       // Step 7: As well as the Inbox Task Window
       //
-      allInits.push(_portal_work_inbox_taskWindow_js__WEBPACK_IMPORTED_MODULE_8__["default"].init(this.AB));
+      allInits.push(_portal_work_inbox_taskWindow_js__WEBPACK_IMPORTED_MODULE_3__["default"].init(this.AB));
 
       // Network and Queued operations Alert
       this.AB.Network.on("queued", () => {
@@ -7549,13 +7549,13 @@ class PortalWork extends _ClassUI_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new PortalWork());
 
 
-/***/ }),
+/***/ },
 
-/***/ 47547:
+/***/ 47547
 /*!*********************************!*\
   !*** ./ui/portal_work_inbox.js ***!
   \*********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -7908,13 +7908,13 @@ class PortalWorkInbox extends _ClassUI_js__WEBPACK_IMPORTED_MODULE_0__["default"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new PortalWorkInbox());
 
 
-/***/ }),
+/***/ },
 
-/***/ 20310:
+/***/ 20310
 /*!*******************************************!*\
   !*** ./ui/portal_work_inbox_accordion.js ***!
   \*******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -8128,13 +8128,13 @@ class PortalWorkInboxAccordion extends _ClassUI_js__WEBPACK_IMPORTED_MODULE_0__[
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PortalWorkInboxAccordion);
 
 
-/***/ }),
+/***/ },
 
-/***/ 40179:
+/***/ 40179
 /*!********************************************!*\
   !*** ./ui/portal_work_inbox_taskWindow.js ***!
   \********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -8366,13 +8366,13 @@ class PortalWorkInboxTaskwindow extends _ClassUI_js__WEBPACK_IMPORTED_MODULE_0__
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new PortalWorkInboxTaskwindow());
 
 
-/***/ }),
+/***/ },
 
-/***/ 60303:
+/***/ 60303
 /*!******************************************!*\
   !*** ./ui/portal_work_task_user_form.js ***!
   \******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -8528,13 +8528,13 @@ class PortalWorkTaskUserForm extends _ClassUI_js__WEBPACK_IMPORTED_MODULE_0__["d
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new PortalWorkTaskUserForm());
 
 
-/***/ }),
+/***/ },
 
-/***/ 16735:
+/***/ 16735
 /*!******************************************!*\
   !*** ./ui/portal_work_user_mobile_qr.js ***!
   \******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -8707,13 +8707,13 @@ class PortalWorkUserMobileQR extends _ClassUI_js__WEBPACK_IMPORTED_MODULE_0__["d
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new PortalWorkUserMobileQR());
 
 
-/***/ }),
+/***/ },
 
-/***/ 98957:
+/***/ 98957
 /*!***********************************************!*\
   !*** ./ui/portal_work_user_profile_window.js ***!
   \***********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -9682,13 +9682,13 @@ class PortalWorkUserProfileWindow extends _ClassUI_js__WEBPACK_IMPORTED_MODULE_0
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new PortalWorkUserProfileWindow());
 
 
-/***/ }),
+/***/ },
 
-/***/ 41239:
+/***/ 41239
 /*!******************************************!*\
   !*** ./ui/portal_work_user_qr_window.js ***!
   \******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -9821,13 +9821,13 @@ class PortalWorkUserQRWindow extends _ClassUI_js__WEBPACK_IMPORTED_MODULE_0__["d
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new PortalWorkUserQRWindow());
 
 
-/***/ }),
+/***/ },
 
-/***/ 18098:
+/***/ 18098
 /*!*******************************************!*\
   !*** ./ui/portal_work_user_switcheroo.js ***!
   \*******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -10055,13 +10055,13 @@ if (!myClass) {
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new myClass());
 
 
-/***/ }),
+/***/ },
 
-/***/ 42790:
+/***/ 42790
 /*!******************!*\
   !*** ./ui/ui.js ***!
   \******************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -10131,13 +10131,13 @@ class UI extends _ClassUI_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new UI());
 
 
-/***/ }),
+/***/ },
 
-/***/ 76431:
+/***/ 76431
 /*!******************************!*\
   !*** ./utils/performance.js ***!
   \******************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -10162,7 +10162,7 @@ try {
    /* global WEBPACK_MODE SENTRY_DSN VERSION */
    webpackMode = "development";
    dsn = undefined;
-   version = "1.21.1+c21200";
+   version = "1.22.0";
 } catch (err) {
    console.warn(
       "Error reading from webpack, check the DefinePlugin is working correctly",
@@ -10406,13 +10406,13 @@ function getPerformance() {
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (getPerformance());
 
 
-/***/ }),
+/***/ },
 
-/***/ 89977:
+/***/ 89977
 /*!*************************************************!*\
   !*** ./js/webix/components/gantt/gantt.min.css ***!
   \*************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -10435,13 +10435,13 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_url_false_gantt_min_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
-/***/ }),
+/***/ },
 
-/***/ 35131:
+/***/ 35131
 /*!*******************************************!*\
   !*** ./js/webix/components/hint/hint.css ***!
   \*******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -10464,13 +10464,13 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_url_false_hint_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
-/***/ }),
+/***/ },
 
-/***/ 99109:
+/***/ 99109
 /*!*************************************************!*\
   !*** ./js/webix/components/query/query.min.css ***!
   \*************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -10493,13 +10493,13 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_url_false_query_min_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
-/***/ }),
+/***/ },
 
-/***/ 2989:
+/***/ 2989
 /*!***************************************************************!*\
   !*** ./js/webix/components/querybuilder/querybuilder.min.css ***!
   \***************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -10522,13 +10522,13 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_url_false_querybuilder_min_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
-/***/ }),
+/***/ },
 
-/***/ 34733:
+/***/ 34733
 /*!*****************************************************!*\
   !*** ./js/webix/components/reports/reports.min.css ***!
   \*****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -10551,13 +10551,13 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_url_false_reports_min_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
-/***/ }),
+/***/ },
 
-/***/ 89841:
+/***/ 89841
 /*!*********************************************************!*\
   !*** ./js/webix/components/scheduler/scheduler.min.css ***!
   \*********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -10580,13 +10580,13 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_url_false_scheduler_min_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
-/***/ }),
+/***/ },
 
-/***/ 83118:
+/***/ 83118
 /*!****************************!*\
   !*** ./js/webix/webix.css ***!
   \****************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -10609,13 +10609,13 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_url_false_webix_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
-/***/ }),
+/***/ },
 
-/***/ 89153:
+/***/ 89153
 /*!*************************************!*\
   !*** ./styles/font-awesome.min.css ***!
   \*************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -10638,13 +10638,13 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_url_false_font_awesome_min_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
-/***/ }),
+/***/ },
 
-/***/ 40267:
+/***/ 40267
 /*!***************************!*\
   !*** ./styles/loader.css ***!
   \***************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -10667,13 +10667,13 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_url_false_loader_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
-/***/ }),
+/***/ },
 
-/***/ 6224:
+/***/ 6224
 /*!***********************!*\
   !*** ./styles/ui.css ***!
   \***********************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -10696,7 +10696,7 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_url_false_ui_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
-/***/ })
+/***/ }
 
 },
 /******/ __webpack_require__ => { // webpackRuntimeModules
@@ -10713,4 +10713,4 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 /******/ var __webpack_exports__ = __webpack_require__.O();
 /******/ }
 ]);
-//# sourceMappingURL=app.c9305750a212914d53af.js.map
+//# sourceMappingURL=app.d9d8badbe46659204bd0.js.map

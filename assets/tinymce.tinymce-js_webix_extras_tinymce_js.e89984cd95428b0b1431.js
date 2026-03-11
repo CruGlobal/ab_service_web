@@ -1,11 +1,11 @@
 "use strict";
 (self["webpackChunkab_platform_web"] = self["webpackChunkab_platform_web"] || []).push([["tinymce-js_webix_extras_tinymce_js"],{
 
-/***/ 82634:
+/***/ 82634
 /*!************************************!*\
   !*** ./js/webix/extras/tinymce.js ***!
   \************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tinymce__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tinymce */ 63313);
@@ -89,6 +89,7 @@ webix.protoUI(
             {
                selector: "#" + this._mce_id,
                resize: false,
+               license_key: "gpl",
             },
             true
          );
@@ -143,7 +144,7 @@ webix.protoUI(
 );
 
 
-/***/ })
+/***/ }
 
 }]);
-//# sourceMappingURL=tinymce.tinymce-js_webix_extras_tinymce_js.575c9f30cafe3393cc54.js.map
+//# sourceMappingURL=tinymce.tinymce-js_webix_extras_tinymce_js.e89984cd95428b0b1431.js.map

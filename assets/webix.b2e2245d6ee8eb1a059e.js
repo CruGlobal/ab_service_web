@@ -1,10 +1,10 @@
 (self["webpackChunkab_platform_web"] = self["webpackChunkab_platform_web"] || []).push([["webix"],{
 
-/***/ 59166:
+/***/ 59166
 /*!*******************************!*\
   !*** ./js/webix/webix.min.js ***!
   \*******************************/
-/***/ (function(__unused_webpack_module, exports) {
+(__unused_webpack_module, exports) {
 
 /**
  * @license
@@ -205,7 +205,7 @@ getFilterFunction:function(){var i=this.N.field,e="date"==this.N.mode,t=this.get
 ).QD&&i.QD.apply(i,arguments),i}},R.bind=f,R.exec=K,R.wrap=function(i,e){return i?function(){var t=i.apply(this,arguments);return e.apply(this,arguments),t}:e},R.isUndefined=E,R.delay=m,R.once=J,R.uid=Z,R.toNode=Q,R.toFunctor=tt,R.isArray=C,R.isDate=it,R.tI=$,R.iI=et,R.eI=ri,R.sI=v,R.event=l,R.eventRemove=M,R.callEvent=p,R.attachEvent=ht,R.detachEvent=rt,R.blockEvent=function(){return nt.blockEvent()},R.unblockEvent=function(){return nt.unblockEvent()},R.mapEvent=function(t){return nt.mapEvent(t)},R.hasEvent=function(t){return nt.hasEvent(t)},R.stringify=st,R.toPNG=function(i,s){var n=B.defer();return Wt(D.cdn+"/extras/html2canvas-1.0.min.js").then(function(){(s=(s="string"==typeof s?{filename:s}:s)||{}).export_mode="png";var e,t=A(i);return(t=t&&t.$exportView?t.$exportView(s):t)?(t=t?t.$view:Q(i),e=Ms(s.filename,"png"),window.html2canvas(t,{background:"#fff",logging:!1,useCORS:!0}).then(function(t){var i=function(t){!1!==s.download&&Vt(t,e),n.resolve(t)};t.msToBlob?i(t.msToBlob()):t.toBlob(i,"image/png")}),n):n.reject(ws)})},R.toCSV=function(t,i){i=i||{};t=A(t);if(!(t=t&&t.$exportView?t.$exportView(i):t))return B.reject(ws);i.export_mode="csv",R.extend(i,{filterHTML:!0});var e=Ss(t,i),t=ks(t,i,e),e=ne.stringify(t),t=Ms(i.filename,"csv"),e=new Blob(["\ufeff"+e],{type:"text/csv"});return!1!==i.download&&Vt(e,t),B.resolve(e)},R.toPDF=$s,R.toExcel=Vs,R.alert=function(){var t=Hi.apply(this,arguments);return t.type=t.type||"alert",Fi(t)},R.confirm=Pi,R.modalbox=Bi,R.prompt=function(){var t=Hi.apply(this,arguments);return t.type=t.type||"prompt",t.input=t.input||{},zi(t)},R.message=Ri,R.editStop=function(){p("onEditEnd",[])},R.ajax=ut,R.DataDriver=Ut,R.dp=le,R.DataProcessor=fe,R.remote=Zs,R.require=Wt,R.proxy=pt,R.send=function(t,i,e,s){var n,h=g("FORM",{target:s||"_self",action:t,method:e||"POST"},"");for(n in i){var r=g("INPUT",{type:"hidden",name:n,value:i[n]},"");h.appendChild(r)}h.style.display="none",document.body.appendChild(h),h.submit(),document.body.removeChild(h)},R.ui=a,R.$$=A,Object.defineProperty(R,"nI",{value:!0})});
 
 
-/***/ })
+/***/ }
 
 }]);
-//# sourceMappingURL=webix.675d0c1171904528d1b5.js.map
+//# sourceMappingURL=webix.b2e2245d6ee8eb1a059e.js.map
