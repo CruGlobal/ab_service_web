@@ -76,6 +76,7 @@ const PROGRESS_STATUS_VALUE_TEAM_UPDATING = "Updating a team";
 const TIMEOUT_RETRY_PAGEDATA = 15000;
 
 //TODO (Guy): These should be ABDesigner settings.
+const CONTENT_JOB_TITLE_COLUMNNAME = "custrecord_team_assign_job_title";
 const CONTENT_GROUP_NAME_COLUMNNAME = "name";
 const CONTENT_LINK_DATAPANEL_COLUMNNAME = "custrecord_ccc_team_assign_emp_id";
 const DATAPANEL_EMERITUS_STATUS_COLUMNNAME = "custentity_ccc_emeritus_status";
@@ -1196,6 +1197,7 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                         self.ids.contentFormData,
                         contentValue
                      );
+                     $$(self.ids.contentFormData).elements[CONTENT_JOB_TITLE_COLUMNNAME].focus();
                   },
                },
             }).show();
@@ -7957,7 +7959,7 @@ __webpack_require__.r(__webpack_exports__);
 
 const plugin = {
    /* global VERSION -- injected by webpack define plugin */
-   version: "1.0.16",
+   version: "1.0.17",
    key: "HRTeams",
    apply: function (AB) {
       const ABView = AB.Class.ABViewManager.viewClass("view");
