@@ -169,10 +169,10 @@
 /******/ 			if (chunkId === "vendor-vendors-node_modules_formio_bootstrap3_lib_index_js-node_modules_formio_choices_js_pub-00ffbb") return "vendor." + chunkId + ".d7736c0719d6c41cd20b.js";
 /******/ 			if (chunkId === "pdfjs-init_pdfjs_js") return "pdfjs." + chunkId + ".2f6fb50f0e4e145dc02e.mjs";
 /******/ 			if (chunkId === "pdfjs-vendors-node_modules_pdfjs-dist_build_pdf_worker_mjs") return "pdfjs." + chunkId + ".957955ecd127a9714193.mjs";
-/******/ 			if (chunkId === "formio-init_formio_js") return "formio." + chunkId + ".2a04630cbe0a0df902d5.js";
+/******/ 			if (chunkId === "formio-init_formio_js") return "formio." + chunkId + ".f8d9f4e5cc7e7b11c566.js";
 /******/ 			if (chunkId === "tinymce-js_webix_extras_tinymce_js") return "tinymce." + chunkId + ".e89984cd95428b0b1431.js";
 /******/ 			// return url for filenames based on template
-/******/ 			return "" + chunkId + "." + {"webix":"b2e2245d6ee8eb1a059e","webix.resources":"17565c8ab7babe66a2d5","AB":"a960484f9710183ec29d","pdfjs-vendors-node_modules_pdfjs-dist_webpack_mjs":"e177d2c29864fbbc6685","tinymce-vendors-node_modules_tinymce_icons_default_index_js-node_modules_tinymce_plugins_link-1e1308":"5856cbe26295462d3a20","utils_networkTest_js":"a9e5c1d2262005f93788"}[chunkId] + ".js";
+/******/ 			return "" + chunkId + "." + {"webix":"b2e2245d6ee8eb1a059e","webix.resources":"17565c8ab7babe66a2d5","AB":"6268434744b68e2c0f7f","AppBuilder_platform_plugins_included_index_js":"1e021b762783c17d9506","pdfjs-vendors-node_modules_pdfjs-dist_webpack_mjs":"e177d2c29864fbbc6685","tinymce-vendors-node_modules_tinymce_icons_default_index_js-node_modules_tinymce_plugins_link-1e1308":"5856cbe26295462d3a20","utils_networkTest_js":"a9e5c1d2262005f93788"}[chunkId] + ".js";
 /******/ 		};
 /******/ 	})();
 /******/ 	
@@ -382,6 +382,10 @@
 /******/ 				"tinymce-js_webix_extras_tinymce_js",
 /******/ 				"pdfjs-vendors-node_modules_pdfjs-dist_webpack_mjs",
 /******/ 				"pdfjs-init_pdfjs_js"
+/******/ 			],
+/******/ 			"AppBuilder_platform_plugins_included_index_js": [
+/******/ 				"pdfjs-vendors-node_modules_pdfjs-dist_webpack_mjs",
+/******/ 				"pdfjs-init_pdfjs_js"
 /******/ 			]
 /******/ 		};
 /******/ 		__webpack_require__.f.prefetch = (chunkId, promises) => (Promise.all(promises).then(() => {
@@ -395,4 +399,4 @@
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=runtime.9a7c4af1ae771fe1876b.js.map
+//# sourceMappingURL=runtime.2e2b917623484cae5186.js.map
