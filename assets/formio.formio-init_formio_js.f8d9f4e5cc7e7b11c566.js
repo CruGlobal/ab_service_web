@@ -10889,7 +10889,7 @@ __webpack_require__(/*! core-js/modules/es.array.map.js */ 74666);
 var _lodash = _interopRequireDefault(__webpack_require__(/*! lodash */ 84529));
 var _ComponentEdit = _interopRequireDefault(__webpack_require__(/*! ./editForm/Component.edit.conditional */ 99721));
 var _ComponentEdit2 = _interopRequireDefault(__webpack_require__(/*! ./editForm/Component.edit.data */ 34574));
-var _ComponentEdit3 = _interopRequireDefault(__webpack_require__(/*! ./editForm/Component.edit.api */ 73053));
+var _ComponentEdit3 = _interopRequireDefault(__webpack_require__(/*! ./editForm/Component.edit.api */ 79082));
 var _ComponentEdit4 = _interopRequireDefault(__webpack_require__(/*! ./editForm/Component.edit.display */ 15971));
 var _ComponentEdit5 = _interopRequireDefault(__webpack_require__(/*! ./editForm/Component.edit.logic */ 64587));
 var _ComponentEdit6 = _interopRequireDefault(__webpack_require__(/*! ./editForm/Component.edit.validation */ 39958));
@@ -14858,7 +14858,7 @@ Component.libraryReady = function (name) {
 
 /***/ },
 
-/***/ 73053
+/***/ 79082
 /*!********************************************************************************************!*\
   !*** ./node_modules/formiojs/components/_classes/component/editForm/Component.edit.api.js ***!
   \********************************************************************************************/
@@ -66023,4 +66023,4 @@ var update = _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMP
 /***/ }
 
 }]);
-//# sourceMappingURL=formio.formio-init_formio_js.2a04630cbe0a0df902d5.js.map
+//# sourceMappingURL=formio.formio-init_formio_js.f8d9f4e5cc7e7b11c566.js.map
