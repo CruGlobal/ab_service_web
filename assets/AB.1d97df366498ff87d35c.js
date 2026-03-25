@@ -64298,7 +64298,7 @@ module.exports = class ABViewFormTextboxComponent extends (
                   plugins: "link",
                   menubar: "format edit",
                   toolbar:
-                     "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | fontsizeselect | link",
+                     "undo redo | styles | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | fontsize | link",
                },
             };
             break;
@@ -80794,7 +80794,7 @@ class ABCustomTinyMCE extends (_lazyComponent_js__WEBPACK_IMPORTED_MODULE_0___de
    async init() {
       if (this.initialized) return;
 
-      await Promise.all(/*! import() */[__webpack_require__.e("tinymce-vendors-node_modules_tinymce_icons_default_index_js-node_modules_tinymce_plugins_link-1e1308"), __webpack_require__.e("tinymce-js_webix_extras_tinymce_js")]).then(__webpack_require__.bind(__webpack_require__, /*! ../js/webix/extras/tinymce.js */ 82634));
+      await Promise.all(/*! import() */[__webpack_require__.e("tinymce-vendors-node_modules_tinymce_icons_default_index_js-node_modules_tinymce_models_dom_i-abe8e5"), __webpack_require__.e("tinymce-js_webix_extras_tinymce_js")]).then(__webpack_require__.bind(__webpack_require__, /*! ../js/webix/extras/tinymce.js */ 82634));
       this.initialized = true;
    }
 }
@@ -80985,4 +80985,4 @@ module.exports = class ABCustomEditList {
 /***/ }
 
 }]);
-//# sourceMappingURL=AB.a3cad06ca103e3eb7d75.js.map
+//# sourceMappingURL=AB.1d97df366498ff87d35c.js.map
