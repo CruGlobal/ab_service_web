@@ -1,4 +1,3 @@
-"use strict";
 (self["webpackChunkab_platform_web"] = self["webpackChunkab_platform_web"] || []).push([["AppBuilder_platform_plugins_included_index_js"],{
 
 /***/ 30188
@@ -7,21 +6,26 @@
   \*******************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _view_list_FNAbviewlist_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./view_list/FNAbviewlist.js */ 62467);
-/* harmony import */ var _view_tab_FNAbviewtab_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./view_tab/FNAbviewtab.js */ 95757);
-/* harmony import */ var _view_detail_FNAbviewdetail_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./view_detail/FNAbviewdetail.js */ 73053);
-/* harmony import */ var _view_label_FNAbviewlabel_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./view_label/FNAbviewlabel.js */ 31697);
-/* harmony import */ var _view_text_FNAbviewtext_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./view_text/FNAbviewtext.js */ 88229);
-/* harmony import */ var _view_image_FNAbviewimage_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./view_image/FNAbviewimage.js */ 58661);
-/* harmony import */ var _view_data_select_FNAbviewdataselect_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./view_data-select/FNAbviewdataselect.js */ 78612);
-/* harmony import */ var _view_pdfImporter_FNAbviewpdfimporter_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./view_pdfImporter/FNAbviewpdfimporter.js */ 27377);
-/* harmony import */ var _view_carousel_FNAbviewcarousel_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./view_carousel/FNAbviewcarousel.js */ 77739);
-/* harmony import */ var _view_layout_FNAbviewlayout_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./view_layout/FNAbviewlayout.js */ 22031);
-/* harmony import */ var _view_comment_FNAbviewcomment_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./view_comment/FNAbviewcomment.js */ 85253);
+/* harmony import */ var _view_carousel_FNAbviewcarousel_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./view_carousel/FNAbviewcarousel.js */ 77739);
+/* harmony import */ var _view_comment_FNAbviewcomment_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./view_comment/FNAbviewcomment.js */ 85253);
+/* harmony import */ var _view_csvExporter_FNAbviewcsvexporter_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./view_csvExporter/FNAbviewcsvexporter.js */ 49029);
+/* harmony import */ var _view_csvImporter_FNAbviewcsvimporter_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./view_csvImporter/FNAbviewcsvimporter.js */ 48261);
+/* harmony import */ var _view_data_select_FNAbviewdataselect_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./view_data-select/FNAbviewdataselect.js */ 78612);
+/* harmony import */ var _view_detail_FNAbviewdetail_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./view_detail/FNAbviewdetail.js */ 73053);
+/* harmony import */ var _view_image_FNAbviewimage_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./view_image/FNAbviewimage.js */ 58661);
+/* harmony import */ var _view_label_FNAbviewlabel_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./view_label/FNAbviewlabel.js */ 31697);
+/* harmony import */ var _view_layout_FNAbviewlayout_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./view_layout/FNAbviewlayout.js */ 22031);
+/* harmony import */ var _view_list_FNAbviewlist_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./view_list/FNAbviewlist.js */ 62467);
+/* harmony import */ var _view_pdfImporter_FNAbviewpdfimporter_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./view_pdfImporter/FNAbviewpdfimporter.js */ 27377);
+/* harmony import */ var _view_tab_FNAbviewtab_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./view_tab/FNAbviewtab.js */ 95757);
+/* harmony import */ var _view_text_FNAbviewtext_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./view_text/FNAbviewtext.js */ 88229);
+
+
 
 
 
@@ -35,17 +39,20 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const AllPlugins = [
-   _view_tab_FNAbviewtab_js__WEBPACK_IMPORTED_MODULE_1__["default"],
-   _view_list_FNAbviewlist_js__WEBPACK_IMPORTED_MODULE_0__["default"],
-   _view_detail_FNAbviewdetail_js__WEBPACK_IMPORTED_MODULE_2__["default"],
-   _view_text_FNAbviewtext_js__WEBPACK_IMPORTED_MODULE_4__["default"],
-   _view_label_FNAbviewlabel_js__WEBPACK_IMPORTED_MODULE_3__["default"],
-   _view_image_FNAbviewimage_js__WEBPACK_IMPORTED_MODULE_5__["default"],
-   _view_data_select_FNAbviewdataselect_js__WEBPACK_IMPORTED_MODULE_6__["default"],
-   _view_pdfImporter_FNAbviewpdfimporter_js__WEBPACK_IMPORTED_MODULE_7__["default"],
-   _view_carousel_FNAbviewcarousel_js__WEBPACK_IMPORTED_MODULE_8__["default"],
-   _view_layout_FNAbviewlayout_js__WEBPACK_IMPORTED_MODULE_9__["default"],
-   _view_comment_FNAbviewcomment_js__WEBPACK_IMPORTED_MODULE_10__["default"],
+   _view_carousel_FNAbviewcarousel_js__WEBPACK_IMPORTED_MODULE_0__["default"],
+   _view_comment_FNAbviewcomment_js__WEBPACK_IMPORTED_MODULE_1__["default"],
+   _view_csvExporter_FNAbviewcsvexporter_js__WEBPACK_IMPORTED_MODULE_2__["default"],
+   _view_csvImporter_FNAbviewcsvimporter_js__WEBPACK_IMPORTED_MODULE_3__["default"],
+   _view_csvImporter_FNAbviewcsvimporter_js__WEBPACK_IMPORTED_MODULE_3__["default"],
+   _view_data_select_FNAbviewdataselect_js__WEBPACK_IMPORTED_MODULE_4__["default"],
+   _view_detail_FNAbviewdetail_js__WEBPACK_IMPORTED_MODULE_5__["default"],
+   _view_image_FNAbviewimage_js__WEBPACK_IMPORTED_MODULE_6__["default"],
+   _view_label_FNAbviewlabel_js__WEBPACK_IMPORTED_MODULE_7__["default"],
+   _view_layout_FNAbviewlayout_js__WEBPACK_IMPORTED_MODULE_8__["default"],
+   _view_list_FNAbviewlist_js__WEBPACK_IMPORTED_MODULE_9__["default"],
+   _view_pdfImporter_FNAbviewpdfimporter_js__WEBPACK_IMPORTED_MODULE_10__["default"],
+   _view_tab_FNAbviewtab_js__WEBPACK_IMPORTED_MODULE_11__["default"],
+   _view_text_FNAbviewtext_js__WEBPACK_IMPORTED_MODULE_12__["default"],
 ];
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -65,6 +72,7 @@ const AllPlugins = [
   \********************************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ FNAbviewcarousel)
@@ -270,6 +278,7 @@ function FNAbviewcarousel({
   \*****************************************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ FNAbviewcarouselComponent)
@@ -820,6 +829,7 @@ function FNAbviewcarouselComponent({
   \******************************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ FNAbviewcomment)
@@ -1038,6 +1048,7 @@ function FNAbviewcomment({
   \***************************************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ FNAbviewcommentComponent)
@@ -1359,12 +1370,2629 @@ function FNAbviewcommentComponent({
 
 /***/ },
 
+/***/ 49029
+/*!**************************************************************************************!*\
+  !*** ./AppBuilder/platform/plugins/included/view_csvExporter/FNAbviewcsvexporter.js ***!
+  \**************************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FNAbviewcsvexporter)
+/* harmony export */ });
+/* harmony import */ var _FNAbviewcsvexporterComponent_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FNAbviewcsvexporterComponent.js */ 33770);
+
+
+
+// FNAbviewcsvexporter Web
+// A web side import for an ABView.
+//
+function FNAbviewcsvexporter({
+   /*AB,*/
+   ABViewWidgetPlugin,
+   ABViewComponentPlugin,
+   ABViewContainer
+}) {
+   const ABAbviewcsvexporterComponent = (0,_FNAbviewcsvexporterComponent_js__WEBPACK_IMPORTED_MODULE_0__["default"])({ ABViewComponentPlugin });
+
+   const ABViewCSVExporterDefaults = {
+      key: "csvExporter", // unique key identifier for this ABViewForm
+      icon: "download", // icon reference: (without 'fa-' )
+      labelKey: "CSV Exporter", // {string} the multilingual label key for the class label
+   };
+
+   const ABViewCSVExporterPropertyComponentDefaults = {
+      dataviewID: null,
+      where: null,
+      buttonLabel: "Export CSV",
+      filename: "exportCSV",
+      hasHeader: true,
+      width: 150,
+      hiddenFieldIds: [],
+   };
+
+   class ABViewCSVExporterCore extends ABViewWidgetPlugin {
+      constructor(values, application, parent, defaultValues) {
+         super(
+            values,
+            application,
+            parent,
+            defaultValues || ABViewCSVExporterDefaults
+         );
+      }
+
+      static common() {
+         return ABViewCSVExporterDefaults;
+      }
+
+      static defaultValues() {
+         return ABViewCSVExporterPropertyComponentDefaults;
+      }
+
+      ///
+      /// Instance Methods
+      ///
+
+      /**
+       * @method fromValues()
+       *
+       * initialze this object with the given set of values.
+       * @param {obj} values
+       */
+      fromValues(values) {
+         super.fromValues(values);
+
+         // convert to boolean
+         if (typeof values.settings.hasHeader == "string")
+            this.settings.hasHeader = JSON.parse(values.settings.hasHeader);
+
+         if (this.settings.hasHeader == null)
+            this.settings.hasHeader =
+               ABViewCSVExporterPropertyComponentDefaults.hasHeader;
+
+         // convert from "0" => 0
+         this.settings.width = parseInt(
+            values.settings.width ||
+            ABViewCSVExporterPropertyComponentDefaults.width
+         );
+
+         this.settings.hiddenFieldIds =
+            values.settings.hiddenFieldIds ||
+            ABViewCSVExporterPropertyComponentDefaults.hiddenFieldIds;
+      }
+   };
+
+   return class ABViewCSVExporter extends ABViewCSVExporterCore {
+
+      /**
+             * @method getPluginKey
+             * return the plugin key for this view.
+             * @return {string} plugin key
+             */
+      static getPluginKey() {
+         return this.common().key;
+      }
+
+      /**
+             * @method component()
+             * return a UI component based upon this view.
+             * @return {obj} UI component
+             */
+      component(parentId) {
+         return new ABAbviewcsvexporterComponent(this, parentId);
+      }
+
+
+
+
+      warningsEval() {
+         super.warningsEval();
+
+         let DC = this.datacollection;
+         if (!DC) {
+            this.warningsMessage(
+               `can't resolve it's datacollection[${this.settings.dataviewID}]`
+            );
+         }
+      }
+   };
+
+}
+
+
+
+/***/ },
+
+/***/ 33770
+/*!***********************************************************************************************!*\
+  !*** ./AppBuilder/platform/plugins/included/view_csvExporter/FNAbviewcsvexporterComponent.js ***!
+  \***********************************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FNAbviewcsvexporterComponent)
+/* harmony export */ });
+function FNAbviewcsvexporterComponent({
+   /*AB,*/
+   ABViewComponentPlugin,
+}) {
+   return class ABAbviewcsvexporterComponent extends ABViewComponentPlugin {
+
+
+   constructor(baseView, idBase, ids) {
+      super(
+         baseView,
+         idBase || `ABCSVExporter_${baseView.id}`,
+         Object.assign(
+            {
+               button: "",
+               buttonFilter: "",
+               filterComplex: "",
+            },
+            ids
+         )
+      );
+
+      this.clientFilter = null;
+   }
+
+   ui() {
+      const ids = this.ids;
+      const settings = this.settings;
+      const defaultSettings = this.view.constructor.defaultValues();
+      const _ui = super.ui([
+         {
+            view: "layout",
+            type: "clean",
+            borderless: true,
+            cols: [
+               {
+                  id: ids.buttonFilter,
+                  view: "button",
+                  css: "webix_transparent",
+                  type: "icon",
+                  icon: "fa fa-filter",
+                  borderless: true,
+                  width: 50,
+                  label: "",
+                  click: () => {
+                     this.showFilterPopup();
+                  },
+               },
+               {
+                  id: ids.button,
+                  view: "button",
+                  css: "webix_primary",
+                  type: "icon",
+                  icon: "fa fa-download",
+                  borderless: true,
+                  width: settings.width || defaultSettings.width,
+                  label: settings.buttonLabel ?? defaultSettings.buttonLabel,
+                  click: () => {
+                     this.downloadCsvFile();
+                  },
+               },
+               { fillspace: true },
+            ],
+         },
+      ]);
+
+      delete _ui.type;
+
+      return _ui;
+   }
+
+   async init(AB) {
+      await super.init(AB);
+
+      if (!this.clientFilter) {
+         const clientFilter = AB.filterComplexNew(this.ids.filterComplex);
+
+         const dc = this.datacollection;
+
+         if (dc) {
+            const obj = dc.datasource;
+
+            clientFilter.fieldsLoad(obj?.fields?.() ?? []);
+         }
+
+         clientFilter.init();
+         clientFilter.on("change", (val) => {
+            this.onFilterChange(val);
+         });
+
+         this.clientFilter = clientFilter;
+      }
+   }
+
+   downloadCsvFile() {
+      let url = `/appbuilder/csv-export/${this.view.id}`;
+
+      const where = {
+         glue: "and",
+         rules: [],
+      };
+
+      const whereWidget = this.view.settings?.where;
+      if ((whereWidget?.rules ?? []).length) {
+         where.rules.push(whereWidget);
+      }
+
+      const whereClient = this.clientFilter.getValue();
+      if ((whereClient?.rules ?? []).length) {
+         where.rules.push(whereClient);
+      }
+
+      if ((where?.rules || []).length) {
+         let qsWhere = JSON.stringify(where);
+
+         qsWhere = encodeURIComponent(qsWhere);
+         url = `${url}?where=${qsWhere}`;
+      }
+
+      window.open(url);
+   }
+
+   showFilterPopup() {
+      const $buttonFilter = $$(this.ids.buttonFilter);
+
+      this.clientFilter.popUp($buttonFilter ? $buttonFilter.$view : null);
+   }
+
+   onFilterChange() {
+      const $buttonFilter = $$(this.ids.buttonFilter);
+
+      if (!$buttonFilter) return;
+
+      const where = this.clientFilter.getValue();
+
+      $buttonFilter.define("badge", (where.rules || []).length || null);
+      $buttonFilter.refresh();
+   }
+
+
+   };
+
+}
+
+
+/***/ },
+
+/***/ 95079
+/*!******************************************************************************!*\
+  !*** ./AppBuilder/platform/plugins/included/view_csvImporter/CSVImporter.js ***!
+  \******************************************************************************/
+(module) {
+
+var L = null;
+// multilingual Label fn()
+
+module.exports = class CSVImporter {
+   constructor(Label) {
+      // {ABMultilingual.label()} function.
+      //
+      if (!L) {
+         L = Label;
+
+         // if this was a v1: App param:
+         if (Label.Label) {
+            L = Label.Label;
+         }
+      }
+   }
+
+   /**
+    * @method getSeparateItems()
+    * Return the options of how the CSV values are separated.
+    * @return {array}  [ {id, value} ... ]
+    */
+   getSeparateItems() {
+      return [
+         { id: ",", value: L("Comma (,)") },
+         { id: "\t", value: L("Tab (&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)") },
+         { id: ";", value: L("Semicolon (;)") },
+         { id: "s", value: L("Space ( )") },
+      ];
+   }
+
+   /**
+    * @method validateFile
+    * Validate file extension
+    * @param {*} fileInfo
+    *        https://docs.webix.com/api__ui.uploader_onbeforefileadd_event.html
+    * @return {boolean}
+    */
+   validateFile(fileInfo) {
+      if (!fileInfo || !fileInfo.file || !fileInfo.file.type) return false;
+
+      // validate file type
+      let extensionType = fileInfo.file.type.toLowerCase();
+      if (
+         extensionType == "text/csv" ||
+         extensionType == "application/vnd.ms-excel"
+      ) {
+         return true;
+      } else {
+         return false;
+      }
+   }
+
+   /**
+    * @method getDataRows
+    * Pull data rows from the CSV file
+    *
+    * @param {Object} fileInfo - https://docs.webix.com/api__ui.uploader_onbeforefileadd_event.html
+    * @param {string} separatedBy
+    *
+    * @return {Promise} -[
+    * 						["Value 1.1", "Value 1.2", "Value 1.3"],
+    * 						["Value 2.1", "Value 2.2", "Value 2.3"],
+    * 					]
+    */
+   getDataRows(fileInfo, separatedBy) {
+      if (!this.validateFile(fileInfo)) return Promise.reject();
+
+      return new Promise((resolve, reject) => {
+         // read CSV file
+         let reader = new window.FileReader();
+         reader.onload = (e) => {
+            let result = [];
+
+            // split lines
+            let dataRows = reader.result
+               .split(/\r\n|\n|\r/) // CRLF = \r\n; LF = \n; CR = \r;
+               .filter((row) => row && row.length > 0);
+
+            // split columns
+            (dataRows || []).forEach((row) => {
+               let dataCols = [];
+               if (separatedBy == ",") {
+                  // NOTE: if the file contains ,, .match() can not reconize this empty string
+                  row = row.replace(/,,/g, ", ,");
+
+                  // https://stackoverflow.com/questions/11456850/split-a-string-by-commas-but-ignore-commas-within-double-quotes-using-javascript#answer-11457952
+                  dataCols = row.match(/(".*?"|[^",]+)(?=\s*,|\s*$)/g);
+               } else {
+                  dataCols = row.split(separatedBy);
+               }
+
+               result.push(dataCols.map((dCol) => this.reformat(dCol)));
+            });
+
+            resolve(result);
+         };
+         reader.readAsText(fileInfo.file);
+      });
+   }
+
+   /**
+    * @method getGuessDataType
+    * return our best guess of what type of data for the requested column.
+    * @param {array} dataRows
+    *        The data we are evaluating:
+    *        [
+    *           ["Value 1.1", "Value 1.2", "Value 1.3"],
+    *           ["Value 2.1", "Value 2.2", "Value 2.3"],
+    * 		 ]
+    * @param colIndex {Number}
+    * @return {string}
+    */
+   getGuessDataType(dataRows, colIndex) {
+      var data,
+         // {various} the data pulled from the requested row/column
+         repeatNum = 10;
+      // {integer} how many rows do we want to scan trying to find a value
+
+      // Loop to find a value
+      for (var i = 1; i <= repeatNum; i++) {
+         var line = dataRows[i];
+         if (!line) break;
+
+         data = line[colIndex];
+
+         if (data != null && data.length > 0) break;
+      }
+
+      if (data == null || data == "") {
+         return "string";
+      } else if (
+         data == 0 ||
+         data == 1 ||
+         data == true ||
+         data == false ||
+         data == "checked" ||
+         data == "unchecked"
+      ) {
+         return "boolean";
+      } else if (!isNaN(data)) {
+         return "number";
+      } else if (Date.parse(data)) {
+         return "date";
+      } else {
+         // determine which type of string this might be:
+         if (data.length > 100) return "LongText";
+         else return "string";
+      }
+   }
+
+   /**
+    * @method reformat
+    * @param {string} str
+    */
+   reformat(str) {
+      if (!str) return "";
+
+      return str.trim().replace(/"/g, "").replace(/'/g, "");
+   }
+};
+
+
+/***/ },
+
+/***/ 48261
+/*!**************************************************************************************!*\
+  !*** ./AppBuilder/platform/plugins/included/view_csvImporter/FNAbviewcsvimporter.js ***!
+  \**************************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FNAbviewcsvimporter)
+/* harmony export */ });
+/* harmony import */ var _FNAbviewcsvimporterComponent_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FNAbviewcsvimporterComponent.js */ 94922);
+
+
+
+// FNAbviewcsvimporter Web
+// A web side import for an ABView.
+//
+function FNAbviewcsvimporter({
+   /*AB,*/
+   ABViewWidgetPlugin,
+   ABViewComponentPlugin,
+   ABViewRuleListFormRecordRules
+}) {
+   const ABAbviewcsvimporterComponent = (0,_FNAbviewcsvimporterComponent_js__WEBPACK_IMPORTED_MODULE_0__["default"])({ ABViewComponentPlugin });
+
+   const ABRecordRule = ABViewRuleListFormRecordRules;
+
+   const ABViewCSVImporterDefaults = {
+      key: "csvImporter",
+      // {string}
+      // unique key identifier for this ABViewForm
+
+      icon: "upload",
+      // {string}
+      // font-awesome icon reference: (without 'fa-' )
+
+      labelKey: "CSV Importer",
+      // {string}
+      // the multilingual label key for the class label
+      // NOTE: will be used as L(labelKey)
+   };
+
+   const ABViewCSVImporterPropertyComponentDefaults = {
+      dataviewID: null,
+      // {uuid}
+      // The ABDataCollection.uuid that we are using to store the data.
+      // NOTE: we actually use the DC to get the ABObject it is connected to.
+
+      availableFieldIds: [],
+      //{array}
+      // A list of ABField.ids that are allowed to be imported using this widget.
+
+      buttonLabel: "Upload CSV",
+      // {string}
+      // The Label(key) to display on the initial button
+
+      width: 0,
+      // {integer}
+      // Width of the Popup.
+
+      recordRules: [],
+      // {array}  [ {RecordRule}, ... ]
+      // A list of ABViewRuleListFormRecordRules that should be performed upon
+      // each row of data imported.
+      // The Array should look like:
+      // [{
+      //    action: {string},
+      //    when: [
+      //       {
+      //          fieldId: {UUID},
+      //          comparer: {string},
+      //          value: {string}
+      //       }
+      //    ],
+      //    values: [
+      //       {
+      //          fieldId: {UUID},
+      //          value: {object}
+      //       }
+      //    ]
+      // }]
+   };
+
+   class ABViewCSVImporterCore extends ABViewWidgetPlugin {
+      constructor(values, application, parent, defaultValues) {
+         super(
+            values,
+            application,
+            parent,
+            defaultValues || ABViewCSVImporterDefaults
+         );
+      }
+
+      /**
+       * @method common()
+       * Provides the default settings for an instance of an ABViewCSVImporter
+       * @return {json}
+       */
+      static common() {
+         return ABViewCSVImporterDefaults;
+      }
+
+      /**
+       * @method defaultValues()
+       * Provides the default settings for an instance of an ABViewCSVImporter
+       * Component that is displayed on the UI.
+       * @return {json}
+       */
+      static defaultValues() {
+         return ABViewCSVImporterPropertyComponentDefaults;
+      }
+
+      ///
+      /// Instance Methods
+      ///
+
+      /**
+       * @method fromValues()
+       *
+       * initialze this object with the given set of values.
+       * @param {obj} values
+       */
+      fromValues(values) {
+         super.fromValues(values);
+
+         // convert from "0" => 0
+         this.settings.width = parseInt(
+            this.settings.width || ABViewCSVImporterPropertyComponentDefaults.width
+         );
+      }
+
+      get RecordRule() {
+         let object = this.datacollection?.datasource;
+         if (!object) return null;
+
+         if (this._recordRule == null) {
+            this._recordRule = new ABRecordRule();
+         }
+
+         this._recordRule.formLoad(this);
+         this._recordRule.fromSettings(this.settings.recordRules);
+         this._recordRule.objectLoad(object);
+
+         return this._recordRule;
+      }
+
+      doRecordRulesPre(rowDatas) {
+         if (rowDatas && !Array.isArray(rowDatas)) {
+            rowDatas = [rowDatas];
+         }
+
+         rowDatas.forEach((row) => {
+            this.RecordRule?.processPre({ data: row.data || row, form: this });
+         });
+      }
+
+      doRecordRules(rowDatas) {
+         if (rowDatas && !Array.isArray(rowDatas)) {
+            rowDatas = [rowDatas];
+         }
+
+         if (!this.RecordRule) return Promise.resolve();
+
+         let tasks = [];
+
+         rowDatas.forEach((row) => {
+            tasks.push(
+               this.RecordRule.process({ data: row.data || row, form: this })
+            );
+         });
+
+         return Promise.all(tasks);
+      }
+   };
+
+   return class ABViewCSVImporter extends ABViewCSVImporterCore {
+
+      /**
+             * @method getPluginKey
+             * return the plugin key for this view.
+             * @return {string} plugin key
+             */
+      static getPluginKey() {
+         return this.common().key;
+      }
+
+      /**
+             * @method component()
+             * return a UI component based upon this view.
+             * @return {obj} UI component
+             */
+      component(parentId) {
+         return new ABAbviewcsvimporterComponent(this, parentId);
+      }
+
+
+
+
+      warningsEval() {
+         super.warningsEval();
+
+         let DC = this.datacollection;
+         if (!DC) {
+            this.warningsMessage(
+               `can't resolve it's datacollection[${this.settings.dataviewID}]`
+            );
+         }
+
+         if (!this.settings.availableFieldIds?.length) {
+            this.warningsMessage("has no fields set for matching import data");
+         }
+      }
+   };
+
+}
+
+
+
+/***/ },
+
+/***/ 94922
+/*!***********************************************************************************************!*\
+  !*** ./AppBuilder/platform/plugins/included/view_csvImporter/FNAbviewcsvimporterComponent.js ***!
+  \***********************************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FNAbviewcsvimporterComponent)
+/* harmony export */ });
+const CSVImporter = __webpack_require__(/*! ./CSVImporter */ 95079);
+
+function FNAbviewcsvimporterComponent({
+   /*AB,*/
+   ABViewComponentPlugin,
+}) {
+   return class ABAbviewcsvimporterComponent extends ABViewComponentPlugin {
+
+
+      constructor(baseView, idBase, ids) {
+         super(
+            baseView,
+            idBase || `ABCSVImporter_${baseView.id}`,
+            Object.assign(
+               {
+                  button: "",
+                  popup: "",
+
+                  form: "",
+                  uploader: "",
+                  uploadFileList: "",
+                  separatedBy: "",
+                  headerOnFirstLine: "",
+                  columnList: "",
+
+                  search: "",
+                  datatable: "",
+
+                  statusMessage: "",
+                  progressBar: "",
+
+                  linkedDataButton: "",
+                  importButton: "",
+                  rules: "",
+               },
+               ids
+            )
+         );
+
+         this.csvImporter = new CSVImporter((...args) => this.label(...args));
+         // {CSVImporter}
+         // An instance of the object that imports the CSV data.
+
+         this.validationError = false;
+
+         this._dataRows = null;
+         this._csvFileInfo = null;
+      }
+
+      ui() {
+         const settings = this.settings;
+         const defaultSettings = this.view.constructor.defaultValues();
+         const _ui = super.ui([
+            {
+               cols: [
+                  {
+                     view: "button",
+                     css: "webix_primary",
+                     type: "icon",
+                     icon: "fa fa-upload",
+                     label: this.label(
+                        settings.buttonLabel || defaultSettings.buttonLabel
+                     ),
+                     width: settings.width || defaultSettings.width,
+                     click: () => {
+                        this.showPopup();
+                     },
+                  },
+                  {
+                     fillspace: true,
+                  },
+               ],
+            },
+         ]);
+
+         delete _ui.type;
+
+         return _ui;
+      }
+
+      uiConfig() {
+         const ids = this.ids;
+
+         return {
+            id: ids.form,
+            view: "form",
+            type: "clean",
+            borderless: true,
+            minWidth: 400,
+            gravity: 1,
+            elements: [
+               {
+                  rows: [
+                     {
+                        id: ids.uploader,
+                        view: "uploader",
+                        name: "csvFile",
+                        css: "webix_primary",
+                        value: this.label("Choose a CSV file"),
+                        accept: "text/csv",
+                        multiple: false,
+                        autosend: false,
+                        link: ids.uploadFileList,
+                        on: {
+                           onBeforeFileAdd: (fileInfo) => {
+                              this._csvFileInfo = fileInfo;
+
+                              return this.loadCsvFile();
+                           },
+                        },
+                     },
+                     {
+                        id: ids.uploadFileList,
+                        name: "uploadedFile",
+                        view: "list",
+                        type: "uploader",
+                        autoheight: true,
+                        borderless: true,
+                        onClick: {
+                           webix_remove_upload: (e, id /*, trg */) => {
+                              this.removeCsvFile(id);
+                           },
+                        },
+                     },
+                     {
+                        padding: 10,
+                        rows: [
+                           {
+                              id: ids.separatedBy,
+                              view: "richselect",
+                              name: "separatedBy",
+                              label: this.label("Separated by"),
+                              labelWidth: 140,
+                              options: this.csvImporter.getSeparateItems(),
+                              value: ",",
+                              on: {
+                                 onChange: () => {
+                                    this.loadCsvFile();
+                                 },
+                              },
+                           },
+                           {
+                              id: ids.headerOnFirstLine,
+                              view: "checkbox",
+                              name: "headerOnFirstLine",
+                              label: this.label("Header on first line"),
+                              labelWidth: 140,
+                              disabled: true,
+                              value: true,
+                              on: {
+                                 onChange: (/*newVal, oldVal*/) => {
+                                    this.populateColumnList();
+                                 },
+                              },
+                           },
+                        ],
+                     },
+                     {
+                        type: "space",
+                        rows: [
+                           {
+                              view: "scrollview",
+                              minHeight: 300,
+                              body: {
+                                 padding: 10,
+                                 id: ids.columnList,
+                                 rows: [],
+                              },
+                           },
+                        ],
+                     },
+                  ],
+               },
+            ],
+         };
+      }
+
+      uiRecordsView() {
+         const ids = this.ids;
+
+         return {
+            gravity: 2,
+            rows: [
+               {
+                  view: "toolbar",
+                  css: "bg_gray",
+                  cols: [
+                     { width: 5 },
+                     {
+                        id: ids.search,
+                        view: "search",
+                        value: "",
+                        label: "",
+                        placeholder: this.label("Search records..."),
+                        keyPressTimeout: 200,
+                        on: {
+                           onTimedKeyPress: () => {
+                              this.search($$(ids.search).getValue());
+                           },
+                        },
+                     },
+                     { width: 2 },
+                  ],
+               },
+               {
+                  id: ids.datatable,
+                  view: "datatable",
+                  resizeColumn: true,
+                  editable: true,
+                  editaction: "dblclick",
+                  css: "ab-csv-importer",
+                  borderless: false,
+                  tooltip: (obj) => {
+                     const tooltip = obj._errorMsg
+                        ? obj._errorMsg
+                        : "No validation errors";
+                     return tooltip;
+                  },
+                  minWidth: 650,
+                  columns: [],
+                  on: {
+                     onValidationError: (id, obj, details) => {
+                        // console.log(`item ${id} invalid`);
+                        let errors = "";
+
+                        Object.keys(details).forEach((key) => {
+                           this.$view.complexValidations[key].forEach((err) => {
+                              errors += err.invalidMessage + "</br>";
+                           });
+                        });
+
+                        const $dt = $$(ids.datatable);
+
+                        $dt.blockEvent();
+                        $dt.updateItem(id, {
+                           _status: "invalid",
+                           _errorMsg: errors,
+                        });
+                        $dt.unblockEvent();
+
+                        this.validationError = true;
+                     },
+                     onValidationSuccess: (id, obj, details) => {
+                        // console.log(`item ${id} valid`);
+                        const $dt = $$(ids.datatable);
+
+                        $dt.blockEvent();
+                        $dt.updateItem(id, {
+                           _status: "valid",
+                           _errorMsg: "",
+                        });
+                        $dt.unblockEvent();
+                        this.validationError = false;
+                     },
+                     onCheck: () => {
+                        const selected = $$(ids.datatable).find({
+                           _included: true,
+                        });
+                        const $importButton = $$(ids.importButton);
+
+                        $importButton.setValue(this.labelImport(selected));
+
+                        if (this.overLimitAlert(selected)) $importButton.disable();
+                        else $importButton.enable();
+                     },
+                  },
+               },
+               {
+                  id: ids.progressBar,
+                  height: 6,
+               },
+               {
+                  cols: [
+                     {
+                        id: ids.linkedDataButton,
+                        view: "button",
+                        label: this.label("Linked Data"),
+                        type: "icon",
+                        icon: "fa fa-info",
+                        maxWidth: 180,
+                        click: () => {
+                           this.showLinkedData();
+                        },
+                     },
+                     {
+                        view: "button",
+                        name: "import",
+                        id: ids.importButton,
+                        label: this.label("Import"),
+                        css: "webix_primary",
+                        disabled: true,
+                        type: "icon",
+                        icon: "fa fa-upload",
+                        click: () => {
+                           this.import();
+                        },
+                     },
+                  ],
+               },
+            ],
+         };
+      }
+
+      uiPopup() {
+         const ids = this.ids;
+
+         return {
+            id: ids.popup,
+            view: "window",
+            hidden: true,
+            position: "center",
+            modal: true,
+            resize: true,
+            head: {
+               view: "toolbar",
+               css: "webix_dark",
+               cols: [
+                  {},
+                  {
+                     view: "label",
+                     label: this.label("CSV Importer"),
+                     autowidth: true,
+                  },
+                  {},
+                  {
+                     view: "button",
+                     width: 35,
+                     css: "webix_transparent",
+                     type: "icon",
+                     icon: "nomargin fa fa-times",
+                     click: () => {
+                        this.hide();
+                     },
+                  },
+               ],
+            },
+            body: {
+               type: "form",
+               rows: [
+                  {
+                     type: "line",
+                     cols: [
+                        this.uiConfig(),
+                        { width: 20 },
+                        this.uiRecordsView(),
+                        { width: 1 },
+                     ],
+                  },
+                  {
+                     id: ids.statusMessage,
+                     view: "label",
+                     align: "right",
+                     hidden: true,
+                  },
+                  {
+                     hidden: true,
+                     margin: 5,
+                     cols: [
+                        { fillspace: true },
+                        {
+                           view: "button",
+                           name: "cancel",
+                           value: this.label("Cancel"),
+                           css: "ab-cancel-button",
+                           autowidth: true,
+                           click: () => {
+                              this.hide();
+                           },
+                        },
+                        /*,
+                           {
+                              view: "button",
+                              name: "import",
+                              id: ids.importButton,
+                              value: labels.component.import,
+                              css: "webix_primary",
+                              disabled: true,
+                              autowidth: true,
+                              type: "form",
+                              click: () => {
+                                 _logic.import();
+                              }
+                           }*/
+                     ],
+                  },
+               ],
+            },
+         };
+      }
+
+      async init(AB) {
+         await super.init(AB);
+
+         const ids = this.ids;
+
+         // Populate values to rules
+
+         const dc = this.datacollection;
+
+         if (dc) this.objectLoad(dc.datasource);
+
+         const abWebix = AB.Webix;
+
+         abWebix.ui(this.uiPopup());
+
+         const $form = $$(ids.form);
+
+         if ($form) abWebix.extend($form, abWebix.ProgressBar);
+
+         const $progressBar = $$(ids.progressBar);
+
+         if ($progressBar) abWebix.extend($progressBar, abWebix.ProgressBar);
+      }
+
+      showPopup() {
+         const ids = this.ids;
+
+         $$(ids.popup)?.show();
+
+         this.formClear();
+
+         // open file dialog to upload
+         $$(ids.uploader).fileDialog();
+      }
+
+      hide() {
+         $$(this.ids.popup)?.hide();
+      }
+
+      formClear() {
+         const ids = this.ids;
+
+         this._dataRows = null;
+         this._csvFileInfo = null;
+
+         const $form = $$(ids.form);
+
+         $form.clearValidation();
+         $form.clear();
+
+         $$(ids.separatedBy).setValue(",");
+
+         this.AB.Webix.ui([], $$(ids.columnList));
+
+         $$(ids.headerOnFirstLine).disable();
+         $$(ids.importButton).disable();
+
+         $$(ids.search).setValue("");
+         $$(ids.uploadFileList).clearAll();
+         $$(ids.datatable).clearAll();
+
+         const $statusMessage = $$(ids.statusMessage);
+
+         $statusMessage.setValue("");
+         $statusMessage.hide();
+      }
+
+      search(searchText) {
+         const $datatable = $$(this.ids.datatable);
+
+         if (!$datatable) return;
+
+         searchText = (searchText || "").toLowerCase();
+
+         const matchFields = this.getMatchFields();
+
+         $datatable.filter((row) => {
+            let exists = false;
+
+            (matchFields || []).forEach((f) => {
+               if (exists) return;
+
+               exists =
+                  (row[`${f.columnIndex}`] || "")
+                     .toString()
+                     .toLowerCase()
+                     .indexOf(searchText) > -1;
+            });
+
+            return exists;
+         });
+      }
+
+      statusTemplate(item) {
+         let template = "";
+
+         if (!item) return template;
+
+         switch (item._status) {
+            case "in-progress":
+               template = "<span class='fa fa-refresh'></span>";
+               break;
+            case "invalid":
+               template = "<span class='fa fa-exclamation-triangle'></span>";
+               break;
+            case "valid":
+               template = "<span class='fa fa-check'></span>";
+               break;
+            case "done":
+               template = "<span class='fa fa-check'></span>";
+               break;
+            case "fail":
+               template = "<span class='fa fa-remove'></span>";
+               break;
+         }
+
+         return template;
+      }
+
+      async loadCsvFile() {
+         const _csvFileInfo = this._csvFileInfo;
+
+         if (!_csvFileInfo) return false;
+
+         const csvImporter = this.csvImporter;
+
+         if (!csvImporter.validateFile(_csvFileInfo)) {
+            this.AB.Webix.alert({
+               title: this.label("This file extension is not allowed"),
+               text: this.label("Please only upload CSV files"),
+               ok: this.label("Ok"),
+            });
+
+            return false;
+         }
+
+         const ids = this.ids;
+
+         // show loading cursor
+         const $form = $$(ids.form);
+
+         $form?.showProgress?.({ type: "icon" });
+
+         // read CSV file
+         const $headerOnFirstLine = $$(ids.headerOnFirstLine);
+         const $importButton = $$(ids.importButton);
+
+         $headerOnFirstLine.enable();
+         $importButton.enable();
+
+         this._dataRows = await csvImporter.getDataRows(
+            _csvFileInfo,
+            $$(ids.separatedBy).getValue()
+         );
+
+         const _dataRows = this._dataRows;
+
+         let length = _dataRows.length;
+
+         if ($headerOnFirstLine.getValue()) length = _dataRows.length - 1;
+
+         $importButton.setValue(this.labelImport(length));
+         this.populateColumnList();
+         $form?.hideProgress?.();
+
+         return true;
+      }
+
+      removeCsvFile(fileId) {
+         $$(this.ids.uploadFileList).remove(fileId);
+         this.formClear();
+
+         return true;
+      }
+
+      populateColumnList() {
+         const self = this;
+         const ids = this.ids;
+         const abWebix = this.AB.Webix;
+
+         // clear list
+         const $columnList = $$(ids.columnList);
+
+         abWebix.ui([], $columnList);
+
+         const _dataRows = this._dataRows;
+
+         if (!_dataRows) return;
+
+         // check first line of CSV
+         const firstLine = _dataRows[0];
+
+         if (!firstLine) return;
+
+         const csvColumnList = [];
+         const fieldList = [];
+         const currentObject = this.CurrentObject;
+
+         if (currentObject)
+            fieldList.push(
+               ...currentObject.fields((f) => {
+                  // available fields
+                  if (
+                     this.settings.availableFieldIds?.length &&
+                     this.settings.availableFieldIds.indexOf(f.id) < 0
+                  ) {
+                     return false;
+                  }
+
+                  // filter editable fields
+                  const formComp = f.formComponent();
+
+                  if (!formComp) return true;
+
+                  const formConfig = formComp.common();
+
+                  if (!formConfig) return true;
+
+                  return formConfig.key != "fieldreadonly";
+               })
+            );
+
+         const csvImporter = this.csvImporter;
+
+         // check first line be header columns
+         if ($$(ids.headerOnFirstLine).getValue())
+            csvColumnList.push(
+               ...firstLine.map((colName, index) => {
+                  return {
+                     id: index + 1, // webix .options list disallow value 0
+                     value: colName,
+                     key: csvImporter.getGuessDataType(_dataRows, index),
+                  };
+               })
+            );
+         else
+            firstLine.forEach((e, i) => {
+               csvColumnList.push({
+                  id: i + 1, // webix .options list disallow value 0
+                  value: this.label("Column {0}", [i + 1]),
+                  key: csvImporter.getGuessDataType(_dataRows, i),
+               });
+            });
+
+         // Add unselect item
+         csvColumnList.unshift({
+            id: "none",
+            value: this.label("None"),
+         });
+
+         // populate columns to UI
+         const uiColumns = [];
+         const selectedCsvCols = [];
+
+         fieldList.forEach((f) => {
+            // match up by data type
+            const matchCol = csvColumnList.filter(
+               (c) => c.key == f.key && selectedCsvCols.indexOf(c.id) < 0
+            )[0];
+
+            let selectVal = "none";
+
+            if (matchCol) {
+               selectVal = matchCol.id;
+
+               // cache
+               selectedCsvCols.push(selectVal);
+            }
+
+            let columnOptUI = {
+               view: "richselect",
+               gravity: 2,
+               options: csvColumnList,
+               fieldId: f.id,
+               abName: "columnIndex",
+               value: selectVal,
+               on: {
+                  onChange: function () {
+                     self.toggleLinkFields(this);
+                     self.loadDataToGrid();
+                  },
+               },
+            };
+
+            // Add date format options
+            if (f.key === "date") {
+               const dateSeparatorOptions = ["/", "-", ".", ",", " "];
+               const dayFormatOptions = [
+                  { value: this.label("1 to 31"), id: "D" },
+                  { value: this.label("01 to 31"), id: "DD" },
+               ];
+               const monthFormatOptions = [
+                  { value: this.label("1 to 12"), id: "M" },
+                  { value: this.label("01 to 12"), id: "MM" },
+               ];
+               const yearFormatOptions = [
+                  { value: this.label("00 to 99"), id: "YY" },
+                  { value: this.label("2000 to 2099"), id: "YYYY" },
+               ];
+               const dateOrderOptions = [
+                  {
+                     value: this.label("D-M-Y"),
+                     id: 1,
+                  },
+                  {
+                     value: this.label("M-D-Y"),
+                     id: 2,
+                  },
+                  {
+                     value: this.label("Y-M-D"),
+                     id: 3,
+                  },
+                  {
+                     value: this.label("Y-D-M"),
+                     id: 4,
+                  },
+               ];
+
+               columnOptUI = {
+                  gravity: 2,
+                  rows: [
+                     columnOptUI,
+                     {
+                        view: "richselect",
+                        label: this.label("Separator"),
+                        labelWidth: 100,
+                        on: {
+                           onChange: () => {
+                              this.loadDataToGrid();
+                           },
+                        },
+                        name: "separator",
+                        abName: "columnDateFormat",
+                        options: dateSeparatorOptions,
+                        value: "/",
+                     },
+                     {
+                        view: "richselect",
+                        label: this.label("Day"),
+                        labelWidth: 100,
+                        on: {
+                           onChange: () => {
+                              this.loadDataToGrid();
+                           },
+                        },
+                        name: "day",
+                        abName: "columnDateFormat",
+                        options: dayFormatOptions,
+                        value: "D",
+                     },
+                     {
+                        view: "richselect",
+                        label: this.label("Month"),
+                        labelWidth: 100,
+                        on: {
+                           onChange: () => {
+                              this.loadDataToGrid();
+                           },
+                        },
+                        name: "month",
+                        abName: "columnDateFormat",
+                        options: monthFormatOptions,
+                        value: "M",
+                     },
+                     {
+                        view: "richselect",
+                        label: this.label("Year"),
+                        labelWidth: 100,
+                        on: {
+                           onChange: () => {
+                              this.loadDataToGrid();
+                           },
+                        },
+                        name: "year",
+                        abName: "columnDateFormat",
+                        options: yearFormatOptions,
+                        value: "YY",
+                     },
+                     {
+                        view: "richselect",
+                        label: this.label("Order"),
+                        labelWidth: 100,
+                        on: {
+                           onChange: () => {
+                              this.loadDataToGrid();
+                           },
+                        },
+                        name: "order",
+                        abName: "columnDateFormat",
+                        options: dateOrderOptions,
+                        value: 1,
+                     },
+                  ],
+               };
+            }
+
+            // Add connected field options
+            if (f.isConnection) {
+               let linkFieldOptions = [];
+
+               if (f.datasourceLink) {
+                  linkFieldOptions = f.datasourceLink
+                     .fields((fld) => !fld.isConnection)
+                     .map((fld) => {
+                        return {
+                           id: fld.id,
+                           value: fld.label,
+                        };
+                     });
+               }
+
+               columnOptUI = {
+                  gravity: 2,
+                  rows: [
+                     columnOptUI,
+                     {
+                        view: "richselect",
+                        label: "=",
+                        labelWidth: 20,
+                        abName: "columnLinkData",
+                        hidden: true,
+                        options: linkFieldOptions,
+                        value: linkFieldOptions[0] ? linkFieldOptions[0].id : null,
+                     },
+                  ],
+               };
+            }
+
+            uiColumns.push({
+               view: "layout",
+               borderless: true,
+               cols: [
+                  {
+                     view: "template",
+                     gravity: 1,
+                     borderless: true,
+                     css: { "padding-top": 10 },
+                     template: `<span class="fa fa-${f.icon}"></span> ${f.label}`,
+                  },
+                  columnOptUI,
+               ],
+            });
+         });
+         abWebix.ui(uiColumns, $columnList);
+
+         this.loadDataToGrid();
+      }
+
+      toggleLinkFields($columnOption) {
+         if (!$columnOption) return;
+
+         const $optionPanel = $columnOption.getParentView();
+         const $linkFieldOption = $optionPanel.queryView(
+            { abName: "columnLinkData" },
+            "all"
+         )[0];
+
+         if (!$linkFieldOption) return;
+
+         if ($columnOption.getValue() === "none") $linkFieldOption.hide();
+         else $linkFieldOption.show();
+      }
+
+      overLimitAlert(data) {
+         const limit = 1000;
+
+         if (data.length > limit) {
+            // we only allow 1000 record imports
+            this.AB.Webix.alert({
+               title: this.label("Too many records"),
+               ok: this.label("Ok"),
+               text: this.label(
+                  "Due to browser limitations we only allow imports of {0} records. Please upload a new CSV or deselect records to import.",
+                  [limit]
+               ),
+            });
+
+            return true;
+         }
+
+         return false;
+      }
+
+      loadDataToGrid() {
+         const ids = this.ids;
+         const $datatable = $$(ids.datatable);
+         const ab = this.AB;
+
+         if (!$datatable) return;
+
+         $datatable.clearAll();
+
+         // show loading cursor
+         $datatable.showProgress?.({ type: "icon" });
+
+         /** Prepare Columns */
+         const matchFields = this.getMatchFields();
+         const columns = [];
+
+         // add "status" column
+         columns.push({
+            id: "_status",
+            header: "",
+            template: this.statusTemplate,
+            width: 30,
+         });
+
+         // add "checkbox" column
+         columns.push({
+            id: "_included",
+            header: { content: "masterCheckbox" },
+            template: "{common.checkbox()}",
+            width: 30,
+         });
+
+         const fieldValidations = [];
+         const rulePops = [];
+
+         // populate columns
+         (matchFields || []).forEach((f) => {
+            let validationRules = f.field.settings.validationRules;
+            // parse the rules because they were stored as a string
+            // check if rules are still a string...if so lets parse them
+            if (validationRules && typeof validationRules === "string")
+               validationRules = JSON.parse(validationRules);
+
+            if (validationRules?.length) {
+               const validationUI = [];
+
+               // there could be more than one so lets loop through and build the UI
+               validationRules.forEach((rule) => {
+                  const Filter = ab.filterComplexNew(
+                     `${f.field.id}_${ab.Webix.uid()}`
+                  );
+                  // add the new ui to an array so we can add them all at the same time
+                  validationUI.push(Filter.ui);
+                  // store the filter's info so we can assign values and settings after the ui is rendered
+                  fieldValidations.push({
+                     filter: Filter,
+                     view: Filter.ids.querybuilder,
+                     columnName: f.field.id,
+                     validationRules: rule.rules,
+                     invalidMessage: rule.invalidMessage,
+                     columnIndex: f.columnIndex,
+                  });
+               });
+
+               // create a unique view id for popup
+               const popUpId = `${ids.rules}_${f.field.id}_${ab.Webix.uid()}`;
+
+               // store the popup ids so we can remove the later
+               rulePops.push(popUpId);
+               // add the popup to the UI but don't show it
+               ab.Webix.ui({
+                  view: "popup",
+                  css: "ab-rules-popup",
+                  id: popUpId,
+                  body: {
+                     rows: validationUI,
+                  },
+               });
+            }
+
+            const editor = f.field?.key == "number" ? "number" : "text";
+
+            columns.push({
+               id: f.columnIndex,
+               header: f.field.label,
+               editor: editor,
+               template: (obj, common, value /*, col, ind */) =>
+                  value.replace(/[<]/g, "&lt;"),
+               minWidth: 150,
+               fillspace: true,
+            });
+         });
+
+         if (fieldValidations.length) {
+            // we need to store the rules for use later so lets build a container array
+            const complexValidations = [];
+
+            fieldValidations.forEach((f) => {
+               // init each ui to have the properties (app and fields) of the object we are editing
+               // f.filter.applicationLoad(App);
+               f.filter.fieldsLoad(this.CurrentObject.fields());
+               // now we can set the value because the fields are properly initialized
+               f.filter.setValue(f.validationRules);
+               // if there are validation rules present we need to store them in a lookup hash
+               // so multiple rules can be stored on a single field
+               if (!Array.isArray(complexValidations[f.columnName]))
+                  complexValidations[f.columnName] = [];
+
+               // now we can push the rules into the hash
+               complexValidations[f.columnName].push({
+                  filters: $$(f.view).getFilterHelper(),
+                  values: $datatable.getSelectedItem(),
+                  invalidMessage: f.invalidMessage,
+                  columnIndex: f.columnIndex,
+               });
+            });
+
+            const rules = {};
+
+            // store the rules in a data param to be used later
+            $datatable.$view.complexValidations = complexValidations;
+
+            // use the lookup to build the validation rules
+            Object.keys(complexValidations).forEach((key) => {
+               rules[key] = (value, data) => {
+                  // default valid is true
+                  let isValid = true;
+
+                  $datatable.$view.complexValidations[key].forEach((filter) => {
+                     const rowValue = {};
+                     // use helper funtion to check if valid
+                     // map the column names to the index numbers of data
+                     // reformat data to display
+
+                     (matchFields || []).forEach((f) => {
+                        const record = data[f.columnIndex];
+
+                        if (
+                           f.field.key === "date" &&
+                           record.includes("Invalid date")
+                        )
+                           isValid = false;
+
+                        rowValue[f.field.id] = record;
+                     });
+
+                     const ruleValid = filter.filters(rowValue);
+
+                     // if invalid we need to tell the field
+                     if (!ruleValid) {
+                        isValid = false;
+                        // this.AB.Webix.message({
+                        //    type: "error",
+                        //    text: invalidMessage
+                        // });
+                     }
+                  });
+
+                  return isValid;
+               };
+            });
+            // define validation rules
+            $datatable.define("rules", rules);
+            // store the array of view ids on the webix object so we can get it later
+            $datatable.config.rulePops = rulePops;
+            $datatable.refresh();
+         } else {
+            // check if the previous datatable had rule popups and remove them
+            if ($datatable.config.rulePops) {
+               $datatable.config.rulePops.forEach((popup) => {
+                  const $popup = $$(popup);
+
+                  if (!$popup) return;
+
+                  $popup.destructor();
+               });
+            }
+
+            // remove any validation rules from the previous table
+            $datatable.define("rules", {});
+            $datatable.refresh();
+         }
+
+         /** Prepare Data */
+         const parsedData = [];
+
+         (this._dataRows || []).forEach((row, index) => {
+            const rowValue = {
+               id: index + 1,
+            };
+
+            // reformat data to display
+            (matchFields || []).forEach((f) => {
+               const data = row[f.columnIndex - 1];
+
+               if (f.field.key === "date") {
+                  // let dateFormat = moment(data, f.format).format(
+                  //    "YYYY-MM-DD"
+                  // );
+                  let dateFormat = ab.rules.toDate(data, {
+                     format: f.format,
+                  });
+                  dateFormat = ab.rules.toDateFormat(dateFormat, {
+                     format: "YYYY-MM-DD",
+                  });
+
+                  if (dateFormat === "Invalid date")
+                     dateFormat = dateFormat + " - " + data;
+
+                  rowValue[f.columnIndex] = dateFormat;
+               } else rowValue[f.columnIndex] = data; // array to object
+            });
+
+            // insert "true" value of checkbox
+            rowValue["_included"] = true;
+
+            parsedData.push(rowValue);
+         });
+
+         // skip the first line
+         const isSkipFirstLine = $$(ids.headerOnFirstLine).getValue();
+
+         if (isSkipFirstLine && parsedData.length > 1) parsedData.shift();
+
+         const $importButton = $$(ids.importButton);
+
+         $importButton.setValue(this.labelImport(parsedData));
+         $datatable.refreshColumns(columns);
+         $datatable.parse(parsedData);
+
+         if (this.overLimitAlert(parsedData)) $importButton.disable();
+         else $importButton.enable();
+
+         // hide loading cursor
+         $datatable.hideProgress?.();
+      }
+
+      refreshRemainingTimeText(startUpdateTime, total, index) {
+         const ids = this.ids;
+
+         // Calculate remaining time
+         const spentTime = new Date() - startUpdateTime; // milliseconds that has passed since last completed record since start
+
+         const averageRenderTime = spentTime / index; // average milliseconds per single render at this point
+
+         const remainTime = averageRenderTime * (total - index);
+
+         let result = "";
+
+         // Convert milliseconds to a readable string
+         const days = (remainTime / 86400000).toFixed(0);
+         const hours = (remainTime / 3600000).toFixed(0);
+         const minutes = (remainTime / 60000).toFixed(0);
+         const seconds = (remainTime / 1000).toFixed(0);
+
+         if (seconds < 1) result = "";
+         else if (seconds < 60)
+            result = this.label("Approximately {0} second(s) remaining", [
+               seconds,
+            ]);
+         // result = `Approximately ${seconds} second${
+         //    seconds > 1 ? "s" : ""
+         // }`;
+         else if (minutes == 1)
+            result = this.label("Approximately 1 minute {0} seconds remaining", [
+               seconds - 60,
+            ]);
+         // result = `Approximately 1 minute ${seconds - 60} seconds`;
+         else if (minutes < 60)
+            result = this.label("Approximately {0} minutes remaining", [minutes]);
+         else if (hours < 24)
+            result = this.label("Approximately {0} hour(s) remaining", [hours]);
+         else result = this.label("Approximately {0} day(s) remaining", [days]);
+
+         if (result) {
+            $$(ids.importButton)?.setValue(result);
+         } else {
+            const selected = $$(ids.datatable)?.find({ _included: true });
+            $$(ids.importButton)?.setValue(this.labelImport(selected));
+         }
+      }
+
+      /**
+       * @method getMatchFields
+       *
+       * @return {Object} - [
+       *                      {
+       *                         columnIndex: {number},
+       *                         field: {ABField},
+       *                         searchField: {ABField} [optional]
+       *                      },
+       *                      ...
+       *                    ]
+       */
+      getMatchFields() {
+         const result = [];
+         const ids = this.ids;
+
+         // get richselect components
+         const $selectorViews = $$(ids.columnList)
+            .queryView({ abName: "columnIndex" }, "all")
+            .filter((selector) => selector.getValue() != "none");
+
+         ($selectorViews || []).forEach(($selector) => {
+            const currentObject = this.CurrentObject;
+
+            if (!currentObject) return;
+
+            // webix .options list disallow value 0
+            const field = currentObject.fieldByID($selector.config.fieldId);
+
+            if (!field) return;
+
+            const colIndex = $selector.getValue();
+            const fieldData = {
+               columnIndex: colIndex,
+               field: field,
+            };
+
+            if (field.key === "date") {
+               const $optionPanel = $selector.getParentView();
+               const $dateFormatSelectors = $optionPanel.queryView(
+                  { abName: "columnDateFormat" },
+                  "all"
+               );
+
+               // define the column to compare data to search .id
+               if ($dateFormatSelectors) {
+                  $dateFormatSelectors.forEach((selector) => {
+                     fieldData[selector.config.name] = selector.getValue();
+                  });
+
+                  // convert all dates into mysql date format YYYY-DD-MM
+                  let format;
+
+                  switch (fieldData.order) {
+                     case "1":
+                        format =
+                           fieldData.day +
+                           fieldData.separator +
+                           fieldData.month +
+                           fieldData.separator +
+                           fieldData.year;
+                        break;
+                     case "2":
+                        format =
+                           fieldData.month +
+                           fieldData.separator +
+                           fieldData.day +
+                           fieldData.separator +
+                           fieldData.year;
+                        break;
+                     case "3":
+                        format =
+                           fieldData.year +
+                           fieldData.separator +
+                           fieldData.month +
+                           fieldData.separator +
+                           fieldData.day;
+                        break;
+                     case "4":
+                        format =
+                           fieldData.year +
+                           fieldData.separator +
+                           fieldData.day +
+                           fieldData.separator +
+                           fieldData.month;
+                  }
+
+                  fieldData.format = format;
+               }
+            }
+
+            if (field.isConnection) {
+               const $optionPanel = $selector.getParentView();
+               const $linkDataSelector = $optionPanel.queryView(
+                  { abName: "columnLinkData" },
+                  "all"
+               )[0];
+
+               // define the column to compare data to search .id
+               if ($linkDataSelector) {
+                  const searchField = field.datasourceLink.fieldByID(
+                     $linkDataSelector.getValue()
+                  );
+
+                  fieldData.searchField = searchField;
+               }
+            }
+
+            result.push(fieldData);
+         });
+
+         return result;
+      }
+
+      labelImport(selected) {
+         let length = selected;
+
+         if (Array.isArray(selected)) length = selected.length;
+
+         return this.label("Import {0} Records", [length]);
+      }
+
+      /**
+       * @method import
+       *
+       * @return {Promise}
+       */
+      async import() {
+         // if (dv == null) return Promise.resolve();
+
+         // // get ABObject
+         // let obj = dv.datasource;
+
+         // Make sure we are connected to an Object
+         const currentObject = this.CurrentObject;
+
+         if (!currentObject) return;
+
+         // get ABModel
+         // let model = dv.model;
+         // if (model == null) return Promise.resolve();
+
+         const ids = this.ids;
+         const $importButton = $$(ids.importButton);
+
+         $importButton.disable();
+
+         // Show loading cursor
+         const $form = $$(ids.form);
+         const $progressBar = $$(ids.progressBar);
+
+         $form.showProgress({ type: "icon" });
+         $progressBar.showProgress({
+            type: "top",
+            position: 0.0001,
+         });
+
+         // get richselect components
+         const matchFields = this.getMatchFields();
+
+         // Get object's model
+         const objModel = currentObject.model();
+         const $datatable = $$(ids.datatable);
+         const selectedRows = $datatable.find({ _included: true });
+
+         let _currProgress = 0;
+
+         const increaseProgressing = () => {
+            _currProgress += 1;
+            $progressBar.showProgress({
+               type: "bottom",
+               position: _currProgress / selectedRows.length,
+            });
+         };
+         const itemFailed = (itemId, errMessage) => {
+            if ($datatable) {
+               // set "fail" status
+               $datatable.addRowCss(itemId, "row-fail");
+               $datatable.blockEvent();
+               $datatable.updateItem(itemId, {
+                  _status: "fail",
+                  _errorMsg: errMessage,
+               });
+               $datatable.unblockEvent();
+            }
+
+            increaseProgressing();
+
+            console.error(errMessage);
+         };
+         const abWebix = this.AB.Webix;
+         const itemInvalid = (itemId, errors = []) => {
+            if ($datatable) {
+               // combine all error messages to display in tooltip
+               const errorMsg = [];
+               // mark which column are invalid
+               errors.forEach((err) => {
+                  if (!err?.name) return;
+
+                  errorMsg.push(err.name + ": " + err.message);
+                  // we also need to define an error message
+                  // abWebix.message({
+                  //    type: "error",
+                  //    text: err.name + ": " + err.message
+                  // });
+               });
+
+               // set "fail" status
+               $datatable.blockEvent();
+               $datatable.updateItem(itemId, {
+                  _status: "invalid",
+                  _errorMsg: errorMsg.join("</br>"),
+               });
+               $datatable.unblockEvent();
+               $datatable.addRowCss(itemId, "webix_invalid");
+            }
+            // increaseProgressing();
+         };
+         const itemPass = (itemId) => {
+            if ($datatable) {
+               // set "done" status
+               $datatable.removeRowCss(itemId, "row-fail");
+               $datatable.addRowCss(itemId, "row-pass");
+               $datatable.blockEvent();
+               $datatable.updateItem(itemId, {
+                  _status: "done",
+                  _errorMsg: "",
+               });
+               $datatable.unblockEvent();
+            }
+
+            increaseProgressing();
+         };
+         const itemValid = (itemId) => {
+            if ($datatable) {
+               // mark all columns valid (just in case they were invalid before)
+               // matchFields.forEach((f) => {
+               //    $datatable.removeCellCss(
+               //       itemId,
+               //       f.columnIndex,
+               //       "webix_invalid_cell"
+               //    );
+               // });
+               // highlight the row
+               $datatable.removeRowCss(itemId, "webix_invalid");
+               $datatable.blockEvent();
+               $datatable.updateItem(itemId, {
+                  _status: "",
+                  _errorMsg: "",
+               });
+               $datatable.unblockEvent();
+               // $datatable.addRowCss(itemId, "row-pass");
+            }
+         };
+         const $statusMessage = $$(ids.statusMessage);
+         const uiCleanUp = () => {
+            // To Do anyUI updates
+            // console.log("ui clean up now");
+            $importButton.enable();
+
+            // Hide loading cursor
+            $form.hideProgress();
+            $progressBar.hideProgress();
+
+            $statusMessage.setValue("");
+            $statusMessage.hide();
+
+            const selected = $datatable.find({ _included: true });
+
+            $importButton.setValue(this.labelImport(selected));
+            this.emit("done");
+         };
+
+         const validRows = [];
+
+         let allValid = true;
+
+         // Pre Check Validations of whole CSV import
+         // update row to green if valid
+         // update row to red if !valid
+         (selectedRows || []).forEach((data, index) => {
+            const newRowData = this.getParentValues();
+
+            matchFields.forEach((f) => {
+               if (!f.field?.key) return;
+
+               switch (f.field.key) {
+                  // case "connectObject":
+                  //    // skip
+                  //    break;
+                  case "number":
+                     if (typeof data[f.columnIndex] !== "number") {
+                        newRowData[f.field.columnName] = (
+                           data[f.columnIndex] || ""
+                        ).replace(/[^-0-9.]/gi, "");
+
+                        break;
+                     }
+
+                     newRowData[f.field.columnName] = data[f.columnIndex];
+
+                     break;
+
+                  default:
+                     newRowData[f.field.columnName] = data[f.columnIndex];
+
+                     break;
+               }
+            });
+
+            let isValid = false;
+            let errorMsg = "";
+
+            // first check legacy and server side validation
+            const validator = currentObject.isValidData(newRowData);
+
+            isValid = validator.pass();
+            errorMsg = validator.errors;
+
+            if (isValid)
+               // now check complex field validation rules
+               isValid = $datatable.validate(data.id);
+            else {
+               allValid = false;
+
+               itemInvalid(data.id, errorMsg);
+            }
+
+            if (isValid) {
+               itemValid(data.id);
+               validRows.push({ id: data.id, data: newRowData });
+            } else allValid = false;
+
+            // $datatable.unblockEvent();
+         });
+
+         if (!allValid) {
+            // To Do anyUI updates
+            // $importButton.enable();
+            //
+            // // Hide loading cursor
+            // $form.hideProgress();
+            // $progressBar.hideProgress();
+            // $statusMessage.setValue("");
+            // $statusMessage.hide();
+            //
+            // // _logic.hide();
+            //
+            // if (_logic.callbacks && _logic.callbacks.onDone)
+            //    _logic.callbacks.onDone();
+            uiCleanUp();
+
+            abWebix.alert({
+               title: this.label("Invalid Data"),
+               ok: this.label("Ok"),
+               text: this.label(
+                  "The highlighted row has invalid data. Please edit in the window or update the CSV and try again."
+               ),
+            });
+
+            return;
+         }
+
+         // if pass, then continue to process each row
+         // ?? : can we process in Parallel?
+         // ?? : implement hash Lookups for connected Fields
+         const hashLookups = {};
+         // {obj}  /*  { connectField.id : { 'searchWord' : "uuid"}}
+         // use this hash to reduce the # of lookups needed to fill in our
+         // connected entries
+
+         const connectedFields = matchFields.filter(
+            (f) => f && f.field?.isConnection && f.searchField
+         );
+
+         const throttledSize = 10;
+         let startUpdateTime;
+         let numDone = 0;
+
+         try {
+            // forEach connectedFields in csv
+            const allLookups = [];
+
+            (connectedFields || []).forEach((f) => {
+               const connectField = f.field;
+               // const searchWord = newRowData[f.columnIndex];
+               const connectObject = connectField.datasourceLink;
+
+               if (!connectObject) return;
+
+               const connectModel = connectObject.model();
+
+               if (!connectModel) return;
+
+               const linkIdKey = connectField.indexField
+                  ? connectField.indexField.columnName
+                  : connectField.object.PK();
+
+               // prepare default hash entry:
+               hashLookups[connectField.id] = {};
+
+               // load all values of connectedField entries
+               const gethashLookup = async () => {
+                  try {
+                     const list = await connectModel.findAll({
+                        where: {}, // !!!
+                        populate: false,
+                     });
+                     const data = list.data || list;
+
+                     (data || []).forEach((row) => {
+                        // store in hash[field.id] = { 'searchKey' : "uuid" }
+
+                        hashLookups[connectField.id][
+                           row[f.searchField.columnName]
+                        ] = row[linkIdKey];
+                     });
+                  } catch (err) {
+                     console.error(err);
+                  }
+               };
+
+               allLookups.push(gethashLookup());
+            });
+
+            await Promise.all(allLookups);
+
+            // forEach validRow
+            validRows.forEach((data) => {
+               const newRowData = data.data;
+
+               // update the datagrid row to in-progress
+               $datatable.blockEvent();
+               $datatable.updateItem(data.id, {
+                  _status: "in-progress",
+                  _errorMsg: "",
+               });
+               $datatable.unblockEvent();
+
+               // forEach ConnectedField
+               (connectedFields || []).forEach((f) => {
+                  // find newRowData[field.columnName] = { field.PK : hash[field.id][searchWord] }
+                  const connectField = f.field;
+                  const linkIdKey = connectField.indexField
+                     ? connectField.indexField.columnName
+                     : connectField.object.PK();
+                  const uuid =
+                     hashLookups[connectField.id][
+                     newRowData[connectField.columnName]
+                     ];
+
+                  if (!uuid) {
+                     itemInvalid(data.id, [{ name: connectField.columnName }]);
+                     allValid = false;
+                  }
+
+                  newRowData[connectField.columnName] = {};
+                  newRowData[connectField.columnName][linkIdKey] = uuid;
+               });
+            });
+
+            if (!allValid) {
+               abWebix.alert({
+                  title: this.label("Invalid Data"),
+                  ok: this.label("Ok"),
+                  text: this.label(
+                     "The highlighted row has invalid data. Please edit in the window or update the CSV and try again."
+                  ),
+               });
+               uiCleanUp();
+
+               return;
+            }
+
+            // NOTE: Parallel exectuion of all these:
+            const allSaves = [];
+            const createRecord = (objModel, newRowsData, element, total) =>
+               new Promise((resolve, reject) => {
+                  element.doRecordRulesPre(newRowsData);
+
+                  const processResult = async () => {
+                     try {
+                        const result = await objModel.batchCreate({
+                           batch: newRowsData,
+                        });
+                        const resultErrors = result.errors;
+
+                        // Show errors of each row
+                        Object.keys(resultErrors).forEach((rowIndex) => {
+                           const error = resultErrors[rowIndex];
+
+                           if (error) {
+                              itemFailed(
+                                 rowIndex,
+                                 error.message || error.sqlMessage || error
+                              );
+                           }
+                        });
+
+                        const resultData = result.data;
+                        const penddingRecordRules = [];
+
+                        Object.keys(resultData).forEach((rowIndex) => {
+                           penddingRecordRules.push(
+                              new Promise((resolve, reject) => {
+                                 // Process Record Rule
+                                 const processRowData = async () => {
+                                    try {
+                                       await element.doRecordRules(
+                                          resultData[rowIndex]
+                                       );
+
+                                       itemPass(rowIndex);
+                                       resolve();
+                                    } catch (err) {
+                                       itemFailed(rowIndex, err);
+                                       reject("that didn't work");
+                                    }
+                                 };
+
+                                 processRowData();
+                              })
+                           );
+                        });
+
+                        const waitPenddingRecordRules = async () => {
+                           try {
+                              await Promise.all(penddingRecordRules);
+
+                              newRowsData.forEach((row) => {
+                                 // itemPass(row.id);
+                                 numDone++;
+                                 if (numDone % throttledSize == 0) {
+                                    this.refreshRemainingTimeText(
+                                       startUpdateTime,
+                                       validRows.length,
+                                       numDone
+                                    );
+                                 }
+                              });
+
+                              if (numDone === total) {
+                                 uiCleanUp();
+                                 $importButton.disable();
+                              }
+
+                              resolve();
+                           } catch (err) {
+                              // newRowsData.forEach((row) => {
+                              //    itemFailed(row.id, err);
+                              // });
+                              // throw err;
+                              reject(err);
+                           }
+                        };
+
+                        await waitPenddingRecordRules();
+                     } catch (err) {
+                        console.error(err);
+                        reject(err);
+                     }
+                  };
+
+                  processResult();
+               });
+
+            validRows.forEach((data) => {
+               allSaves.push({ id: data.id, data: data.data });
+            });
+
+            // we are going to store these promises in an array of
+            // arrays with 50 in each sub array
+            const throttledSaves = [];
+            const total = allSaves.length;
+
+            let index = 0;
+
+            while (allSaves.length) {
+               throttledSaves[index] = allSaves.splice(0, throttledSize);
+
+               index++;
+            }
+
+            // execute the array of array of 100 promises one at at time
+            const performThrottledSaves = (
+               currentRecords,
+               remainingRecords,
+               importer,
+               total
+            ) =>
+               new Promise((resolve, reject) => {
+                  // execute the next 100
+                  // const requests = currentRecords.map((data) => {
+                  //    return createRecord(
+                  //       objModel,
+                  //       data.record,
+                  //       data.data,
+                  //       importer
+                  //    );
+                  // });
+
+                  const processRequest = async () => {
+                     try {
+                        await createRecord(
+                           objModel,
+                           currentRecords,
+                           importer,
+                           total
+                        );
+
+                        // when done get the next 10
+                        const nextRecords = remainingRecords.shift();
+
+                        // if there are any remaining in the group call performThrottledSaves
+                        if (nextRecords?.length) {
+                           await performThrottledSaves(
+                              nextRecords,
+                              remainingRecords,
+                              importer,
+                              total
+                           );
+                        } else {
+                           // uiCleanUp();
+                           resolve();
+                        }
+                     } catch (err) {
+                        // Handle errors here
+                        reject(err);
+                     }
+                  };
+
+                  processRequest();
+               });
+
+            // now we are going to processes these new containers one at a time
+            // $datatable.blockEvent();
+            // this is when the real work starts so lets begin our countdown timer now
+            startUpdateTime = new Date();
+            // get the first group of Promises out of the collection
+            const next = throttledSaves.shift();
+
+            // execute our Promise iterator
+            await performThrottledSaves(next, throttledSaves, this.view, total);
+         } catch (err) {
+            // resolve Error UI
+            abWebix.alert({
+               title: this.label("Error Creating Records"),
+               ok: this.label("Ok"),
+               text: this.label("One or more records failed upon creation."),
+            });
+            // $datatable.unblockEvent();
+            uiCleanUp();
+            console.error(err);
+         }
+      }
+
+      // Display linked data
+      uiLinkedData() {
+         const dcLink = this.datacollection?.datacollectionLink;
+         const linkedData = dcLink?.getCursor();
+         if (!linkedData) return;
+
+         return {
+            view: "window",
+            modal: true,
+            resize: false,
+            head: {
+               view: "toolbar",
+               cols: [
+                  {},
+                  {
+                     view: "button",
+                     width: 35,
+                     css: "webix_transparent",
+                     type: "icon",
+                     icon: "nomargin fa fa-times",
+                     click: () => {
+                        this.hideLinkedData();
+                     },
+                  },
+               ],
+            },
+            body: {
+               view: "property",
+               id: "sets",
+               editable: false,
+               width: 400,
+               height: 200,
+               elements: [
+                  { label: this.label("Linked Data"), type: "label" },
+                  {
+                     label: "ID",
+                     type: "text",
+                     value: linkedData.uuid ?? linkedData.id,
+                  },
+                  {
+                     label: "Label",
+                     type: "text",
+                     value: dcLink.datasource.displayData(linkedData),
+                  },
+               ],
+            },
+         };
+      }
+
+      showLinkedData() {
+         const ui = this.uiLinkedData();
+         this._info_popup = this.AB.Webix.ui(ui);
+         this._info_popup.show($$(this.ids.linkedDataButton).$view, {
+            pos: "top",
+         });
+      }
+
+      hideLinkedData() {
+         this._info_popup?.hide();
+      }
+
+      getParentValues() {
+         const result = {};
+
+         // get ABDatacollection
+         const dc = this.datacollection;
+         const currentObject = this.CurrentObject;
+
+         // Set parent's data collection cursor
+         const dcLink = dc?.datacollectionLink;
+         const linkConnectFields = [];
+
+         let objectLink;
+         let linkValues;
+
+         if (dcLink?.getCursor()) {
+            objectLink = dcLink.datasource;
+
+            linkConnectFields.push(
+               ...currentObject.fields(
+                  (f) => f.isConnection && f.settings.linkObject === objectLink.id
+               )
+            );
+
+            linkValues = dcLink.getCursor();
+         }
+
+         // Set parent's data collection cursor
+         if (objectLink && linkConnectFields.length && linkValues) {
+            linkConnectFields.forEach((f) => {
+               const linkColName = f.indexField
+                  ? f.indexField.columnName
+                  : objectLink.PK();
+
+               result[f.columnName] = result[f.columnName] ?? {};
+               result[f.columnName][linkColName] =
+                  linkValues[linkColName] ?? linkValues.id;
+            });
+         }
+
+         return result;
+      }
+
+
+   };
+
+}
+
+
+/***/ },
+
 /***/ 78612
 /*!*************************************************************************************!*\
   !*** ./AppBuilder/platform/plugins/included/view_data-select/FNAbviewdataselect.js ***!
   \*************************************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ FNAbviewdataselect)
@@ -1482,6 +4110,7 @@ function FNAbviewdataselect({
   \**********************************************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ FNAbviewdataselectComponent)
@@ -1554,6 +4183,7 @@ function FNAbviewdataselectComponent({
   \****************************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ FNAbviewdetail)
@@ -1709,6 +4339,7 @@ function FNAbviewdetail({
   \*************************************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ FNAbviewdetailComponent)
@@ -2143,6 +4774,7 @@ function FNAbviewdetailComponent({
   \**************************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ FNAbviewimage)
@@ -2275,6 +4907,7 @@ function FNAbviewimage({
   \***********************************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ FNAbviewimageComponent)
@@ -2343,6 +4976,7 @@ function FNAbviewimageComponent({
   \***********************************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ FNAbviewLabelComponent)
@@ -2440,6 +5074,7 @@ function FNAbviewLabelComponent({
   \**************************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ FNViewLabel)
@@ -2622,6 +5257,7 @@ function FNViewLabel({
   \****************************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ FNAbviewlayout)
@@ -2759,6 +5395,7 @@ function FNAbviewlayout({
   \*************************************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ FNAbviewlayoutComponent)
@@ -2849,6 +5486,7 @@ function FNAbviewlayoutComponent({
   \************************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ FNAbviewlist)
@@ -2957,6 +5595,7 @@ function FNAbviewlist({
   \*********************************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ FNAbviewlistComponent)
@@ -3026,6 +5665,7 @@ function FNAbviewlistComponent({
   \**************************************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ FNAbviewpdfimporter)
@@ -3178,6 +5818,7 @@ function FNAbviewpdfimporter({
   \***********************************************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ FNAbviewpdfimporterComponent)
@@ -3914,6 +6555,7 @@ function FNAbviewpdfimporterComponent({
   \**********************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ FNAbviewtab)
@@ -4058,6 +6700,7 @@ function FNAbviewtab({
   \*******************************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ FNAbviewtabComponent)
@@ -4654,6 +7297,7 @@ function FNAbviewtabComponent({
   \************************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ FNAbviewtext)
@@ -4920,6 +7564,7 @@ function FNAbviewtext({
   \*********************************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ FNAbviewtextComponent)
@@ -5002,4 +7647,4 @@ function FNAbviewtextComponent({
 /***/ }
 
 }]);
-//# sourceMappingURL=AppBuilder_platform_plugins_included_index_js.ec37f4b08475131505b3.js.map
+//# sourceMappingURL=AppBuilder_platform_plugins_included_index_js.e1941db85627527e2965.js.map

@@ -12443,18 +12443,18 @@ module.exports = class ABStepCore extends ABMLClass {
 
 var AllViews = [
    __webpack_require__(/*! ../platform/views/ABView */ 30747),
-   // require("../platform/views/ABViewCarousel"),
+   __webpack_require__(/*! ../platform/views/ABViewCarousel */ 15321),
    __webpack_require__(/*! ../platform/views/ABViewChart */ 18963),
    __webpack_require__(/*! ../platform/views/ABViewChartArea */ 39414),
    __webpack_require__(/*! ../platform/views/ABViewChartBar */ 45898),
    __webpack_require__(/*! ../platform/views/ABViewChartLine */ 69457),
    __webpack_require__(/*! ../platform/views/ABViewChartPie */ 74945),
-   // require("../platform/views/ABViewComment"),
+   __webpack_require__(/*! ../platform/views/ABViewComment */ 90514),
    __webpack_require__(/*! ../platform/views/ABViewConditionalContainer */ 68640),
    __webpack_require__(/*! ../platform/views/ABViewConnectDataFilter */ 82859),
    __webpack_require__(/*! ../platform/views/ABViewContainer */ 76528),
-   __webpack_require__(/*! ../platform/views/ABViewCSVExporter */ 73006),
-   __webpack_require__(/*! ../platform/views/ABViewCSVImporter */ 9869),
+   // require("../platform/views/ABViewCSVExporter"),
+   // require("../platform/views/ABViewCSVImporter"),
    __webpack_require__(/*! ../platform/views/ABViewDataFilter */ 70153),
    // require("../platform/views/ABViewDataSelect"),
    __webpack_require__(/*! ../platform/views/ABViewDataview */ 6286),
@@ -12462,7 +12462,7 @@ var AllViews = [
    __webpack_require__(/*! ../platform/views/ABViewGrid */ 87627),
    // require("../platform/views/ABViewImage"),
    // require("../platform/views/ABViewLabel"),
-   // require("../platform/views/ABViewLayout"),
+   __webpack_require__(/*! ../platform/views/ABViewLayout */ 30077),
    // require("../platform/views/ABViewList"),
    __webpack_require__(/*! ../platform/views/ABViewMenu */ 46672),
    __webpack_require__(/*! ../platform/views/ABViewPage */ 44),
@@ -28456,177 +28456,65 @@ module.exports = ABQLSetSaveCore;
 
 /***/ },
 
-/***/ 40477
-/*!********************************************************!*\
-  !*** ./AppBuilder/core/views/ABViewCSVExporterCore.js ***!
-  \********************************************************/
+/***/ 51110
+/*!*****************************************************!*\
+  !*** ./AppBuilder/core/views/ABViewCarouselCore.js ***!
+  \*****************************************************/
 (module, __unused_webpack_exports, __webpack_require__) {
 
 const ABViewWidget = __webpack_require__(/*! ../../platform/views/ABViewWidget */ 87039);
 
-const ABViewCSVExporterDefaults = {
-   key: "csvExporter", // unique key identifier for this ABViewForm
-   icon: "download", // icon reference: (without 'fa-' )
-   labelKey: "CSV Exporter", // {string} the multilingual label key for the class label
+const ABViewCarouselPropertyComponentDefaults = {
+   dataviewID: null, // uuid of ABDatacollection
+   field: null, // uuid
+
+   width: 460,
+   height: 275,
+   showLabel: true,
+   hideItem: false,
+   hideButton: false,
+   navigationType: "corner", // "corner" || "side"
+   filterByCursor: false,
+
+   detailsPage: null, // uuid
+   detailsTab: null, // uuid
+   editPage: null, // uuid
+   editTab: null, // uuid
 };
 
-const ABViewCSVExporterPropertyComponentDefaults = {
-   dataviewID: null,
-   where: null,
-   buttonLabel: "Export CSV",
-   filename: "exportCSV",
-   hasHeader: true,
-   width: 150,
-   hiddenFieldIds: [],
+const ABViewDefaults = {
+   key: "carousel", // {string} unique key for this view
+   icon: "clone", // {string} fa-[icon] reference for this view
+   labelKey: "Carousel", // {string} the multilingual label key for the class label
 };
 
-module.exports = class ABViewCSVExporterCore extends ABViewWidget {
+function parseIntOrDefault(_this, key) {
+   if (typeof _this.settings[key] != "undefined") {
+      _this.settings[key] = parseInt(_this.settings[key]);
+   } else {
+      _this.settings[key] = ABViewCarouselPropertyComponentDefaults[key];
+   }
+}
+
+function parseOrDefault(_this, key) {
+   try {
+      _this.settings[key] = JSON.parse(_this.settings[key]);
+   } catch (e) {
+      _this.settings[key] = ABViewCarouselPropertyComponentDefaults[key];
+   }
+}
+
+module.exports = class ABViewCarouselCore extends ABViewWidget {
    constructor(values, application, parent, defaultValues) {
-      super(
-         values,
-         application,
-         parent,
-         defaultValues || ABViewCSVExporterDefaults
-      );
+      super(values, application, parent, defaultValues || ABViewDefaults);
    }
 
    static common() {
-      return ABViewCSVExporterDefaults;
+      return ABViewDefaults;
    }
 
    static defaultValues() {
-      return ABViewCSVExporterPropertyComponentDefaults;
-   }
-
-   ///
-   /// Instance Methods
-   ///
-
-   /**
-    * @method fromValues()
-    *
-    * initialze this object with the given set of values.
-    * @param {obj} values
-    */
-   fromValues(values) {
-      super.fromValues(values);
-
-      // convert to boolean
-      if (typeof values.settings.hasHeader == "string")
-         this.settings.hasHeader = JSON.parse(values.settings.hasHeader);
-
-      if (this.settings.hasHeader == null)
-         this.settings.hasHeader =
-            ABViewCSVExporterPropertyComponentDefaults.hasHeader;
-
-      // convert from "0" => 0
-      this.settings.width = parseInt(
-         values.settings.width ||
-            ABViewCSVExporterPropertyComponentDefaults.width
-      );
-
-      this.settings.hiddenFieldIds =
-         values.settings.hiddenFieldIds ||
-         ABViewCSVExporterPropertyComponentDefaults.hiddenFieldIds;
-   }
-};
-
-
-/***/ },
-
-/***/ 62554
-/*!********************************************************!*\
-  !*** ./AppBuilder/core/views/ABViewCSVImporterCore.js ***!
-  \********************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
-
-const ABViewWidget = __webpack_require__(/*! ../../platform/views/ABViewWidget */ 87039);
-
-const ABRecordRule = __webpack_require__(/*! ../../rules/ABViewRuleListFormRecordRules */ 1148);
-
-const ABViewCSVImporterDefaults = {
-   key: "csvImporter",
-   // {string}
-   // unique key identifier for this ABViewForm
-
-   icon: "upload",
-   // {string}
-   // font-awesome icon reference: (without 'fa-' )
-
-   labelKey: "CSV Importer",
-   // {string}
-   // the multilingual label key for the class label
-   // NOTE: will be used as L(labelKey)
-};
-
-const ABViewCSVImporterPropertyComponentDefaults = {
-   dataviewID: null,
-   // {uuid}
-   // The ABDataCollection.uuid that we are using to store the data.
-   // NOTE: we actually use the DC to get the ABObject it is connected to.
-
-   availableFieldIds: [],
-   //{array}
-   // A list of ABField.ids that are allowed to be imported using this widget.
-
-   buttonLabel: "Upload CSV",
-   // {string}
-   // The Label(key) to display on the initial button
-
-   width: 0,
-   // {integer}
-   // Width of the Popup.
-
-   recordRules: [],
-   // {array}  [ {RecordRule}, ... ]
-   // A list of ABViewRuleListFormRecordRules that should be performed upon
-   // each row of data imported.
-   // The Array should look like:
-   // [{
-   //    action: {string},
-   //    when: [
-   //       {
-   //          fieldId: {UUID},
-   //          comparer: {string},
-   //          value: {string}
-   //       }
-   //    ],
-   //    values: [
-   //       {
-   //          fieldId: {UUID},
-   //          value: {object}
-   //       }
-   //    ]
-   // }]
-};
-
-module.exports = class ABViewCSVImporterCore extends ABViewWidget {
-   constructor(values, application, parent, defaultValues) {
-      super(
-         values,
-         application,
-         parent,
-         defaultValues || ABViewCSVImporterDefaults
-      );
-   }
-
-   /**
-    * @method common()
-    * Provides the default settings for an instance of an ABViewCSVImporter
-    * @return {json}
-    */
-   static common() {
-      return ABViewCSVImporterDefaults;
-   }
-
-   /**
-    * @method defaultValues()
-    * Provides the default settings for an instance of an ABViewCSVImporter
-    * Component that is displayed on the UI.
-    * @return {json}
-    */
-   static defaultValues() {
-      return ABViewCSVImporterPropertyComponentDefaults;
+      return ABViewCarouselPropertyComponentDefaults;
    }
 
    ///
@@ -28643,52 +28531,37 @@ module.exports = class ABViewCSVImporterCore extends ABViewWidget {
       super.fromValues(values);
 
       // convert from "0" => 0
-      this.settings.width = parseInt(
-         this.settings.width || ABViewCSVImporterPropertyComponentDefaults.width
-      );
+      parseIntOrDefault(this, "width");
+      parseIntOrDefault(this, "height");
+
+      // json
+      parseOrDefault(this, "showLabel");
+      parseOrDefault(this, "hideItem");
+      parseOrDefault(this, "hideButton");
+
+      this.settings.navigationType =
+         this.settings.navigationType ||
+         ABViewCarouselPropertyComponentDefaults.navigationType;
+
+      parseOrDefault(this, "filterByCursor");
    }
 
-   get RecordRule() {
-      let object = this.datacollection?.datasource;
-      if (!object) return null;
-
-      if (this._recordRule == null) {
-         this._recordRule = new ABRecordRule();
-      }
-
-      this._recordRule.formLoad(this);
-      this._recordRule.fromSettings(this.settings.recordRules);
-      this._recordRule.objectLoad(object);
-
-      return this._recordRule;
+   /**
+    * @method componentList
+    * return the list of components available on this view to display in the editor.
+    */
+   componentList() {
+      return [];
    }
 
-   doRecordRulesPre(rowDatas) {
-      if (rowDatas && !Array.isArray(rowDatas)) {
-         rowDatas = [rowDatas];
-      }
+   get imageField() {
+      let dc = this.datacollection;
+      if (!dc) return null;
 
-      rowDatas.forEach((row) => {
-         this.RecordRule?.processPre({ data: row.data || row, form: this });
-      });
-   }
+      let obj = dc.datasource;
+      if (!obj) return null;
 
-   doRecordRules(rowDatas) {
-      if (rowDatas && !Array.isArray(rowDatas)) {
-         rowDatas = [rowDatas];
-      }
-
-      if (!this.RecordRule) return Promise.resolve();
-
-      let tasks = [];
-
-      rowDatas.forEach((row) => {
-         tasks.push(
-            this.RecordRule.process({ data: row.data || row, form: this })
-         );
-      });
-
-      return Promise.all(tasks);
+      return obj.fieldByID(this.settings.field);
    }
 };
 
@@ -29209,6 +29082,156 @@ module.exports = class ABViewChartPieCore extends ABViewChartContainer {
     */
    componentList() {
       return [];
+   }
+};
+
+
+/***/ },
+
+/***/ 33529
+/*!****************************************************!*\
+  !*** ./AppBuilder/core/views/ABViewCommentCore.js ***!
+  \****************************************************/
+(module, __unused_webpack_exports, __webpack_require__) {
+
+const ABViewWidget = __webpack_require__(/*! ../../platform/views/ABViewWidget */ 87039);
+
+const ABViewCommentPropertyComponentDefaults = {
+   dataviewID: null,
+   columnUser: null,
+   columnComment: null,
+   columnDate: null,
+   height: 300,
+   label: "", // label is required and you can add more if the component needs them
+   // format:0  	// 0 - normal, 1 - title, 2 - description
+};
+
+const ABViewDefaults = {
+   key: "comment", // {string} unique key for this view
+   icon: "comments", // {string} fa-[icon] reference for this view
+   labelKey: "Comment", // {string} the multilingual label key for the class label
+};
+
+module.exports = class ABViewCommentCore extends ABViewWidget {
+   constructor(values, application, parent, defaultValues) {
+      super(values, application, parent, defaultValues || ABViewDefaults);
+   }
+
+   static common() {
+      return ABViewDefaults;
+   }
+
+   static defaultValues() {
+      return ABViewCommentPropertyComponentDefaults;
+   }
+
+   ///
+   /// Instance Methods
+   ///
+
+   /**
+    * @method fromValues()
+    *
+    * initialze this object with the given set of values.
+    * @param {obj} values
+    */
+   fromValues(values) {
+      super.fromValues(values);
+
+      // convert from "0" => 0
+      // this.settings.format = parseInt(this.settings.format);
+      // if this is being instantiated on a read from the Property UI,
+      this.settings.height = parseInt(this.settings.height || 0);
+   }
+
+   /**
+    * @method componentList
+    * return the list of components available on this view to display in the editor.
+    */
+   componentList() {
+      return [];
+   }
+
+   getCurrentUserId() {
+      const userObject = this.getUsers();
+      const currentUser = this.AB.Account.username();
+      //Anonymous User = 0
+
+      if (!userObject) return;
+
+      return userObject.findIndex((e) => e.value === currentUser) + 1;
+   }
+
+   getUsers() {
+      return this.AB.Account.userList().map((e) => {
+         return {
+            id: e.username,
+            value: e.username,
+            image: e.image_id,
+         };
+      });
+   }
+
+   getUserField() {
+      var dv = this.datacollection;
+      if (!dv) return null;
+
+      var obj = dv.datasource;
+      if (!obj) return null;
+
+      return obj.fieldByID(this.settings.columnUser);
+   }
+
+   getCommentField() {
+      var dv = this.datacollection;
+      if (!dv) return null;
+
+      var obj = dv.datasource;
+      if (!obj) return null;
+
+      return obj.fieldByID(this.settings.columnComment);
+   }
+
+   getDateField() {
+      var dv = this.datacollection;
+      if (!dv) return null;
+
+      var obj = dv.datasource;
+      if (!obj) return null;
+
+      return obj.fieldByID(this.settings.columnDate);
+   }
+
+   getUserData() {
+      let UserImageField = this.AB.objectUser().fieldByID(
+         "6383ce19-b344-44ee-87e6-decced7361f8"
+      );
+
+      var userObject = this.getUsers();
+      var userList = [];
+
+      if (!userObject) return;
+
+      userObject.forEach((item, index) => {
+         var imageURL = "";
+         if (item.image) {
+            imageURL = UserImageField.urlImage(item.image);
+         }
+         var user = { id: index + 1, value: item.value, image: imageURL };
+         userList.push(user);
+      });
+      return userList;
+   }
+
+   model() {
+      let dv = this.datacollection;
+      if (!dv) return null; // TODO: refactor in v2
+
+      // get ABModel
+      let model = dv.model; // already notified
+      if (!model) return null;
+
+      return model;
    }
 };
 
@@ -32826,6 +32849,97 @@ module.exports = class ABViewKanbanCore extends ABViewWidget {
 
 /***/ },
 
+/***/ 54970
+/*!***************************************************!*\
+  !*** ./AppBuilder/core/views/ABViewLayoutCore.js ***!
+  \***************************************************/
+(module, __unused_webpack_exports, __webpack_require__) {
+
+const ABViewContainer = __webpack_require__(/*! ../../platform/views/ABViewContainer */ 76528);
+const ABViewWidget = __webpack_require__(/*! ../../platform/views/ABViewWidget */ 87039);
+
+const PropertyComponentDefaults = {
+   label: "",
+   numColumns: 1, // The number of columns for this layout
+};
+
+const ABViewDefaults = {
+   key: "layout", // {string} unique key for this view
+   icon: "columns", // {string} fa-[icon] reference for this view
+   labelKey: "Layout", // {string} the multilingual label key for the class label
+};
+
+module.exports = class ABViewLayoutCore extends ABViewWidget {
+   /**
+    * @param {obj} values  key=>value hash of ABView values
+    * @param {ABApplication} application the application object this view is under
+    * @param {ABView} parent the ABView this view is a child of. (can be null)
+    */
+   constructor(values, application, parent, defaultValues) {
+      super(values, application, parent, defaultValues || ABViewDefaults);
+   }
+
+   static common() {
+      return ABViewDefaults;
+   }
+
+   static defaultValues() {
+      return PropertyComponentDefaults;
+   }
+
+   /**
+    * @method addColumn
+    * method to actually add a new ABView as one of our columns.
+    * This is called by the static .addView() method.
+    */
+   addColumn() {
+      this._views.push(
+         this.application.viewNew(
+            {
+               key: ABViewContainer.common().key,
+            },
+            this
+         )
+      );
+   }
+
+   /**
+    * @method componentList
+    * return the list of components available on this view to display in the editor.
+    * @param {bool} isEdited  is this component currently in the Interface Editor
+    * @return {array} of ABView objects.
+    */
+   componentList(isEdited) {
+      if (isEdited) {
+         // if the layout component is being edited in the editor (isEdited == true)
+         // then we return [];
+         return [];
+      } else {
+         // the layout view doesn't care what components are offered, it get's
+         // the list from it's parent view.
+         // ## NOTE: layout views should not be root views.
+         if (this.parent) {
+            return this.parent.componentList(false);
+         } else {
+            return [];
+         }
+      }
+   }
+
+   /**
+    * @property datacollection
+    * return data source
+    * NOTE: this view doesn't track a DataCollection.
+    * @return {ABDataCollection}
+    */
+   get datacollection() {
+      return null;
+   }
+};
+
+
+/***/ },
+
 /***/ 65419
 /*!*************************************************!*\
   !*** ./AppBuilder/core/views/ABViewMenuCore.js ***!
@@ -34611,10 +34725,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _views_viewComponent_ABViewContainerComponent_js__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_views_viewComponent_ABViewContainerComponent_js__WEBPACK_IMPORTED_MODULE_10__);
 /* harmony import */ var _views_viewProperties_ABViewPropertyFilterData__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./views/viewProperties/ABViewPropertyFilterData */ 95889);
 /* harmony import */ var _views_viewProperties_ABViewPropertyLinkPage__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./views/viewProperties/ABViewPropertyLinkPage */ 42588);
-/* harmony import */ var _rules_ABViewRuleListFormSubmitRules__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../rules/ABViewRuleListFormSubmitRules */ 41171);
-/* harmony import */ var _rules_ABViewRuleListFormSubmitRules__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_rules_ABViewRuleListFormSubmitRules__WEBPACK_IMPORTED_MODULE_13__);
-/* harmony import */ var _ABViewManager_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./ABViewManager.js */ 40765);
-/* harmony import */ var _ABViewManager_js__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(_ABViewManager_js__WEBPACK_IMPORTED_MODULE_14__);
+/* harmony import */ var _rules_ABViewRuleListFormRecordRules__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../rules/ABViewRuleListFormRecordRules */ 1148);
+/* harmony import */ var _rules_ABViewRuleListFormRecordRules__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_rules_ABViewRuleListFormRecordRules__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var _rules_ABViewRuleListFormSubmitRules__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../rules/ABViewRuleListFormSubmitRules */ 41171);
+/* harmony import */ var _rules_ABViewRuleListFormSubmitRules__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(_rules_ABViewRuleListFormSubmitRules__WEBPACK_IMPORTED_MODULE_14__);
+/* harmony import */ var _ABViewManager_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./ABViewManager.js */ 40765);
+/* harmony import */ var _ABViewManager_js__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(_ABViewManager_js__WEBPACK_IMPORTED_MODULE_15__);
 
 
 
@@ -34630,6 +34746,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 // view property helpers used by plugins
+
 
 
 
@@ -34688,7 +34805,8 @@ function getPluginAPI() {
       ABViewContainerComponent: (_views_viewComponent_ABViewContainerComponent_js__WEBPACK_IMPORTED_MODULE_10___default()),
       ABViewPropertyFilterData: _views_viewProperties_ABViewPropertyFilterData__WEBPACK_IMPORTED_MODULE_11__["default"],
       ABViewPropertyLinkPage: _views_viewProperties_ABViewPropertyLinkPage__WEBPACK_IMPORTED_MODULE_12__["default"],
-      ABViewRuleListFormSubmitRules: (_rules_ABViewRuleListFormSubmitRules__WEBPACK_IMPORTED_MODULE_13___default()),
+      ABViewRuleListFormRecordRules: (_rules_ABViewRuleListFormRecordRules__WEBPACK_IMPORTED_MODULE_13___default()),
+      ABViewRuleListFormSubmitRules: (_rules_ABViewRuleListFormSubmitRules__WEBPACK_IMPORTED_MODULE_14___default()),
       //  ABFieldPlugin,
       //  ABViewPlugin,
    };
@@ -34724,7 +34842,7 @@ function allObjectProperties() {
 function viewClass(type) {
    var ViewClass = classRegistry.ViewTypes.get(type);
    if (!ViewClass) {
-      ViewClass = _ABViewManager_js__WEBPACK_IMPORTED_MODULE_14___default().viewClass(type, false);
+      ViewClass = _ABViewManager_js__WEBPACK_IMPORTED_MODULE_15___default().viewClass(type, false);
       if (!ViewClass) {
          throw new Error(`Unknown View type: ${type}`);
       }
@@ -38930,177 +39048,6 @@ module.exports = class ABViewManager extends ABViewManagerCore {
 const ABViewManagerMobileCore = __webpack_require__(/*! ../core/ABViewManagerMobileCore */ 31828);
 
 module.exports = class ABViewManagerMobile extends ABViewManagerMobileCore {};
-
-
-/***/ },
-
-/***/ 72618
-/*!********************************************!*\
-  !*** ./AppBuilder/platform/CSVImporter.js ***!
-  \********************************************/
-(module) {
-
-var L = null;
-// multilingual Label fn()
-
-module.exports = class CSVImporter {
-   constructor(Label) {
-      // {ABMultilingual.label()} function.
-      //
-      if (!L) {
-         L = Label;
-
-         // if this was a v1: App param:
-         if (Label.Label) {
-            L = Label.Label;
-         }
-      }
-   }
-
-   /**
-    * @method getSeparateItems()
-    * Return the options of how the CSV values are separated.
-    * @return {array}  [ {id, value} ... ]
-    */
-   getSeparateItems() {
-      return [
-         { id: ",", value: L("Comma (,)") },
-         { id: "\t", value: L("Tab (&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)") },
-         { id: ";", value: L("Semicolon (;)") },
-         { id: "s", value: L("Space ( )") },
-      ];
-   }
-
-   /**
-    * @method validateFile
-    * Validate file extension
-    * @param {*} fileInfo
-    *        https://docs.webix.com/api__ui.uploader_onbeforefileadd_event.html
-    * @return {boolean}
-    */
-   validateFile(fileInfo) {
-      if (!fileInfo || !fileInfo.file || !fileInfo.file.type) return false;
-
-      // validate file type
-      let extensionType = fileInfo.file.type.toLowerCase();
-      if (
-         extensionType == "text/csv" ||
-         extensionType == "application/vnd.ms-excel"
-      ) {
-         return true;
-      } else {
-         return false;
-      }
-   }
-
-   /**
-    * @method getDataRows
-    * Pull data rows from the CSV file
-    *
-    * @param {Object} fileInfo - https://docs.webix.com/api__ui.uploader_onbeforefileadd_event.html
-    * @param {string} separatedBy
-    *
-    * @return {Promise} -[
-    * 						["Value 1.1", "Value 1.2", "Value 1.3"],
-    * 						["Value 2.1", "Value 2.2", "Value 2.3"],
-    * 					]
-    */
-   getDataRows(fileInfo, separatedBy) {
-      if (!this.validateFile(fileInfo)) return Promise.reject();
-
-      return new Promise((resolve, reject) => {
-         // read CSV file
-         let reader = new window.FileReader();
-         reader.onload = (e) => {
-            let result = [];
-
-            // split lines
-            let dataRows = reader.result
-               .split(/\r\n|\n|\r/) // CRLF = \r\n; LF = \n; CR = \r;
-               .filter((row) => row && row.length > 0);
-
-            // split columns
-            (dataRows || []).forEach((row) => {
-               let dataCols = [];
-               if (separatedBy == ",") {
-                  // NOTE: if the file contains ,, .match() can not reconize this empty string
-                  row = row.replace(/,,/g, ", ,");
-
-                  // https://stackoverflow.com/questions/11456850/split-a-string-by-commas-but-ignore-commas-within-double-quotes-using-javascript#answer-11457952
-                  dataCols = row.match(/(".*?"|[^",]+)(?=\s*,|\s*$)/g);
-               } else {
-                  dataCols = row.split(separatedBy);
-               }
-
-               result.push(dataCols.map((dCol) => this.reformat(dCol)));
-            });
-
-            resolve(result);
-         };
-         reader.readAsText(fileInfo.file);
-      });
-   }
-
-   /**
-    * @method getGuessDataType
-    * return our best guess of what type of data for the requested column.
-    * @param {array} dataRows
-    *        The data we are evaluating:
-    *        [
-    *           ["Value 1.1", "Value 1.2", "Value 1.3"],
-    *           ["Value 2.1", "Value 2.2", "Value 2.3"],
-    * 		 ]
-    * @param colIndex {Number}
-    * @return {string}
-    */
-   getGuessDataType(dataRows, colIndex) {
-      var data,
-         // {various} the data pulled from the requested row/column
-         repeatNum = 10;
-      // {integer} how many rows do we want to scan trying to find a value
-
-      // Loop to find a value
-      for (var i = 1; i <= repeatNum; i++) {
-         var line = dataRows[i];
-         if (!line) break;
-
-         data = line[colIndex];
-
-         if (data != null && data.length > 0) break;
-      }
-
-      if (data == null || data == "") {
-         return "string";
-      } else if (
-         data == 0 ||
-         data == 1 ||
-         data == true ||
-         data == false ||
-         data == "checked" ||
-         data == "unchecked"
-      ) {
-         return "boolean";
-      } else if (!isNaN(data)) {
-         return "number";
-      } else if (Date.parse(data)) {
-         return "date";
-      } else {
-         // determine which type of string this might be:
-         if (data.length > 100) return "LongText";
-         else return "string";
-      }
-   }
-
-   /**
-    * @method reformat
-    * @param {string} str
-    */
-   reformat(str) {
-      if (!str) return "";
-
-      return str.trim().replace(/"/g, "").replace(/'/g, "");
-   }
-};
 
 
 /***/ },
@@ -54717,74 +54664,100 @@ module.exports = class ABView extends ABViewCore {
 
 /***/ },
 
-/***/ 73006
-/*!********************************************************!*\
-  !*** ./AppBuilder/platform/views/ABViewCSVExporter.js ***!
-  \********************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+/***/ 15321
+/*!*****************************************************!*\
+  !*** ./AppBuilder/platform/views/ABViewCarousel.js ***!
+  \*****************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABViewCSVExporterCore = __webpack_require__(/*! ../../core/views/ABViewCSVExporterCore */ 40477);
-const ABViewCSVExporterComponent = __webpack_require__(/*! ./viewComponent/ABViewCSVExporterComponent */ 59254);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewCarousel)
+/* harmony export */ });
+/* harmony import */ var _viewComponent_ABViewCarouselComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./viewComponent/ABViewCarouselComponent */ 10145);
+/* harmony import */ var _viewProperties_ABViewPropertyFilterData__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./viewProperties/ABViewPropertyFilterData */ 95889);
+/* harmony import */ var _viewProperties_ABViewPropertyLinkPage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./viewProperties/ABViewPropertyLinkPage */ 42588);
+const ABViewCarouselCore = __webpack_require__(/*! ../../core/views/ABViewCarouselCore */ 51110);
 
-module.exports = class ABViewCSVExporter extends ABViewCSVExporterCore {
+
+// const ABViewPropertyFilterData = require("./viewProperties/ABViewPropertyFilterData");
+// const ABViewPropertyLinkPage = require("./viewProperties/ABViewPropertyLinkPage");
+
+
+
+
+let PopupCarouselFilterMenu = null;
+
+class ABViewCarousel extends ABViewCarouselCore {
+   constructor(values, application, parent, defaultValues) {
+      super(values, application, parent, defaultValues);
+   }
+
+   ///
+   /// Instance Methods
+   ///
+
    /**
-    * @method component()
-    * return a UI component based upon this view.
-    * @return {obj } UI component
+    * @method fromValues()
+    *
+    * initialze this object with the given set of values.
+    * @param {obj} values
     */
-   component() {
-      return new ABViewCSVExporterComponent(this);
+   fromValues(values) {
+      super.fromValues(values);
+
+      // filter property
+      this.filterHelper.fromSettings(this.settings.filter);
    }
 
-   warningsEval() {
-      super.warningsEval();
-
-      let DC = this.datacollection;
-      if (!DC) {
-         this.warningsMessage(
-            `can't resolve it's datacollection[${this.settings.dataviewID}]`
-         );
-      }
-   }
-};
-
-
-/***/ },
-
-/***/ 9869
-/*!********************************************************!*\
-  !*** ./AppBuilder/platform/views/ABViewCSVImporter.js ***!
-  \********************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
-
-const ABViewCSVImporterCore = __webpack_require__(/*! ../../core/views/ABViewCSVImporterCore */ 62554);
-const ABViewCSVImporterComponent = __webpack_require__(/*! ./viewComponent/ABViewCSVImporterComponent */ 86499);
-
-module.exports = class ABViewCSVImporter extends ABViewCSVImporterCore {
    /**
     * @method component()
     * return a UI component based upon this view.
     * @return {obj} UI component
     */
-   component(idBase) {
-      return new ABViewCSVImporterComponent(this, idBase);
+   component() {
+      var dv = this.datacollection;
+      if (dv) {
+         this.filterHelper.objectLoad(dv.datasource);
+         this.filterHelper.fromSettings(this.settings.filter);
+      }
+
+      return new _viewComponent_ABViewCarouselComponent__WEBPACK_IMPORTED_MODULE_0__["default"](this);
+   }
+
+   get idBase() {
+      return `ABViewCarousel_${this.id}`;
+   }
+
+   get filterHelper() {
+      if (this.__filterHelper == null)
+         this.__filterHelper = new _viewProperties_ABViewPropertyFilterData__WEBPACK_IMPORTED_MODULE_1__["default"](
+            this.AB,
+            this.idBase
+         );
+
+      return this.__filterHelper;
+   }
+
+   get linkPageHelper() {
+      if (this.__linkPageHelper == null)
+         this.__linkPageHelper = new _viewProperties_ABViewPropertyLinkPage__WEBPACK_IMPORTED_MODULE_2__["default"]();
+
+      return this.__linkPageHelper;
    }
 
    warningsEval() {
       super.warningsEval();
 
-      let DC = this.datacollection;
-      if (!DC) {
+      let field = this.imageField;
+      if (!field) {
          this.warningsMessage(
-            `can't resolve it's datacollection[${this.settings.dataviewID}]`
+            `can't resolve image field[${this.settings.field}]`
          );
       }
-
-      if (!this.settings.availableFieldIds?.length) {
-         this.warningsMessage("has no fields set for matching import data");
-      }
    }
-};
+}
 
 
 /***/ },
@@ -55142,6 +55115,58 @@ module.exports = class ABViewChartPie extends ABViewChartPieCore {
     */
    component() {
       return new ABViewChartPieComponent(this);
+   }
+};
+
+
+/***/ },
+
+/***/ 90514
+/*!****************************************************!*\
+  !*** ./AppBuilder/platform/views/ABViewComment.js ***!
+  \****************************************************/
+(module, __unused_webpack_exports, __webpack_require__) {
+
+const ABViewCommentCore = __webpack_require__(/*! ../../core/views/ABViewCommentCore */ 33529);
+const ABViewCommentComponent = __webpack_require__(/*! ./viewComponent/ABViewCommentComponent */ 47886);
+
+module.exports = class ABViewComment extends ABViewCommentCore {
+   // constructor(values, application, parent, defaultValues) {
+   //    super(values, application, parent, defaultValues);
+   // }
+
+   /**
+    * @method component()
+    * return a UI component based upon this view.
+    * @return {obj} UI component
+    */
+   component() {
+      return new ABViewCommentComponent(this);
+   }
+
+   warningsEval() {
+      super.warningsEval();
+
+      let field = this.getUserField();
+      if (!field) {
+         this.warningsMessage(
+            `can't resolve user field[${this.settings.columnUser}]`
+         );
+      }
+
+      field = this.getCommentField();
+      if (!field) {
+         this.warningsMessage(
+            `can't resolve comment field[${this.settings.columnComment}]`
+         );
+      }
+
+      field = this.getDateField();
+      if (!field) {
+         this.warningsMessage(
+            `can't resolve date field[${this.settings.columnDate}]`
+         );
+      }
    }
 };
 
@@ -58348,6 +58373,37 @@ module.exports = class ABWorkObjectKanBan extends ABViewComponent {
 
 /***/ },
 
+/***/ 30077
+/*!***************************************************!*\
+  !*** ./AppBuilder/platform/views/ABViewLayout.js ***!
+  \***************************************************/
+(module, __unused_webpack_exports, __webpack_require__) {
+
+const ABViewLayoutCore = __webpack_require__(/*! ../../core/views/ABViewLayoutCore */ 54970);
+const ABViewLayoutComponent = __webpack_require__(/*! ./viewComponent/ABViewLayoutComponent */ 45717);
+
+module.exports = class ABViewLayout extends ABViewLayoutCore {
+   /**
+    * @function component()
+    * return a UI component based upon this view.
+    * @return {obj} UI component
+    */
+   component() {
+      return new ABViewLayoutComponent(this);
+   }
+
+   warningsEval() {
+      super.warningsEval();
+
+      if (this._views.length == 0) {
+         this.warningsMessage("has no columns set.");
+      }
+   }
+};
+
+
+/***/ },
+
 /***/ 46672
 /*!*************************************************!*\
   !*** ./AppBuilder/platform/views/ABViewMenu.js ***!
@@ -58588,2070 +58644,549 @@ module.exports = class ABViewWidget extends ABViewWidgetCore {
 
 /***/ },
 
-/***/ 59254
-/*!*******************************************************************************!*\
-  !*** ./AppBuilder/platform/views/viewComponent/ABViewCSVExporterComponent.js ***!
-  \*******************************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+/***/ 10145
+/*!****************************************************************************!*\
+  !*** ./AppBuilder/platform/views/viewComponent/ABViewCarouselComponent.js ***!
+  \****************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABViewComponent = (__webpack_require__(/*! ./ABViewComponent */ 23687)["default"]);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewCarouselComponent)
+/* harmony export */ });
+/* harmony import */ var _ABViewComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABViewComponent */ 23687);
 
-module.exports = class ABViewCSVExporterComponent extends ABViewComponent {
+
+class ABViewCarouselComponent extends _ABViewComponent__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(baseView, idBase, ids) {
       super(
          baseView,
-         idBase || `ABCSVExporter_${baseView.id}`,
+         idBase || `ABViewCarousel_${baseView.id}`,
          Object.assign(
             {
-               button: "",
-               buttonFilter: "",
-               filterComplex: "",
+               carousel: "",
             },
             ids
          )
       );
 
-      this.clientFilter = null;
+      this._handler_doOnShow = () => {
+         this.onShow();
+      };
+
+      this._handler_doReload = () => {
+         // this.datacollection?.reloadData();
+      };
+
+      this._handler_doFilter = (fnFilter, filterRules) => {
+         // NOTE: fnFilter is depreciated and will be removed.
+
+         // this.onShow(filterRules);
+         const dv = this.datacollection;
+
+         if (!dv) return;
+
+         dv.filterCondition(filterRules);
+         dv.reloadData();
+      };
+
+      this._handler_busy = () => {
+         this.busy();
+      };
+
+      this._handler_ready = () => {
+         this.ready();
+      };
    }
 
    ui() {
       const ids = this.ids;
+
+      const baseView = this.view;
+
+      this.filterUI = baseView.filterHelper; // component(/* App, idBase */);
+      this.linkPage = baseView.linkPageHelper.component(/* App, idBase */);
+
+      const spacer = {};
       const settings = this.settings;
-      const defaultSettings = this.view.constructor.defaultValues();
-      const _ui = super.ui([
-         {
-            view: "layout",
-            type: "clean",
-            borderless: true,
-            cols: [
-               {
-                  id: ids.buttonFilter,
-                  view: "button",
-                  css: "webix_transparent",
-                  type: "icon",
-                  icon: "fa fa-filter",
-                  borderless: true,
-                  width: 50,
-                  label: "",
-                  click: () => {
-                     this.showFilterPopup();
-                  },
-               },
-               {
-                  id: ids.button,
-                  view: "button",
-                  css: "webix_primary",
-                  type: "icon",
-                  icon: "fa fa-download",
-                  borderless: true,
-                  width: settings.width || defaultSettings.width,
-                  label: settings.buttonLabel ?? defaultSettings.buttonLabel,
-                  click: () => {
-                     this.downloadCsvFile();
-                  },
-               },
-               { fillspace: true },
-            ],
-         },
-      ]);
 
-      delete _ui.type;
-
-      return _ui;
-   }
-
-   async init(AB) {
-      await super.init(AB);
-
-      if (!this.clientFilter) {
-         const clientFilter = AB.filterComplexNew(this.ids.filterComplex);
-
-         const dc = this.datacollection;
-
-         if (dc) {
-            const obj = dc.datasource;
-
-            clientFilter.fieldsLoad(obj?.fields?.() ?? []);
-         }
-
-         clientFilter.init();
-         clientFilter.on("change", (val) => {
-            this.onFilterChange(val);
+      if (settings.width === 0)
+         Object.assign(spacer, {
+            width: 1,
          });
 
-         this.clientFilter = clientFilter;
-      }
-   }
-
-   downloadCsvFile() {
-      let url = `/appbuilder/csv-export/${this.view.id}`;
-
-      const where = {
-         glue: "and",
-         rules: [],
-      };
-
-      const whereWidget = this.view.settings?.where;
-      if ((whereWidget?.rules ?? []).length) {
-         where.rules.push(whereWidget);
-      }
-
-      const whereClient = this.clientFilter.getValue();
-      if ((whereClient?.rules ?? []).length) {
-         where.rules.push(whereClient);
-      }
-
-      if ((where?.rules || []).length) {
-         let qsWhere = JSON.stringify(where);
-
-         qsWhere = encodeURIComponent(qsWhere);
-         url = `${url}?where=${qsWhere}`;
-      }
-
-      window.open(url);
-   }
-
-   showFilterPopup() {
-      const $buttonFilter = $$(this.ids.buttonFilter);
-
-      this.clientFilter.popUp($buttonFilter ? $buttonFilter.$view : null);
-   }
-
-   onFilterChange() {
-      const $buttonFilter = $$(this.ids.buttonFilter);
-
-      if (!$buttonFilter) return;
-
-      const where = this.clientFilter.getValue();
-
-      $buttonFilter.define("badge", (where.rules || []).length || null);
-      $buttonFilter.refresh();
-   }
-};
-
-
-/***/ },
-
-/***/ 86499
-/*!*******************************************************************************!*\
-  !*** ./AppBuilder/platform/views/viewComponent/ABViewCSVImporterComponent.js ***!
-  \*******************************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
-
-const ABViewComponent = (__webpack_require__(/*! ./ABViewComponent */ 23687)["default"]);
-const CSVImporter = __webpack_require__(/*! ../../CSVImporter */ 72618);
-
-module.exports = class ABViewCSVImporterComponent extends ABViewComponent {
-   constructor(baseView, idBase, ids) {
-      super(
-         baseView,
-         idBase || `ABCSVImporter_${baseView.id}`,
-         Object.assign(
-            {
-               button: "",
-               popup: "",
-
-               form: "",
-               uploader: "",
-               uploadFileList: "",
-               separatedBy: "",
-               headerOnFirstLine: "",
-               columnList: "",
-
-               search: "",
-               datatable: "",
-
-               statusMessage: "",
-               progressBar: "",
-
-               linkedDataButton: "",
-               importButton: "",
-               rules: "",
-            },
-            ids
-         )
-      );
-
-      this.csvImporter = new CSVImporter((...args) => this.label(...args));
-      // {CSVImporter}
-      // An instance of the object that imports the CSV data.
-
-      this.validationError = false;
-
-      this._dataRows = null;
-      this._csvFileInfo = null;
-   }
-
-   ui() {
-      const settings = this.settings;
-      const defaultSettings = this.view.constructor.defaultValues();
       const _ui = super.ui([
          {
+            borderless: true,
             cols: [
+               spacer, // spacer
                {
-                  view: "button",
-                  css: "webix_primary",
-                  type: "icon",
-                  icon: "fa fa-upload",
-                  label: this.label(
-                     settings.buttonLabel || defaultSettings.buttonLabel
-                  ),
-                  width: settings.width || defaultSettings.width,
-                  click: () => {
-                     this.showPopup();
-                  },
-               },
-               {
-                  fillspace: true,
-               },
-            ],
-         },
-      ]);
-
-      delete _ui.type;
-
-      return _ui;
-   }
-
-   uiConfig() {
-      const ids = this.ids;
-
-      return {
-         id: ids.form,
-         view: "form",
-         type: "clean",
-         borderless: true,
-         minWidth: 400,
-         gravity: 1,
-         elements: [
-            {
-               rows: [
-                  {
-                     id: ids.uploader,
-                     view: "uploader",
-                     name: "csvFile",
-                     css: "webix_primary",
-                     value: this.label("Choose a CSV file"),
-                     accept: "text/csv",
-                     multiple: false,
-                     autosend: false,
-                     link: ids.uploadFileList,
-                     on: {
-                        onBeforeFileAdd: (fileInfo) => {
-                           this._csvFileInfo = fileInfo;
-
-                           return this.loadCsvFile();
-                        },
-                     },
-                  },
-                  {
-                     id: ids.uploadFileList,
-                     name: "uploadedFile",
-                     view: "list",
-                     type: "uploader",
-                     autoheight: true,
-                     borderless: true,
-                     onClick: {
-                        webix_remove_upload: (e, id /*, trg */) => {
-                           this.removeCsvFile(id);
-                        },
-                     },
-                  },
-                  {
-                     padding: 10,
-                     rows: [
-                        {
-                           id: ids.separatedBy,
-                           view: "richselect",
-                           name: "separatedBy",
-                           label: this.label("Separated by"),
-                           labelWidth: 140,
-                           options: this.csvImporter.getSeparateItems(),
-                           value: ",",
-                           on: {
-                              onChange: () => {
-                                 this.loadCsvFile();
-                              },
-                           },
-                        },
-                        {
-                           id: ids.headerOnFirstLine,
-                           view: "checkbox",
-                           name: "headerOnFirstLine",
-                           label: this.label("Header on first line"),
-                           labelWidth: 140,
-                           disabled: true,
-                           value: true,
-                           on: {
-                              onChange: (/*newVal, oldVal*/) => {
-                                 this.populateColumnList();
-                              },
-                           },
-                        },
-                     ],
-                  },
-                  {
-                     type: "space",
-                     rows: [
-                        {
-                           view: "scrollview",
-                           minHeight: 300,
-                           body: {
-                              padding: 10,
-                              id: ids.columnList,
-                              rows: [],
-                           },
-                        },
-                     ],
-                  },
-               ],
-            },
-         ],
-      };
-   }
-
-   uiRecordsView() {
-      const ids = this.ids;
-
-      return {
-         gravity: 2,
-         rows: [
-            {
-               view: "toolbar",
-               css: "bg_gray",
-               cols: [
-                  { width: 5 },
-                  {
-                     id: ids.search,
-                     view: "search",
-                     value: "",
-                     label: "",
-                     placeholder: this.label("Search records..."),
-                     keyPressTimeout: 200,
-                     on: {
-                        onTimedKeyPress: () => {
-                           this.search($$(ids.search).getValue());
-                        },
-                     },
-                  },
-                  { width: 2 },
-               ],
-            },
-            {
-               id: ids.datatable,
-               view: "datatable",
-               resizeColumn: true,
-               editable: true,
-               editaction: "dblclick",
-               css: "ab-csv-importer",
-               borderless: false,
-               tooltip: (obj) => {
-                  const tooltip = obj._errorMsg
-                     ? obj._errorMsg
-                     : "No validation errors";
-                  return tooltip;
-               },
-               minWidth: 650,
-               columns: [],
-               on: {
-                  onValidationError: (id, obj, details) => {
-                     // console.log(`item ${id} invalid`);
-                     let errors = "";
-
-                     Object.keys(details).forEach((key) => {
-                        this.$view.complexValidations[key].forEach((err) => {
-                           errors += err.invalidMessage + "</br>";
-                        });
-                     });
-
-                     const $dt = $$(ids.datatable);
-
-                     $dt.blockEvent();
-                     $dt.updateItem(id, {
-                        _status: "invalid",
-                        _errorMsg: errors,
-                     });
-                     $dt.unblockEvent();
-
-                     this.validationError = true;
-                  },
-                  onValidationSuccess: (id, obj, details) => {
-                     // console.log(`item ${id} valid`);
-                     const $dt = $$(ids.datatable);
-
-                     $dt.blockEvent();
-                     $dt.updateItem(id, {
-                        _status: "valid",
-                        _errorMsg: "",
-                     });
-                     $dt.unblockEvent();
-                     this.validationError = false;
-                  },
-                  onCheck: () => {
-                     const selected = $$(ids.datatable).find({
-                        _included: true,
-                     });
-                     const $importButton = $$(ids.importButton);
-
-                     $importButton.setValue(this.labelImport(selected));
-
-                     if (this.overLimitAlert(selected)) $importButton.disable();
-                     else $importButton.enable();
-                  },
-               },
-            },
-            {
-               id: ids.progressBar,
-               height: 6,
-            },
-            {
-               cols: [
-                  {
-                     id: ids.linkedDataButton,
-                     view: "button",
-                     label: this.label("Linked Data"),
-                     type: "icon",
-                     icon: "fa fa-info",
-                     maxWidth: 180,
-                     click: () => {
-                        this.showLinkedData();
-                     },
-                  },
-                  {
-                     view: "button",
-                     name: "import",
-                     id: ids.importButton,
-                     label: this.label("Import"),
-                     css: "webix_primary",
-                     disabled: true,
-                     type: "icon",
-                     icon: "fa fa-upload",
-                     click: () => {
-                        this.import();
-                     },
-                  },
-               ],
-            },
-         ],
-      };
-   }
-
-   uiPopup() {
-      const ids = this.ids;
-
-      return {
-         id: ids.popup,
-         view: "window",
-         hidden: true,
-         position: "center",
-         modal: true,
-         resize: true,
-         head: {
-            view: "toolbar",
-            css: "webix_dark",
-            cols: [
-               {},
-               {
-                  view: "label",
-                  label: this.label("CSV Importer"),
-                  autowidth: true,
-               },
-               {},
-               {
-                  view: "button",
-                  width: 35,
-                  css: "webix_transparent",
-                  type: "icon",
-                  icon: "nomargin fa fa-times",
-                  click: () => {
-                     this.hide();
-                  },
-               },
-            ],
-         },
-         body: {
-            type: "form",
-            rows: [
-               {
-                  type: "line",
-                  cols: [
-                     this.uiConfig(),
-                     { width: 20 },
-                     this.uiRecordsView(),
-                     { width: 1 },
-                  ],
-               },
-               {
-                  id: ids.statusMessage,
-                  view: "label",
-                  align: "right",
-                  hidden: true,
-               },
-               {
-                  hidden: true,
-                  margin: 5,
-                  cols: [
-                     { fillspace: true },
+                  borderless: true,
+                  rows: [
+                     this.filterUI.ui(), // filter UI
                      {
-                        view: "button",
-                        name: "cancel",
-                        value: this.label("Cancel"),
-                        css: "ab-cancel-button",
-                        autowidth: true,
-                        click: () => {
-                           this.hide();
+                        id: ids.carousel,
+                        view: "carousel",
+                        cols: [],
+                        width: settings.width,
+                        height: settings.height,
+                        navigation: {
+                           items: !settings.hideItem,
+                           buttons: !settings.hideButton,
+                           type: settings.navigationType,
+                        },
+                        on: {
+                           onShow: () => {
+                              const activeIndex = $$(
+                                 ids.carousel
+                              ).getActiveIndex();
+
+                              this.switchImage(activeIndex);
+                           },
                         },
                      },
-                     /*,
-                        {
-                           view: "button",
-                           name: "import",
-                           id: ids.importButton,
-                           value: labels.component.import,
-                           css: "webix_primary",
-                           disabled: true,
-                           autowidth: true,
-                           type: "form",
-                           click: () => {
-                              _logic.import();
-                           }
-                        }*/
                   ],
                },
+               spacer, // spacer
             ],
          },
-      };
+      ]);
+
+      delete _ui.type;
+
+      return _ui;
    }
 
+   // make sure each of our child views get .init() called
    async init(AB) {
       await super.init(AB);
 
-      const ids = this.ids;
-
-      // Populate values to rules
-
-      const dc = this.datacollection;
-
-      if (dc) this.objectLoad(dc.datasource);
-
-      const abWebix = AB.Webix;
-
-      abWebix.ui(this.uiPopup());
-
-      const $form = $$(ids.form);
-
-      if ($form) abWebix.extend($form, abWebix.ProgressBar);
-
-      const $progressBar = $$(ids.progressBar);
-
-      if ($progressBar) abWebix.extend($progressBar, abWebix.ProgressBar);
-   }
-
-   showPopup() {
-      const ids = this.ids;
-
-      $$(ids.popup)?.show();
-
-      this.formClear();
-
-      // open file dialog to upload
-      $$(ids.uploader).fileDialog();
-   }
-
-   hide() {
-      $$(this.ids.popup)?.hide();
-   }
-
-   formClear() {
-      const ids = this.ids;
-
-      this._dataRows = null;
-      this._csvFileInfo = null;
-
-      const $form = $$(ids.form);
-
-      $form.clearValidation();
-      $form.clear();
-
-      $$(ids.separatedBy).setValue(",");
-
-      this.AB.Webix.ui([], $$(ids.columnList));
-
-      $$(ids.headerOnFirstLine).disable();
-      $$(ids.importButton).disable();
-
-      $$(ids.search).setValue("");
-      $$(ids.uploadFileList).clearAll();
-      $$(ids.datatable).clearAll();
-
-      const $statusMessage = $$(ids.statusMessage);
-
-      $statusMessage.setValue("");
-      $statusMessage.hide();
-   }
-
-   search(searchText) {
-      const $datatable = $$(this.ids.datatable);
-
-      if (!$datatable) return;
-
-      searchText = (searchText || "").toLowerCase();
-
-      const matchFields = this.getMatchFields();
-
-      $datatable.filter((row) => {
-         let exists = false;
-
-         (matchFields || []).forEach((f) => {
-            if (exists) return;
-
-            exists =
-               (row[`${f.columnIndex}`] || "")
-                  .toString()
-                  .toLowerCase()
-                  .indexOf(searchText) > -1;
-         });
-
-         return exists;
-      });
-   }
-
-   statusTemplate(item) {
-      let template = "";
-
-      if (!item) return template;
-
-      switch (item._status) {
-         case "in-progress":
-            template = "<span class='fa fa-refresh'></span>";
-            break;
-         case "invalid":
-            template = "<span class='fa fa-exclamation-triangle'></span>";
-            break;
-         case "valid":
-            template = "<span class='fa fa-check'></span>";
-            break;
-         case "done":
-            template = "<span class='fa fa-check'></span>";
-            break;
-         case "fail":
-            template = "<span class='fa fa-remove'></span>";
-            break;
-      }
-
-      return template;
-   }
-
-   async loadCsvFile() {
-      const _csvFileInfo = this._csvFileInfo;
-
-      if (!_csvFileInfo) return false;
-
-      const csvImporter = this.csvImporter;
-
-      if (!csvImporter.validateFile(_csvFileInfo)) {
-         this.AB.Webix.alert({
-            title: this.label("This file extension is not allowed"),
-            text: this.label("Please only upload CSV files"),
-            ok: this.label("Ok"),
-         });
-
-         return false;
-      }
-
-      const ids = this.ids;
-
-      // show loading cursor
-      const $form = $$(ids.form);
-
-      $form?.showProgress?.({ type: "icon" });
-
-      // read CSV file
-      const $headerOnFirstLine = $$(ids.headerOnFirstLine);
-      const $importButton = $$(ids.importButton);
-
-      $headerOnFirstLine.enable();
-      $importButton.enable();
-
-      this._dataRows = await csvImporter.getDataRows(
-         _csvFileInfo,
-         $$(ids.separatedBy).getValue()
-      );
-
-      const _dataRows = this._dataRows;
-
-      let length = _dataRows.length;
-
-      if ($headerOnFirstLine.getValue()) length = _dataRows.length - 1;
-
-      $importButton.setValue(this.labelImport(length));
-      this.populateColumnList();
-      $form?.hideProgress?.();
-
-      return true;
-   }
-
-   removeCsvFile(fileId) {
-      $$(this.ids.uploadFileList).remove(fileId);
-      this.formClear();
-
-      return true;
-   }
-
-   populateColumnList() {
-      const self = this;
-      const ids = this.ids;
-      const abWebix = this.AB.Webix;
-
-      // clear list
-      const $columnList = $$(ids.columnList);
-
-      abWebix.ui([], $columnList);
-
-      const _dataRows = this._dataRows;
-
-      if (!_dataRows) return;
-
-      // check first line of CSV
-      const firstLine = _dataRows[0];
-
-      if (!firstLine) return;
-
-      const csvColumnList = [];
-      const fieldList = [];
-      const currentObject = this.CurrentObject;
-
-      if (currentObject)
-         fieldList.push(
-            ...currentObject.fields((f) => {
-               // available fields
-               if (
-                  this.settings.availableFieldIds?.length &&
-                  this.settings.availableFieldIds.indexOf(f.id) < 0
-               ) {
-                  return false;
-               }
-
-               // filter editable fields
-               const formComp = f.formComponent();
-
-               if (!formComp) return true;
-
-               const formConfig = formComp.common();
-
-               if (!formConfig) return true;
-
-               return formConfig.key != "fieldreadonly";
-            })
-         );
-
-      const csvImporter = this.csvImporter;
-
-      // check first line be header columns
-      if ($$(ids.headerOnFirstLine).getValue())
-         csvColumnList.push(
-            ...firstLine.map((colName, index) => {
-               return {
-                  id: index + 1, // webix .options list disallow value 0
-                  value: colName,
-                  key: csvImporter.getGuessDataType(_dataRows, index),
-               };
-            })
-         );
-      else
-         firstLine.forEach((e, i) => {
-            csvColumnList.push({
-               id: i + 1, // webix .options list disallow value 0
-               value: this.label("Column {0}", [i + 1]),
-               key: csvImporter.getGuessDataType(_dataRows, i),
-            });
-         });
-
-      // Add unselect item
-      csvColumnList.unshift({
-         id: "none",
-         value: this.label("None"),
-      });
-
-      // populate columns to UI
-      const uiColumns = [];
-      const selectedCsvCols = [];
-
-      fieldList.forEach((f) => {
-         // match up by data type
-         const matchCol = csvColumnList.filter(
-            (c) => c.key == f.key && selectedCsvCols.indexOf(c.id) < 0
-         )[0];
-
-         let selectVal = "none";
-
-         if (matchCol) {
-            selectVal = matchCol.id;
-
-            // cache
-            selectedCsvCols.push(selectVal);
-         }
-
-         let columnOptUI = {
-            view: "richselect",
-            gravity: 2,
-            options: csvColumnList,
-            fieldId: f.id,
-            abName: "columnIndex",
-            value: selectVal,
-            on: {
-               onChange: function () {
-                  self.toggleLinkFields(this);
-                  self.loadDataToGrid();
-               },
-            },
-         };
-
-         // Add date format options
-         if (f.key === "date") {
-            const dateSeparatorOptions = ["/", "-", ".", ",", " "];
-            const dayFormatOptions = [
-               { value: this.label("1 to 31"), id: "D" },
-               { value: this.label("01 to 31"), id: "DD" },
-            ];
-            const monthFormatOptions = [
-               { value: this.label("1 to 12"), id: "M" },
-               { value: this.label("01 to 12"), id: "MM" },
-            ];
-            const yearFormatOptions = [
-               { value: this.label("00 to 99"), id: "YY" },
-               { value: this.label("2000 to 2099"), id: "YYYY" },
-            ];
-            const dateOrderOptions = [
-               {
-                  value: this.label("D-M-Y"),
-                  id: 1,
-               },
-               {
-                  value: this.label("M-D-Y"),
-                  id: 2,
-               },
-               {
-                  value: this.label("Y-M-D"),
-                  id: 3,
-               },
-               {
-                  value: this.label("Y-D-M"),
-                  id: 4,
-               },
-            ];
-
-            columnOptUI = {
-               gravity: 2,
-               rows: [
-                  columnOptUI,
-                  {
-                     view: "richselect",
-                     label: this.label("Separator"),
-                     labelWidth: 100,
-                     on: {
-                        onChange: () => {
-                           this.loadDataToGrid();
-                        },
-                     },
-                     name: "separator",
-                     abName: "columnDateFormat",
-                     options: dateSeparatorOptions,
-                     value: "/",
-                  },
-                  {
-                     view: "richselect",
-                     label: this.label("Day"),
-                     labelWidth: 100,
-                     on: {
-                        onChange: () => {
-                           this.loadDataToGrid();
-                        },
-                     },
-                     name: "day",
-                     abName: "columnDateFormat",
-                     options: dayFormatOptions,
-                     value: "D",
-                  },
-                  {
-                     view: "richselect",
-                     label: this.label("Month"),
-                     labelWidth: 100,
-                     on: {
-                        onChange: () => {
-                           this.loadDataToGrid();
-                        },
-                     },
-                     name: "month",
-                     abName: "columnDateFormat",
-                     options: monthFormatOptions,
-                     value: "M",
-                  },
-                  {
-                     view: "richselect",
-                     label: this.label("Year"),
-                     labelWidth: 100,
-                     on: {
-                        onChange: () => {
-                           this.loadDataToGrid();
-                        },
-                     },
-                     name: "year",
-                     abName: "columnDateFormat",
-                     options: yearFormatOptions,
-                     value: "YY",
-                  },
-                  {
-                     view: "richselect",
-                     label: this.label("Order"),
-                     labelWidth: 100,
-                     on: {
-                        onChange: () => {
-                           this.loadDataToGrid();
-                        },
-                     },
-                     name: "order",
-                     abName: "columnDateFormat",
-                     options: dateOrderOptions,
-                     value: 1,
-                  },
-               ],
-            };
-         }
-
-         // Add connected field options
-         if (f.isConnection) {
-            let linkFieldOptions = [];
-
-            if (f.datasourceLink) {
-               linkFieldOptions = f.datasourceLink
-                  .fields((fld) => !fld.isConnection)
-                  .map((fld) => {
-                     return {
-                        id: fld.id,
-                        value: fld.label,
-                     };
-                  });
-            }
-
-            columnOptUI = {
-               gravity: 2,
-               rows: [
-                  columnOptUI,
-                  {
-                     view: "richselect",
-                     label: "=",
-                     labelWidth: 20,
-                     abName: "columnLinkData",
-                     hidden: true,
-                     options: linkFieldOptions,
-                     value: linkFieldOptions[0] ? linkFieldOptions[0].id : null,
-                  },
-               ],
-            };
-         }
-
-         uiColumns.push({
-            view: "layout",
-            borderless: true,
-            cols: [
-               {
-                  view: "template",
-                  gravity: 1,
-                  borderless: true,
-                  css: { "padding-top": 10 },
-                  template: `<span class="fa fa-${f.icon}"></span> ${f.label}`,
-               },
-               columnOptUI,
-            ],
-         });
-      });
-      abWebix.ui(uiColumns, $columnList);
-
-      this.loadDataToGrid();
-   }
-
-   toggleLinkFields($columnOption) {
-      if (!$columnOption) return;
-
-      const $optionPanel = $columnOption.getParentView();
-      const $linkFieldOption = $optionPanel.queryView(
-         { abName: "columnLinkData" },
-         "all"
-      )[0];
-
-      if (!$linkFieldOption) return;
-
-      if ($columnOption.getValue() === "none") $linkFieldOption.hide();
-      else $linkFieldOption.show();
-   }
-
-   overLimitAlert(data) {
-      const limit = 1000;
-
-      if (data.length > limit) {
-         // we only allow 1000 record imports
-         this.AB.Webix.alert({
-            title: this.label("Too many records"),
-            ok: this.label("Ok"),
-            text: this.label(
-               "Due to browser limitations we only allow imports of {0} records. Please upload a new CSV or deselect records to import.",
-               [limit]
-            ),
-         });
-
-         return true;
-      }
-
-      return false;
-   }
-
-   loadDataToGrid() {
-      const ids = this.ids;
-      const $datatable = $$(ids.datatable);
-      const ab = this.AB;
-
-      if (!$datatable) return;
-
-      $datatable.clearAll();
-
-      // show loading cursor
-      $datatable.showProgress?.({ type: "icon" });
-
-      /** Prepare Columns */
-      const matchFields = this.getMatchFields();
-      const columns = [];
-
-      // add "status" column
-      columns.push({
-         id: "_status",
-         header: "",
-         template: this.statusTemplate,
-         width: 30,
-      });
-
-      // add "checkbox" column
-      columns.push({
-         id: "_included",
-         header: { content: "masterCheckbox" },
-         template: "{common.checkbox()}",
-         width: 30,
-      });
-
-      const fieldValidations = [];
-      const rulePops = [];
-
-      // populate columns
-      (matchFields || []).forEach((f) => {
-         let validationRules = f.field.settings.validationRules;
-         // parse the rules because they were stored as a string
-         // check if rules are still a string...if so lets parse them
-         if (validationRules && typeof validationRules === "string")
-            validationRules = JSON.parse(validationRules);
-
-         if (validationRules?.length) {
-            const validationUI = [];
-
-            // there could be more than one so lets loop through and build the UI
-            validationRules.forEach((rule) => {
-               const Filter = ab.filterComplexNew(
-                  `${f.field.id}_${ab.Webix.uid()}`
-               );
-               // add the new ui to an array so we can add them all at the same time
-               validationUI.push(Filter.ui);
-               // store the filter's info so we can assign values and settings after the ui is rendered
-               fieldValidations.push({
-                  filter: Filter,
-                  view: Filter.ids.querybuilder,
-                  columnName: f.field.id,
-                  validationRules: rule.rules,
-                  invalidMessage: rule.invalidMessage,
-                  columnIndex: f.columnIndex,
-               });
-            });
-
-            // create a unique view id for popup
-            const popUpId = `${ids.rules}_${f.field.id}_${ab.Webix.uid()}`;
-
-            // store the popup ids so we can remove the later
-            rulePops.push(popUpId);
-            // add the popup to the UI but don't show it
-            ab.Webix.ui({
-               view: "popup",
-               css: "ab-rules-popup",
-               id: popUpId,
-               body: {
-                  rows: validationUI,
-               },
-            });
-         }
-
-         const editor = f.field?.key == "number" ? "number" : "text";
-
-         columns.push({
-            id: f.columnIndex,
-            header: f.field.label,
-            editor: editor,
-            template: (obj, common, value /*, col, ind */) =>
-               value.replace(/[<]/g, "&lt;"),
-            minWidth: 150,
-            fillspace: true,
-         });
-      });
-
-      if (fieldValidations.length) {
-         // we need to store the rules for use later so lets build a container array
-         const complexValidations = [];
-
-         fieldValidations.forEach((f) => {
-            // init each ui to have the properties (app and fields) of the object we are editing
-            // f.filter.applicationLoad(App);
-            f.filter.fieldsLoad(this.CurrentObject.fields());
-            // now we can set the value because the fields are properly initialized
-            f.filter.setValue(f.validationRules);
-            // if there are validation rules present we need to store them in a lookup hash
-            // so multiple rules can be stored on a single field
-            if (!Array.isArray(complexValidations[f.columnName]))
-               complexValidations[f.columnName] = [];
-
-            // now we can push the rules into the hash
-            complexValidations[f.columnName].push({
-               filters: $$(f.view).getFilterHelper(),
-               values: $datatable.getSelectedItem(),
-               invalidMessage: f.invalidMessage,
-               columnIndex: f.columnIndex,
-            });
-         });
-
-         const rules = {};
-
-         // store the rules in a data param to be used later
-         $datatable.$view.complexValidations = complexValidations;
-
-         // use the lookup to build the validation rules
-         Object.keys(complexValidations).forEach((key) => {
-            rules[key] = (value, data) => {
-               // default valid is true
-               let isValid = true;
-
-               $datatable.$view.complexValidations[key].forEach((filter) => {
-                  const rowValue = {};
-                  // use helper funtion to check if valid
-                  // map the column names to the index numbers of data
-                  // reformat data to display
-
-                  (matchFields || []).forEach((f) => {
-                     const record = data[f.columnIndex];
-
-                     if (
-                        f.field.key === "date" &&
-                        record.includes("Invalid date")
-                     )
-                        isValid = false;
-
-                     rowValue[f.field.id] = record;
-                  });
-
-                  const ruleValid = filter.filters(rowValue);
-
-                  // if invalid we need to tell the field
-                  if (!ruleValid) {
-                     isValid = false;
-                     // this.AB.Webix.message({
-                     //    type: "error",
-                     //    text: invalidMessage
-                     // });
-                  }
-               });
-
-               return isValid;
-            };
-         });
-         // define validation rules
-         $datatable.define("rules", rules);
-         // store the array of view ids on the webix object so we can get it later
-         $datatable.config.rulePops = rulePops;
-         $datatable.refresh();
-      } else {
-         // check if the previous datatable had rule popups and remove them
-         if ($datatable.config.rulePops) {
-            $datatable.config.rulePops.forEach((popup) => {
-               const $popup = $$(popup);
-
-               if (!$popup) return;
-
-               $popup.destructor();
-            });
-         }
-
-         // remove any validation rules from the previous table
-         $datatable.define("rules", {});
-         $datatable.refresh();
-      }
-
-      /** Prepare Data */
-      const parsedData = [];
-
-      (this._dataRows || []).forEach((row, index) => {
-         const rowValue = {
-            id: index + 1,
-         };
-
-         // reformat data to display
-         (matchFields || []).forEach((f) => {
-            const data = row[f.columnIndex - 1];
-
-            if (f.field.key === "date") {
-               // let dateFormat = moment(data, f.format).format(
-               //    "YYYY-MM-DD"
-               // );
-               // debugger;
-               let dateFormat = ab.rules.toDate(data, {
-                  format: f.format,
-               });
-               dateFormat = ab.rules.toDateFormat(dateFormat, {
-                  format: "YYYY-MM-DD",
-               });
-
-               if (dateFormat === "Invalid date")
-                  dateFormat = dateFormat + " - " + data;
-
-               rowValue[f.columnIndex] = dateFormat;
-            } else rowValue[f.columnIndex] = data; // array to object
-         });
-
-         // insert "true" value of checkbox
-         rowValue["_included"] = true;
-
-         parsedData.push(rowValue);
-      });
-
-      // skip the first line
-      const isSkipFirstLine = $$(ids.headerOnFirstLine).getValue();
-
-      if (isSkipFirstLine && parsedData.length > 1) parsedData.shift();
-
-      const $importButton = $$(ids.importButton);
-
-      $importButton.setValue(this.labelImport(parsedData));
-      $datatable.refreshColumns(columns);
-      $datatable.parse(parsedData);
-
-      if (this.overLimitAlert(parsedData)) $importButton.disable();
-      else $importButton.enable();
-
-      // hide loading cursor
-      $datatable.hideProgress?.();
-   }
-
-   refreshRemainingTimeText(startUpdateTime, total, index) {
-      const ids = this.ids;
-
-      // Calculate remaining time
-      const spentTime = new Date() - startUpdateTime; // milliseconds that has passed since last completed record since start
-
-      const averageRenderTime = spentTime / index; // average milliseconds per single render at this point
-
-      const remainTime = averageRenderTime * (total - index);
-
-      let result = "";
-
-      // Convert milliseconds to a readable string
-      const days = (remainTime / 86400000).toFixed(0);
-      const hours = (remainTime / 3600000).toFixed(0);
-      const minutes = (remainTime / 60000).toFixed(0);
-      const seconds = (remainTime / 1000).toFixed(0);
-
-      if (seconds < 1) result = "";
-      else if (seconds < 60)
-         result = this.label("Approximately {0} second(s) remaining", [
-            seconds,
-         ]);
-      // result = `Approximately ${seconds} second${
-      //    seconds > 1 ? "s" : ""
-      // }`;
-      else if (minutes == 1)
-         result = this.label("Approximately 1 minute {0} seconds remaining", [
-            seconds - 60,
-         ]);
-      // result = `Approximately 1 minute ${seconds - 60} seconds`;
-      else if (minutes < 60)
-         result = this.label("Approximately {0} minutes remaining", [minutes]);
-      else if (hours < 24)
-         result = this.label("Approximately {0} hour(s) remaining", [hours]);
-      else result = this.label("Approximately {0} day(s) remaining", [days]);
-
-      if (result) {
-         $$(ids.importButton)?.setValue(result);
-      } else {
-         const selected = $$(ids.datatable)?.find({ _included: true });
-         $$(ids.importButton)?.setValue(this.labelImport(selected));
-      }
-   }
-
-   /**
-    * @method getMatchFields
-    *
-    * @return {Object} - [
-    *                      {
-    *                         columnIndex: {number},
-    *                         field: {ABField},
-    *                         searchField: {ABField} [optional]
-    *                      },
-    *                      ...
-    *                    ]
-    */
-   getMatchFields() {
-      const result = [];
-      const ids = this.ids;
-
-      // get richselect components
-      const $selectorViews = $$(ids.columnList)
-         .queryView({ abName: "columnIndex" }, "all")
-         .filter((selector) => selector.getValue() != "none");
-
-      ($selectorViews || []).forEach(($selector) => {
-         const currentObject = this.CurrentObject;
-
-         if (!currentObject) return;
-
-         // webix .options list disallow value 0
-         const field = currentObject.fieldByID($selector.config.fieldId);
-
-         if (!field) return;
-
-         const colIndex = $selector.getValue();
-         const fieldData = {
-            columnIndex: colIndex,
-            field: field,
-         };
-
-         if (field.key === "date") {
-            const $optionPanel = $selector.getParentView();
-            const $dateFormatSelectors = $optionPanel.queryView(
-               { abName: "columnDateFormat" },
-               "all"
-            );
-
-            // define the column to compare data to search .id
-            if ($dateFormatSelectors) {
-               $dateFormatSelectors.forEach((selector) => {
-                  fieldData[selector.config.name] = selector.getValue();
-               });
-
-               // convert all dates into mysql date format YYYY-DD-MM
-               let format;
-
-               switch (fieldData.order) {
-                  case "1":
-                     format =
-                        fieldData.day +
-                        fieldData.separator +
-                        fieldData.month +
-                        fieldData.separator +
-                        fieldData.year;
-                     break;
-                  case "2":
-                     format =
-                        fieldData.month +
-                        fieldData.separator +
-                        fieldData.day +
-                        fieldData.separator +
-                        fieldData.year;
-                     break;
-                  case "3":
-                     format =
-                        fieldData.year +
-                        fieldData.separator +
-                        fieldData.month +
-                        fieldData.separator +
-                        fieldData.day;
-                     break;
-                  case "4":
-                     format =
-                        fieldData.year +
-                        fieldData.separator +
-                        fieldData.day +
-                        fieldData.separator +
-                        fieldData.month;
-               }
-
-               fieldData.format = format;
-            }
-         }
-
-         if (field.isConnection) {
-            const $optionPanel = $selector.getParentView();
-            const $linkDataSelector = $optionPanel.queryView(
-               { abName: "columnLinkData" },
-               "all"
-            )[0];
-
-            // define the column to compare data to search .id
-            if ($linkDataSelector) {
-               const searchField = field.datasourceLink.fieldByID(
-                  $linkDataSelector.getValue()
-               );
-
-               fieldData.searchField = searchField;
-            }
-         }
-
-         result.push(fieldData);
-      });
-
-      return result;
-   }
-
-   labelImport(selected) {
-      let length = selected;
-
-      if (Array.isArray(selected)) length = selected.length;
-
-      return this.label("Import {0} Records", [length]);
-   }
-
-   /**
-    * @method import
-    *
-    * @return {Promise}
-    */
-   async import() {
-      // if (dv == null) return Promise.resolve();
-
-      // // get ABObject
-      // let obj = dv.datasource;
-
-      // Make sure we are connected to an Object
-      const currentObject = this.CurrentObject;
-
-      if (!currentObject) return;
-
-      // get ABModel
-      // let model = dv.model;
-      // if (model == null) return Promise.resolve();
-
-      const ids = this.ids;
-      const $importButton = $$(ids.importButton);
-
-      $importButton.disable();
-
-      // Show loading cursor
-      const $form = $$(ids.form);
-      const $progressBar = $$(ids.progressBar);
-
-      $form.showProgress({ type: "icon" });
-      $progressBar.showProgress({
-         type: "top",
-         position: 0.0001,
-      });
-
-      // get richselect components
-      const matchFields = this.getMatchFields();
-
-      // Get object's model
-      const objModel = currentObject.model();
-      const $datatable = $$(ids.datatable);
-      const selectedRows = $datatable.find({ _included: true });
-
-      let _currProgress = 0;
-
-      const increaseProgressing = () => {
-         _currProgress += 1;
-         $progressBar.showProgress({
-            type: "bottom",
-            position: _currProgress / selectedRows.length,
-         });
-      };
-      const itemFailed = (itemId, errMessage) => {
-         if ($datatable) {
-            // set "fail" status
-            $datatable.addRowCss(itemId, "row-fail");
-            $datatable.blockEvent();
-            $datatable.updateItem(itemId, {
-               _status: "fail",
-               _errorMsg: errMessage,
-            });
-            $datatable.unblockEvent();
-         }
-
-         increaseProgressing();
-
-         console.error(errMessage);
-      };
-      const abWebix = this.AB.Webix;
-      const itemInvalid = (itemId, errors = []) => {
-         if ($datatable) {
-            // combine all error messages to display in tooltip
-            const errorMsg = [];
-            // mark which column are invalid
-            errors.forEach((err) => {
-               if (!err?.name) return;
-
-               const fieldInfo = matchFields.filter(
-                  (f) => f.field && f.field.columnName == err.name
-               )[0];
-
-               errorMsg.push(err.name + ": " + err.message);
-               // we also need to define an error message
-               // abWebix.message({
-               //    type: "error",
-               //    text: err.name + ": " + err.message
-               // });
-            });
-
-            // set "fail" status
-            $datatable.blockEvent();
-            $datatable.updateItem(itemId, {
-               _status: "invalid",
-               _errorMsg: errorMsg.join("</br>"),
-            });
-            $datatable.unblockEvent();
-            $datatable.addRowCss(itemId, "webix_invalid");
-         }
-         // increaseProgressing();
-      };
-      const itemPass = (itemId) => {
-         if ($datatable) {
-            // set "done" status
-            $datatable.removeRowCss(itemId, "row-fail");
-            $datatable.addRowCss(itemId, "row-pass");
-            $datatable.blockEvent();
-            $datatable.updateItem(itemId, {
-               _status: "done",
-               _errorMsg: "",
-            });
-            $datatable.unblockEvent();
-         }
-
-         increaseProgressing();
-      };
-      const itemValid = (itemId) => {
-         if ($datatable) {
-            // mark all columns valid (just in case they were invalid before)
-            // matchFields.forEach((f) => {
-            //    $datatable.removeCellCss(
-            //       itemId,
-            //       f.columnIndex,
-            //       "webix_invalid_cell"
-            //    );
-            // });
-            // highlight the row
-            $datatable.removeRowCss(itemId, "webix_invalid");
-            $datatable.blockEvent();
-            $datatable.updateItem(itemId, {
-               _status: "",
-               _errorMsg: "",
-            });
-            $datatable.unblockEvent();
-            // $datatable.addRowCss(itemId, "row-pass");
-         }
-      };
-      const $statusMessage = $$(ids.statusMessage);
-      const uiCleanUp = () => {
-         // To Do anyUI updates
-         // console.log("ui clean up now");
-         $importButton.enable();
-
-         // Hide loading cursor
-         $form.hideProgress();
-         $progressBar.hideProgress();
-
-         $statusMessage.setValue("");
-         $statusMessage.hide();
-
-         const selected = $datatable.find({ _included: true });
-
-         $importButton.setValue(this.labelImport(selected));
-         this.emit("done");
-      };
-
-      const validRows = [];
-
-      let allValid = true;
-
-      // Pre Check Validations of whole CSV import
-      // update row to green if valid
-      // update row to red if !valid
-      (selectedRows || []).forEach((data, index) => {
-         const newRowData = this.getParentValues();
-
-         matchFields.forEach((f) => {
-            if (!f.field?.key) return;
-
-            switch (f.field.key) {
-               // case "connectObject":
-               //    // skip
-               //    break;
-               case "number":
-                  if (typeof data[f.columnIndex] !== "number") {
-                     newRowData[f.field.columnName] = (
-                        data[f.columnIndex] || ""
-                     ).replace(/[^-0-9.]/gi, "");
-
-                     break;
-                  }
-
-                  newRowData[f.field.columnName] = data[f.columnIndex];
-
-                  break;
-
-               default:
-                  newRowData[f.field.columnName] = data[f.columnIndex];
-
-                  break;
-            }
-         });
-
-         let isValid = false;
-         let errorMsg = "";
-
-         // first check legacy and server side validation
-         const validator = currentObject.isValidData(newRowData);
-
-         isValid = validator.pass();
-         errorMsg = validator.errors;
-
-         if (isValid)
-            // now check complex field validation rules
-            isValid = $datatable.validate(data.id);
-         else {
-            allValid = false;
-
-            itemInvalid(data.id, errorMsg);
-         }
-
-         if (isValid) {
-            itemValid(data.id);
-            validRows.push({ id: data.id, data: newRowData });
-         } else allValid = false;
-
-         // $datatable.unblockEvent();
-      });
-
-      if (!allValid) {
-         // To Do anyUI updates
-         // $importButton.enable();
-         //
-         // // Hide loading cursor
-         // $form.hideProgress();
-         // $progressBar.hideProgress();
-         // $statusMessage.setValue("");
-         // $statusMessage.hide();
-         //
-         // // _logic.hide();
-         //
-         // if (_logic.callbacks && _logic.callbacks.onDone)
-         //    _logic.callbacks.onDone();
-         uiCleanUp();
-
-         abWebix.alert({
-            title: this.label("Invalid Data"),
-            ok: this.label("Ok"),
-            text: this.label(
-               "The highlighted row has invalid data. Please edit in the window or update the CSV and try again."
-            ),
+      const dv = this.datacollection;
+
+      if (!dv) {
+         AB.notify.builder(`Datacollection is ${dv}`, {
+            message: "This is an invalid datacollection",
          });
 
          return;
       }
 
-      // if pass, then continue to process each row
-      // ?? : can we process in Parallel?
-      // ?? : implement hash Lookups for connected Fields
-      const hashLookups = {};
-      // {obj}  /*  { connectField.id : { 'searchWord' : "uuid"}}
-      // use this hash to reduce the # of lookups needed to fill in our
-      // connected entries
+      const object = dv.datasource;
 
-      const connectedFields = matchFields.filter(
-         (f) => f && f.field?.isConnection && f.searchField
-      );
+      if (!object) {
+         AB.notify.developer(`Object is ${dv}`, {
+            message: "This is an invalid object",
+         });
 
-      const throttledSize = 10;
-      let startUpdateTime;
-      let numDone = 0;
+         return;
+      }
 
-      try {
-         // forEach connectedFields in csv
-         const allLookups = [];
+      dv.removeListener("loadData", this._handler_doOnShow);
+      dv.on("loadData", this._handler_doOnShow);
 
-         (connectedFields || []).forEach((f) => {
-            const connectField = f.field;
-            // const searchWord = newRowData[f.columnIndex];
-            const connectObject = connectField.datasourceLink;
+      dv.removeListener("update", this._handler_doReload);
+      dv.on("update", this._handler_doReload);
 
-            if (!connectObject) return;
+      dv.removeListener("delete", this._handler_doReload);
+      dv.on("delete", this._handler_doReload);
 
-            const connectModel = connectObject.model();
+      dv.removeListener("create", this._handler_doReload);
+      dv.on("create", this._handler_doReload);
 
-            if (!connectModel) return;
+      dv.removeListener("initializingData", this._handler_busy);
+      dv.on("initializingData", this._handler_busy);
 
-            const linkIdKey = connectField.indexField
-               ? connectField.indexField.columnName
-               : connectField.object.PK();
+      dv.removeListener("initializedData", this._handler_ready);
+      dv.on("initializedData", this._handler_ready);
 
-            // prepare default hash entry:
-            hashLookups[connectField.id] = {};
+      if (this.settings.filterByCursor) {
+         ["changeCursor", "cursorStale"].forEach((key) => {
+            dv.removeListener(key, this._handler_doOnShow);
+            dv.on(key, this._handler_doOnShow);
+         });
+      }
 
-            // load all values of connectedField entries
-            const gethashLookup = async () => {
-               try {
-                  const list = await connectModel.findAll({
-                     where: {}, // !!!
-                     populate: false,
-                  });
-                  const data = list.data || list;
+      const baseView = this.view;
 
-                  (data || []).forEach((row) => {
-                     // store in hash[field.id] = { 'searchKey' : "uuid" }
+      // filter helper
+      baseView.filterHelper.objectLoad(object);
+      baseView.filterHelper.viewLoad(this);
 
-                     hashLookups[connectField.id][
-                        row[f.searchField.columnName]
-                     ] = row[linkIdKey];
-                  });
-               } catch (err) {
-                  console.error(err);
-               }
+      this.filterUI.init(this.AB);
+      this.filterUI.removeListener("filter.data", this._handler_doFilter);
+      this.filterUI.on("filter.data", this._handler_doFilter);
+
+      // link page helper
+      this.linkPage.init({
+         view: baseView,
+         datacollection: dv,
+      });
+
+      // set data-cy
+      const $carouselView = $$(this.ids.carousel)?.$view;
+
+      if ($carouselView) {
+         $carouselView.setAttribute(
+            "data-cy",
+            `${baseView.key} ${baseView.id}`
+         );
+         $carouselView
+            .querySelector(".webix_nav_button_prev")
+            ?.firstElementChild?.setAttribute(
+               "data-cy",
+               `${baseView.key} button previous ${baseView.id}`
+            );
+         $carouselView
+            .querySelector(".webix_nav_button_next")
+            ?.firstElementChild?.setAttribute(
+               "data-cy",
+               `${baseView.key} button next ${baseView.id}`
+            );
+      }
+   }
+
+   /**
+    * @method detatch()
+    * Will make sure all our handlers are removed from any object
+    * we have attached them to.
+    *
+    * You'll want to call this in situations when we are dynamically
+    * creating and recreating instances of the same Widget (like in
+    * the ABDesigner).
+    */
+   detatch() {
+      const dv = this.datacollection;
+
+      if (!dv) return;
+
+      dv.removeListener("loadData", this._handler_doOnShow);
+
+      if (this._handler_doReload) {
+         dv.removeListener("update", this._handler_doReload);
+         dv.removeListener("delete", this._handler_doReload);
+         dv.removeListener("create", this._handler_doReload);
+      }
+
+      dv.removeListener("initializingData", this._handler_busy);
+
+      dv.removeListener("initializedData", this._handler_ready);
+
+      if (this.settings.filterByCursor)
+         ["changeCursor", "cursorStale"].forEach((key) => {
+            dv.removeListener(key, this._handler_doOnShow);
+         });
+
+      this.filterUI.removeListener("filter.data", this._handler_doOnShow);
+   }
+
+   myTemplate(row) {
+      if (row?.src) {
+         const settings = this.settings;
+
+         return `<div class="ab-carousel-image-container">
+            <link rel="preload" href="${
+               row.src
+            }" as="image" fetchpriotity="low"/>
+            <img id="${this.ids.component}-${row.id}" src="${
+            row.src
+         }" class="content" ondragstart="return false" loading="lazy" />
+            ${
+               settings.showLabel
+                  ? `<div class="ab-carousel-image-title">${
+                       row.label || ""
+                    }</div>`
+                  : ""
+            }
+            <div class="ab-carousel-image-icon">
+            ${
+               settings.detailsPage || settings.detailsTab
+                  ? `<span ab-row-id="${row.id}" class="ab-carousel-detail webix_icon fa fa-eye"></span>`
+                  : ""
+            }
+            ${
+               settings.editPage || settings.editTab
+                  ? `<span ab-row-id="${row.id}" class="ab-carousel-edit webix_icon fa fa-pencil"></span>`
+                  : ""
+            }
+            <span class="webix_icon ab-carousel-zoom-in fa fa-search-plus"></span>
+            <span class="webix_icon ab-carousel-zoom-out fa fa-search-minus"></span>
+                  <span ab-row-id="${row.id}" ab-img-file="${
+            row.imgFile
+         }" class="webix_icon ab-carousel-rotate-left fa fa-rotate-left"></span>
+               <span ab-row-id="${row.id}" ab-img-file="${
+            row.imgFile
+         }" class="webix_icon ab-carousel-rotate-right fa fa-rotate-right"></span>
+               <span class="webix_icon ab-carousel-fullscreen fa fa-arrows-alt"></span>
+               <span style="display: none;" class="webix_icon ab-carousel-exit-fullscreen fa fa-times"></span>
+            </div>
+         </div>`;
+      }
+      // empty image
+      else return "";
+   }
+
+   busy() {
+      const $carousel = $$(this.ids.carousel);
+
+      $carousel?.disable();
+      $carousel?.showProgress?.({ type: "icon" });
+   }
+
+   ready() {
+      const $carousel = $$(this.ids.carousel);
+
+      $carousel?.enable();
+      $carousel?.hideProgress?.();
+   }
+
+   async switchImage(currentPosition) {
+      const dv = this.datacollection;
+
+      if (!dv) return;
+
+      // Check want to load more images
+      if (
+         currentPosition >= this._imageCount - 1 && // check last image
+         dv.totalCount > this._rowCount
+      ) {
+         // loading cursor
+         this.busy();
+
+         try {
+            await dv.loadData(this._rowCount || 0);
+         } catch (err) {
+            this.AB.notify.developer(err, {
+               message:
+                  "ABViewCarousel:switchImage():Error when load data from a Data collection",
+            });
+         }
+
+         this.ready();
+      }
+   }
+
+   onShow(fnFilter = this.filterUI.getFilter()) {
+      const ids = this.ids;
+      const dv = this.datacollection;
+
+      if (!dv) return;
+
+      const obj = dv.datasource;
+
+      if (!obj) return;
+
+      const field = this.view.imageField;
+
+      if (!field) return;
+
+      if (dv.dataStatus == dv.dataStatusFlag.notInitial) {
+         // load data when a widget is showing
+         dv.loadData();
+
+         // it will call .onShow again after dc loads completely
+         return;
+      }
+
+      const settings = this.settings;
+
+      let rows = dv.getData(fnFilter);
+
+      // Filter images by cursor
+      if (settings.filterByCursor) {
+         const cursor = dv.getCursor();
+
+         if (cursor)
+            rows = rows.filter(
+               (r) =>
+                  (r[obj.PK()] || r.id || r) ===
+                  (cursor[obj.PK()] || cursor.id || cursor)
+            );
+      }
+
+      const images = [];
+
+      rows.forEach((r) => {
+         const imgFile = r[field.columnName];
+
+         if (imgFile) {
+            const imgData = {
+               id: r.id,
+               src: `/file/${imgFile}`,
+               imgFile,
             };
 
-            allLookups.push(gethashLookup());
-         });
+            // label of row data
+            if (settings.showLabel) imgData.label = obj.displayData(r);
 
-         await Promise.all(allLookups);
-
-         // forEach validRow
-         validRows.forEach((data) => {
-            const newRowData = data.data;
-
-            // update the datagrid row to in-progress
-            $datatable.blockEvent();
-            $datatable.updateItem(data.id, {
-               _status: "in-progress",
-               _errorMsg: "",
+            images.push({
+               css: "image",
+               borderless: true,
+               template: (...params) => {
+                  return this.myTemplate(...params);
+               },
+               data: imgData,
             });
-            $datatable.unblockEvent();
-
-            // forEach ConnectedField
-            (connectedFields || []).forEach((f) => {
-               // find newRowData[field.columnName] = { field.PK : hash[field.id][searchWord] }
-               const connectField = f.field;
-               const linkIdKey = connectField.indexField
-                  ? connectField.indexField.columnName
-                  : connectField.object.PK();
-               const uuid =
-                  hashLookups[connectField.id][
-                     newRowData[connectField.columnName]
-                  ];
-
-               if (!uuid) {
-                  itemInvalid(data.id, [{ name: connectField.columnName }]);
-                  allValid = false;
-               }
-
-               newRowData[connectField.columnName] = {};
-               newRowData[connectField.columnName][linkIdKey] = uuid;
-            });
-         });
-
-         if (!allValid) {
-            abWebix.alert({
-               title: this.label("Invalid Data"),
-               ok: this.label("Ok"),
-               text: this.label(
-                  "The highlighted row has invalid data. Please edit in the window or update the CSV and try again."
-               ),
-            });
-            uiCleanUp();
-
-            return;
          }
-
-         // NOTE: Parallel exectuion of all these:
-         const allSaves = [];
-         const createRecord = (objModel, newRowsData, element, total) =>
-            new Promise((resolve, reject) => {
-               element.doRecordRulesPre(newRowsData);
-
-               const processResult = async () => {
-                  try {
-                     const result = await objModel.batchCreate({
-                        batch: newRowsData,
-                     });
-                     const resultErrors = result.errors;
-
-                     // Show errors of each row
-                     Object.keys(resultErrors).forEach((rowIndex) => {
-                        const error = resultErrors[rowIndex];
-
-                        if (error) {
-                           itemFailed(
-                              rowIndex,
-                              error.message || error.sqlMessage || error
-                           );
-                        }
-                     });
-
-                     const resultData = result.data;
-                     const penddingRecordRules = [];
-
-                     Object.keys(resultData).forEach((rowIndex) => {
-                        penddingRecordRules.push(
-                           new Promise((resolve, reject) => {
-                              // Process Record Rule
-                              const processRowData = async () => {
-                                 try {
-                                    await element.doRecordRules(
-                                       resultData[rowIndex]
-                                    );
-
-                                    itemPass(rowIndex);
-                                    resolve();
-                                 } catch (err) {
-                                    itemFailed(rowIndex, err);
-                                    reject("that didn't work");
-                                 }
-                              };
-
-                              processRowData();
-                           })
-                        );
-                     });
-
-                     const waitPenddingRecordRules = async () => {
-                        try {
-                           await Promise.all(penddingRecordRules);
-
-                           newRowsData.forEach((row) => {
-                              // itemPass(row.id);
-                              numDone++;
-                              if (numDone % throttledSize == 0) {
-                                 this.refreshRemainingTimeText(
-                                    startUpdateTime,
-                                    validRows.length,
-                                    numDone
-                                 );
-                              }
-                           });
-
-                           if (numDone === total) {
-                              uiCleanUp();
-                              $importButton.disable();
-                           }
-
-                           resolve();
-                        } catch (err) {
-                           // newRowsData.forEach((row) => {
-                           //    itemFailed(row.id, err);
-                           // });
-                           // throw err;
-                           reject(err);
-                        }
-                     };
-
-                     await waitPenddingRecordRules();
-                  } catch (err) {
-                     console.error(err);
-                     reject(err);
-                  }
-               };
-
-               processResult();
-            });
-
-         validRows.forEach((data) => {
-            allSaves.push({ id: data.id, data: data.data });
-         });
-
-         // we are going to store these promises in an array of
-         // arrays with 50 in each sub array
-         const throttledSaves = [];
-         const total = allSaves.length;
-
-         let index = 0;
-
-         while (allSaves.length) {
-            throttledSaves[index] = allSaves.splice(0, throttledSize);
-
-            index++;
-         }
-
-         // execute the array of array of 100 promises one at at time
-         const performThrottledSaves = (
-            currentRecords,
-            remainingRecords,
-            importer,
-            total
-         ) =>
-            new Promise((resolve, reject) => {
-               // execute the next 100
-               // const requests = currentRecords.map((data) => {
-               //    return createRecord(
-               //       objModel,
-               //       data.record,
-               //       data.data,
-               //       importer
-               //    );
-               // });
-
-               const processRequest = async () => {
-                  try {
-                     await createRecord(
-                        objModel,
-                        currentRecords,
-                        importer,
-                        total
-                     );
-
-                     // when done get the next 10
-                     const nextRecords = remainingRecords.shift();
-
-                     // if there are any remaining in the group call performThrottledSaves
-                     if (nextRecords?.length) {
-                        await performThrottledSaves(
-                           nextRecords,
-                           remainingRecords,
-                           importer,
-                           total
-                        );
-                     } else {
-                        // uiCleanUp();
-                        resolve();
-                     }
-                  } catch (err) {
-                     // Handle errors here
-                     reject(err);
-                  }
-               };
-
-               processRequest();
-            });
-
-         // now we are going to processes these new containers one at a time
-         // $datatable.blockEvent();
-         // this is when the real work starts so lets begin our countdown timer now
-         startUpdateTime = new Date();
-         // get the first group of Promises out of the collection
-         const next = throttledSaves.shift();
-
-         // execute our Promise iterator
-         await performThrottledSaves(next, throttledSaves, this.view, total);
-      } catch (err) {
-         // resolve Error UI
-         abWebix.alert({
-            title: this.label("Error Creating Records"),
-            ok: this.label("Ok"),
-            text: this.label("One or more records failed upon creation."),
-         });
-         // $datatable.unblockEvent();
-         uiCleanUp();
-         console.error(err);
-      }
-   }
-
-   // Display linked data
-   uiLinkedData() {
-      const dcLink = this.datacollection?.datacollectionLink;
-      const linkedData = dcLink?.getCursor();
-      if (!linkedData) return;
-
-      return {
-         view: "window",
-         modal: true,
-         resize: false,
-         head: {
-            view: "toolbar",
-            cols: [
-               {},
-               {
-                  view: "button",
-                  width: 35,
-                  css: "webix_transparent",
-                  type: "icon",
-                  icon: "nomargin fa fa-times",
-                  click: () => {
-                     this.hideLinkedData();
-                  },
-               },
-            ],
-         },
-         body: {
-            view: "property",
-            id: "sets",
-            editable: false,
-            width: 400,
-            height: 200,
-            elements: [
-               { label: this.label("Linked Data"), type: "label" },
-               {
-                  label: "ID",
-                  type: "text",
-                  value: linkedData.uuid ?? linkedData.id,
-               },
-               {
-                  label: "Label",
-                  type: "text",
-                  value: dcLink.datasource.displayData(linkedData),
-               },
-            ],
-         },
-      };
-   }
-
-   showLinkedData() {
-      const ui = this.uiLinkedData();
-      this._info_popup = this.AB.Webix.ui(ui);
-      this._info_popup.show($$(this.ids.linkedDataButton).$view, {
-         pos: "top",
       });
-   }
 
-   hideLinkedData() {
-      this._info_popup?.hide();
-   }
+      const ab = this.AB;
 
-   getParentValues() {
-      const result = {};
-
-      // get ABDatacollection
-      const dc = this.datacollection;
-      const currentObject = this.CurrentObject;
-
-      // Set parent's data collection cursor
-      const dcLink = dc?.datacollectionLink;
-      const linkConnectFields = [];
-
-      let objectLink;
-      let linkValues;
-
-      if (dcLink?.getCursor()) {
-         objectLink = dcLink.datasource;
-
-         linkConnectFields.push(
-            ...currentObject.fields(
-               (f) => f.isConnection && f.settings.linkObject === objectLink.id
-            )
-         );
-
-         linkValues = dcLink.getCursor();
-      }
-
-      // Set parent's data collection cursor
-      if (objectLink && linkConnectFields.length && linkValues) {
-         linkConnectFields.forEach((f) => {
-            const linkColName = f.indexField
-               ? f.indexField.columnName
-               : objectLink.PK();
-
-            result[f.columnName] = result[f.columnName] ?? {};
-            result[f.columnName][linkColName] =
-               linkValues[linkColName] ?? linkValues.id;
+      // insert the default image to first item
+      if (field.settings.defaultImageUrl)
+         images.unshift({
+            css: "image",
+            template: (...params) => this.myTemplate(...params),
+            data: {
+               id: ab.uuid(),
+               src: `/file/${field.settings.defaultImageUrl}`,
+               label: this.label("Default image"),
+            },
          });
+
+      // empty image
+      if (images.length < 1)
+         images.push({
+            rows: [
+               {
+                  view: "label",
+                  align: "center",
+                  height: settings.height,
+                  label: "<div style='display: block; font-size: 180px; background-color: #666; color: transparent; text-shadow: 0px 1px 1px rgba(255,255,255,0.5); -webkit-background-clip: text; -moz-background-clip: text; background-clip: text;' class='fa fa-picture-o'></div>",
+               },
+               {
+                  view: "label",
+                  align: "center",
+                  label: this.label("No image"),
+               },
+            ],
+         });
+
+      // store total of rows
+      this._rowCount = rows.length;
+
+      // store total of images
+      this._imageCount = images.length;
+
+      const $carousel = $$(ids.carousel);
+      const abWebix = ab.Webix;
+
+      if ($carousel) {
+         // re-render
+         abWebix.ui(images, $carousel);
+
+         // add loading cursor
+         abWebix.extend($carousel, abWebix.ProgressBar);
+
+         // link pages events
+         const editPage = settings.editPage;
+         const detailsPage = settings.detailsPage;
+
+         // if (detailsPage || editPage) {
+         $carousel.$view.onclick = async (e) => {
+            if (e.target.className) {
+               if (e.target.className.indexOf("ab-carousel-edit") > -1) {
+                  abWebix.html.removeCss($carousel.getNode(), "fullscreen");
+                  abWebix.fullscreen.exit();
+                  let rowId = e.target.getAttribute("ab-row-id");
+                  this.linkPage.changePage(editPage, rowId);
+               } else if (
+                  e.target.className.indexOf("ab-carousel-detail") > -1
+               ) {
+                  abWebix.html.removeCss($carousel.getNode(), "fullscreen");
+                  abWebix.fullscreen.exit();
+                  let rowId = e.target.getAttribute("ab-row-id");
+                  this.linkPage.changePage(detailsPage, rowId);
+               } else if (
+                  e.target.className.indexOf("ab-carousel-fullscreen") > -1
+               ) {
+                  $carousel.define("css", "fullscreen");
+                  abWebix.fullscreen.set(ids.carousel, {
+                     head: {
+                        view: "toolbar",
+                        css: "webix_dark",
+                        elements: [
+                           {},
+                           {
+                              view: "icon",
+                              icon: "fa fa-times",
+                              click: function () {
+                                 abWebix.html.removeCss(
+                                    $carousel.getNode(),
+                                    "fullscreen"
+                                 );
+                                 abWebix.fullscreen.exit();
+                              },
+                           },
+                        ],
+                     },
+                  });
+               } else if (
+                  e.target.className.indexOf("ab-carousel-rotate-left") > -1
+               ) {
+                  const rowId = e.target.getAttribute("ab-row-id");
+                  const imgFile = e.target.getAttribute("ab-img-file");
+                  this.rotateImage(rowId, imgFile, field, "left");
+               } else if (
+                  e.target.className.indexOf("ab-carousel-rotate-right") > -1
+               ) {
+                  const rowId = e.target.getAttribute("ab-row-id");
+                  const imgFile = e.target.getAttribute("ab-img-file");
+                  this.rotateImage(rowId, imgFile, field, "right");
+               } else if (
+                  e.target.className.indexOf("ab-carousel-zoom-in") > -1
+               ) {
+                  this.zoom("in");
+               } else if (
+                  e.target.className.indexOf("ab-carousel-zoom-out") > -1
+               ) {
+                  this.zoom("out");
+               }
+            }
+         };
+      }
+   }
+
+   showFilterPopup($view) {
+      this.filterUI.showPopup($view);
+   }
+
+   async rotateImage(rowId, imgFile, field, direction = "right") {
+      this.busy();
+
+      // call api to rotate
+      if (direction == "left") await field.rotateLeft(imgFile);
+      else await field.rotateRight(imgFile);
+
+      // refresh image
+      const imgElm = document.getElementById(`${this.ids.component}-${rowId}`);
+      if (imgElm) {
+         await fetch(imgElm.src, { cache: "reload", mode: "no-cors" });
+         imgElm.src = `${imgElm.src}#${new Date().getTime()}`;
       }
 
-      return result;
+      this.ready();
    }
-};
+
+   zoom(inOrOut = "in") {
+      const imgContainer = document.getElementsByClassName(
+         "ab-carousel-image-container"
+      )[0];
+      if (!imgContainer) return;
+
+      const imgElem = imgContainer.getElementsByTagName("img")[0];
+      if (!imgElem) return;
+
+      const step = 15;
+      const height = parseInt(
+         (imgElem.style.height || 100).toString().replace("%", "")
+      );
+      const newHeight = inOrOut == "in" ? height + step : height - step;
+      imgElem.style.height = `${newHeight}%`;
+
+      imgContainer.style.overflow = newHeight > 100 ? "auto" : "";
+   }
+}
 
 
 /***/ },
@@ -61004,6 +59539,326 @@ module.exports = class ABViewChartPieComponent extends (
          height: settings.height,
          // width: settings.chartWidth,
       });
+   }
+};
+
+
+/***/ },
+
+/***/ 47886
+/*!***************************************************************************!*\
+  !*** ./AppBuilder/platform/views/viewComponent/ABViewCommentComponent.js ***!
+  \***************************************************************************/
+(module, __unused_webpack_exports, __webpack_require__) {
+
+const ABViewComponent = (__webpack_require__(/*! ./ABViewComponent */ 23687)["default"]);
+
+module.exports = class ABViewCommentComponent extends ABViewComponent {
+   constructor(baseView, idBase, ids) {
+      super(
+         baseView,
+         idBase || `ABViewComment_${baseView.id}`,
+         Object.assign(
+            {
+               comment: "",
+            },
+            ids
+         )
+      );
+   }
+
+   ui() {
+      const baseView = this.view;
+      const _ui = super.ui([
+         {
+            id: this.ids.comment,
+            view: "comments",
+            users: baseView.getUserData(),
+            currentUser: baseView.getCurrentUserId(),
+            height: this.settings.height,
+            data: this.getCommentData(),
+            on: {
+               onBeforeAdd: (id, obj, index) => {
+                  this.addComment(obj.text, new Date());
+               },
+               // NOTE: no update event of comment widget !!
+               // Updating event handles in .init function
+               // https://docs.webix.com/api__ui.comments_onbeforeeditstart_event.html#comment-4509366150
+
+               // onAfterEditStart: function (rowId) {
+               //    let item = this.getItem(rowId);
+
+               //    _logic.updateComment(rowId, item);
+               // },
+               onAfterDelete: (rowId) => {
+                  this.deleteComment(rowId);
+               },
+            },
+         },
+      ]);
+
+      delete _ui.type;
+
+      return _ui;
+   }
+
+   async init(AB) {
+      await super.init(AB);
+
+      const baseView = this.view;
+
+      baseView.__dvEvents = baseView.__dvEvents || {};
+
+      const ids = this.ids;
+      const $comment = $$(ids.comment);
+
+      if ($comment) {
+         const $commentList = $comment.queryView({ view: "list" });
+
+         if ($commentList) {
+            // Updating comment event
+            if (!baseView.__dvEvents.onStoreUpdated)
+               baseView.__dvEvents.onStoreUpdated =
+                  $commentList.data.attachEvent(
+                     "onStoreUpdated",
+                     (rowId, data, operate) => {
+                        if (operate === "update") {
+                           this.updateComment(rowId, (data || {}).text);
+                        }
+                     }
+                  );
+
+            // Implement progress bar
+            webix.extend($commentList, webix.ProgressBar);
+         }
+      }
+
+      const dv = this.datacollection;
+
+      if (!dv) return;
+
+      // bind dc to component
+      // dv.bind($$(ids.comment));
+
+      if (!baseView.__dvEvents.create)
+         baseView.__dvEvents.create = dv.on("create", () =>
+            this.refreshComment()
+         );
+
+      if (!baseView.__dvEvents.update)
+         baseView.__dvEvents.update = dv.on("update", () =>
+            this.refreshComment()
+         );
+
+      if (!baseView.__dvEvents.delete)
+         baseView.__dvEvents.delete = dv.on("delete", () =>
+            this.refreshComment()
+         );
+
+      if (!baseView.__dvEvents.loadData)
+         baseView.__dvEvents.loadData = dv.on("loadData", () =>
+            this.refreshComment()
+         );
+
+      $comment.refresh();
+   }
+
+   getCommentData() {
+      const baseView = this.view;
+      const dv = this.datacollection;
+
+      if (!dv) return null;
+
+      const userCol = baseView.getUserField();
+      const commentCol = baseView.getCommentField();
+      const dateCol = baseView.getDateField();
+
+      if (!userCol || !commentCol) return null;
+
+      const userColName = userCol.columnName;
+      const commentColName = commentCol.columnName;
+      const dateColName = dateCol ? dateCol.columnName : null;
+      const dataObject = dv.getData();
+      const dataList = [];
+
+      dataObject.forEach((item, index) => {
+         if (item[commentColName]) {
+            const user = baseView.getUserData().find((user) => {
+               return user.value === item[userColName];
+            });
+            const data = {
+               id: item.id,
+               user_id: user ? user.id : 0,
+               date: item[dateColName] ? new Date(item[dateColName]) : null,
+               default_date: new Date(item["created_at"]),
+               text: item[commentColName],
+            };
+
+            dataList.push(data);
+         }
+      });
+
+      dataList.sort(function (a, b) {
+         if (dateColName)
+            return new Date(a.date).getTime() - new Date(b.date).getTime();
+         else
+            return (
+               new Date(a.default_date).getTime() -
+               new Date(b.default_date).getTime()
+            );
+      });
+
+      return dataList;
+   }
+
+   refreshComment() {
+      const baseView = this.view;
+
+      if (baseView.__refreshTimeout) clearTimeout(baseView.__refreshTimeout);
+
+      this.busy();
+
+      const ids = this.ids;
+
+      baseView.__refreshTimeout = setTimeout(() => {
+         const $comment = $$(ids.comment);
+
+         if (!$comment) return;
+
+         // clear comments
+         const $commentList = $comment.queryView({ view: "list" });
+
+         if ($commentList) $commentList.clearAll();
+
+         // populate comments
+         const commentData = this.getCommentData();
+
+         if (commentData) {
+            $comment.parse(commentData);
+         }
+
+         // scroll to the last item
+         if ($commentList) $commentList.scrollTo(0, Number.MAX_SAFE_INTEGER);
+
+         delete baseView.__refreshTimeout;
+
+         this.ready();
+      }, 90);
+   }
+
+   addComment(commentText, dateTime) {
+      this.saveData(commentText, dateTime);
+   }
+
+   async updateComment(rowId, commentText) {
+      const baseView = this.view;
+      const model = baseView.model();
+
+      if (!model) return; // already notified
+
+      const commentField = baseView.getCommentField();
+
+      if (!commentField) return; // already notified
+
+      const values = {};
+
+      values[commentField.columnName] = commentText ?? "";
+
+      return await model.update(rowId, values);
+   }
+
+   async deleteComment(rowId) {
+      const baseView = this.view;
+      const model = baseView.model();
+
+      if (!model) return;
+
+      return await model.delete(rowId);
+   }
+
+   busy() {
+      const ids = this.ids;
+      const $comment = $$(ids.comment);
+
+      if (!$comment) return;
+
+      const $commentList = $comment.queryView({ view: "list" });
+
+      if (!$commentList) return;
+
+      $commentList.disable();
+
+      if ($commentList.showProgress)
+         $commentList.showProgress({ type: "icon" });
+   }
+
+   ready() {
+      const ids = this.ids;
+      const $comment = $$(ids.comment);
+
+      if (!$comment) return;
+
+      const $commentList = $comment.queryView({ view: "list" });
+
+      if (!$commentList) return;
+
+      $commentList.enable();
+
+      if ($commentList.hideProgress) $commentList.hideProgress();
+   }
+
+   async saveData(commentText, dateTime) {
+      if (!commentText) return;
+
+      const dv = this.datacollection;
+
+      if (!dv) return;
+
+      const baseView = this.view;
+      const model = baseView.model();
+      const ab = this.AB;
+
+      if (!model) {
+         ab.notify.builder(
+            {},
+            {
+               message:
+                  "ABViewComment.saveData(): could not pull a model to work with.",
+               viewName: baseView.label,
+            }
+         );
+
+         return;
+      }
+
+      const comment = {};
+      const userField = baseView.getUserField();
+
+      if (userField) comment[userField.columnName] = ab.Account.username();
+
+      const commentField = baseView.getCommentField();
+
+      if (commentField) comment[commentField.columnName] = commentText;
+
+      const dateField = baseView.getDateField();
+
+      if (dateField) comment[dateField.columnName] = dateTime;
+
+      // add parent cursor to default
+      const dvLink = dv.datacollectionLink;
+
+      if (dvLink?.getCursor()) {
+         const objectLink = dvLink.datasource;
+         const fieldLink = dv.fieldLink;
+
+         if (objectLink && fieldLink) {
+            comment[fieldLink.columnName] = {};
+            comment[fieldLink.columnName][objectLink.PK()] =
+               dvLink.getCursor().id;
+         }
+      }
+
+      return await model.create(comment);
    }
 };
 
@@ -70587,6 +69442,89 @@ module.exports = class ABViewKanbanComponent extends ABViewComponent {
       this.CurrentVerticalField = options.verticalGrouping;
       this.CurrentHorizontalField = options.horizontalGrouping;
       this.CurrentOwnerField = options.ownerField;
+   }
+};
+
+
+/***/ },
+
+/***/ 45717
+/*!**************************************************************************!*\
+  !*** ./AppBuilder/platform/views/viewComponent/ABViewLayoutComponent.js ***!
+  \**************************************************************************/
+(module, __unused_webpack_exports, __webpack_require__) {
+
+const ABViewComponent = (__webpack_require__(/*! ./ABViewComponent */ 23687)["default"]);
+
+module.exports = class ABViewLayoutComponent extends ABViewComponent {
+   constructor(baseView, idBase, ids) {
+      super(baseView, idBase || `ABViewLayout_${baseView.id}`, ids);
+
+      const viewComponents = this.viewComponents ?? {}; // { viewId: viewComponent, ..., viewIdn: viewComponent }
+
+      baseView.views().forEach((v) => {
+         viewComponents[v.id] = v.component();
+      });
+
+      this.viewComponents = viewComponents;
+   }
+
+   ui() {
+      const viewComponents = this.viewComponents;
+      const uiComponents = Object.keys(viewComponents)
+         .map((vId) => viewComponents[vId].ui())
+         .filter((ui) => ui);
+
+      if (uiComponents.length == 0) {
+         uiComponents.push({});
+         uiComponents.push({
+            view: "label",
+            label: this.label("no content"),
+         });
+         uiComponents.push({});
+      }
+
+      const _ui = super.ui([
+         {
+            view: "layout",
+            cols: uiComponents,
+         },
+      ]);
+
+      delete _ui.type;
+
+      return _ui;
+   }
+
+   async init(AB, accessLevel) {
+      await super.init(AB);
+
+      const baseView = this.view;
+
+      // make sure each of our child views get .init() called
+      baseView.views().forEach((v) => {
+         const component = this.viewComponents[v.id];
+
+         // initial sub-component
+         component?.init(AB, accessLevel);
+
+         // Trigger 'changePage' event to parent
+         baseView.eventAdd({
+            emitter: v,
+            eventName: "changePage",
+            listener: (pageId) => {
+               baseView.changePage(pageId);
+            },
+         });
+      });
+   }
+
+   onShow() {
+      // calll .onShow in child components
+      this.view.views().forEach((v) => {
+         const component = this.viewComponents[v.id];
+         component?.onShow();
+      });
    }
 };
 
@@ -83531,4 +82469,4 @@ module.exports = class ABCustomEditList {
 /***/ }
 
 }]);
-//# sourceMappingURL=AB.0bf9c9dc5e7d1a392f22.js.map
+//# sourceMappingURL=AB.aa148f858eb24a7a0dbf.js.map
