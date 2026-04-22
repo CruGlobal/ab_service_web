@@ -337,8 +337,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _resources_Multilingual_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../resources/Multilingual.js */ 34224);
 /* harmony import */ var _resources_Network_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../resources/Network.js */ 46147);
 /* harmony import */ var _resources_Storage_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../resources/Storage.js */ 97112);
-/* harmony import */ var _core_ABViewManagerCore__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./core/ABViewManagerCore */ 74834);
-/* harmony import */ var _core_ABViewManagerCore__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(_core_ABViewManagerCore__WEBPACK_IMPORTED_MODULE_16__);
+/* harmony import */ var _platform_ABViewManager__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./platform/ABViewManager */ 40765);
+/* harmony import */ var _platform_ABViewManager__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(_platform_ABViewManager__WEBPACK_IMPORTED_MODULE_16__);
 /* harmony import */ var _resources_Tenant_js__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../resources/Tenant.js */ 38913);
 /* harmony import */ var _uiSettings_config_js__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./uiSettings/config.js */ 37468);
 /* harmony import */ var _platform_views_viewComponent_ABViewComponent_js__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./platform/views/viewComponent/ABViewComponent.js */ 23687);
@@ -458,7 +458,7 @@ class ABFactory extends (_core_ABFactoryCore__WEBPACK_IMPORTED_MODULE_0___defaul
 
       // additional Class definitions
       this.Class.FilterComplex = (_platform_FilterComplex__WEBPACK_IMPORTED_MODULE_6___default());
-      this.Class.ABViewManager = (_core_ABViewManagerCore__WEBPACK_IMPORTED_MODULE_16___default());
+      this.Class.ABViewManager = (_platform_ABViewManager__WEBPACK_IMPORTED_MODULE_16___default());
       this.Class.SortPopup = _platform_views_ABViewGridPopupSortFields__WEBPACK_IMPORTED_MODULE_7__["default"];
       this.Class.ABViewComponent = _platform_views_viewComponent_ABViewComponent_js__WEBPACK_IMPORTED_MODULE_19__["default"];
 
@@ -12457,7 +12457,7 @@ var AllViews = [
    // require("../platform/views/ABViewCSVImporter"),
    __webpack_require__(/*! ../platform/views/ABViewDataFilter */ 70153),
    // require("../platform/views/ABViewDataSelect"),
-   __webpack_require__(/*! ../platform/views/ABViewDataview */ 6286),
+   // require("../platform/views/ABViewDataview"),
    __webpack_require__(/*! ../platform/views/ABViewDocxBuilder */ 4634),
    __webpack_require__(/*! ../platform/views/ABViewGrid */ 87627),
    // require("../platform/views/ABViewImage"),
@@ -30236,100 +30236,6 @@ module.exports = class ABViewDataFilterCore extends ABViewWidget {
     */
    componentList() {
       return [];
-   }
-};
-
-
-/***/ },
-
-/***/ 46021
-/*!*****************************************************!*\
-  !*** ./AppBuilder/core/views/ABViewDataviewCore.js ***!
-  \*****************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
-
-const ABViewDetail = __webpack_require__(/*! ../../platform/views/ABViewDetail */ 86566);
-
-const ABViewDataviewPropertyComponentDefaults = {
-   xCount: 1, // {int} the number of columns per row (need at least one)
-   detailsPage: "",
-   detailsTab: "",
-   editPage: "",
-   editTab: "",
-};
-
-const ABViewDataviewDefaults = {
-   key: "dataview", // {string} unique key for this view
-   icon: "th", // {string} fa-[icon] reference for this view
-   labelKey: "Data view", // {string} the multilingual label key for the class label
-};
-
-module.exports = class ABViewDataviewCore extends ABViewDetail {
-   /**
-    * @param {obj} values  key=>value hash of ABView values
-    * @param {ABApplication} application the application object this view is under
-    * @param {ABView} parent the ABView this view is a child of. (can be null)
-    */
-   constructor(values, application, parent, defaultValues) {
-      super(
-         values,
-         application,
-         parent,
-         defaultValues || ABViewDataviewDefaults
-      );
-   }
-
-   static common() {
-      return ABViewDataviewDefaults;
-   }
-
-   static defaultValues() {
-      return ABViewDataviewPropertyComponentDefaults;
-   }
-
-   ///
-   /// Instance Methods
-   ///
-
-   /**
-    * @method fromValues()
-    *
-    * initialze this object with the given set of values.
-    * @param {obj} values
-    */
-   fromValues(values) {
-      super.fromValues(values);
-
-      this.settings.xCount = parseInt(
-         this.settings.xCount || ABViewDataviewPropertyComponentDefaults.xCount
-      );
-      this.settings.detailsPage =
-         this.settings.detailsPage ||
-         ABViewDataviewPropertyComponentDefaults.detailsPage;
-      this.settings.editPage =
-         this.settings.editPage ||
-         ABViewDataviewPropertyComponentDefaults.editPage;
-      this.settings.detailsTab =
-         this.settings.detailsTab ||
-         ABViewDataviewPropertyComponentDefaults.detailsTab;
-      this.settings.editTab =
-         this.settings.editTab ||
-         ABViewDataviewPropertyComponentDefaults.editTab;
-   }
-
-   parentDetailComponent() {
-      let dataview = null;
-
-      let curr = this;
-      while (curr.key != "dataview" && !curr.isRoot() && curr.parent) {
-         curr = curr.parent;
-      }
-
-      if (curr.key == "dataview") {
-         dataview = curr;
-      }
-
-      return dataview;
    }
 };
 
@@ -54853,59 +54759,6 @@ class ABViewDataFilter extends (_core_views_ABViewDataFilterCore__WEBPACK_IMPORT
 
 /***/ },
 
-/***/ 6286
-/*!*****************************************************!*\
-  !*** ./AppBuilder/platform/views/ABViewDataview.js ***!
-  \*****************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
-
-const ABViewDataviewCore = __webpack_require__(/*! ../../core/views/ABViewDataviewCore */ 46021);
-const ABViewDataviewComponent = __webpack_require__(/*! ./viewComponent/ABViewDataviewComponent */ 65812);
-
-const ABViewDataviewDefaults = ABViewDataviewCore.defaultValues();
-
-const L = (...params) => AB.Multilingual.label(...params);
-
-module.exports = class ABViewDataview extends ABViewDataviewCore {
-   // constructor(values, application, parent, defaultValues) {
-   //    super(values, application, parent, defaultValues);
-   // }
-
-   /**
-    * @method fromValues()
-    *
-    * initialze this object with the given set of values.
-    * @param {obj} values
-    */
-   fromValues(values) {
-      super.fromValues(values);
-
-      this.settings.detailsPage =
-         this.settings.detailsPage ?? ABViewDataviewDefaults.detailsPage;
-      this.settings.editPage =
-         this.settings.editPage ?? ABViewDataviewDefaults.editPage;
-      this.settings.detailsTab =
-         this.settings.detailsTab ?? ABViewDataviewDefaults.detailsTab;
-      this.settings.editTab =
-         this.settings.editTab ?? ABViewDataviewDefaults.editTab;
-   }
-
-   /**
-    * @method component()
-    * return a UI component based upon this view.
-    * @param {obj } v1App
-    * @param {string} idPrefix - define to support in 'Datacollection' widget
-    *
-    * @return {obj } UI component
-    */
-   component() {
-      return new ABViewDataviewComponent(this);
-   }
-};
-
-
-/***/ },
-
 /***/ 86566
 /*!***************************************************!*\
   !*** ./AppBuilder/platform/views/ABViewDetail.js ***!
@@ -59655,407 +59508,6 @@ class ABViewDataFilterComponent extends _ABViewComponent__WEBPACK_IMPORTED_MODUL
 
 /***/ },
 
-/***/ 65812
-/*!****************************************************************************!*\
-  !*** ./AppBuilder/platform/views/viewComponent/ABViewDataviewComponent.js ***!
-  \****************************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
-
-const ABViewComponent = (__webpack_require__(/*! ./ABViewComponent */ 23687)["default"]);
-const ABViewDetailComponent = __webpack_require__(/*! ./ABViewDetailComponent */ 97376);
-const ABViewPropertyLinkPage =
-   (__webpack_require__(/*! ../viewProperties/ABViewPropertyLinkPage */ 42588)["default"]);
-
-module.exports = class ABViewDataviewComponent extends ABViewComponent {
-   constructor(baseView, idBase, ids) {
-      super(
-         baseView,
-         idBase || `ABViewDataview_${baseView.id}`,
-         Object.assign(
-            {
-               dataview: "",
-               reload: "",
-            },
-            ids
-         )
-      );
-
-      this.linkPage = null;
-   }
-
-   ui() {
-      // NOTE: need to initial the detail component here
-      // because its dom width & height values are used .template function
-      this.initDetailComponent();
-
-      const ids = this.ids;
-      const L = (...params) => (this.AB ?? AB).Multilingual.label(...params);
-      const _ui = super.ui([
-         {
-            view: "layout",
-            rows: [
-               {
-                  id: ids.reload,
-                  view: "button",
-                  value: L("New data available. Click to reload."),
-                  css: "webix_primary webix_warn",
-                  hidden: true,
-                  click: (id, event) => {
-                     this.reloadData();
-                  },
-               },
-               {
-                  id: ids.dataview,
-                  view: "dataview",
-                  scroll: "y",
-                  sizeToContent: true,
-                  css: "borderless transparent",
-                  xCount: this.settings.xCount != 1 ? this.settings.xCount : 0,
-                  height: this.settings.height,
-                  template: (item) => this.itemTemplate(item),
-                  on: {
-                     onAfterRender: () => {
-                        this.applyClickEvent();
-                        this.addCyAttribute();
-                     },
-                  },
-               },
-            ],
-         },
-      ]);
-
-      return _ui;
-   }
-
-   async init(AB) {
-      await super.init(AB);
-
-      const dc = this.datacollection;
-      if (!dc) return;
-
-      // Initial the link page helper
-      this.linkPage = this.linkPageHelper.component();
-      this.linkPage.init({
-         view: this.view,
-         datacollection: dc,
-      });
-
-      const ids = this.ids;
-      const $dataView = $$(ids.dataview);
-      AB.Webix.extend($dataView, AB.Webix.ProgressBar);
-      dc.bind($dataView);
-
-      this.initRefreshWarning();
-
-      window.addEventListener("resize", () => {
-         clearTimeout(this._resizeEvent);
-         this._resizeEvent = setTimeout(() => {
-            this.resize($dataView.getParentView());
-            delete this._resizeEvent;
-         }, 20);
-      });
-   }
-
-   /**
-    * @method initRefreshWarning
-    *
-    */
-   initRefreshWarning() {
-      const dc = this.datacollection;
-      const includeInQuery =
-         (dc?.settings?.objectWorkspace?.filterConditions?.rules ?? []).filter(
-            (r) =>
-               [
-                  "in_query",
-                  "not_in_query",
-                  "in_query_field",
-                  "not_in_query_field",
-               ].includes(r.rule)
-         ).length > 0;
-
-      if (!includeInQuery) return;
-      [
-         "ab.datacollection.create",
-         "ab.datacollection.update",
-         "ab.datacollection.delete",
-      ].forEach((eventKey) => {
-         dc.on(eventKey, (data) => {
-            if (data.objectId == dc.datasource.id)
-               this.showRefreshWarning(data);
-         });
-      });
-   }
-
-   showRefreshWarning() {
-      if (this.__throttleRefreshWarning)
-         clearTimeout(this.__throttleRefreshWarning);
-
-      this.__throttleRefreshWarning = setTimeout(() => {
-         $$(this.ids.reload)?.show();
-      }, 200);
-   }
-
-   reloadData() {
-      const dc = this.datacollection;
-      dc?.reloadData();
-
-      $$(this.ids.reload)?.hide();
-   }
-
-   onShow() {
-      super.onShow();
-
-      this.resize();
-   }
-
-   resize(base_element) {
-      const $dataview = $$(this.ids.dataview);
-      if (!$dataview) {
-         // Not sure if its a problem so notify
-         this.AB.notify.developer(
-            new Error("Resize called on missing dataview component"),
-            { context: "ABViewDataviewComponent.resize()", ids: this.ids }
-         );
-         return;
-      }
-      $dataview.resize();
-
-      const item_width = this.getItemWidth(base_element);
-      $dataview.customize({ width: item_width });
-      $dataview.getTopParentView?.().resize?.();
-   }
-
-   initDetailComponent() {
-      const detailUI = this.getDetailUI();
-      this._detail_ui = this.AB.Webix.ui(detailUI);
-
-      // 2 - Always allow access to components inside data view
-      this.detailComponent.init(null, 2);
-   }
-
-   getDetailUI() {
-      const detailCom = this.detailComponent;
-      const editPage = this.settings.editPage;
-      const detailsPage = this.settings.detailsPage;
-
-      const _ui = detailCom.ui();
-      // adjust the UI to make sure it will look like a "card"
-      _ui.type = "clean";
-      _ui.css = "ab-detail-view";
-
-      if (detailsPage || editPage) {
-         _ui.css += ` ab-detail-hover ab-record-#itemId#`;
-
-         if (detailsPage) _ui.css += " ab-detail-page";
-         if (editPage) _ui.css += " ab-edit-page";
-      }
-
-      return _ui;
-   }
-
-   itemTemplate(item) {
-      const detailCom = this.detailComponent;
-      const $dataview = $$(this.ids.dataview);
-      const $detail_item = this._detail_ui;
-
-      // Mock up data to initialize height of item
-      if (!item || !Object.keys(item).length) {
-         item = item ?? {};
-         this.datacollection?.datasource?.fields().forEach((f) => {
-            switch (f.key) {
-               case "string":
-               case "LongText":
-                  item[f.columnName] = "Lorem Ipsum";
-                  break;
-               case "date":
-               case "datetime":
-                  item[f.columnName] = new Date();
-                  break;
-               case "number":
-                  item[f.columnName] = 7;
-                  break;
-            }
-         });
-      }
-      detailCom.displayData(item);
-
-      const itemWidth =
-         $dataview.data.count() > 0
-            ? $dataview.type.width
-            : ($detail_item.$width - 20) / this.settings.xCount;
-
-      const itemHeight =
-         $dataview.data.count() > 0
-            ? $dataview.type.height
-            : $detail_item.getChildViews()?.[0]?.$height;
-
-      const tmp_dom = document.createElement("div");
-      tmp_dom.appendChild($detail_item.$view);
-
-      $detail_item.define("width", itemWidth - 24);
-      $detail_item.define("height", itemHeight + 15);
-      $detail_item.adjust();
-
-      // Add cy attributes
-      this.addCyItemAttributes(tmp_dom, item);
-
-      return tmp_dom.innerHTML.replace(/#itemId#/g, item.id);
-   }
-
-   getItemWidth(base_element) {
-      const $dataview = $$(this.ids.dataview);
-
-      let currElem = base_element ?? $dataview;
-      let parentWidth = currElem?.$width;
-      while (currElem) {
-         if (
-            currElem.config.view == "scrollview" ||
-            currElem.config.view == "layout"
-         )
-            parentWidth =
-               currElem?.$width < parentWidth ? currElem?.$width : parentWidth;
-
-         currElem = currElem?.getParentView?.();
-      }
-
-      if (!parentWidth)
-         parentWidth = $dataview?.getParentView?.().$width || window.innerWidth;
-
-      if (parentWidth > window.innerWidth) parentWidth = window.innerWidth;
-
-      // check if the browser window minus webix default padding is the same as the parent window
-      // if so we need to check to see if there is a sidebar and reduce the usable space by the
-      // width of the sidebar
-      if (window.innerWidth - 19 <= parentWidth) {
-         const $sidebar = this.getTabSidebar();
-         if ($sidebar) {
-            parentWidth -= $sidebar.$width;
-         }
-      }
-
-      const recordWidth = Math.floor(parentWidth / this.settings.xCount);
-
-      return recordWidth;
-   }
-
-   getTabSidebar() {
-      const $dataview = $$(this.ids.dataview);
-      let $sidebar;
-      let currElem = $dataview;
-      while (currElem && !$sidebar) {
-         $sidebar = (currElem.getChildViews?.() ?? []).filter(
-            (item) => item?.config?.view == "sidebar"
-         )[0];
-
-         currElem = currElem?.getParentView?.();
-      }
-
-      return $sidebar;
-   }
-
-   applyClickEvent() {
-      const editPage = this.settings.editPage;
-      const detailsPage = this.settings.detailsPage;
-      if (!detailsPage && !editPage) return;
-
-      const $dataview = $$(this.ids.dataview);
-      if (!$dataview) return;
-
-      $dataview.$view.onclick = (e) => {
-         let clicked = false;
-         let divs = e.path ?? [];
-
-         // NOTE: Some web browser clients do not support .path
-         if (!divs.length) {
-            divs.push(e.target);
-            divs.push(e.target.parentNode);
-         }
-
-         if (editPage) {
-            for (let p of divs) {
-               if (
-                  p.className &&
-                  p.className.indexOf("webix_accordionitem_header") > -1
-               ) {
-                  clicked = true;
-                  p.parentNode.parentNode.classList.forEach((c) => {
-                     if (c.indexOf("ab-record-") > -1) {
-                        // var record = parseInt(c.replace("ab-record-", ""));
-                        const record = c.replace("ab-record-", "");
-                        this.linkPage.changePage(editPage, record);
-                        // com.logic.toggleTab(detailsTab, ids.component);
-                     }
-                  });
-                  break;
-               }
-            }
-         }
-
-         if (detailsPage && !clicked) {
-            for (let p of divs) {
-               if (
-                  p.className &&
-                  p.className.indexOf("webix_accordionitem") > -1
-               ) {
-                  p.parentNode.parentNode.classList.forEach((c) => {
-                     if (c.indexOf("ab-record-") > -1) {
-                        // var record = parseInt(c.replace("ab-record-", ""));
-                        const record = c.replace("ab-record-", "");
-                        this.linkPage.changePage(detailsPage, record);
-                        // com.logic.toggleTab(detailsTab, ids.component);
-                     }
-                  });
-
-                  break;
-               }
-            }
-         }
-      };
-   }
-
-   addCyAttribute() {
-      const baseView = this.view;
-      const $dataview = $$(this.ids.dataview);
-      const name = (baseView.name ?? "").replace(".dataview", "");
-
-      $dataview.$view.setAttribute(
-         "data-cy",
-         `dataview container ${name} ${baseView.id}`
-      );
-   }
-
-   addCyItemAttributes(dom, item) {
-      const baseView = this.view;
-      const uuid = item.uuid;
-      const name = (baseView.name ?? "").replace(".dataview", "");
-      dom.querySelector(".webix_accordionitem_body")?.setAttribute(
-         "data-cy",
-         `dataview item ${name} ${uuid} ${baseView.id}`
-      );
-      dom.querySelector(".webix_accordionitem_button")?.setAttribute(
-         "data-cy",
-         `dataview item button ${name} ${uuid} ${baseView.id}`
-      );
-   }
-
-   get detailComponent() {
-      return (this._detailComponent =
-         this._detailComponent ??
-         new ABViewDetailComponent(
-            this.view,
-            `${this.ids.component}_detail_view`
-         ));
-   }
-
-   get linkPageHelper() {
-      return (this.__linkPageHelper =
-         this.__linkPageHelper || new ABViewPropertyLinkPage());
-   }
-};
-
-
-/***/ },
-
 /***/ 8903
 /*!**********************************************************************************!*\
   !*** ./AppBuilder/platform/views/viewComponent/ABViewDetailCheckboxComponent.js ***!
@@ -64298,7 +63750,7 @@ module.exports = class ABViewFormTextboxComponent extends (
                   plugins: "link",
                   menubar: "format edit",
                   toolbar:
-                     "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | fontsizeselect | link",
+                     "undo redo | styles | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | fontsize | link",
                },
             };
             break;
@@ -80794,7 +80246,7 @@ class ABCustomTinyMCE extends (_lazyComponent_js__WEBPACK_IMPORTED_MODULE_0___de
    async init() {
       if (this.initialized) return;
 
-      await Promise.all(/*! import() */[__webpack_require__.e("tinymce-vendors-node_modules_tinymce_icons_default_index_js-node_modules_tinymce_plugins_link-1e1308"), __webpack_require__.e("tinymce-js_webix_extras_tinymce_js")]).then(__webpack_require__.bind(__webpack_require__, /*! ../js/webix/extras/tinymce.js */ 82634));
+      await Promise.all(/*! import() */[__webpack_require__.e("tinymce-vendors-node_modules_tinymce_icons_default_index_js-node_modules_tinymce_models_dom_i-abe8e5"), __webpack_require__.e("tinymce-js_webix_extras_tinymce_js")]).then(__webpack_require__.bind(__webpack_require__, /*! ../js/webix/extras/tinymce.js */ 82634));
       this.initialized = true;
    }
 }
@@ -80985,4 +80437,4 @@ module.exports = class ABCustomEditList {
 /***/ }
 
 }]);
-//# sourceMappingURL=AB.a3cad06ca103e3eb7d75.js.map
+//# sourceMappingURL=AB.dade0c5b0a4595c9539a.js.map
