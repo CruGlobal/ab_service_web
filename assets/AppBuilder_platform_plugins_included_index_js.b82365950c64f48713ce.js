@@ -16,14 +16,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _view_csvExporter_FNAbviewcsvexporter_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./view_csvExporter/FNAbviewcsvexporter.js */ 49029);
 /* harmony import */ var _view_csvImporter_FNAbviewcsvimporter_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./view_csvImporter/FNAbviewcsvimporter.js */ 48261);
 /* harmony import */ var _view_data_select_FNAbviewdataselect_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./view_data-select/FNAbviewdataselect.js */ 78612);
-/* harmony import */ var _view_detail_FNAbviewdetail_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./view_detail/FNAbviewdetail.js */ 73053);
-/* harmony import */ var _view_image_FNAbviewimage_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./view_image/FNAbviewimage.js */ 58661);
-/* harmony import */ var _view_label_FNAbviewlabel_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./view_label/FNAbviewlabel.js */ 31697);
-/* harmony import */ var _view_layout_FNAbviewlayout_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./view_layout/FNAbviewlayout.js */ 22031);
-/* harmony import */ var _view_list_FNAbviewlist_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./view_list/FNAbviewlist.js */ 62467);
-/* harmony import */ var _view_pdfImporter_FNAbviewpdfimporter_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./view_pdfImporter/FNAbviewpdfimporter.js */ 27377);
-/* harmony import */ var _view_tab_FNAbviewtab_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./view_tab/FNAbviewtab.js */ 95757);
-/* harmony import */ var _view_text_FNAbviewtext_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./view_text/FNAbviewtext.js */ 88229);
+/* harmony import */ var _view_dataview_FNAbviewdataview_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./view_dataview/FNAbviewdataview.js */ 84373);
+/* harmony import */ var _view_detail_FNAbviewdetail_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./view_detail/FNAbviewdetail.js */ 73053);
+/* harmony import */ var _view_image_FNAbviewimage_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./view_image/FNAbviewimage.js */ 58661);
+/* harmony import */ var _view_kanban_FNABViewKanban_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./view_kanban/FNABViewKanban.js */ 35653);
+/* harmony import */ var _view_label_FNAbviewlabel_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./view_label/FNAbviewlabel.js */ 31697);
+/* harmony import */ var _view_layout_FNAbviewlayout_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./view_layout/FNAbviewlayout.js */ 22031);
+/* harmony import */ var _view_list_FNAbviewlist_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./view_list/FNAbviewlist.js */ 62467);
+/* harmony import */ var _view_pdfImporter_FNAbviewpdfimporter_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./view_pdfImporter/FNAbviewpdfimporter.js */ 27377);
+/* harmony import */ var _view_tab_FNAbviewtab_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./view_tab/FNAbviewtab.js */ 95757);
+/* harmony import */ var _view_text_FNAbviewtext_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./view_text/FNAbviewtext.js */ 88229);
+
+
 
 
 
@@ -43,16 +47,17 @@ const AllPlugins = [
    _view_comment_FNAbviewcomment_js__WEBPACK_IMPORTED_MODULE_1__["default"],
    _view_csvExporter_FNAbviewcsvexporter_js__WEBPACK_IMPORTED_MODULE_2__["default"],
    _view_csvImporter_FNAbviewcsvimporter_js__WEBPACK_IMPORTED_MODULE_3__["default"],
-   _view_csvImporter_FNAbviewcsvimporter_js__WEBPACK_IMPORTED_MODULE_3__["default"],
    _view_data_select_FNAbviewdataselect_js__WEBPACK_IMPORTED_MODULE_4__["default"],
-   _view_detail_FNAbviewdetail_js__WEBPACK_IMPORTED_MODULE_5__["default"],
-   _view_image_FNAbviewimage_js__WEBPACK_IMPORTED_MODULE_6__["default"],
-   _view_label_FNAbviewlabel_js__WEBPACK_IMPORTED_MODULE_7__["default"],
-   _view_layout_FNAbviewlayout_js__WEBPACK_IMPORTED_MODULE_8__["default"],
-   _view_list_FNAbviewlist_js__WEBPACK_IMPORTED_MODULE_9__["default"],
-   _view_pdfImporter_FNAbviewpdfimporter_js__WEBPACK_IMPORTED_MODULE_10__["default"],
-   _view_tab_FNAbviewtab_js__WEBPACK_IMPORTED_MODULE_11__["default"],
-   _view_text_FNAbviewtext_js__WEBPACK_IMPORTED_MODULE_12__["default"],
+   _view_dataview_FNAbviewdataview_js__WEBPACK_IMPORTED_MODULE_5__["default"],
+   _view_detail_FNAbviewdetail_js__WEBPACK_IMPORTED_MODULE_6__["default"],
+   _view_image_FNAbviewimage_js__WEBPACK_IMPORTED_MODULE_7__["default"],
+   _view_kanban_FNABViewKanban_js__WEBPACK_IMPORTED_MODULE_8__["default"],
+   _view_label_FNAbviewlabel_js__WEBPACK_IMPORTED_MODULE_9__["default"],
+   _view_layout_FNAbviewlayout_js__WEBPACK_IMPORTED_MODULE_10__["default"],
+   _view_list_FNAbviewlist_js__WEBPACK_IMPORTED_MODULE_11__["default"],
+   _view_pdfImporter_FNAbviewpdfimporter_js__WEBPACK_IMPORTED_MODULE_12__["default"],
+   _view_tab_FNAbviewtab_js__WEBPACK_IMPORTED_MODULE_13__["default"],
+   _view_text_FNAbviewtext_js__WEBPACK_IMPORTED_MODULE_14__["default"],
 ];
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -4177,6 +4182,594 @@ function FNAbviewdataselectComponent({
 
 /***/ },
 
+/***/ 84373
+/*!********************************************************************************!*\
+  !*** ./AppBuilder/platform/plugins/included/view_dataview/FNAbviewdataview.js ***!
+  \********************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FNAbviewdataview)
+/* harmony export */ });
+/* harmony import */ var _FNAbviewdataviewComponent_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FNAbviewdataviewComponent.js */ 69434);
+/* harmony import */ var _view_detail_FNAbviewdetail_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../view_detail/FNAbviewdetail.js */ 73053);
+
+
+
+// FNAbviewdataview Web
+// A web side import for an ABView.
+//
+function FNAbviewdataview({
+   /*AB,*/
+   ABViewComponentPlugin,
+   ABViewContainer,
+   ABViewContainerComponent,
+   ABViewPropertyLinkPage,
+}) {
+   const ABAbviewdataviewComponent = (0,_FNAbviewdataviewComponent_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
+      ABViewComponentPlugin,
+      ABViewContainerComponent,
+      ABViewPropertyLinkPage,
+   });
+
+   const ABViewDataviewPropertyComponentDefaults = {
+      xCount: 1, // {int} the number of columns per row (need at least one)
+      detailsPage: "",
+      detailsTab: "",
+      editPage: "",
+      editTab: "",
+   };
+
+   const ABViewDataviewDefaults = {
+      key: "dataview", // {string} unique key for this view
+      icon: "th", // {string} fa-[icon] reference for this view
+      labelKey: "Data view(plugin)", // {string} the multilingual label key for the class label
+   };
+
+   const ABViewDetail = (0,_view_detail_FNAbviewdetail_js__WEBPACK_IMPORTED_MODULE_1__["default"])({
+      ABViewContainer,
+      ABViewContainerComponent,
+   });
+
+   class ABViewDataviewCore extends ABViewDetail {
+      /**
+       * @param {obj} values  key=>value hash of ABView values
+       * @param {ABApplication} application the application object this view is under
+       * @param {ABView} parent the ABView this view is a child of. (can be null)
+       */
+      constructor(values, application, parent, defaultValues) {
+         super(
+            values,
+            application,
+            parent,
+            defaultValues || ABViewDataviewDefaults
+         );
+      }
+
+      static common() {
+         return ABViewDataviewDefaults;
+      }
+
+      static defaultValues() {
+         return ABViewDataviewPropertyComponentDefaults;
+      }
+
+      ///
+      /// Instance Methods
+      ///
+
+      /**
+       * @method fromValues()
+       *
+       * initialze this object with the given set of values.
+       * @param {obj} values
+       */
+      fromValues(values) {
+         super.fromValues(values);
+
+         this.settings.xCount = parseInt(
+            this.settings.xCount ||
+               ABViewDataviewPropertyComponentDefaults.xCount
+         );
+         this.settings.detailsPage =
+            this.settings.detailsPage ||
+            ABViewDataviewPropertyComponentDefaults.detailsPage;
+         this.settings.editPage =
+            this.settings.editPage ||
+            ABViewDataviewPropertyComponentDefaults.editPage;
+         this.settings.detailsTab =
+            this.settings.detailsTab ||
+            ABViewDataviewPropertyComponentDefaults.detailsTab;
+         this.settings.editTab =
+            this.settings.editTab ||
+            ABViewDataviewPropertyComponentDefaults.editTab;
+      }
+
+      parentDetailComponent() {
+         let dataview = null;
+
+         let curr = this;
+         while (curr.key != "dataview" && !curr.isRoot() && curr.parent) {
+            curr = curr.parent;
+         }
+
+         if (curr.key == "dataview") {
+            dataview = curr;
+         }
+
+         return dataview;
+      }
+   }
+
+   return class ABViewDataview extends ABViewDataviewCore {
+      /**
+       * @method getPluginKey
+       * return the plugin key for this view.
+       * @return {string} plugin key
+       */
+      static getPluginKey() {
+         return this.common().key;
+      }
+
+      /**
+       * @method component()
+       * return a UI component based upon this view.
+       * @return {obj} UI component
+       */
+      component(parentId) {
+         return new ABAbviewdataviewComponent(this, parentId);
+      }
+
+      // constructor(values, application, parent, defaultValues) {
+      //    super(values, application, parent, defaultValues);
+      // }
+
+      /**
+       * @method fromValues()
+       *
+       * initialze this object with the given set of values.
+       * @param {obj} values
+       */
+      fromValues(values) {
+         super.fromValues(values);
+
+         this.settings.detailsPage =
+            this.settings.detailsPage ?? ABViewDataviewDefaults.detailsPage;
+         this.settings.editPage =
+            this.settings.editPage ?? ABViewDataviewDefaults.editPage;
+         this.settings.detailsTab =
+            this.settings.detailsTab ?? ABViewDataviewDefaults.detailsTab;
+         this.settings.editTab =
+            this.settings.editTab ?? ABViewDataviewDefaults.editTab;
+      }
+   };
+}
+
+
+/***/ },
+
+/***/ 69434
+/*!*****************************************************************************************!*\
+  !*** ./AppBuilder/platform/plugins/included/view_dataview/FNAbviewdataviewComponent.js ***!
+  \*****************************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FNAbviewdataviewComponent)
+/* harmony export */ });
+/* harmony import */ var _view_detail_FNAbviewdetailComponent_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../view_detail/FNAbviewdetailComponent.js */ 2722);
+
+
+function FNAbviewdataviewComponent({
+   /*AB,*/
+   ABViewComponentPlugin,
+   ABViewContainerComponent,
+   ABViewPropertyLinkPage,
+}) {
+   const ABViewDetailComponent = (0,_view_detail_FNAbviewdetailComponent_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
+      ABViewContainerComponent,
+   });
+
+   return class ABAbviewdataviewComponent extends ABViewComponentPlugin {
+      constructor(baseView, idBase, ids) {
+         super(
+            baseView,
+            idBase || `ABViewDataview_${baseView.id}`,
+            Object.assign(
+               {
+                  dataview: "",
+                  reload: "",
+               },
+               ids
+            )
+         );
+
+         this.linkPage = null;
+      }
+
+      ui() {
+         // NOTE: need to initial the detail component here
+         // because its dom width & height values are used .template function
+         this.initDetailComponent();
+
+         const ids = this.ids;
+         const L = (...params) => (this.AB ?? AB).Multilingual.label(...params);
+         const _ui = super.ui([
+            {
+               view: "layout",
+               rows: [
+                  {
+                     id: ids.reload,
+                     view: "button",
+                     value: L("New data available. Click to reload."),
+                     css: "webix_primary webix_warn",
+                     hidden: true,
+                     click: (/* id, event */) => {
+                        this.reloadData();
+                     },
+                  },
+                  {
+                     id: ids.dataview,
+                     view: "dataview",
+                     scroll: "y",
+                     sizeToContent: true,
+                     css: "borderless transparent",
+                     xCount:
+                        this.settings.xCount != 1 ? this.settings.xCount : 0,
+                     height: this.settings.height,
+                     template: (item) => this.itemTemplate(item),
+                     on: {
+                        onAfterRender: () => {
+                           this.applyClickEvent();
+                           this.addCyAttribute();
+                        },
+                     },
+                  },
+               ],
+            },
+         ]);
+
+         return _ui;
+      }
+
+      async init(AB) {
+         await super.init(AB);
+
+         const dc = this.datacollection;
+         if (!dc) return;
+
+         // Initial the link page helper
+         this.linkPage = this.linkPageHelper.component();
+         this.linkPage.init({
+            view: this.view,
+            datacollection: dc,
+         });
+
+         const ids = this.ids;
+         const $dataView = $$(ids.dataview);
+         AB.Webix.extend($dataView, AB.Webix.ProgressBar);
+         dc.bind($dataView);
+
+         this.initRefreshWarning();
+
+         window.addEventListener("resize", () => {
+            clearTimeout(this._resizeEvent);
+            this._resizeEvent = setTimeout(() => {
+               this.resize($dataView.getParentView());
+               delete this._resizeEvent;
+            }, 20);
+         });
+      }
+
+      /**
+       * @method initRefreshWarning
+       *
+       */
+      initRefreshWarning() {
+         const dc = this.datacollection;
+         const includeInQuery =
+            (
+               dc?.settings?.objectWorkspace?.filterConditions?.rules ?? []
+            ).filter((r) =>
+               [
+                  "in_query",
+                  "not_in_query",
+                  "in_query_field",
+                  "not_in_query_field",
+               ].includes(r.rule)
+            ).length > 0;
+
+         if (!includeInQuery) return;
+         [
+            "ab.datacollection.create",
+            "ab.datacollection.update",
+            "ab.datacollection.delete",
+         ].forEach((eventKey) => {
+            dc.on(eventKey, (data) => {
+               if (data.objectId == dc.datasource.id)
+                  this.showRefreshWarning(data);
+            });
+         });
+      }
+
+      showRefreshWarning() {
+         if (this.__throttleRefreshWarning)
+            clearTimeout(this.__throttleRefreshWarning);
+
+         this.__throttleRefreshWarning = setTimeout(() => {
+            $$(this.ids.reload)?.show();
+         }, 200);
+      }
+
+      reloadData() {
+         const dc = this.datacollection;
+         dc?.reloadData();
+
+         $$(this.ids.reload)?.hide();
+      }
+
+      onShow() {
+         super.onShow();
+
+         this.resize();
+      }
+
+      resize(base_element) {
+         const $dataview = $$(this.ids.dataview);
+         if (!$dataview) {
+            // Not sure if its a problem so notify
+            this.AB.notify.developer(
+               new Error("Resize called on missing dataview component"),
+               { context: "ABViewDataviewComponent.resize()", ids: this.ids }
+            );
+            return;
+         }
+         $dataview.resize();
+
+         const item_width = this.getItemWidth(base_element);
+         $dataview.customize({ width: item_width });
+         $dataview.getTopParentView?.().resize?.();
+      }
+
+      initDetailComponent() {
+         const detailUI = this.getDetailUI();
+         this._detail_ui = this.AB.Webix.ui(detailUI);
+
+         // 2 - Always allow access to components inside data view
+         this.detailComponent.init(null, 2);
+      }
+
+      getDetailUI() {
+         const detailCom = this.detailComponent;
+         const editPage = this.settings.editPage;
+         const detailsPage = this.settings.detailsPage;
+
+         const _ui = detailCom.ui();
+         // adjust the UI to make sure it will look like a "card"
+         _ui.type = "clean";
+         _ui.css = "ab-detail-view";
+
+         if (detailsPage || editPage) {
+            _ui.css += ` ab-detail-hover ab-record-#itemId#`;
+
+            if (detailsPage) _ui.css += " ab-detail-page";
+            if (editPage) _ui.css += " ab-edit-page";
+         }
+
+         return _ui;
+      }
+
+      itemTemplate(item) {
+         const detailCom = this.detailComponent;
+         const $dataview = $$(this.ids.dataview);
+         const $detail_item = this._detail_ui;
+
+         // Mock up data to initialize height of item
+         if (!item || !Object.keys(item).length) {
+            item = item ?? {};
+            this.datacollection?.datasource?.fields().forEach((f) => {
+               switch (f.key) {
+                  case "string":
+                  case "LongText":
+                     item[f.columnName] = "Lorem Ipsum";
+                     break;
+                  case "date":
+                  case "datetime":
+                     item[f.columnName] = new Date();
+                     break;
+                  case "number":
+                     item[f.columnName] = 7;
+                     break;
+               }
+            });
+         }
+         detailCom.displayData(item);
+
+         const itemWidth =
+            $dataview.data.count() > 0
+               ? $dataview.type.width
+               : ($detail_item.$width - 20) / this.settings.xCount;
+
+         const itemHeight =
+            $dataview.data.count() > 0
+               ? $dataview.type.height
+               : $detail_item.getChildViews()?.[0]?.$height;
+
+         const tmp_dom = document.createElement("div");
+         tmp_dom.appendChild($detail_item.$view);
+
+         $detail_item.define("width", itemWidth - 24);
+         $detail_item.define("height", itemHeight + 15);
+         $detail_item.adjust();
+
+         // Add cy attributes
+         this.addCyItemAttributes(tmp_dom, item);
+
+         return tmp_dom.innerHTML.replace(/#itemId#/g, item.id);
+      }
+
+      getItemWidth(base_element) {
+         const $dataview = $$(this.ids.dataview);
+
+         let currElem = base_element ?? $dataview;
+         let parentWidth = currElem?.$width;
+         while (currElem) {
+            if (
+               currElem.config.view == "scrollview" ||
+               currElem.config.view == "layout"
+            )
+               parentWidth =
+                  currElem?.$width < parentWidth
+                     ? currElem?.$width
+                     : parentWidth;
+
+            currElem = currElem?.getParentView?.();
+         }
+
+         if (!parentWidth)
+            parentWidth =
+               $dataview?.getParentView?.().$width || window.innerWidth;
+
+         if (parentWidth > window.innerWidth) parentWidth = window.innerWidth;
+
+         // check if the browser window minus webix default padding is the same as the parent window
+         // if so we need to check to see if there is a sidebar and reduce the usable space by the
+         // width of the sidebar
+         if (window.innerWidth - 19 <= parentWidth) {
+            const $sidebar = this.getTabSidebar();
+            if ($sidebar) {
+               parentWidth -= $sidebar.$width;
+            }
+         }
+
+         const recordWidth = Math.floor(parentWidth / this.settings.xCount);
+
+         return recordWidth;
+      }
+
+      getTabSidebar() {
+         const $dataview = $$(this.ids.dataview);
+         let $sidebar;
+         let currElem = $dataview;
+         while (currElem && !$sidebar) {
+            $sidebar = (currElem.getChildViews?.() ?? []).filter(
+               (item) => item?.config?.view == "sidebar"
+            )[0];
+
+            currElem = currElem?.getParentView?.();
+         }
+
+         return $sidebar;
+      }
+
+      applyClickEvent() {
+         const editPage = this.settings.editPage;
+         const detailsPage = this.settings.detailsPage;
+         if (!detailsPage && !editPage) return;
+
+         const $dataview = $$(this.ids.dataview);
+         if (!$dataview) return;
+
+         $dataview.$view.onclick = (e) => {
+            let clicked = false;
+            let divs = e.path ?? [];
+
+            // NOTE: Some web browser clients do not support .path
+            if (!divs.length) {
+               divs.push(e.target);
+               divs.push(e.target.parentNode);
+            }
+
+            if (editPage) {
+               for (let p of divs) {
+                  if (
+                     p.className &&
+                     p.className.indexOf("webix_accordionitem_header") > -1
+                  ) {
+                     clicked = true;
+                     p.parentNode.parentNode.classList.forEach((c) => {
+                        if (c.indexOf("ab-record-") > -1) {
+                           // var record = parseInt(c.replace("ab-record-", ""));
+                           const record = c.replace("ab-record-", "");
+                           this.linkPage.changePage(editPage, record);
+                           // com.logic.toggleTab(detailsTab, ids.component);
+                        }
+                     });
+                     break;
+                  }
+               }
+            }
+
+            if (detailsPage && !clicked) {
+               for (let p of divs) {
+                  if (
+                     p.className &&
+                     p.className.indexOf("webix_accordionitem") > -1
+                  ) {
+                     p.parentNode.parentNode.classList.forEach((c) => {
+                        if (c.indexOf("ab-record-") > -1) {
+                           // var record = parseInt(c.replace("ab-record-", ""));
+                           const record = c.replace("ab-record-", "");
+                           this.linkPage.changePage(detailsPage, record);
+                           // com.logic.toggleTab(detailsTab, ids.component);
+                        }
+                     });
+
+                     break;
+                  }
+               }
+            }
+         };
+      }
+
+      addCyAttribute() {
+         const baseView = this.view;
+         const $dataview = $$(this.ids.dataview);
+         const name = (baseView.name ?? "").replace(".dataview", "");
+
+         $dataview.$view.setAttribute(
+            "data-cy",
+            `dataview container ${name} ${baseView.id}`
+         );
+      }
+
+      addCyItemAttributes(dom, item) {
+         const baseView = this.view;
+         const uuid = item.uuid;
+         const name = (baseView.name ?? "").replace(".dataview", "");
+         dom.querySelector(".webix_accordionitem_body")?.setAttribute(
+            "data-cy",
+            `dataview item ${name} ${uuid} ${baseView.id}`
+         );
+         dom.querySelector(".webix_accordionitem_button")?.setAttribute(
+            "data-cy",
+            `dataview item button ${name} ${uuid} ${baseView.id}`
+         );
+      }
+
+      get detailComponent() {
+         return (this._detailComponent =
+            this._detailComponent ??
+            new ABViewDetailComponent(
+               this.view,
+               `${this.ids.component}_detail_view`
+            ));
+      }
+
+      get linkPageHelper() {
+         return (this.__linkPageHelper =
+            this.__linkPageHelper || new ABViewPropertyLinkPage());
+      }
+   };
+}
+
+
+/***/ },
+
 /***/ 73053
 /*!****************************************************************************!*\
   !*** ./AppBuilder/platform/plugins/included/view_detail/FNAbviewdetail.js ***!
@@ -4196,11 +4789,9 @@ __webpack_require__.r(__webpack_exports__);
 function FNAbviewdetail({
    ABViewContainer,
    ABViewContainerComponent,
-   ABViewComponentPlugin,
 }) {
    const ABViewDetailComponent = (0,_FNAbviewdetailComponent_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
       ABViewContainerComponent,
-      ABViewComponentPlugin,
    });
 
    const ABViewDetailDefaults = {
@@ -4344,18 +4935,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ FNAbviewdetailComponent)
 /* harmony export */ });
-function FNAbviewdetailComponent({
-   ABViewContainerComponent,
-   ABViewComponentPlugin,
-}) {
+function FNAbviewdetailComponent({ ABViewContainerComponent }) {
    const ContainerComponent =
       ABViewContainerComponent?.default ?? ABViewContainerComponent;
-   const Base = ContainerComponent ?? ABViewComponentPlugin;
-   if (!Base) {
-      return class ABAbviewdetailComponent {};
+   if (!ContainerComponent) {
+      throw new Error(
+         "FNAbviewdetailComponent requires ABViewContainerComponent from getPluginAPI()"
+      );
    }
 
-   return class ABAbviewdetailComponent extends Base {
+   return class ABAbviewdetailComponent extends ContainerComponent {
       constructor(baseView, idBase, ids) {
          super(
             baseView,
@@ -4366,160 +4955,39 @@ function FNAbviewdetailComponent({
       }
 
       ui() {
-         if (!ContainerComponent) {
-            return this._uiDataviewFallback();
-         }
          const _ui = super.ui();
-         const hasContent = (this.view.views() || []).length > 0;
+
+         // this wrapper allows the detail view to have a
+         // card appearance as well as enables the edit and
+         // details functions to work when clicked
          return {
             type: "form",
             id: this.ids.component,
             borderless: true,
-            minHeight: hasContent ? undefined : 120,
             rows: [{ body: _ui }],
          };
       }
 
-      /**
-       * Override getElements to inject data-cy into each child view config (like Carousel does in init).
-       * Webix applies attributes when the view is created, so this avoids timing issues in tabs/CI.
-       */
-      getElements(views) {
-         const rows = [];
-         const componentMap = {};
-         let curRowIndex;
-         let curColIndex;
-         const settings = this.settings;
-         const defaultSettings = this.view.constructor.defaultValues();
-
-         views.forEach((v) => {
-            let component;
-            try {
-               component = v.component(this.idBase);
-               v.removeAllListeners("changePage");
-            } catch (err) {
-               component = v.component(this.idBase);
-               const ui = component.ui;
-               component.ui = (() => ui).bind(component);
-            }
-
-            this.viewComponents[v.id] = component;
-
-            if (v.position.y == null || v.position.y !== curRowIndex) {
-               curRowIndex = v.position.y || rows.length;
-               curColIndex = 0;
-               const rowNew = { cols: [] };
-               const colNumber = settings.columns || defaultSettings.columns;
-               for (let i = 0; i < colNumber; i++)
-                  rowNew.cols.push({
-                     gravity: settings.gravity?.[i]
-                        ? parseInt(settings.gravity[i])
-                        : defaultSettings.gravity,
-                  });
-               rows.push(rowNew);
-            }
-
-            const rowIndx = rows.length - 1;
-            const curRow = rows[rowIndx];
-            const newPos = v.position.x ?? 0;
-            const mapKey = `${rowIndx}-${newPos}`;
-            let getGrav = 1;
-            if (componentMap[mapKey])
-               console.error(
-                  `Component[${component?.ids?.component}] is overwriting component[${componentMap[mapKey].ids?.component}]. <-- Reorder them to fix.`
-               );
-            componentMap[mapKey] = component;
-            if (curRow.cols[newPos]?.gravity)
-               getGrav = curRow.cols[newPos].gravity;
-
-            const _ui = component.ui();
-            const info = this._dataCyForView(v);
-            if (info?.dataCy) {
-               const dataCy = info.dataCy;
-               const useRoot = info.useRoot;
-               const detailItemId = component.ids?.detailItem;
-               _ui.attributes = Object.assign({}, _ui.attributes, {
-                  "data-cy": dataCy,
-               });
-               const prevOnAfterRender = _ui.on?.onAfterRender;
-               _ui.on = _ui.on || {};
-               _ui.on.onAfterRender = function () {
-                  if (typeof prevOnAfterRender === "function")
-                     prevOnAfterRender.call(this);
-                  try {
-                     const idToUse = useRoot ? this.config?.id : detailItemId;
-                     let node =
-                        (typeof $$ !== "undefined" && idToUse && $$(idToUse)?.$view) ||
-                        (typeof document !== "undefined" &&
-                           idToUse &&
-                           document.getElementById(idToUse));
-                     if (!node?.setAttribute && typeof document !== "undefined" && idToUse)
-                        node = document.querySelector(`[id$="${idToUse}"]`);
-                     if (node?.setAttribute) node.setAttribute("data-cy", dataCy);
-                  } catch (e) {}
-               };
-            }
-
-            this.viewComponentIDs[v.id] = _ui.id;
-            _ui.gravity = getGrav;
-            curRow.cols[newPos] = _ui;
-
-            this.eventAdd({
-               emitter: v,
-               eventName: "changePage",
-               listener: this._handlerChangePage,
-            });
-            curColIndex++;
-         });
-
-         return rows;
-      }
-
-      _uiDataviewFallback() {
-         const settings = this.settings;
-         const _uiDetail = {
-            id: this.ids.detail,
-            view: "dataview",
-            type: { width: 1000, height: 30 },
-            template: (item) => (item ? JSON.stringify(item) : ""),
-         };
-         if (settings.height !== 0) _uiDetail.height = settings.height;
-         else _uiDetail.autoHeight = true;
-         const _ui = super.ui([_uiDetail]);
-         delete _ui.type;
-         return _ui;
-      }
-
-      async init(AB, accessLevel = 0, options = {}) {
-         await super.init(AB, accessLevel, options);
-         try {
-            this._setDetailFieldDataCy();
-         } catch (e) {
-            console.warn("Detail _setDetailFieldDataCy (init)", e);
-         }
-      }
-
       onShow() {
          const baseView = this.view;
-         try {
-            const dataCy = `Detail ${baseView.name?.split(".")[0]} ${baseView.id}`;
-            $$(this.ids.component)?.$view?.setAttribute("data-cy", dataCy);
-         } catch (e) {
-            console.warn("Problem setting data-cy", e);
-         }
+         const dataCy = `Detail ${baseView.name?.split(".")[0]} ${baseView.id}`;
+         $$(this.ids.component)?.$view?.setAttribute("data-cy", dataCy);
 
+         // listen DC events
          const dv = this.datacollection;
          if (dv) {
             const currData = dv.getCursor();
             if (currData) this.displayData(currData);
 
-            ["changeCursor", "cursorStale", "collectionEmpty"].forEach((key) => {
-               this.eventAdd({
-                  emitter: dv,
-                  eventName: key,
-                  listener: (...p) => this.displayData(...p),
-               });
-            });
+            ["changeCursor", "cursorStale", "collectionEmpty"].forEach(
+               (key) => {
+                  this.eventAdd({
+                     emitter: dv,
+                     eventName: key,
+                     listener: (...p) => this.displayData(...p),
+                  });
+               }
+            );
             this.eventAdd({
                emitter: dv,
                eventName: "create",
@@ -4538,139 +5006,21 @@ function FNAbviewdetailComponent({
             });
          }
 
-         super.onShow?.();
-
-         try {
-            this._setDetailFieldDataCy();
-         } catch (e) {
-            console.warn("Detail _setDetailFieldDataCy (sync)", e);
-         }
-         if (typeof requestAnimationFrame !== "undefined") {
-            requestAnimationFrame(() => {
-               try {
-                  this._setDetailFieldDataCy();
-               } catch (err) {
-                  console.warn("Detail _setDetailFieldDataCy (rAF)", err);
-               }
-            });
-         }
-         [0, 100, 300, 600, 1200].forEach((ms) =>
-            setTimeout(() => {
-               try {
-                  this._setDetailFieldDataCy();
-               } catch (err) {
-                  console.warn("Detail _setDetailFieldDataCy (timeout)", err);
-               }
-            }, ms)
-         );
-      }
-
-      /** Build data-cy string for a detail view (matches core). Values trimmed for exact e2e match. */
-      _dataCyForView(f) {
-         const parentId = String(
-            f.parentDetailComponent?.()?.id || f.parent?.id || ""
-         ).trim();
-         const field = f.field?.();
-         const settings = f.settings || {};
-         const columnName = String(
-            f.key === "detail_connect"
-               ? (f.field?.((fl) => fl.id === settings.fieldId)?.columnName ?? "")
-               : (field?.columnName ?? "")
-         ).trim();
-         const fieldId = String(field?.id ?? settings.fieldId ?? "").trim();
-
-         let dataCy = "";
-         let useRoot = false;
-         switch (f.key) {
-            case "detail_text":
-               dataCy = `detail text ${columnName} ${fieldId} ${parentId}`;
-               useRoot = true;
-               break;
-            case "detail_connect":
-               dataCy = `detail connected ${columnName} ${fieldId} ${parentId}`;
-               break;
-            case "detail_checkbox":
-               dataCy = `detail checkbox ${columnName} ${fieldId} ${parentId}`;
-               break;
-            case "detail_image":
-               dataCy = `detail image ${columnName} ${fieldId} ${parentId}`;
-               break;
-            case "detail_custom":
-               dataCy = `detail custom ${columnName} ${fieldId} ${parentId}`;
-               break;
-            case "detail_selectivity":
-               dataCy = `detail selectivity ${columnName} ${fieldId} ${parentId}`;
-               break;
-            default:
-               dataCy = `detail text ${columnName} ${fieldId} ${parentId}`;
-               useRoot = true;
-         }
-         if (dataCy) dataCy = dataCy.replace(/\s+/g, " ").trim();
-         return dataCy ? { dataCy, useRoot } : null;
-      }
-
-      /** Set data-cy on one component; use $$(id) or document.getElementById so CI finds element. */
-      _setDataCyOnComponent(comp, _f, { dataCy, useRoot }) {
-         if (!comp?.ids || !dataCy) return;
-         try {
-            const id = useRoot ? comp.ids.component : comp.ids.detailItem;
-            if (!id) return;
-            let el =
-               typeof $$ !== "undefined" && $$(id)?.$view
-                  ? $$(id).$view
-                  : null;
-            if (!el && typeof document !== "undefined")
-               el = document.getElementById(id);
-            if (!el?.setAttribute) return;
-            const target =
-               !useRoot && el.parentNode ? el.parentNode : el;
-            target.setAttribute("data-cy", dataCy);
-         } catch (e) {
-            console.warn("Problem setting detail field data-cy", e);
-         }
-      }
-
-      /** Set data-cy on all detail fields; try comp.ids then viewComponentIDs then getElementById. */
-      _setDetailFieldDataCy() {
-         if (!ContainerComponent || !this.viewComponents) return;
-         const viewList = this.view.views() || [];
-         const viewComponentIDs = this.viewComponentIDs || {};
-
-         Object.keys(this.viewComponents).forEach((viewId) => {
-            const comp = this.viewComponents[viewId];
-            const f = viewList.find((v) => v.id === viewId);
-            if (!comp || !f) return;
-
-            const info = this._dataCyForView(f);
-            if (!info) return;
-
-            const id =
-               (info.useRoot
-                  ? comp.ids?.component
-                  : comp.ids?.detailItem) ||
-               viewComponentIDs[viewId];
-            if (!id) return;
-
-            let el =
-               (typeof $$ !== "undefined" && $$(id)?.$view) ||
-               (typeof document !== "undefined" && document.getElementById(id));
-            if (!el?.setAttribute && typeof document !== "undefined")
-               el = document.querySelector(`[id$="${id}"]`);
-            if (!el?.setAttribute) return;
-
-            const target =
-               !info.useRoot && el.parentNode ? el.parentNode : el;
-            target.setAttribute("data-cy", info.dataCy);
-         });
+         super.onShow();
       }
 
       displayData(rowData = {}) {
-         if (!ContainerComponent) return;
-         if (rowData == null && this.datacollection)
-            rowData = this.datacollection.getCursor() ?? {};
+         // make sure we have data to work with.  If null is passed in
+         // then pull current cursor.
+         if (rowData == null) {
+            rowData = this.datacollection.getCursor();
+         }
 
          const views = (this.view.views() || []).sort((a, b) => {
             if (!a?.field?.() || !b?.field?.()) return 0;
+
+            // NOTE: sort order of calculated fields.
+            // FORMULA field type should be calculated before CALCULATE field type
             if (a.field().key === "formula" && b.field().key === "calculate")
                return -1;
             if (a.field().key === "calculate" && b.field().key === "formula")
@@ -4684,49 +5034,50 @@ function FNAbviewdetailComponent({
                const field = f.field();
                if (!field) return;
 
+               // get value of relation when field is a connect field
                switch (field.key) {
                   case "connectObject":
                      val = field.pullRelationValues(rowData);
                      break;
                   case "list":
                      val = rowData?.[field.columnName];
-                     if (!val || (Array.isArray(val) && val.length === 0)) {
+                     if (!val) {
                         val = "";
                         break;
                      }
                      if (field.settings.isMultiple === 0) {
                         let myVal = "";
-                        (field.settings.options || []).forEach((opt) => {
-                           if (opt.id === val) myVal = opt.text;
+                        field.settings.options.forEach((options) => {
+                           if (options.id === val) myVal = options.text;
                         });
                         if (field.settings.hasColors) {
+                           let myHex = "#66666";
                            let hasCustomColor = "";
-                           (field.settings.options || []).forEach((h) => {
+                           field.settings.options.forEach((h) => {
                               if (h.text === myVal) {
+                                 myHex = h.hex;
                                  hasCustomColor = "hascustomcolor";
                               }
                            });
-                           const hex = (field.settings.options || []).find(
-                              (o) => o.text === myVal
-                           )?.hex ?? "#66666";
-                           myVal = `<span class="webix_multicombo_value ${hasCustomColor}" style="background-color: ${hex} !important;"><span>${myVal}</span></span>`;
+                           myVal = `<span class="webix_multicombo_value ${hasCustomColor}" style="background-color: ${myHex} !important;"><span>${myVal}</span></span>`;
                         }
                         val = myVal;
                      } else {
-                        const items = val.map((value) => {
+                        const items = [];
+                        val.forEach((value) => {
+                           let hasCustomColor = "";
+                           let optionHex = "";
+                           if (field.settings.hasColors && value.hex) {
+                              hasCustomColor = "hascustomcolor";
+                              optionHex = `background: ${value.hex};`;
+                           }
                            let myVal = "";
-                           (field.settings.options || []).forEach((opt) => {
-                              if (opt.id === value.id) myVal = opt.text;
+                           field.settings.options.forEach((options) => {
+                              if (options.id === value.id) myVal = options.text;
                            });
-                           const optionHex =
-                              field.settings.hasColors && value.hex
-                                 ? `background: ${value.hex};`
-                                 : "";
-                           const hasCustomColor =
-                              field.settings.hasColors && value.hex
-                                 ? "hascustomcolor"
-                                 : "";
-                           return `<span class="webix_multicombo_value ${hasCustomColor}" style="${optionHex}" optvalue="${value.id}"><span>${myVal}</span></span>`;
+                           items.push(
+                              `<span class="webix_multicombo_value ${hasCustomColor}" style="${optionHex}" optvalue="${value.id}"><span>${myVal}</span></span>`
+                           );
                         });
                         val = items.join("");
                      }
@@ -4735,36 +5086,46 @@ function FNAbviewdetailComponent({
                      val = field.pullRelationValues(rowData);
                      break;
                   case "file":
-                     val = rowData?.[field.columnName] ?? "";
+                     val = rowData?.[field.columnName];
+                     if (!val) {
+                        val = "";
+                        break;
+                     }
                      break;
                   case "formula":
-                     val = rowData ? field.format(rowData, false) : "";
+                     if (rowData) {
+                        // NOTE: Could not to re-calculate because `__relation` data is extracted from full data at the moment
+                        // rowData.__relation format
+                        // {
+                        //    id: "string"
+                        //    text: "string"
+                        //    translations: []
+                        //    uuid:  "0cb52669-d626-4c9d-85ea-2d931751d0ce"
+                        //    value: "LABEL"
+                        // }
+                        const needRecalculate = false;
+
+                        val = field.format(rowData, needRecalculate);
+                     }
                      break;
                   default:
                      val = field.format(rowData);
+                  // break;
                }
             }
 
-            const vComponent =
-               this.viewComponents?.[f.id] ?? f.component(this.idBase);
+            // set value to each components
+            const vComponent = f.component(this.idBase);
+
+            // vComponent?.onShow();
+
             vComponent?.setValue?.(val);
             vComponent?.displayText?.(rowData);
-
-            try {
-               const dataCyInfo = this._dataCyForView(f);
-               if (dataCyInfo)
-                  this._setDataCyOnComponent(vComponent, f, dataCyInfo);
-            } catch (e) {
-               console.warn("Detail data-cy in displayData", e);
-            }
          });
-
-         [0, 100, 400].forEach((ms) =>
-            setTimeout(() => this._setDetailFieldDataCy(), ms)
-         );
       }
    };
 }
+
 
 /***/ },
 
@@ -4963,6 +5324,1283 @@ function FNAbviewimageComponent({
          else $image.define("template", "");
 
          $image.refresh();
+      }
+   };
+}
+
+
+/***/ },
+
+/***/ 35653
+/*!****************************************************************************!*\
+  !*** ./AppBuilder/platform/plugins/included/view_kanban/FNABViewKanban.js ***!
+  \****************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FNABViewKanban)
+/* harmony export */ });
+/* harmony import */ var _FNABViewKanbanComponent_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FNABViewKanbanComponent.js */ 90826);
+/* harmony import */ var _FNABViewKanbanForm_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./FNABViewKanbanForm.js */ 27731);
+/* harmony import */ var _FNABViewKanbanFormSidePanel_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./FNABViewKanbanFormSidePanel.js */ 83804);
+
+
+
+
+// FNABViewKanban Web
+// A web side import for an ABView.
+//
+function FNABViewKanban({
+   AB,
+   ABViewWidgetPlugin,
+   ABViewComponentPlugin,
+   ABViewPropertyLinkPage,
+   ABViewPlugin,
+}) {
+   const ABViewKanbanDetachedFormSave = (0,_FNABViewKanbanForm_js__WEBPACK_IMPORTED_MODULE_1__["default"])({
+      AB,
+      ABViewPlugin,
+      ABViewComponentPlugin,
+   });
+   const KanbanFormSidePanel = (0,_FNABViewKanbanFormSidePanel_js__WEBPACK_IMPORTED_MODULE_2__["default"])({
+      ABViewComponentPlugin,
+      ABViewKanbanDetachedFormSave,
+   });
+   const ABViewKanbanComponent = (0,_FNABViewKanbanComponent_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
+      AB,
+      ABViewComponentPlugin,
+      FNABViewKanbanFormSidePanel: KanbanFormSidePanel,
+   });
+
+   const ABViewKanbanPropertyComponentDefaults = {
+      dataviewID: null, // uuid ABDataCollection; DC resolves ABObject
+      editFields: [], // ABField.id[] fields shown in editor
+      verticalGroupingField: "", // ABField.id vertical lanes
+      horizontalGroupingField: "", // ABField.id optional horizontal grouping
+      ownerField: "", // ABFieldUser.id card owner
+      template: "", // json ABViewText card body; placeholders {field.id}
+   };
+
+   const ABViewDefaults = {
+      key: "kanban", // {string} unique view key
+      icon: "columns", // {string} font-awesome (no fa- prefix)
+      labelKey: "Kanban", // {string} multilingual label key → L(labelKey)
+   };
+
+   class ABViewKanbanCore extends ABViewWidgetPlugin {
+      constructor(values, application, parent, defaultValues) {
+         super(values, application, parent, defaultValues || ABViewDefaults);
+      }
+
+      ///
+      /// Instance Methods
+      ///
+
+      /**
+       * @method componentList
+       * return the list of components available on this view to display in the editor.
+       */
+      componentList() {
+         return [];
+      }
+
+      fromValues(values) {
+         super.fromValues(values);
+
+         // set a default .template value
+         if (!this.settings.template) {
+            this.settings.template = { id: `${this.id}_template`, key: "text" };
+            this.settings.template.text = this.settings.textTemplate;
+         }
+
+         this.TextTemplate = AB.viewNewDetatched(this.settings.template);
+      }
+
+      toObj() {
+         var obj = super.toObj();
+         obj.settings.template = this.TextTemplate.toObj();
+         // NOTE: this corrects the initial save where this.id == undefined
+         // all the rest will set the .id correctly.
+         obj.settings.template.id = `${this.id}_template`;
+         return obj;
+      }
+
+      static common() {
+         return ABViewDefaults;
+      }
+
+      static defaultValues() {
+         return ABViewKanbanPropertyComponentDefaults;
+      }
+   }
+
+   return class ABViewKanban extends ABViewKanbanCore {
+      /**
+       * @method getPluginKey
+       * return the plugin key for this view.
+       * @return {string} plugin key
+       */
+      static getPluginKey() {
+         return this.common().key;
+      }
+      get linkPageHelper() {
+         if (this.__linkPageHelper == null)
+            this.__linkPageHelper = new ABViewPropertyLinkPage();
+
+         return this.__linkPageHelper;
+      }
+
+      /**
+       * @method component()
+       * return a UI component based upon this view.
+       * @return {obj} UI component
+       */
+      component(parentId) {
+         return new ABViewKanbanComponent(this, parentId);
+      }
+
+      //
+      //	Editor Related
+      //
+
+      warningsEval() {
+         super.warningsEval();
+         let DC = this.datacollection;
+         if (!DC) {
+            this.warningsMessage(
+               `can't resolve it's datacollection[${this.settings.dataviewID}]`
+            );
+         }
+      }
+   };
+}
+
+
+/***/ },
+
+/***/ 90826
+/*!*************************************************************************************!*\
+  !*** ./AppBuilder/platform/plugins/included/view_kanban/FNABViewKanbanComponent.js ***!
+  \*************************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FNABViewKanbanComponent)
+/* harmony export */ });
+function FNABViewKanbanComponent({
+   AB,
+   ABViewComponentPlugin,
+   FNABViewKanbanFormSidePanel,
+}) {
+   return class ABViewKanbanComponent extends ABViewComponentPlugin {
+      constructor(baseView, idBase, ids) {
+         super(
+            baseView,
+            idBase || `ABViewKanban_${baseView.id}`,
+            Object.assign(
+               {
+                  kanbanView: "",
+
+                  kanban: "",
+                  resizer: "",
+                  formSidePanel: "",
+               },
+               ids
+            )
+         );
+
+         this.FormSide = new FNABViewKanbanFormSidePanel(
+            this,
+            this.ids.formSidePanel,
+            this.settings.editFields
+         );
+
+         this.CurrentVerticalField = null;
+         this.CurrentHorizontalField = null;
+         this.CurrentOwnerField = null;
+
+         this.TextTemplate = baseView.TextTemplate;
+
+         this._updatingOwnerRowId = null;
+         this._ABFieldConnect = null;
+         this._ABFieldUser = null;
+         this._ABFieldList = null;
+      }
+
+      get ABFieldConnect() {
+         return (this._ABFieldConnect =
+            this._ABFieldConnect ||
+            AB.Class.ABFieldManager.fieldByKey("connectObject"));
+      }
+
+      get ABFieldUser() {
+         return (this._ABFieldUser =
+            this._ABFieldUser || AB.Class.ABFieldManager.fieldByKey("user"));
+      }
+
+      get ABFieldList() {
+         return (this._ABFieldList =
+            this._ABFieldList || AB.Class.ABFieldManager.fieldByKey("list"));
+      }
+
+      ui() {
+         const ids = this.ids;
+         const baseView = this.view;
+         const self = this;
+         this.linkPage = baseView.linkPageHelper.component();
+
+         const _ui = super.ui([
+            {
+               id: ids.kanbanView,
+               cols: [
+                  {
+                     id: ids.kanban,
+                     view: "kanban",
+                     cols: [],
+                     userList: {
+                        view: "menu",
+                        // yCount: 8,
+                        // scroll: false,
+                        template: '<i class="fa fa-user"></i> #value#',
+                        width: 150,
+                        on: {
+                           onSelectChange: function () {
+                              // get this row id from onAvatarClick event
+                              if (!self._updatingOwnerRowId) return;
+
+                              const userId = this.getSelectedId(false);
+                              if (!userId) return;
+
+                              self.updateOwner(self._updatingOwnerRowId, userId);
+                           },
+                        },
+                     },
+                     editor: false, // we use side bar
+                     users: [],
+                     tags: [],
+                     data: [],
+                     on: {
+                        onListAfterSelect: (itemId, list) => {
+                           this.CurrentDatacollection?.setCursor(itemId);
+                           this.emit("select", itemId);
+
+                           // link pages events
+                           const editPage = this.settings.editPage;
+                           if (editPage)
+                              this.linkPage.changePage(editPage, itemId);
+
+                           const detailsPage = this.settings.detailsPage;
+                           if (detailsPage)
+                              this.linkPage.changePage(detailsPage, itemId);
+                        },
+                        onAfterStatusChange: (rowId, status /*, list */) => {
+                           this.updateStatus(rowId, status);
+                        },
+                        onAvatarClick: (rowId /*, ev, node, list */) => {
+                           // keep this row id for update owner data in .userList
+                           this._updatingOwnerRowId = rowId;
+                        },
+                     },
+                  },
+                  {
+                     id: ids.resizer,
+                     view: "resizer",
+                     css: "bg_gray",
+                     width: 11,
+                     hidden: true,
+                  },
+                  this.FormSide.ui(),
+               ],
+            },
+         ]);
+
+         delete _ui.type;
+
+         return _ui;
+      }
+
+      async init(AB) {
+         await super.init(AB);
+
+         const abWebix = AB.Webix;
+         const baseView = this.view;
+
+         if (this.$kb) abWebix.extend(this.$kb, abWebix.ProgressBar);
+
+         this.FormSide.init(AB);
+         this.FormSide.on("add", (newVals) => {
+            this.saveData(newVals);
+         });
+         this.FormSide.on("update", (updateVals) => {
+            this.saveData(updateVals);
+         });
+
+         let dc = baseView.datacollection;
+         if (dc) this.datacollectionLoad(dc);
+
+         this.linkPage.init({
+            view: baseView,
+            datacollection: dc,
+         });
+
+         this.show();
+      }
+
+      get $kb() {
+         return (this._kb = this._kb || $$(this.ids.kanban));
+      }
+
+      kanbanListTemplate() {
+         return {
+            icons: [
+               // { icon: "mdi mdi-comment", show: function (obj) { return !!obj.comments }, template: "#comments.length#" },
+               {
+                  icon: "fa fa-trash-o",
+                  click: (rowId /*, e */) => {
+                     this.removeCard(rowId);
+                  },
+               },
+            ],
+            // avatar template
+            templateAvatar: (obj) => {
+               if (
+                  this.CurrentOwnerField &&
+                  obj[this.CurrentOwnerField.columnName]
+               )
+                  return this.CurrentOwnerField.format(obj);
+               else return "<span class='webix_icon fa fa-user'></span>";
+            },
+            // template for item body
+            // show item image and text
+            templateBody: (data) => {
+               // if (!this.settings.template)
+               if (!this.TextTemplate.text)
+                  return this.CurrentObject?.displayData(data);
+
+               // return our default text template
+               return this.TextTemplate.displayText(data);
+            },
+         };
+      }
+
+      /**
+       * @function hide()
+       *
+       * hide this component.
+       */
+      hide() {
+         $$(this.ids.kanbanView)?.hide();
+      }
+
+      /**
+       * @function show()
+       * Show this component.
+       */
+      async show() {
+         const ids = this.ids;
+
+         $$(ids.kanbanView)?.show();
+
+         this.FormSide.hide();
+
+         $$(ids.resizer)?.hide();
+
+         var CurrentObject = this.CurrentObject;
+         if (!CurrentObject) {
+            CurrentObject = this.datacollection?.datasource;
+         }
+         if (!CurrentObject) return;
+
+         // Get vertical grouping field and populate to kanban list
+         // NOTE: this field should be the select list type
+         const CurrentVerticalField = CurrentObject.fieldByID(
+            this.settings.verticalGroupingField
+         );
+         if (!CurrentVerticalField) return;
+
+         this.CurrentVerticalField = CurrentVerticalField;
+
+         let horizontalOptions = [];
+
+         const CurrentHorizontalField = CurrentObject.fieldByID(
+            this.settings.horizontalGroupingField
+         );
+
+         this.CurrentHorizontalField = CurrentHorizontalField;
+
+         if (
+            CurrentHorizontalField &&
+            CurrentHorizontalField instanceof this.ABFieldConnect
+         )
+            // Pull horizontal options
+            horizontalOptions = await CurrentHorizontalField.getOptions();
+
+         // Option format -  { id: "1543563751920", text: "Normal", hex: "#4CAF50" }
+         const verticalOptions = (CurrentVerticalField.settings.options || []).map(
+            (opt) => {
+               // Vertical & Horizontal fields
+               if (CurrentVerticalField && CurrentHorizontalField) {
+                  let rows = [],
+                     // [{
+                     //    id: '',
+                     //    text: ''
+                     // }]
+                     horizontalVals = [];
+
+                  // pull options of the Horizontal field
+                  if (CurrentHorizontalField instanceof this.ABFieldList) {
+                     // make a copy of the settings.
+                     horizontalVals = (
+                        CurrentHorizontalField.settings.options || []
+                     ).map((o) => o);
+                  } else if (CurrentHorizontalField instanceof this.ABFieldUser) {
+                     horizontalVals = CurrentHorizontalField.getUsers().map(
+                        (u) => {
+                           return {
+                              id: u.id,
+                              text: u.text || u.value,
+                           };
+                        }
+                     );
+                  } else if (CurrentHorizontalField instanceof this.ABFieldConnect)
+                     horizontalVals = horizontalOptions.map(({ id, text }) => ({
+                        id,
+                        text,
+                     }));
+
+                  horizontalVals.push({
+                     id: null,
+                     text: this.label("Other"),
+                  });
+
+                  horizontalVals.forEach((val) => {
+                     const statusOps = {};
+
+                     statusOps[CurrentVerticalField.columnName] = opt.id;
+                     statusOps[CurrentHorizontalField.columnName] = val.id;
+
+                     // Header
+                     rows.push({
+                        template: val.text,
+                        height: 20,
+                        css: "progress_header",
+                     });
+
+                     // Kanban list
+                     rows.push({
+                        view: "kanbanlist",
+                        status: statusOps,
+                        type: this.kanbanListTemplate(),
+                     });
+                  });
+
+                  return {
+                     header: opt.text,
+                     body: {
+                        margin: 0,
+                        rows: rows,
+                     },
+                  };
+               }
+               // Vertical field only
+               else if (CurrentVerticalField) {
+                  const statusOps = {};
+
+                  statusOps[CurrentVerticalField.columnName] = opt.id;
+
+                  return {
+                     header: opt.text,
+                     body: {
+                        view: "kanbanlist",
+                        status: statusOps,
+                        type: this.kanbanListTemplate(),
+                     },
+                  };
+               }
+            }
+         );
+
+         const ab = AB;
+         const abWebix = ab.Webix;
+
+         // Rebuild kanban that contains options
+         // NOTE: webix kanban does not support dynamic vertical list
+         abWebix.ui(verticalOptions, $$(ids.kanban));
+         $$(ids.kanban).reconstruct();
+
+         // Owner field
+         const CurrentOwnerField = CurrentObject.fieldByID(
+            this.settings.ownerField
+         );
+
+         this.CurrentOwnerField = CurrentOwnerField;
+
+         if (CurrentOwnerField) {
+            const $menuUser = $$(ids.kanban).getUserList();
+
+            $menuUser.clearAll();
+
+            if (CurrentOwnerField instanceof this.ABFieldUser) {
+               const users = ab.Account.userList().map((u) => {
+                  return {
+                     id: u.username,
+                     value: u.username,
+                  };
+               });
+
+               $menuUser.parse(users);
+            } else if (CurrentOwnerField instanceof this.ABFieldConnect) {
+               const options = await CurrentOwnerField.getOptions();
+
+               try {
+                  $menuUser.parse(
+                     options.map((opt) => {
+                        return {
+                           id: opt.id,
+                           value: opt.text,
+                        };
+                     })
+                  );
+               } catch (e) {
+                  // TODO: remove this.  Trying to catch a random webix error:
+                  // Cannot read properties of null (reading 'driver')
+                  console.error(e);
+                  console.warn(options);
+               }
+            }
+         }
+      }
+
+      busy() {
+         this.$kb?.showProgress?.({ type: "icon" });
+      }
+
+      ready() {
+         this.$kb?.hideProgress?.();
+      }
+
+      objectLoad(object) {
+         super.objectLoad(object);
+
+         this.TextTemplate.objectLoad(object);
+         this.FormSide.objectLoad(object);
+      }
+
+      /**
+       * @method datacollectionLoad
+       *
+       * @param datacollection {ABDatacollection}
+       */
+      datacollectionLoad(datacollection) {
+         super.datacollectionLoad(datacollection);
+
+         const DC = this.CurrentDatacollection || datacollection;
+
+         if (DC) {
+            DC.bind(this.$kb);
+
+            const obj = DC.datasource;
+
+            if (obj) this.objectLoad(obj);
+
+            return;
+         }
+
+         this.$kb.unbind();
+      }
+
+      async updateStatus(rowId, status) {
+         if (!this.CurrentVerticalField) return;
+
+         // Show loading cursor
+         this.busy();
+
+         let patch = {};
+
+         // update multi-values
+         if (status instanceof Object) patch = status;
+         // update single value
+         else patch[this.CurrentVerticalField.columnName] = status;
+
+         // update empty value
+         let needRefresh = false;
+
+         for (const key in patch)
+            if (!patch[key]) {
+               patch[key] = "";
+
+               // WORKAROUND: if update data is empty, then it will need to refresh
+               // the kanban after update
+               needRefresh = true;
+            }
+
+         try {
+            await this.CurrentObject?.model().update(rowId, patch);
+
+            this.ready();
+
+            if (needRefresh) this.show();
+
+            // update form data
+            if (this.FormSide.isVisible()) {
+               const data = $$(this.ids.kanban).getItem(rowId);
+
+               this.FormSide.refresh(data);
+            }
+         } catch (err) {
+            AB.notify.developer(err, {
+               context: "ABViewKanban:updateStatus(): Error saving item:",
+               rowId,
+               patch,
+            });
+         }
+      }
+
+      async updateOwner(rowId, val) {
+         if (!this.CurrentOwnerField) return;
+
+         // Show loading cursor
+         this.busy();
+
+         const patch = {};
+
+         patch[this.CurrentOwnerField.columnName] = val;
+
+         try {
+            const updatedRow = await this.CurrentObject?.model().update(
+               rowId,
+               patch
+            );
+
+            // update card
+            this.$kb?.updateItem(rowId, updatedRow);
+
+            // update form data
+            if (this.FormSide.isVisible()) {
+               const data = this.$kb.getItem(rowId);
+
+               this.FormSide.refresh(data);
+            }
+
+            this.ready();
+         } catch (err) {
+            AB.notify.developer(err, {
+               context: "ABViewKanban:updateOwner(): Error saving item:",
+               rowId,
+               val,
+            });
+
+            this.ready();
+         }
+      }
+
+      saveData(data) {
+         // update
+         if (data.id && this.$kb.exists(data.id))
+            this.$kb.updateItem(data.id, data);
+         // insert
+         else this.$kb.add(data);
+      }
+
+      unselect() {
+         if (this.$kb)
+            this.$kb.eachList((list /*, status*/) => {
+               list?.unselect?.();
+            });
+      }
+
+      addCard() {
+         this.unselect();
+
+         // show the side form
+         this.FormSide.show();
+         $$(this.ids.resizer).show();
+      }
+
+      async removeCard(rowId) {
+         const ab = AB;
+         const abWebix = ab.Webix;
+
+         abWebix.confirm({
+            title: this.label("Remove card"),
+            text: this.label("Do you want to delete this card?"),
+            callback: async (result) => {
+               if (!result) return;
+
+               this.busy();
+
+               try {
+                  const response = await this.CurrentObject?.model().delete(rowId);
+
+                  if (response.numRows > 0) {
+                     this.$kb.remove(rowId);
+                  } else {
+                     abWebix.alert({
+                        text: this.label(
+                           "No rows were effected. This does not seem right."
+                        ),
+                     });
+                  }
+               } catch (err) {
+                  ab.notify.developer(err, {
+                     message: "ABViewKanban:removeCard(): Error deleting item:",
+                     rowId,
+                  });
+               }
+
+               this.ready();
+            },
+         });
+      }
+
+      /**
+       * @method setFields()
+       * Save the current view options.
+       * @param options - {
+       *       verticalGrouping:    {ABField} - required
+       *       horizontalGrouping:  {ABField} - optional
+       *       ownerField:          {ABField} - optional
+       * }
+       */
+      setFields(options) {
+         this.CurrentVerticalField = options.verticalGrouping;
+         this.CurrentHorizontalField = options.horizontalGrouping;
+         this.CurrentOwnerField = options.ownerField;
+      }
+
+
+   };
+
+}
+
+
+/***/ },
+
+/***/ 27731
+/*!********************************************************************************!*\
+  !*** ./AppBuilder/platform/plugins/included/view_kanban/FNABViewKanbanForm.js ***!
+  \********************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ createABViewKanbanDetachedFormSave)
+/* harmony export */ });
+/**
+ * Kanban sidebar detached form: save button only.
+ * No cross-folder imports — bases come from pluginAPI (see ABClassManager.getPluginAPI).
+ */
+
+function createABViewKanbanDetachedFormSave({
+   AB,
+   ABViewPlugin,
+   ABViewComponentPlugin,
+}) {
+
+   const ABViewFormButtonPropertyComponentDefaults = {
+      includeSave: true,
+      saveLabel: "",
+      includeCancel: false,
+      cancelLabel: "",
+      includeReset: false,
+      resetLabel: "",
+      includeDelete: false,
+      deleteLabel: "",
+      afterCancel: null,
+      alignment: "right",
+      isDefault: false, // mark default button of form widget
+   };
+
+
+   class ABViewFormButtonCore extends ABViewPlugin {
+      static common() {
+         return {
+            key: "button",
+            // {string} unique key for this view
+
+            icon: "square",
+            // {string} fa-[icon] reference for this view
+
+            labelKey: "ab.components.button",
+            // {string} the multilingual label key for the class label
+         };
+      }
+      constructor(values, application, parent, defaultValues) {
+         const ABViewFormButtonDefaults = {
+            key: "button",
+            // {string} unique key for this view
+
+            icon: "square",
+            // {string} fa-[icon] reference for this view
+
+            labelKey: "ab.components.button",
+            // {string} the multilingual label key for the class label
+         };
+         super(
+            values,
+            application,
+            parent,
+            defaultValues || ABViewFormButtonDefaults
+         )
+      }
+
+
+      static defaultValues() {
+         return ABViewFormButtonPropertyComponentDefaults;
+      }
+
+      ///
+      /// Instance Methods
+      ///
+
+      toObj() {
+         // labels are multilingual values:
+         let labels = [];
+
+         if (this.settings.saveLabel) labels.push("saveLabel");
+
+         if (this.settings.cancelLabel) labels.push("cancelLabel");
+
+         if (this.settings.resetLabel) labels.push("resetLabel");
+
+         if (this.settings.deleteLabel) labels.push("deleteLabel");
+
+         this.unTranslate(this.settings, this.settings, labels);
+
+         let result = super.toObj();
+
+         return result;
+      }
+
+      /**
+       * @property datacollection
+       * return data source
+       * NOTE: this view doesn't track a DataCollection.
+       * @return {ABDataCollection}
+       */
+      get datacollection() {
+         return null;
+      }
+
+      fromValues(values) {
+         super.fromValues(values);
+
+         // labels are multilingual values:
+         let labels = [];
+
+         if (this.settings.saveLabel) labels.push("saveLabel");
+
+         if (this.settings.cancelLabel) labels.push("cancelLabel");
+
+         if (this.settings.resetLabel) labels.push("resetLabel");
+
+         if (this.settings.deleteLabel) labels.push("deleteLabel");
+
+         this.unTranslate(this.settings, this.settings, labels);
+
+         // this.settings.includeSave = JSON.parse(
+         //    (this.settings?.includeSave ?? true) &&
+         //    ABViewFormButtonPropertyComponentDefaults.includeSave
+         // );
+         // this.settings.includeCancel = JSON.parse(
+         //    this.settings.includeCancel ||
+         //    ABViewFormButtonPropertyComponentDefaults.includeCancel
+         // );
+         // this.settings.includeReset = JSON.parse(
+         //    this.settings.includeReset ||
+         //    ABViewFormButtonPropertyComponentDefaults.includeReset
+         // );
+         // this.settings.includeDelete = JSON.parse(
+         //    this.settings.includeDelete ||
+         //    ABViewFormButtonPropertyComponentDefaults.includeDelete
+         // );
+
+         // this.settings.isDefault = JSON.parse(
+         //    this.settings.isDefault ||
+         //    ABViewFormButtonPropertyComponentDefaults.isDefault
+         // );
+      }
+
+      /**
+       * @method componentList
+       * return the list of components available on this view to display in the editor.
+       */
+      componentList() {
+         return [];
+      }
+   }
+
+   class formComponent extends ABViewComponentPlugin {
+      constructor(baseView, idBase, ids) {
+         super(
+            baseView,
+            idBase || `ABViewFormItem_${baseView.id}`,
+            Object.assign({ formItem: "" }, ids)
+         );
+      }
+
+      ui(uiFormItemComponent = {}) {
+         // setup 'label' of the element
+         const baseView = this.view;
+         const form = baseView.parentFormComponent(),
+            field = baseView.field?.() || null,
+            label = "";
+         const settings = form?.settings || {};
+         const _uiFormItem = {
+            id: this.ids.formItem,
+            labelPosition: settings.labelPosition,
+            labelWidth: settings.labelWidth,
+            label,
+         };
+
+         if (field) {
+            _uiFormItem.name = field.columnName;
+
+            // default value
+            const data = {};
+
+            field.defaultValue(data);
+
+            if (data[field.columnName]) _uiFormItem.value = data[field.columnName];
+
+            if (settings.showLabel) _uiFormItem.label = field.label;
+
+            if (field.settings.required || baseView.settings?.required)
+               _uiFormItem.required = 1;
+
+            if (baseView.settings?.disable === 1) _uiFormItem.disabled = true;
+
+            // this may be needed if we want to format data at this point
+            // if (field.format) data = field.format(data);
+
+            _uiFormItem.validate = (val, data, colName) => {
+               const validator = AB.Validation.validator();
+
+               field.isValidData(data, validator);
+
+               return validator.pass();
+            };
+         }
+
+         const _ui = super.ui([
+            Object.assign({}, _uiFormItem, uiFormItemComponent),
+         ]);
+
+         delete _ui.type;
+
+         return _ui;
+      }
+   };
+
+
+   class ABViewKanbanDetachedFormSaveComponent extends formComponent {
+      constructor(baseView, idBase, ids) {
+         super(
+            baseView,
+            idBase || `ABViewKanbanDetachedFormSave_${baseView.id}`,
+            ids
+         );
+      }
+
+      ui() {
+         const self = this;
+         const baseView = this.view;
+         const form = baseView.parentFormComponent();
+         const settings = baseView.settings ?? {};
+         const alignment =
+            settings.alignment ||
+            baseView.constructor.defaultValues().alignment;
+
+         const _ui = { cols: [] };
+
+         if (alignment === "center" || alignment === "right") {
+            _ui.cols.push({});
+         }
+
+         if (settings.includeSave) {
+            _ui.cols.push({
+               view: "button",
+               type: "form",
+               css: "webix_primary",
+               autowidth: true,
+               value: settings.saveLabel || this.label("Save"),
+               click: function () {
+                  self.onSave(this);
+               },
+               on: {
+                  onAfterRender: function () {
+                     this.getInputNode().setAttribute(
+                        "data-cy",
+                        `button save ${form.id}`
+                     );
+                  },
+               },
+            });
+         }
+
+         if (alignment === "center" || alignment === "left") {
+            _ui.cols.push({});
+         }
+
+         return super.ui(_ui);
+      }
+
+      onSave(saveButton) {
+         if (!saveButton) {
+            console.error("Require the button element");
+            return;
+         }
+         const form = this.view.parentFormComponent();
+         const formView = saveButton.getFormView();
+
+         saveButton.disable?.();
+
+         form
+            .saveData(formView)
+            .then(() => {
+               saveButton.enable?.();
+               form.focusOnFirst();
+            })
+            .catch((err) => {
+               console.error(err);
+               try {
+                  saveButton.enable?.();
+               } catch (e) {
+                  AB.notify.developer(e, {
+                     context:
+                        "ABViewKanbanDetachedFormSave.onSave > saveButton.enable()",
+                     buttonID: this?.view?.id,
+                     formID: this?.view?.parent?.id,
+                  });
+               }
+            });
+      }
+   }
+
+   return class ABViewKanbanDetachedFormSave extends ABViewFormButtonCore {
+      component() {
+         return new ABViewKanbanDetachedFormSaveComponent(this);
+      }
+   };
+}
+
+
+/***/ },
+
+/***/ 83804
+/*!*****************************************************************************************!*\
+  !*** ./AppBuilder/platform/plugins/included/view_kanban/FNABViewKanbanFormSidePanel.js ***!
+  \*****************************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FNABViewKanbanFormSidePanel)
+/* harmony export */ });
+/*
+ * FNABViewKanbanFormSidePanel
+ *
+ * Form area for editing Kanban cards (included plugin; ESM).
+ */
+
+function FNABViewKanbanFormSidePanel({
+   ABViewComponentPlugin,
+   ABViewKanbanDetachedFormSave,
+}) {
+   return class FNABViewKanbanFormSidePanel extends ABViewComponentPlugin {
+      constructor(comKanBan, idBase, editFields) {
+         super(comKanBan, idBase || `${comKanBan.view?.id}_formSidePanel`, {
+            form: "",
+         });
+
+         this.editFields = editFields;
+
+         this._mockApp = this.AB.applicationNew({});
+      }
+
+      ui() {
+         const ids = this.ids;
+         const L = (...params) => this.AB.Multilingual.label(...params);
+
+         return {
+            id: ids.component,
+            width: 300,
+            hidden: true,
+            rows: [
+               {
+                  view: "toolbar",
+                  css: "webix_dark",
+                  cols: [
+                     {
+                        view: "label",
+                        label: L("Edit Record"),
+                     },
+                     {
+                        view: "icon",
+                        icon: "wxi-close",
+                        align: "right",
+                        click: () => {
+                           this.hide();
+                        },
+                     },
+                  ],
+               },
+               {
+                  view: "scrollview",
+                  body: {
+                     rows: [
+                        {
+                           id: ids.form,
+                           view: "form",
+                           type: "clean",
+                           borderless: true,
+                           rows: [],
+                        },
+                     ],
+                  },
+               },
+            ],
+         };
+      }
+
+      hide() {
+         $$(this.ids.component)?.hide();
+
+         this.emit("close");
+      }
+
+      show(data) {
+         $$(this.ids.component)?.show();
+
+         this.refreshForm(data);
+      }
+
+      isVisible() {
+         return $$(this.ids.component)?.isVisible() ?? false;
+      }
+
+      refreshForm(data) {
+         const ids = this.ids;
+         const $formView = $$(ids.form);
+         const CurrentObject = this.CurrentObject;
+
+         if (!CurrentObject || !$formView) return;
+
+         data = data || {};
+
+         const formAttrs = {
+            id: `${this.ids.component}_sideform`,
+            key: "form",
+            settings: {
+               columns: 1,
+               labelPosition: "top",
+               showLabel: 1,
+               clearOnLoad: 0,
+               clearOnSave: 0,
+               labelWidth: 120,
+               height: 0,
+            },
+         };
+
+         const form = this.AB.viewNewDetatched(formAttrs);
+
+         form.objectLoad(CurrentObject);
+
+         CurrentObject.fields().forEach((f, index) => {
+            if (!this.editFields || this.editFields.indexOf(f.id) > -1) {
+               form.addFieldToForm(f, index);
+            }
+         });
+
+         form._views.push(
+            new ABViewKanbanDetachedFormSave(
+               {
+                  settings: {
+                     includeSave: true,
+                     includeCancel: false,
+                     includeReset: false,
+                  },
+                  position: {
+                     y: CurrentObject.fields().length,
+                  },
+               },
+               this._mockApp,
+               form
+            )
+         );
+
+         form._views.forEach(
+            (v, index) => (v.id = `${form.id}_${v.key}_${index}`)
+         );
+
+         const formCom = form.component(this.AB._App);
+
+         webix.ui(formCom.ui().rows.concat({}), $formView);
+         webix.extend($formView, webix.ProgressBar);
+
+         formCom.init(
+            this.AB,
+            2,
+            {
+               onBeforeSaveData: () => {
+                  const formVals = form.getFormValues($formView, CurrentObject);
+
+                  if (!form.validateData($formView, CurrentObject, formVals))
+                     return false;
+
+                  $formView?.showProgress({ type: "icon" });
+
+                  if (formVals.id) {
+                     CurrentObject.model()
+                        .update(formVals.id, formVals)
+                        .then((updateVals) => {
+                           this.emit("update", updateVals);
+
+                           $formView?.hideProgress({ type: "icon" });
+                        })
+                        .catch((err) => {
+                           this.AB.notify.developer(err, {
+                              context:
+                                 "ABViewKanbanFormSidePanel:onBeforeSaveData():update(): Error updating value",
+                              formVals,
+                           });
+                           $formView?.hideProgress({ type: "icon" });
+                        });
+                  } else {
+                     CurrentObject.model()
+                        .create(formVals)
+                        .then((newVals) => {
+                           this.emit("add", newVals);
+
+                           $formView?.hideProgress({ type: "icon" });
+                        })
+                        .catch((err) => {
+                           this.AB.notify.developer(err, {
+                              context:
+                                 "ABViewKanbanFormSidePanel:onBeforeSaveData():.create(): Error creating value",
+                              formVals,
+                           });
+
+                           $formView?.hideProgress({ type: "icon" });
+                        });
+                  }
+
+                  return false;
+               },
+            },
+            2
+         );
+
+         $formView.clear();
+         $formView.parse(data);
+
+         formCom.onShow(data);
       }
    };
 }
@@ -7647,4 +9285,4 @@ function FNAbviewtextComponent({
 /***/ }
 
 }]);
-//# sourceMappingURL=AppBuilder_platform_plugins_included_index_js.e1941db85627527e2965.js.map
+//# sourceMappingURL=AppBuilder_platform_plugins_included_index_js.b82365950c64f48713ce.js.map
