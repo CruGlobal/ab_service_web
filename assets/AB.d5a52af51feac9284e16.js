@@ -12467,7 +12467,7 @@ var AllViews = [
    __webpack_require__(/*! ../platform/views/ABViewMenu */ 46672),
    __webpack_require__(/*! ../platform/views/ABViewPage */ 44),
    // require("../platform/views/ABViewPDFImporter"),
-   __webpack_require__(/*! ../platform/views/ABViewPivot */ 86087),
+   // require("../platform/views/ABViewPivot"),
    // require("../platform/views/ABViewTab"),
    // require("../platform/views/ABViewText"),
 
@@ -33189,117 +33189,6 @@ module.exports = class ABViewPageCore extends ABViewContainer {
 
       // now continue with the default .copy()
       return super.copy(lookUpIds, parent, options);
-   }
-};
-
-
-/***/ },
-
-/***/ 94400
-/*!**************************************************!*\
-  !*** ./AppBuilder/core/views/ABViewPivotCore.js ***!
-  \**************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
-
-const ABViewWidget = __webpack_require__(/*! ../../platform/views/ABViewWidget */ 87039);
-
-const ABViewPivotPropertyComponentDefaults = {
-   dataviewID: null,
-   removeMissed: 0,
-   totalColumn: 0,
-   separateLabel: 0,
-   min: 0,
-   max: 0,
-   height: 0,
-};
-
-const ABViewDefaults = {
-   key: "pivot", // {string} unique key for this view
-   icon: "cube", // {string} fa-[icon] reference for this view
-   labelKey: "Pivot", // {string} the multilingual label key for the class label
-};
-
-module.exports = class ABViewPivotCore extends ABViewWidget {
-   constructor(values, application, parent, defaultValues) {
-      super(values, application, parent, defaultValues || ABViewDefaults);
-   }
-
-   static common() {
-      return ABViewDefaults;
-   }
-
-   static defaultValues() {
-      return ABViewPivotPropertyComponentDefaults;
-   }
-
-   ///
-   /// Instance Methods
-   ///
-
-   /**
-    * @method fromValues()
-    *
-    * initialze this object with the given set of values.
-    * @param {obj} values
-    */
-   fromValues(values) {
-      super.fromValues(values);
-
-      // Convert to boolean
-      this.settings.removeMissed = JSON.parse(
-         this.settings.removeMissed ||
-            ABViewPivotPropertyComponentDefaults.removeMissed
-      );
-      this.settings.totalColumn = JSON.parse(
-         this.settings.totalColumn ||
-            ABViewPivotPropertyComponentDefaults.totalColumn
-      );
-      this.settings.separateLabel = JSON.parse(
-         this.settings.separateLabel ||
-            ABViewPivotPropertyComponentDefaults.separateLabel
-      );
-      this.settings.min = JSON.parse(
-         this.settings.min || ABViewPivotPropertyComponentDefaults.min
-      );
-      this.settings.max = JSON.parse(
-         this.settings.max || ABViewPivotPropertyComponentDefaults.max
-      );
-
-      if (this.settings.structure && typeof this.settings.structure == "string")
-         this.settings.structure = JSON.parse(this.settings.structure);
-
-      // "0" -> 0
-      this.settings.height = parseInt(
-         this.settings.height || ABViewPivotPropertyComponentDefaults.height
-      );
-   }
-
-   /**
-    * @method toObj()
-    *
-    * properly compile the current state of this ABViewLabel instance
-    * into the values needed for saving.
-    *
-    * @return {json}
-    */
-   toObj() {
-      var obj = super.toObj();
-
-      obj.views = [];
-      obj.settings = obj.settings || {};
-
-      if (this.settings.structure)
-         obj.settings.structure = JSON.stringify(this.settings.structure);
-
-      return obj;
-   }
-
-   /**
-    * @method componentList
-    * return the list of components available on this view to display in the editor.
-    */
-   componentList() {
-      return [];
    }
 };
 
@@ -57402,46 +57291,6 @@ module.exports = class ABViewPage extends ABViewPageCore {
 
 /***/ },
 
-/***/ 86087
-/*!**************************************************!*\
-  !*** ./AppBuilder/platform/views/ABViewPivot.js ***!
-  \**************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
-
-const ABViewPivotCore = __webpack_require__(/*! ../../core/views/ABViewPivotCore */ 94400);
-const ABViewPivotComponent = __webpack_require__(/*! ./viewComponent/ABViewPivotComponent */ 88525);
-
-let L = (...params) => AB.Multilingual.label(...params);
-
-module.exports = class ABViewPivot extends ABViewPivotCore {
-   constructor(values, application, parent, defaultValues) {
-      super(values, application, parent, defaultValues);
-   }
-
-   /**
-    * @method component()
-    * return a UI component based upon this view.
-    * @return {obj} UI component
-    */
-   component() {
-      return new ABViewPivotComponent(this);
-   }
-
-   warningsEval() {
-      super.warningsEval();
-
-      let DC = this.datacollection;
-      if (!DC) {
-         this.warningsMessage(
-            `can't resolve it's datacollection[${this.settings.dataviewID}]`
-         );
-      }
-   }
-};
-
-
-/***/ },
-
 /***/ 87929
 /*!***********************************************************!*\
   !*** ./AppBuilder/platform/views/ABViewReportsManager.js ***!
@@ -66549,144 +66398,6 @@ module.exports = class ABViewMenuComponent extends ABViewComponent {
             `menu-item ${viewInfo?.name} ${item.id} ${this.view.id}`
          );
       });
-   }
-};
-
-
-/***/ },
-
-/***/ 88525
-/*!*************************************************************************!*\
-  !*** ./AppBuilder/platform/views/viewComponent/ABViewPivotComponent.js ***!
-  \*************************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
-
-const ABViewComponent = (__webpack_require__(/*! ./ABViewComponent */ 23687)["default"]);
-const ABFieldCalculate = __webpack_require__(/*! ../../dataFields/ABFieldCalculate */ 43925);
-const ABFieldFormula = __webpack_require__(/*! ../../dataFields/ABFieldFormula */ 29491);
-const ABFieldNumber = __webpack_require__(/*! ../../dataFields/ABFieldNumber */ 89652);
-/* global pivot */
-module.exports = class ABViewPivotComponent extends ABViewComponent {
-   constructor(baseView, idBase, ids) {
-      super(
-         baseView,
-         idBase || `ABViewPivot_${baseView.id}`,
-         Object.assign({ pivot: "" }, ids)
-      );
-   }
-
-   ui() {
-      const self = this;
-      const settings = this.settings;
-      const uiPivot = {
-         id: this.ids.pivot,
-         view: "pivot",
-         readonly: true,
-         removeMissed: settings.removeMissed,
-         totalColumn: settings.totalColumn,
-         separateLabel: settings.separateLabel,
-         min: settings.min,
-         max: settings.max,
-         height: settings.height,
-         fields: this._getFields(),
-         format: (value) => {
-            const decimalPlaces = settings.decimalPlaces ?? 2;
-
-            return value && value != "0"
-               ? parseFloat(value).toFixed(decimalPlaces || 0)
-               : value;
-         },
-         override: new Map([
-            [
-               pivot.services.Backend,
-               class MyBackend extends pivot.services.Backend {
-                  async data() {
-                     const dc = self.datacollection;
-                     if (!dc) return webix.promise.resolve([]);
-
-                     const object = dc.datasource;
-                     if (!object) return webix.promise.resolve([]);
-
-                     switch (dc.dataStatus) {
-                        case dc.dataStatusFlag.notInitial:
-                           await dc.loadData();
-                           break;
-                     }
-
-                     const data = dc.getData();
-                     const dataMapped = data.map((d) => {
-                        const result = {};
-
-                        object.fields().forEach((f) => {
-                           if (
-                              f instanceof ABFieldCalculate ||
-                              f instanceof ABFieldFormula ||
-                              f instanceof ABFieldNumber
-                           )
-                              result[f.columnName] = d[f.columnName];
-                           else result[f.columnName] = f.format(d);
-                        });
-
-                        return result;
-                     });
-
-                     return webix.promise.resolve(dataMapped);
-                  }
-               },
-            ],
-            [
-               pivot.views.table,
-               class CustomTable extends pivot.views.table {
-                  CellFormat(value) {
-                     const decimalPlaces = settings.decimalPlaces ?? 2;
-                     if (!value) value = value === 0 ? "0" : "";
-                     return value
-                        ? parseFloat(value).toFixed(decimalPlaces)
-                        : value;
-                  }
-               },
-            ],
-         ]),
-      };
-
-      if (settings.structure) uiPivot.structure = settings.structure;
-
-      const _ui = super.ui([uiPivot]);
-      delete _ui.type;
-
-      return _ui;
-   }
-
-   _getFields() {
-      const dc = this.datacollection;
-      if (!dc) return [];
-
-      const object = dc.datasource;
-      if (!object) return [];
-
-      const fields = object.fields().map((f) => {
-         let fieldType = "text";
-
-         switch (f.key) {
-            case "calculate":
-            case "formula":
-            case "number":
-               fieldType = "number";
-               break;
-            case "date":
-            case "datetime":
-               fieldType = "date";
-               break;
-         }
-
-         return {
-            id: f.columnName,
-            value: f.label,
-            type: fieldType,
-         };
-      });
-
-      return fields;
    }
 };
 
@@ -79231,4 +78942,4 @@ module.exports = class ABCustomEditList {
 /***/ }
 
 }]);
-//# sourceMappingURL=AB.23f9252b2bf464c7a509.js.map
+//# sourceMappingURL=AB.d5a52af51feac9284e16.js.map

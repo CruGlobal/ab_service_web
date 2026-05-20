@@ -25,8 +25,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _view_layout_FNAbviewlayout_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./view_layout/FNAbviewlayout.js */ 22031);
 /* harmony import */ var _view_list_FNAbviewlist_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./view_list/FNAbviewlist.js */ 62467);
 /* harmony import */ var _view_pdfImporter_FNAbviewpdfimporter_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./view_pdfImporter/FNAbviewpdfimporter.js */ 27377);
-/* harmony import */ var _view_tab_FNAbviewtab_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./view_tab/FNAbviewtab.js */ 95757);
-/* harmony import */ var _view_text_FNAbviewtext_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./view_text/FNAbviewtext.js */ 88229);
+/* harmony import */ var _view_pivot_FNABViewPivot_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./view_pivot/FNABViewPivot.js */ 62513);
+/* harmony import */ var _view_tab_FNAbviewtab_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./view_tab/FNAbviewtab.js */ 95757);
+/* harmony import */ var _view_text_FNAbviewtext_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./view_text/FNAbviewtext.js */ 88229);
+
 
 
 
@@ -59,8 +61,9 @@ const AllPlugins = [
    _view_layout_FNAbviewlayout_js__WEBPACK_IMPORTED_MODULE_11__["default"],
    _view_list_FNAbviewlist_js__WEBPACK_IMPORTED_MODULE_12__["default"],
    _view_pdfImporter_FNAbviewpdfimporter_js__WEBPACK_IMPORTED_MODULE_13__["default"],
-   _view_tab_FNAbviewtab_js__WEBPACK_IMPORTED_MODULE_14__["default"],
-   _view_text_FNAbviewtext_js__WEBPACK_IMPORTED_MODULE_15__["default"],
+   _view_pivot_FNABViewPivot_js__WEBPACK_IMPORTED_MODULE_14__["default"],
+   _view_tab_FNAbviewtab_js__WEBPACK_IMPORTED_MODULE_15__["default"],
+   _view_text_FNAbviewtext_js__WEBPACK_IMPORTED_MODULE_16__["default"],
 ];
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -8964,6 +8967,384 @@ function FNAbviewpdfimporterComponent({
 
 /***/ },
 
+/***/ 62513
+/*!**************************************************************************!*\
+  !*** ./AppBuilder/platform/plugins/included/view_pivot/FNABViewPivot.js ***!
+  \**************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FNABViewPivot)
+/* harmony export */ });
+/* harmony import */ var _FNABViewPivotComponent_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FNABViewPivotComponent.js */ 57670);
+
+
+// FNAbviewpivot Web
+// A web side import for an ABView.
+//
+function FNABViewPivot({
+   /*AB,*/
+   ABViewWidgetPlugin,
+   ABViewComponentPlugin,
+   ABViewContainer,
+}) {
+   const ABAbviewpivotComponent = (0,_FNABViewPivotComponent_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
+      AB,
+      ABViewComponentPlugin,
+   });
+
+   const ABViewPivotPropertyComponentDefaults = {
+      dataviewID: null,
+      removeMissed: 0,
+      totalColumn: 0,
+      separateLabel: 0,
+      min: 0,
+      max: 0,
+      height: 0,
+   };
+
+   const ABViewDefaults = {
+      key: "pivot", // {string} unique key for this view
+      icon: "cube", // {string} fa-[icon] reference for this view
+      labelKey: "Pivot", // {string} the multilingual label key for the class label
+   };
+
+   class ABViewPivotCore extends ABViewWidgetPlugin {
+      constructor(values, application, parent, defaultValues) {
+         super(values, application, parent, defaultValues || ABViewDefaults);
+      }
+
+      static common() {
+         return ABViewDefaults;
+      }
+
+      static defaultValues() {
+         return ABViewPivotPropertyComponentDefaults;
+      }
+
+      ///
+      /// Instance Methods
+      ///
+
+      /**
+       * @method fromValues()
+       *
+       * initialze this object with the given set of values.
+       * @param {obj} values
+       */
+      fromValues(values) {
+         super.fromValues(values);
+
+         // Convert to boolean
+         this.settings.removeMissed = JSON.parse(
+            this.settings.removeMissed ||
+            ABViewPivotPropertyComponentDefaults.removeMissed
+         );
+         this.settings.totalColumn = JSON.parse(
+            this.settings.totalColumn ||
+            ABViewPivotPropertyComponentDefaults.totalColumn
+         );
+         this.settings.separateLabel = JSON.parse(
+            this.settings.separateLabel ||
+            ABViewPivotPropertyComponentDefaults.separateLabel
+         );
+         this.settings.min = JSON.parse(
+            this.settings.min || ABViewPivotPropertyComponentDefaults.min
+         );
+         this.settings.max = JSON.parse(
+            this.settings.max || ABViewPivotPropertyComponentDefaults.max
+         );
+
+         if (
+            this.settings.structure &&
+            typeof this.settings.structure == "string"
+         )
+            this.settings.structure = JSON.parse(this.settings.structure);
+
+         // "0" -> 0
+         this.settings.height = parseInt(
+            this.settings.height || ABViewPivotPropertyComponentDefaults.height
+         );
+      }
+
+      /**
+       * @method toObj()
+       *
+       * properly compile the current state of this ABViewLabel instance
+       * into the values needed for saving.
+       *
+       * @return {json}
+       */
+      toObj() {
+         var obj = super.toObj();
+
+         obj.views = [];
+         obj.settings = obj.settings || {};
+
+         if (this.settings.structure)
+            obj.settings.structure = JSON.stringify(this.settings.structure);
+
+         return obj;
+      }
+
+      /**
+       * @method componentList
+       * return the list of components available on this view to display in the editor.
+       */
+      componentList() {
+         return [];
+      }
+   }
+
+   return class ABViewPivot extends ABViewPivotCore {
+      /**
+       * @method getPluginKey
+       * return the plugin key for this view.
+       * @return {string} plugin key
+       */
+      static getPluginKey() {
+         return this.common().key;
+      }
+
+      /**
+       * @method component()
+       * return a UI component based upon this view.
+       * @return {obj} UI component
+       */
+      component(parentId) {
+         return new ABAbviewpivotComponent(this, parentId);
+      }
+
+      constructor(values, application, parent, defaultValues) {
+         super(values, application, parent, defaultValues);
+      }
+
+      warningsEval() {
+         super.warningsEval();
+
+         let DC = this.datacollection;
+         if (!DC) {
+            this.warningsMessage(
+               `can't resolve it's datacollection[${this.settings.dataviewID}]`
+            );
+         }
+      }
+   };
+}
+
+
+/***/ },
+
+/***/ 57670
+/*!***********************************************************************************!*\
+  !*** ./AppBuilder/platform/plugins/included/view_pivot/FNABViewPivotComponent.js ***!
+  \***********************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FNAbviewpivotComponent)
+/* harmony export */ });
+function FNAbviewpivotComponent({
+   AB,
+   ABViewComponentPlugin,
+}) {
+   return class ABAbviewpivotComponent extends ABViewComponentPlugin {
+      constructor(baseView, idBase, ids) {
+         super(
+            baseView,
+            idBase || `ABViewPivot_${baseView.id}`,
+            Object.assign({ pivot: "" }, ids)
+         );
+
+         // refresh the widget by id.
+         this._handler_refreshPivot = () => {
+            const ids = this.ids;
+            $$(ids.pivot)?.refresh?.();
+         };
+      }
+
+      async init(AB) {
+         await super.init(AB);
+
+         const dc = this.datacollection;
+         if (!dc) return;
+
+         dc.removeListener("initializedData", this._handler_refreshPivot);
+         dc.on("initializedData", this._handler_refreshPivot);
+
+         dc.removeListener("loadData", this._handler_refreshPivot);
+         dc.on("loadData", this._handler_refreshPivot);
+      }
+
+      /**
+       * Remove DC listeners
+       */
+      detatch() {
+         const dc = this.datacollection;
+         if (!dc) return;
+
+         dc.removeListener("initializedData", this._handler_refreshPivot);
+         dc.removeListener("loadData", this._handler_refreshPivot);
+      }
+
+      ui() {
+         const ids = this.ids;
+         const ABFieldCalculate = AB.Class.ABFieldManager.fieldByKey("calculate");
+         const ABFieldNumber = AB.Class.ABFieldManager.fieldByKey("number");
+         const ABFieldFormula = AB.Class.ABFieldManager.fieldByKey("formula");
+
+         const self = this;
+         const settings = this.settings;
+
+         const uiPivot = {
+            id: ids.pivot,
+            view: "pivot",
+            readonly: true,
+            removeMissed: settings.removeMissed,
+            totalColumn: settings.totalColumn,
+            separateLabel: settings.separateLabel,
+            min: settings.min,
+            max: settings.max,
+            height: settings.height,
+            fields: this._getFields(),
+            format: (value) => {
+               const decimalPlaces = settings.decimalPlaces ?? 2;
+
+               return value && value != "0"
+                  ? parseFloat(value).toFixed(decimalPlaces || 0)
+                  : value;
+            },
+            override: new Map([
+               [
+                  pivot.services.Backend,
+                  class MyBackend extends pivot.services.Backend {
+                     async data() {
+                        const dc = self.datacollection;
+                        if (!dc) return webix.promise.resolve([]);
+
+                        const object = dc.datasource;
+                        if (!object) return webix.promise.resolve([]);
+
+                        await dc.waitReady();
+
+                        const data = dc.getData();
+                        const dataMapped = data.map((d) => {
+                           const result = {};
+
+                           object.fields().forEach((f) => {
+                              if (
+                                 f instanceof ABFieldCalculate ||
+                                 f instanceof ABFieldFormula ||
+                                 f instanceof ABFieldNumber
+                              )
+                                 result[f.columnName] = d[f.columnName];
+                              else result[f.columnName] = f.format(d);
+                           });
+
+                           return result;
+                        });
+
+                        return webix.promise.resolve(dataMapped);
+                     }
+                  },
+               ],
+               [
+                  pivot.views.table,
+                  class CustomTable extends pivot.views.table {
+                     /**
+                      * Webix Pivot UpdateTable uses `if (data.totalColumn)`; loadError()
+                      * returns totalColumn: [] which is truthy with header: [], causing
+                      * data.header[last].id to throw. Strip totalColumn when header empty.
+                      */
+                     UpdateTable(data) {
+                        if (
+                           data &&
+                           !data.$ready &&
+                           data.totalColumn &&
+                           !data.header?.length
+                        ) {
+                           data = { ...data };
+                           delete data.totalColumn;
+                        }
+                        return super.UpdateTable(data);
+                     }
+
+                     CellFormat(value) {
+                        const decimalPlaces = settings.decimalPlaces ?? 2;
+                        if (!value) value = value === 0 ? "0" : "";
+                        return value
+                           ? parseFloat(value).toFixed(decimalPlaces)
+                           : value;
+                     }
+                  },
+               ],
+            ]),
+         };
+
+         if (settings.structure) uiPivot.structure = settings.structure;
+
+         const _ui = super.ui([uiPivot]);
+         delete _ui.type;
+
+         return _ui;
+      }
+
+      _getFields() {
+         const dc = this.datacollection;
+         if (!dc) return [];
+
+         const object = dc.datasource;
+         if (!object) return [];
+
+         const fields = object.fields().map((f) => {
+            let fieldType = "text";
+
+            switch (f.key) {
+               case "calculate":
+               case "formula":
+               case "number":
+                  fieldType = "number";
+                  break;
+               case "date":
+               case "datetime":
+                  fieldType = "date";
+                  break;
+            }
+
+            return {
+               id: f.columnName,
+               value: f.label,
+               type: fieldType,
+            };
+         });
+
+         return fields;
+      }
+
+      async onShow() {
+         const ids = this.ids;
+         super.onShow();
+
+         const dc = this.datacollection;
+         if (!dc) return;
+
+         const object = dc.datasource;
+         if (!object) return;
+
+         await dc.waitReady();
+
+         $$(ids.pivot)?.refresh?.();
+      }
+   };
+}
+
+
+/***/ },
+
 /***/ 95757
 /*!**********************************************************************!*\
   !*** ./AppBuilder/platform/plugins/included/view_tab/FNAbviewtab.js ***!
@@ -10062,4 +10443,4 @@ function FNAbviewtextComponent({
 /***/ }
 
 }]);
-//# sourceMappingURL=AppBuilder_platform_plugins_included_index_js.e68a0ff8c21db9a3beee.js.map
+//# sourceMappingURL=AppBuilder_platform_plugins_included_index_js.00e443d33243b95d691d.js.map
