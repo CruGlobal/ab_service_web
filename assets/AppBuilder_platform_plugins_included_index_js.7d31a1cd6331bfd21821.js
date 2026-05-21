@@ -12,22 +12,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _view_carousel_FNAbviewcarousel_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./view_carousel/FNAbviewcarousel.js */ 77739);
-/* harmony import */ var _view_comment_FNAbviewcomment_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./view_comment/FNAbviewcomment.js */ 85253);
-/* harmony import */ var _view_csvExporter_FNAbviewcsvexporter_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./view_csvExporter/FNAbviewcsvexporter.js */ 49029);
-/* harmony import */ var _view_csvImporter_FNAbviewcsvimporter_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./view_csvImporter/FNAbviewcsvimporter.js */ 48261);
-/* harmony import */ var _view_data_select_FNAbviewdataselect_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./view_data-select/FNAbviewdataselect.js */ 78612);
-/* harmony import */ var _view_dataview_FNAbviewdataview_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./view_dataview/FNAbviewdataview.js */ 84373);
-/* harmony import */ var _view_detail_FNAbviewdetail_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./view_detail/FNAbviewdetail.js */ 73053);
-/* harmony import */ var _view_gantt_FNAbviewgantt_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./view_gantt/FNAbviewgantt.js */ 92973);
-/* harmony import */ var _view_image_FNAbviewimage_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./view_image/FNAbviewimage.js */ 58661);
-/* harmony import */ var _view_kanban_FNABViewKanban_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./view_kanban/FNABViewKanban.js */ 35653);
-/* harmony import */ var _view_label_FNAbviewlabel_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./view_label/FNAbviewlabel.js */ 31697);
-/* harmony import */ var _view_layout_FNAbviewlayout_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./view_layout/FNAbviewlayout.js */ 22031);
-/* harmony import */ var _view_list_FNAbviewlist_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./view_list/FNAbviewlist.js */ 62467);
-/* harmony import */ var _view_pdfImporter_FNAbviewpdfimporter_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./view_pdfImporter/FNAbviewpdfimporter.js */ 27377);
-/* harmony import */ var _view_pivot_FNABViewPivot_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./view_pivot/FNABViewPivot.js */ 62513);
-/* harmony import */ var _view_tab_FNAbviewtab_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./view_tab/FNAbviewtab.js */ 95757);
-/* harmony import */ var _view_text_FNAbviewtext_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./view_text/FNAbviewtext.js */ 88229);
+/* harmony import */ var _view_chart_FNAbviewchart_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./view_chart/FNAbviewchart.js */ 2137);
+/* harmony import */ var _view_comment_FNAbviewcomment_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./view_comment/FNAbviewcomment.js */ 85253);
+/* harmony import */ var _view_csvExporter_FNAbviewcsvexporter_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./view_csvExporter/FNAbviewcsvexporter.js */ 49029);
+/* harmony import */ var _view_csvImporter_FNAbviewcsvimporter_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./view_csvImporter/FNAbviewcsvimporter.js */ 48261);
+/* harmony import */ var _view_data_select_FNAbviewdataselect_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./view_data-select/FNAbviewdataselect.js */ 78612);
+/* harmony import */ var _view_dataview_FNAbviewdataview_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./view_dataview/FNAbviewdataview.js */ 84373);
+/* harmony import */ var _view_detail_FNAbviewdetail_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./view_detail/FNAbviewdetail.js */ 73053);
+/* harmony import */ var _view_gantt_FNAbviewgantt_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./view_gantt/FNAbviewgantt.js */ 92973);
+/* harmony import */ var _view_image_FNAbviewimage_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./view_image/FNAbviewimage.js */ 58661);
+/* harmony import */ var _view_kanban_FNABViewKanban_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./view_kanban/FNABViewKanban.js */ 35653);
+/* harmony import */ var _view_label_FNAbviewlabel_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./view_label/FNAbviewlabel.js */ 31697);
+/* harmony import */ var _view_layout_FNAbviewlayout_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./view_layout/FNAbviewlayout.js */ 22031);
+/* harmony import */ var _view_list_FNAbviewlist_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./view_list/FNAbviewlist.js */ 62467);
+/* harmony import */ var _view_pdfImporter_FNAbviewpdfimporter_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./view_pdfImporter/FNAbviewpdfimporter.js */ 27377);
+/* harmony import */ var _view_pivot_FNABViewPivot_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./view_pivot/FNABViewPivot.js */ 62513);
+/* harmony import */ var _view_tab_FNAbviewtab_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./view_tab/FNAbviewtab.js */ 95757);
+/* harmony import */ var _view_text_FNAbviewtext_js__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./view_text/FNAbviewtext.js */ 88229);
+
 
 
 
@@ -48,22 +50,23 @@ __webpack_require__.r(__webpack_exports__);
 
 const AllPlugins = [
    _view_carousel_FNAbviewcarousel_js__WEBPACK_IMPORTED_MODULE_0__["default"],
-   _view_comment_FNAbviewcomment_js__WEBPACK_IMPORTED_MODULE_1__["default"],
-   _view_csvExporter_FNAbviewcsvexporter_js__WEBPACK_IMPORTED_MODULE_2__["default"],
-   _view_csvImporter_FNAbviewcsvimporter_js__WEBPACK_IMPORTED_MODULE_3__["default"],
-   _view_data_select_FNAbviewdataselect_js__WEBPACK_IMPORTED_MODULE_4__["default"],
-   _view_dataview_FNAbviewdataview_js__WEBPACK_IMPORTED_MODULE_5__["default"],
-   _view_detail_FNAbviewdetail_js__WEBPACK_IMPORTED_MODULE_6__["default"],
-   _view_gantt_FNAbviewgantt_js__WEBPACK_IMPORTED_MODULE_7__["default"],
-   _view_image_FNAbviewimage_js__WEBPACK_IMPORTED_MODULE_8__["default"],
-   _view_kanban_FNABViewKanban_js__WEBPACK_IMPORTED_MODULE_9__["default"],
-   _view_label_FNAbviewlabel_js__WEBPACK_IMPORTED_MODULE_10__["default"],
-   _view_layout_FNAbviewlayout_js__WEBPACK_IMPORTED_MODULE_11__["default"],
-   _view_list_FNAbviewlist_js__WEBPACK_IMPORTED_MODULE_12__["default"],
-   _view_pdfImporter_FNAbviewpdfimporter_js__WEBPACK_IMPORTED_MODULE_13__["default"],
-   _view_pivot_FNABViewPivot_js__WEBPACK_IMPORTED_MODULE_14__["default"],
-   _view_tab_FNAbviewtab_js__WEBPACK_IMPORTED_MODULE_15__["default"],
-   _view_text_FNAbviewtext_js__WEBPACK_IMPORTED_MODULE_16__["default"],
+   _view_chart_FNAbviewchart_js__WEBPACK_IMPORTED_MODULE_1__["default"],
+   _view_comment_FNAbviewcomment_js__WEBPACK_IMPORTED_MODULE_2__["default"],
+   _view_csvExporter_FNAbviewcsvexporter_js__WEBPACK_IMPORTED_MODULE_3__["default"],
+   _view_csvImporter_FNAbviewcsvimporter_js__WEBPACK_IMPORTED_MODULE_4__["default"],
+   _view_data_select_FNAbviewdataselect_js__WEBPACK_IMPORTED_MODULE_5__["default"],
+   _view_dataview_FNAbviewdataview_js__WEBPACK_IMPORTED_MODULE_6__["default"],
+   _view_detail_FNAbviewdetail_js__WEBPACK_IMPORTED_MODULE_7__["default"],
+   _view_gantt_FNAbviewgantt_js__WEBPACK_IMPORTED_MODULE_8__["default"],
+   _view_image_FNAbviewimage_js__WEBPACK_IMPORTED_MODULE_9__["default"],
+   _view_kanban_FNABViewKanban_js__WEBPACK_IMPORTED_MODULE_10__["default"],
+   _view_label_FNAbviewlabel_js__WEBPACK_IMPORTED_MODULE_11__["default"],
+   _view_layout_FNAbviewlayout_js__WEBPACK_IMPORTED_MODULE_12__["default"],
+   _view_list_FNAbviewlist_js__WEBPACK_IMPORTED_MODULE_13__["default"],
+   _view_pdfImporter_FNAbviewpdfimporter_js__WEBPACK_IMPORTED_MODULE_14__["default"],
+   _view_pivot_FNABViewPivot_js__WEBPACK_IMPORTED_MODULE_15__["default"],
+   _view_tab_FNAbviewtab_js__WEBPACK_IMPORTED_MODULE_16__["default"],
+   _view_text_FNAbviewtext_js__WEBPACK_IMPORTED_MODULE_17__["default"],
 ];
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -827,6 +830,1784 @@ function FNAbviewcarouselComponent({
          imgElem.style.height = `${newHeight}%`;
 
          imgContainer.style.overflow = newHeight > 100 ? "auto" : "";
+      }
+   };
+}
+
+
+/***/ },
+
+/***/ 2137
+/*!**************************************************************************!*\
+  !*** ./AppBuilder/platform/plugins/included/view_chart/FNAbviewchart.js ***!
+  \**************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABchart)
+/* harmony export */ });
+/* harmony import */ var _chart_FNAbviewchart_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./chart/FNAbviewchart.js */ 69014);
+/* harmony import */ var _area_FNAbviewchartarea_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./area/FNAbviewchartarea.js */ 3050);
+/* harmony import */ var _bar_FNAbviewchartbar_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./bar/FNAbviewchartbar.js */ 3410);
+/* harmony import */ var _line_FNAbviewchartline_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./line/FNAbviewchartline.js */ 7494);
+/* harmony import */ var _pie_FNAbviewchartpie_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pie/FNAbviewchartpie.js */ 69448);
+
+
+
+
+
+
+function ABchart(API) {
+   return [
+      (0,_chart_FNAbviewchart_js__WEBPACK_IMPORTED_MODULE_0__["default"])(API),
+      (0,_area_FNAbviewchartarea_js__WEBPACK_IMPORTED_MODULE_1__["default"])(API),
+      (0,_bar_FNAbviewchartbar_js__WEBPACK_IMPORTED_MODULE_2__["default"])(API),
+      (0,_line_FNAbviewchartline_js__WEBPACK_IMPORTED_MODULE_3__["default"])(API),
+      (0,_pie_FNAbviewchartpie_js__WEBPACK_IMPORTED_MODULE_4__["default"])(API),
+   ];
+}
+
+/***/ },
+
+/***/ 3050
+/*!***********************************************************************************!*\
+  !*** ./AppBuilder/platform/plugins/included/view_chart/area/FNAbviewchartarea.js ***!
+  \***********************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FNAbviewchartarea)
+/* harmony export */ });
+/* harmony import */ var _FNAbviewchartareaComponent_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FNAbviewchartareaComponent.js */ 88787);
+/* harmony import */ var _chartBindings_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../chartBindings.js */ 3494);
+
+
+
+// FNAbviewchartarea Web
+// A web side import for an ABView.
+//
+function FNAbviewchartarea({
+   AB,
+   ABViewComponentPlugin,
+   ABViewWidgetPlugin,
+}) {
+   const ABViewChartCore = (0,_chartBindings_js__WEBPACK_IMPORTED_MODULE_1__["default"])({ ABViewWidgetPlugin });
+   const ABAbviewchartareaComponent = (0,_FNAbviewchartareaComponent_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
+      AB,
+      ABViewComponentPlugin,
+   });
+
+   const ABViewChartAreaPropertyComponentDefaults = {
+      areaType: "area",
+      isLegend: 1,
+      chartHeight: 200,
+      labelFontSize: 12,
+      stepValue: 20,
+      maxValue: 100,
+   };
+
+   const ABViewDefaults = {
+      key: "area", // {string} unique key for this view
+      icon: "area-chart", // {string} fa-[icon] reference for this view
+      labelKey: "Area", // {string} the multilingual label key for the class label
+   };
+
+   class ABViewChartAreaCore extends ABViewChartCore {
+      constructor(values, application, parent, defaultValues) {
+         super(values, application, parent, defaultValues || ABViewDefaults);
+      }
+
+      static common() {
+         return ABViewDefaults;
+      }
+
+      static defaultValues() {
+         return ABViewChartAreaPropertyComponentDefaults;
+      }
+
+      ///
+      /// Instance Methods
+      ///
+
+      /**
+       * @method fromValues()
+       *
+       * initialze this object with the given set of values.
+       * @param {obj} values
+       */
+      fromValues(values) {
+         super.fromValues(values);
+
+         this.settings.areaType =
+            this.settings.areaType ||
+            ABViewChartAreaPropertyComponentDefaults.areaType;
+
+         this.settings.isLegend = parseInt(
+            this.settings.isLegend ??
+               ABViewChartAreaPropertyComponentDefaults.isLegend
+         );
+
+         // this.settings.chartWidth = parseInt(this.settings.chartWidth || ABViewChartAreaPropertyComponentDefaults.chartWidth);
+         this.settings.chartHeight = parseInt(
+            this.settings.chartHeight ??
+               ABViewChartAreaPropertyComponentDefaults.chartHeight
+         );
+
+         this.settings.labelFontSize = parseInt(
+            this.settings.labelFontSize ??
+               ABViewChartAreaPropertyComponentDefaults.labelFontSize
+         );
+         this.settings.stepValue = parseInt(
+            this.settings.stepValue ??
+               ABViewChartAreaPropertyComponentDefaults.stepValue
+         );
+         this.settings.maxValue = parseInt(
+            this.settings.maxValue ??
+               ABViewChartAreaPropertyComponentDefaults.maxValue
+         );
+
+         this.translate(this, this, ["areaLabel"]);
+      }
+
+      /**
+       * @method componentList
+       * return the list of components available on this view to display in the editor.
+       */
+      componentList() {
+         return [];
+      }
+   }
+
+   return class ABViewChartArea extends ABViewChartAreaCore {
+      /**
+       * @method getPluginKey
+       * return the plugin key for this view.
+       * @return {string} plugin key
+       */
+      static getPluginKey() {
+         return this.common().key;
+      }
+
+      /**
+       * @method component()
+       * return a UI component based upon this view.
+       * @return {obj} UI component
+       */
+      component() {
+         return new ABAbviewchartareaComponent(this);
+      }
+
+      // constructor(values, application, parent, defaultValues) {
+      //    super(values, application, parent, defaultValues);
+      // }
+   };
+}
+
+
+/***/ },
+
+/***/ 88787
+/*!********************************************************************************************!*\
+  !*** ./AppBuilder/platform/plugins/included/view_chart/area/FNAbviewchartareaComponent.js ***!
+  \********************************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FNAbviewchartareaComponent)
+/* harmony export */ });
+/* harmony import */ var _chartBindings_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../chartBindings.js */ 53511);
+
+
+function FNAbviewchartareaComponent({ ABViewComponentPlugin }) {
+   const ChartContainerComponent = (0,_chartBindings_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
+      ABViewComponentPlugin,
+   });
+
+   return class ABviewchartareaComponent extends ChartContainerComponent {
+      constructor(baseView, idBase, ids) {
+         super(baseView, idBase || `ABViewChartArea_${baseView.id}`, ids);
+      }
+
+      ui() {
+         const settings = this.settings;
+
+         return super.ui({
+            view: "chart",
+            type: settings.areaType,
+            yAxis: {
+               start: 0,
+               step: settings.stepValue, //"#stepValue#",
+               end: settings.maxValue, //"#maxValue#"
+            },
+            xAxis: {
+               template: settings.isLegend
+                  ? `<div style='font-size:${settings.labelFontSize}px;'>#label#</div>`
+                  : "",
+            },
+            legend: settings.isLegend
+               ? {
+                    template: `<div style='font-size:${settings.labelFontSize}px;'>#label#</div>`,
+                    values: [], // TODO : bug in webix 5.1.7
+                 }
+               : null,
+            series: [
+               {
+                  alpha: 0.7,
+                  value: "#value#",
+                  color: "#ee4339",
+               },
+               {
+                  alpha: 0.4,
+                  value: "#value2#",
+                  color: "#a7ee70",
+               },
+            ],
+            height: settings.chartHeight,
+            // width: settings.chartWidth,
+         });
+      }
+
+      async init(AB) {
+         await super.init(AB);
+      }
+
+      onShow() {
+         super.onShow();
+      }
+   };
+}
+
+
+/***/ },
+
+/***/ 3410
+/*!*********************************************************************************!*\
+  !*** ./AppBuilder/platform/plugins/included/view_chart/bar/FNAbviewchartbar.js ***!
+  \*********************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FNAbviewchartbar)
+/* harmony export */ });
+/* harmony import */ var _FNAbviewchartbarComponent_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FNAbviewchartbarComponent.js */ 34523);
+/* harmony import */ var _chartBindings_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../chartBindings.js */ 3494);
+
+
+
+// FNAbviewchartbar Web
+// A web side import for an ABView.
+//
+function FNAbviewchartbar({
+   ABViewComponentPlugin,
+   ABViewWidgetPlugin,
+}) {
+   const ABViewChartCore = (0,_chartBindings_js__WEBPACK_IMPORTED_MODULE_1__["default"])({ ABViewWidgetPlugin });
+   const ABAbviewchartbarComponent = (0,_FNAbviewchartbarComponent_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
+      ABViewComponentPlugin,
+   });
+
+   const ABViewChartBarPropertyComponentDefaults = {
+      barType: "bar",
+      barPreset: "column",
+      isLegend: 1,
+      // chartWidth: 600,
+      height: 200,
+      labelFontSize: 12,
+      stepValue: 20,
+      maxValue: 100,
+   };
+
+   const ABViewDefaults = {
+      key: "bar", // {string} unique key for this view
+      icon: "bar-chart", // {string} fa-[icon] reference for this view
+      labelKey: "Bar", // {string} the multilingual label key for the class label
+   };
+
+   class ABViewChartBarCore extends ABViewChartCore {
+      constructor(values, application, parent, defaultValues) {
+         super(values, application, parent, defaultValues || ABViewDefaults);
+      }
+
+      static common() {
+         return ABViewDefaults;
+      }
+
+      static defaultValues() {
+         return ABViewChartBarPropertyComponentDefaults;
+      }
+
+      ///
+      /// Instance Methods
+      ///
+
+      /**
+       * @method fromValues()
+       *
+       * initialze this object with the given set of values.
+       * @param {obj} values
+       */
+      fromValues(values) {
+         super.fromValues(values);
+
+         this.settings.barType =
+            this.settings.barType ||
+            ABViewChartBarPropertyComponentDefaults.barType;
+
+         this.settings.barPreset =
+            this.settings.barPreset ||
+            ABViewChartBarPropertyComponentDefaults.barPreset;
+
+         this.settings.isLegend = parseInt(
+            this.settings.isLegend ??
+            ABViewChartBarPropertyComponentDefaults.isLegend
+         );
+
+         // this.settings.chartWidth = parseInt(this.settings.chartWidth || ABViewChartBarPropertyComponentDefaults.chartWidth);
+         this.settings.height = parseInt(
+            this.settings.height ??
+            ABViewChartBarPropertyComponentDefaults.height
+         );
+
+         this.settings.labelFontSize = parseInt(
+            this.settings.labelFontSize ??
+            ABViewChartBarPropertyComponentDefaults.labelFontSize
+         );
+         this.settings.stepValue = parseInt(
+            this.settings.stepValue ??
+            ABViewChartBarPropertyComponentDefaults.stepValue
+         );
+         this.settings.maxValue = parseInt(
+            this.settings.maxValue ??
+            ABViewChartBarPropertyComponentDefaults.maxValue
+         );
+
+         this.translate(this, this, ["barLabel"]);
+      }
+
+      /**
+       * @method componentList
+       * return the list of components available on this view to display in the editor.
+       */
+      componentList() {
+         return [];
+      }
+   }
+
+   return class ABViewChartBar extends ABViewChartBarCore {
+      /**
+       * @method getPluginKey
+       * return the plugin key for this view.
+       * @return {string} plugin key
+       */
+      static getPluginKey() {
+         return this.common().key;
+      }
+
+      /**
+       * @method component()
+       * return a UI component based upon this view.
+       * @return {obj} UI component
+       */
+      component() {
+         return new ABAbviewchartbarComponent(this);
+      }
+
+      // constructor(values, application, parent, defaultValues) {
+      //    super(values, application, parent, defaultValues);
+      // }
+   };
+}
+
+
+/***/ },
+
+/***/ 34523
+/*!******************************************************************************************!*\
+  !*** ./AppBuilder/platform/plugins/included/view_chart/bar/FNAbviewchartbarComponent.js ***!
+  \******************************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FNAbviewchartbarComponent)
+/* harmony export */ });
+/* harmony import */ var _chartBindings_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../chartBindings.js */ 53511);
+
+
+function FNAbviewchartbarComponent({
+   ABViewComponentPlugin,
+}) {
+   const ChartContainerComponent = (0,_chartBindings_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
+      ABViewComponentPlugin,
+   });
+
+   return class FNAbviewchartbarComponent extends ChartContainerComponent {
+      constructor(baseView, idBase, ids) {
+         super(baseView, idBase || `ABViewChartBar_${baseView.id}`, ids);
+      }
+
+      ui() {
+         const settings = this.settings;
+
+         return super.ui({
+            view: "chart",
+            type: settings.barType,
+            preset: settings.barPreset,
+            value: "#value#",
+            color: "#color#",
+            yAxis: {
+               start: 0,
+               step: settings.stepValue, //"#stepValue#",
+               end: settings.maxValue, //"#maxValue#"
+            },
+            xAxis: {
+               template: settings.isLegend
+                  ? `<div style='font-size:${settings.labelFontSize}px;'>#label#</div>`
+                  : "",
+            },
+            legend:
+               settings.barType === "bar" || !settings.barType
+                  ? settings.isLegend
+                     ? `<div style='font-size:${settings.labelFontSize}px;'>#label#</div>`
+                     : ""
+                  : settings.isLegend
+                  ? {
+                       template: `<div style='font-size:${settings.labelFontSize}px;'>#label#</div>`,
+                       values: [], // TODO : bug in webix 5.1.7
+                    }
+                  : null,
+            height: settings.height,
+            // width: settings.chartWidth,
+         });
+      }
+
+      async init(AB) {
+         await super.init(AB);
+      }
+
+      onShow() {
+         super.onShow();
+      }
+   };
+}
+
+
+/***/ },
+
+/***/ 69014
+/*!********************************************************************************!*\
+  !*** ./AppBuilder/platform/plugins/included/view_chart/chart/FNAbviewchart.js ***!
+  \********************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FNAbviewchart)
+/* harmony export */ });
+/* harmony import */ var _FNAbviewchartComponent_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FNAbviewchartComponent.js */ 71455);
+
+
+
+// FNAbviewchart Web
+// A web side import for an ABView.
+//
+function FNAbviewchart({
+   AB,
+   ABViewContainerComponent,
+   ABViewContainer,
+}) {
+   const ABAbviewchartComponent = (0,_FNAbviewchartComponent_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
+      AB,
+      ABViewContainerComponent,
+   });
+
+   const ABViewChartPropertyComponentDefaults = {
+      dataviewID: "",
+      columnValue: "",
+      columnLabel: "",
+      columnValue2: "",
+      isPercentage: 1,
+      showLabel: 1,
+      labelPosition: "left",
+      labelWidth: 120,
+      height: 200,
+      multipleSeries: 0,
+   };
+
+   const ABViewChartDefaults = {
+      key: "chart", // {string} unique key for this view
+      icon: "bar-chart", // {string} fa-[icon] reference for this view
+      labelKey: "Chart", // {string} the multilingual label key for the class label
+   };
+
+   // this needs to be a class that extends ABViewContainer
+   class ABViewChartCore extends ABViewContainer {
+      constructor(values, application, parent, defaultValues) {
+         super(values, application, parent, defaultValues || ABViewChartDefaults);
+      }
+
+      static getPluginType() {
+         return "view";
+      }
+      static common() {
+         return ABViewChartDefaults;
+      }
+
+      static defaultValues() {
+         return ABViewChartPropertyComponentDefaults;
+      }
+
+      ///
+      /// Instance Methods
+      ///
+
+      /**
+       * @method fromValues()
+       *
+       * initialze this object with the given set of values.
+       * @param {obj} values
+       */
+      fromValues(values) {
+         super.fromValues(values);
+
+         this.settings.dataviewID =
+            this.settings.dataviewID ??
+            ABViewChartPropertyComponentDefaults.dataviewID;
+
+         this.settings.columnValue =
+            this.settings.columnValue ??
+            ABViewChartPropertyComponentDefaults.columnValue;
+
+         this.settings.columnLabel =
+            this.settings.columnLabel ??
+            ABViewChartPropertyComponentDefaults.columnLabel;
+
+         this.settings.columnValue2 =
+            this.settings.columnValue2 ??
+            ABViewChartPropertyComponentDefaults.columnValue2;
+
+         this.settings.isPercentage = parseInt(
+            this.settings.isPercentage ??
+            ABViewChartPropertyComponentDefaults.isPercentage
+         );
+
+         this.settings.showLabel = parseInt(
+            this.settings.showLabel ??
+            ABViewChartPropertyComponentDefaults.showLabel
+         );
+
+         this.settings.labelPosition =
+            this.settings.labelPosition ||
+            ABViewChartPropertyComponentDefaults.labelPosition;
+
+         this.settings.labelWidth = parseInt(
+            this.settings.labelWidth ??
+            ABViewChartPropertyComponentDefaults.labelWidth
+         );
+
+         this.settings.height = parseInt(
+            this.settings.height ?? ABViewChartPropertyComponentDefaults.height
+         );
+
+         this.settings.multipleSeries = parseInt(
+            this.settings.multipleSeries ??
+            ABViewChartPropertyComponentDefaults.multipleSeries
+         );
+
+         this.translate(this, this, ["chartLabel"]);
+      }
+
+      /**
+       * @method componentList
+       * return the list of components available on this view to display in the editor.
+       */
+      componentList() {
+         const viewsToAllow = ["label", "pie", "bar", "line", "area"];
+         return this.application.viewAll((c) => {
+            return viewsToAllow.indexOf(c.common().key) > -1;
+         });
+      }
+
+      labelField() {
+         const dc = this.datacollection;
+         if (!dc) return null;
+
+         const obj = dc.datasource;
+         if (!obj) return null;
+
+         return obj.fieldByID(this.settings.columnLabel);
+      }
+
+      valueField() {
+         const dc = this.datacollection;
+         if (!dc) return null;
+
+         const obj = dc.datasource;
+         if (!obj) return null;
+
+         return obj.fieldByID(this.settings.columnValue);
+      }
+
+      valueField2() {
+         const dc = this.datacollection;
+         if (!dc) return null;
+
+         const obj = dc.datasource;
+         if (!obj) return null;
+
+         return obj.fieldByID(this.settings.columnValue2);
+      }
+   };
+
+   return class ABViewChart extends ABViewChartCore {
+      /**
+       * @method getPluginKey
+       * return the plugin key for this view.
+       * @return {string} plugin key
+       */
+      static getPluginKey() {
+         return this.common().key;
+      }
+
+      static getPluginType() {
+         return "view";
+      }
+
+      /**
+       * @method component()
+       * return a UI component based upon this view.
+       * @return {obj} UI component
+       */
+      component(parentId) {
+         return new ABAbviewchartComponent(this, parentId);
+      }
+
+      fromValues(values) {
+         super.fromValues(values);
+         this.refreshData();
+      }
+
+      getDCChart() {
+         if (!this._dcChart) this._dcChart = new webix.DataCollection();
+
+         return this._dcChart;
+      }
+
+      refreshData() {
+         const dc = this.datacollection;
+         if (dc == null) {
+            return this.getDCChart();
+         }
+
+         const labelCol = this.labelField();
+         const valueCol = this.valueField();
+         const valueCol2 = this.valueField2();
+
+         if (!labelCol || !valueCol) {
+            return this.getDCChart();
+         }
+
+         const numberColName = valueCol.columnName;
+
+         let numberColName2 = "";
+
+         if (this.settings.multipleSeries && valueCol2) {
+            numberColName2 = valueCol2.columnName;
+         }
+
+         const colorList = [
+            "#ee4339",
+            "#ee9336",
+            "#eed236",
+            "#d3ee36",
+            "#a7ee70",
+            "#58dccd",
+            "#36abee",
+            "#476cee",
+            "#a244ea",
+            "#e33fc7",
+         ];
+
+         const dInfo = dc.getData();
+
+         let results = [];
+         let sumData = {};
+         let sumNumber = 0;
+         let sumNumber2 = 0;
+         let countNumber = dInfo.length;
+
+         dInfo.forEach((item) => {
+            const labelKey = labelCol.format(item) || item.id;
+
+            let numberVal = parseFloat(item[numberColName] || 0);
+            let numberVal2 = null;
+
+            if (this.settings.multipleSeries)
+               numberVal2 = parseFloat(item[numberColName2]) || 0;
+
+            switch (valueCol.key) {
+               case "formula":
+                  numberVal = valueCol.format(item);
+
+                  break;
+
+               case "calculate":
+                  numberVal = parseFloat(
+                     valueCol.constructor.convertToJs(
+                        valueCol.object,
+                        valueCol.settings.formula,
+                        item,
+                        valueCol.settings.decimalPlaces
+                     )
+                  );
+
+                  break;
+
+               default:
+                  break;
+            }
+
+            if (sumData[labelKey] == null) {
+               let label = labelKey;
+
+               if (labelCol.isConnection) {
+                  let relateValues = labelCol.pullRelationValues(item);
+                  if (relateValues != null) {
+                     if (Array.isArray(relateValues))
+                        label = relateValues
+                           .map((val) => val.text || "")
+                           .join(", ");
+                     else label = relateValues.text;
+                  }
+               }
+
+               if (this.settings.multipleSeries) {
+                  sumData[labelKey] = {
+                     label: label || item.id,
+                     value: 0,
+                     value2: 0,
+                  };
+               } else {
+                  sumData[labelKey] = {
+                     label: label || item.id,
+                     value: 0,
+                  };
+               }
+            }
+
+            sumData[labelKey].value += numberVal;
+            sumNumber += numberVal;
+
+            if (this.settings.multipleSeries) {
+               sumData[labelKey].value2 += numberVal2;
+               sumNumber2 += numberVal2;
+            }
+         });
+
+         let index = 0;
+
+         for (const key in sumData) {
+            let val = sumData[key].value;
+
+            if (val <= 0) continue;
+
+            if (this.settings.isPercentage) {
+               val = (val / sumNumber) * 100;
+               val = Math.round(val * 100) / 100;
+               val = val + " %";
+            }
+
+            if (this.settings.multipleSeries) {
+               let val2 = sumData[key].value2;
+
+               if (val2 <= 0) continue;
+
+               if (this.settings.isPercentage) {
+                  val2 = (val2 / sumNumber2) * 100;
+                  val2 = Math.round(val2 * 100) / 100;
+                  val2 = val2 + " %";
+               }
+
+               results.push({
+                  label: sumData[key].label,
+                  value: val,
+                  value2: val2,
+                  color: colorList[index % colorList.length],
+                  count: countNumber,
+               });
+            } else {
+               results.push({
+                  label: sumData[key].label,
+                  value: val,
+                  color: colorList[index % colorList.length],
+                  count: countNumber,
+               });
+            }
+
+            index += 1;
+         }
+
+         const dcChart = this.getDCChart();
+
+         dcChart.clearAll();
+         dcChart.parse(results);
+      }
+
+      warningsEval() {
+         super.warningsEval();
+
+         let labelField = this.labelField();
+         if (!labelField) {
+            this.warningsMessage(
+               `can't resolve label field[${this.settings.columnLabel}]`
+            );
+         }
+
+         let valueField = this.valueField();
+         if (!valueField) {
+            this.warningsMessage(
+               `can't resolve value field[${this.settings.columnValue}]`
+            );
+         }
+      }
+   };
+}
+
+
+/***/ },
+
+/***/ 71455
+/*!*****************************************************************************************!*\
+  !*** ./AppBuilder/platform/plugins/included/view_chart/chart/FNAbviewchartComponent.js ***!
+  \*****************************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FNAbviewchartComponent)
+/* harmony export */ });
+function FNAbviewchartComponent({
+   AB,
+   ABViewContainerComponent,
+}) {
+   return class FNAbviewchartComponent extends ABViewContainerComponent {
+      constructor(baseView, idBase, ids) {
+         super(baseView, idBase || `ABViewChart_${baseView.id}`, ids);
+      }
+
+      async init(ABParam, accessLevel) {
+         await super.init(ABParam, accessLevel);
+
+         const $component = $$(this.ids.component);
+         const abWebix = AB.Webix;
+
+         if ($component) abWebix.extend($component, abWebix.ProgressBar);
+
+         const baseView = this.view;
+         const dc = baseView.datacollections || baseView.datacollection;
+
+         const ensureDcLoaded = async (d) => {
+            if (!d || typeof d.init !== "function") return;
+            d.init();
+            if (d.dataStatus === d.dataStatusFlag.notInitial) {
+               await d.loadData();
+            }
+         };
+
+         if (Array.isArray(dc)) {
+            for (const d of dc) {
+               await ensureDcLoaded(d);
+            }
+         } else if (dc) {
+            await ensureDcLoaded(dc);
+         }
+
+         if (dc) {
+            const eventNames = [
+               "changeCursor",
+               "cursorStale",
+               "create",
+               "update",
+               "delete",
+               "initializedData",
+            ];
+
+            ["changeCursor", "cursorStale"].forEach((key) => {
+               if (
+                  dc.datacollectionLink &&
+                  !(key in (dc.datacollectionLink._events ?? []))
+               )
+                  baseView.eventAdd({
+                     emitter: dc.datacollectionLink,
+                     eventName: key,
+                     listener: () => {
+                        baseView.refreshData();
+                     },
+                  });
+            });
+
+            eventNames.forEach((evtName) => {
+               baseView.eventAdd({
+                  emitter: dc,
+                  eventName: evtName,
+                  listener: () => {
+                     baseView.refreshData();
+                  },
+               });
+            });
+         }
+
+         baseView.refreshData();
+      }
+
+      onShow() {
+         super.onShow();
+      }
+   };
+}
+
+
+/***/ },
+
+/***/ 3494
+/*!*********************************************************************************!*\
+  !*** ./AppBuilder/platform/plugins/included/view_chart/core/ABViewChartCore.js ***!
+  \*********************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FNABViewChartCore)
+/* harmony export */ });
+function FNABViewChartCore({ ABViewWidgetPlugin }) {
+   const ABViewChartPropertyComponentDefaults = {
+      dataviewID: "",
+      columnValue: "",
+      columnLabel: "",
+      columnValue2: "",
+      isPercentage: 1,
+      showLabel: 1,
+      labelPosition: "left",
+      labelWidth: 120,
+      height: 200,
+      multipleSeries: 0,
+   };
+
+   const ABViewChartDefaults = {
+      key: "chart", // {string} unique key for this view
+      icon: "bar-chart", // {string} fa-[icon] reference for this view
+      labelKey: "Chart", // {string} the multilingual label key for the class label
+   };
+
+   return class ABViewChartCore extends ABViewWidgetPlugin {
+      constructor(values, application, parent, defaultValues) {
+         super(
+            values,
+            application,
+            parent,
+            defaultValues || ABViewChartDefaults
+         );
+      }
+
+      get datacollection() {
+         return this.parent.datacollection;
+      }
+
+      static getPluginType() {
+         return "view";
+      }
+
+      static common() {
+         return ABViewChartDefaults;
+      }
+
+      static defaultValues() {
+         return ABViewChartPropertyComponentDefaults;
+      }
+
+      ///
+      /// Instance Methods
+      ///
+
+      /**
+       * @method fromValues()
+       *
+       * initialze this object with the given set of values.
+       * @param {obj} values
+       */
+      fromValues(values) {
+         super.fromValues(values);
+
+         this.settings.dataviewID =
+            this.settings.dataviewID ??
+            ABViewChartPropertyComponentDefaults.dataviewID;
+
+         this.settings.columnValue =
+            this.settings.columnValue ??
+            ABViewChartPropertyComponentDefaults.columnValue;
+
+         this.settings.columnLabel =
+            this.settings.columnLabel ??
+            ABViewChartPropertyComponentDefaults.columnLabel;
+
+         this.settings.columnValue2 =
+            this.settings.columnValue2 ??
+            ABViewChartPropertyComponentDefaults.columnValue2;
+
+         this.settings.isPercentage = parseInt(
+            this.settings.isPercentage ??
+               ABViewChartPropertyComponentDefaults.isPercentage
+         );
+
+         this.settings.showLabel = parseInt(
+            this.settings.showLabel ??
+               ABViewChartPropertyComponentDefaults.showLabel
+         );
+
+         this.settings.labelPosition =
+            this.settings.labelPosition ||
+            ABViewChartPropertyComponentDefaults.labelPosition;
+
+         this.settings.labelWidth = parseInt(
+            this.settings.labelWidth ??
+               ABViewChartPropertyComponentDefaults.labelWidth
+         );
+
+         this.settings.height = parseInt(
+            this.settings.height ?? ABViewChartPropertyComponentDefaults.height
+         );
+
+         this.settings.multipleSeries = parseInt(
+            this.settings.multipleSeries ??
+               ABViewChartPropertyComponentDefaults.multipleSeries
+         );
+
+         this.translate(this, this, ["chartLabel"]);
+
+         this.refreshData();
+      }
+
+      getDCChart() {
+         if (!this._dcChart) this._dcChart = new webix.DataCollection();
+
+         return this._dcChart;
+      }
+
+      refreshData() {
+         const dc = this.datacollection;
+         if (dc == null) return this.getDCChart();
+
+         const labelCol = this.labelField();
+         const valueCol = this.valueField();
+         const valueCol2 = this.valueField2();
+
+         if (!labelCol || !valueCol) return this.getDCChart();
+
+         const numberColName = valueCol.columnName;
+
+         let numberColName2 = "";
+
+         if (this.settings.multipleSeries && valueCol2) {
+            numberColName2 = valueCol2.columnName;
+         }
+
+         const colorList = [
+            "#ee4339",
+            "#ee9336",
+            "#eed236",
+            "#d3ee36",
+            "#a7ee70",
+            "#58dccd",
+            "#36abee",
+            "#476cee",
+            "#a244ea",
+            "#e33fc7",
+         ];
+
+         const dInfo = dc.getData();
+
+         let results = [];
+         let sumData = {};
+         let sumNumber = 0;
+         let sumNumber2 = 0;
+         let countNumber = dInfo.length;
+
+         dInfo.forEach((item) => {
+            const labelKey = labelCol.format(item) || item.id;
+
+            let numberVal = parseFloat(item[numberColName] || 0);
+            let numberVal2 = null;
+
+            if (this.settings.multipleSeries)
+               numberVal2 = parseFloat(item[numberColName2]) || 0;
+
+            switch (valueCol.key) {
+               case "formula":
+                  numberVal = valueCol.format(item);
+
+                  break;
+
+               case "calculate":
+                  numberVal = parseFloat(
+                     valueCol.constructor.convertToJs(
+                        valueCol.object,
+                        valueCol.settings.formula,
+                        item,
+                        valueCol.settings.decimalPlaces
+                     )
+                  );
+
+                  break;
+
+               default:
+                  break;
+            }
+
+            if (sumData[labelKey] == null) {
+               let label = labelKey;
+
+               if (labelCol.isConnection) {
+                  let relateValues = labelCol.pullRelationValues(item);
+                  if (relateValues != null) {
+                     if (Array.isArray(relateValues))
+                        label = relateValues
+                           .map((val) => val.text || "")
+                           .join(", ");
+                     else label = relateValues.text;
+                  }
+               }
+
+               if (this.settings.multipleSeries) {
+                  sumData[labelKey] = {
+                     label: label || item.id,
+                     value: 0,
+                     value2: 0,
+                  };
+               } else {
+                  sumData[labelKey] = {
+                     label: label || item.id,
+                     value: 0,
+                  };
+               }
+            }
+
+            sumData[labelKey].value += numberVal;
+            sumNumber += numberVal;
+
+            if (this.settings.multipleSeries) {
+               sumData[labelKey].value2 += numberVal2;
+               sumNumber2 += numberVal2;
+            }
+         });
+
+         let index = 0;
+
+         for (const key in sumData) {
+            let val = sumData[key].value;
+
+            if (val <= 0) continue;
+
+            if (this.settings.isPercentage) {
+               val = (val / sumNumber) * 100;
+               val = Math.round(val * 100) / 100;
+               val = val + " %";
+            }
+
+            if (this.settings.multipleSeries) {
+               let val2 = sumData[key].value2;
+
+               if (val2 <= 0) continue;
+
+               if (this.settings.isPercentage) {
+                  val2 = (val2 / sumNumber2) * 100;
+                  val2 = Math.round(val2 * 100) / 100;
+                  val2 = val2 + " %";
+               }
+
+               results.push({
+                  label: sumData[key].label,
+                  value: val,
+                  value2: val2,
+                  color: colorList[index % colorList.length],
+                  count: countNumber,
+               });
+            } else {
+               results.push({
+                  label: sumData[key].label,
+                  value: val,
+                  color: colorList[index % colorList.length],
+                  count: countNumber,
+               });
+            }
+
+            index += 1;
+         }
+
+         const dcChart = this.getDCChart();
+
+         dcChart.clearAll();
+         dcChart.parse(results);
+      }
+
+      warningsEval() {
+         super.warningsEval();
+
+         let labelField = this.labelField();
+         if (!labelField) {
+            this.warningsMessage(
+               `can't resolve label field[${this.settings.columnLabel}]`
+            );
+         }
+
+         let valueField = this.valueField();
+         if (!valueField) {
+            this.warningsMessage(
+               `can't resolve value field[${this.settings.columnValue}]`
+            );
+         }
+      }
+
+      /**
+       * @method componentList
+       * return the list of components available on this view to display in the editor.
+       */
+      componentList() {
+         const viewsToAllow = ["label", "pie", "bar", "line", "area"];
+         return this.application.viewAll((c) => {
+            return viewsToAllow.indexOf(c.common().key) > -1;
+         });
+      }
+
+      labelField() {
+         const dc = this.datacollection;
+         if (!dc) return null;
+
+         const obj = dc.datasource;
+         if (!obj) return null;
+
+         return obj.fieldByID(this.settings.columnLabel);
+      }
+
+      valueField() {
+         const dc = this.datacollection;
+         if (!dc) return null;
+
+         const obj = dc.datasource;
+         if (!obj) return null;
+
+         return obj.fieldByID(this.settings.columnValue);
+      }
+
+      valueField2() {
+         const dc = this.datacollection;
+         if (!dc) return null;
+
+         const obj = dc.datasource;
+         if (!obj) return null;
+
+         return obj.fieldByID(this.settings.columnValue2);
+      }
+   };
+}
+
+
+/***/ },
+
+/***/ 53511
+/*!*************************************************************************************************!*\
+  !*** ./AppBuilder/platform/plugins/included/view_chart/core/FNAbviewchartcontainerComponent.js ***!
+  \*************************************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FNAbviewchartcontainerComponent)
+/* harmony export */ });
+function findAncestorWithGetDCChart(view) {
+   let cur = view && view.parent;
+   while (cur) {
+      if (typeof cur.getDCChart === "function") return cur;
+      cur = cur.parent;
+   }
+   return null;
+}
+
+function FNAbviewchartcontainerComponent({
+   ABViewComponentPlugin,
+}) {
+   return class ABviewchartcontainerComponent extends ABViewComponentPlugin {
+      constructor(baseView, idBase, ids) {
+         super(
+            baseView,
+            idBase || `ABViewChartContainer_${baseView.id}`,
+            Object.assign(
+               {
+                  chartContainer: "",
+               },
+               ids
+            )
+         );
+      }
+
+      ui(uiChartComponent) {
+         const _ui = super.ui([
+            Object.assign(
+               { id: this.ids.chartContainer },
+               uiChartComponent ?? {}
+            ),
+         ]);
+
+         delete _ui.type;
+
+         return _ui;
+      }
+
+      async init(AB) {
+         await super.init(AB);
+      }
+
+      onShow() {
+         super.onShow();
+         const baseView = this.view;
+
+         baseView._isShow = true;
+
+         const chartAncestor = findAncestorWithGetDCChart(baseView);
+         let dcChart = null;
+         if (chartAncestor) {
+            if (typeof chartAncestor.refreshData === "function") {
+               chartAncestor.refreshData();
+            }
+            dcChart = chartAncestor.getDCChart();
+         } else if (typeof baseView.getDCChart === "function") {
+            if (typeof baseView.refreshData === "function") {
+               baseView.refreshData();
+            }
+            dcChart = baseView.getDCChart();
+         }
+         this.refreshData(dcChart);
+      }
+
+      refreshData(dcChart) {
+         const $chartContainer = $$(this.ids.chartContainer);
+         const $chartComponent = $$(this.ids.component);
+
+         if (dcChart && $chartContainer?.data) {
+            $chartContainer.data.sync(dcChart);
+         }
+
+         setTimeout(() => {
+            $chartComponent?.adjust();
+            $chartContainer?.adjust();
+         }, 160);
+      }
+   };
+}
+
+
+/***/ },
+
+/***/ 7494
+/*!***********************************************************************************!*\
+  !*** ./AppBuilder/platform/plugins/included/view_chart/line/FNAbviewchartline.js ***!
+  \***********************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FNAbviewchartline)
+/* harmony export */ });
+/* harmony import */ var _chartBindings_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../chartBindings.js */ 3494);
+/* harmony import */ var _FNAbviewchartlineComponent_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./FNAbviewchartlineComponent.js */ 45839);
+
+
+
+// FNAbviewchartline Web
+// A web side import for an ABView.
+//
+function FNAbviewchartline({
+   ABViewComponentPlugin,
+   ABViewWidgetPlugin,
+}) {
+   const ABViewChartCore = (0,_chartBindings_js__WEBPACK_IMPORTED_MODULE_0__["default"])({ ABViewWidgetPlugin });
+
+   const ABAbviewchartlineComponent = (0,_FNAbviewchartlineComponent_js__WEBPACK_IMPORTED_MODULE_1__["default"])({
+      ABViewComponentPlugin,
+   });
+
+   const ABViewChartLinePropertyComponentDefaults = {
+      lineType: "line",
+      linePreset: "plot",
+      isLegend: 1,
+      // chartWidth: 600,
+      chartHeight: 200,
+      labelFontSize: 12,
+      stepValue: 20,
+      maxValue: 100,
+   };
+
+   const ABViewDefaults = {
+      key: "line", // {string} unique key for this view
+      icon: "line-chart", // {string} fa-[icon] reference for this view
+      labelKey: "Line", // {string} the multilingual label key for the class label
+   };
+
+   class ABViewChartLineCore extends ABViewChartCore {
+      constructor(values, application, parent, defaultValues) {
+         super(values, application, parent, defaultValues || ABViewDefaults);
+      }
+
+      static common() {
+         return ABViewDefaults;
+      }
+
+      static defaultValues() {
+         return ABViewChartLinePropertyComponentDefaults;
+      }
+
+      ///
+      /// Instance Methods
+      ///
+
+      /**
+       * @method fromValues()
+       *
+       * initialze this object with the given set of values.
+       * @param {obj} values
+       */
+      fromValues(values) {
+         super.fromValues(values);
+
+         this.settings.lineType =
+            this.settings.lineType ||
+            ABViewChartLinePropertyComponentDefaults.lineType;
+
+         this.settings.linePreset =
+            this.settings.linePreset ||
+            ABViewChartLinePropertyComponentDefaults.linePreset;
+
+         this.settings.isLegend = parseInt(
+            this.settings.isLegend ??
+            ABViewChartLinePropertyComponentDefaults.isLegend
+         );
+
+         // this.settings.chartWidth = parseInt(this.settings.chartWidth || ABViewChartLinePropertyComponentDefaults.chartWidth);
+         this.settings.chartHeight = parseInt(
+            this.settings.chartHeight ??
+            ABViewChartLinePropertyComponentDefaults.chartHeight
+         );
+
+         this.settings.labelFontSize = parseInt(
+            this.settings.labelFontSize ??
+            ABViewChartLinePropertyComponentDefaults.labelFontSize
+         );
+         this.settings.stepValue = parseInt(
+            this.settings.stepValue ??
+            ABViewChartLinePropertyComponentDefaults.stepValue
+         );
+         this.settings.maxValue = parseInt(
+            this.settings.maxValue ??
+            ABViewChartLinePropertyComponentDefaults.maxValue
+         );
+
+         this.translate(this, this, ["lineLabel"]);
+      }
+
+      /**
+       * @method componentList
+       * return the list of components available on this view to display in the editor.
+       */
+      componentList() {
+         return [];
+      }
+   }
+
+   return class ABViewChartLine extends ABViewChartLineCore {
+      /**
+       * @method getPluginKey
+       * return the plugin key for this view.
+       * @return {string} plugin key
+       */
+      static getPluginKey() {
+         return this.common().key;
+      }
+
+      /**
+       * @method component()
+       * return a UI component based upon this view.
+       * @return {obj} UI component
+       */
+      component() {
+         return new ABAbviewchartlineComponent(this);
+      }
+
+      // constructor(values, application, parent, defaultValues) {
+      //    super(values, application, parent, defaultValues);
+      // }
+   };
+}
+
+
+/***/ },
+
+/***/ 45839
+/*!********************************************************************************************!*\
+  !*** ./AppBuilder/platform/plugins/included/view_chart/line/FNAbviewchartlineComponent.js ***!
+  \********************************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FNAbviewchartlineComponent)
+/* harmony export */ });
+/* harmony import */ var _chartBindings_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../chartBindings.js */ 53511);
+
+
+function FNAbviewchartlineComponent({
+   /*AB,*/
+   ABViewComponentPlugin,
+}) {
+   const ChartContainerComponent = (0,_chartBindings_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
+      ABViewComponentPlugin,
+   });
+
+   return class FNAbviewchartlineComponent extends ChartContainerComponent {
+      constructor(baseView, idBase, ids) {
+         super(baseView, idBase || `ABViewChartLine_${baseView.id}`, ids);
+      }
+
+      ui() {
+         const settings = this.settings;
+
+         return super.ui({
+            view: "chart",
+            type: settings.lineType,
+            preset: settings.linePreset,
+            value: "#value#",
+            color: "#color#",
+            yAxis: {
+               start: 0,
+               step: settings.stepValue,
+               end: settings.maxValue, //"#maxValue#"
+            },
+            xAxis: {
+               template: settings.isLegend
+                  ? `<div style='font-size:${settings.labelFontSize}px;'>#label#</div>`
+                  : "",
+            },
+            legend: settings.isLegend
+               ? {
+                    template: `<div style='font-size:${settings.labelFontSize}px;'>#label#</div>`,
+                    values: [], // TODO : bug in webix 5.1.7
+                 }
+               : null,
+            height: settings.chartHeight,
+            // width: settings.chartWidth,
+         });
+      }
+   };
+}
+
+
+/***/ },
+
+/***/ 69448
+/*!*********************************************************************************!*\
+  !*** ./AppBuilder/platform/plugins/included/view_chart/pie/FNAbviewchartpie.js ***!
+  \*********************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FNAbviewchartpie)
+/* harmony export */ });
+/* harmony import */ var _chartBindings_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../chartBindings.js */ 3494);
+/* harmony import */ var _FNAbviewchartpieComponent_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./FNAbviewchartpieComponent.js */ 83497);
+
+
+
+// FNAbviewchartpie Web
+// A web side import for an ABView.
+//
+function FNAbviewchartpie({
+   /*AB,*/
+   ABViewPlugin,
+   ABViewComponentPlugin,
+   ABViewContainer,
+   ABViewWidgetPlugin,
+}) {
+   const ABViewChartCore = (0,_chartBindings_js__WEBPACK_IMPORTED_MODULE_0__["default"])({ ABViewWidgetPlugin });
+   const ABAbviewchartpieComponent = (0,_FNAbviewchartpieComponent_js__WEBPACK_IMPORTED_MODULE_1__["default"])({
+      ABViewComponentPlugin,
+   });
+
+   const ABViewChartPiePropertyComponentDefaults = {
+      pieType: "pie",
+      isLegend: 1,
+      // chartWidth: 600,
+      height: 200,
+      innerFontSize: 12,
+      labelFontSize: 12,
+   };
+
+   const ABViewDefaults = {
+      key: "pie", // {string} unique key for this view
+      icon: "pie-chart", // {string} fa-[icon] reference for this view
+      labelKey: "Pie", // {string} the multilingual label key for the class label
+   };
+
+   class ABViewChartPieCore extends ABViewChartCore {
+      constructor(values, application, parent, defaultValues) {
+         super(values, application, parent, defaultValues || ABViewDefaults);
+      }
+
+      static common() {
+         return ABViewDefaults;
+      }
+
+      static defaultValues() {
+         return ABViewChartPiePropertyComponentDefaults;
+      }
+
+      ///
+      /// Instance Methods
+      ///
+
+      /**
+       * @method fromValues()
+       *
+       * initialze this object with the given set of values.
+       * @param {obj} values
+       */
+      fromValues(values) {
+         super.fromValues(values);
+
+         this.settings.pieType =
+            this.settings.pieType ||
+            ABViewChartPiePropertyComponentDefaults.pieType;
+
+         this.settings.isLegend = parseInt(
+            this.settings.isLegend ??
+            ABViewChartPiePropertyComponentDefaults.isLegend
+         );
+
+         // this.settings.chartWidth = parseInt(this.settings.chartWidth || ABViewChartPiePropertyComponentDefaults.chartWidth);
+         this.settings.height = parseInt(
+            this.settings.height ??
+            ABViewChartPiePropertyComponentDefaults.height
+         );
+
+         this.settings.innerFontSize = parseInt(
+            this.settings.innerFontSize ??
+            ABViewChartPiePropertyComponentDefaults.innerFontSize
+         );
+         this.settings.labelFontSize = parseInt(
+            this.settings.labelFontSize ??
+            ABViewChartPiePropertyComponentDefaults.labelFontSize
+         );
+
+         this.translate(this, this, ["pieLabel"]);
+      }
+
+      /**
+       * @method componentList
+       * return the list of components available on this view to display in the editor.
+       */
+      componentList() {
+         return [];
+      }
+   }
+
+   return class ABViewChartPie extends ABViewChartPieCore {
+      /**
+       * @method getPluginKey
+       * return the plugin key for this view.
+       * @return {string} plugin key
+       */
+      static getPluginKey() {
+         return this.common().key;
+      }
+
+      /**
+       * @method component()
+       * return a UI component based upon this view.
+       * @return {obj} UI component
+       */
+      component() {
+         return new ABAbviewchartpieComponent(this);
+      }
+
+      // constructor(values, application, parent, defaultValues) {
+      //    super(values, application, parent, defaultValues);
+      // }
+   };
+}
+
+
+/***/ },
+
+/***/ 83497
+/*!******************************************************************************************!*\
+  !*** ./AppBuilder/platform/plugins/included/view_chart/pie/FNAbviewchartpieComponent.js ***!
+  \******************************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FNAbviewchartpieComponent)
+/* harmony export */ });
+/* harmony import */ var _chartBindings_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../chartBindings.js */ 53511);
+
+
+function FNAbviewchartpieComponent({
+   /*AB,*/
+   ABViewComponentPlugin,
+}) {
+   const ChartContainerComponent = (0,_chartBindings_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
+      ABViewComponentPlugin,
+   });
+
+   return class FNAbviewchartpieComponent extends ChartContainerComponent {
+      constructor(baseView, idBase, ids) {
+         super(baseView, idBase || `ABViewChartPie_${baseView.id}`, ids);
+      }
+
+      ui() {
+         const settings = this.settings;
+
+         return super.ui({
+            view: "chart",
+            type: settings.pieType,
+            value: "#value#",
+            color: "#color#",
+            legend: settings.isLegend
+               ? {
+                    width: this.view.parent.settings.labelWidth,
+                    template: `<div style='font-size: ${settings.labelFontSize}px;'>#label#</div>`,
+                 }
+               : null,
+            pieInnerText: `<div style='font-size: ${settings.innerFontSize}px;'>#value#</div>`,
+            shadow: 1,
+            height: settings.height,
+            // width: settings.chartWidth,
+         });
       }
    };
 }
@@ -10443,4 +12224,4 @@ function FNAbviewtextComponent({
 /***/ }
 
 }]);
-//# sourceMappingURL=AppBuilder_platform_plugins_included_index_js.00e443d33243b95d691d.js.map
+//# sourceMappingURL=AppBuilder_platform_plugins_included_index_js.7d31a1cd6331bfd21821.js.map
