@@ -68664,29 +68664,33 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _web_view_carousel_FNAbviewcarousel_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./web_view_carousel/FNAbviewcarousel.js */ "./src/plugins/web_view_carousel/FNAbviewcarousel.js");
-/* harmony import */ var _web_view_carousel_FNAbviewcarouselEditor_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./web_view_carousel/FNAbviewcarouselEditor.js */ "./src/plugins/web_view_carousel/FNAbviewcarouselEditor.js");
-/* harmony import */ var _web_view_comment_FNAbviewcomment_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./web_view_comment/FNAbviewcomment.js */ "./src/plugins/web_view_comment/FNAbviewcomment.js");
-/* harmony import */ var _web_view_comment_FNAbviewcommentEditor_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./web_view_comment/FNAbviewcommentEditor.js */ "./src/plugins/web_view_comment/FNAbviewcommentEditor.js");
-/* harmony import */ var _web_view_data_select_FNAbviewdataselect_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./web_view_data-select/FNAbviewdataselect.js */ "./src/plugins/web_view_data-select/FNAbviewdataselect.js");
-/* harmony import */ var _web_view_data_select_FNAbviewdataselectEditor_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./web_view_data-select/FNAbviewdataselectEditor.js */ "./src/plugins/web_view_data-select/FNAbviewdataselectEditor.js");
-/* harmony import */ var _web_view_dataview_FNAbviewdataview_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./web_view_dataview/FNAbviewdataview.js */ "./src/plugins/web_view_dataview/FNAbviewdataview.js");
-/* harmony import */ var _web_view_dataview_FNAbviewdataviewEditor_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./web_view_dataview/FNAbviewdataviewEditor.js */ "./src/plugins/web_view_dataview/FNAbviewdataviewEditor.js");
-/* harmony import */ var _web_view_detail_FNAbviewdetail_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./web_view_detail/FNAbviewdetail.js */ "./src/plugins/web_view_detail/FNAbviewdetail.js");
-/* harmony import */ var _web_view_detail_FNAbviewdetailEditor_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./web_view_detail/FNAbviewdetailEditor.js */ "./src/plugins/web_view_detail/FNAbviewdetailEditor.js");
-/* harmony import */ var _web_view_image_FNAbviewimage_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./web_view_image/FNAbviewimage.js */ "./src/plugins/web_view_image/FNAbviewimage.js");
-/* harmony import */ var _web_view_image_FNAbviewimageEditor_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./web_view_image/FNAbviewimageEditor.js */ "./src/plugins/web_view_image/FNAbviewimageEditor.js");
-/* harmony import */ var _web_view_label_FNAbviewLabel_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./web_view_label/FNAbviewLabel.js */ "./src/plugins/web_view_label/FNAbviewLabel.js");
-/* harmony import */ var _web_view_label_FNAbviewLabelEditor_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./web_view_label/FNAbviewLabelEditor.js */ "./src/plugins/web_view_label/FNAbviewLabelEditor.js");
-/* harmony import */ var _web_view_layout_FNAbviewlayout_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./web_view_layout/FNAbviewlayout.js */ "./src/plugins/web_view_layout/FNAbviewlayout.js");
-/* harmony import */ var _web_view_layout_FNAbviewlayoutEditor_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./web_view_layout/FNAbviewlayoutEditor.js */ "./src/plugins/web_view_layout/FNAbviewlayoutEditor.js");
-/* harmony import */ var _web_view_list_FNAbviewlist_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./web_view_list/FNAbviewlist.js */ "./src/plugins/web_view_list/FNAbviewlist.js");
-/* harmony import */ var _web_view_pdfImporter_FNAbviewpdfimporter_js__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./web_view_pdfImporter/FNAbviewpdfimporter.js */ "./src/plugins/web_view_pdfImporter/FNAbviewpdfimporter.js");
-/* harmony import */ var _web_view_pdfImporter_FNAbviewpdfimporterEditor_js__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./web_view_pdfImporter/FNAbviewpdfimporterEditor.js */ "./src/plugins/web_view_pdfImporter/FNAbviewpdfimporterEditor.js");
-/* harmony import */ var _web_view_tab_FNAbviewtab_js__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./web_view_tab/FNAbviewtab.js */ "./src/plugins/web_view_tab/FNAbviewtab.js");
-/* harmony import */ var _web_view_tab_FNAbviewtabEditor_js__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./web_view_tab/FNAbviewtabEditor.js */ "./src/plugins/web_view_tab/FNAbviewtabEditor.js");
-/* harmony import */ var _web_view_text_FNAbviewtext_js__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./web_view_text/FNAbviewtext.js */ "./src/plugins/web_view_text/FNAbviewtext.js");
-/* harmony import */ var _web_view_text_FNAbviewtextEditor_js__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./web_view_text/FNAbviewtextEditor.js */ "./src/plugins/web_view_text/FNAbviewtextEditor.js");
+/* harmony import */ var _web_view_pivot_FNAbviewpivot_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./web_view_pivot/FNAbviewpivot.js */ "./src/plugins/web_view_pivot/FNAbviewpivot.js");
+/* harmony import */ var _web_view_pivot_FNAbviewpivotEditor_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./web_view_pivot/FNAbviewpivotEditor.js */ "./src/plugins/web_view_pivot/FNAbviewpivotEditor.js");
+/* harmony import */ var _web_view_carousel_FNAbviewcarousel_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./web_view_carousel/FNAbviewcarousel.js */ "./src/plugins/web_view_carousel/FNAbviewcarousel.js");
+/* harmony import */ var _web_view_carousel_FNAbviewcarouselEditor_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./web_view_carousel/FNAbviewcarouselEditor.js */ "./src/plugins/web_view_carousel/FNAbviewcarouselEditor.js");
+/* harmony import */ var _web_view_comment_FNAbviewcomment_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./web_view_comment/FNAbviewcomment.js */ "./src/plugins/web_view_comment/FNAbviewcomment.js");
+/* harmony import */ var _web_view_comment_FNAbviewcommentEditor_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./web_view_comment/FNAbviewcommentEditor.js */ "./src/plugins/web_view_comment/FNAbviewcommentEditor.js");
+/* harmony import */ var _web_view_data_select_FNAbviewdataselect_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./web_view_data-select/FNAbviewdataselect.js */ "./src/plugins/web_view_data-select/FNAbviewdataselect.js");
+/* harmony import */ var _web_view_data_select_FNAbviewdataselectEditor_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./web_view_data-select/FNAbviewdataselectEditor.js */ "./src/plugins/web_view_data-select/FNAbviewdataselectEditor.js");
+/* harmony import */ var _web_view_dataview_FNAbviewdataview_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./web_view_dataview/FNAbviewdataview.js */ "./src/plugins/web_view_dataview/FNAbviewdataview.js");
+/* harmony import */ var _web_view_dataview_FNAbviewdataviewEditor_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./web_view_dataview/FNAbviewdataviewEditor.js */ "./src/plugins/web_view_dataview/FNAbviewdataviewEditor.js");
+/* harmony import */ var _web_view_detail_FNAbviewdetail_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./web_view_detail/FNAbviewdetail.js */ "./src/plugins/web_view_detail/FNAbviewdetail.js");
+/* harmony import */ var _web_view_detail_FNAbviewdetailEditor_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./web_view_detail/FNAbviewdetailEditor.js */ "./src/plugins/web_view_detail/FNAbviewdetailEditor.js");
+/* harmony import */ var _web_view_image_FNAbviewimage_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./web_view_image/FNAbviewimage.js */ "./src/plugins/web_view_image/FNAbviewimage.js");
+/* harmony import */ var _web_view_image_FNAbviewimageEditor_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./web_view_image/FNAbviewimageEditor.js */ "./src/plugins/web_view_image/FNAbviewimageEditor.js");
+/* harmony import */ var _web_view_label_FNAbviewLabel_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./web_view_label/FNAbviewLabel.js */ "./src/plugins/web_view_label/FNAbviewLabel.js");
+/* harmony import */ var _web_view_label_FNAbviewLabelEditor_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./web_view_label/FNAbviewLabelEditor.js */ "./src/plugins/web_view_label/FNAbviewLabelEditor.js");
+/* harmony import */ var _web_view_layout_FNAbviewlayout_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./web_view_layout/FNAbviewlayout.js */ "./src/plugins/web_view_layout/FNAbviewlayout.js");
+/* harmony import */ var _web_view_layout_FNAbviewlayoutEditor_js__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./web_view_layout/FNAbviewlayoutEditor.js */ "./src/plugins/web_view_layout/FNAbviewlayoutEditor.js");
+/* harmony import */ var _web_view_list_FNAbviewlist_js__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./web_view_list/FNAbviewlist.js */ "./src/plugins/web_view_list/FNAbviewlist.js");
+/* harmony import */ var _web_view_pdfImporter_FNAbviewpdfimporter_js__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./web_view_pdfImporter/FNAbviewpdfimporter.js */ "./src/plugins/web_view_pdfImporter/FNAbviewpdfimporter.js");
+/* harmony import */ var _web_view_pdfImporter_FNAbviewpdfimporterEditor_js__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./web_view_pdfImporter/FNAbviewpdfimporterEditor.js */ "./src/plugins/web_view_pdfImporter/FNAbviewpdfimporterEditor.js");
+/* harmony import */ var _web_view_tab_FNAbviewtab_js__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./web_view_tab/FNAbviewtab.js */ "./src/plugins/web_view_tab/FNAbviewtab.js");
+/* harmony import */ var _web_view_tab_FNAbviewtabEditor_js__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./web_view_tab/FNAbviewtabEditor.js */ "./src/plugins/web_view_tab/FNAbviewtabEditor.js");
+/* harmony import */ var _web_view_text_FNAbviewtext_js__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./web_view_text/FNAbviewtext.js */ "./src/plugins/web_view_text/FNAbviewtext.js");
+/* harmony import */ var _web_view_text_FNAbviewtextEditor_js__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./web_view_text/FNAbviewtextEditor.js */ "./src/plugins/web_view_text/FNAbviewtextEditor.js");
+
+
 
 
 
@@ -68712,29 +68716,31 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const AllPlugins = [
-   _web_view_carousel_FNAbviewcarousel_js__WEBPACK_IMPORTED_MODULE_0__["default"],
-   _web_view_carousel_FNAbviewcarouselEditor_js__WEBPACK_IMPORTED_MODULE_1__["default"],
-   _web_view_comment_FNAbviewcomment_js__WEBPACK_IMPORTED_MODULE_2__["default"],
-   _web_view_comment_FNAbviewcommentEditor_js__WEBPACK_IMPORTED_MODULE_3__["default"],
-   _web_view_data_select_FNAbviewdataselect_js__WEBPACK_IMPORTED_MODULE_4__["default"],
-   _web_view_data_select_FNAbviewdataselectEditor_js__WEBPACK_IMPORTED_MODULE_5__["default"],
-   _web_view_dataview_FNAbviewdataview_js__WEBPACK_IMPORTED_MODULE_6__["default"],
-   _web_view_dataview_FNAbviewdataviewEditor_js__WEBPACK_IMPORTED_MODULE_7__["default"],
-   _web_view_detail_FNAbviewdetail_js__WEBPACK_IMPORTED_MODULE_8__["default"],
-   _web_view_detail_FNAbviewdetailEditor_js__WEBPACK_IMPORTED_MODULE_9__["default"],
-   _web_view_image_FNAbviewimage_js__WEBPACK_IMPORTED_MODULE_10__["default"],
-   _web_view_image_FNAbviewimageEditor_js__WEBPACK_IMPORTED_MODULE_11__["default"],
-   _web_view_label_FNAbviewLabel_js__WEBPACK_IMPORTED_MODULE_12__["default"],
-   _web_view_label_FNAbviewLabelEditor_js__WEBPACK_IMPORTED_MODULE_13__["default"],
-   _web_view_layout_FNAbviewlayout_js__WEBPACK_IMPORTED_MODULE_14__["default"],
-   _web_view_layout_FNAbviewlayoutEditor_js__WEBPACK_IMPORTED_MODULE_15__["default"],
-   _web_view_list_FNAbviewlist_js__WEBPACK_IMPORTED_MODULE_16__["default"],
-   _web_view_pdfImporter_FNAbviewpdfimporter_js__WEBPACK_IMPORTED_MODULE_17__["default"],
-   _web_view_pdfImporter_FNAbviewpdfimporterEditor_js__WEBPACK_IMPORTED_MODULE_18__["default"],
-   _web_view_tab_FNAbviewtab_js__WEBPACK_IMPORTED_MODULE_19__["default"],
-   _web_view_tab_FNAbviewtabEditor_js__WEBPACK_IMPORTED_MODULE_20__["default"],
-   _web_view_text_FNAbviewtext_js__WEBPACK_IMPORTED_MODULE_21__["default"],
-   _web_view_text_FNAbviewtextEditor_js__WEBPACK_IMPORTED_MODULE_22__["default"],
+   _web_view_carousel_FNAbviewcarousel_js__WEBPACK_IMPORTED_MODULE_2__["default"],
+   _web_view_carousel_FNAbviewcarouselEditor_js__WEBPACK_IMPORTED_MODULE_3__["default"],
+   _web_view_comment_FNAbviewcomment_js__WEBPACK_IMPORTED_MODULE_4__["default"],
+   _web_view_comment_FNAbviewcommentEditor_js__WEBPACK_IMPORTED_MODULE_5__["default"],
+   _web_view_data_select_FNAbviewdataselect_js__WEBPACK_IMPORTED_MODULE_6__["default"],
+   _web_view_data_select_FNAbviewdataselectEditor_js__WEBPACK_IMPORTED_MODULE_7__["default"],
+   _web_view_dataview_FNAbviewdataview_js__WEBPACK_IMPORTED_MODULE_8__["default"],
+   _web_view_dataview_FNAbviewdataviewEditor_js__WEBPACK_IMPORTED_MODULE_9__["default"],
+   _web_view_detail_FNAbviewdetail_js__WEBPACK_IMPORTED_MODULE_10__["default"],
+   _web_view_detail_FNAbviewdetailEditor_js__WEBPACK_IMPORTED_MODULE_11__["default"],
+   _web_view_image_FNAbviewimage_js__WEBPACK_IMPORTED_MODULE_12__["default"],
+   _web_view_image_FNAbviewimageEditor_js__WEBPACK_IMPORTED_MODULE_13__["default"],
+   _web_view_label_FNAbviewLabel_js__WEBPACK_IMPORTED_MODULE_14__["default"],
+   _web_view_label_FNAbviewLabelEditor_js__WEBPACK_IMPORTED_MODULE_15__["default"],
+   _web_view_layout_FNAbviewlayout_js__WEBPACK_IMPORTED_MODULE_16__["default"],
+   _web_view_layout_FNAbviewlayoutEditor_js__WEBPACK_IMPORTED_MODULE_17__["default"],
+   _web_view_list_FNAbviewlist_js__WEBPACK_IMPORTED_MODULE_18__["default"],
+   _web_view_pdfImporter_FNAbviewpdfimporter_js__WEBPACK_IMPORTED_MODULE_19__["default"],
+   _web_view_pdfImporter_FNAbviewpdfimporterEditor_js__WEBPACK_IMPORTED_MODULE_20__["default"],
+   _web_view_tab_FNAbviewtab_js__WEBPACK_IMPORTED_MODULE_21__["default"],
+   _web_view_tab_FNAbviewtabEditor_js__WEBPACK_IMPORTED_MODULE_22__["default"],
+   _web_view_text_FNAbviewtext_js__WEBPACK_IMPORTED_MODULE_23__["default"],
+   _web_view_text_FNAbviewtextEditor_js__WEBPACK_IMPORTED_MODULE_24__["default"],
+   _web_view_pivot_FNAbviewpivot_js__WEBPACK_IMPORTED_MODULE_0__["default"],
+   _web_view_pivot_FNAbviewpivotEditor_js__WEBPACK_IMPORTED_MODULE_1__["default"],
 ];
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -72127,6 +72133,338 @@ function FNAbviewpdfimporterEditor({ ABViewEditorPlugin }) {
 
 /***/ }),
 
+/***/ "./src/plugins/web_view_pivot/FNAbviewpivot.js":
+/*!*****************************************************!*\
+  !*** ./src/plugins/web_view_pivot/FNAbviewpivot.js ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FNAbviewpivotProperties)
+/* harmony export */ });
+// FNAbviewpivot Properties
+// A properties side import for an ABView.
+//
+function FNAbviewpivotProperties({
+   AB,
+   ABViewPropertiesPlugin,
+   // ABUIPlugin,
+}) {
+   const BASE_ID = "properties_abview_pivot";
+
+   const uiConfig = AB.UISettings.config();
+
+   return class ABAbviewpivotProperties extends ABViewPropertiesPlugin {
+      static getPluginKey() {
+         return this.key;
+      }
+
+      static getPluginType() {
+         return "properties-view";
+         // properties-view : will display in the properties panel of the ABDesigner
+      }
+
+      constructor() {
+         super(BASE_ID, {
+            datacollection: "",
+            height: "",
+            removeMissed: "",
+            totalColumn: "",
+            separateLabel: "",
+            min: "",
+            max: "",
+            decimalPlaces: "",
+         });
+
+         this.AB = AB;
+      }
+
+      static get key() {
+         return "pivot";
+      }
+
+      ui() {
+         const ids = this.ids;
+
+         return super.ui([
+            {
+               id: ids.datacollection,
+               name: "dataviewID",
+               view: "richselect",
+               label: L("Data Source"),
+               labelWidth: uiConfig.labelWidthLarge,
+               on: {
+                  onChange: (dcId, oldDcId) => {
+                     if (dcId == oldDcId) return;
+                     this.onChange();
+                  },
+               },
+            },
+            {
+               id: ids.height,
+               view: "counter",
+               name: "height",
+               label: L("Height:"),
+               labelWidth: uiConfig.labelWidthLarge,
+               on: {
+                  onChange: () => {
+                     this.onChange();
+                  },
+               },
+            },
+            {
+               id: ids.removeMissed,
+               view: "checkbox",
+               name: "removeMissed",
+               labelRight: L("Remove empty data."),
+               labelWidth: uiConfig.labelWidthCheckbox,
+               on: {
+                  onChange: () => {
+                     this.onChange();
+                  },
+               },
+            },
+            {
+               id: ids.totalColumn,
+               view: "checkbox",
+               name: "totalColumn",
+               labelRight: L("Show a total column."),
+               labelWidth: uiConfig.labelWidthCheckbox,
+               on: {
+                  onChange: () => {
+                     this.onChange();
+                  },
+               },
+            },
+            {
+               id: ids.separateLabel,
+               view: "checkbox",
+               name: "separateLabel",
+               labelRight: L("Separate header label."),
+               labelWidth: uiConfig.labelWidthCheckbox,
+               on: {
+                  onChange: () => {
+                     this.onChange();
+                  },
+               },
+            },
+            {
+               id: ids.min,
+               view: "checkbox",
+               name: "min",
+               labelRight: L(
+                  "Highlighting of a cell(s) with the least value in a row."
+               ),
+               labelWidth: uiConfig.labelWidthCheckbox,
+               on: {
+                  onChange: () => {
+                     this.onChange();
+                  },
+               },
+            },
+            {
+               id: ids.max,
+               view: "checkbox",
+               name: "max",
+               labelRight: L(
+                  "Highlighting of a cell(s) with the biggest value in a row."
+               ),
+               labelWidth: uiConfig.labelWidthCheckbox,
+               on: {
+                  onChange: () => {
+                     this.onChange();
+                  },
+               },
+            },
+            {
+               id: ids.decimalPlaces,
+               name: "decimalPlaces",
+               view: "counter",
+               min: 1,
+               label: L("Decimal Places"),
+               labelWidth: uiConfig.labelWidthXLarge,
+               on: {
+                  onChange: () => {
+                     this.onChange();
+                  },
+               },
+            },
+         ]);
+      }
+
+      async init(AB) {
+         this.AB = AB;
+
+         await super.init(AB);
+      }
+
+      populate(view) {
+         super.populate(view);
+
+         const ids = this.ids;
+
+         const dcID = view.settings.dataviewID
+            ? view.settings.dataviewID
+            : null;
+         var $dc = $$(ids.datacollection);
+
+         // Pull data collections to options
+         var dcOptions = view.application.datacollectionsIncluded().map((d) => {
+            return {
+               id: d.id,
+               value: d.label,
+               icon:
+                  d.sourceType == "query" ? "fa fa-filter" : "fa fa-database",
+            };
+         });
+         $dc.define("options", dcOptions);
+         $dc.define("value", dcID);
+         $dc.refresh();
+
+         $$(ids.removeMissed).setValue(view.settings.removeMissed);
+         $$(ids.totalColumn).setValue(view.settings.totalColumn);
+         $$(ids.separateLabel).setValue(view.settings.separateLabel);
+         $$(ids.min).setValue(view.settings.min);
+         $$(ids.max).setValue(view.settings.max);
+         $$(ids.height).setValue(view.settings.height);
+         $$(ids.decimalPlaces).setValue(
+            view.settings.decimalPlaces == null
+               ? 2
+               : view.settings.decimalPlaces
+         );
+      }
+
+      // defaultValues() {
+      //    const ViewClass = this.ViewClass();
+
+      //    let values = null;
+
+      //    if (ViewClass) {
+      //       values = ViewClass.defaultValues();
+      //    }
+
+      //    return values;
+      // }
+
+      /**
+       * @method values
+       * return the values for this form.
+       * @return {obj}
+       */
+      values() {
+         const $component = $$(this.ids.component);
+
+         const values = super.values();
+
+         values.settings = $component.getValues();
+
+         return values;
+      }
+
+      /**
+       * @method FieldClass()
+       * A method to return the proper ABViewXXX Definition.
+       * NOTE: Must be overwritten by the Child Class
+       */
+      ViewClass() {
+         return super._ViewClass("pivot");
+      }
+   };
+}
+
+
+/***/ }),
+
+/***/ "./src/plugins/web_view_pivot/FNAbviewpivotEditor.js":
+/*!***********************************************************!*\
+  !*** ./src/plugins/web_view_pivot/FNAbviewpivotEditor.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FNAbviewpivotEditor)
+/* harmony export */ });
+// FNAbviewpivot Editor
+// An Editor wrapper for the ABView Component.
+// The Editor is displayed in the ABDesigner as a view is worked on.
+// The Editor allows a widget to be moved and placed on the canvas.
+//
+function FNAbviewpivotEditor({ AB, ABViewEditorPlugin }) {
+   // var L = UIClass.L();
+   // var L = ABViewContainer.L();
+
+   return class ABAbviewpivotEditor extends ABViewEditorPlugin {
+      static getPluginKey() {
+         return this.key;
+      }
+
+      /**
+       * @method getPluginType
+       * return the plugin type for this editor.
+       * plugin types are how our ClassManager knows how to store
+       * the plugin.
+       * @return {string} plugin type
+       */
+      static getPluginType() {
+         return "editor-view";
+         // editor-view : will display in the editor panel of the ABDesigner
+      }
+
+      static get key() {
+         return "pivot";
+      }
+
+      constructor(view, base = "interface_editor_viewpivot") {
+         // base: {string} unique base id reference
+
+         super(view, base);
+      }
+
+      ui() {
+         const pivotContainer = this.component.ui();
+         const pivot = pivotContainer.rows[0];
+
+         pivot.readonly = false;
+
+         // NOTE: ui_work_interface_workspace_editor_layout is expecting a { rows:[] }
+         // type of response from this.
+         return pivotContainer;
+      }
+
+      init(AB) {
+         this.AB = AB;
+
+         this.component?.init?.();
+
+         const pivotId = this.ui().rows[0].id;
+         const $pivot = $$(pivotId);
+         $pivot.getState().$observe("structure", (structure) => {
+            this._saveStructure(structure);
+         });
+      }
+
+      detatch() {
+         this.component?.detatch?.();
+      }
+
+      onShow() {
+         this.component?.onShow?.();
+      }
+
+      _saveStructure(structure) {
+         this.view.settings.structure = structure;
+         this.view.save();
+      }
+   };
+}
+
+
+/***/ }),
+
 /***/ "./src/plugins/web_view_tab/FNAbviewtab.js":
 /*!*************************************************!*\
   !*** ./src/plugins/web_view_tab/FNAbviewtab.js ***!
@@ -73128,7 +73466,7 @@ __webpack_require__.r(__webpack_exports__);
       __webpack_require__(/*! ./views/ABViewMenu */ "./src/rootPages/Designer/editors/views/ABViewMenu.js"),
       __webpack_require__(/*! ./views/ABViewPage */ "./src/rootPages/Designer/editors/views/ABViewPage.js"),
       // require("./views/ABViewPDFImporter"),
-      __webpack_require__(/*! ./views/ABViewPivot */ "./src/rootPages/Designer/editors/views/ABViewPivot.js"),
+      // require("./views/ABViewPivot"),
       __webpack_require__(/*! ./views/ABViewTab */ "./src/rootPages/Designer/editors/views/ABViewTab.js"),
       // require("./views/ABViewText"),
    ].forEach((E) => {
@@ -74783,94 +75121,6 @@ var myClass = null;
 
 /***/ }),
 
-/***/ "./src/rootPages/Designer/editors/views/ABViewPivot.js":
-/*!*************************************************************!*\
-  !*** ./src/rootPages/Designer/editors/views/ABViewPivot.js ***!
-  \*************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* export default binding */ __WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _ui_class__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../ui_class */ "./src/rootPages/Designer/ui_class.js");
-/**
- * ABViewPivotEditor
- * The widget that displays the UI Editor Component on the screen
- * when designing the UI.
- */
-let myClass = null;
-// {singleton}
-// we will want to call this factory fn() repeatedly in our imports,
-// but we only want to define 1 Class reference.
-
-
-
-/* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__(AB) {
-   if (!myClass) {
-      const UIClass = (0,_ui_class__WEBPACK_IMPORTED_MODULE_0__["default"])(AB);
-      // var L = UIClass.L();
-      // var L = ABViewContainer.L();
-
-      myClass = class ABViewPivotEditor extends UIClass {
-         static get key() {
-            return "pivot";
-         }
-
-         constructor(view, base = "interface_editor_viewpivot") {
-            // base: {string} unique base id reference
-
-            super(base);
-
-            this.view = view;
-            this.component = this.view.component();
-         }
-
-         ui() {
-            const pivotContainer = this.component.ui();
-            const pivot = pivotContainer.rows[0];
-
-            pivot.readonly = false;
-
-            // NOTE: ui_work_interface_workspace_editor_layout is expecting a { rows:[] }
-            // type of response from this.
-            return pivotContainer;
-         }
-
-         init(AB) {
-            this.AB = AB;
-
-            this.component?.init?.();
-
-            const pivotId = this.ui().rows[0].id;
-            const $pivot = $$(pivotId);
-            $pivot.getState().$observe("structure", (structure) => {
-               this._saveStructure(structure);
-            });
-         }
-
-         detatch() {
-            this.component?.detatch?.();
-         }
-
-         onShow() {
-            this.component?.onShow?.();
-         }
-
-         _saveStructure(structure) {
-            this.view.settings.structure = structure;
-            this.view.save();
-         }
-      };
-   }
-
-   return myClass;
-}
-
-
-/***/ }),
-
 /***/ "./src/rootPages/Designer/editors/views/ABViewTab.js":
 /*!***********************************************************!*\
   !*** ./src/rootPages/Designer/editors/views/ABViewTab.js ***!
@@ -75677,7 +75927,7 @@ var PropertyMgr = null;
          __webpack_require__(/*! ./views/ABViewMenu */ "./src/rootPages/Designer/properties/views/ABViewMenu.js"),
          __webpack_require__(/*! ./views/ABViewPage */ "./src/rootPages/Designer/properties/views/ABViewPage.js"),
          // require("./views/ABViewPDFImporter"),
-         __webpack_require__(/*! ./views/ABViewPivot */ "./src/rootPages/Designer/properties/views/ABViewPivot.js"),
+         // require("./views/ABViewPivot"),
          __webpack_require__(/*! ./views/ABViewReportsManager */ "./src/rootPages/Designer/properties/views/ABViewReportsManager.js"),
          __webpack_require__(/*! ./views/ABViewScheduler */ "./src/rootPages/Designer/properties/views/ABViewScheduler.js"),
          // require("./views/ABViewText"),
@@ -110027,246 +110277,6 @@ __webpack_require__.r(__webpack_exports__);
    }
 
    return ABViewPageProperty;
-}
-
-
-/***/ }),
-
-/***/ "./src/rootPages/Designer/properties/views/ABViewPivot.js":
-/*!****************************************************************!*\
-  !*** ./src/rootPages/Designer/properties/views/ABViewPivot.js ***!
-  \****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* export default binding */ __WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _ABView__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABView */ "./src/rootPages/Designer/properties/views/ABView.js");
-/*
- * ABViewPivot
- * A Property manager for our ABViewPivot definitions
- */
-
-
-
-/* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__(AB) {
-   const BASE_ID = "properties_abview_pivot";
-
-   const ABView = (0,_ABView__WEBPACK_IMPORTED_MODULE_0__["default"])(AB);
-   const L = ABView.L();
-   const uiConfig = AB.UISettings.config();
-
-   class ABViewPivotProperty extends ABView {
-      constructor() {
-         super(BASE_ID, {
-            datacollection: "",
-            height: "",
-            removeMissed: "",
-            totalColumn: "",
-            separateLabel: "",
-            min: "",
-            max: "",
-            decimalPlaces: "",
-         });
-
-         this.AB = AB;
-      }
-
-      static get key() {
-         return "pivot";
-      }
-
-      ui() {
-         const ids = this.ids;
-
-         return super.ui([
-            {
-               id: ids.datacollection,
-               name: "dataviewID",
-               view: "richselect",
-               label: L("Data Source"),
-               labelWidth: uiConfig.labelWidthLarge,
-               on: {
-                  onChange: (dcId, oldDcId) => {
-                     if (dcId == oldDcId) return;
-                     this.onChange();
-                  },
-               },
-            },
-            {
-               id: ids.height,
-               view: "counter",
-               name: "height",
-               label: L("Height:"),
-               labelWidth: uiConfig.labelWidthLarge,
-               on: {
-                  onChange: () => {
-                     this.onChange();
-                  },
-               },
-            },
-            {
-               id: ids.removeMissed,
-               view: "checkbox",
-               name: "removeMissed",
-               labelRight: L("Remove empty data."),
-               labelWidth: uiConfig.labelWidthCheckbox,
-               on: {
-                  onChange: () => {
-                     this.onChange();
-                  },
-               },
-            },
-            {
-               id: ids.totalColumn,
-               view: "checkbox",
-               name: "totalColumn",
-               labelRight: L("Show a total column."),
-               labelWidth: uiConfig.labelWidthCheckbox,
-               on: {
-                  onChange: () => {
-                     this.onChange();
-                  },
-               },
-            },
-            {
-               id: ids.separateLabel,
-               view: "checkbox",
-               name: "separateLabel",
-               labelRight: L("Separate header label."),
-               labelWidth: uiConfig.labelWidthCheckbox,
-               on: {
-                  onChange: () => {
-                     this.onChange();
-                  },
-               },
-            },
-            {
-               id: ids.min,
-               view: "checkbox",
-               name: "min",
-               labelRight: L(
-                  "Highlighting of a cell(s) with the least value in a row."
-               ),
-               labelWidth: uiConfig.labelWidthCheckbox,
-               on: {
-                  onChange: () => {
-                     this.onChange();
-                  },
-               },
-            },
-            {
-               id: ids.max,
-               view: "checkbox",
-               name: "max",
-               labelRight: L(
-                  "Highlighting of a cell(s) with the biggest value in a row."
-               ),
-               labelWidth: uiConfig.labelWidthCheckbox,
-               on: {
-                  onChange: () => {
-                     this.onChange();
-                  },
-               },
-            },
-            {
-               id: ids.decimalPlaces,
-               name: "decimalPlaces",
-               view: "counter",
-               min: 1,
-               label: L("Decimal Places"),
-               labelWidth: uiConfig.labelWidthXLarge,
-               on: {
-                  onChange: () => {
-                     this.onChange();
-                  },
-               },
-            },
-         ]);
-      }
-
-      async init(AB) {
-         this.AB = AB;
-
-         await super.init(AB);
-      }
-
-      populate(view) {
-         super.populate(view);
-
-         const ids = this.ids;
-
-         const dcID = view.settings.dataviewID
-            ? view.settings.dataviewID
-            : null;
-         var $dc = $$(ids.datacollection);
-
-         // Pull data collections to options
-         var dcOptions = view.application.datacollectionsIncluded().map((d) => {
-            return {
-               id: d.id,
-               value: d.label,
-               icon:
-                  d.sourceType == "query" ? "fa fa-filter" : "fa fa-database",
-            };
-         });
-         $dc.define("options", dcOptions);
-         $dc.define("value", dcID);
-         $dc.refresh();
-
-         $$(ids.removeMissed).setValue(view.settings.removeMissed);
-         $$(ids.totalColumn).setValue(view.settings.totalColumn);
-         $$(ids.separateLabel).setValue(view.settings.separateLabel);
-         $$(ids.min).setValue(view.settings.min);
-         $$(ids.max).setValue(view.settings.max);
-         $$(ids.height).setValue(view.settings.height);
-         $$(ids.decimalPlaces).setValue(
-            view.settings.decimalPlaces == null
-               ? 2
-               : view.settings.decimalPlaces
-         );
-      }
-
-      // defaultValues() {
-      //    const ViewClass = this.ViewClass();
-
-      //    let values = null;
-
-      //    if (ViewClass) {
-      //       values = ViewClass.defaultValues();
-      //    }
-
-      //    return values;
-      // }
-
-      /**
-       * @method values
-       * return the values for this form.
-       * @return {obj}
-       */
-      values() {
-         const $component = $$(this.ids.component);
-
-         const values = super.values();
-
-         values.settings = $component.getValues();
-
-         return values;
-      }
-
-      /**
-       * @method FieldClass()
-       * A method to return the proper ABViewXXX Definition.
-       * NOTE: Must be overwritten by the Child Class
-       */
-      ViewClass() {
-         return super._ViewClass("pivot");
-      }
-   }
-
-   return ABViewPivotProperty;
 }
 
 
