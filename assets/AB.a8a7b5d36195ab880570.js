@@ -327,7 +327,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _utils_performance__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../utils/performance */ 76431);
 /* harmony import */ var _platform_FilterComplex__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./platform/FilterComplex */ 46334);
 /* harmony import */ var _platform_FilterComplex__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_platform_FilterComplex__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _platform_views_ABViewGridPopupSortFields__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./platform/views/ABViewGridPopupSortFields */ 216);
+/* harmony import */ var _platform_views_ABViewPopupSortFields__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./platform/views/ABViewPopupSortFields */ 49000);
 /* harmony import */ var papaparse__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! papaparse */ 24691);
 /* harmony import */ var papaparse__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(papaparse__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var _config_Config_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../config/Config.js */ 97970);
@@ -459,7 +459,7 @@ class ABFactory extends (_core_ABFactoryCore__WEBPACK_IMPORTED_MODULE_0___defaul
       // additional Class definitions
       this.Class.FilterComplex = (_platform_FilterComplex__WEBPACK_IMPORTED_MODULE_6___default());
       this.Class.ABViewManager = (_platform_ABViewManager__WEBPACK_IMPORTED_MODULE_16___default());
-      this.Class.SortPopup = _platform_views_ABViewGridPopupSortFields__WEBPACK_IMPORTED_MODULE_7__["default"];
+      this.Class.SortPopup = _platform_views_ABViewPopupSortFields__WEBPACK_IMPORTED_MODULE_7__["default"];
       this.Class.ABViewComponent = _platform_views_viewComponent_ABViewComponent_js__WEBPACK_IMPORTED_MODULE_19__["default"];
 
       // Temp placeholders until Resources are implemented:
@@ -33552,14 +33552,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _views_ABViewContainer_js__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_views_ABViewContainer_js__WEBPACK_IMPORTED_MODULE_9__);
 /* harmony import */ var _views_viewComponent_ABViewContainerComponent_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./views/viewComponent/ABViewContainerComponent.js */ 71980);
 /* harmony import */ var _views_viewComponent_ABViewContainerComponent_js__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_views_viewComponent_ABViewContainerComponent_js__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var _views_viewProperties_ABViewPropertyFilterData__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./views/viewProperties/ABViewPropertyFilterData */ 95889);
-/* harmony import */ var _views_viewProperties_ABViewPropertyLinkPage__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./views/viewProperties/ABViewPropertyLinkPage */ 42588);
-/* harmony import */ var _rules_ABViewRuleListFormRecordRules__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../rules/ABViewRuleListFormRecordRules */ 1148);
-/* harmony import */ var _rules_ABViewRuleListFormRecordRules__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_rules_ABViewRuleListFormRecordRules__WEBPACK_IMPORTED_MODULE_13__);
-/* harmony import */ var _rules_ABViewRuleListFormSubmitRules__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../rules/ABViewRuleListFormSubmitRules */ 41171);
-/* harmony import */ var _rules_ABViewRuleListFormSubmitRules__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(_rules_ABViewRuleListFormSubmitRules__WEBPACK_IMPORTED_MODULE_14__);
-/* harmony import */ var _ABViewManager_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./ABViewManager.js */ 40765);
-/* harmony import */ var _ABViewManager_js__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(_ABViewManager_js__WEBPACK_IMPORTED_MODULE_15__);
+/* harmony import */ var _views_ABViewPopupSortFields_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./views/ABViewPopupSortFields.js */ 49000);
+/* harmony import */ var _views_viewProperties_ABViewPropertyFilterData__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./views/viewProperties/ABViewPropertyFilterData */ 95889);
+/* harmony import */ var _views_viewProperties_ABViewPropertyLinkPage__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./views/viewProperties/ABViewPropertyLinkPage */ 42588);
+/* harmony import */ var _rules_ABViewRuleListFormRecordRules__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../rules/ABViewRuleListFormRecordRules */ 1148);
+/* harmony import */ var _rules_ABViewRuleListFormRecordRules__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(_rules_ABViewRuleListFormRecordRules__WEBPACK_IMPORTED_MODULE_14__);
+/* harmony import */ var _rules_ABViewRuleListFormSubmitRules__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../rules/ABViewRuleListFormSubmitRules */ 41171);
+/* harmony import */ var _rules_ABViewRuleListFormSubmitRules__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(_rules_ABViewRuleListFormSubmitRules__WEBPACK_IMPORTED_MODULE_15__);
+/* harmony import */ var _ABViewManager_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./ABViewManager.js */ 40765);
+/* harmony import */ var _ABViewManager_js__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(_ABViewManager_js__WEBPACK_IMPORTED_MODULE_16__);
 
 
 
@@ -33571,6 +33572,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 // some views need to reference ABViewContainer,
+
+
 
 
 
@@ -33632,10 +33635,11 @@ function getPluginAPI() {
       ABViewEditorPlugin: _plugins_ABViewEditorPlugin_js__WEBPACK_IMPORTED_MODULE_8__["default"],
       ABViewContainer: (_views_ABViewContainer_js__WEBPACK_IMPORTED_MODULE_9___default()),
       ABViewContainerComponent: (_views_viewComponent_ABViewContainerComponent_js__WEBPACK_IMPORTED_MODULE_10___default()),
-      ABViewPropertyFilterData: _views_viewProperties_ABViewPropertyFilterData__WEBPACK_IMPORTED_MODULE_11__["default"],
-      ABViewPropertyLinkPage: _views_viewProperties_ABViewPropertyLinkPage__WEBPACK_IMPORTED_MODULE_12__["default"],
-      ABViewRuleListFormRecordRules: (_rules_ABViewRuleListFormRecordRules__WEBPACK_IMPORTED_MODULE_13___default()),
-      ABViewRuleListFormSubmitRules: (_rules_ABViewRuleListFormSubmitRules__WEBPACK_IMPORTED_MODULE_14___default()),
+      ABViewPropertyFilterData: _views_viewProperties_ABViewPropertyFilterData__WEBPACK_IMPORTED_MODULE_12__["default"],
+      ABViewPropertyLinkPage: _views_viewProperties_ABViewPropertyLinkPage__WEBPACK_IMPORTED_MODULE_13__["default"],
+      ABViewRuleListFormRecordRules: (_rules_ABViewRuleListFormRecordRules__WEBPACK_IMPORTED_MODULE_14___default()),
+      ABViewRuleListFormSubmitRules: (_rules_ABViewRuleListFormSubmitRules__WEBPACK_IMPORTED_MODULE_15___default()),
+      ABViewPopupSortFields: _views_ABViewPopupSortFields_js__WEBPACK_IMPORTED_MODULE_11__["default"],
       //  ABFieldPlugin,
       //  ABViewPlugin,
    };
@@ -33671,7 +33675,7 @@ function allObjectProperties() {
 function viewClass(type) {
    var ViewClass = classRegistry.ViewTypes.get(type);
    if (!ViewClass) {
-      ViewClass = _ABViewManager_js__WEBPACK_IMPORTED_MODULE_15___default().viewClass(type, false);
+      ViewClass = _ABViewManager_js__WEBPACK_IMPORTED_MODULE_16___default().viewClass(type, false);
       if (!ViewClass) {
          throw new Error(`Unknown View type: ${type}`);
       }
@@ -45032,7 +45036,8 @@ function _getSelectedOptions(field, rowData = {}) {
       result = rowData[field.columnName];
 
       try {
-         if (typeof result == "string") result = JSON.parse(result);
+         if (typeof result == "string" && result !== "") result = JSON.parse(result);
+         else if (typeof result == "string" && result === "") result = [];
       } catch (e) {
          console.error(`Error JSON.pars()ing result [${result}]: `, e);
          // just go with what is there
@@ -48828,6 +48833,519 @@ class ABViewWidgetPlugin extends (_views_ABViewWidget_js__WEBPACK_IMPORTED_MODUL
          { key: this.common().key, plugin_key: this.getPluginKey() },
          parent
       );
+   }
+}
+
+
+/***/ },
+
+/***/ 20199
+/*!*********************************************************************************!*\
+  !*** ./AppBuilder/platform/plugins/included/view_grid/ABViewGridPopupExport.js ***!
+  \*********************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABWorkObjectPopupExport)
+/* harmony export */ });
+/* harmony import */ var _ui_ClassUI__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../ui/ClassUI */ 93692);
+/*
+ * ABViewGridPopupExport.js
+ * Manage the Popup that allows you to export data into one of our supported
+ * formats.
+ */
+
+
+
+class ABWorkObjectPopupExport extends _ui_ClassUI__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   constructor(idBase) {
+      idBase = idBase || "abviewgridpopupExport";
+
+      super({
+         popupExport: `${idBase}_popupExport`,
+         list: `${idBase}_popupExport_list`,
+      });
+
+      this._currentObject = null;
+      // {ABObject}
+      // The ABObject of the data we will export.  We can find out the fields
+      // from the object.
+
+      this._dataCollection = null;
+      // {ABDatacCollection}
+      // The ABDataCollection that contains the data we are going to export.
+
+      this._grid = null;
+      // {webix.grid}
+      // the current webix.grid that contains the data we are going to export.
+
+      this._filename = null;
+      // {string}
+      // the name of the desired output file.
+
+      this._hiddenFields = [];
+      // {array}
+      // An array of ABField.columnName(s) that we are not wanting to export
+   }
+
+   ui() {
+      var self = this;
+
+      // webix UI definition:
+      return {
+         view: "popup",
+         id: this.ids.popupExport,
+         width: 160,
+         height: 0, //150,
+         select: false,
+         hidden: true,
+         body: {
+            id: this.ids.list,
+            view: "list",
+            autoheight: true,
+            data: [
+               { name: "CSV", icon: "file-excel-o" },
+               { name: "Excel", icon: "file-excel-o" },
+               { name: "PDF", icon: "file-pdf-o" },
+               { name: "PNG", icon: "file-image-o" },
+            ],
+            template:
+               "<div><i class='fa fa-#icon# webix_icon_btn' aria-hidden='true'></i> #name#</div>",
+            on: {
+               onItemClick: function (id /*, e, node */) {
+                  var component = this.getItem(id);
+                  self.export(component.name);
+               },
+            },
+         },
+      };
+   }
+
+   async init(AB) {
+      if (AB) {
+         this.AB = AB;
+      }
+      webix.ui(this.ui());
+      $$(this.ids.popupExport).resize();
+   }
+
+   // internal business logic
+
+   /**
+    * @method dataCollectionLoad()
+    * the current ABDataCollection we are working with.
+    * @param {ABDataCollection} dc
+    */
+   dataCollectionLoad(dc) {
+      this._dataCollection = dc;
+   }
+
+   /**
+    * @method objectLoad()
+    * The current ABObject we are working with.
+    * @param {ABObject} object
+    */
+   objectLoad(object) {
+      this._currentObject = object;
+   }
+
+   /**
+    * @method setHiddenFields
+    * Register Fields we don't want exported in our data.
+    * @param {array} fields
+    *        An array of ABField.columnName(s) to exclude from our export.
+    */
+   setHiddenFields(fields = []) {
+      this._hiddenFields = fields ?? [];
+   }
+
+   /**
+    * @method setFilename()
+    * Register the name of the file we want our data to export as.
+    * @param {string} filename
+    */
+   setFilename(filename) {
+      this._filename = filename;
+   }
+
+   /**
+    * @method setGridComponent()
+    * Register the webix.grid that currently stores the data we are
+    * exporting.
+    * @param {webix.grid} $grid
+    */
+   setGridComponent($grid) {
+      this._grid = $grid;
+   }
+
+   /**
+    * @function show()
+    * Show this component.
+    * @param {obj} $view
+    *        the webix.$view to hover the popup around.
+    */
+   show($view) {
+      $$(this.ids.popupExport).show($view);
+   }
+
+   async export(name) {
+      let fnExport;
+
+      let columns = {};
+
+      let dc = this._dataCollection;
+      let _currentObject = this._currentObject;
+      let _grid = this._grid;
+      let _filename = this._filename;
+
+      if (
+         dc &&
+         (!dc.settings.loadAll || dc.dataStatus == dc.dataStatusFlag.notInitial)
+      ) {
+         // Load all data
+         await dc.reloadData(0, null);
+         dc.settings.loadAll = true;
+      }
+
+      // client filter data
+      // template of report
+      if (_currentObject) {
+         _currentObject.fields().forEach((f) => {
+            // hidden fields
+            if (this._hiddenFields.indexOf(f.columnName) > -1) return;
+
+            columns[f.columnName] = {
+               template: (rowData) => {
+                  return f.format(rowData);
+               },
+            };
+         });
+      }
+
+      // If there are checked items, then export them only
+      // Otherwise export all items
+      const noCheckedRow =
+         _grid.data.find({ appbuilder_select_item: 1 }).length < 1;
+      const filterRow = (row) =>
+         noCheckedRow || row?.appbuilder_select_item == 1;
+
+      switch (name) {
+         case "CSV":
+            webix.csv.delimiter.cols = ",";
+
+            fnExport = webix.toCSV(_grid, {
+               filename:
+                  _filename || (_currentObject ? _currentObject.label : null),
+               columns: columns,
+               filter: filterRow,
+            });
+            break;
+         case "Excel":
+            fnExport = webix.toExcel(_grid, {
+               filename:
+                  _filename || (_currentObject ? _currentObject.label : null),
+               name:
+                  _filename || (_currentObject ? _currentObject.label : null),
+               columns: columns,
+               filterHTML: true,
+               filter: filterRow,
+            });
+            break;
+         case "PDF":
+            fnExport = webix.toPDF(_grid, {
+               filename:
+                  _filename || (_currentObject ? _currentObject.label : null),
+               filterHTML: true,
+               filter: filterRow,
+            });
+            break;
+         case "PNG":
+            fnExport = webix.toPNG(_grid, {
+               filename:
+                  _filename || (_currentObject ? _currentObject.label : null),
+               // filter: NOT SUPPORT
+            });
+            break;
+      }
+
+      try {
+         await fnExport;
+         $$(this.ids.popupExport).hide();
+      } catch (err) {
+         this.AB.notify.developer(err, {
+            message: `ABViewGridPopupExport:export(): System could not export: ${name}`,
+            exportType: name,
+            columns,
+            fileName: _filename,
+         });
+      }
+   }
+
+   // this.dataCollectionLoad = _logic.dataCollectionLoad;
+   // this.objectLoad = _logic.objectLoad;
+   // this.setGridComponent = _logic.setGridComponent;
+   // this.setFilename = _logic.setFilename;
+   // this.setHiddenFields = _logic.setHiddenFields;
+   // this.show = _logic.show;
+}
+
+
+/***/ },
+
+/***/ 60744
+/*!*************************************************************************************!*\
+  !*** ./AppBuilder/platform/plugins/included/view_grid/ABViewGridPopupMassUpdate.js ***!
+  \*************************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewGridPopupMassUpdate)
+/* harmony export */ });
+/* harmony import */ var _ui_ClassUI__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../ui/ClassUI */ 93692);
+/* harmony import */ var _RowUpdater__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../RowUpdater */ 18815);
+/*
+ * ABViewGridPopupMassUpdate
+ *
+ * An ABViewGrid can offer a mass update feature.  This is a ui component
+ * to help with the processing of the update.
+ *
+ */
+
+
+
+
+var L = null;
+
+class ABViewGridPopupMassUpdate extends _ui_ClassUI__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   //.extend(idBase, function(App) {
+
+   constructor(ABViewGridComponent, idBase) {
+      idBase = idBase || "abviewgridpopupMassUpdate";
+
+      super({
+         component: `${idBase}_popupMassUpdate`,
+         submit: `${idBase}_submitMassUpdate`,
+      });
+
+      this.CurrentObject = null;
+      // {ABObject}
+      // Which ABObject are we currently working with.
+
+      this.GridComponent = ABViewGridComponent;
+      // {ABViewGridComponent}
+      // The current ABViewGridComponent we are working with.
+
+      this.AB = ABViewGridComponent.AB;
+      // {ABFactory}
+
+      this.rowUpdater = new _RowUpdater__WEBPACK_IMPORTED_MODULE_1__["default"](idBase, this.AB);
+      // {RowUpdater}
+      // An instance of our RowUpdater form builder.
+
+      if (!L) {
+         L = (...params) => {
+            return this.AB.Multilingual.label(...params);
+         };
+      }
+   }
+
+   ui() {
+      var ids = this.ids;
+
+      // Our webix UI definition:
+      return {
+         view: "popup",
+         id: ids.component,
+         // modal: true,
+         body: {
+            width: 500,
+            rows: [
+               // Update panel
+               this.rowUpdater.ui(),
+               { height: 15 },
+               {
+                  cols: [
+                     {},
+                     {
+                        view: "button",
+                        value: L("Cancel"),
+                        width: 100,
+                        click: () => {
+                           this.hide();
+                        },
+                     },
+                     {
+                        id: ids.submit,
+                        css: "webix_primary",
+                        view: "button",
+                        label: L("Update"),
+                        type: "form",
+                        width: 120,
+                        click: () => {
+                           this.submit();
+                        },
+                     },
+                  ],
+               },
+            ],
+         },
+         on: {
+            onShow: () => {
+               this.onShow();
+            },
+         },
+      };
+   }
+
+   async init(AB) {
+      webix.ui(this.ui());
+      this.rowUpdater.init(AB);
+
+      return Promise.resolve();
+   }
+
+   /**
+    * @method hide()
+    * Hide the popup.
+    */
+   hide() {
+      $$(this.ids.component).hide();
+   }
+
+   /**
+    * @function objectLoad
+    * Ready the Popup according to the current object & datatable
+    * @param {ABObject} object
+    *        the currently selected object.
+    * @param {webix.datatable} dataTable
+    *        the dataTable we need to run the mass update on...trust me this
+    *        will be good
+    */
+   objectLoad(object, dataTable) {
+      this.CurrentObject = object;
+      this.rowUpdater.objectLoad(object);
+      this.DataTable = dataTable;
+   }
+
+   onShow() {}
+
+   /**
+    * @method show()
+    * Show this component.
+    * @param {obj} $view
+    *        the webix.$view to hover the popup around.
+    * @param {json} options
+    *        Additional webix options related to the .show() method.
+    */
+   show($view, options = null) {
+      if (options != null) {
+         $$(this.ids.component).show($view, options);
+      } else {
+         $$(this.ids.component).show($view);
+      }
+   }
+
+   /**
+    * @method submit()
+    * Process the submit action by getting the values to change and then
+    * running a batchUpdate() on the items in our datatable that were selected.
+    */
+   submit() {
+      // Update values to records
+      let update_button = $$(this.ids.submit),
+         update_items = this.rowUpdater.getValue() || [];
+
+      update_button.disable();
+
+      if (!this.GridComponent) {
+         // TODO : Message
+         // console.log("no data collection to update");
+         update_button.enable();
+         return;
+      } else if (update_items.length < 1) {
+         // TODO : Message
+         update_button.enable();
+         return;
+      }
+
+      let $datatable = this.GridComponent.getDataTable(); // $$(DataTable.ui.id);
+      let updatedRowIds = [];
+      $datatable.data.each(function (row) {
+         if (
+            row &&
+            Object.prototype.hasOwnProperty.call(
+               row,
+               "appbuilder_select_item"
+            ) &&
+            row.appbuilder_select_item == 1
+         ) {
+            updatedRowIds.push(row.id);
+         }
+      });
+
+      let vals = {};
+      update_items.forEach((item) => {
+         let fieldInfo = this.CurrentObject.fieldByID(item.fieldId);
+         if (!fieldInfo) return;
+
+         vals[fieldInfo.columnName] = item.value;
+      });
+
+      if (updatedRowIds.length > 0) {
+         webix.confirm({
+            title: L("Updating Multiple Records"),
+            text: L("Are you sure you want to update the selected records?"),
+            callback: (result) => {
+               if (result) {
+                  if ($datatable && $datatable.showProgress)
+                     $datatable.showProgress({ type: "icon" });
+
+                  let objModel = this.CurrentObject.model();
+                  objModel
+                     .batchUpdate({
+                        rowIds: updatedRowIds,
+                        values: vals,
+                     })
+                     .then(() => {
+                        // Update webix.datatable
+                        (updatedRowIds ?? []).forEach((rowId) => {
+                           $datatable.updateItem(rowId, vals);
+                        });
+
+                        // Anything we need to do after we are done.
+                        update_button.enable();
+                        this.hide();
+
+                        if ($datatable && $datatable.hideProgress)
+                           $datatable.hideProgress();
+                     })
+                     .catch((err) => {
+                        this.AB.notify.developer(err, {
+                           context:
+                              "ABViewGridPopupMassUpdate:submit(): Error during batchUpdate",
+                           rowIds: updatedRowIds,
+                           values: vals,
+                        });
+                     });
+               } else {
+                  update_button.enable();
+               }
+            },
+         });
+      } else {
+         webix.alert({
+            title: L("No Records Selected"),
+            text: L(
+               "You need to select at least one record...did you drink your coffee today?"
+            ),
+         });
+         update_button.enable();
+         this.hide();
+      }
    }
 }
 
@@ -55206,529 +55724,113 @@ class ABViewGrid extends ABViewGridCore {
 
 /***/ },
 
-/***/ 49627
+/***/ 46672
+/*!*************************************************!*\
+  !*** ./AppBuilder/platform/views/ABViewMenu.js ***!
+  \*************************************************/
+(module, __unused_webpack_exports, __webpack_require__) {
+
+const ABViewMenuCore = __webpack_require__(/*! ../../core/views/ABViewMenuCore */ 65419);
+const ABViewMenuComponent = __webpack_require__(/*! ./viewComponent/ABViewMenuComponent */ 75210);
+
+module.exports = class ABViewMenu extends ABViewMenuCore {
+   /**
+    * @function component()
+    * return a UI component based upon this view.
+    * @return {obj} UI component
+    */
+   component() {
+      return new ABViewMenuComponent(this);
+   }
+};
+
+
+/***/ },
+
+/***/ 44
+/*!*************************************************!*\
+  !*** ./AppBuilder/platform/views/ABViewPage.js ***!
+  \*************************************************/
+(module, __unused_webpack_exports, __webpack_require__) {
+
+const ABViewPageCore = __webpack_require__(/*! ../../core/views/ABViewPageCore */ 36183);
+
+const ABPropertyComponentDefaults = ABViewPageCore.defaultValues();
+
+module.exports = class ABViewPage extends ABViewPageCore {
+   // constructor(values, application, parent, defaultValues) {
+   //    super(values, application, parent, defaultValues);
+   // }
+
+   /**
+    * @function component()
+    * return a UI component based upon this view.
+    * @param {obj} v1App
+    * @return {obj} UI component
+    */
+   component(v1App = false) {
+      var component = super.component();
+
+      component._ui = component.ui();
+
+      // wrap our ABViewContainer in our Page scrollview
+      component.ui = () => {
+         return {
+            view: "scrollview",
+            borderless: true,
+            css:
+               this.settings.pageBackground ||
+               ABPropertyComponentDefaults.pageBackground,
+            body: component._ui,
+         };
+      };
+
+      // if this is our v1Interface
+      if (v1App) {
+         var newComponent = component;
+         component = {
+            ui: component.ui(),
+            init: (options, accessLevel) => {
+               accessLevel = accessLevel ?? this.getUserAccess();
+               return newComponent.init(this.AB, accessLevel, options);
+            },
+            onShow: (...params) => {
+               return newComponent.onShow?.(...params);
+            },
+         };
+      }
+
+      return component;
+   }
+
+   warningsEval() {
+      super.warningsEval();
+
+      let allViews = this.views();
+
+      if (allViews.length == 0) {
+         this.warningsMessage("has no sub views");
+      }
+
+      (this.pages() || []).forEach((p) => {
+         p.warningsEval();
+      });
+   }
+};
+
+
+/***/ },
+
+/***/ 49000
 /*!************************************************************!*\
-  !*** ./AppBuilder/platform/views/ABViewGridPopupExport.js ***!
+  !*** ./AppBuilder/platform/views/ABViewPopupSortFields.js ***!
   \************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ ABWorkObjectPopupExport)
-/* harmony export */ });
-/* harmony import */ var _ui_ClassUI__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../ui/ClassUI */ 93692);
-/*
- * ABViewGridPopupExport.js
- * Manage the Popup that allows you to export data into one of our supported
- * formats.
- */
-
-
-
-class ABWorkObjectPopupExport extends _ui_ClassUI__WEBPACK_IMPORTED_MODULE_0__["default"] {
-   constructor(idBase) {
-      idBase = idBase || "abviewgridpopupExport";
-
-      super({
-         popupExport: `${idBase}_popupExport`,
-         list: `${idBase}_popupExport_list`,
-      });
-
-      this._currentObject = null;
-      // {ABObject}
-      // The ABObject of the data we will export.  We can find out the fields
-      // from the object.
-
-      this._dataCollection = null;
-      // {ABDatacCollection}
-      // The ABDataCollection that contains the data we are going to export.
-
-      this._grid = null;
-      // {webix.grid}
-      // the current webix.grid that contains the data we are going to export.
-
-      this._filename = null;
-      // {string}
-      // the name of the desired output file.
-
-      this._hiddenFields = [];
-      // {array}
-      // An array of ABField.columnName(s) that we are not wanting to export
-   }
-
-   ui() {
-      var self = this;
-
-      // webix UI definition:
-      return {
-         view: "popup",
-         id: this.ids.popupExport,
-         width: 160,
-         height: 0, //150,
-         select: false,
-         hidden: true,
-         body: {
-            id: this.ids.list,
-            view: "list",
-            autoheight: true,
-            data: [
-               { name: "CSV", icon: "file-excel-o" },
-               { name: "Excel", icon: "file-excel-o" },
-               { name: "PDF", icon: "file-pdf-o" },
-               { name: "PNG", icon: "file-image-o" },
-            ],
-            template:
-               "<div><i class='fa fa-#icon# webix_icon_btn' aria-hidden='true'></i> #name#</div>",
-            on: {
-               onItemClick: function (id /*, e, node */) {
-                  var component = this.getItem(id);
-                  self.export(component.name);
-               },
-            },
-         },
-      };
-   }
-
-   async init(AB) {
-      if (AB) {
-         this.AB = AB;
-      }
-      webix.ui(this.ui());
-      $$(this.ids.popupExport).resize();
-   }
-
-   // internal business logic
-
-   /**
-    * @method dataCollectionLoad()
-    * the current ABDataCollection we are working with.
-    * @param {ABDataCollection} dc
-    */
-   dataCollectionLoad(dc) {
-      this._dataCollection = dc;
-   }
-
-   /**
-    * @method objectLoad()
-    * The current ABObject we are working with.
-    * @param {ABObject} object
-    */
-   objectLoad(object) {
-      this._currentObject = object;
-   }
-
-   /**
-    * @method setHiddenFields
-    * Register Fields we don't want exported in our data.
-    * @param {array} fields
-    *        An array of ABField.columnName(s) to exclude from our export.
-    */
-   setHiddenFields(fields = []) {
-      this._hiddenFields = fields ?? [];
-   }
-
-   /**
-    * @method setFilename()
-    * Register the name of the file we want our data to export as.
-    * @param {string} filename
-    */
-   setFilename(filename) {
-      this._filename = filename;
-   }
-
-   /**
-    * @method setGridComponent()
-    * Register the webix.grid that currently stores the data we are
-    * exporting.
-    * @param {webix.grid} $grid
-    */
-   setGridComponent($grid) {
-      this._grid = $grid;
-   }
-
-   /**
-    * @function show()
-    * Show this component.
-    * @param {obj} $view
-    *        the webix.$view to hover the popup around.
-    */
-   show($view) {
-      $$(this.ids.popupExport).show($view);
-   }
-
-   async export(name) {
-      let fnExport;
-
-      let columns = {};
-
-      let dc = this._dataCollection;
-      let _currentObject = this._currentObject;
-      let _grid = this._grid;
-      let _filename = this._filename;
-
-      if (
-         dc &&
-         (!dc.settings.loadAll || dc.dataStatus == dc.dataStatusFlag.notInitial)
-      ) {
-         // Load all data
-         await dc.reloadData(0, null);
-         dc.settings.loadAll = true;
-      }
-
-      // client filter data
-      // template of report
-      if (_currentObject) {
-         _currentObject.fields().forEach((f) => {
-            // hidden fields
-            if (this._hiddenFields.indexOf(f.columnName) > -1) return;
-
-            columns[f.columnName] = {
-               template: (rowData) => {
-                  return f.format(rowData);
-               },
-            };
-         });
-      }
-
-      // If there are checked items, then export them only
-      // Otherwise export all items
-      const noCheckedRow =
-         _grid.data.find({ appbuilder_select_item: 1 }).length < 1;
-      const filterRow = (row) =>
-         noCheckedRow || row?.appbuilder_select_item == 1;
-
-      switch (name) {
-         case "CSV":
-            webix.csv.delimiter.cols = ",";
-
-            fnExport = webix.toCSV(_grid, {
-               filename:
-                  _filename || (_currentObject ? _currentObject.label : null),
-               columns: columns,
-               filter: filterRow,
-            });
-            break;
-         case "Excel":
-            fnExport = webix.toExcel(_grid, {
-               filename:
-                  _filename || (_currentObject ? _currentObject.label : null),
-               name:
-                  _filename || (_currentObject ? _currentObject.label : null),
-               columns: columns,
-               filterHTML: true,
-               filter: filterRow,
-            });
-            break;
-         case "PDF":
-            fnExport = webix.toPDF(_grid, {
-               filename:
-                  _filename || (_currentObject ? _currentObject.label : null),
-               filterHTML: true,
-               filter: filterRow,
-            });
-            break;
-         case "PNG":
-            fnExport = webix.toPNG(_grid, {
-               filename:
-                  _filename || (_currentObject ? _currentObject.label : null),
-               // filter: NOT SUPPORT
-            });
-            break;
-      }
-
-      try {
-         await fnExport;
-         $$(this.ids.popupExport).hide();
-      } catch (err) {
-         this.AB.notify.developer(err, {
-            message: `ABViewGridPopupExport:export(): System could not export: ${name}`,
-            exportType: name,
-            columns,
-            fileName: _filename,
-         });
-      }
-   }
-
-   // this.dataCollectionLoad = _logic.dataCollectionLoad;
-   // this.objectLoad = _logic.objectLoad;
-   // this.setGridComponent = _logic.setGridComponent;
-   // this.setFilename = _logic.setFilename;
-   // this.setHiddenFields = _logic.setHiddenFields;
-   // this.show = _logic.show;
-}
-
-
-/***/ },
-
-/***/ 33692
-/*!****************************************************************!*\
-  !*** ./AppBuilder/platform/views/ABViewGridPopupMassUpdate.js ***!
-  \****************************************************************/
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ ABViewGridPopupMassUpdate)
-/* harmony export */ });
-/* harmony import */ var _ui_ClassUI__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../ui/ClassUI */ 93692);
-/* harmony import */ var _RowUpdater__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../RowUpdater */ 18815);
-/*
- * ABViewGridPopupMassUpdate
- *
- * An ABViewGrid can offer a mass update feature.  This is a ui component
- * to help with the processing of the update.
- *
- */
-
-
-
-
-var L = null;
-
-class ABViewGridPopupMassUpdate extends _ui_ClassUI__WEBPACK_IMPORTED_MODULE_0__["default"] {
-   //.extend(idBase, function(App) {
-
-   constructor(ABViewGridComponent, idBase) {
-      idBase = idBase || "abviewgridpopupMassUpdate";
-
-      super({
-         component: `${idBase}_popupMassUpdate`,
-         submit: `${idBase}_submitMassUpdate`,
-      });
-
-      this.CurrentObject = null;
-      // {ABObject}
-      // Which ABObject are we currently working with.
-
-      this.GridComponent = ABViewGridComponent;
-      // {ABViewGridComponent}
-      // The current ABViewGridComponent we are working with.
-
-      this.AB = ABViewGridComponent.AB;
-      // {ABFactory}
-
-      this.rowUpdater = new _RowUpdater__WEBPACK_IMPORTED_MODULE_1__["default"](idBase, this.AB);
-      // {RowUpdater}
-      // An instance of our RowUpdater form builder.
-
-      if (!L) {
-         L = (...params) => {
-            return this.AB.Multilingual.label(...params);
-         };
-      }
-   }
-
-   ui() {
-      var ids = this.ids;
-
-      // Our webix UI definition:
-      return {
-         view: "popup",
-         id: ids.component,
-         // modal: true,
-         body: {
-            width: 500,
-            rows: [
-               // Update panel
-               this.rowUpdater.ui(),
-               { height: 15 },
-               {
-                  cols: [
-                     {},
-                     {
-                        view: "button",
-                        value: L("Cancel"),
-                        width: 100,
-                        click: () => {
-                           this.hide();
-                        },
-                     },
-                     {
-                        id: ids.submit,
-                        css: "webix_primary",
-                        view: "button",
-                        label: L("Update"),
-                        type: "form",
-                        width: 120,
-                        click: () => {
-                           this.submit();
-                        },
-                     },
-                  ],
-               },
-            ],
-         },
-         on: {
-            onShow: () => {
-               this.onShow();
-            },
-         },
-      };
-   }
-
-   async init(AB) {
-      webix.ui(this.ui());
-      this.rowUpdater.init(AB);
-
-      return Promise.resolve();
-   }
-
-   /**
-    * @method hide()
-    * Hide the popup.
-    */
-   hide() {
-      $$(this.ids.component).hide();
-   }
-
-   /**
-    * @function objectLoad
-    * Ready the Popup according to the current object & datatable
-    * @param {ABObject} object
-    *        the currently selected object.
-    * @param {webix.datatable} dataTable
-    *        the dataTable we need to run the mass update on...trust me this
-    *        will be good
-    */
-   objectLoad(object, dataTable) {
-      this.CurrentObject = object;
-      this.rowUpdater.objectLoad(object);
-      this.DataTable = dataTable;
-   }
-
-   onShow() {}
-
-   /**
-    * @method show()
-    * Show this component.
-    * @param {obj} $view
-    *        the webix.$view to hover the popup around.
-    * @param {json} options
-    *        Additional webix options related to the .show() method.
-    */
-   show($view, options = null) {
-      if (options != null) {
-         $$(this.ids.component).show($view, options);
-      } else {
-         $$(this.ids.component).show($view);
-      }
-   }
-
-   /**
-    * @method submit()
-    * Process the submit action by getting the values to change and then
-    * running a batchUpdate() on the items in our datatable that were selected.
-    */
-   submit() {
-      // Update values to records
-      let update_button = $$(this.ids.submit),
-         update_items = this.rowUpdater.getValue() || [];
-
-      update_button.disable();
-
-      if (!this.GridComponent) {
-         // TODO : Message
-         // console.log("no data collection to update");
-         update_button.enable();
-         return;
-      } else if (update_items.length < 1) {
-         // TODO : Message
-         update_button.enable();
-         return;
-      }
-
-      let $datatable = this.GridComponent.getDataTable(); // $$(DataTable.ui.id);
-      let updatedRowIds = [];
-      $datatable.data.each(function (row) {
-         if (
-            row &&
-            Object.prototype.hasOwnProperty.call(
-               row,
-               "appbuilder_select_item"
-            ) &&
-            row.appbuilder_select_item == 1
-         ) {
-            updatedRowIds.push(row.id);
-         }
-      });
-
-      let vals = {};
-      update_items.forEach((item) => {
-         let fieldInfo = this.CurrentObject.fieldByID(item.fieldId);
-         if (!fieldInfo) return;
-
-         vals[fieldInfo.columnName] = item.value;
-      });
-
-      if (updatedRowIds.length > 0) {
-         webix.confirm({
-            title: L("Updating Multiple Records"),
-            text: L("Are you sure you want to update the selected records?"),
-            callback: (result) => {
-               if (result) {
-                  if ($datatable && $datatable.showProgress)
-                     $datatable.showProgress({ type: "icon" });
-
-                  let objModel = this.CurrentObject.model();
-                  objModel
-                     .batchUpdate({
-                        rowIds: updatedRowIds,
-                        values: vals,
-                     })
-                     .then(() => {
-                        // Update webix.datatable
-                        (updatedRowIds ?? []).forEach((rowId) => {
-                           $datatable.updateItem(rowId, vals);
-                        });
-
-                        // Anything we need to do after we are done.
-                        update_button.enable();
-                        this.hide();
-
-                        if ($datatable && $datatable.hideProgress)
-                           $datatable.hideProgress();
-                     })
-                     .catch((err) => {
-                        this.AB.notify.developer(err, {
-                           context:
-                              "ABViewGridPopupMassUpdate:submit(): Error during batchUpdate",
-                           rowIds: updatedRowIds,
-                           values: vals,
-                        });
-                     });
-               } else {
-                  update_button.enable();
-               }
-            },
-         });
-      } else {
-         webix.alert({
-            title: L("No Records Selected"),
-            text: L(
-               "You need to select at least one record...did you drink your coffee today?"
-            ),
-         });
-         update_button.enable();
-         this.hide();
-      }
-   }
-}
-
-
-/***/ },
-
-/***/ 216
-/*!****************************************************************!*\
-  !*** ./AppBuilder/platform/views/ABViewGridPopupSortFields.js ***!
-  \****************************************************************/
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ AB_Work_Object_Workspace_PopupSortFields)
+/* harmony export */   "default": () => (/* binding */ ABViewPopupSortFields)
 /* harmony export */ });
 /* harmony import */ var _ui_ClassUI__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../ui/ClassUI */ 93692);
 /*
@@ -55742,7 +55844,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var L = null;
 
-class AB_Work_Object_Workspace_PopupSortFields extends _ui_ClassUI__WEBPACK_IMPORTED_MODULE_0__["default"] {
+class ABViewPopupSortFields extends _ui_ClassUI__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(idBase) {
       idBase = idBase || "abviewgridpopupSortFields";
 
@@ -56314,103 +56416,6 @@ class AB_Work_Object_Workspace_PopupSortFields extends _ui_ClassUI__WEBPACK_IMPO
       };
    }
 }
-
-
-/***/ },
-
-/***/ 46672
-/*!*************************************************!*\
-  !*** ./AppBuilder/platform/views/ABViewMenu.js ***!
-  \*************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
-
-const ABViewMenuCore = __webpack_require__(/*! ../../core/views/ABViewMenuCore */ 65419);
-const ABViewMenuComponent = __webpack_require__(/*! ./viewComponent/ABViewMenuComponent */ 75210);
-
-module.exports = class ABViewMenu extends ABViewMenuCore {
-   /**
-    * @function component()
-    * return a UI component based upon this view.
-    * @return {obj} UI component
-    */
-   component() {
-      return new ABViewMenuComponent(this);
-   }
-};
-
-
-/***/ },
-
-/***/ 44
-/*!*************************************************!*\
-  !*** ./AppBuilder/platform/views/ABViewPage.js ***!
-  \*************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
-
-const ABViewPageCore = __webpack_require__(/*! ../../core/views/ABViewPageCore */ 36183);
-
-const ABPropertyComponentDefaults = ABViewPageCore.defaultValues();
-
-module.exports = class ABViewPage extends ABViewPageCore {
-   // constructor(values, application, parent, defaultValues) {
-   //    super(values, application, parent, defaultValues);
-   // }
-
-   /**
-    * @function component()
-    * return a UI component based upon this view.
-    * @param {obj} v1App
-    * @return {obj} UI component
-    */
-   component(v1App = false) {
-      var component = super.component();
-
-      component._ui = component.ui();
-
-      // wrap our ABViewContainer in our Page scrollview
-      component.ui = () => {
-         return {
-            view: "scrollview",
-            borderless: true,
-            css:
-               this.settings.pageBackground ||
-               ABPropertyComponentDefaults.pageBackground,
-            body: component._ui,
-         };
-      };
-
-      // if this is our v1Interface
-      if (v1App) {
-         var newComponent = component;
-         component = {
-            ui: component.ui(),
-            init: (options, accessLevel) => {
-               accessLevel = accessLevel ?? this.getUserAccess();
-               return newComponent.init(this.AB, accessLevel, options);
-            },
-            onShow: (...params) => {
-               return newComponent.onShow?.(...params);
-            },
-         };
-      }
-
-      return component;
-   }
-
-   warningsEval() {
-      super.warningsEval();
-
-      let allViews = this.views();
-
-      if (allViews.length == 0) {
-         this.warningsMessage("has no sub views");
-      }
-
-      (this.pages() || []).forEach((p) => {
-         p.warningsEval();
-      });
-   }
-};
 
 
 /***/ },
@@ -57273,7 +57278,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ ABViewDataFilterComponent)
 /* harmony export */ });
 /* harmony import */ var _ABViewComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABViewComponent */ 23687);
-/* harmony import */ var _ABViewGridPopupSortFields__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../ABViewGridPopupSortFields */ 216);
+/* harmony import */ var _ABViewPopupSortFields__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../ABViewPopupSortFields */ 49000);
 /* harmony import */ var _viewProperties_ABViewPropertyFilterData__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../viewProperties/ABViewPropertyFilterData */ 95889);
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! lodash */ 84529);
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_3__);
@@ -57308,7 +57313,7 @@ class ABViewDataFilterComponent extends _ABViewComponent__WEBPACK_IMPORTED_MODUL
 
       // {ABViewGridPopupSortFields}
       // The popup for adding sort criteria to our grid.
-      this.PopupSortComponent = new _ABViewGridPopupSortFields__WEBPACK_IMPORTED_MODULE_1__["default"](
+      this.PopupSortComponent = new _ABViewPopupSortFields__WEBPACK_IMPORTED_MODULE_1__["default"](
          `ABViewDataFilter_Sort_Popup_${this.settings.dataviewID}`
       );
       this.PopupSortComponent.init(ab);
@@ -62499,9 +62504,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ ABViewGridComponent)
 /* harmony export */ });
 /* harmony import */ var _ABViewComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABViewComponent */ 23687);
-/* harmony import */ var _ABViewGridPopupExport__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../ABViewGridPopupExport */ 49627);
-/* harmony import */ var _ABViewGridPopupMassUpdate__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../ABViewGridPopupMassUpdate */ 33692);
-/* harmony import */ var _ABViewGridPopupSortFields__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../ABViewGridPopupSortFields */ 216);
+/* harmony import */ var _plugins_included_view_grid_ABViewGridPopupExport__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../plugins/included/view_grid/ABViewGridPopupExport */ 20199);
+/* harmony import */ var _plugins_included_view_grid_ABViewGridPopupMassUpdate__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../plugins/included/view_grid/ABViewGridPopupMassUpdate */ 60744);
+/* harmony import */ var _ABViewPopupSortFields__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../ABViewPopupSortFields */ 49000);
 
 
 
@@ -62593,18 +62598,18 @@ class ABViewGridComponent extends _ABViewComponent__WEBPACK_IMPORTED_MODULE_0__[
       const idTable = this.ids.table;
       const ab = this.AB;
 
-      this.PopupExport = new _ABViewGridPopupExport__WEBPACK_IMPORTED_MODULE_1__["default"](idTable);
+      this.PopupExport = new _plugins_included_view_grid_ABViewGridPopupExport__WEBPACK_IMPORTED_MODULE_1__["default"](idTable);
       this.PopupExport.init(ab);
       // {ABViewGridPopupExport}
       // Popup for managing how to export our data.
 
-      this.PopupMassUpdateComponent = new _ABViewGridPopupMassUpdate__WEBPACK_IMPORTED_MODULE_2__["default"](this, idTable);
+      this.PopupMassUpdateComponent = new _plugins_included_view_grid_ABViewGridPopupMassUpdate__WEBPACK_IMPORTED_MODULE_2__["default"](this, idTable);
       this.PopupMassUpdateComponent.init(ab);
       // this.PopupMassUpdateComponent.on("")
       // {}
       // The popup for performing a Mass Edit operation.
 
-      this.PopupSortDataTableComponent = new _ABViewGridPopupSortFields__WEBPACK_IMPORTED_MODULE_3__["default"](idTable);
+      this.PopupSortDataTableComponent = new _ABViewPopupSortFields__WEBPACK_IMPORTED_MODULE_3__["default"](idTable);
       this.PopupSortDataTableComponent.init(ab);
       this.PopupSortDataTableComponent.on("changed", (sortOptions) => {
          this.callbackSortData(sortOptions);
@@ -63927,17 +63932,13 @@ class ABViewGridComponent extends _ABViewComponent__WEBPACK_IMPORTED_MODULE_0__[
          const validator = CurrentObject.isValidData(item);
 
          if (validator.pass()) {
-            //// Question: do we submit full item updates?  or just patches?
-            // IF Patch:
-            // var patch = {};
-            // patch.id = item.id;
-            // patch[editor.column] = item[editor.column];
-            // await CurrentObject.model().update(item.id, patch)
+            const patch = {};
+            patch[editor.column] = item[editor.column];
 
             const ab = this.AB;
 
             try {
-               await CurrentObject.model().update(item.id, item);
+               await CurrentObject.model().update(item.id, patch);
 
                if ($DataTable.exists(editor.row)) {
                   $DataTable.updateItem(editor.row, item);
@@ -77712,4 +77713,4 @@ module.exports = class ABCustomEditList {
 /***/ }
 
 }]);
-//# sourceMappingURL=AB.4117b8e02fcf4fe2dc24.js.map
+//# sourceMappingURL=AB.a8a7b5d36195ab880570.js.map
