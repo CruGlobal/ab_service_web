@@ -68664,33 +68664,37 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _web_view_grid_FNAbviewgrid_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./web_view_grid/FNAbviewgrid.js */ "./src/plugins/web_view_grid/FNAbviewgrid.js");
-/* harmony import */ var _web_view_grid_FNAbviewgridEditor_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./web_view_grid/FNAbviewgridEditor.js */ "./src/plugins/web_view_grid/FNAbviewgridEditor.js");
-/* harmony import */ var _web_view_pivot_FNAbviewpivot_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./web_view_pivot/FNAbviewpivot.js */ "./src/plugins/web_view_pivot/FNAbviewpivot.js");
-/* harmony import */ var _web_view_pivot_FNAbviewpivotEditor_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./web_view_pivot/FNAbviewpivotEditor.js */ "./src/plugins/web_view_pivot/FNAbviewpivotEditor.js");
-/* harmony import */ var _web_view_carousel_FNAbviewcarousel_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./web_view_carousel/FNAbviewcarousel.js */ "./src/plugins/web_view_carousel/FNAbviewcarousel.js");
-/* harmony import */ var _web_view_carousel_FNAbviewcarouselEditor_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./web_view_carousel/FNAbviewcarouselEditor.js */ "./src/plugins/web_view_carousel/FNAbviewcarouselEditor.js");
-/* harmony import */ var _web_view_comment_FNAbviewcomment_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./web_view_comment/FNAbviewcomment.js */ "./src/plugins/web_view_comment/FNAbviewcomment.js");
-/* harmony import */ var _web_view_comment_FNAbviewcommentEditor_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./web_view_comment/FNAbviewcommentEditor.js */ "./src/plugins/web_view_comment/FNAbviewcommentEditor.js");
-/* harmony import */ var _web_view_data_select_FNAbviewdataselect_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./web_view_data-select/FNAbviewdataselect.js */ "./src/plugins/web_view_data-select/FNAbviewdataselect.js");
-/* harmony import */ var _web_view_data_select_FNAbviewdataselectEditor_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./web_view_data-select/FNAbviewdataselectEditor.js */ "./src/plugins/web_view_data-select/FNAbviewdataselectEditor.js");
-/* harmony import */ var _web_view_dataview_FNAbviewdataview_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./web_view_dataview/FNAbviewdataview.js */ "./src/plugins/web_view_dataview/FNAbviewdataview.js");
-/* harmony import */ var _web_view_dataview_FNAbviewdataviewEditor_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./web_view_dataview/FNAbviewdataviewEditor.js */ "./src/plugins/web_view_dataview/FNAbviewdataviewEditor.js");
-/* harmony import */ var _web_view_detail_FNAbviewdetail_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./web_view_detail/FNAbviewdetail.js */ "./src/plugins/web_view_detail/FNAbviewdetail.js");
-/* harmony import */ var _web_view_detail_FNAbviewdetailEditor_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./web_view_detail/FNAbviewdetailEditor.js */ "./src/plugins/web_view_detail/FNAbviewdetailEditor.js");
-/* harmony import */ var _web_view_image_FNAbviewimage_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./web_view_image/FNAbviewimage.js */ "./src/plugins/web_view_image/FNAbviewimage.js");
-/* harmony import */ var _web_view_image_FNAbviewimageEditor_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./web_view_image/FNAbviewimageEditor.js */ "./src/plugins/web_view_image/FNAbviewimageEditor.js");
-/* harmony import */ var _web_view_label_FNAbviewLabel_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./web_view_label/FNAbviewLabel.js */ "./src/plugins/web_view_label/FNAbviewLabel.js");
-/* harmony import */ var _web_view_label_FNAbviewLabelEditor_js__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./web_view_label/FNAbviewLabelEditor.js */ "./src/plugins/web_view_label/FNAbviewLabelEditor.js");
-/* harmony import */ var _web_view_layout_FNAbviewlayout_js__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./web_view_layout/FNAbviewlayout.js */ "./src/plugins/web_view_layout/FNAbviewlayout.js");
-/* harmony import */ var _web_view_layout_FNAbviewlayoutEditor_js__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./web_view_layout/FNAbviewlayoutEditor.js */ "./src/plugins/web_view_layout/FNAbviewlayoutEditor.js");
+/* harmony import */ var _web_view_carousel_FNAbviewcarouselEditor_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./web_view_carousel/FNAbviewcarouselEditor.js */ "./src/plugins/web_view_carousel/FNAbviewcarouselEditor.js");
+/* harmony import */ var _web_view_carousel_FNAbviewcarousel_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./web_view_carousel/FNAbviewcarousel.js */ "./src/plugins/web_view_carousel/FNAbviewcarousel.js");
+/* harmony import */ var _web_view_comment_FNAbviewcommentEditor_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./web_view_comment/FNAbviewcommentEditor.js */ "./src/plugins/web_view_comment/FNAbviewcommentEditor.js");
+/* harmony import */ var _web_view_comment_FNAbviewcomment_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./web_view_comment/FNAbviewcomment.js */ "./src/plugins/web_view_comment/FNAbviewcomment.js");
+/* harmony import */ var _web_view_data_select_FNAbviewdataselectEditor_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./web_view_data-select/FNAbviewdataselectEditor.js */ "./src/plugins/web_view_data-select/FNAbviewdataselectEditor.js");
+/* harmony import */ var _web_view_data_select_FNAbviewdataselect_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./web_view_data-select/FNAbviewdataselect.js */ "./src/plugins/web_view_data-select/FNAbviewdataselect.js");
+/* harmony import */ var _web_view_dataview_FNAbviewdataviewEditor_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./web_view_dataview/FNAbviewdataviewEditor.js */ "./src/plugins/web_view_dataview/FNAbviewdataviewEditor.js");
+/* harmony import */ var _web_view_dataview_FNAbviewdataview_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./web_view_dataview/FNAbviewdataview.js */ "./src/plugins/web_view_dataview/FNAbviewdataview.js");
+/* harmony import */ var _web_view_detail_FNAbviewdetailEditor_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./web_view_detail/FNAbviewdetailEditor.js */ "./src/plugins/web_view_detail/FNAbviewdetailEditor.js");
+/* harmony import */ var _web_view_detail_FNAbviewdetail_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./web_view_detail/FNAbviewdetail.js */ "./src/plugins/web_view_detail/FNAbviewdetail.js");
+/* harmony import */ var _web_view_grid_FNAbviewgridEditor_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./web_view_grid/FNAbviewgridEditor.js */ "./src/plugins/web_view_grid/FNAbviewgridEditor.js");
+/* harmony import */ var _web_view_grid_FNAbviewgrid_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./web_view_grid/FNAbviewgrid.js */ "./src/plugins/web_view_grid/FNAbviewgrid.js");
+/* harmony import */ var _web_view_image_FNAbviewimageEditor_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./web_view_image/FNAbviewimageEditor.js */ "./src/plugins/web_view_image/FNAbviewimageEditor.js");
+/* harmony import */ var _web_view_image_FNAbviewimage_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./web_view_image/FNAbviewimage.js */ "./src/plugins/web_view_image/FNAbviewimage.js");
+/* harmony import */ var _web_view_kanban_FNAbviewkanbanEditor_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./web_view_kanban/FNAbviewkanbanEditor.js */ "./src/plugins/web_view_kanban/FNAbviewkanbanEditor.js");
+/* harmony import */ var _web_view_kanban_FNAbviewkanban_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./web_view_kanban/FNAbviewkanban.js */ "./src/plugins/web_view_kanban/FNAbviewkanban.js");
+/* harmony import */ var _web_view_label_FNAbviewLabelEditor_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./web_view_label/FNAbviewLabelEditor.js */ "./src/plugins/web_view_label/FNAbviewLabelEditor.js");
+/* harmony import */ var _web_view_label_FNAbviewLabel_js__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./web_view_label/FNAbviewLabel.js */ "./src/plugins/web_view_label/FNAbviewLabel.js");
+/* harmony import */ var _web_view_layout_FNAbviewlayoutEditor_js__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./web_view_layout/FNAbviewlayoutEditor.js */ "./src/plugins/web_view_layout/FNAbviewlayoutEditor.js");
+/* harmony import */ var _web_view_layout_FNAbviewlayout_js__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./web_view_layout/FNAbviewlayout.js */ "./src/plugins/web_view_layout/FNAbviewlayout.js");
 /* harmony import */ var _web_view_list_FNAbviewlist_js__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./web_view_list/FNAbviewlist.js */ "./src/plugins/web_view_list/FNAbviewlist.js");
-/* harmony import */ var _web_view_pdfImporter_FNAbviewpdfimporter_js__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./web_view_pdfImporter/FNAbviewpdfimporter.js */ "./src/plugins/web_view_pdfImporter/FNAbviewpdfimporter.js");
-/* harmony import */ var _web_view_pdfImporter_FNAbviewpdfimporterEditor_js__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./web_view_pdfImporter/FNAbviewpdfimporterEditor.js */ "./src/plugins/web_view_pdfImporter/FNAbviewpdfimporterEditor.js");
-/* harmony import */ var _web_view_tab_FNAbviewtab_js__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./web_view_tab/FNAbviewtab.js */ "./src/plugins/web_view_tab/FNAbviewtab.js");
-/* harmony import */ var _web_view_tab_FNAbviewtabEditor_js__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./web_view_tab/FNAbviewtabEditor.js */ "./src/plugins/web_view_tab/FNAbviewtabEditor.js");
-/* harmony import */ var _web_view_text_FNAbviewtext_js__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./web_view_text/FNAbviewtext.js */ "./src/plugins/web_view_text/FNAbviewtext.js");
-/* harmony import */ var _web_view_text_FNAbviewtextEditor_js__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./web_view_text/FNAbviewtextEditor.js */ "./src/plugins/web_view_text/FNAbviewtextEditor.js");
+/* harmony import */ var _web_view_pdfImporter_FNAbviewpdfimporterEditor_js__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./web_view_pdfImporter/FNAbviewpdfimporterEditor.js */ "./src/plugins/web_view_pdfImporter/FNAbviewpdfimporterEditor.js");
+/* harmony import */ var _web_view_pdfImporter_FNAbviewpdfimporter_js__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./web_view_pdfImporter/FNAbviewpdfimporter.js */ "./src/plugins/web_view_pdfImporter/FNAbviewpdfimporter.js");
+/* harmony import */ var _web_view_pivot_FNAbviewpivotEditor_js__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./web_view_pivot/FNAbviewpivotEditor.js */ "./src/plugins/web_view_pivot/FNAbviewpivotEditor.js");
+/* harmony import */ var _web_view_pivot_FNAbviewpivot_js__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./web_view_pivot/FNAbviewpivot.js */ "./src/plugins/web_view_pivot/FNAbviewpivot.js");
+/* harmony import */ var _web_view_tab_FNAbviewtabEditor_js__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./web_view_tab/FNAbviewtabEditor.js */ "./src/plugins/web_view_tab/FNAbviewtabEditor.js");
+/* harmony import */ var _web_view_tab_FNAbviewtab_js__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./web_view_tab/FNAbviewtab.js */ "./src/plugins/web_view_tab/FNAbviewtab.js");
+/* harmony import */ var _web_view_text_FNAbviewtextEditor_js__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./web_view_text/FNAbviewtextEditor.js */ "./src/plugins/web_view_text/FNAbviewtextEditor.js");
+/* harmony import */ var _web_view_text_FNAbviewtext_js__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./web_view_text/FNAbviewtext.js */ "./src/plugins/web_view_text/FNAbviewtext.js");
+
+
 
 
 
@@ -68720,33 +68724,35 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const AllPlugins = [
-   _web_view_carousel_FNAbviewcarousel_js__WEBPACK_IMPORTED_MODULE_4__["default"],
-   _web_view_carousel_FNAbviewcarouselEditor_js__WEBPACK_IMPORTED_MODULE_5__["default"],
-   _web_view_comment_FNAbviewcomment_js__WEBPACK_IMPORTED_MODULE_6__["default"],
-   _web_view_comment_FNAbviewcommentEditor_js__WEBPACK_IMPORTED_MODULE_7__["default"],
-   _web_view_data_select_FNAbviewdataselect_js__WEBPACK_IMPORTED_MODULE_8__["default"],
-   _web_view_data_select_FNAbviewdataselectEditor_js__WEBPACK_IMPORTED_MODULE_9__["default"],
-   _web_view_dataview_FNAbviewdataview_js__WEBPACK_IMPORTED_MODULE_10__["default"],
-   _web_view_dataview_FNAbviewdataviewEditor_js__WEBPACK_IMPORTED_MODULE_11__["default"],
-   _web_view_detail_FNAbviewdetail_js__WEBPACK_IMPORTED_MODULE_12__["default"],
-   _web_view_detail_FNAbviewdetailEditor_js__WEBPACK_IMPORTED_MODULE_13__["default"],
-   _web_view_image_FNAbviewimage_js__WEBPACK_IMPORTED_MODULE_14__["default"],
-   _web_view_image_FNAbviewimageEditor_js__WEBPACK_IMPORTED_MODULE_15__["default"],
-   _web_view_label_FNAbviewLabel_js__WEBPACK_IMPORTED_MODULE_16__["default"],
-   _web_view_label_FNAbviewLabelEditor_js__WEBPACK_IMPORTED_MODULE_17__["default"],
-   _web_view_layout_FNAbviewlayout_js__WEBPACK_IMPORTED_MODULE_18__["default"],
-   _web_view_layout_FNAbviewlayoutEditor_js__WEBPACK_IMPORTED_MODULE_19__["default"],
+   _web_view_carousel_FNAbviewcarouselEditor_js__WEBPACK_IMPORTED_MODULE_0__["default"],
+   _web_view_carousel_FNAbviewcarousel_js__WEBPACK_IMPORTED_MODULE_1__["default"],
+   _web_view_comment_FNAbviewcommentEditor_js__WEBPACK_IMPORTED_MODULE_2__["default"],
+   _web_view_comment_FNAbviewcomment_js__WEBPACK_IMPORTED_MODULE_3__["default"],
+   _web_view_data_select_FNAbviewdataselectEditor_js__WEBPACK_IMPORTED_MODULE_4__["default"],
+   _web_view_data_select_FNAbviewdataselect_js__WEBPACK_IMPORTED_MODULE_5__["default"],
+   _web_view_dataview_FNAbviewdataviewEditor_js__WEBPACK_IMPORTED_MODULE_6__["default"],
+   _web_view_dataview_FNAbviewdataview_js__WEBPACK_IMPORTED_MODULE_7__["default"],
+   _web_view_detail_FNAbviewdetailEditor_js__WEBPACK_IMPORTED_MODULE_8__["default"],
+   _web_view_detail_FNAbviewdetail_js__WEBPACK_IMPORTED_MODULE_9__["default"],
+   _web_view_grid_FNAbviewgridEditor_js__WEBPACK_IMPORTED_MODULE_10__["default"],
+   _web_view_grid_FNAbviewgrid_js__WEBPACK_IMPORTED_MODULE_11__["default"],
+   _web_view_image_FNAbviewimageEditor_js__WEBPACK_IMPORTED_MODULE_12__["default"],
+   _web_view_image_FNAbviewimage_js__WEBPACK_IMPORTED_MODULE_13__["default"],
+   _web_view_kanban_FNAbviewkanbanEditor_js__WEBPACK_IMPORTED_MODULE_14__["default"],
+   _web_view_kanban_FNAbviewkanban_js__WEBPACK_IMPORTED_MODULE_15__["default"],
+   _web_view_label_FNAbviewLabelEditor_js__WEBPACK_IMPORTED_MODULE_16__["default"],
+   _web_view_label_FNAbviewLabel_js__WEBPACK_IMPORTED_MODULE_17__["default"],
+   _web_view_layout_FNAbviewlayoutEditor_js__WEBPACK_IMPORTED_MODULE_18__["default"],
+   _web_view_layout_FNAbviewlayout_js__WEBPACK_IMPORTED_MODULE_19__["default"],
    _web_view_list_FNAbviewlist_js__WEBPACK_IMPORTED_MODULE_20__["default"],
-   _web_view_pdfImporter_FNAbviewpdfimporter_js__WEBPACK_IMPORTED_MODULE_21__["default"],
-   _web_view_pdfImporter_FNAbviewpdfimporterEditor_js__WEBPACK_IMPORTED_MODULE_22__["default"],
-   _web_view_tab_FNAbviewtab_js__WEBPACK_IMPORTED_MODULE_23__["default"],
-   _web_view_tab_FNAbviewtabEditor_js__WEBPACK_IMPORTED_MODULE_24__["default"],
-   _web_view_text_FNAbviewtext_js__WEBPACK_IMPORTED_MODULE_25__["default"],
-   _web_view_text_FNAbviewtextEditor_js__WEBPACK_IMPORTED_MODULE_26__["default"],
-   _web_view_grid_FNAbviewgrid_js__WEBPACK_IMPORTED_MODULE_0__["default"],
-   _web_view_grid_FNAbviewgridEditor_js__WEBPACK_IMPORTED_MODULE_1__["default"],
-   _web_view_pivot_FNAbviewpivot_js__WEBPACK_IMPORTED_MODULE_2__["default"],
-   _web_view_pivot_FNAbviewpivotEditor_js__WEBPACK_IMPORTED_MODULE_3__["default"],
+   _web_view_pdfImporter_FNAbviewpdfimporterEditor_js__WEBPACK_IMPORTED_MODULE_21__["default"],
+   _web_view_pdfImporter_FNAbviewpdfimporter_js__WEBPACK_IMPORTED_MODULE_22__["default"],
+   _web_view_pivot_FNAbviewpivotEditor_js__WEBPACK_IMPORTED_MODULE_23__["default"],
+   _web_view_pivot_FNAbviewpivot_js__WEBPACK_IMPORTED_MODULE_24__["default"],
+   _web_view_tab_FNAbviewtabEditor_js__WEBPACK_IMPORTED_MODULE_25__["default"],
+   _web_view_tab_FNAbviewtab_js__WEBPACK_IMPORTED_MODULE_26__["default"],
+   _web_view_text_FNAbviewtextEditor_js__WEBPACK_IMPORTED_MODULE_27__["default"],
+   _web_view_text_FNAbviewtext_js__WEBPACK_IMPORTED_MODULE_28__["default"],
 ];
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -73103,6 +73109,575 @@ function FNAbviewimageEditor({ ABViewEditorPlugin }) {
 
 /***/ }),
 
+/***/ "./src/plugins/web_view_kanban/Abkanbanworkspace.js":
+/*!**********************************************************!*\
+  !*** ./src/plugins/web_view_kanban/Abkanbanworkspace.js ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* export default binding */ __WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _rootPages_Designer_ui_class__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../rootPages/Designer/ui_class */ "./src/rootPages/Designer/ui_class.js");
+// Abkanbanworkspace.js
+//
+// Manages the settings for a KanBan View in the Object Workspace
+
+
+
+let classABViewKanban = null;
+
+/* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__(AB, ibase) {
+   const L = AB.Label();
+
+   const UIClass = (0,_rootPages_Designer_ui_class__WEBPACK_IMPORTED_MODULE_0__["default"])(AB);
+
+   const ABFieldConnect = AB.Class.ABFieldManager.fieldByKey("connectObject");
+   const ABFieldList = AB.Class.ABFieldManager.fieldByKey("list");
+   const ABFieldUser = AB.Class.ABFieldManager.fieldByKey("user");
+
+   if (!classABViewKanban) {
+      classABViewKanban = class ABViewKanban extends UIClass {
+         constructor(idBase) {
+            super(idBase, {
+               vGroupInput: "",
+               hGroupInput: "",
+               ownerInput: "",
+            });
+
+            this.on("field.added", (field) => {
+               this.refreshOptions(this.CurrentObject, this._view);
+               if (this._autoSelectInput) {
+                  $$(this._autoSelectInput)?.setValue(field.id);
+               }
+            });
+
+            this._autoSelectInput = null;
+         }
+
+         type() {
+            return "kanban";
+         }
+
+         icon() {
+            return "fa fa-columns";
+         }
+
+         refreshOptions(object, view, options = {}) {
+            let ids = this.ids;
+
+            const initSelect = (
+               $option,
+               attribute,
+               filter = (f) => f.key === ABFieldList.defaults().key,
+               isRequired
+            ) => {
+               if ($option == null || object == null) return;
+
+               const fieldOptions = object
+                  .fields()
+                  .filter(filter)
+                  .map(({ id, label }) => ({ id, value: label }));
+               if (!isRequired && fieldOptions.length) {
+                  fieldOptions.unshift({
+                     id: "none",
+                     value: L("None"),
+                  });
+               }
+               $option.define("options", fieldOptions);
+
+               if (view) {
+                  if (view.settings[attribute]) {
+                     $option.define("value", view.settings[attribute]);
+                  } else if (!isRequired && fieldOptions[0]) {
+                     $option.define("value", fieldOptions[0].id);
+                  }
+               } else if (fieldOptions.filter((o) => o.id).length === 1) {
+                  $option.define("value", fieldOptions[0].id);
+               }
+
+               $option.refresh();
+            };
+
+            const verticalGroupingFieldFilter = (field) =>
+               [
+                  ABFieldList.defaults().key,
+                  ABFieldUser.defaults().key,
+               ].includes(field.key);
+
+            const horizontalGroupingFieldFilter = (field) =>
+               [
+                  ABFieldConnect.defaults().key,
+                  ABFieldList.defaults().key,
+                  ABFieldUser.defaults().key,
+               ].includes(field.key);
+
+            initSelect(
+               options.vGroupInput || $$(ids.vGroupInput),
+               "verticalGroupingField",
+               verticalGroupingFieldFilter,
+               true
+            );
+            initSelect(
+               options.hGroupInput || $$(ids.hGroupInput),
+               "horizontalGroupingField",
+               horizontalGroupingFieldFilter,
+               false
+            );
+            initSelect(
+               options.ownerInput || $$(ids.ownerInput),
+               "ownerField",
+               (f) => {
+                  return (
+                     f.key === ABFieldUser.defaults().key ||
+                     (f.key === ABFieldConnect.defaults().key &&
+                        f.settings.linkType == "one" &&
+                        f.settings.linkViaType == "many")
+                  );
+               },
+               false
+            );
+         }
+
+         ui() {
+            let ids = this.ids;
+            return {
+               batch: "kanban",
+               rows: [
+                  {
+                     cols: [
+                        {
+                           id: ids.vGroupInput,
+                           view: "richselect",
+                           label: `<span style="opacity: 0.6;" class='webix_icon fa fa-columns'></span> ${L(
+                              "Vertical Grouping"
+                           )}`,
+                           placeholder: L("Select a field"),
+                           labelWidth: 180,
+                           name: "verticalGroupingField",
+                           required: true,
+                           options: [],
+                           on: {
+                              onChange: () => {
+                                 $$(ids.vGroupInput).validate();
+                                 $$(ids.hGroupInput).validate();
+                                 this.emit("changed");
+                              },
+                           },
+                           invalidMessage: L("Required"),
+                        },
+                        {
+                           view: "button",
+                           css: "webix_primary",
+                           type: "icon",
+                           icon: "fa fa-plus",
+                           label: "",
+                           width: 30,
+                           click: () => {
+                              this._autoSelectInput = ids.vGroupInput;
+                              this.emit(
+                                 "new.field",
+                                 ABFieldList.defaults().key
+                              );
+                           },
+                        },
+                     ],
+                  },
+                  {
+                     cols: [
+                        {
+                           id: ids.hGroupInput,
+                           view: "richselect",
+                           label: `<span style="opacity: 0.6;"class='webix_icon fa fa-list'></span> ${L(
+                              "Horizontal Grouping"
+                           )}`,
+                           placeholder: L("Select a field"),
+                           labelWidth: 180,
+                           name: "horizontalGroupingField",
+                           required: false,
+                           options: [],
+                           invalidMessage: L(
+                              "Cannot be the same as vertical grouping field"
+                           ),
+                           validate: (value) => {
+                              const vGroupValue = $$(
+                                 ids.vGroupInput
+                              ).getValue();
+                              return (
+                                 !vGroupValue || !value || vGroupValue !== value
+                              );
+                           },
+                           on: {
+                              onChange: () => {
+                                 $$(ids.hGroupInput).validate();
+                                 this.emit("changed");
+                              },
+                           },
+                        },
+                        {
+                           view: "button",
+                           css: "webix_primary",
+                           type: "icon",
+                           icon: "fa fa-plus",
+                           label: "",
+                           width: 30,
+                           click: () => {
+                              this._autoSelectInput = ids.hGroupInput;
+                              this.emit(
+                                 "new.field",
+                                 ABFieldList.defaults().key
+                              );
+                           },
+                        },
+                     ],
+                  },
+                  {
+                     cols: [
+                        {
+                           id: ids.ownerInput,
+                           view: "richselect",
+                           label: `<span style="opacity: 0.6;" class='webix_icon fa fa-user-circle'></span> ${L(
+                              "Card Owner"
+                           )}`,
+                           placeholder: L("Select a user field"),
+                           labelWidth: 180,
+                           name: "ownerField",
+                           options: [],
+                           on: {
+                              onChange: (newID, oldID) => {
+                                 if (newID == oldID) return;
+                                 this.emit("changed");
+                              },
+                           },
+                        },
+                        {
+                           view: "button",
+                           css: "webix_primary",
+                           type: "icon",
+                           icon: "fa fa-plus",
+                           label: "",
+                           width: 30,
+                           click: () => {
+                              this._autoSelectInput = ids.ownerInput;
+                              this.emit(
+                                 "new.field",
+                                 ABFieldConnect.defaults().key
+                              );
+                           },
+                        },
+                     ],
+                  },
+               ],
+            };
+         }
+
+         init(object, view) {
+            this.objectLoad(object);
+            this._view = view;
+            this.refreshOptions(object, view);
+         }
+
+         clearValues() {
+            const ids = this.ids;
+            let idFields = [ids.vGroupInput, ids.hGroupInput, ids.ownerInput];
+            idFields.forEach((id) => {
+               let $o = $$(id);
+               $o.blockEvent();
+               $o.define("value", null);
+               $o.unblockEvent();
+               $o.refresh();
+            });
+         }
+
+         values() {
+            let ids = this.ids;
+            let result = {};
+            result.verticalGroupingField =
+               $$(ids.vGroupInput).getValue() || null;
+            result.horizontalGroupingField =
+               $$(ids.hGroupInput).getValue() || null;
+            result.ownerField = $$(ids.ownerInput).getValue() || null;
+
+            return result;
+         }
+      };
+   }
+
+   return new classABViewKanban(ibase);
+}
+
+
+/***/ }),
+
+/***/ "./src/plugins/web_view_kanban/FNAbviewkanban.js":
+/*!*******************************************************!*\
+  !*** ./src/plugins/web_view_kanban/FNAbviewkanban.js ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FNAbviewkanbanProperties)
+/* harmony export */ });
+/* harmony import */ var _Abkanbanworkspace_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Abkanbanworkspace.js */ "./src/plugins/web_view_kanban/Abkanbanworkspace.js");
+// FNAbviewkanban Properties
+// A properties side import for an ABView.
+//
+
+
+function FNAbviewkanbanProperties({
+   AB,
+   ABViewPropertiesPlugin,
+}) {
+   const BASE_ID = "properties_abview_kanban";
+
+   const FPopupNewDataField = (__webpack_require__(/*! ../../rootPages/Designer/ui_work_object_workspace_popupNewDataField */ "./src/rootPages/Designer/ui_work_object_workspace_popupNewDataField.js")["default"]);
+   const FABViewPropertyLinkPage =
+      (__webpack_require__(/*! ../../rootPages/Designer/properties/views/viewProperties/ABViewPropertyLinkPage */ "./src/rootPages/Designer/properties/views/viewProperties/ABViewPropertyLinkPage.js")["default"]);
+   const LinkPagePropertyClass = FABViewPropertyLinkPage(AB, BASE_ID);
+
+   const uiConfig = AB.UISettings.config();
+   const L = AB.Label();
+
+   const ViewKanbanProperties = (0,_Abkanbanworkspace_js__WEBPACK_IMPORTED_MODULE_0__["default"])(AB, BASE_ID);
+   let PopupNewDataFieldComponent = null;
+
+   return class ABAbviewkanbanProperties extends ABViewPropertiesPlugin {
+      static getPluginKey() {
+         return this.key;
+      }
+
+      static getPluginType() {
+         return "properties-view";
+      }
+
+      constructor() {
+         super(BASE_ID, { datacollection: "" });
+
+         this.AB = AB;
+         this.linkPageComponent = new LinkPagePropertyClass();
+      }
+
+      static get key() {
+         return "kanban";
+      }
+
+      ui() {
+         let _ui = ViewKanbanProperties.ui();
+
+         let rows = [
+            {
+               view: "fieldset",
+               label: L("Kanban Data:"),
+               labelWidth: uiConfig.labelWidthLarge,
+               body: {
+                  type: "clean",
+                  padding: 10,
+                  rows: [
+                     {
+                        id: this.ids.datacollection,
+                        view: "richselect",
+                        name: "dataviewID",
+                        label: L("Data Source:"),
+                        placeholder: L("Select a Datacollection"),
+                        labelWidth: uiConfig.labelWidthLarge,
+                        options: [],
+                        on: {
+                           onChange: (newv, oldv) => {
+                              if (newv != oldv) {
+                                 this.refreshFields(newv);
+                                 this.onChange();
+                              }
+                           },
+                        },
+                     },
+                  ],
+               },
+            },
+            ..._ui.rows,
+            this.linkPageComponent.ui(),
+         ];
+
+         return super.ui(rows);
+      }
+
+      async init(AB) {
+         this.AB = AB;
+
+         ViewKanbanProperties.on("new.field", (key) => {
+            const dc = this.AB.datacollectionByID(
+               this.CurrentView.settings.dataviewID
+            );
+            if (!dc) return;
+            PopupNewDataFieldComponent.objectLoad(dc.datasource);
+            PopupNewDataFieldComponent.resetState();
+            PopupNewDataFieldComponent.show(null, key, false);
+         });
+         ViewKanbanProperties.on("changed", () => {
+            this.onChange();
+         });
+
+         PopupNewDataFieldComponent = FPopupNewDataField(
+            AB,
+            `${BASE_ID}_popupNewDataField`
+         );
+         await PopupNewDataFieldComponent.init(AB);
+         PopupNewDataFieldComponent.on("save", (...params) => {
+            ViewKanbanProperties.emit("field.added", params[0]);
+         });
+
+         this.linkPageComponent.init();
+         this.linkPageComponent.on("changed", () => {
+            this.onChange();
+         });
+
+         await super.init(AB);
+      }
+
+      populate(view) {
+         super.populate(view);
+
+         const listDC = view.application.datacollectionsIncluded().map((d) => {
+            return {
+               id: d.id,
+               value: d.label,
+               icon:
+                  d.sourceType == "query" ? "fa fa-filter" : "fa fa-database",
+            };
+         });
+
+         let $dc = $$(this.ids.datacollection);
+         let dcID = view.settings.dataviewID || null;
+         $dc.blockEvent();
+         $dc.define("options", listDC);
+         $dc.define("value", dcID);
+         $dc.unblockEvent();
+         $dc.refresh();
+         this.refreshFields(dcID);
+
+         this.linkPageComponent.viewLoad(view);
+         this.linkPageComponent.setSettings(view.settings);
+      }
+
+      refreshFields(dcID) {
+         let dc = this.AB.datacollectionByID(dcID);
+         if (!dc) {
+            ViewKanbanProperties.clearValues();
+            return;
+         }
+
+         let obj = dc.datasource;
+         ViewKanbanProperties.init(obj, this.CurrentView);
+         PopupNewDataFieldComponent?.objectLoad(obj);
+      }
+
+      values() {
+         const values = super.values();
+
+         const ids = this.ids;
+         const $component = $$(ids.component);
+
+         values.settings = $component.getValues();
+
+         let fields = ViewKanbanProperties.values();
+         Object.keys(fields).forEach((f) => {
+            values.settings[f] = fields[f];
+         });
+
+         const linkSettings = this.linkPageComponent.getSettings();
+         for (const key in linkSettings) {
+            values.settings[key] = linkSettings[key];
+         }
+
+         return values;
+      }
+
+      ViewClass() {
+         return super._ViewClass("kanban");
+      }
+   };
+}
+
+
+/***/ }),
+
+/***/ "./src/plugins/web_view_kanban/FNAbviewkanbanEditor.js":
+/*!*************************************************************!*\
+  !*** ./src/plugins/web_view_kanban/FNAbviewkanbanEditor.js ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FNAbviewkanbanEditor)
+/* harmony export */ });
+// FNAbviewkanban Editor
+// An Editor wrapper for the ABView Component.
+// The Editor is displayed in the ABDesigner as a view is worked on.
+// The Editor allows a widget to be moved and placed on the canvas.
+//
+function FNAbviewkanbanEditor({ AB, ABViewEditorPlugin }) {
+   const BASE_ID = "interface_editor_viewkanban";
+
+   return class ABAbviewkanbanEditor extends ABViewEditorPlugin {
+      static getPluginKey() {
+         return this.key;
+      }
+
+      /**
+       * @method getPluginType
+       * return the plugin type for this editor.
+       * plugin types are how our ClassManager knows how to store
+       * the plugin.
+       * @return {string} plugin type
+       */
+      static getPluginType() {
+         return "editor-view";
+         // editor-view : will display in the editor panel of the ABDesigner
+      }
+
+      static get key() {
+         return "kanban";
+      }
+
+      constructor(view, base = BASE_ID) {
+         super(view, base);
+      }
+
+      ui() {
+         const component = this.component;
+         const _ui = component.ui();
+         _ui.minWidth = 400;
+
+         return {
+            view: "layout",
+            cols: [_ui, { fillspace: true }],
+         };
+      }
+
+      init(AB) {
+         this.AB = AB;
+
+         this.component?.init?.(AB);
+      }
+
+      detach() {
+         this.component?.detach?.();
+      }
+
+      onShow() {
+         this.component?.onShow?.();
+      }
+   };
+}
+
+
+/***/ }),
+
 /***/ "./src/plugins/web_view_label/FNAbviewLabel.js":
 /*!*****************************************************!*\
   !*** ./src/plugins/web_view_label/FNAbviewLabel.js ***!
@@ -75571,8 +76146,8 @@ __webpack_require__.r(__webpack_exports__);
       __webpack_require__(/*! ./views/ABViewForm */ "./src/rootPages/Designer/editors/views/ABViewForm.js"),
       __webpack_require__(/*! ./views/ABViewFormUrl */ "./src/rootPages/Designer/editors/views/ABViewFormUrl.js"),
       __webpack_require__(/*! ./views/ABViewGantt */ "./src/rootPages/Designer/editors/views/ABViewGantt.js"),
+      // require("./views/ABViewKanban"),
       // require("./views/ABViewGrid"),
-      __webpack_require__(/*! ./views/ABViewKanban */ "./src/rootPages/Designer/editors/views/ABViewKanban.js"),
       // require("./views/ABViewLabel"),
       // require("./views/ABViewLayout"),
       __webpack_require__(/*! ./views/ABViewMenu */ "./src/rootPages/Designer/editors/views/ABViewMenu.js"),
@@ -76937,83 +77512,6 @@ let myClass = null;
 
 /***/ }),
 
-/***/ "./src/rootPages/Designer/editors/views/ABViewKanban.js":
-/*!**************************************************************!*\
-  !*** ./src/rootPages/Designer/editors/views/ABViewKanban.js ***!
-  \**************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* export default binding */ __WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _ui_class__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../ui_class */ "./src/rootPages/Designer/ui_class.js");
-/**
- * ABViewKanban
- * The widget that displays the UI Editor Component on the screen
- * when designing the UI.
- */
-let myClass = null;
-// {singleton}
-// we will want to call this factory fn() repeatedly in our imports,
-// but we only want to define 1 Class reference.
-
-
-
-/* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__(AB) {
-   if (!myClass) {
-      const BASE_ID = "interface_editor_viewkanban";
-
-      const UIClass = (0,_ui_class__WEBPACK_IMPORTED_MODULE_0__["default"])(AB);
-
-      myClass = class ABViewKanbanEditor extends UIClass {
-         static get key() {
-            return "kanban";
-         }
-
-         constructor(view, base = BASE_ID) {
-            // base: {string} unique base id reference
-            super(base);
-
-            this.AB = AB;
-            this.view = view;
-            this.component = this.view.component();
-         }
-
-         ui() {
-            const component = this.component;
-            const _ui = component.ui();
-            _ui.minWidth = 400;
-
-            return {
-               view: "layout",
-               cols: [_ui, { fillspace: true }],
-            };
-         }
-
-         init(AB) {
-            this.AB = AB;
-
-            this.component?.init?.(AB);
-         }
-
-         detatch() {
-            this.component?.detatch?.();
-         }
-
-         onShow() {
-            this.component?.onShow?.();
-         }
-      };
-   }
-
-   return myClass;
-}
-
-
-/***/ }),
-
 /***/ "./src/rootPages/Designer/editors/views/ABViewMenu.js":
 /*!************************************************************!*\
   !*** ./src/rootPages/Designer/editors/views/ABViewMenu.js ***!
@@ -77953,7 +78451,7 @@ var PropertyMgr = null;
          __webpack_require__(/*! ./views/ABViewGantt */ "./src/rootPages/Designer/properties/views/ABViewGantt.js"),
          // require("./views/ABViewGrid"),
          // require("./views/ABViewImage"),
-         __webpack_require__(/*! ./views/ABViewKanban */ "./src/rootPages/Designer/properties/views/ABViewKanban.js"),
+         // require("./views/ABViewKanban"),
          // require("./views/ABViewLabel"),
          // require("./views/ABViewLayout"),
          // require("./views/ABViewList"),
@@ -110192,209 +110690,6 @@ __webpack_require__.r(__webpack_exports__);
    }
 
    return ABViewGanttProperty;
-}
-
-
-/***/ }),
-
-/***/ "./src/rootPages/Designer/properties/views/ABViewKanban.js":
-/*!*****************************************************************!*\
-  !*** ./src/rootPages/Designer/properties/views/ABViewKanban.js ***!
-  \*****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* export default binding */ __WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _ABView__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABView */ "./src/rootPages/Designer/properties/views/ABView.js");
-/* harmony import */ var _workspaceViews_ABViewKanban__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../workspaceViews/ABViewKanban */ "./src/rootPages/Designer/properties/workspaceViews/ABViewKanban.js");
-/* harmony import */ var _ui_work_object_workspace_popupNewDataField__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../ui_work_object_workspace_popupNewDataField */ "./src/rootPages/Designer/ui_work_object_workspace_popupNewDataField.js");
-/* harmony import */ var _viewProperties_ABViewPropertyLinkPage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./viewProperties/ABViewPropertyLinkPage */ "./src/rootPages/Designer/properties/views/viewProperties/ABViewPropertyLinkPage.js");
-/*
- * ABViewKanban
- * A Property manager for our ABViewKanban definitions
- */
-
-
-
-
-
-
-/* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__(AB) {
-   const BASE_ID = "properties_abview_kanban";
-
-   const ABView = (0,_ABView__WEBPACK_IMPORTED_MODULE_0__["default"])(AB);
-   const LinkPageProperty = (0,_viewProperties_ABViewPropertyLinkPage__WEBPACK_IMPORTED_MODULE_3__["default"])(AB, BASE_ID);
-   const L = ABView.L();
-   const uiConfig = AB.UISettings.config();
-
-   const ViewKanbanProperties = (0,_workspaceViews_ABViewKanban__WEBPACK_IMPORTED_MODULE_1__["default"])(AB, `${BASE_ID}_prop`);
-   var PopupNewDataFieldComponent = null;
-   // NOTE: this is the instance of the FPopupNewDataField.
-   // however we need to make the instance later to prevent an inifinite
-   // recursion upon loading.
-
-   class ABViewKanbanProperty extends ABView {
-      constructor() {
-         super(BASE_ID, { datacollection: "" });
-
-         this.linkPageComponent = new LinkPageProperty(AB, BASE_ID);
-      }
-
-      static get key() {
-         return "kanban";
-      }
-
-      ui() {
-         let _ui = ViewKanbanProperties.ui();
-
-         let rows = [
-            {
-               view: "fieldset",
-               label: L("Kanban Data:"),
-               labelWidth: uiConfig.labelWidthLarge,
-               body: {
-                  type: "clean",
-                  padding: 10,
-                  rows: [
-                     {
-                        id: this.ids.datacollection,
-                        view: "richselect",
-                        name: "dataviewID",
-                        label: L("Data Source:"),
-                        placeholder: L("Select a Datacollection"),
-                        labelWidth: uiConfig.labelWidthLarge,
-                        options: [],
-                        on: {
-                           onChange: (newv, oldv) => {
-                              if (newv != oldv) {
-                                 this.refreshFields(newv);
-                                 this.onChange();
-                              }
-                           },
-                        },
-                     },
-                  ],
-               },
-            },
-            ..._ui.rows,
-            this.linkPageComponent.ui(),
-         ];
-
-         return super.ui(rows);
-      }
-
-      async init(AB) {
-         this.AB = AB;
-
-         ViewKanbanProperties.on("new.field", (key) => {
-            let dc = this.AB.datacollectionByID(
-               this.CurrentView.settings.dataviewID
-            );
-            PopupNewDataFieldComponent.objectLoad(dc.datasource);
-            PopupNewDataFieldComponent.resetState();
-            PopupNewDataFieldComponent.show(null, key, false);
-         });
-         ViewKanbanProperties.on("changed", () => {
-            this.onChange();
-         });
-
-         // NOTE: keep this definition in the .init() routine
-         // to prevent an infinite recursion.
-         PopupNewDataFieldComponent = (0,_ui_work_object_workspace_popupNewDataField__WEBPACK_IMPORTED_MODULE_2__["default"])(
-            AB,
-            `${BASE_ID}_popupNewDataField`
-         );
-         await PopupNewDataFieldComponent.init(AB);
-         PopupNewDataFieldComponent.on("save", (...params) => {
-            ViewKanbanProperties.emit("field.added", params[0]);
-         });
-
-         this.linkPageComponent.init();
-         this.linkPageComponent.on("changed", () => {
-            this.onChange();
-         });
-
-         await super.init(AB);
-      }
-
-      populate(view) {
-         super.populate(view);
-
-         // Load in all the Available Datacollections:
-         var listDC = view.application.datacollectionsIncluded().map((d) => {
-            return {
-               id: d.id,
-               value: d.label,
-               icon:
-                  d.sourceType == "query" ? "fa fa-filter" : "fa fa-database",
-            };
-         });
-
-         let $dc = $$(this.ids.datacollection);
-         let dcID = view.settings.dataviewID || null;
-         $dc.blockEvent();
-         $dc.define("options", listDC);
-         $dc.define("value", dcID);
-         $dc.unblockEvent();
-         $dc.refresh();
-         this.refreshFields(dcID);
-
-         this.linkPageComponent.viewLoad(view);
-         this.linkPageComponent.setSettings(view.settings);
-      }
-
-      refreshFields(dcID) {
-         let dc = this.AB.datacollectionByID(dcID);
-         if (!dc) {
-            ViewKanbanProperties.clearValues();
-            return;
-         }
-
-         let obj = dc.datasource;
-         ViewKanbanProperties.init(obj, this.CurrentView);
-         PopupNewDataFieldComponent.objectLoad(obj);
-      }
-
-      /**
-       * @method values
-       * return the values for this form.
-       * @return {obj}
-       */
-      values() {
-         const values = super.values();
-
-         const ids = this.ids;
-         const $component = $$(ids.component);
-
-         values.settings = $component.getValues();
-
-         // let fields = ViewKanbanProperties.values();
-         // Object.keys(fields).forEach((f) => {
-         //    values.settings[f] = fields[f];
-         // });
-
-         const linkSettings = this.linkPageComponent.getSettings();
-         for (const key in linkSettings) {
-            values.settings[key] = linkSettings[key];
-         }
-
-         return values;
-      }
-
-      /**
-       * @method FieldClass()
-       * A method to return the proper ABViewXXX Definition.
-       * NOTE: Must be overwritten by the Child Class
-       */
-      ViewClass() {
-         return super._ViewClass("kanban");
-      }
-   }
-
-   return ABViewKanbanProperty;
 }
 
 
