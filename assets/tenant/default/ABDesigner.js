@@ -68674,25 +68674,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _web_view_dataview_FNAbviewdataview_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./web_view_dataview/FNAbviewdataview.js */ "./src/plugins/web_view_dataview/FNAbviewdataview.js");
 /* harmony import */ var _web_view_detail_FNAbviewdetailEditor_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./web_view_detail/FNAbviewdetailEditor.js */ "./src/plugins/web_view_detail/FNAbviewdetailEditor.js");
 /* harmony import */ var _web_view_detail_FNAbviewdetail_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./web_view_detail/FNAbviewdetail.js */ "./src/plugins/web_view_detail/FNAbviewdetail.js");
-/* harmony import */ var _web_view_grid_FNAbviewgridEditor_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./web_view_grid/FNAbviewgridEditor.js */ "./src/plugins/web_view_grid/FNAbviewgridEditor.js");
-/* harmony import */ var _web_view_grid_FNAbviewgrid_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./web_view_grid/FNAbviewgrid.js */ "./src/plugins/web_view_grid/FNAbviewgrid.js");
-/* harmony import */ var _web_view_image_FNAbviewimageEditor_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./web_view_image/FNAbviewimageEditor.js */ "./src/plugins/web_view_image/FNAbviewimageEditor.js");
-/* harmony import */ var _web_view_image_FNAbviewimage_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./web_view_image/FNAbviewimage.js */ "./src/plugins/web_view_image/FNAbviewimage.js");
-/* harmony import */ var _web_view_kanban_FNAbviewkanbanEditor_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./web_view_kanban/FNAbviewkanbanEditor.js */ "./src/plugins/web_view_kanban/FNAbviewkanbanEditor.js");
-/* harmony import */ var _web_view_kanban_FNAbviewkanban_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./web_view_kanban/FNAbviewkanban.js */ "./src/plugins/web_view_kanban/FNAbviewkanban.js");
-/* harmony import */ var _web_view_label_FNAbviewLabelEditor_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./web_view_label/FNAbviewLabelEditor.js */ "./src/plugins/web_view_label/FNAbviewLabelEditor.js");
-/* harmony import */ var _web_view_label_FNAbviewLabel_js__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./web_view_label/FNAbviewLabel.js */ "./src/plugins/web_view_label/FNAbviewLabel.js");
-/* harmony import */ var _web_view_layout_FNAbviewlayoutEditor_js__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./web_view_layout/FNAbviewlayoutEditor.js */ "./src/plugins/web_view_layout/FNAbviewlayoutEditor.js");
-/* harmony import */ var _web_view_layout_FNAbviewlayout_js__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./web_view_layout/FNAbviewlayout.js */ "./src/plugins/web_view_layout/FNAbviewlayout.js");
-/* harmony import */ var _web_view_list_FNAbviewlist_js__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./web_view_list/FNAbviewlist.js */ "./src/plugins/web_view_list/FNAbviewlist.js");
-/* harmony import */ var _web_view_pdfImporter_FNAbviewpdfimporterEditor_js__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./web_view_pdfImporter/FNAbviewpdfimporterEditor.js */ "./src/plugins/web_view_pdfImporter/FNAbviewpdfimporterEditor.js");
-/* harmony import */ var _web_view_pdfImporter_FNAbviewpdfimporter_js__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./web_view_pdfImporter/FNAbviewpdfimporter.js */ "./src/plugins/web_view_pdfImporter/FNAbviewpdfimporter.js");
-/* harmony import */ var _web_view_pivot_FNAbviewpivotEditor_js__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./web_view_pivot/FNAbviewpivotEditor.js */ "./src/plugins/web_view_pivot/FNAbviewpivotEditor.js");
-/* harmony import */ var _web_view_pivot_FNAbviewpivot_js__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./web_view_pivot/FNAbviewpivot.js */ "./src/plugins/web_view_pivot/FNAbviewpivot.js");
-/* harmony import */ var _web_view_tab_FNAbviewtabEditor_js__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./web_view_tab/FNAbviewtabEditor.js */ "./src/plugins/web_view_tab/FNAbviewtabEditor.js");
-/* harmony import */ var _web_view_tab_FNAbviewtab_js__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./web_view_tab/FNAbviewtab.js */ "./src/plugins/web_view_tab/FNAbviewtab.js");
-/* harmony import */ var _web_view_text_FNAbviewtextEditor_js__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./web_view_text/FNAbviewtextEditor.js */ "./src/plugins/web_view_text/FNAbviewtextEditor.js");
-/* harmony import */ var _web_view_text_FNAbviewtext_js__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./web_view_text/FNAbviewtext.js */ "./src/plugins/web_view_text/FNAbviewtext.js");
+/* harmony import */ var _web_view_gantt_FNAbviewganttEditor_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./web_view_gantt/FNAbviewganttEditor.js */ "./src/plugins/web_view_gantt/FNAbviewganttEditor.js");
+/* harmony import */ var _web_view_gantt_FNAbviewgantt_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./web_view_gantt/FNAbviewgantt.js */ "./src/plugins/web_view_gantt/FNAbviewgantt.js");
+/* harmony import */ var _web_view_grid_FNAbviewgridEditor_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./web_view_grid/FNAbviewgridEditor.js */ "./src/plugins/web_view_grid/FNAbviewgridEditor.js");
+/* harmony import */ var _web_view_grid_FNAbviewgrid_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./web_view_grid/FNAbviewgrid.js */ "./src/plugins/web_view_grid/FNAbviewgrid.js");
+/* harmony import */ var _web_view_image_FNAbviewimageEditor_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./web_view_image/FNAbviewimageEditor.js */ "./src/plugins/web_view_image/FNAbviewimageEditor.js");
+/* harmony import */ var _web_view_image_FNAbviewimage_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./web_view_image/FNAbviewimage.js */ "./src/plugins/web_view_image/FNAbviewimage.js");
+/* harmony import */ var _web_view_kanban_FNAbviewkanbanEditor_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./web_view_kanban/FNAbviewkanbanEditor.js */ "./src/plugins/web_view_kanban/FNAbviewkanbanEditor.js");
+/* harmony import */ var _web_view_kanban_FNAbviewkanban_js__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./web_view_kanban/FNAbviewkanban.js */ "./src/plugins/web_view_kanban/FNAbviewkanban.js");
+/* harmony import */ var _web_view_label_FNAbviewLabelEditor_js__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./web_view_label/FNAbviewLabelEditor.js */ "./src/plugins/web_view_label/FNAbviewLabelEditor.js");
+/* harmony import */ var _web_view_label_FNAbviewLabel_js__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./web_view_label/FNAbviewLabel.js */ "./src/plugins/web_view_label/FNAbviewLabel.js");
+/* harmony import */ var _web_view_layout_FNAbviewlayoutEditor_js__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./web_view_layout/FNAbviewlayoutEditor.js */ "./src/plugins/web_view_layout/FNAbviewlayoutEditor.js");
+/* harmony import */ var _web_view_layout_FNAbviewlayout_js__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./web_view_layout/FNAbviewlayout.js */ "./src/plugins/web_view_layout/FNAbviewlayout.js");
+/* harmony import */ var _web_view_list_FNAbviewlist_js__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./web_view_list/FNAbviewlist.js */ "./src/plugins/web_view_list/FNAbviewlist.js");
+/* harmony import */ var _web_view_pdfImporter_FNAbviewpdfimporterEditor_js__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./web_view_pdfImporter/FNAbviewpdfimporterEditor.js */ "./src/plugins/web_view_pdfImporter/FNAbviewpdfimporterEditor.js");
+/* harmony import */ var _web_view_pdfImporter_FNAbviewpdfimporter_js__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./web_view_pdfImporter/FNAbviewpdfimporter.js */ "./src/plugins/web_view_pdfImporter/FNAbviewpdfimporter.js");
+/* harmony import */ var _web_view_pivot_FNAbviewpivotEditor_js__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./web_view_pivot/FNAbviewpivotEditor.js */ "./src/plugins/web_view_pivot/FNAbviewpivotEditor.js");
+/* harmony import */ var _web_view_pivot_FNAbviewpivot_js__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./web_view_pivot/FNAbviewpivot.js */ "./src/plugins/web_view_pivot/FNAbviewpivot.js");
+/* harmony import */ var _web_view_tab_FNAbviewtabEditor_js__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./web_view_tab/FNAbviewtabEditor.js */ "./src/plugins/web_view_tab/FNAbviewtabEditor.js");
+/* harmony import */ var _web_view_tab_FNAbviewtab_js__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./web_view_tab/FNAbviewtab.js */ "./src/plugins/web_view_tab/FNAbviewtab.js");
+/* harmony import */ var _web_view_text_FNAbviewtextEditor_js__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./web_view_text/FNAbviewtextEditor.js */ "./src/plugins/web_view_text/FNAbviewtextEditor.js");
+/* harmony import */ var _web_view_text_FNAbviewtext_js__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./web_view_text/FNAbviewtext.js */ "./src/plugins/web_view_text/FNAbviewtext.js");
+
+
 
 
 
@@ -68734,25 +68738,27 @@ const AllPlugins = [
    _web_view_dataview_FNAbviewdataview_js__WEBPACK_IMPORTED_MODULE_7__["default"],
    _web_view_detail_FNAbviewdetailEditor_js__WEBPACK_IMPORTED_MODULE_8__["default"],
    _web_view_detail_FNAbviewdetail_js__WEBPACK_IMPORTED_MODULE_9__["default"],
-   _web_view_grid_FNAbviewgridEditor_js__WEBPACK_IMPORTED_MODULE_10__["default"],
-   _web_view_grid_FNAbviewgrid_js__WEBPACK_IMPORTED_MODULE_11__["default"],
-   _web_view_image_FNAbviewimageEditor_js__WEBPACK_IMPORTED_MODULE_12__["default"],
-   _web_view_image_FNAbviewimage_js__WEBPACK_IMPORTED_MODULE_13__["default"],
-   _web_view_kanban_FNAbviewkanbanEditor_js__WEBPACK_IMPORTED_MODULE_14__["default"],
-   _web_view_kanban_FNAbviewkanban_js__WEBPACK_IMPORTED_MODULE_15__["default"],
-   _web_view_label_FNAbviewLabelEditor_js__WEBPACK_IMPORTED_MODULE_16__["default"],
-   _web_view_label_FNAbviewLabel_js__WEBPACK_IMPORTED_MODULE_17__["default"],
-   _web_view_layout_FNAbviewlayoutEditor_js__WEBPACK_IMPORTED_MODULE_18__["default"],
-   _web_view_layout_FNAbviewlayout_js__WEBPACK_IMPORTED_MODULE_19__["default"],
-   _web_view_list_FNAbviewlist_js__WEBPACK_IMPORTED_MODULE_20__["default"],
-   _web_view_pdfImporter_FNAbviewpdfimporterEditor_js__WEBPACK_IMPORTED_MODULE_21__["default"],
-   _web_view_pdfImporter_FNAbviewpdfimporter_js__WEBPACK_IMPORTED_MODULE_22__["default"],
-   _web_view_pivot_FNAbviewpivotEditor_js__WEBPACK_IMPORTED_MODULE_23__["default"],
-   _web_view_pivot_FNAbviewpivot_js__WEBPACK_IMPORTED_MODULE_24__["default"],
-   _web_view_tab_FNAbviewtabEditor_js__WEBPACK_IMPORTED_MODULE_25__["default"],
-   _web_view_tab_FNAbviewtab_js__WEBPACK_IMPORTED_MODULE_26__["default"],
-   _web_view_text_FNAbviewtextEditor_js__WEBPACK_IMPORTED_MODULE_27__["default"],
-   _web_view_text_FNAbviewtext_js__WEBPACK_IMPORTED_MODULE_28__["default"],
+   _web_view_gantt_FNAbviewganttEditor_js__WEBPACK_IMPORTED_MODULE_10__["default"],
+   _web_view_gantt_FNAbviewgantt_js__WEBPACK_IMPORTED_MODULE_11__["default"],
+   _web_view_grid_FNAbviewgridEditor_js__WEBPACK_IMPORTED_MODULE_12__["default"],
+   _web_view_grid_FNAbviewgrid_js__WEBPACK_IMPORTED_MODULE_13__["default"],
+   _web_view_image_FNAbviewimageEditor_js__WEBPACK_IMPORTED_MODULE_14__["default"],
+   _web_view_image_FNAbviewimage_js__WEBPACK_IMPORTED_MODULE_15__["default"],
+   _web_view_kanban_FNAbviewkanbanEditor_js__WEBPACK_IMPORTED_MODULE_16__["default"],
+   _web_view_kanban_FNAbviewkanban_js__WEBPACK_IMPORTED_MODULE_17__["default"],
+   _web_view_label_FNAbviewLabelEditor_js__WEBPACK_IMPORTED_MODULE_18__["default"],
+   _web_view_label_FNAbviewLabel_js__WEBPACK_IMPORTED_MODULE_19__["default"],
+   _web_view_layout_FNAbviewlayoutEditor_js__WEBPACK_IMPORTED_MODULE_20__["default"],
+   _web_view_layout_FNAbviewlayout_js__WEBPACK_IMPORTED_MODULE_21__["default"],
+   _web_view_list_FNAbviewlist_js__WEBPACK_IMPORTED_MODULE_22__["default"],
+   _web_view_pdfImporter_FNAbviewpdfimporterEditor_js__WEBPACK_IMPORTED_MODULE_23__["default"],
+   _web_view_pdfImporter_FNAbviewpdfimporter_js__WEBPACK_IMPORTED_MODULE_24__["default"],
+   _web_view_pivot_FNAbviewpivotEditor_js__WEBPACK_IMPORTED_MODULE_25__["default"],
+   _web_view_pivot_FNAbviewpivot_js__WEBPACK_IMPORTED_MODULE_26__["default"],
+   _web_view_tab_FNAbviewtabEditor_js__WEBPACK_IMPORTED_MODULE_27__["default"],
+   _web_view_tab_FNAbviewtab_js__WEBPACK_IMPORTED_MODULE_28__["default"],
+   _web_view_text_FNAbviewtextEditor_js__WEBPACK_IMPORTED_MODULE_29__["default"],
+   _web_view_text_FNAbviewtext_js__WEBPACK_IMPORTED_MODULE_30__["default"],
 ];
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -70646,6 +70652,936 @@ function FNAbviewdetailEditor({ AB /*ABViewEditorPlugin*/ }) {
          this.component?.onShow?.();
       }
    };
+}
+
+
+/***/ }),
+
+/***/ "./src/plugins/web_view_gantt/FNAbviewgantt.js":
+/*!*****************************************************!*\
+  !*** ./src/plugins/web_view_gantt/FNAbviewgantt.js ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FNAbviewganttProperties)
+/* harmony export */ });
+/* harmony import */ var _FNAbviewganttWorkspace_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FNAbviewganttWorkspace.js */ "./src/plugins/web_view_gantt/FNAbviewganttWorkspace.js");
+// FNAbviewgantt Properties
+// A properties side import for an ABView.
+//
+
+
+function FNAbviewganttProperties({
+   AB,
+   ABViewPropertiesPlugin,
+   ABUIPlugin,
+}) {
+   const BASE_ID = "properties_abview_gantt";
+   const L = AB.Label();
+   const uiConfig = AB.Config.uiSettings();
+
+   const FPopupNewDataField =
+      (__webpack_require__(/*! ../../rootPages/Designer/ui_work_object_workspace_popupNewDataField */ "./src/rootPages/Designer/ui_work_object_workspace_popupNewDataField.js")["default"]);
+
+   const ABUIPopupNewDataField = FPopupNewDataField(
+      AB,
+      `${BASE_ID}_popupNewDataField`
+   );
+   const ABViewGanttWorkspaceView = (0,_FNAbviewganttWorkspace_js__WEBPACK_IMPORTED_MODULE_0__["default"])(
+      AB,
+      ABUIPlugin,
+      `${BASE_ID}_workspaceView_gantt`
+   );
+
+   return class ABAbviewganttProperties extends ABViewPropertiesPlugin {
+      static getPluginKey() {
+         return this.key;
+      }
+
+      static getPluginType() {
+         return "properties-view";
+         // properties-view : will display in the properties panel of the ABDesigner
+      }
+
+      constructor() {
+         super(BASE_ID, {
+            dataviewID: "",
+            fields: "",
+         });
+
+         this.AB = AB;
+      }
+
+      static get key() {
+         return "gantt";
+      }
+
+      ui() {
+         const ids = this.ids;
+
+         return super.ui([
+            {
+               view: "fieldset",
+               label: `${L("Gantt Data")}:`,
+               labelWidth: uiConfig.labelWidthLarge,
+               body: {
+                  type: "clean",
+                  padding: 10,
+                  rows: [
+                     {
+                        id: ids.dataviewID,
+                        view: "richselect",
+                        name: "dataviewID",
+                        label: `${L("Datacollection")}:`,
+                        labelWidth: uiConfig.labelWidthLarge,
+                        on: {
+                           onChange: (newValue, oldValue) => {
+                              if (newValue === oldValue) return;
+
+                              ABViewGanttWorkspaceView.emit(
+                                 "dc.changed",
+                                 newValue,
+                                 this.CurrentView
+                              );
+
+                              this.onChange();
+                           },
+                        },
+                     },
+                  ],
+               },
+            },
+            {
+               view: "fieldset",
+               label: `${L("Gantt Fields")}:`,
+               labelWidth: uiConfig.labelWidthLarge,
+               body: {
+                  id: ids.fields,
+                  view: "form",
+                  name: "fields",
+                  borderless: true,
+                  elements: [ABViewGanttWorkspaceView.ui()],
+                  on: {
+                     onChange: () => {
+                        this.onChange();
+                     },
+                  },
+               },
+            },
+         ]);
+      }
+
+      async init(AB) {
+         this.AB = AB;
+         this.PopupNewDataFieldComponent = ABUIPopupNewDataField;
+
+         await this.PopupNewDataFieldComponent.init(AB);
+         this.PopupNewDataFieldComponent.on("save", (...params) => {
+            ABViewGanttWorkspaceView.emit("field.added", params[0]);
+         });
+
+         ABViewGanttWorkspaceView.on("dc.changed", (dcID, view) => {
+            const DC = this.AB.datacollectionByID(dcID);
+
+            ABViewGanttWorkspaceView.init(DC.datasource, view);
+            this.PopupNewDataFieldComponent.objectLoad(DC.datasource);
+         });
+
+         ABViewGanttWorkspaceView.on("new.field", (fieldKey) => {
+            this.PopupNewDataFieldComponent.show(null, fieldKey, false);
+         });
+
+         await super.init(AB);
+      }
+
+      populateDataview() {
+         // Pull data collections to options
+         // / NOTE: only include System Objects if the user has permission
+         const datacollectionFilter = this.AB.Account.isSystemDesigner()
+            ? (obj) => !obj.isSystemObject
+            : () => true;
+         const datacollections =
+            this.CurrentApplication.datacollectionsIncluded(
+               datacollectionFilter
+            );
+
+         // Set the objects you can choose from in the list
+         const $dataviewID = $$(this.ids.dataviewID);
+
+         $dataviewID.define(
+            "options",
+            datacollections.map((e) => {
+               return {
+                  id: e.id,
+                  value: e.label,
+                  icon:
+                     e.sourceType == "query"
+                        ? "fa fa-filter"
+                        : "fa fa-database",
+               };
+            })
+         );
+         $dataviewID.refresh();
+      }
+
+      populate(view) {
+         super.populate(view);
+
+         const ids = this.ids;
+         const $component = $$(ids.component);
+         const defaultValues = this.defaultValues();
+         const values = Object.assign(
+            $component.getValues(),
+            defaultValues,
+            view.settings
+         );
+
+         this.populateDataview();
+
+         $component.setValues(values);
+
+         let DC = this.AB.datacollectionByID(values.dataviewID);
+         if (DC) {
+            ABViewGanttWorkspaceView.init(DC.datasource, this.CurrentView);
+            this.PopupNewDataFieldComponent.objectLoad(DC.datasource);
+         }
+      }
+
+      defaultValues() {
+         const ViewClass = this.ViewClass();
+
+         let values = null;
+
+         if (ViewClass) {
+            values = ViewClass.defaultValues();
+         }
+
+         return values;
+      }
+
+      /**
+       * @method values
+       * return the values for this form.
+       * @return {obj}
+       */
+      values() {
+         const values = super.values();
+         const ids = this.ids;
+
+         values.settings = Object.assign(
+            $$(ids.component).getValues(),
+            $$(ids.fields).getValues()
+         );
+
+         return values;
+      }
+
+      /**
+       * @method FieldClass()
+       * A method to return the proper ABViewXXX Definition.
+       * NOTE: Must be overwritten by the Child Class
+       */
+      ViewClass() {
+         return super._ViewClass("gantt");
+      }
+   };
+}
+
+
+/***/ }),
+
+/***/ "./src/plugins/web_view_gantt/FNAbviewganttEditor.js":
+/*!***********************************************************!*\
+  !*** ./src/plugins/web_view_gantt/FNAbviewganttEditor.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FNAbviewganttEditor)
+/* harmony export */ });
+// FNAbviewgantt Editor
+// An Editor wrapper for the ABView Component.
+// The Editor is displayed in the ABDesigner as a view is worked on.
+// The Editor allows a widget to be moved and placed on the canvas.
+//
+function FNAbviewganttEditor({ ABViewEditorPlugin }) {
+   const BASE_ID = "interface_editor_viewgantt";
+
+   return class ABAbviewganttEditor extends ABViewEditorPlugin {
+      static getPluginKey() {
+         return this.key;
+      }
+
+      /**
+       * @method getPluginType
+       * return the plugin type for this editor.
+       * plugin types are how our ClassManager knows how to store
+       * the plugin.
+       * @return {string} plugin type
+       */
+      static getPluginType() {
+         return "editor-view";
+         // editor-view : will display in the editor panel of the ABDesigner
+      }
+
+      static get key() {
+         return "gantt";
+      }
+
+      constructor(view, base = BASE_ID) {
+         // base: {string} unique base id reference
+         super(view, base, {
+            label: "",
+         });
+      }
+
+      ui() {
+         return this.component.ui();
+      }
+
+      async init(AB) {
+         this.AB = AB;
+         this.component.ignoreLocal = true;
+         // in our editor, we provide accessLv = 2
+         await this.component.init(AB, 2);
+      }
+
+      detatch() {
+         this.component.detatch?.();
+      }
+
+      onShow() {
+         this.component.onShow?.();
+      }
+   };
+}
+
+
+/***/ }),
+
+/***/ "./src/plugins/web_view_gantt/FNAbviewganttWorkspace.js":
+/*!**************************************************************!*\
+  !*** ./src/plugins/web_view_gantt/FNAbviewganttWorkspace.js ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* export default binding */ __WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+// ABObjectWorkspaceViewGantt.js
+//
+// Manages the settings for a Gantt Chart View in the AppBuilder Object Workspace
+
+const defaultValues = {
+   name: "Default Gantt",
+   filterConditions: [], // array of filters to apply to the data table
+   sortFields: [],
+   settings: {
+      dataviewID: "",
+      // {string}
+      // {ABDatacollection.id} of the datacollection that contains the data for
+      // the Gantt chart.
+
+      titleFieldID: "",
+      // {string}
+      // {ABFieldXXX.id} of the field that contains the value of the title
+      // ABFieldString, ABFieldLongText
+
+      startDateFieldID: "",
+      // {string}
+      // {ABFieldDate.id} of the field that contains the start date
+
+      endDateFieldID: "",
+      // {string}
+      // {ABFieldDate.id} of the field that contains the end date
+
+      durationFieldID: "",
+      // {string}
+      // {ABFieldNumber.id} of the field that contains the duration
+
+      progressFieldID: "",
+      // {string}
+      // {ABFieldNumber.id} of the field that marks the duration
+
+      notesFieldID: "",
+      // {string}
+      // {ABFieldXXX.id} of the field that contains the value of the notes
+      // ABFieldString, ABFieldLongText
+   },
+};
+
+/* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__(AB, ABUIPlugin, ibase) {
+   const L = AB.Label();
+
+   const ABFieldDate = AB.Class.ABFieldManager.fieldByKey("date");
+   const ABFieldNumber = AB.Class.ABFieldManager.fieldByKey("number");
+   const ABFieldString = AB.Class.ABFieldManager.fieldByKey("string");
+   const ABFieldLongText = AB.Class.ABFieldManager.fieldByKey("LongText");
+
+   class ABObjectWorkspaceViewGantt extends ABUIPlugin {
+      constructor(idBase) {
+         super(idBase, {
+            titleFieldID: "",
+            startDateFieldID: "",
+            endDateFieldID: "",
+            durationFieldID: "",
+            progressFieldID: "",
+            notesFieldID: "",
+         });
+
+         this.on("field.added", (field) => {
+            // refresh our droplists with the new field.
+            this.refreshOptions(this.CurrentObject, this._view);
+            if (this._autoSelectInput) {
+               $$(this._autoSelectInput)?.setValue(field.id);
+            }
+         });
+
+         this._autoSelectInput = null;
+         // {string}
+         // contains the webix.id of the input that should be auto selected
+         // if we receive a "field.add" event;
+
+         this._dateFields = [];
+         // {array}
+         // an array of webix options { id, value } that represent all the date
+         // fields of the CurrentObject.
+      }
+
+      /**
+       * unique key describing this View.
+       * @return {string}
+       */
+      type() {
+         return "gantt";
+      }
+
+      /**
+       * @return {string}
+       */
+      icon() {
+         return "fa fa-tasks";
+      }
+
+      refreshOptions(object, settings) {
+         const ids = this.ids;
+
+         const dateFields = object
+            .fields((f) => f instanceof ABFieldDate)
+            .map(({ id, label }) => ({ id, value: label }));
+
+         // sort by value
+         dateFields.sort((a, b) => (a.value > b.value ? 1 : -1));
+
+         // Add default option
+         dateFields.unshift({
+            id: null,
+            value: L("Select a date field"),
+         });
+         this._dateFields = dateFields;
+
+         // Start date
+         $$(ids.startDateFieldID).define("options", dateFields);
+
+         // // End date
+         $$(ids.endDateFieldID).define("options", dateFields);
+
+         // Duration
+         const numberFields = object
+            .fields((f) => f instanceof ABFieldNumber)
+            .map(({ id, label }) => ({ id, value: label }));
+
+         // sort by value
+         numberFields.sort((a, b) => (a.value > b.value ? 1 : -1));
+
+         // Add default option
+         numberFields.unshift({
+            id: null,
+            value: L("Select a number field"),
+         });
+         this._numberFields = numberFields;
+
+         $$(ids.durationFieldID).define("options", numberFields);
+
+         // Progress
+         $$(ids.progressFieldID).define("options", numberFields);
+
+         // Title & Notes
+         const stringFields = object
+            .fields(
+               (f) => f instanceof ABFieldString || f instanceof ABFieldLongText
+            )
+            .map(({ id, label }) => ({ id, value: label }));
+
+         // sort by value
+         stringFields.sort((a, b) => (a.value > b.value ? 1 : -1));
+
+         // Add default option
+         stringFields.unshift({
+            id: null,
+            value: L("Select a string field"),
+         });
+         this._stringFields = stringFields;
+
+         $$(ids.titleFieldID).define("options", stringFields);
+         $$(ids.notesFieldID).define("options", stringFields);
+
+         if (!settings) return;
+
+         // Select settings's values
+         if (settings.titleFieldID) {
+            $$(ids.titleFieldID).define("value", settings.titleFieldID);
+            $$(ids.titleFieldID).refresh();
+            this.syncCommonLists(
+               [ids.titleFieldID, ids.notesFieldID],
+               this._stringFields
+            );
+         }
+
+         if (settings.startDateFieldID) {
+            $$(ids.startDateFieldID).define("value", settings.startDateFieldID);
+            $$(ids.startDateFieldID).refresh();
+            this.syncCommonLists(
+               [ids.startDateFieldID, ids.endDateFieldID],
+               this._dateFields
+            );
+         }
+
+         if (settings.endDateFieldID) {
+            $$(ids.endDateFieldID).define(
+               "value",
+               settings.endDateFieldID ||
+               defaultValues.settings.endDateFieldIDFieldID
+            );
+            $$(ids.endDateFieldID).refresh();
+            this.syncCommonLists(
+               [ids.startDateFieldID, ids.endDateFieldID],
+               this._dateFields
+            );
+         }
+
+         if (settings.durationFieldID) {
+            $$(ids.durationFieldID).define(
+               "value",
+               settings.durationFieldID ||
+               defaultValues.settings.durationFieldID
+            );
+            $$(ids.durationFieldID).refresh();
+            this.syncCommonLists(
+               [ids.durationFieldID, ids.progressFieldID],
+               this._numberFields
+            );
+         }
+
+         if (settings.progressFieldID) {
+            $$(ids.progressFieldID).define("value", settings.progressFieldID);
+            $$(ids.progressFieldID).refresh();
+            this.syncCommonLists(
+               [ids.durationFieldID, ids.progressFieldID],
+               this._numberFields
+            );
+         }
+
+         if (settings.notesFieldID) {
+            $$(ids.notesFieldID).define("value", settings.notesFieldID);
+            $$(ids.notesFieldID).refresh();
+            this.syncCommonLists(
+               [ids.titleFieldID, ids.notesFieldID],
+               this._stringFields
+            );
+         }
+      }
+
+      /**
+       * @method syncCommonLists()
+       * Make sure the given lists do not contain options for the other lists
+       * in their selections.
+       * In this case, we have multiple lists of fields that can be options for
+       * the start and end dates.  However once the start date field is chosen
+       * we want to make sure that entry doesn't show up in the end date.
+       * @param {array} commonIDs
+       *        an array of [ webix.id, webix.id ] of the lists that share the
+       *        same values, but shouldn't show the options of the others.
+       * @param {array} fullOptions
+       *        The full list of options available for those lists.
+       */
+      syncCommonLists(commonIDs, fullOptions) {
+         // for each of the Other lists
+
+         commonIDs.forEach((idCurr) => {
+            const otherVals = [];
+            const otherIDs = commonIDs.filter((i) => i != idCurr);
+            otherIDs.forEach((idOther) => {
+               otherVals.push($$(idOther).getValue());
+            });
+
+            const $list = $$(idCurr);
+            const newOptions = fullOptions.filter(
+               (o) => otherVals.indexOf(o.id) == -1
+            );
+            $list.define("options", newOptions);
+            $list.refresh();
+         });
+      }
+
+      ui() {
+         const ids = this.ids;
+
+         // const labels = {
+         //    common: App.labels,
+         //    component: {
+         //       titleFieldID: L("ab.add_view.gantt.title", "*Title"),
+         //       startDateFieldID: L("ab.add_view.gantt.startDate", "*Start Date"),
+         //       endDateFieldID: L("ab.add_view.gantt.endDate", "*End Date"),
+         //       durationFieldID: L("ab.add_view.gantt.duration", "*Duration"),
+         //       progressFieldID: L("ab.add_view.gantt.progress", "*Progress"),
+         //       notesFieldID: L("ab.add_view.gantt.notes", "*Notes"),
+
+         //       datePlaceholder: L(
+         //          "ab.add_view.gantt.datePlaceholder",
+         //          "*Select a date field"
+         //       ),
+         //       numberPlaceholder: L(
+         //          "ab.add_view.gantt.numberPlaceholder",
+         //          "*Select a number field"
+         //       ),
+         //       stringPlaceholder: L(
+         //          "ab.add_view.gantt.stringPlaceholder",
+         //          "*Select a string field"
+         //       ),
+         //    },
+         // };
+
+         // const PopupNewDataFieldComponent = new ABPopupNewDataField(
+         //    App,
+         //    idBase + "_gantt"
+         // );
+
+         return {
+            batch: "gantt",
+            rows: [
+               {
+                  cols: [
+                     {
+                        id: ids.titleFieldID,
+                        view: "richselect",
+                        label: `<span style='opacity: 0.6;' class='webix_icon fa fa-calendar'></span> ${L(
+                           "Title"
+                        )}`,
+                        placeholder: L("Select a string field"),
+                        labelWidth: 130,
+                        name: "titleFieldID",
+                        options: [],
+                        on: {
+                           onChange: (newValue, oldValue) => {
+                              this.syncCommonLists(
+                                 [ids.titleFieldID, ids.notesFieldID],
+                                 this._stringFields
+                              );
+                           },
+                        },
+                     },
+                     {
+                        view: "button",
+                        css: "webix_primary",
+                        type: "icon",
+                        icon: "fa fa-plus",
+                        label: "",
+                        width: 30,
+                        click: () => {
+                           this._autoSelectInput = ids.titleFieldID;
+                           this.emit("new.field", ABFieldString.defaults().key);
+                        },
+                     },
+                  ],
+               },
+               {
+                  cols: [
+                     {
+                        id: ids.startDateFieldID,
+                        view: "richselect",
+                        label: `<span style='opacity: 0.6;' class='webix_icon fa fa-calendar'></span> ${L(
+                           "Start Date"
+                        )}`,
+                        placeholder: L("Select a date field"),
+                        labelWidth: 130,
+                        name: "startDateFieldID",
+                        required: true,
+                        options: [],
+                        on: {
+                           onChange: (newValue, oldValue) => {
+                              this.syncCommonLists(
+                                 [ids.startDateFieldID, ids.endDateFieldID],
+                                 this._dateFields
+                              );
+                           },
+                        },
+                     },
+                     {
+                        view: "button",
+                        css: "webix_primary",
+                        type: "icon",
+                        icon: "fa fa-plus",
+                        label: "",
+                        width: 30,
+                        click: () => {
+                           this._autoSelectInput = ids.startDateFieldID;
+                           this.emit("new.field", ABFieldDate.defaults().key);
+                        },
+                     },
+                  ],
+               },
+               {
+                  cols: [
+                     {
+                        id: ids.endDateFieldID,
+                        view: "richselect",
+                        label: `<span style='opacity: 0.6;' class='webix_icon fa fa-calendar'></span> ${L(
+                           "End Date"
+                        )}`,
+                        placeholder: L("Select a date field"),
+                        labelWidth: 130,
+                        name: "endDateFieldID",
+                        options: [],
+                        on: {
+                           onChange: (newValue, oldValue) => {
+                              this.syncCommonLists(
+                                 [ids.startDateFieldID, ids.endDateFieldID],
+                                 this._dateFields
+                              );
+                           },
+                        },
+                     },
+                     {
+                        view: "button",
+                        css: "webix_primary",
+                        type: "icon",
+                        icon: "fa fa-plus",
+                        label: "",
+                        width: 30,
+                        click: () => {
+                           this._autoSelectInput = ids.endDateFieldID;
+                           this.emit("new.field", ABFieldDate.defaults().key);
+                        },
+                     },
+                  ],
+               },
+               {
+                  cols: [
+                     {
+                        id: ids.durationFieldID,
+                        view: "richselect",
+                        label: `<span style='opacity: 0.6;' class='webix_icon fa fa-hashtag'></span> ${L(
+                           "Duration"
+                        )}`,
+                        placeholder: L("Select a number field"),
+                        labelWidth: 130,
+                        name: "durationFieldID",
+                        options: [],
+                        on: {
+                           onChange: (newValue, oldValue) => {
+                              this.syncCommonLists(
+                                 [ids.durationFieldID, ids.progressFieldID],
+                                 this._numberFields
+                              );
+                           },
+                        },
+                     },
+                     {
+                        view: "button",
+                        css: "webix_primary",
+                        type: "icon",
+                        icon: "fa fa-plus",
+                        label: "",
+                        width: 30,
+                        click: () => {
+                           this._autoSelectInput = ids.durationFieldID;
+                           this.emit("new.field", ABFieldNumber.defaults().key);
+                        },
+                     },
+                  ],
+               },
+               {
+                  cols: [
+                     {
+                        id: ids.progressFieldID,
+                        view: "richselect",
+                        label: `<span style='opacity: 0.6;' class='webix_icon fa fa-hashtag'></span> ${L(
+                           "Progress"
+                        )}`,
+                        placeholder: L("Select a number field"),
+                        labelWidth: 130,
+                        name: "progressFieldID",
+                        required: false,
+                        options: [],
+                        on: {
+                           onChange: (newValue, oldValue) => {
+                              this.syncCommonLists(
+                                 [ids.durationFieldID, ids.progressFieldID],
+                                 this._numberFields
+                              );
+                           },
+                        },
+                     },
+                     {
+                        view: "button",
+                        css: "webix_primary",
+                        type: "icon",
+                        icon: "fa fa-plus",
+                        label: "",
+                        width: 30,
+                        click: () => {
+                           this._autoSelectInput = ids.progressFieldID;
+                           this.emit("new.field", ABFieldNumber.defaults().key);
+                        },
+                     },
+                  ],
+               },
+               {
+                  cols: [
+                     {
+                        id: ids.notesFieldID,
+                        view: "richselect",
+                        label: `<span style='opacity: 0.6;' class='webix_icon fa fa-align-right'></span> ${L(
+                           "Notes"
+                        )}`,
+                        placeholder: L("Select a string field"),
+                        labelWidth: 130,
+                        name: "notesFieldID",
+                        required: false,
+                        options: [],
+                        on: {
+                           onChange: (newValue, oldValue) => {
+                              this.syncCommonLists(
+                                 [ids.titleFieldID, ids.notesFieldID],
+                                 this._stringFields
+                              );
+                           },
+                        },
+                     },
+                     {
+                        view: "button",
+                        css: "webix_primary",
+                        type: "icon",
+                        icon: "fa fa-plus",
+                        label: "",
+                        width: 30,
+                        click: () => {
+                           this._autoSelectInput = ids.notesFieldID;
+                           this.emit(
+                              "new.field",
+                              ABFieldLongText.defaults().key
+                           );
+                        },
+                     },
+                  ],
+               },
+            ],
+         };
+      }
+
+      init(object, view) {
+         this.objectLoad(object);
+         this._view = view;
+         this.refreshOptions(object, view?.settings);
+      }
+
+      validate($form) {
+         const ids = this.ids;
+         const endDateFieldID =
+            $$(ids.endDateFieldID).getValue() ||
+            defaultValues.settings.endDateFieldID;
+         const durationFieldID =
+            $$(ids.durationFieldID).getValue() ||
+            defaultValues.settings.durationFieldID;
+
+         if (!endDateFieldID && !durationFieldID) {
+            $form.markInvalid("endDateFieldID", "Required");
+            $form.markInvalid("durationFieldID", "Required");
+
+            return false;
+         }
+
+         return true;
+      }
+
+      values() {
+         const ids = this.ids;
+
+         const result = {};
+
+         result.titleFieldID =
+            $$(ids.titleFieldID).getValue() ||
+            defaultValues.settings.titleFieldID;
+         result.startDateFieldID =
+            $$(ids.startDateFieldID).getValue() ||
+            defaultValues.settings.startDateFieldID;
+         result.endDateFieldID =
+            $$(ids.endDateFieldID).getValue() ||
+            defaultValues.settings.endDateFieldID;
+         result.durationFieldID =
+            $$(ids.durationFieldID).getValue() ||
+            defaultValues.settings.durationFieldID;
+         result.progressFieldID =
+            $$(ids.progressFieldID).getValue() ||
+            defaultValues.settings.progressFieldID;
+         result.notesFieldID =
+            $$(ids.notesFieldID).getValue() ||
+            defaultValues.settings.notesFieldID;
+
+         return result;
+      }
+
+      /**
+       * @method fromObj
+       * take our persisted data, and properly load it
+       * into this object instance.
+       * @param {json} data  the persisted data
+       */
+      fromSettings(data) {
+         for (const key in defaultValues)
+            this[key] = data[key] || defaultValues[key];
+
+         this.settings = Object.assign(
+            {},
+            defaultValues.settings,
+            data.settings ?? {}
+         );
+
+         this.type = this.type();
+      }
+
+      /**
+       * @method toObj()
+       * compile our current state into a {json} object
+       * that can be persisted.
+       */
+      toSettings() {
+         const obj = {}; //super.toObj();
+
+         for (const key in defaultValues)
+            obj[key] = this[key] || defaultValues[key];
+
+         obj.settings = Object.assign(
+            {},
+            defaultValues.settings,
+            obj.settings ?? {}
+         );
+         obj.key = this.type();
+         obj.type = this.type();
+
+         return obj;
+      }
+   }
+
+   return new ABObjectWorkspaceViewGantt(ibase);
 }
 
 
@@ -73120,26 +74056,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* export default binding */ __WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _rootPages_Designer_ui_class__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../rootPages/Designer/ui_class */ "./src/rootPages/Designer/ui_class.js");
 // Abkanbanworkspace.js
 //
 // Manages the settings for a KanBan View in the Object Workspace
 
-
-
 let classABViewKanban = null;
 
-/* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__(AB, ibase) {
+/* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__(AB, ABUIPlugin, ibase) {
    const L = AB.Label();
-
-   const UIClass = (0,_rootPages_Designer_ui_class__WEBPACK_IMPORTED_MODULE_0__["default"])(AB);
 
    const ABFieldConnect = AB.Class.ABFieldManager.fieldByKey("connectObject");
    const ABFieldList = AB.Class.ABFieldManager.fieldByKey("list");
    const ABFieldUser = AB.Class.ABFieldManager.fieldByKey("user");
 
    if (!classABViewKanban) {
-      classABViewKanban = class ABViewKanban extends UIClass {
+      classABViewKanban = class ABViewKanban extends ABUIPlugin {
          constructor(idBase) {
             super(idBase, {
                vGroupInput: "",
@@ -73431,6 +74362,7 @@ __webpack_require__.r(__webpack_exports__);
 function FNAbviewkanbanProperties({
    AB,
    ABViewPropertiesPlugin,
+   ABUIPlugin,
 }) {
    const BASE_ID = "properties_abview_kanban";
 
@@ -73442,7 +74374,7 @@ function FNAbviewkanbanProperties({
    const uiConfig = AB.UISettings.config();
    const L = AB.Label();
 
-   const ViewKanbanProperties = (0,_Abkanbanworkspace_js__WEBPACK_IMPORTED_MODULE_0__["default"])(AB, BASE_ID);
+   const ViewKanbanProperties = (0,_Abkanbanworkspace_js__WEBPACK_IMPORTED_MODULE_0__["default"])(AB, ABUIPlugin, BASE_ID);
    let PopupNewDataFieldComponent = null;
 
    return class ABAbviewkanbanProperties extends ABViewPropertiesPlugin {
@@ -76145,7 +77077,7 @@ __webpack_require__.r(__webpack_exports__);
       __webpack_require__(/*! ./views/ABViewDocxBuilder */ "./src/rootPages/Designer/editors/views/ABViewDocxBuilder.js"),
       __webpack_require__(/*! ./views/ABViewForm */ "./src/rootPages/Designer/editors/views/ABViewForm.js"),
       __webpack_require__(/*! ./views/ABViewFormUrl */ "./src/rootPages/Designer/editors/views/ABViewFormUrl.js"),
-      __webpack_require__(/*! ./views/ABViewGantt */ "./src/rootPages/Designer/editors/views/ABViewGantt.js"),
+      // require("./views/ABViewGantt"),
       // require("./views/ABViewKanban"),
       // require("./views/ABViewGrid"),
       // require("./views/ABViewLabel"),
@@ -77440,78 +78372,6 @@ var myClass = null;
 
 /***/ }),
 
-/***/ "./src/rootPages/Designer/editors/views/ABViewGantt.js":
-/*!*************************************************************!*\
-  !*** ./src/rootPages/Designer/editors/views/ABViewGantt.js ***!
-  \*************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* export default binding */ __WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _ui_class__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../ui_class */ "./src/rootPages/Designer/ui_class.js");
-/**
- * ABViewGantt
- * The widget that displays the UI Editor Component on the screen
- * when designing the UI.
- */
-let myClass = null;
-// {singleton}
-// we will want to call this factory fn() repeatedly in our imports,
-// but we only want to define 1 Class reference.
-
-
-
-/* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__(AB) {
-   if (!myClass) {
-      const BASE_ID = "interface_editor_viewgantt";
-      const UIClass = (0,_ui_class__WEBPACK_IMPORTED_MODULE_0__["default"])(AB);
-
-      myClass = class ABViewGanttEditor extends UIClass {
-         static get key() {
-            return "gantt";
-         }
-
-         constructor(view, base = BASE_ID) {
-            // base: {string} unique base id reference
-            super(base, {
-               label: "",
-            });
-
-            this.AB = AB;
-            this.view = view;
-            this.component = this.view.component();
-         }
-
-         ui() {
-            return this.component.ui();
-         }
-
-         async init(AB) {
-            this.AB = AB;
-            this.component.ignoreLocal = true;
-            // in our editor, we provide accessLv = 2
-            await this.component.init(AB, 2);
-         }
-
-         detatch() {
-            this.component.detatch?.();
-         }
-
-         onShow() {
-            this.component.onShow?.();
-         }
-      };
-   }
-
-   return myClass;
-}
-
-
-/***/ }),
-
 /***/ "./src/rootPages/Designer/editors/views/ABViewMenu.js":
 /*!************************************************************!*\
   !*** ./src/rootPages/Designer/editors/views/ABViewMenu.js ***!
@@ -78448,7 +79308,7 @@ var PropertyMgr = null;
          __webpack_require__(/*! ./views/ABViewFormTextbox */ "./src/rootPages/Designer/properties/views/ABViewFormTextbox.js"),
          __webpack_require__(/*! ./views/ABViewFormTree */ "./src/rootPages/Designer/properties/views/ABViewFormTree.js"),
          __webpack_require__(/*! ./views/ABViewFormUrl */ "./src/rootPages/Designer/properties/views/ABViewFormUrl.js"),
-         __webpack_require__(/*! ./views/ABViewGantt */ "./src/rootPages/Designer/properties/views/ABViewGantt.js"),
+         // require("./views/ABViewGantt"),
          // require("./views/ABViewGrid"),
          // require("./views/ABViewImage"),
          // require("./views/ABViewKanban"),
@@ -110465,236 +111325,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/rootPages/Designer/properties/views/ABViewGantt.js":
-/*!****************************************************************!*\
-  !*** ./src/rootPages/Designer/properties/views/ABViewGantt.js ***!
-  \****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* export default binding */ __WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _ABView__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABView */ "./src/rootPages/Designer/properties/views/ABView.js");
-/* harmony import */ var _workspaceViews_ABViewGantt__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../workspaceViews/ABViewGantt */ "./src/rootPages/Designer/properties/workspaceViews/ABViewGantt.js");
-/* harmony import */ var _ui_work_object_workspace_popupNewDataField__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../ui_work_object_workspace_popupNewDataField */ "./src/rootPages/Designer/ui_work_object_workspace_popupNewDataField.js");
-/*
- * ABViewGantt
- * A Property manager for our ABViewGantt definitions
- */
-
-
-
-
-
-
-
-/* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__(AB) {
-   const BASE_ID = "properties_abview_gantt";
-
-   const ABView = (0,_ABView__WEBPACK_IMPORTED_MODULE_0__["default"])(AB);
-   const uiConfig = AB.Config.uiSettings();
-   const L = ABView.L();
-
-   const ABViewGanttWorkspaceView = (0,_workspaceViews_ABViewGantt__WEBPACK_IMPORTED_MODULE_1__["default"])(
-      AB,
-      `${BASE_ID}_workspaceView_gantt`
-   );
-
-   class ABViewGanttProperty extends ABView {
-      constructor() {
-         super(BASE_ID, {
-            dataviewID: "",
-            fields: "",
-         });
-
-         this.AB = AB;
-      }
-
-      static get key() {
-         return "gantt";
-      }
-
-      ui() {
-         const ids = this.ids;
-
-         return super.ui([
-            {
-               view: "fieldset",
-               label: `${L("Gantt Data")}:`,
-               labelWidth: uiConfig.labelWidthLarge,
-               body: {
-                  type: "clean",
-                  padding: 10,
-                  rows: [
-                     {
-                        id: ids.dataviewID,
-                        view: "richselect",
-                        name: "dataviewID",
-                        label: `${L("Datacollection")}:`,
-                        labelWidth: uiConfig.labelWidthLarge,
-                        on: {
-                           onChange: (newValue, oldValue) => {
-                              if (newValue === oldValue) return;
-
-                              ABViewGanttWorkspaceView.emit(
-                                 "dc.changed",
-                                 newValue,
-                                 this.CurrentView
-                              );
-
-                              this.onChange();
-                           },
-                        },
-                     },
-                  ],
-               },
-            },
-            {
-               view: "fieldset",
-               label: `${L("Gantt Fields")}:`,
-               labelWidth: uiConfig.labelWidthLarge,
-               body: {
-                  id: ids.fields,
-                  view: "form",
-                  name: "fields",
-                  borderless: true,
-                  elements: [ABViewGanttWorkspaceView.ui()],
-                  on: {
-                     onChange: () => {
-                        this.onChange();
-                     },
-                  },
-               },
-            },
-         ]);
-      }
-
-      async init(AB) {
-         this.AB = AB;
-
-         this.PopupNewDataFieldComponent = (0,_ui_work_object_workspace_popupNewDataField__WEBPACK_IMPORTED_MODULE_2__["default"])(
-            AB,
-            `${BASE_ID}_popupNewDataField`
-         );
-         await this.PopupNewDataFieldComponent.init(AB);
-         this.PopupNewDataFieldComponent.on("save", (...params) => {
-            ABViewGanttWorkspaceView.emit("field.added", params[0]);
-         });
-
-         ABViewGanttWorkspaceView.on("dc.changed", (dcID, view) => {
-            const DC = this.AB.datacollectionByID(dcID);
-
-            ABViewGanttWorkspaceView.init(DC.datasource, view);
-            this.PopupNewDataFieldComponent.objectLoad(DC.datasource);
-         });
-
-         ABViewGanttWorkspaceView.on("new.field", (fieldKey) => {
-            this.PopupNewDataFieldComponent.show(null, fieldKey, false);
-         });
-
-         await super.init(AB);
-      }
-
-      populateDataview() {
-         // Pull data collections to options
-         // / NOTE: only include System Objects if the user has permission
-         const datacollectionFilter = this.AB.Account.isSystemDesigner()
-            ? (obj) => !obj.isSystemObject
-            : () => true;
-         const datacollections =
-            this.CurrentApplication.datacollectionsIncluded(
-               datacollectionFilter
-            );
-
-         // Set the objects you can choose from in the list
-         const $dataviewID = $$(this.ids.dataviewID);
-
-         $dataviewID.define(
-            "options",
-            datacollections.map((e) => {
-               return {
-                  id: e.id,
-                  value: e.label,
-                  icon:
-                     e.sourceType == "query"
-                        ? "fa fa-filter"
-                        : "fa fa-database",
-               };
-            })
-         );
-         $dataviewID.refresh();
-      }
-
-      populate(view) {
-         super.populate(view);
-
-         const ids = this.ids;
-         const $component = $$(ids.component);
-         const defaultValues = this.defaultValues();
-         const values = Object.assign(
-            $component.getValues(),
-            defaultValues,
-            view.settings
-         );
-
-         this.populateDataview();
-
-         $component.setValues(values);
-
-         let DC = this.AB.datacollectionByID(values.dataviewID);
-         if (DC) {
-            ABViewGanttWorkspaceView.init(DC.datasource, this.CurrentView);
-            this.PopupNewDataFieldComponent.objectLoad(DC.datasource);
-         }
-      }
-
-      defaultValues() {
-         const ViewClass = this.ViewClass();
-
-         let values = null;
-
-         if (ViewClass) {
-            values = ViewClass.defaultValues();
-         }
-
-         return values;
-      }
-
-      /**
-       * @method values
-       * return the values for this form.
-       * @return {obj}
-       */
-      values() {
-         const values = super.values();
-         const ids = this.ids;
-
-         values.settings = Object.assign(
-            $$(ids.component).getValues(),
-            $$(ids.fields).getValues()
-         );
-
-         return values;
-      }
-
-      /**
-       * @method FieldClass()
-       * A method to return the proper ABViewXXX Definition.
-       * NOTE: Must be overwritten by the Child Class
-       */
-      ViewClass() {
-         return super._ViewClass("gantt");
-      }
-   }
-
-   return ABViewGanttProperty;
-}
-
-
-/***/ }),
-
 /***/ "./src/rootPages/Designer/properties/views/ABViewMenu.js":
 /*!***************************************************************!*\
   !*** ./src/rootPages/Designer/properties/views/ABViewMenu.js ***!
@@ -114346,7 +114976,7 @@ const defaultValues = {
             $$(ids.endDateFieldID).define(
                "value",
                settings.endDateFieldID ||
-                  defaultValues.settings.endDateFieldIDFieldID
+               defaultValues.settings.endDateFieldIDFieldID
             );
             $$(ids.endDateFieldID).refresh();
             this.syncCommonLists(
@@ -114359,7 +114989,7 @@ const defaultValues = {
             $$(ids.durationFieldID).define(
                "value",
                settings.durationFieldID ||
-                  defaultValues.settings.durationFieldID
+               defaultValues.settings.durationFieldID
             );
             $$(ids.durationFieldID).refresh();
             this.syncCommonLists(
@@ -114735,7 +115365,7 @@ const defaultValues = {
        */
       fromSettings(data) {
          for (const key in defaultValues)
-            this[v] = data[key] || defaultValues[key];
+            this[key] = data[key] || defaultValues[key];
 
          this.settings = Object.assign(
             {},
@@ -128326,7 +128956,8 @@ __webpack_require__.r(__webpack_exports__);
          }
          if (idDashboard) {
             const $dashboard = $$(idDashboard);
-            if ($dashboard) $dashboard.clearAll();
+            if ($dashboard && typeof $dashboard.clearAll === "function")
+               $dashboard.clearAll();
          }
 
          // add the editorUI if it is not already added
