@@ -68664,37 +68664,45 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _web_view_carousel_FNAbviewcarouselEditor_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./web_view_carousel/FNAbviewcarouselEditor.js */ "./src/plugins/web_view_carousel/FNAbviewcarouselEditor.js");
-/* harmony import */ var _web_view_carousel_FNAbviewcarousel_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./web_view_carousel/FNAbviewcarousel.js */ "./src/plugins/web_view_carousel/FNAbviewcarousel.js");
-/* harmony import */ var _web_view_comment_FNAbviewcommentEditor_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./web_view_comment/FNAbviewcommentEditor.js */ "./src/plugins/web_view_comment/FNAbviewcommentEditor.js");
-/* harmony import */ var _web_view_comment_FNAbviewcomment_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./web_view_comment/FNAbviewcomment.js */ "./src/plugins/web_view_comment/FNAbviewcomment.js");
-/* harmony import */ var _web_view_data_select_FNAbviewdataselectEditor_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./web_view_data-select/FNAbviewdataselectEditor.js */ "./src/plugins/web_view_data-select/FNAbviewdataselectEditor.js");
-/* harmony import */ var _web_view_data_select_FNAbviewdataselect_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./web_view_data-select/FNAbviewdataselect.js */ "./src/plugins/web_view_data-select/FNAbviewdataselect.js");
-/* harmony import */ var _web_view_dataview_FNAbviewdataviewEditor_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./web_view_dataview/FNAbviewdataviewEditor.js */ "./src/plugins/web_view_dataview/FNAbviewdataviewEditor.js");
-/* harmony import */ var _web_view_dataview_FNAbviewdataview_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./web_view_dataview/FNAbviewdataview.js */ "./src/plugins/web_view_dataview/FNAbviewdataview.js");
-/* harmony import */ var _web_view_detail_FNAbviewdetailEditor_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./web_view_detail/FNAbviewdetailEditor.js */ "./src/plugins/web_view_detail/FNAbviewdetailEditor.js");
-/* harmony import */ var _web_view_detail_FNAbviewdetail_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./web_view_detail/FNAbviewdetail.js */ "./src/plugins/web_view_detail/FNAbviewdetail.js");
-/* harmony import */ var _web_view_gantt_FNAbviewganttEditor_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./web_view_gantt/FNAbviewganttEditor.js */ "./src/plugins/web_view_gantt/FNAbviewganttEditor.js");
-/* harmony import */ var _web_view_gantt_FNAbviewgantt_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./web_view_gantt/FNAbviewgantt.js */ "./src/plugins/web_view_gantt/FNAbviewgantt.js");
-/* harmony import */ var _web_view_grid_FNAbviewgridEditor_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./web_view_grid/FNAbviewgridEditor.js */ "./src/plugins/web_view_grid/FNAbviewgridEditor.js");
-/* harmony import */ var _web_view_grid_FNAbviewgrid_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./web_view_grid/FNAbviewgrid.js */ "./src/plugins/web_view_grid/FNAbviewgrid.js");
-/* harmony import */ var _web_view_image_FNAbviewimageEditor_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./web_view_image/FNAbviewimageEditor.js */ "./src/plugins/web_view_image/FNAbviewimageEditor.js");
-/* harmony import */ var _web_view_image_FNAbviewimage_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./web_view_image/FNAbviewimage.js */ "./src/plugins/web_view_image/FNAbviewimage.js");
-/* harmony import */ var _web_view_kanban_FNAbviewkanbanEditor_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./web_view_kanban/FNAbviewkanbanEditor.js */ "./src/plugins/web_view_kanban/FNAbviewkanbanEditor.js");
-/* harmony import */ var _web_view_kanban_FNAbviewkanban_js__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./web_view_kanban/FNAbviewkanban.js */ "./src/plugins/web_view_kanban/FNAbviewkanban.js");
-/* harmony import */ var _web_view_label_FNAbviewLabelEditor_js__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./web_view_label/FNAbviewLabelEditor.js */ "./src/plugins/web_view_label/FNAbviewLabelEditor.js");
-/* harmony import */ var _web_view_label_FNAbviewLabel_js__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./web_view_label/FNAbviewLabel.js */ "./src/plugins/web_view_label/FNAbviewLabel.js");
-/* harmony import */ var _web_view_layout_FNAbviewlayoutEditor_js__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./web_view_layout/FNAbviewlayoutEditor.js */ "./src/plugins/web_view_layout/FNAbviewlayoutEditor.js");
-/* harmony import */ var _web_view_layout_FNAbviewlayout_js__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./web_view_layout/FNAbviewlayout.js */ "./src/plugins/web_view_layout/FNAbviewlayout.js");
-/* harmony import */ var _web_view_list_FNAbviewlist_js__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./web_view_list/FNAbviewlist.js */ "./src/plugins/web_view_list/FNAbviewlist.js");
-/* harmony import */ var _web_view_pdfImporter_FNAbviewpdfimporterEditor_js__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./web_view_pdfImporter/FNAbviewpdfimporterEditor.js */ "./src/plugins/web_view_pdfImporter/FNAbviewpdfimporterEditor.js");
-/* harmony import */ var _web_view_pdfImporter_FNAbviewpdfimporter_js__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./web_view_pdfImporter/FNAbviewpdfimporter.js */ "./src/plugins/web_view_pdfImporter/FNAbviewpdfimporter.js");
-/* harmony import */ var _web_view_pivot_FNAbviewpivotEditor_js__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./web_view_pivot/FNAbviewpivotEditor.js */ "./src/plugins/web_view_pivot/FNAbviewpivotEditor.js");
-/* harmony import */ var _web_view_pivot_FNAbviewpivot_js__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./web_view_pivot/FNAbviewpivot.js */ "./src/plugins/web_view_pivot/FNAbviewpivot.js");
-/* harmony import */ var _web_view_tab_FNAbviewtabEditor_js__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./web_view_tab/FNAbviewtabEditor.js */ "./src/plugins/web_view_tab/FNAbviewtabEditor.js");
-/* harmony import */ var _web_view_tab_FNAbviewtab_js__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./web_view_tab/FNAbviewtab.js */ "./src/plugins/web_view_tab/FNAbviewtab.js");
-/* harmony import */ var _web_view_text_FNAbviewtextEditor_js__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./web_view_text/FNAbviewtextEditor.js */ "./src/plugins/web_view_text/FNAbviewtextEditor.js");
-/* harmony import */ var _web_view_text_FNAbviewtext_js__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./web_view_text/FNAbviewtext.js */ "./src/plugins/web_view_text/FNAbviewtext.js");
+/* harmony import */ var _web_view_csvExporter_FNAbviewcsvexporterEditor_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./web_view_csvExporter/FNAbviewcsvexporterEditor.js */ "./src/plugins/web_view_csvExporter/FNAbviewcsvexporterEditor.js");
+/* harmony import */ var _web_view_csvExporter_FNAbviewcsvexporter_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./web_view_csvExporter/FNAbviewcsvexporter.js */ "./src/plugins/web_view_csvExporter/FNAbviewcsvexporter.js");
+/* harmony import */ var _web_view_csvImporter_FNAbviewcsvimporterEditor_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./web_view_csvImporter/FNAbviewcsvimporterEditor.js */ "./src/plugins/web_view_csvImporter/FNAbviewcsvimporterEditor.js");
+/* harmony import */ var _web_view_csvImporter_FNAbviewcsvimporter_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./web_view_csvImporter/FNAbviewcsvimporter.js */ "./src/plugins/web_view_csvImporter/FNAbviewcsvimporter.js");
+/* harmony import */ var _web_view_carousel_FNAbviewcarouselEditor_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./web_view_carousel/FNAbviewcarouselEditor.js */ "./src/plugins/web_view_carousel/FNAbviewcarouselEditor.js");
+/* harmony import */ var _web_view_carousel_FNAbviewcarousel_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./web_view_carousel/FNAbviewcarousel.js */ "./src/plugins/web_view_carousel/FNAbviewcarousel.js");
+/* harmony import */ var _web_view_comment_FNAbviewcommentEditor_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./web_view_comment/FNAbviewcommentEditor.js */ "./src/plugins/web_view_comment/FNAbviewcommentEditor.js");
+/* harmony import */ var _web_view_comment_FNAbviewcomment_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./web_view_comment/FNAbviewcomment.js */ "./src/plugins/web_view_comment/FNAbviewcomment.js");
+/* harmony import */ var _web_view_data_select_FNAbviewdataselectEditor_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./web_view_data-select/FNAbviewdataselectEditor.js */ "./src/plugins/web_view_data-select/FNAbviewdataselectEditor.js");
+/* harmony import */ var _web_view_data_select_FNAbviewdataselect_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./web_view_data-select/FNAbviewdataselect.js */ "./src/plugins/web_view_data-select/FNAbviewdataselect.js");
+/* harmony import */ var _web_view_dataview_FNAbviewdataviewEditor_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./web_view_dataview/FNAbviewdataviewEditor.js */ "./src/plugins/web_view_dataview/FNAbviewdataviewEditor.js");
+/* harmony import */ var _web_view_dataview_FNAbviewdataview_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./web_view_dataview/FNAbviewdataview.js */ "./src/plugins/web_view_dataview/FNAbviewdataview.js");
+/* harmony import */ var _web_view_detail_FNAbviewdetailEditor_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./web_view_detail/FNAbviewdetailEditor.js */ "./src/plugins/web_view_detail/FNAbviewdetailEditor.js");
+/* harmony import */ var _web_view_detail_FNAbviewdetail_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./web_view_detail/FNAbviewdetail.js */ "./src/plugins/web_view_detail/FNAbviewdetail.js");
+/* harmony import */ var _web_view_gantt_FNAbviewganttEditor_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./web_view_gantt/FNAbviewganttEditor.js */ "./src/plugins/web_view_gantt/FNAbviewganttEditor.js");
+/* harmony import */ var _web_view_gantt_FNAbviewgantt_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./web_view_gantt/FNAbviewgantt.js */ "./src/plugins/web_view_gantt/FNAbviewgantt.js");
+/* harmony import */ var _web_view_grid_FNAbviewgridEditor_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./web_view_grid/FNAbviewgridEditor.js */ "./src/plugins/web_view_grid/FNAbviewgridEditor.js");
+/* harmony import */ var _web_view_grid_FNAbviewgrid_js__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./web_view_grid/FNAbviewgrid.js */ "./src/plugins/web_view_grid/FNAbviewgrid.js");
+/* harmony import */ var _web_view_image_FNAbviewimageEditor_js__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./web_view_image/FNAbviewimageEditor.js */ "./src/plugins/web_view_image/FNAbviewimageEditor.js");
+/* harmony import */ var _web_view_image_FNAbviewimage_js__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./web_view_image/FNAbviewimage.js */ "./src/plugins/web_view_image/FNAbviewimage.js");
+/* harmony import */ var _web_view_kanban_FNAbviewkanbanEditor_js__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./web_view_kanban/FNAbviewkanbanEditor.js */ "./src/plugins/web_view_kanban/FNAbviewkanbanEditor.js");
+/* harmony import */ var _web_view_kanban_FNAbviewkanban_js__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./web_view_kanban/FNAbviewkanban.js */ "./src/plugins/web_view_kanban/FNAbviewkanban.js");
+/* harmony import */ var _web_view_label_FNAbviewLabelEditor_js__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./web_view_label/FNAbviewLabelEditor.js */ "./src/plugins/web_view_label/FNAbviewLabelEditor.js");
+/* harmony import */ var _web_view_label_FNAbviewLabel_js__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./web_view_label/FNAbviewLabel.js */ "./src/plugins/web_view_label/FNAbviewLabel.js");
+/* harmony import */ var _web_view_layout_FNAbviewlayoutEditor_js__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./web_view_layout/FNAbviewlayoutEditor.js */ "./src/plugins/web_view_layout/FNAbviewlayoutEditor.js");
+/* harmony import */ var _web_view_layout_FNAbviewlayout_js__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./web_view_layout/FNAbviewlayout.js */ "./src/plugins/web_view_layout/FNAbviewlayout.js");
+/* harmony import */ var _web_view_list_FNAbviewlist_js__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./web_view_list/FNAbviewlist.js */ "./src/plugins/web_view_list/FNAbviewlist.js");
+/* harmony import */ var _web_view_pdfImporter_FNAbviewpdfimporterEditor_js__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./web_view_pdfImporter/FNAbviewpdfimporterEditor.js */ "./src/plugins/web_view_pdfImporter/FNAbviewpdfimporterEditor.js");
+/* harmony import */ var _web_view_pdfImporter_FNAbviewpdfimporter_js__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./web_view_pdfImporter/FNAbviewpdfimporter.js */ "./src/plugins/web_view_pdfImporter/FNAbviewpdfimporter.js");
+/* harmony import */ var _web_view_pivot_FNAbviewpivotEditor_js__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./web_view_pivot/FNAbviewpivotEditor.js */ "./src/plugins/web_view_pivot/FNAbviewpivotEditor.js");
+/* harmony import */ var _web_view_pivot_FNAbviewpivot_js__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./web_view_pivot/FNAbviewpivot.js */ "./src/plugins/web_view_pivot/FNAbviewpivot.js");
+/* harmony import */ var _web_view_tab_FNAbviewtabEditor_js__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./web_view_tab/FNAbviewtabEditor.js */ "./src/plugins/web_view_tab/FNAbviewtabEditor.js");
+/* harmony import */ var _web_view_tab_FNAbviewtab_js__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./web_view_tab/FNAbviewtab.js */ "./src/plugins/web_view_tab/FNAbviewtab.js");
+/* harmony import */ var _web_view_text_FNAbviewtextEditor_js__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./web_view_text/FNAbviewtextEditor.js */ "./src/plugins/web_view_text/FNAbviewtextEditor.js");
+/* harmony import */ var _web_view_text_FNAbviewtext_js__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./web_view_text/FNAbviewtext.js */ "./src/plugins/web_view_text/FNAbviewtext.js");
+
+
+
+
 
 
 
@@ -68728,37 +68736,41 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const AllPlugins = [
-   _web_view_carousel_FNAbviewcarouselEditor_js__WEBPACK_IMPORTED_MODULE_0__["default"],
-   _web_view_carousel_FNAbviewcarousel_js__WEBPACK_IMPORTED_MODULE_1__["default"],
-   _web_view_comment_FNAbviewcommentEditor_js__WEBPACK_IMPORTED_MODULE_2__["default"],
-   _web_view_comment_FNAbviewcomment_js__WEBPACK_IMPORTED_MODULE_3__["default"],
-   _web_view_data_select_FNAbviewdataselectEditor_js__WEBPACK_IMPORTED_MODULE_4__["default"],
-   _web_view_data_select_FNAbviewdataselect_js__WEBPACK_IMPORTED_MODULE_5__["default"],
-   _web_view_dataview_FNAbviewdataviewEditor_js__WEBPACK_IMPORTED_MODULE_6__["default"],
-   _web_view_dataview_FNAbviewdataview_js__WEBPACK_IMPORTED_MODULE_7__["default"],
-   _web_view_detail_FNAbviewdetailEditor_js__WEBPACK_IMPORTED_MODULE_8__["default"],
-   _web_view_detail_FNAbviewdetail_js__WEBPACK_IMPORTED_MODULE_9__["default"],
-   _web_view_gantt_FNAbviewganttEditor_js__WEBPACK_IMPORTED_MODULE_10__["default"],
-   _web_view_gantt_FNAbviewgantt_js__WEBPACK_IMPORTED_MODULE_11__["default"],
-   _web_view_grid_FNAbviewgridEditor_js__WEBPACK_IMPORTED_MODULE_12__["default"],
-   _web_view_grid_FNAbviewgrid_js__WEBPACK_IMPORTED_MODULE_13__["default"],
-   _web_view_image_FNAbviewimageEditor_js__WEBPACK_IMPORTED_MODULE_14__["default"],
-   _web_view_image_FNAbviewimage_js__WEBPACK_IMPORTED_MODULE_15__["default"],
-   _web_view_kanban_FNAbviewkanbanEditor_js__WEBPACK_IMPORTED_MODULE_16__["default"],
-   _web_view_kanban_FNAbviewkanban_js__WEBPACK_IMPORTED_MODULE_17__["default"],
-   _web_view_label_FNAbviewLabelEditor_js__WEBPACK_IMPORTED_MODULE_18__["default"],
-   _web_view_label_FNAbviewLabel_js__WEBPACK_IMPORTED_MODULE_19__["default"],
-   _web_view_layout_FNAbviewlayoutEditor_js__WEBPACK_IMPORTED_MODULE_20__["default"],
-   _web_view_layout_FNAbviewlayout_js__WEBPACK_IMPORTED_MODULE_21__["default"],
-   _web_view_list_FNAbviewlist_js__WEBPACK_IMPORTED_MODULE_22__["default"],
-   _web_view_pdfImporter_FNAbviewpdfimporterEditor_js__WEBPACK_IMPORTED_MODULE_23__["default"],
-   _web_view_pdfImporter_FNAbviewpdfimporter_js__WEBPACK_IMPORTED_MODULE_24__["default"],
-   _web_view_pivot_FNAbviewpivotEditor_js__WEBPACK_IMPORTED_MODULE_25__["default"],
-   _web_view_pivot_FNAbviewpivot_js__WEBPACK_IMPORTED_MODULE_26__["default"],
-   _web_view_tab_FNAbviewtabEditor_js__WEBPACK_IMPORTED_MODULE_27__["default"],
-   _web_view_tab_FNAbviewtab_js__WEBPACK_IMPORTED_MODULE_28__["default"],
-   _web_view_text_FNAbviewtextEditor_js__WEBPACK_IMPORTED_MODULE_29__["default"],
-   _web_view_text_FNAbviewtext_js__WEBPACK_IMPORTED_MODULE_30__["default"],
+   _web_view_csvExporter_FNAbviewcsvexporterEditor_js__WEBPACK_IMPORTED_MODULE_0__["default"],
+   _web_view_csvExporter_FNAbviewcsvexporter_js__WEBPACK_IMPORTED_MODULE_1__["default"],
+   _web_view_csvImporter_FNAbviewcsvimporterEditor_js__WEBPACK_IMPORTED_MODULE_2__["default"],
+   _web_view_csvImporter_FNAbviewcsvimporter_js__WEBPACK_IMPORTED_MODULE_3__["default"],
+   _web_view_carousel_FNAbviewcarouselEditor_js__WEBPACK_IMPORTED_MODULE_4__["default"],
+   _web_view_carousel_FNAbviewcarousel_js__WEBPACK_IMPORTED_MODULE_5__["default"],
+   _web_view_comment_FNAbviewcommentEditor_js__WEBPACK_IMPORTED_MODULE_6__["default"],
+   _web_view_comment_FNAbviewcomment_js__WEBPACK_IMPORTED_MODULE_7__["default"],
+   _web_view_data_select_FNAbviewdataselectEditor_js__WEBPACK_IMPORTED_MODULE_8__["default"],
+   _web_view_data_select_FNAbviewdataselect_js__WEBPACK_IMPORTED_MODULE_9__["default"],
+   _web_view_dataview_FNAbviewdataviewEditor_js__WEBPACK_IMPORTED_MODULE_10__["default"],
+   _web_view_dataview_FNAbviewdataview_js__WEBPACK_IMPORTED_MODULE_11__["default"],
+   _web_view_detail_FNAbviewdetailEditor_js__WEBPACK_IMPORTED_MODULE_12__["default"],
+   _web_view_detail_FNAbviewdetail_js__WEBPACK_IMPORTED_MODULE_13__["default"],
+   _web_view_gantt_FNAbviewganttEditor_js__WEBPACK_IMPORTED_MODULE_14__["default"],
+   _web_view_gantt_FNAbviewgantt_js__WEBPACK_IMPORTED_MODULE_15__["default"],
+   _web_view_grid_FNAbviewgridEditor_js__WEBPACK_IMPORTED_MODULE_16__["default"],
+   _web_view_grid_FNAbviewgrid_js__WEBPACK_IMPORTED_MODULE_17__["default"],
+   _web_view_image_FNAbviewimageEditor_js__WEBPACK_IMPORTED_MODULE_18__["default"],
+   _web_view_image_FNAbviewimage_js__WEBPACK_IMPORTED_MODULE_19__["default"],
+   _web_view_kanban_FNAbviewkanbanEditor_js__WEBPACK_IMPORTED_MODULE_20__["default"],
+   _web_view_kanban_FNAbviewkanban_js__WEBPACK_IMPORTED_MODULE_21__["default"],
+   _web_view_label_FNAbviewLabelEditor_js__WEBPACK_IMPORTED_MODULE_22__["default"],
+   _web_view_label_FNAbviewLabel_js__WEBPACK_IMPORTED_MODULE_23__["default"],
+   _web_view_layout_FNAbviewlayoutEditor_js__WEBPACK_IMPORTED_MODULE_24__["default"],
+   _web_view_layout_FNAbviewlayout_js__WEBPACK_IMPORTED_MODULE_25__["default"],
+   _web_view_list_FNAbviewlist_js__WEBPACK_IMPORTED_MODULE_26__["default"],
+   _web_view_pdfImporter_FNAbviewpdfimporterEditor_js__WEBPACK_IMPORTED_MODULE_27__["default"],
+   _web_view_pdfImporter_FNAbviewpdfimporter_js__WEBPACK_IMPORTED_MODULE_28__["default"],
+   _web_view_pivot_FNAbviewpivotEditor_js__WEBPACK_IMPORTED_MODULE_29__["default"],
+   _web_view_pivot_FNAbviewpivot_js__WEBPACK_IMPORTED_MODULE_30__["default"],
+   _web_view_tab_FNAbviewtabEditor_js__WEBPACK_IMPORTED_MODULE_31__["default"],
+   _web_view_tab_FNAbviewtab_js__WEBPACK_IMPORTED_MODULE_32__["default"],
+   _web_view_text_FNAbviewtextEditor_js__WEBPACK_IMPORTED_MODULE_33__["default"],
+   _web_view_text_FNAbviewtext_js__WEBPACK_IMPORTED_MODULE_34__["default"],
 ];
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -69679,6 +69691,889 @@ function FNAbviewcommentEditor({ ABViewEditorPlugin }) {
 
       constructor(view, base = BASE_ID) {
          // base: {string} unique base id reference
+         super(view, base);
+      }
+
+      ui() {
+         return super.ui();
+      }
+
+      async init(AB) {
+         this.AB = AB;
+         await super.init(AB);
+      }
+
+      detatch() {
+         super.detatch();
+      }
+
+      onShow() {
+         super.onShow();
+      }
+   };
+}
+
+
+/***/ }),
+
+/***/ "./src/plugins/web_view_csvExporter/FNAbviewcsvexporter.js":
+/*!*****************************************************************!*\
+  !*** ./src/plugins/web_view_csvExporter/FNAbviewcsvexporter.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FNAbviewcsvexporterProperties)
+/* harmony export */ });
+// FNAbviewcsvexporter Properties
+// A properties side import for an ABView.
+//
+function FNAbviewcsvexporterProperties({
+   AB,
+   ABViewPropertiesPlugin,
+}) {
+   const BASE_ID = "properties_abview_csvexporter";
+
+   const uiConfig = AB.Config.uiSettings();
+   const L = AB.Label();
+
+   return class ABAbviewcsvexporterProperties extends ABViewPropertiesPlugin {
+      static getPluginKey() {
+         return this.key;
+      }
+
+      static getPluginType() {
+         return "properties-view";
+         // properties-view : will display in the properties panel of the ABDesigner
+      }
+
+      constructor(baseID) {
+         super(baseID ?? BASE_ID, {
+            datacollection: "",
+            buttonLabel: "",
+            hasHeader: "",
+            filename: "",
+            width: "",
+            buttonFilter: "",
+            fields: "",
+            dataviewID: "",
+         });
+
+         this.AB = AB;
+         this.propertyFilter = this.AB.filterComplexNew(`${baseID}_filter`);
+      }
+
+      static get key() {
+         return "csvExporter";
+      }
+
+      ui() {
+         const ids = this.ids;
+
+         return super.ui([
+            {
+               view: "fieldset",
+               label: L("Data:"),
+               labelWidth: uiConfig.labelWidthLarge,
+               body: {
+                  rows: [
+                     {
+                        id: ids.datacollection,
+                        name: "datacollection",
+                        view: "richselect",
+                        label: L("Data Source"),
+                        labelWidth: uiConfig.labelWidthLarge,
+                        skipAutoSave: true,
+                        on: {
+                           onChange: (newVal, oldVal) => {
+                              if (newVal != oldVal) {
+                                 this.populateFilter();
+                                 this.onChange();
+                              }
+                           },
+                        },
+                     },
+                     {
+                        id: ids.hasHeader,
+                        name: "hasHeader",
+                        view: "checkbox",
+                        label: L("Header on first line"),
+                        labelWidth: uiConfig.labelWidthXLarge,
+                     },
+                     {
+                        cols: [
+                           {
+                              view: "label",
+                              label: L("Filter Option:"),
+                              css: "ab-text-bold",
+                              width: uiConfig.labelWidthLarge,
+                           },
+                           {
+                              id: ids.buttonFilter,
+                              view: "button",
+                              name: "buttonFilter",
+                              css: "webix_primary",
+                              label: L("Settings"),
+                              icon: "fa fa-gear",
+                              type: "icon",
+                              badge: 0,
+                              click: () => {
+                                 this.showFilterPopup();
+                              },
+                           },
+                        ],
+                     },
+                  ],
+               },
+            },
+            {
+               view: "fieldset",
+               label: L("Customize Display:"),
+               labelWidth: uiConfig.labelWidthLarge,
+               body: {
+                  type: "clean",
+                  padding: 10,
+                  rows: [
+                     {
+                        id: ids.buttonLabel,
+                        name: "buttonLabel",
+                        view: "text",
+                        label: L("Label"),
+                        labelWidth: uiConfig.labelWidthLarge,
+                        on: {
+                           onChange: () => {
+                              this.onChange();
+                           },
+                        },
+                     },
+                     {
+                        id: ids.filename,
+                        name: "filename",
+                        view: "text",
+                        label: L("File name"),
+                        labelWidth: uiConfig.labelWidthLarge,
+                     },
+                     {
+                        id: ids.width,
+                        view: "counter",
+                        name: "width",
+                        label: L("Width:"),
+                        labelWidth: uiConfig.labelWidthLarge,
+                        on: {
+                           onChange: () => {
+                              this.onChange();
+                           },
+                        },
+                     },
+                  ],
+               },
+            },
+            {
+               view: "fieldset",
+               label: L("Fields:"),
+               labelWidth: uiConfig.labelWidthLarge,
+               body: {
+                  view: "list",
+                  id: ids.fields,
+                  autoheight: true,
+                  select: false,
+                  template: (item) => {
+                     return `<span style="min-width: 18px; display: inline-block;"><i class="fa ${
+                        item.isHidden ? "fa-square-o" : "fa-check-square-o"
+                     } ab-visible-field-icon"></i>&nbsp;</span> ${item.label}`;
+                  },
+                  on: {
+                     onItemClick: (id, e, node) => {
+                        this.toggleField(id, e, node);
+                        this.onChange();
+                     },
+                  },
+               },
+            },
+         ]);
+      }
+
+      async init(AB) {
+         this.AB = AB;
+
+         await super.init(AB);
+
+         this.propertyFilter.init();
+         this.propertyFilter.on("save", (val) => {
+            this.onChange();
+            this.populateBadgeNumber();
+            this.filter_popup.hide();
+         });
+
+         this.filter_popup = webix.ui({
+            view: "popup",
+            width: 800,
+            hidden: true,
+            body: this.propertyFilter.ui,
+         });
+      }
+
+      populate(view) {
+         super.populate(view);
+
+         view.settings = view.settings ?? {};
+
+         const ids = this.ids;
+         const FieldClass = this.ViewClass();
+         const ABViewCSVExporterPropertyComponentDefaults =
+            FieldClass.defaultValues();
+
+         this.populateDatacollections();
+
+         $$(ids.hasHeader).setValue(
+            view.settings.hasHeader ??
+               ABViewCSVExporterPropertyComponentDefaults.hasHeader
+         );
+         $$(ids.buttonLabel).setValue(
+            view.settings.buttonLabel ??
+               ABViewCSVExporterPropertyComponentDefaults.buttonLabel
+         );
+         $$(ids.filename).setValue(
+            view.settings.filename ??
+               ABViewCSVExporterPropertyComponentDefaults.filename
+         );
+         $$(ids.width).setValue(
+            view.settings.width ??
+               ABViewCSVExporterPropertyComponentDefaults.width
+         );
+
+         this.populateFilter();
+
+         this.populateBadgeNumber();
+
+         this.populateFields();
+      }
+
+      populateDatacollections() {
+         // Pull data views to options
+         const dcOptions = this.CurrentView.application
+            .datacollectionsIncluded()
+            .map((dc) => {
+               return {
+                  id: dc.id,
+                  value: dc.label,
+                  icon:
+                     dc.sourceType === "query"
+                        ? "fa fa-filter"
+                        : "fa fa-database",
+               };
+            });
+
+         const $d = $$(this.ids.datacollection);
+         $d.define("options", dcOptions);
+         $d.define("value", this.CurrentView?.settings?.dataviewID ?? null);
+         $d.refresh();
+      }
+
+      populateBadgeNumber() {
+         const ids = this.ids;
+         const view = this.CurrentView;
+
+         $$(ids.buttonFilter).define(
+            "badge",
+            view?.settings?.where?.rules?.length ?? null
+         );
+         $$(ids.buttonFilter).refresh();
+      }
+
+      populateFilter() {
+         const view = this.CurrentView;
+         const dc = view.datacollection;
+         const obj = dc?.datasource;
+
+         // Populate data to popups
+         // PropertyFilter.applicationLoad(view.application);
+         this.propertyFilter.fieldsLoad(obj?.fields() ?? []);
+         this.propertyFilter.setValue(view.settings.where);
+      }
+
+      populateFields() {
+         const ids = this.ids;
+         const $fields = $$(ids.fields);
+         const view = this.CurrentView;
+         const hiddenFieldIds = view.settings.hiddenFieldIds ?? [];
+         const fields = view?.datacollection?.datasource?.fields();
+
+         $fields.clearAll();
+         if (!fields?.length) return;
+
+         $fields.parse(
+            fields.map((f) => {
+               return {
+                  id: f.id,
+                  label: f.label,
+                  isHidden: hiddenFieldIds.indexOf(f.id) >= 0,
+               };
+            })
+         );
+         $fields.refresh();
+      }
+
+      showFilterPopup() {
+         const $buttonFilter = $$(this.ids.buttonFilter);
+         this.propertyFilter.popUp($buttonFilter?.$view);
+      }
+
+      toggleField(fieldId) {
+         const ids = this.ids;
+         const $fields = $$(ids.fields);
+
+         const fieldItem = $fields.getItem(fieldId);
+         $fields.updateItem(fieldId, {
+            isHidden: !fieldItem.isHidden,
+         });
+         $fields.refresh();
+      }
+
+      /**
+       * @method values
+       * return the values for this form.
+       * @return {obj}
+       */
+      values() {
+         const ids = this.ids;
+         const FieldClass = this.ViewClass();
+         const ABViewCSVExporterPropertyComponentDefaults =
+            FieldClass.defaultValues();
+
+         const values = super.values();
+         values.settings = values.settings ?? {};
+
+         values.settings.dataviewID = $$(ids.datacollection).getValue();
+         values.settings.hasHeader = $$(ids.hasHeader).getValue();
+         values.settings.where = this.propertyFilter.getValue();
+
+         values.settings.buttonLabel =
+            $$(ids.buttonLabel).getValue() ??
+            ABViewCSVExporterPropertyComponentDefaults.buttonLabel;
+
+         values.settings.filename =
+            $$(ids.filename).getValue() ??
+            ABViewCSVExporterPropertyComponentDefaults.filename;
+
+         values.settings.width =
+            $$(ids.width).getValue() ??
+            ABViewCSVExporterPropertyComponentDefaults.width;
+
+         values.settings.hiddenFieldIds = $$(ids.fields)
+            .find({ isHidden: true })
+            .map((item) => item.id);
+
+         return values;
+      }
+
+      /**
+       * @method FieldClass()
+       * A method to return the proper ABViewXXX Definition.
+       * NOTE: Must be overwritten by the Child Class
+       */
+      ViewClass() {
+         return super._ViewClass("csvExporter");
+      }
+   };
+}
+
+
+/***/ }),
+
+/***/ "./src/plugins/web_view_csvExporter/FNAbviewcsvexporterEditor.js":
+/*!***********************************************************************!*\
+  !*** ./src/plugins/web_view_csvExporter/FNAbviewcsvexporterEditor.js ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FNAbviewcsvexporterEditor)
+/* harmony export */ });
+// FNAbviewcsvexporter Editor
+// An Editor wrapper for the ABView Component.
+// The Editor is displayed in the ABDesigner as a view is worked on.
+// The Editor allows a widget to be moved and placed on the canvas.
+//
+function FNAbviewcsvexporterEditor({ ABViewEditorPlugin }) {
+   return class ABAbviewcsvexporterEditor extends ABViewEditorPlugin {
+      static getPluginKey() {
+         return this.key;
+      }
+
+      /**
+       * @method getPluginType
+       * return the plugin type for this editor.
+       * plugin types are how our ClassManager knows how to store
+       * the plugin.
+       * @return {string} plugin type
+       */
+      static getPluginType() {
+         return "editor-view";
+         // editor-view : will display in the editor panel of the ABDesigner
+      }
+
+      static get key() {
+         return "csvExporter";
+      }
+
+      constructor(view, base = "interface_editor_csvExporter") {
+         // base: {string} unique base id reference
+         super(view, base);
+      }
+
+      ui() {
+         return super.ui();
+      }
+
+      async init(AB) {
+         this.AB = AB;
+         await super.init(AB);
+      }
+
+      detatch() {
+         super.detatch();
+      }
+
+      onShow() {
+         super.onShow();
+      }
+   };
+}
+
+
+/***/ }),
+
+/***/ "./src/plugins/web_view_csvImporter/FNAbviewcsvimporter.js":
+/*!*****************************************************************!*\
+  !*** ./src/plugins/web_view_csvImporter/FNAbviewcsvimporter.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FNAbviewcsvimporterProperties)
+/* harmony export */ });
+/* harmony import */ var _rootPages_Designer_properties_rules_ABViewRuleListFormRecordRules_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../rootPages/Designer/properties/rules/ABViewRuleListFormRecordRules.js */ "./src/rootPages/Designer/properties/rules/ABViewRuleListFormRecordRules.js");
+// FNAbviewcsvimporter Properties
+// A properties side import for an ABView.
+//
+
+
+function FNAbviewcsvimporterProperties({
+   AB,
+   ABViewPropertiesPlugin,
+}) {
+   const BASE_ID = "properties_abview_csvimporter";
+
+   const uiConfig = AB.Config.uiSettings();
+   const L = AB.Label();
+   const PopupRecordRule = (0,_rootPages_Designer_properties_rules_ABViewRuleListFormRecordRules_js__WEBPACK_IMPORTED_MODULE_0__["default"])(
+      AB,
+      `${BASE_ID}_popupRecordRule`
+   );
+
+   return class ABAbviewcsvimporterProperties extends ABViewPropertiesPlugin {
+      static getPluginKey() {
+         return this.key;
+      }
+
+      static getPluginType() {
+         return "properties-view";
+         // properties-view : will display in the properties panel of the ABDesigner
+      }
+
+      constructor(baseID) {
+         super(baseID ?? BASE_ID, {
+            datacollection: "",
+            fields: "",
+            buttonLabel: "",
+            buttonRecordRules: "",
+            width: "",
+         });
+
+         this.AB = AB;
+      }
+
+      static get key() {
+         return "csvImporter";
+      }
+
+      ui() {
+         const ids = this.ids;
+
+         return super.ui([
+            {
+               view: "fieldset",
+               label: L("Data:"),
+               labelWidth: uiConfig.labelWidthLarge,
+               body: {
+                  id: ids.datacollection,
+                  name: "datacollection",
+                  view: "richselect",
+                  label: L("Data Source"),
+                  labelWidth: uiConfig.labelWidthLarge,
+                  skipAutoSave: true,
+                  on: {
+                     onChange: (newVal) => this.selectSource(newVal),
+                  },
+               },
+            },
+            {
+               view: "fieldset",
+               label: L("Available Fields:"),
+               labelWidth: uiConfig.labelWidthLarge,
+               body: {
+                  type: "clean",
+                  padding: 10,
+                  rows: [
+                     {
+                        id: ids.fields,
+                        name: "fields",
+                        view: "list",
+                        select: false,
+                        minHeight: 250,
+                        template: this.listTemplate.bind(this),
+                        type: {
+                           markCheckbox: function (item) {
+                              return `<span class='check webix_icon fa fa-${
+                                 item.selected ? "check-" : ""
+                              }square-o'></span>`;
+                           },
+                        },
+                        onClick: {
+                           check: this.check.bind(this),
+                        },
+                     },
+                  ],
+               },
+            },
+            {
+               view: "fieldset",
+               label: L("Rules:"),
+               labelWidth: uiConfig.labelWidthLarge,
+               body: {
+                  type: "clean",
+                  padding: 10,
+                  rows: [
+                     {
+                        cols: [
+                           {
+                              view: "label",
+                              label: L("Record Rules:"),
+                              width: uiConfig.labelWidthLarge,
+                           },
+                           {
+                              id: ids.buttonRecordRules,
+                              view: "button",
+                              name: "buttonRecordRules",
+                              css: "webix_primary",
+                              label: L("Settings"),
+                              icon: "fa fa-gear",
+                              type: "icon",
+                              badge: 0,
+                              click: this.recordRuleShow.bind(this),
+                           },
+                        ],
+                     },
+                  ],
+               },
+            },
+            {
+               view: "fieldset",
+               label: L("Customize Display:"),
+               labelWidth: uiConfig.labelWidthLarge,
+               body: {
+                  type: "clean",
+                  padding: 10,
+                  rows: [
+                     {
+                        id: ids.buttonLabel,
+                        name: "buttonLabel",
+                        view: "text",
+                        label: L("Label"),
+                        labelWidth: uiConfig.labelWidthXLarge,
+                        on: {
+                           onChange: () => this.onChange(),
+                        },
+                     },
+                     {
+                        id: ids.width,
+                        view: "counter",
+                        name: "width",
+                        label: L("Width:"),
+                        labelWidth: uiConfig.labelWidthXLarge,
+                        on: {
+                           onChange: () => this.onChange(),
+                        },
+                     },
+                  ],
+               },
+            },
+         ]);
+      }
+
+      async init(AB) {
+         this.AB = AB;
+
+         await super.init(AB);
+
+         PopupRecordRule.init(AB);
+         PopupRecordRule.on("save", () => {
+            this.populateBadgeNumber();
+         });
+      }
+
+      selectSource(dcId) {
+         const view = this.CurrentView;
+         view.settings = view.settings ?? {};
+         view.settings.dataviewID = dcId;
+
+         this.updateRules();
+         this.populateAvailableFields({ selectAll: true });
+         this.onChange();
+      }
+
+      updateRules() {
+         // Populate values to rules
+         const selectedDv = this.CurrentView.datacollection;
+         if (selectedDv?.datasource) {
+            PopupRecordRule.objectLoad(selectedDv.datasource);
+         }
+
+         PopupRecordRule.fromSettings(
+            this.CurrentView?.settings?.recordRules ?? []
+         );
+      }
+
+      populateAvailableFields(options = {}) {
+         const ids = this.ids;
+         const view = this.CurrentView;
+
+         const datacollection = this.AB.datacollectionByID(
+            view.settings.dataviewID
+         );
+         const object = datacollection?.datasource;
+
+         view.settings = view.settings ?? {};
+         const availableFields = view.settings.availableFieldIds ?? [];
+
+         // Pull field list
+         const fieldOptions = object?.fields()?.map((f) => {
+            f.selected = options.selectAll
+               ? true
+               : availableFields.filter((fieldId) => f.id == fieldId).length >
+                 0;
+
+            return f;
+         });
+
+         $$(ids.fields).clearAll();
+         $$(ids.fields).parse(fieldOptions);
+      }
+
+      populateBadgeNumber() {
+         const ids = this.ids;
+         const view = this.CurrentView;
+         if (!view) return;
+
+         $$(ids.buttonRecordRules).define(
+            "badge",
+            view.settings?.recordRules?.length ?? null
+         );
+         $$(ids.buttonRecordRules).refresh();
+      }
+
+      listTemplate(field, $common) {
+         const fieldComponent = field.formComponent();
+         if (fieldComponent == null)
+            return `<i class='fa fa-times'></i>  ${field.label} <div class='ab-component-form-fields-component-info'> Disable </div>`;
+
+         const componentKey = fieldComponent.common().key;
+         const formComponent = this.CurrentApplication.viewAll(
+            (v) => v.common().key == componentKey
+         )[0];
+
+         return `${$common.markCheckbox(field)} ${
+            field.label
+         } <div class='ab-component-form-fields-component-info'> <i class='fa fa-${
+            formComponent?.common()?.icon ?? "fw"
+         }'></i> ${
+            formComponent ? L(formComponent.common().labelKey ?? "Label") : ""
+         } </div>`;
+      }
+
+      check(e, fieldId) {
+         const ids = this.ids;
+
+         // update UI list
+         let item = $$(ids.fields).getItem(fieldId);
+         item.selected = item.selected ? 0 : 1;
+         $$(ids.fields).updateItem(fieldId, item);
+         this.onChange();
+      }
+
+      recordRuleShow() {
+         this.updateRules();
+         if (PopupRecordRule.CurrentObject) PopupRecordRule.show();
+
+         // Workaround
+         PopupRecordRule.qbFixAfterShow();
+      }
+
+      populate(view) {
+         super.populate(view);
+
+         const ids = this.ids;
+
+         view.settings = view.settings ?? {};
+
+         this.populateDataCollections();
+         this.populateAvailableFields();
+
+         $$(ids.buttonLabel).setValue(view.settings.buttonLabel);
+         $$(ids.width).setValue(view.settings.width);
+
+         view.settings.availableFieldIds = [];
+         let fields = $$(ids.fields).find({ selected: true });
+         (fields || []).forEach((f) => {
+            view.settings.availableFieldIds.push(f.id);
+         });
+      }
+
+      populateDataCollections() {
+         const ids = this.ids;
+         const view = this.CurrentView;
+
+         const datacollections =
+            this.CurrentApplication.datacollectionsIncluded().map((dc) => {
+               return {
+                  id: dc.id,
+                  value: dc.label,
+                  icon:
+                     dc.sourceType === "query"
+                        ? "fa fa-filter"
+                        : "fa fa-database",
+               };
+            });
+
+         const $d = $$(ids.datacollection);
+         $d.define("options", datacollections);
+         $d.define("value", view.settings.dataviewID);
+         $d.refresh();
+      }
+
+      defaultValues() {
+         const values = {
+            dataviewID: null,
+            buttonLabel: "Upload CSV",
+            width: 0,
+            recordRules: [],
+            availableFieldIds: [],
+         };
+
+         const FieldClass = this.ViewClass();
+         if (FieldClass) {
+            const fcValues = FieldClass.defaultValues();
+            Object.keys(fcValues).forEach((k) => {
+               values[k] = fcValues[k];
+            });
+         }
+
+         return values;
+      }
+
+      /**
+       * @method values
+       * return the values for this form.
+       * @return {obj}
+       */
+      values() {
+         const ids = this.ids;
+         const values = super.values();
+
+         values.settings = values.settings ?? {};
+         values.settings.dataviewID = $$(ids.datacollection).getValue();
+         values.settings.recordRules = PopupRecordRule.toSettings();
+         values.settings.buttonLabel = $$(ids.buttonLabel).getValue();
+         values.settings.width = $$(ids.width).getValue();
+
+         values.settings.availableFieldIds = [];
+         $$(ids.fields)
+            .find({ selected: true })
+            .forEach((f) => {
+               values.settings.availableFieldIds.push(f.id);
+            });
+
+         return values;
+      }
+
+      /**
+       * @method FieldClass()
+       * A method to return the proper ABViewXXX Definition.
+       * NOTE: Must be overwritten by the Child Class
+       */
+      ViewClass() {
+         return super._ViewClass("csvImporter");
+      }
+
+      toSettings() {
+         var base = this.defaults();
+         base.settings = this.defaultValues();
+         return base;
+      }
+   };
+}
+
+
+/***/ }),
+
+/***/ "./src/plugins/web_view_csvImporter/FNAbviewcsvimporterEditor.js":
+/*!***********************************************************************!*\
+  !*** ./src/plugins/web_view_csvImporter/FNAbviewcsvimporterEditor.js ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FNAbviewcsvimporterEditor)
+/* harmony export */ });
+// FNAbviewcsvimporter Editor
+// An Editor wrapper for the ABView Component.
+// The Editor is displayed in the ABDesigner as a view is worked on.
+// The Editor allows a widget to be moved and placed on the canvas.
+//
+function FNAbviewcsvimporterEditor({ ABViewEditorPlugin }) {
+   return class ABAbviewcsvimporterEditor extends ABViewEditorPlugin {
+      static getPluginKey() {
+         return this.key;
+      }
+
+      /**
+       * @method getPluginType
+       * return the plugin type for this editor.
+       * plugin types are how our ClassManager knows how to store
+       * the plugin.
+       * @return {string} plugin type
+       */
+      static getPluginType() {
+         return "editor-view";
+         // editor-view : will display in the editor panel of the ABDesigner
+      }
+
+      static get key() {
+         return "csvImporter";
+      }
+
+      constructor(view, base = "interface_editor_csvImporter") {
+         // base: {string} unique base id reference
+
          super(view, base);
       }
 
@@ -77069,8 +77964,6 @@ __webpack_require__.r(__webpack_exports__);
       // require("./views/ABViewComment"),
       __webpack_require__(/*! ./views/ABViewConditionalContainer */ "./src/rootPages/Designer/editors/views/ABViewConditionalContainer.js"),
       __webpack_require__(/*! ./views/ABViewContainer */ "./src/rootPages/Designer/editors/views/ABViewContainer.js"),
-      __webpack_require__(/*! ./views/ABViewCSVExporter */ "./src/rootPages/Designer/editors/views/ABViewCSVExporter.js"),
-      __webpack_require__(/*! ./views/ABViewCSVImporter */ "./src/rootPages/Designer/editors/views/ABViewCSVImporter.js"),
       // require("./views/ABViewDataSelect"),
       // require("./views/ABViewDataview"),
       // require("./views/ABViewDetail"),
@@ -77118,152 +78011,6 @@ __webpack_require__.r(__webpack_exports__);
          return Editors.filter(f);
       },
    };
-}
-
-
-/***/ }),
-
-/***/ "./src/rootPages/Designer/editors/views/ABViewCSVExporter.js":
-/*!*******************************************************************!*\
-  !*** ./src/rootPages/Designer/editors/views/ABViewCSVExporter.js ***!
-  \*******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* export default binding */ __WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _ui_class__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../ui_class */ "./src/rootPages/Designer/ui_class.js");
-/**
- * ABViewCSVExporterEditor
- * The widget that displays the UI Editor Component on the screen
- * when designing the UI.
- */
-let myClass = null;
-// {singleton}
-// we will want to call this factory fn() repeatedly in our imports,
-// but we only want to define 1 Class reference.
-
-
-
-/* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__(AB) {
-   if (!myClass) {
-      const UIClass = (0,_ui_class__WEBPACK_IMPORTED_MODULE_0__["default"])(AB);
-      // var L = UIClass.L();
-      // var L = ABViewContainer.L();
-
-      myClass = class ABViewCSVExporterEditor extends UIClass {
-         static get key() {
-            return "csvExporter";
-         }
-
-         constructor(view, base = "interface_editor_csvExporter") {
-            // base: {string} unique base id reference
-
-            super(view, base);
-
-            this.view = view;
-            this.component = this.view.component();
-         }
-
-         ui() {
-            return this.component.ui();
-         }
-
-         init(AB) {
-            this.AB = AB;
-
-            this.component.init(this.AB);
-
-            // this.component.onShow();
-            // in our editor, we provide accessLv = 2
-         }
-
-         detatch() {
-            this.component?.detatch?.();
-         }
-
-         onShow() {
-            this.component?.onShow?.();
-         }
-      };
-   }
-
-   return myClass;
-}
-
-
-/***/ }),
-
-/***/ "./src/rootPages/Designer/editors/views/ABViewCSVImporter.js":
-/*!*******************************************************************!*\
-  !*** ./src/rootPages/Designer/editors/views/ABViewCSVImporter.js ***!
-  \*******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* export default binding */ __WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _ui_class__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../ui_class */ "./src/rootPages/Designer/ui_class.js");
-/**
- * ABViewCSVImporterEditor
- * The widget that displays the UI Editor Component on the screen
- * when designing the UI.
- */
-let myClass = null;
-// {singleton}
-// we will want to call this factory fn() repeatedly in our imports,
-// but we only want to define 1 Class reference.
-
-
-
-/* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__(AB) {
-   if (!myClass) {
-      const UIClass = (0,_ui_class__WEBPACK_IMPORTED_MODULE_0__["default"])(AB);
-      // var L = UIClass.L();
-      // var L = ABViewContainer.L();
-
-      myClass = class ABViewCSVImporterEditor extends UIClass {
-         static get key() {
-            return "csvImporter";
-         }
-
-         constructor(view, base = "interface_editor_csvImporter") {
-            // base: {string} unique base id reference
-
-            super(view, base);
-
-            this.view = view;
-            this.component = this.view.component();
-         }
-
-         ui() {
-            return this.component.ui();
-         }
-
-         init(AB) {
-            this.AB = AB;
-
-            this.component.init(this.AB);
-
-            // this.component.onShow();
-            // in our editor, we provide accessLv = 2
-         }
-
-         detatch() {
-            this.component?.detatch?.();
-         }
-
-         onShow() {
-            this.component?.onShow?.();
-         }
-      };
-   }
-
-   return myClass;
 }
 
 
@@ -79282,8 +80029,6 @@ var PropertyMgr = null;
          // require("./views/ABViewComment"),
          __webpack_require__(/*! ./views/ABViewConditionalContainer */ "./src/rootPages/Designer/properties/views/ABViewConditionalContainer.js"),
          __webpack_require__(/*! ./views/ABViewContainer */ "./src/rootPages/Designer/properties/views/ABViewContainer.js"),
-         __webpack_require__(/*! ./views/ABViewCSVExporter */ "./src/rootPages/Designer/properties/views/ABViewCSVExporter.js"),
-         __webpack_require__(/*! ./views/ABViewCSVImporter */ "./src/rootPages/Designer/properties/views/ABViewCSVImporter.js"),
          __webpack_require__(/*! ./views/ABViewDataFilter */ "./src/rootPages/Designer/properties/views/ABViewDataFilter.js"),
          // require("./views/ABViewDataSelect"),
          // require("./views/ABViewDataview"),
@@ -104936,368 +105681,6 @@ var myClass = null;
       };
    }
    return myClass;
-}
-
-
-/***/ }),
-
-/***/ "./src/rootPages/Designer/properties/views/ABViewCSVExporter.js":
-/*!**********************************************************************!*\
-  !*** ./src/rootPages/Designer/properties/views/ABViewCSVExporter.js ***!
-  \**********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* export default binding */ __WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _ABView__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABView */ "./src/rootPages/Designer/properties/views/ABView.js");
-/*
- * ABViewCSVExporter
- * A Property manager for our ABViewCSVExporter widget
- */
-
-
-
-/* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__(AB) {
-   const BASE_ID = "properties_abview_csvexporter";
-
-   const ABViewClassProperty = (0,_ABView__WEBPACK_IMPORTED_MODULE_0__["default"])(AB);
-   const uiConfig = AB.Config.uiSettings();
-   const L = ABViewClassProperty.L();
-
-   class ABViewCSVExporterProperty extends ABViewClassProperty {
-      constructor(baseID) {
-         super(baseID ?? BASE_ID, {
-            datacollection: "",
-            buttonLabel: "",
-            hasHeader: "",
-            filename: "",
-            width: "",
-            buttonFilter: "",
-            fields: "",
-         });
-
-         this.AB = AB;
-         this.propertyFilter = this.AB.filterComplexNew(`${baseID}_filter`);
-      }
-
-      static get key() {
-         return "csvExporter";
-      }
-
-      ui() {
-         const ids = this.ids;
-
-         return super.ui([
-            {
-               view: "fieldset",
-               label: L("Data:"),
-               labelWidth: uiConfig.labelWidthLarge,
-               body: {
-                  rows: [
-                     {
-                        id: ids.datacollection,
-                        name: "datacollection",
-                        view: "richselect",
-                        label: L("Data Source"),
-                        labelWidth: uiConfig.labelWidthLarge,
-                        skipAutoSave: true,
-                        on: {
-                           onChange: (newVal, oldVal) => {
-                              if (newVal != oldVal) {
-                                 this.populateFilter();
-                                 this.onChange();
-                              }
-                           },
-                        },
-                     },
-                     {
-                        id: ids.hasHeader,
-                        name: "hasHeader",
-                        view: "checkbox",
-                        label: L("Header on first line"),
-                        labelWidth: uiConfig.labelWidthXLarge,
-                     },
-                     {
-                        cols: [
-                           {
-                              view: "label",
-                              label: L("Filter Option:"),
-                              css: "ab-text-bold",
-                              width: uiConfig.labelWidthLarge,
-                           },
-                           {
-                              id: ids.buttonFilter,
-                              view: "button",
-                              name: "buttonFilter",
-                              css: "webix_primary",
-                              label: L("Settings"),
-                              icon: "fa fa-gear",
-                              type: "icon",
-                              badge: 0,
-                              click: () => {
-                                 this.showFilterPopup();
-                              },
-                           },
-                        ],
-                     },
-                  ],
-               },
-            },
-            {
-               view: "fieldset",
-               label: L("Customize Display:"),
-               labelWidth: uiConfig.labelWidthLarge,
-               body: {
-                  type: "clean",
-                  padding: 10,
-                  rows: [
-                     {
-                        id: ids.buttonLabel,
-                        name: "buttonLabel",
-                        view: "text",
-                        label: L("Label"),
-                        labelWidth: uiConfig.labelWidthLarge,
-                        on: {
-                           onChange: () => {
-                              this.onChange();
-                           },
-                        },
-                     },
-                     {
-                        id: ids.filename,
-                        name: "filename",
-                        view: "text",
-                        label: L("File name"),
-                        labelWidth: uiConfig.labelWidthLarge,
-                     },
-                     {
-                        id: ids.width,
-                        view: "counter",
-                        name: "width",
-                        label: L("Width:"),
-                        labelWidth: uiConfig.labelWidthLarge,
-                        on: {
-                           onChange: () => {
-                              this.onChange();
-                           },
-                        },
-                     },
-                  ],
-               },
-            },
-            {
-               view: "fieldset",
-               label: L("Fields:"),
-               labelWidth: uiConfig.labelWidthLarge,
-               body: {
-                  view: "list",
-                  id: ids.fields,
-                  autoheight: true,
-                  select: false,
-                  template: (item) => {
-                     return `<span style="min-width: 18px; display: inline-block;"><i class="fa ${
-                        item.isHidden ? "fa-square-o" : "fa-check-square-o"
-                     } ab-visible-field-icon"></i>&nbsp;</span> ${item.label}`;
-                  },
-                  on: {
-                     onItemClick: (id, e, node) => {
-                        this.toggleField(id, e, node);
-                        this.onChange();
-                     },
-                  },
-               },
-            },
-         ]);
-      }
-
-      async init(AB) {
-         this.AB = AB;
-
-         await super.init(AB);
-
-         this.propertyFilter.init();
-         this.propertyFilter.on("save", (val) => {
-            this.onChange();
-            this.populateBadgeNumber();
-            this.filter_popup.hide();
-         });
-
-         this.filter_popup = webix.ui({
-            view: "popup",
-            width: 800,
-            hidden: true,
-            body: this.propertyFilter.ui,
-         });
-      }
-
-      populate(view) {
-         super.populate(view);
-
-         view.settings = view.settings ?? {};
-
-         const ids = this.ids;
-         const FieldClass = this.ViewClass();
-         const ABViewCSVExporterPropertyComponentDefaults =
-            FieldClass.defaultValues();
-
-         this.populateDatacollections();
-
-         $$(ids.hasHeader).setValue(
-            view.settings.hasHeader ??
-               ABViewCSVExporterPropertyComponentDefaults.hasHeader
-         );
-         $$(ids.buttonLabel).setValue(
-            view.settings.buttonLabel ??
-               ABViewCSVExporterPropertyComponentDefaults.buttonLabel
-         );
-         $$(ids.filename).setValue(
-            view.settings.filename ??
-               ABViewCSVExporterPropertyComponentDefaults.filename
-         );
-         $$(ids.width).setValue(
-            view.settings.width ??
-               ABViewCSVExporterPropertyComponentDefaults.width
-         );
-
-         this.populateFilter();
-
-         this.populateBadgeNumber();
-
-         this.populateFields();
-      }
-
-      populateDatacollections() {
-         // Pull data views to options
-         const dcOptions = this.CurrentView.application
-            .datacollectionsIncluded()
-            .map((dc) => {
-               return {
-                  id: dc.id,
-                  value: dc.label,
-                  icon:
-                     dc.sourceType === "query"
-                        ? "fa fa-filter"
-                        : "fa fa-database",
-               };
-            });
-
-         const $d = $$(this.ids.datacollection);
-         $d.define("options", dcOptions);
-         $d.define("value", this.CurrentView?.settings?.dataviewID ?? null);
-         $d.refresh();
-      }
-
-      populateBadgeNumber() {
-         const ids = this.ids;
-         const view = this.CurrentView;
-
-         $$(ids.buttonFilter).define(
-            "badge",
-            view?.settings?.where?.rules?.length ?? null
-         );
-         $$(ids.buttonFilter).refresh();
-      }
-
-      populateFilter() {
-         const view = this.CurrentView;
-         const dc = view.datacollection;
-         const obj = dc?.datasource;
-
-         // Populate data to popups
-         // PropertyFilter.applicationLoad(view.application);
-         this.propertyFilter.fieldsLoad(obj?.fields() ?? []);
-         this.propertyFilter.setValue(view.settings.where);
-      }
-
-      populateFields() {
-         const ids = this.ids;
-         const $fields = $$(ids.fields);
-         const view = this.CurrentView;
-         const hiddenFieldIds = view.settings.hiddenFieldIds ?? [];
-         const fields = view?.datacollection?.datasource?.fields();
-
-         $fields.clearAll();
-         if (!fields?.length) return;
-
-         $fields.parse(
-            fields.map((f) => {
-               return {
-                  id: f.id,
-                  label: f.label,
-                  isHidden: hiddenFieldIds.indexOf(f.id) >= 0,
-               };
-            })
-         );
-         $fields.refresh();
-      }
-
-      showFilterPopup() {
-         const $buttonFilter = $$(this.ids.buttonFilter);
-         this.propertyFilter.popUp($buttonFilter?.$view);
-      }
-
-      toggleField(fieldId) {
-         const ids = this.ids;
-         const $fields = $$(ids.fields);
-
-         const fieldItem = $fields.getItem(fieldId);
-         $fields.updateItem(fieldId, {
-            isHidden: !fieldItem.isHidden,
-         });
-         $fields.refresh();
-      }
-
-      /**
-       * @method values
-       * return the values for this form.
-       * @return {obj}
-       */
-      values() {
-         const ids = this.ids;
-         const FieldClass = this.ViewClass();
-         const ABViewCSVExporterPropertyComponentDefaults =
-            FieldClass.defaultValues();
-
-         const values = super.values();
-         values.settings = values.settings ?? {};
-
-         values.settings.dataviewID = $$(ids.datacollection).getValue();
-         values.settings.hasHeader = $$(ids.hasHeader).getValue();
-         values.settings.where = this.propertyFilter.getValue();
-
-         values.settings.buttonLabel =
-            $$(ids.buttonLabel).getValue() ??
-            ABViewCSVExporterPropertyComponentDefaults.buttonLabel;
-
-         values.settings.filename =
-            $$(ids.filename).getValue() ??
-            ABViewCSVExporterPropertyComponentDefaults.filename;
-
-         values.settings.width =
-            $$(ids.width).getValue() ??
-            ABViewCSVExporterPropertyComponentDefaults.width;
-
-         values.settings.hiddenFieldIds = $$(ids.fields)
-            .find({ isHidden: true })
-            .map((item) => item.id);
-
-         return values;
-      }
-
-      /**
-       * @method FieldClass()
-       * A method to return the proper ABViewXXX Definition.
-       * NOTE: Must be overwritten by the Child Class
-       */
-      ViewClass() {
-         return super._ViewClass("csvExporter");
-      }
-   }
-
-   return ABViewCSVExporterProperty;
 }
 
 
@@ -131296,8 +131679,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* export default binding */ __WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _ui_class__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ui_class */ "./src/rootPages/Designer/ui_class.js");
-/* harmony import */ var _utils_CSVImporter_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utils/CSVImporter.js */ "./src/utils/CSVImporter.js");
-/* harmony import */ var _utils_CSVImporter_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_utils_CSVImporter_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _utils_CSVImporter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utils/CSVImporter */ "./src/utils/CSVImporter.js");
+/* harmony import */ var _utils_CSVImporter__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_utils_CSVImporter__WEBPACK_IMPORTED_MODULE_1__);
 /*
  * ui_work_object_list_newObject_csv
  *
@@ -131325,7 +131708,7 @@ __webpack_require__.r(__webpack_exports__);
             importButton: "",
          });
 
-         this._csvImporter = new (_utils_CSVImporter_js__WEBPACK_IMPORTED_MODULE_1___default())(AB);
+         this._csvImporter = new (_utils_CSVImporter__WEBPACK_IMPORTED_MODULE_1___default())(AB);
       }
 
       ui() {
@@ -132377,9 +132760,6 @@ __webpack_require__.r(__webpack_exports__);
             AB,
             `${base}_import`
          );
-         // this.PopupImportObjectComponent.on("done", () => {
-         //    this.populateObjectWorkspace(this.CurrentObject);
-         // });
 
          this.PopupViewSettingsComponent = (0,_ui_work_object_workspace_popupViewSettings__WEBPACK_IMPORTED_MODULE_11__["default"])(
             AB,
@@ -135742,12 +136122,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 /* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__(AB, ibase) {
    ibase = ibase || "ui_work_object_workspace_popupImport";
    const UIClass = (0,_ui_class__WEBPACK_IMPORTED_MODULE_0__["default"])(AB);
-   // var L = UIClass.L();
-   const ViewProperties = (0,_properties_views_ABViewCSVImporter__WEBPACK_IMPORTED_MODULE_1__["default"])(AB);
-   const viewProperties = new ViewProperties();
+   const ViewPropertiesClass = (0,_properties_views_ABViewCSVImporter__WEBPACK_IMPORTED_MODULE_1__["default"])(AB);
+   const viewProperties = new ViewPropertiesClass();
 
    class UI_Work_Object_Workspace_PopupImport extends UIClass {
       constructor(base) {
@@ -148647,7 +149027,6 @@ module.exports = class CSVImporter {
       return str.trim().replace(/"/g, "").replace(/'/g, "");
    }
 };
-
 
 /***/ }),
 
