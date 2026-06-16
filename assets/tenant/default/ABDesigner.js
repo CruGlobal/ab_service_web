@@ -68664,41 +68664,45 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _web_view_csvExporter_FNAbviewcsvexporterEditor_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./web_view_csvExporter/FNAbviewcsvexporterEditor.js */ "./src/plugins/web_view_csvExporter/FNAbviewcsvexporterEditor.js");
-/* harmony import */ var _web_view_csvExporter_FNAbviewcsvexporter_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./web_view_csvExporter/FNAbviewcsvexporter.js */ "./src/plugins/web_view_csvExporter/FNAbviewcsvexporter.js");
-/* harmony import */ var _web_view_csvImporter_FNAbviewcsvimporterEditor_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./web_view_csvImporter/FNAbviewcsvimporterEditor.js */ "./src/plugins/web_view_csvImporter/FNAbviewcsvimporterEditor.js");
-/* harmony import */ var _web_view_csvImporter_FNAbviewcsvimporter_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./web_view_csvImporter/FNAbviewcsvimporter.js */ "./src/plugins/web_view_csvImporter/FNAbviewcsvimporter.js");
-/* harmony import */ var _web_view_carousel_FNAbviewcarouselEditor_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./web_view_carousel/FNAbviewcarouselEditor.js */ "./src/plugins/web_view_carousel/FNAbviewcarouselEditor.js");
-/* harmony import */ var _web_view_carousel_FNAbviewcarousel_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./web_view_carousel/FNAbviewcarousel.js */ "./src/plugins/web_view_carousel/FNAbviewcarousel.js");
-/* harmony import */ var _web_view_comment_FNAbviewcommentEditor_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./web_view_comment/FNAbviewcommentEditor.js */ "./src/plugins/web_view_comment/FNAbviewcommentEditor.js");
-/* harmony import */ var _web_view_comment_FNAbviewcomment_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./web_view_comment/FNAbviewcomment.js */ "./src/plugins/web_view_comment/FNAbviewcomment.js");
-/* harmony import */ var _web_view_data_select_FNAbviewdataselectEditor_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./web_view_data-select/FNAbviewdataselectEditor.js */ "./src/plugins/web_view_data-select/FNAbviewdataselectEditor.js");
-/* harmony import */ var _web_view_data_select_FNAbviewdataselect_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./web_view_data-select/FNAbviewdataselect.js */ "./src/plugins/web_view_data-select/FNAbviewdataselect.js");
-/* harmony import */ var _web_view_dataview_FNAbviewdataviewEditor_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./web_view_dataview/FNAbviewdataviewEditor.js */ "./src/plugins/web_view_dataview/FNAbviewdataviewEditor.js");
-/* harmony import */ var _web_view_dataview_FNAbviewdataview_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./web_view_dataview/FNAbviewdataview.js */ "./src/plugins/web_view_dataview/FNAbviewdataview.js");
-/* harmony import */ var _web_view_detail_FNAbviewdetailEditor_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./web_view_detail/FNAbviewdetailEditor.js */ "./src/plugins/web_view_detail/FNAbviewdetailEditor.js");
-/* harmony import */ var _web_view_detail_FNAbviewdetail_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./web_view_detail/FNAbviewdetail.js */ "./src/plugins/web_view_detail/FNAbviewdetail.js");
-/* harmony import */ var _web_view_gantt_FNAbviewganttEditor_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./web_view_gantt/FNAbviewganttEditor.js */ "./src/plugins/web_view_gantt/FNAbviewganttEditor.js");
-/* harmony import */ var _web_view_gantt_FNAbviewgantt_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./web_view_gantt/FNAbviewgantt.js */ "./src/plugins/web_view_gantt/FNAbviewgantt.js");
-/* harmony import */ var _web_view_grid_FNAbviewgridEditor_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./web_view_grid/FNAbviewgridEditor.js */ "./src/plugins/web_view_grid/FNAbviewgridEditor.js");
-/* harmony import */ var _web_view_grid_FNAbviewgrid_js__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./web_view_grid/FNAbviewgrid.js */ "./src/plugins/web_view_grid/FNAbviewgrid.js");
-/* harmony import */ var _web_view_image_FNAbviewimageEditor_js__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./web_view_image/FNAbviewimageEditor.js */ "./src/plugins/web_view_image/FNAbviewimageEditor.js");
-/* harmony import */ var _web_view_image_FNAbviewimage_js__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./web_view_image/FNAbviewimage.js */ "./src/plugins/web_view_image/FNAbviewimage.js");
-/* harmony import */ var _web_view_kanban_FNAbviewkanbanEditor_js__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./web_view_kanban/FNAbviewkanbanEditor.js */ "./src/plugins/web_view_kanban/FNAbviewkanbanEditor.js");
-/* harmony import */ var _web_view_kanban_FNAbviewkanban_js__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./web_view_kanban/FNAbviewkanban.js */ "./src/plugins/web_view_kanban/FNAbviewkanban.js");
-/* harmony import */ var _web_view_label_FNAbviewLabelEditor_js__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./web_view_label/FNAbviewLabelEditor.js */ "./src/plugins/web_view_label/FNAbviewLabelEditor.js");
-/* harmony import */ var _web_view_label_FNAbviewLabel_js__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./web_view_label/FNAbviewLabel.js */ "./src/plugins/web_view_label/FNAbviewLabel.js");
-/* harmony import */ var _web_view_layout_FNAbviewlayoutEditor_js__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./web_view_layout/FNAbviewlayoutEditor.js */ "./src/plugins/web_view_layout/FNAbviewlayoutEditor.js");
-/* harmony import */ var _web_view_layout_FNAbviewlayout_js__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./web_view_layout/FNAbviewlayout.js */ "./src/plugins/web_view_layout/FNAbviewlayout.js");
-/* harmony import */ var _web_view_list_FNAbviewlist_js__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./web_view_list/FNAbviewlist.js */ "./src/plugins/web_view_list/FNAbviewlist.js");
-/* harmony import */ var _web_view_pdfImporter_FNAbviewpdfimporterEditor_js__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./web_view_pdfImporter/FNAbviewpdfimporterEditor.js */ "./src/plugins/web_view_pdfImporter/FNAbviewpdfimporterEditor.js");
-/* harmony import */ var _web_view_pdfImporter_FNAbviewpdfimporter_js__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./web_view_pdfImporter/FNAbviewpdfimporter.js */ "./src/plugins/web_view_pdfImporter/FNAbviewpdfimporter.js");
-/* harmony import */ var _web_view_pivot_FNAbviewpivotEditor_js__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./web_view_pivot/FNAbviewpivotEditor.js */ "./src/plugins/web_view_pivot/FNAbviewpivotEditor.js");
-/* harmony import */ var _web_view_pivot_FNAbviewpivot_js__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./web_view_pivot/FNAbviewpivot.js */ "./src/plugins/web_view_pivot/FNAbviewpivot.js");
-/* harmony import */ var _web_view_tab_FNAbviewtabEditor_js__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./web_view_tab/FNAbviewtabEditor.js */ "./src/plugins/web_view_tab/FNAbviewtabEditor.js");
-/* harmony import */ var _web_view_tab_FNAbviewtab_js__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./web_view_tab/FNAbviewtab.js */ "./src/plugins/web_view_tab/FNAbviewtab.js");
-/* harmony import */ var _web_view_text_FNAbviewtextEditor_js__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./web_view_text/FNAbviewtextEditor.js */ "./src/plugins/web_view_text/FNAbviewtextEditor.js");
-/* harmony import */ var _web_view_text_FNAbviewtext_js__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./web_view_text/FNAbviewtext.js */ "./src/plugins/web_view_text/FNAbviewtext.js");
+/* harmony import */ var _web_view_docxBuilder_FNAbviewdocxbuilder_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./web_view_docxBuilder/FNAbviewdocxbuilder.js */ "./src/plugins/web_view_docxBuilder/FNAbviewdocxbuilder.js");
+/* harmony import */ var _web_view_docxBuilder_FNAbviewdocxbuilderEditor_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./web_view_docxBuilder/FNAbviewdocxbuilderEditor.js */ "./src/plugins/web_view_docxBuilder/FNAbviewdocxbuilderEditor.js");
+/* harmony import */ var _web_view_csvExporter_FNAbviewcsvexporterEditor_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./web_view_csvExporter/FNAbviewcsvexporterEditor.js */ "./src/plugins/web_view_csvExporter/FNAbviewcsvexporterEditor.js");
+/* harmony import */ var _web_view_csvExporter_FNAbviewcsvexporter_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./web_view_csvExporter/FNAbviewcsvexporter.js */ "./src/plugins/web_view_csvExporter/FNAbviewcsvexporter.js");
+/* harmony import */ var _web_view_csvImporter_FNAbviewcsvimporterEditor_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./web_view_csvImporter/FNAbviewcsvimporterEditor.js */ "./src/plugins/web_view_csvImporter/FNAbviewcsvimporterEditor.js");
+/* harmony import */ var _web_view_csvImporter_FNAbviewcsvimporter_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./web_view_csvImporter/FNAbviewcsvimporter.js */ "./src/plugins/web_view_csvImporter/FNAbviewcsvimporter.js");
+/* harmony import */ var _web_view_carousel_FNAbviewcarouselEditor_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./web_view_carousel/FNAbviewcarouselEditor.js */ "./src/plugins/web_view_carousel/FNAbviewcarouselEditor.js");
+/* harmony import */ var _web_view_carousel_FNAbviewcarousel_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./web_view_carousel/FNAbviewcarousel.js */ "./src/plugins/web_view_carousel/FNAbviewcarousel.js");
+/* harmony import */ var _web_view_comment_FNAbviewcommentEditor_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./web_view_comment/FNAbviewcommentEditor.js */ "./src/plugins/web_view_comment/FNAbviewcommentEditor.js");
+/* harmony import */ var _web_view_comment_FNAbviewcomment_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./web_view_comment/FNAbviewcomment.js */ "./src/plugins/web_view_comment/FNAbviewcomment.js");
+/* harmony import */ var _web_view_data_select_FNAbviewdataselectEditor_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./web_view_data-select/FNAbviewdataselectEditor.js */ "./src/plugins/web_view_data-select/FNAbviewdataselectEditor.js");
+/* harmony import */ var _web_view_data_select_FNAbviewdataselect_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./web_view_data-select/FNAbviewdataselect.js */ "./src/plugins/web_view_data-select/FNAbviewdataselect.js");
+/* harmony import */ var _web_view_dataview_FNAbviewdataviewEditor_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./web_view_dataview/FNAbviewdataviewEditor.js */ "./src/plugins/web_view_dataview/FNAbviewdataviewEditor.js");
+/* harmony import */ var _web_view_dataview_FNAbviewdataview_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./web_view_dataview/FNAbviewdataview.js */ "./src/plugins/web_view_dataview/FNAbviewdataview.js");
+/* harmony import */ var _web_view_detail_FNAbviewdetailEditor_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./web_view_detail/FNAbviewdetailEditor.js */ "./src/plugins/web_view_detail/FNAbviewdetailEditor.js");
+/* harmony import */ var _web_view_detail_FNAbviewdetail_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./web_view_detail/FNAbviewdetail.js */ "./src/plugins/web_view_detail/FNAbviewdetail.js");
+/* harmony import */ var _web_view_gantt_FNAbviewganttEditor_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./web_view_gantt/FNAbviewganttEditor.js */ "./src/plugins/web_view_gantt/FNAbviewganttEditor.js");
+/* harmony import */ var _web_view_gantt_FNAbviewgantt_js__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./web_view_gantt/FNAbviewgantt.js */ "./src/plugins/web_view_gantt/FNAbviewgantt.js");
+/* harmony import */ var _web_view_grid_FNAbviewgridEditor_js__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./web_view_grid/FNAbviewgridEditor.js */ "./src/plugins/web_view_grid/FNAbviewgridEditor.js");
+/* harmony import */ var _web_view_grid_FNAbviewgrid_js__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./web_view_grid/FNAbviewgrid.js */ "./src/plugins/web_view_grid/FNAbviewgrid.js");
+/* harmony import */ var _web_view_image_FNAbviewimageEditor_js__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./web_view_image/FNAbviewimageEditor.js */ "./src/plugins/web_view_image/FNAbviewimageEditor.js");
+/* harmony import */ var _web_view_image_FNAbviewimage_js__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./web_view_image/FNAbviewimage.js */ "./src/plugins/web_view_image/FNAbviewimage.js");
+/* harmony import */ var _web_view_kanban_FNAbviewkanbanEditor_js__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./web_view_kanban/FNAbviewkanbanEditor.js */ "./src/plugins/web_view_kanban/FNAbviewkanbanEditor.js");
+/* harmony import */ var _web_view_kanban_FNAbviewkanban_js__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./web_view_kanban/FNAbviewkanban.js */ "./src/plugins/web_view_kanban/FNAbviewkanban.js");
+/* harmony import */ var _web_view_label_FNAbviewLabelEditor_js__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./web_view_label/FNAbviewLabelEditor.js */ "./src/plugins/web_view_label/FNAbviewLabelEditor.js");
+/* harmony import */ var _web_view_label_FNAbviewLabel_js__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./web_view_label/FNAbviewLabel.js */ "./src/plugins/web_view_label/FNAbviewLabel.js");
+/* harmony import */ var _web_view_layout_FNAbviewlayoutEditor_js__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./web_view_layout/FNAbviewlayoutEditor.js */ "./src/plugins/web_view_layout/FNAbviewlayoutEditor.js");
+/* harmony import */ var _web_view_layout_FNAbviewlayout_js__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./web_view_layout/FNAbviewlayout.js */ "./src/plugins/web_view_layout/FNAbviewlayout.js");
+/* harmony import */ var _web_view_list_FNAbviewlist_js__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./web_view_list/FNAbviewlist.js */ "./src/plugins/web_view_list/FNAbviewlist.js");
+/* harmony import */ var _web_view_pdfImporter_FNAbviewpdfimporterEditor_js__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./web_view_pdfImporter/FNAbviewpdfimporterEditor.js */ "./src/plugins/web_view_pdfImporter/FNAbviewpdfimporterEditor.js");
+/* harmony import */ var _web_view_pdfImporter_FNAbviewpdfimporter_js__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./web_view_pdfImporter/FNAbviewpdfimporter.js */ "./src/plugins/web_view_pdfImporter/FNAbviewpdfimporter.js");
+/* harmony import */ var _web_view_pivot_FNAbviewpivotEditor_js__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./web_view_pivot/FNAbviewpivotEditor.js */ "./src/plugins/web_view_pivot/FNAbviewpivotEditor.js");
+/* harmony import */ var _web_view_pivot_FNAbviewpivot_js__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./web_view_pivot/FNAbviewpivot.js */ "./src/plugins/web_view_pivot/FNAbviewpivot.js");
+/* harmony import */ var _web_view_tab_FNAbviewtabEditor_js__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./web_view_tab/FNAbviewtabEditor.js */ "./src/plugins/web_view_tab/FNAbviewtabEditor.js");
+/* harmony import */ var _web_view_tab_FNAbviewtab_js__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./web_view_tab/FNAbviewtab.js */ "./src/plugins/web_view_tab/FNAbviewtab.js");
+/* harmony import */ var _web_view_text_FNAbviewtextEditor_js__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./web_view_text/FNAbviewtextEditor.js */ "./src/plugins/web_view_text/FNAbviewtextEditor.js");
+/* harmony import */ var _web_view_text_FNAbviewtext_js__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./web_view_text/FNAbviewtext.js */ "./src/plugins/web_view_text/FNAbviewtext.js");
+
+
 
 
 
@@ -68736,41 +68740,43 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const AllPlugins = [
-   _web_view_csvExporter_FNAbviewcsvexporterEditor_js__WEBPACK_IMPORTED_MODULE_0__["default"],
-   _web_view_csvExporter_FNAbviewcsvexporter_js__WEBPACK_IMPORTED_MODULE_1__["default"],
-   _web_view_csvImporter_FNAbviewcsvimporterEditor_js__WEBPACK_IMPORTED_MODULE_2__["default"],
-   _web_view_csvImporter_FNAbviewcsvimporter_js__WEBPACK_IMPORTED_MODULE_3__["default"],
-   _web_view_carousel_FNAbviewcarouselEditor_js__WEBPACK_IMPORTED_MODULE_4__["default"],
-   _web_view_carousel_FNAbviewcarousel_js__WEBPACK_IMPORTED_MODULE_5__["default"],
-   _web_view_comment_FNAbviewcommentEditor_js__WEBPACK_IMPORTED_MODULE_6__["default"],
-   _web_view_comment_FNAbviewcomment_js__WEBPACK_IMPORTED_MODULE_7__["default"],
-   _web_view_data_select_FNAbviewdataselectEditor_js__WEBPACK_IMPORTED_MODULE_8__["default"],
-   _web_view_data_select_FNAbviewdataselect_js__WEBPACK_IMPORTED_MODULE_9__["default"],
-   _web_view_dataview_FNAbviewdataviewEditor_js__WEBPACK_IMPORTED_MODULE_10__["default"],
-   _web_view_dataview_FNAbviewdataview_js__WEBPACK_IMPORTED_MODULE_11__["default"],
-   _web_view_detail_FNAbviewdetailEditor_js__WEBPACK_IMPORTED_MODULE_12__["default"],
-   _web_view_detail_FNAbviewdetail_js__WEBPACK_IMPORTED_MODULE_13__["default"],
-   _web_view_gantt_FNAbviewganttEditor_js__WEBPACK_IMPORTED_MODULE_14__["default"],
-   _web_view_gantt_FNAbviewgantt_js__WEBPACK_IMPORTED_MODULE_15__["default"],
-   _web_view_grid_FNAbviewgridEditor_js__WEBPACK_IMPORTED_MODULE_16__["default"],
-   _web_view_grid_FNAbviewgrid_js__WEBPACK_IMPORTED_MODULE_17__["default"],
-   _web_view_image_FNAbviewimageEditor_js__WEBPACK_IMPORTED_MODULE_18__["default"],
-   _web_view_image_FNAbviewimage_js__WEBPACK_IMPORTED_MODULE_19__["default"],
-   _web_view_kanban_FNAbviewkanbanEditor_js__WEBPACK_IMPORTED_MODULE_20__["default"],
-   _web_view_kanban_FNAbviewkanban_js__WEBPACK_IMPORTED_MODULE_21__["default"],
-   _web_view_label_FNAbviewLabelEditor_js__WEBPACK_IMPORTED_MODULE_22__["default"],
-   _web_view_label_FNAbviewLabel_js__WEBPACK_IMPORTED_MODULE_23__["default"],
-   _web_view_layout_FNAbviewlayoutEditor_js__WEBPACK_IMPORTED_MODULE_24__["default"],
-   _web_view_layout_FNAbviewlayout_js__WEBPACK_IMPORTED_MODULE_25__["default"],
-   _web_view_list_FNAbviewlist_js__WEBPACK_IMPORTED_MODULE_26__["default"],
-   _web_view_pdfImporter_FNAbviewpdfimporterEditor_js__WEBPACK_IMPORTED_MODULE_27__["default"],
-   _web_view_pdfImporter_FNAbviewpdfimporter_js__WEBPACK_IMPORTED_MODULE_28__["default"],
-   _web_view_pivot_FNAbviewpivotEditor_js__WEBPACK_IMPORTED_MODULE_29__["default"],
-   _web_view_pivot_FNAbviewpivot_js__WEBPACK_IMPORTED_MODULE_30__["default"],
-   _web_view_tab_FNAbviewtabEditor_js__WEBPACK_IMPORTED_MODULE_31__["default"],
-   _web_view_tab_FNAbviewtab_js__WEBPACK_IMPORTED_MODULE_32__["default"],
-   _web_view_text_FNAbviewtextEditor_js__WEBPACK_IMPORTED_MODULE_33__["default"],
-   _web_view_text_FNAbviewtext_js__WEBPACK_IMPORTED_MODULE_34__["default"],
+   _web_view_csvExporter_FNAbviewcsvexporterEditor_js__WEBPACK_IMPORTED_MODULE_2__["default"],
+   _web_view_csvExporter_FNAbviewcsvexporter_js__WEBPACK_IMPORTED_MODULE_3__["default"],
+   _web_view_csvImporter_FNAbviewcsvimporterEditor_js__WEBPACK_IMPORTED_MODULE_4__["default"],
+   _web_view_csvImporter_FNAbviewcsvimporter_js__WEBPACK_IMPORTED_MODULE_5__["default"],
+   _web_view_carousel_FNAbviewcarouselEditor_js__WEBPACK_IMPORTED_MODULE_6__["default"],
+   _web_view_carousel_FNAbviewcarousel_js__WEBPACK_IMPORTED_MODULE_7__["default"],
+   _web_view_comment_FNAbviewcommentEditor_js__WEBPACK_IMPORTED_MODULE_8__["default"],
+   _web_view_comment_FNAbviewcomment_js__WEBPACK_IMPORTED_MODULE_9__["default"],
+   _web_view_data_select_FNAbviewdataselectEditor_js__WEBPACK_IMPORTED_MODULE_10__["default"],
+   _web_view_data_select_FNAbviewdataselect_js__WEBPACK_IMPORTED_MODULE_11__["default"],
+   _web_view_dataview_FNAbviewdataviewEditor_js__WEBPACK_IMPORTED_MODULE_12__["default"],
+   _web_view_dataview_FNAbviewdataview_js__WEBPACK_IMPORTED_MODULE_13__["default"],
+   _web_view_detail_FNAbviewdetailEditor_js__WEBPACK_IMPORTED_MODULE_14__["default"],
+   _web_view_detail_FNAbviewdetail_js__WEBPACK_IMPORTED_MODULE_15__["default"],
+   _web_view_gantt_FNAbviewganttEditor_js__WEBPACK_IMPORTED_MODULE_16__["default"],
+   _web_view_gantt_FNAbviewgantt_js__WEBPACK_IMPORTED_MODULE_17__["default"],
+   _web_view_grid_FNAbviewgridEditor_js__WEBPACK_IMPORTED_MODULE_18__["default"],
+   _web_view_grid_FNAbviewgrid_js__WEBPACK_IMPORTED_MODULE_19__["default"],
+   _web_view_image_FNAbviewimageEditor_js__WEBPACK_IMPORTED_MODULE_20__["default"],
+   _web_view_image_FNAbviewimage_js__WEBPACK_IMPORTED_MODULE_21__["default"],
+   _web_view_kanban_FNAbviewkanbanEditor_js__WEBPACK_IMPORTED_MODULE_22__["default"],
+   _web_view_kanban_FNAbviewkanban_js__WEBPACK_IMPORTED_MODULE_23__["default"],
+   _web_view_label_FNAbviewLabelEditor_js__WEBPACK_IMPORTED_MODULE_24__["default"],
+   _web_view_label_FNAbviewLabel_js__WEBPACK_IMPORTED_MODULE_25__["default"],
+   _web_view_layout_FNAbviewlayoutEditor_js__WEBPACK_IMPORTED_MODULE_26__["default"],
+   _web_view_layout_FNAbviewlayout_js__WEBPACK_IMPORTED_MODULE_27__["default"],
+   _web_view_list_FNAbviewlist_js__WEBPACK_IMPORTED_MODULE_28__["default"],
+   _web_view_pdfImporter_FNAbviewpdfimporterEditor_js__WEBPACK_IMPORTED_MODULE_29__["default"],
+   _web_view_pdfImporter_FNAbviewpdfimporter_js__WEBPACK_IMPORTED_MODULE_30__["default"],
+   _web_view_pivot_FNAbviewpivotEditor_js__WEBPACK_IMPORTED_MODULE_31__["default"],
+   _web_view_pivot_FNAbviewpivot_js__WEBPACK_IMPORTED_MODULE_32__["default"],
+   _web_view_tab_FNAbviewtabEditor_js__WEBPACK_IMPORTED_MODULE_33__["default"],
+   _web_view_tab_FNAbviewtab_js__WEBPACK_IMPORTED_MODULE_34__["default"],
+   _web_view_text_FNAbviewtextEditor_js__WEBPACK_IMPORTED_MODULE_35__["default"],
+   _web_view_text_FNAbviewtext_js__WEBPACK_IMPORTED_MODULE_36__["default"],
+   _web_view_docxBuilder_FNAbviewdocxbuilder_js__WEBPACK_IMPORTED_MODULE_0__["default"],
+   _web_view_docxBuilder_FNAbviewdocxbuilderEditor_js__WEBPACK_IMPORTED_MODULE_1__["default"]
 ];
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -71545,6 +71551,505 @@ function FNAbviewdetailEditor({ AB /*ABViewEditorPlugin*/ }) {
       onShow() {
          super.onShow();
          this.component?.onShow?.();
+      }
+   };
+}
+
+
+/***/ }),
+
+/***/ "./src/plugins/web_view_docxBuilder/FNAbviewdocxbuilder.js":
+/*!*****************************************************************!*\
+  !*** ./src/plugins/web_view_docxBuilder/FNAbviewdocxbuilder.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FNAbviewdocxbuilderProperties)
+/* harmony export */ });
+// FNAbviewdocxbuilder Properties
+// A properties side import for an ABView.
+//
+function FNAbviewdocxbuilderProperties({
+   AB,
+   ABViewPropertiesPlugin,
+   // ABUIPlugin,
+}) {
+   const uiConfig = AB.Config.uiSettings();
+   const L = AB.Label();
+
+   let ABViewDocxBuilderPropertyComponentDefaults = {};
+
+   const base = "properties_abview_docxBuilder";
+
+   return class ABAbviewdocxbuilderProperties extends ABViewPropertiesPlugin {
+      static getPluginKey() {
+         return this.key;
+      }
+
+      static getPluginType() {
+         return "properties-view";
+         // properties-view : will display in the properties panel of the ABDesigner
+      }
+
+      constructor() {
+         super(base, {
+            // Put our ids here
+            buttonlabel: "",
+            buttonPosition: "",
+            datacollection: "",
+            docxFile: "",
+            docxDownload: "",
+            filelabel: "",
+            language: "",
+            toolbarBackground: "",
+            width: 0,
+         });
+
+         this.AB = AB;
+         ABViewDocxBuilderPropertyComponentDefaults =
+            this.AB.ClassManager.viewClass("docxBuilder").defaultValues();
+      }
+
+      static get key() {
+         return "docxBuilder";
+      }
+
+      ui() {
+         //  const ids = this.ids;
+
+         // Populate language options
+         const langOptions = this.AB.Multilingual.languages().map((lang) => {
+            return {
+               id: lang.language_code,
+               value: lang.language_label,
+            };
+         });
+
+         // docxFile: "",
+         // docxDownload: "",
+         // toolbarBackground: "",
+         // width: 0,
+
+         return super.ui([
+            {
+               view: "fieldset",
+               label: L("Data:"),
+               labelWidth: uiConfig.labelWidthLarge,
+               body: {
+                  type: "clean",
+                  padding: 10,
+                  rows: [
+                     {
+                        id: this.ids.datacollection,
+                        name: "datacollection",
+                        view: "multiselect",
+                        label: L("Data Source"),
+                        labelWidth: uiConfig.labelWidthLarge,
+                        on: {
+                           onChange: () => {
+                              if ($$(this.ids.datacollection).getValue()) {
+                                 $$(this.ids.docxFile).enable();
+                              } else {
+                                 $$(this.ids.docxFile).disable();
+                              }
+
+                              this.onChange();
+                           },
+                        },
+                     },
+                  ],
+               },
+            },
+
+            {
+               view: "fieldset",
+               label: L("Template file:"),
+               labelWidth: uiConfig.labelWidthLarge,
+               body: {
+                  type: "clean",
+                  padding: 10,
+                  rows: [
+                     {
+                        cols: [
+                           {
+                              view: "label",
+                              label: L("DOCX file:"),
+                              css: "ab-text-bold",
+                              width: uiConfig.labelWidthXLarge,
+                           },
+                           {
+                              id: this.ids.docxFile,
+                              view: "uploader",
+                              value: L("Upload"),
+                              name: "docxFile",
+                              apiOnly: true,
+                              inputName: "file",
+                              multiple: false,
+                              on: {
+                                 onBeforeFileAdd: (item) => {
+                                    return this.validateType(item);
+                                 },
+
+                                 onFileUpload: (file) => {
+                                    this.uploadedFile(file);
+                                 },
+
+                                 onFileUploadError: () => {},
+                                 onViewShow: () => {
+                                    if (
+                                       $$(this.ids.datacollection).getValue()
+                                    ) {
+                                       $$(this.ids.docxFile).enable();
+                                    } else {
+                                       $$(this.ids.docxFile).disable();
+                                    }
+                                 },
+                              },
+                           },
+                        ],
+                     },
+                     {
+                        id: this.ids.filelabel,
+                        name: "filelabel",
+                        view: "text",
+                        label: L("Filename"),
+                        labelWidth: uiConfig.labelWidthLarge,
+                        on: {
+                           onChange: () => {
+                              this.onChange();
+                           },
+                        },
+                     },
+                     {
+                        id: this.ids.docxDownload,
+                        name: "docxDownload",
+                        view: "button",
+                        type: "icon",
+                        css: "webix_primary",
+                        icon: "fa fa-file-word-o",
+                        label: L("Download Template File"),
+                        click: () => {
+                           this.downloadFile();
+                        },
+                     },
+                  ],
+               },
+            },
+
+            {
+               view: "fieldset",
+               label: L("Language:"),
+               labelWidth: uiConfig.labelWidthLarge,
+               body: {
+                  type: "clean",
+                  padding: 10,
+                  rows: [
+                     {
+                        id: this.ids.language,
+                        name: "language",
+                        view: "richselect",
+                        label: L("Language"),
+                        labelWidth: uiConfig.labelWidthLarge,
+                        options: langOptions,
+                        on: {
+                           onChange: () => {
+                              this.onChange();
+                           },
+                        },
+                     },
+                  ],
+               },
+            },
+
+            {
+               view: "fieldset",
+               label: L("Customize Display:"),
+               labelWidth: uiConfig.labelWidthLarge,
+               body: {
+                  type: "clean",
+                  padding: 10,
+                  rows: [
+                     {
+                        id: this.ids.buttonlabel,
+                        name: "buttonlabel",
+                        view: "text",
+                        label: L("Label"),
+                        labelWidth: uiConfig.labelWidthXLarge,
+                        on: {
+                           onChange: () => {
+                              this.onChange();
+                           },
+                        },
+                     },
+
+                     {
+                        id: this.ids.width,
+                        view: "counter",
+                        name: "width",
+                        label: L("Width:"),
+                        labelWidth: uiConfig.labelWidthXLarge,
+                        on: {
+                           onChange: () => {
+                              this.onChange();
+                           },
+                        },
+                     },
+                     {
+                        id: this.ids.toolbarBackground,
+                        view: "richselect",
+                        name: "toolbarBackground",
+                        label: L("Page background:"),
+                        labelWidth: uiConfig.labelWidthXLarge,
+                        options: [
+                           {
+                              id: "ab-background-default",
+                              value: L("White (default)"),
+                           },
+                           {
+                              id: "webix_dark",
+                              value: L("Dark"),
+                           },
+                           {
+                              id: "ab-background-lightgray",
+                              value: L("Gray"),
+                           },
+                        ],
+                        on: {
+                           onChange: () => {
+                              this.onChange();
+                           },
+                        },
+                     },
+
+                     {
+                        id: this.ids.buttonPosition,
+                        view: "richselect",
+                        name: "buttonPosition",
+                        label: L("Button Position:"),
+                        labelWidth: uiConfig.labelWidthXLarge,
+                        options: [
+                           {
+                              id: "left",
+                              value: L("Left (default)"),
+                           },
+                           {
+                              id: "center",
+                              value: L("Centered"),
+                           },
+                           {
+                              id: "right",
+                              value: L("Right"),
+                           },
+                        ],
+                        on: {
+                           onChange: () => {
+                              this.onChange();
+                           },
+                        },
+                     },
+                  ],
+               },
+            },
+         ]);
+      }
+
+      populate(view) {
+         super.populate(view);
+         if (!view) return;
+
+         const ids = this.ids;
+
+         const $DcSelector = $$(ids.datacollection);
+
+         const selectedDvId = view.settings.dataviewID ?? null;
+
+         $$(ids.toolbarBackground).setValue(
+            view.settings.toolbarBackground ??
+               ABViewDocxBuilderPropertyComponentDefaults.toolbarBackground
+         );
+         $$(ids.buttonPosition).setValue(
+            view.settings.buttonPosition ??
+               ABViewDocxBuilderPropertyComponentDefaults.buttonPosition
+         );
+
+         // Pull data views to options
+         const dcOptions = view.application
+            .datacollectionsIncluded()
+            .map((dc) => {
+               return {
+                  id: dc.id,
+                  value: dc.label,
+                  icon:
+                     dc.sourceType === "query"
+                        ? "fa fa-filter"
+                        : "fa fa-database",
+               };
+            });
+
+         $DcSelector.define("options", dcOptions);
+         $DcSelector.define("value", selectedDvId);
+         $DcSelector.refresh();
+
+         $$(ids.language).setValue(
+            view.settings.language ??
+               ABViewDocxBuilderPropertyComponentDefaults.language
+         );
+
+         $$(ids.filelabel).setValue(view.filelabel ?? view.settings.filelabel);
+         $$(ids.buttonlabel).setValue(
+            view.buttonlabel ?? view.settings.buttonlabel
+         );
+         $$(ids.width).setValue(view.settings.width);
+
+         if (view.settings.filename) {
+            $$(ids.docxDownload).show();
+         } else {
+            $$(ids.docxDownload).hide();
+         }
+      }
+
+      defaultValues() {
+         let values = {};
+         const ViewClass = this.ViewClass();
+         if (ViewClass) {
+            values = ViewClass.defaultValues();
+         }
+         return values;
+      }
+
+      /**
+       * @method values
+       * return the values for this form.
+       * @return {obj}
+       */
+      values() {
+         const ids = this.ids;
+         let vals = super.values();
+
+         vals.settings = vals.settings ?? {};
+         vals.settings.buttonlabel = $$(ids.buttonlabel).getValue();
+         vals.settings.dataviewID = $$(ids.datacollection).getValue();
+         vals.settings.width = $$(ids.width).getValue();
+         vals.filelabel = $$(ids.filelabel).getValue();
+         vals.settings.language = $$(ids.language).getValue();
+         vals.settings.toolbarBackground = $$(ids.toolbarBackground).getValue();
+         vals.settings.buttonPosition = $$(ids.buttonPosition).getValue();
+
+         return vals;
+      }
+
+      /**
+       * @method ViewClass()
+       * A method to return the proper ABViewXXX Definition.
+       * NOTE: Must be overwritten by the Child Class
+       */
+      ViewClass() {
+         return super._ViewClass("docxBuilder");
+      }
+
+      validateType(item) {
+         const ids = this.ids;
+
+         // verify file type
+         const acceptableTypes = ["docx"];
+         const type = item.type.toLowerCase();
+         if (acceptableTypes.indexOf(type) == -1) {
+            this.AB.Webix.message(
+               L(`Only [${acceptableTypes.join(", ")}] files are supported`)
+            );
+            return false;
+         } else {
+            // set upload url to uploader
+            const currView = this.CurrentView;
+            const uploadUrl = currView.uploadUrl();
+
+            $$(ids.docxFile).define("upload", uploadUrl);
+            $$(ids.docxFile).refresh();
+
+            return true;
+         }
+      }
+
+      uploadedFile(fileInfo) {
+         if (!fileInfo || !fileInfo.data) return;
+
+         const ids = this.ids;
+         let currView = this.CurrentView;
+         currView.settings.filename = fileInfo.data.uuid;
+         currView.filelabel = fileInfo.name;
+
+         $$(ids.filelabel).setValue(currView.filelabel);
+         $$(ids.docxDownload).show();
+      }
+
+      downloadFile() {
+         const currView = this.CurrentView;
+         const url = currView.downloadUrl();
+
+         fetch(url)
+            .then((response) => response.blob())
+            .then((blob) => {
+               currView.letUserDownload(blob, currView.filelabel);
+            });
+      }
+   };
+}
+
+
+/***/ }),
+
+/***/ "./src/plugins/web_view_docxBuilder/FNAbviewdocxbuilderEditor.js":
+/*!***********************************************************************!*\
+  !*** ./src/plugins/web_view_docxBuilder/FNAbviewdocxbuilderEditor.js ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FNAbviewdocxbuilderEditor)
+/* harmony export */ });
+// FNAbviewdocxbuilder Editor
+// An Editor wrapper for the ABView Component.
+// The Editor is displayed in the ABDesigner as a view is worked on.
+// The Editor allows a widget to be moved and placed on the canvas.
+//
+function FNAbviewdocxbuilderEditor({ ABViewEditorPlugin }) {
+   return class ABAbviewdocxbuilderEditor extends ABViewEditorPlugin {
+      static getPluginKey() {
+         return this.key;
+      }
+
+      static getPluginType() {
+         return "editor-view";
+      }
+
+      static get key() {
+         return "docxBuilder";
+      }
+
+      constructor(view, base = "interface_editor_docxBuilder") {
+         super(view, base);
+      }
+
+      ui() {
+         return super.ui();
+      }
+
+      async init(AB) {
+         this.AB = AB;
+         await super.init(AB);
+      }
+
+      detatch() {
+         super.detatch();
+      }
+
+      onShow() {
+         super.onShow();
       }
    };
 }
@@ -77967,7 +78472,7 @@ __webpack_require__.r(__webpack_exports__);
       // require("./views/ABViewDataSelect"),
       // require("./views/ABViewDataview"),
       // require("./views/ABViewDetail"),
-      __webpack_require__(/*! ./views/ABViewDocxBuilder */ "./src/rootPages/Designer/editors/views/ABViewDocxBuilder.js"),
+      // require("./views/ABViewDocxBuilder"),
       __webpack_require__(/*! ./views/ABViewForm */ "./src/rootPages/Designer/editors/views/ABViewForm.js"),
       __webpack_require__(/*! ./views/ABViewFormUrl */ "./src/rootPages/Designer/editors/views/ABViewFormUrl.js"),
       // require("./views/ABViewGantt"),
@@ -78896,82 +79401,6 @@ var myClass = null;
          }
       };
    }
-
-   return myClass;
-}
-
-
-/***/ }),
-
-/***/ "./src/rootPages/Designer/editors/views/ABViewDocxBuilder.js":
-/*!*******************************************************************!*\
-  !*** ./src/rootPages/Designer/editors/views/ABViewDocxBuilder.js ***!
-  \*******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* export default binding */ __WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _ui_class__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../ui_class */ "./src/rootPages/Designer/ui_class.js");
-/**
- * ABViewDocxBuilder
- * The widget that displays the UI Editor Component on the screen
- * when designing the UI.
- */
-let myClass = null;
-// {singleton}
-// we will want to call this factory fn() repeatedly in our imports,
-// but we only want to define 1 Class reference.
-
-
-
-/* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__(AB) {
-   if (myClass) return myClass;
-
-   const UIClass = (0,_ui_class__WEBPACK_IMPORTED_MODULE_0__["default"])(AB);
-   // var L = UIClass.L();
-   // var L = ABViewContainer.L();
-
-   myClass = class ABViewDocxBuilderEditor extends UIClass {
-      static get key() {
-         return "docxBuilder";
-      }
-
-      constructor(view, base = "interface_editor_viewdocxBuilder") {
-         // base: {string} unique base id reference
-
-         super(base, {});
-
-         this.view = view;
-         this.settings = view.settings;
-         // shortcut to reference the settings
-
-         this.base = base;
-         this.AB = AB;
-
-         this.component = this.view.component();
-      }
-
-      ui() {
-         return this.component.ui();
-      }
-
-      init(AB) {
-         this.AB = AB;
-         return this.component.init(AB, 2);
-         // in our editor, we provide accessLv = 2
-      }
-
-      detatch() {
-         this.component.detatch?.();
-      }
-
-      onShow() {
-         this.component.onShow?.();
-      }
-   };
 
    return myClass;
 }
@@ -80039,7 +80468,7 @@ var PropertyMgr = null;
          __webpack_require__(/*! ./views/ABViewDetailItem */ "./src/rootPages/Designer/properties/views/ABViewDetailItem.js"),
          __webpack_require__(/*! ./views/ABViewDetailText */ "./src/rootPages/Designer/properties/views/ABViewDetailText.js"),
          __webpack_require__(/*! ./views/ABViewDetailTree */ "./src/rootPages/Designer/properties/views/ABViewDetailTree.js"),
-         __webpack_require__(/*! ./views/ABViewDocxBuilder */ "./src/rootPages/Designer/properties/views/ABViewDocxBuilder.js"),
+         // require("./views/ABViewDocxBuilder"),
          __webpack_require__(/*! ./views/ABViewForm */ "./src/rootPages/Designer/properties/views/ABViewForm.js"),
          __webpack_require__(/*! ./views/ABViewFormButton */ "./src/rootPages/Designer/properties/views/ABViewFormButton.js"),
          __webpack_require__(/*! ./views/ABViewFormCheckbox */ "./src/rootPages/Designer/properties/views/ABViewFormCheckbox.js"),
@@ -108575,445 +109004,6 @@ __webpack_require__.r(__webpack_exports__);
    }
 
    return ABViewDetailTreeProperty;
-}
-
-
-/***/ }),
-
-/***/ "./src/rootPages/Designer/properties/views/ABViewDocxBuilder.js":
-/*!**********************************************************************!*\
-  !*** ./src/rootPages/Designer/properties/views/ABViewDocxBuilder.js ***!
-  \**********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* export default binding */ __WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _ABView__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABView */ "./src/rootPages/Designer/properties/views/ABView.js");
-/*
- * ABViewDocxBuilder
- * A Property manager for our ABViewDocxBuilder definitions
- */
-
-
-/* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__(AB) {
-   const ABView = (0,_ABView__WEBPACK_IMPORTED_MODULE_0__["default"])(AB);
-   const uiConfig = AB.Config.uiSettings();
-   const L = ABView.L();
-
-   let ABViewDocxBuilderPropertyComponentDefaults = {};
-
-   const base = "properties_abview_docxBuilder";
-
-   class ABViewDocxBuilderProperty extends ABView {
-      constructor() {
-         super(base, {
-            // Put our ids here
-            buttonlabel: "",
-            buttonPosition: "",
-            datacollection: "",
-            docxFile: "",
-            docxDownload: "",
-            filelabel: "",
-            language: "",
-            toolbarBackground: "",
-            width: 0,
-         });
-
-         this.AB = AB;
-         ABViewDocxBuilderPropertyComponentDefaults =
-            this.AB.ClassManager.viewClass(
-               "docxBuilder"
-            ).defaultValues();
-      }
-
-      static get key() {
-         return "docxBuilder";
-      }
-
-      ui() {
-         //  const ids = this.ids;
-
-         // Populate language options
-         const langOptions = this.AB.Multilingual.languages().map((lang) => {
-            return {
-               id: lang.language_code,
-               value: lang.language_label,
-            };
-         });
-
-         // docxFile: "",
-         // docxDownload: "",
-         // toolbarBackground: "",
-         // width: 0,
-
-         return super.ui([
-            {
-               view: "fieldset",
-               label: L("Data:"),
-               labelWidth: uiConfig.labelWidthLarge,
-               body: {
-                  type: "clean",
-                  padding: 10,
-                  rows: [
-                     {
-                        id: this.ids.datacollection,
-                        name: "datacollection",
-                        view: "multiselect",
-                        label: L("Data Source"),
-                        labelWidth: uiConfig.labelWidthLarge,
-                        on: {
-                           onChange: () => {
-                              if ($$(this.ids.datacollection).getValue()) {
-                                 $$(this.ids.docxFile).enable();
-                              } else {
-                                 $$(this.ids.docxFile).disable();
-                              }
-
-                              this.onChange();
-                           },
-                        },
-                     },
-                  ],
-               },
-            },
-
-            {
-               view: "fieldset",
-               label: L("Template file:"),
-               labelWidth: uiConfig.labelWidthLarge,
-               body: {
-                  type: "clean",
-                  padding: 10,
-                  rows: [
-                     {
-                        cols: [
-                           {
-                              view: "label",
-                              label: L("DOCX file:"),
-                              css: "ab-text-bold",
-                              width: uiConfig.labelWidthXLarge,
-                           },
-                           {
-                              id: this.ids.docxFile,
-                              view: "uploader",
-                              value: L("Upload"),
-                              name: "docxFile",
-                              apiOnly: true,
-                              inputName: "file",
-                              multiple: false,
-                              on: {
-                                 onBeforeFileAdd: (item) => {
-                                    return this.validateType(item);
-                                 },
-
-                                 onFileUpload: (file, response) => {
-                                    this.uploadedFile(file);
-                                 },
-
-                                 onFileUploadError: (file, response) => {},
-                                 onViewShow: () => {
-                                    if (
-                                       $$(this.ids.datacollection).getValue()
-                                    ) {
-                                       $$(this.ids.docxFile).enable();
-                                    } else {
-                                       $$(this.ids.docxFile).disable();
-                                    }
-                                 },
-                              },
-                           },
-                        ],
-                     },
-                     {
-                        id: this.ids.filelabel,
-                        name: "filelabel",
-                        view: "text",
-                        label: L("Filename"),
-                        labelWidth: uiConfig.labelWidthLarge,
-                        on: {
-                           onChange: () => {
-                              this.onChange();
-                           },
-                        },
-                     },
-                     {
-                        id: this.ids.docxDownload,
-                        name: "docxDownload",
-                        view: "button",
-                        type: "icon",
-                        css: "webix_primary",
-                        icon: "fa fa-file-word-o",
-                        label: L("Download Template File"),
-                        click: () => {
-                           this.downloadFile();
-                        },
-                     },
-                  ],
-               },
-            },
-
-            {
-               view: "fieldset",
-               label: L("Language:"),
-               labelWidth: uiConfig.labelWidthLarge,
-               body: {
-                  type: "clean",
-                  padding: 10,
-                  rows: [
-                     {
-                        id: this.ids.language,
-                        name: "language",
-                        view: "richselect",
-                        label: L("Language"),
-                        labelWidth: uiConfig.labelWidthLarge,
-                        options: langOptions,
-                        on: {
-                           onChange: () => {
-                              this.onChange();
-                           },
-                        },
-                     },
-                  ],
-               },
-            },
-
-            {
-               view: "fieldset",
-               label: L("Customize Display:"),
-               labelWidth: uiConfig.labelWidthLarge,
-               body: {
-                  type: "clean",
-                  padding: 10,
-                  rows: [
-                     {
-                        id: this.ids.buttonlabel,
-                        name: "buttonlabel",
-                        view: "text",
-                        label: L("Label"),
-                        labelWidth: uiConfig.labelWidthXLarge,
-                        on: {
-                           onChange: () => {
-                              this.onChange();
-                           },
-                        },
-                     },
-
-                     {
-                        id: this.ids.width,
-                        view: "counter",
-                        name: "width",
-                        label: L("Width:"),
-                        labelWidth: uiConfig.labelWidthXLarge,
-                        on: {
-                           onChange: () => {
-                              this.onChange();
-                           },
-                        },
-                     },
-                     {
-                        id: this.ids.toolbarBackground,
-                        view: "richselect",
-                        name: "toolbarBackground",
-                        label: L("Page background:"),
-                        labelWidth: uiConfig.labelWidthXLarge,
-                        options: [
-                           {
-                              id: "ab-background-default",
-                              value: L("White (default)"),
-                           },
-                           {
-                              id: "webix_dark",
-                              value: L("Dark"),
-                           },
-                           {
-                              id: "ab-background-lightgray",
-                              value: L("Gray"),
-                           },
-                        ],
-                        on: {
-                           onChange: () => {
-                              this.onChange();
-                           },
-                        },
-                     },
-
-                     {
-                        id: this.ids.buttonPosition,
-                        view: "richselect",
-                        name: "buttonPosition",
-                        label: L("Button Position:"),
-                        labelWidth: uiConfig.labelWidthXLarge,
-                        options: [
-                           {
-                              id: "left",
-                              value: L("Left (default)"),
-                           },
-                           {
-                              id: "center",
-                              value: L("Centered"),
-                           },
-                           {
-                              id: "right",
-                              value: L("Right"),
-                           },
-                        ],
-                        on: {
-                           onChange: () => {
-                              this.onChange();
-                           },
-                        },
-                     },
-                  ],
-               },
-            },
-         ]);
-      }
-
-      populate(view) {
-         super.populate(view);
-         if (!view) return;
-
-         const ids = this.ids;
-
-         const $DcSelector = $$(ids.datacollection);
-
-         const selectedDvId = view.settings.dataviewID ?? null;
-
-         $$(ids.toolbarBackground).setValue(
-            view.settings.toolbarBackground ??
-               ABViewDocxBuilderPropertyComponentDefaults.toolbarBackground
-         );
-         $$(ids.buttonPosition).setValue(
-            view.settings.buttonPosition ??
-               ABViewDocxBuilderPropertyComponentDefaults.buttonPosition
-         );
-
-         // Pull data views to options
-         const dcOptions = view.application
-            .datacollectionsIncluded()
-            .map((dc) => {
-               return {
-                  id: dc.id,
-                  value: dc.label,
-                  icon:
-                     dc.sourceType === "query"
-                        ? "fa fa-filter"
-                        : "fa fa-database",
-               };
-            });
-
-         $DcSelector.define("options", dcOptions);
-         $DcSelector.define("value", selectedDvId);
-         $DcSelector.refresh();
-
-         $$(ids.language).setValue(
-            view.settings.language ??
-               ABViewDocxBuilderPropertyComponentDefaults.language
-         );
-
-         $$(ids.filelabel).setValue(view.filelabel ?? view.settings.filelabel);
-         $$(ids.buttonlabel).setValue(
-            view.buttonlabel ?? view.settings.buttonlabel
-         );
-         $$(ids.width).setValue(view.settings.width);
-
-         if (view.settings.filename) {
-            $$(ids.docxDownload).show();
-         } else {
-            $$(ids.docxDownload).hide();
-         }
-      }
-
-      defaultValues() {
-         let values = {};
-         const ViewClass = this.ViewClass();
-         if (ViewClass) {
-            values = ViewClass.defaultValues();
-         }
-         return values;
-      }
-
-      /**
-       * @method values
-       * return the values for this form.
-       * @return {obj}
-       */
-      values() {
-         const ids = this.ids;
-         let vals = super.values();
-
-         vals.settings = vals.settings ?? {};
-         vals.settings.buttonlabel = $$(ids.buttonlabel).getValue();
-         vals.settings.dataviewID = $$(ids.datacollection).getValue();
-         vals.settings.width = $$(ids.width).getValue();
-         vals.filelabel = $$(ids.filelabel).getValue();
-         vals.settings.language = $$(ids.language).getValue();
-         vals.settings.toolbarBackground = $$(ids.toolbarBackground).getValue();
-         vals.settings.buttonPosition = $$(ids.buttonPosition).getValue();
-
-         return vals;
-      }
-
-      /**
-       * @method ViewClass()
-       * A method to return the proper ABViewXXX Definition.
-       * NOTE: Must be overwritten by the Child Class
-       */
-      ViewClass() {
-         return super._ViewClass("docxBuilder");
-      }
-
-      validateType(item) {
-         const ids = this.ids;
-
-         // verify file type
-         const acceptableTypes = ["docx"];
-         const type = item.type.toLowerCase();
-         if (acceptableTypes.indexOf(type) == -1) {
-            this.AB.Webix.message(
-               L(`Only [${acceptableTypes.join(", ")}] files are supported`)
-            );
-            return false;
-         } else {
-            // set upload url to uploader
-            const currView = this.CurrentView;
-            const uploadUrl = currView.uploadUrl();
-
-            $$(ids.docxFile).define("upload", uploadUrl);
-            $$(ids.docxFile).refresh();
-
-            return true;
-         }
-      }
-
-      uploadedFile(fileInfo) {
-         if (!fileInfo || !fileInfo.data) return;
-
-         const ids = this.ids;
-         let currView = this.CurrentView;
-         currView.settings.filename = fileInfo.data.uuid;
-         currView.filelabel = fileInfo.name;
-
-         $$(ids.filelabel).setValue(currView.filelabel);
-         $$(ids.docxDownload).show();
-      }
-
-      downloadFile() {
-         const currView = this.CurrentView;
-         const url = currView.downloadUrl();
-
-         fetch(url)
-            .then((response) => response.blob())
-            .then((blob) => {
-               currView.letUserDownload(blob, currView.filelabel);
-            });
-      }
-   }
-
-   return ABViewDocxBuilderProperty;
 }
 
 
