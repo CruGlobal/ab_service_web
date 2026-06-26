@@ -81,7 +81,7 @@ const CONTENT_GROUP_NAME_COLUMNNAME = "name";
 const CONTENT_LINK_DATAPANEL_COLUMNNAME = "custrecord_ccc_team_assign_emp_id";
 const DATAPANEL_EMERITUS_STATUS_COLUMNNAME = "custentity_ccc_emeritus_status";
 const DATAPANEL_INITIALS_COLUMNNAME = "initials";
-const DATAPANEL_ORG_STATUS_COLUMNNAME = "custentity_ccc_org_status";
+const DATAPANEL_ORG_RELATIONSHIP_COLUMNNAME = "custentity_ccc_org_relation";
 const DATAPANEL_PREFERRED_NAME = "custentity_ccc_preferred_name";
 const DATAPANEL_SUPERVISOR_COLUMNNAME = "custentity_ccc_supervisor";
 const EXTERNAL_SUPPORT_COLUMNNAME = "custrecord_whq_team_is_external_support";
@@ -2258,7 +2258,7 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                                     e[dataPanelPK] ==
                                     value[CONTENT_LINK_DATAPANEL_COLUMNNAME]
                               )[0]
-                              [DATAPANEL_ORG_STATUS_COLUMNNAME]?.toString()
+                              [DATAPANEL_ORG_RELATIONSHIP_COLUMNNAME]?.toString()
                         ) > -1 ||
                         this.datacollection.getData(
                            (e) =>
@@ -7293,7 +7293,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 // TODO (Guy): Figure out how to get these field.
 const EMPLOYEE_EMAIL_COLUMNNAME = "email";
-const EMPLOYEE_ORG_STATUS_COLUMNNAME = "custentity_ccc_org_status";
+const EMPLOYEE_ORG_RELATIONSHIP_COLUMNNAME = "custentity_ccc_org_relation";
 const EXTERNAL_SUPPORT_COLUMNNAME = "custrecord_whq_team_is_external_support";
 class CustomProcessTasks {
    constructor(instance, input, oldInputs = []) {
@@ -7492,7 +7492,7 @@ class CustomProcessTasks {
       if (
          this.isExternalSupport() ||
          this._instance.ORG_SENT_STATUSES.indexOf(
-            this._employeeValue[EMPLOYEE_ORG_STATUS_COLUMNNAME]?.toString()
+            this._employeeValue[EMPLOYEE_ORG_RELATIONSHIP_COLUMNNAME]?.toString()
          ) > -1
       ) {
          this._input[this._assignmentPrincipleColumnName] = 0;
@@ -7555,7 +7555,7 @@ class CustomProcessTasks {
                         currEmployeeValuePK &&
                      this._instance.ORG_SENT_STATUSES.indexOf(
                         employeeInOtherEntityValue[
-                           EMPLOYEE_ORG_STATUS_COLUMNNAME
+                           EMPLOYEE_ORG_RELATIONSHIP_COLUMNNAME
                         ]?.toString()
                      ) > -1
                   ) {
@@ -7574,7 +7574,7 @@ class CustomProcessTasks {
          this._input[this._assignmentPrincipleColumnName] == 0 &&
          isChanging &&
          this._instance.ORG_SENT_STATUSES.indexOf(
-            this._employeeValue[EMPLOYEE_ORG_STATUS_COLUMNNAME]?.toString()
+            this._employeeValue[EMPLOYEE_ORG_RELATIONSHIP_COLUMNNAME]?.toString()
          ) === -1
       )
          this._needApproval = isChanging;
@@ -7959,7 +7959,7 @@ __webpack_require__.r(__webpack_exports__);
 
 const plugin = {
    /* global VERSION -- injected by webpack define plugin */
-   version: "1.0.17",
+   version: "1.0.18",
    key: "HRTeams",
    apply: function (AB) {
       const ABView = AB.Class.ABViewManager.viewClass("view");
