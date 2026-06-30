@@ -1223,7 +1223,7 @@ class ABFactory extends (_core_ABFactoryCore__WEBPACK_IMPORTED_MODULE_0___defaul
       // Load included plugins when available (e.g. platform/plugins/included/).
       // Optional so unit tests and CI can run when that path is not present.
       try {
-         const LocalPlugins = await __webpack_require__.e(/*! import() */ "AppBuilder_platform_plugins_included_index_js").then(__webpack_require__.bind(__webpack_require__, /*! ./platform/plugins/included/index.js */ 30188));
+         const LocalPlugins = await Promise.all(/*! import() */[__webpack_require__.e("vendor-node_modules_image-size_dist_index_js-node_modules_jszip-utils_lib_index_js"), __webpack_require__.e("AppBuilder_platform_plugins_included_index_js")]).then(__webpack_require__.bind(__webpack_require__, /*! ./platform/plugins/included/index.js */ 30188));
          return LocalPlugins.default.load(this);
       } catch (e) {
          if (e?.code !== "MODULE_NOT_FOUND") throw e;
@@ -6354,9 +6354,7 @@ const ABProcessLane = __webpack_require__(/*! ../platform/process/ABProcessLane 
 const ABProcessTaskManager = __webpack_require__(/*! ./process/ABProcessTaskManager */ 94148);
 
 const ABStep = __webpack_require__(/*! ../platform/ABStep */ 39631);
-
 const ABViewDetailItem = __webpack_require__(/*! ../platform/views/ABViewDetailItem */ 26345);
-const ABViewFormItem = __webpack_require__(/*! ../platform/views/ABViewFormItem */ 86962);
 const ABMobileViewFormItem = __webpack_require__(/*! ../platform/mobile/ABMobileViewFormItem */ 36646);
 
 // const ABObjectWorkspaceViewGrid = require("../platform/workspaceViews/ABObjectWorkspaceViewGrid");
@@ -6447,7 +6445,6 @@ class ABFactory extends EventEmitter {
          ABProcessTaskManager,
 
          ABViewDetailItem,
-         ABViewFormItem,
          ABMobileViewFormItem,
       };
 
@@ -12457,8 +12454,8 @@ var AllViews = [
    // require("../platform/views/ABViewCSVImporter"),
    __webpack_require__(/*! ../platform/views/ABViewDataFilter */ 70153),
    // require("../platform/views/ABViewDataSelect"),
-   __webpack_require__(/*! ../platform/views/ABViewDataview */ 6286),
-   __webpack_require__(/*! ../platform/views/ABViewDocxBuilder */ 4634),
+   // require("../platform/views/ABViewDataview"),
+   // require("../platform/views/ABViewDocxBuilder"),
    // require("../platform/views/ABViewGrid"),
    // require("../platform/views/ABViewImage"),
    // require("../platform/views/ABViewLabel"),
@@ -12490,24 +12487,6 @@ var AllViews = [
    // require("../platform/views/ABViewDetailSelectivity"),
    __webpack_require__(/*! ../platform/views/ABViewDetailText */ 91905),
    __webpack_require__(/*! ../platform/views/ABViewDetailTree */ 20158),
-
-   //
-   // Form Components
-   //
-   __webpack_require__(/*! ../platform/views/ABViewForm */ 10365),
-   __webpack_require__(/*! ../platform/views/ABViewFormButton */ 45341),
-   __webpack_require__(/*! ../platform/views/ABViewFormCheckbox */ 96276),
-   __webpack_require__(/*! ../platform/views/ABViewFormConnect */ 77927),
-   __webpack_require__(/*! ../platform/views/ABViewFormCustom */ 96234),
-   __webpack_require__(/*! ../platform/views/ABViewFormDatepicker */ 19835),
-   __webpack_require__(/*! ../platform/views/ABViewFormJson */ 71803),
-   __webpack_require__(/*! ../platform/views/ABViewFormNumber */ 45140),
-   __webpack_require__(/*! ../platform/views/ABViewFormReadonly */ 19235),
-   __webpack_require__(/*! ../platform/views/ABViewFormSelectMultiple */ 71881),
-   __webpack_require__(/*! ../platform/views/ABViewFormSelectSingle */ 46125),
-   __webpack_require__(/*! ../platform/views/ABViewFormTextbox */ 10449),
-   __webpack_require__(/*! ../platform/views/ABViewFormTree */ 35865),
-   __webpack_require__(/*! ../platform/views/ABViewFormURL */ 71616),
 ];
 
 /*
@@ -29725,100 +29704,6 @@ module.exports = class ABViewDataFilterCore extends ABViewWidget {
 
 /***/ },
 
-/***/ 46021
-/*!*****************************************************!*\
-  !*** ./AppBuilder/core/views/ABViewDataviewCore.js ***!
-  \*****************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
-
-const ABViewDetail = __webpack_require__(/*! ../../platform/views/ABViewDetail */ 86566);
-
-const ABViewDataviewPropertyComponentDefaults = {
-   xCount: 1, // {int} the number of columns per row (need at least one)
-   detailsPage: "",
-   detailsTab: "",
-   editPage: "",
-   editTab: "",
-};
-
-const ABViewDataviewDefaults = {
-   key: "dataview", // {string} unique key for this view
-   icon: "th", // {string} fa-[icon] reference for this view
-   labelKey: "Data view", // {string} the multilingual label key for the class label
-};
-
-module.exports = class ABViewDataviewCore extends ABViewDetail {
-   /**
-    * @param {obj} values  key=>value hash of ABView values
-    * @param {ABApplication} application the application object this view is under
-    * @param {ABView} parent the ABView this view is a child of. (can be null)
-    */
-   constructor(values, application, parent, defaultValues) {
-      super(
-         values,
-         application,
-         parent,
-         defaultValues || ABViewDataviewDefaults
-      );
-   }
-
-   static common() {
-      return ABViewDataviewDefaults;
-   }
-
-   static defaultValues() {
-      return ABViewDataviewPropertyComponentDefaults;
-   }
-
-   ///
-   /// Instance Methods
-   ///
-
-   /**
-    * @method fromValues()
-    *
-    * initialze this object with the given set of values.
-    * @param {obj} values
-    */
-   fromValues(values) {
-      super.fromValues(values);
-
-      this.settings.xCount = parseInt(
-         this.settings.xCount || ABViewDataviewPropertyComponentDefaults.xCount
-      );
-      this.settings.detailsPage =
-         this.settings.detailsPage ||
-         ABViewDataviewPropertyComponentDefaults.detailsPage;
-      this.settings.editPage =
-         this.settings.editPage ||
-         ABViewDataviewPropertyComponentDefaults.editPage;
-      this.settings.detailsTab =
-         this.settings.detailsTab ||
-         ABViewDataviewPropertyComponentDefaults.detailsTab;
-      this.settings.editTab =
-         this.settings.editTab ||
-         ABViewDataviewPropertyComponentDefaults.editTab;
-   }
-
-   parentDetailComponent() {
-      let dataview = null;
-
-      let curr = this;
-      while (curr.key != "dataview" && !curr.isRoot() && curr.parent) {
-         curr = curr.parent;
-      }
-
-      if (curr.key == "dataview") {
-         dataview = curr;
-      }
-
-      return dataview;
-   }
-};
-
-
-/***/ },
-
 /***/ 75024
 /*!***********************************************************!*\
   !*** ./AppBuilder/core/views/ABViewDetailCheckboxCore.js ***!
@@ -30322,1164 +30207,6 @@ module.exports = class ABViewDetailTextCore extends ABViewDetailItem {
 
    static defaultValues() {
       return ABViewDetailPropertyComponentDefaults;
-   }
-};
-
-
-/***/ },
-
-/***/ 72481
-/*!********************************************************!*\
-  !*** ./AppBuilder/core/views/ABViewDocxBuilderCore.js ***!
-  \********************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
-
-const ABViewWidget = __webpack_require__(/*! ../../platform/views/ABViewWidget */ 87039);
-
-const ABViewDocxBuilderPropertyComponentDefaults = {
-   buttonlabel: "Download DOCX",
-   dataviewID: null,
-   width: 0,
-   filename: "", // uuid
-   filelabel: "output.docx",
-   language: "en", // en
-   toolbarBackground: "ab-background-default",
-   buttonPosition: "left",
-};
-
-const ABViewDefaults = {
-   key: "docxBuilder", // {string} unique key for this view
-   icon: "file-word-o", // {string} fa-[icon] reference for this view
-   labelKey: "DOCX Builder", // {string} the multilingual label key for the class label
-};
-
-module.exports = class ABViewDocxBuilderCore extends ABViewWidget {
-   constructor(values, application, parent, defaultValues) {
-      super(values, application, parent, defaultValues || ABViewDefaults);
-   }
-
-   static common() {
-      return ABViewDefaults;
-   }
-
-   static defaultValues() {
-      return ABViewDocxBuilderPropertyComponentDefaults;
-   }
-
-   ///
-   /// Instance Methods
-   ///
-
-   /**
-    * @method toObj()
-    *
-    * properly compile the current state of this ABViewLabel instance
-    * into the values needed for saving.
-    *
-    * @return {json}
-    */
-   toObj() {
-      this.unTranslate(this, this, ["filelabel", "buttonlabel"]);
-
-      let obj = super.toObj();
-      obj.viewIDs = [];
-      return obj;
-   }
-
-   /**
-    * @method fromValues()
-    *
-    * initialze this object with the given set of values.
-    * @param {obj} values
-    */
-   fromValues(values) {
-      super.fromValues(values);
-
-      // convert from "0" => 0
-      this.settings.width = parseInt(
-         this.settings.width || ABViewDocxBuilderPropertyComponentDefaults.width
-      );
-
-      this.translate(this, this, ["filelabel", "buttonlabel"]);
-   }
-
-   uploadUrl() {
-      // TODO: Convert this to use ABFactory.urlFileUpload() or a ABFieldFile
-      // to get the URL:
-
-      // support uploading template when more than one data source is selected
-      const object = this.datacollections[0].datasource;
-
-      // NOTE: file-upload API needs to have the id of ANY field.
-      const field = object ? object.fields()[0] : null;
-
-      return `/file/upload/${object?.id}/${field?.id}/1`;
-   }
-
-   downloadUrl() {
-      return `/file/${this.settings.filename}`;
-   }
-
-   get languageCode() {
-      return (
-         this.settings.language ||
-         ABViewDocxBuilderPropertyComponentDefaults.language
-      );
-   }
-
-   get datacollections() {
-      let dataviewID = (this.settings || {}).dataviewID;
-      if (!dataviewID) return [];
-
-      let dvList = dataviewID.split(",") || [];
-
-      return this.AB.datacollections((dv) => dvList.indexOf(dv.id) > -1) || [];
-   }
-};
-
-
-/***/ },
-
-/***/ 95994
-/*!*******************************************************!*\
-  !*** ./AppBuilder/core/views/ABViewFormButtonCore.js ***!
-  \*******************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
-
-const ABView = __webpack_require__(/*! ../../platform/views/ABView */ 30747);
-
-const ABViewFormButtonPropertyComponentDefaults = {
-   includeSave: true,
-   saveLabel: "",
-   includeCancel: false,
-   cancelLabel: "",
-   includeReset: false,
-   resetLabel: "",
-   includeDelete: false,
-   deleteLabel: "",
-   afterCancel: null,
-   alignment: "right",
-   isDefault: false, // mark default button of form widget
-};
-
-const ABViewFormButtonDefaults = {
-   key: "button",
-   // {string} unique key for this view
-
-   icon: "square",
-   // {string} fa-[icon] reference for this view
-
-   labelKey: "ab.components.button",
-   // {string} the multilingual label key for the class label
-};
-
-module.exports = class ABViewFormButtonCore extends ABView {
-   constructor(values, application, parent, defaultValues) {
-      super(
-         values,
-         application,
-         parent,
-         defaultValues || ABViewFormButtonDefaults
-      );
-   }
-
-   static common() {
-      return ABViewFormButtonDefaults;
-   }
-
-   static defaultValues() {
-      return ABViewFormButtonPropertyComponentDefaults;
-   }
-
-   ///
-   /// Instance Methods
-   ///
-
-   toObj() {
-      // labels are multilingual values:
-      let labels = [];
-
-      if (this.settings.saveLabel) labels.push("saveLabel");
-
-      if (this.settings.cancelLabel) labels.push("cancelLabel");
-
-      if (this.settings.resetLabel) labels.push("resetLabel");
-
-      if (this.settings.deleteLabel) labels.push("deleteLabel");
-
-      this.unTranslate(this.settings, this.settings, labels);
-
-      let result = super.toObj();
-
-      return result;
-   }
-
-   /**
-    * @property datacollection
-    * return data source
-    * NOTE: this view doesn't track a DataCollection.
-    * @return {ABDataCollection}
-    */
-   get datacollection() {
-      return null;
-   }
-
-   fromValues(values) {
-      super.fromValues(values);
-
-      // labels are multilingual values:
-      let labels = [];
-
-      if (this.settings.saveLabel) labels.push("saveLabel");
-
-      if (this.settings.cancelLabel) labels.push("cancelLabel");
-
-      if (this.settings.resetLabel) labels.push("resetLabel");
-
-      if (this.settings.deleteLabel) labels.push("deleteLabel");
-
-      this.unTranslate(this.settings, this.settings, labels);
-
-      this.settings.includeSave = JSON.parse(
-         (this.settings?.includeSave ?? true) &&
-            ABViewFormButtonPropertyComponentDefaults.includeSave
-      );
-      this.settings.includeCancel = JSON.parse(
-         this.settings.includeCancel ||
-            ABViewFormButtonPropertyComponentDefaults.includeCancel
-      );
-      this.settings.includeReset = JSON.parse(
-         this.settings.includeReset ||
-            ABViewFormButtonPropertyComponentDefaults.includeReset
-      );
-      this.settings.includeDelete = JSON.parse(
-         this.settings.includeDelete ||
-            ABViewFormButtonPropertyComponentDefaults.includeDelete
-      );
-
-      this.settings.isDefault = JSON.parse(
-         this.settings.isDefault ||
-            ABViewFormButtonPropertyComponentDefaults.isDefault
-      );
-   }
-
-   /**
-    * @method componentList
-    * return the list of components available on this view to display in the editor.
-    */
-   componentList() {
-      return [];
-   }
-};
-
-
-/***/ },
-
-/***/ 14647
-/*!*********************************************************!*\
-  !*** ./AppBuilder/core/views/ABViewFormCheckboxCore.js ***!
-  \*********************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
-
-const ABViewFormItem = __webpack_require__(/*! ../../platform/views/ABViewFormItem */ 86962);
-
-const ABViewFormCheckboxPropertyComponentDefaults = {};
-
-const ABViewFormCheckboxDefaults = {
-   key: "checkbox", // {string} unique key for this view
-   icon: "check-square-o", // {string} fa-[icon] reference for this view
-   labelKey: "ab.components.checkbox", // {string} the multilingual label key for the class label
-};
-
-module.exports = class ABViewFormCheckboxCore extends ABViewFormItem {
-   constructor(values, application, parent, defaultValues) {
-      super(
-         values,
-         application,
-         parent,
-         defaultValues || ABViewFormCheckboxDefaults
-      );
-   }
-
-   static common() {
-      return ABViewFormCheckboxDefaults;
-   }
-
-   static defaultValues() {
-      return ABViewFormCheckboxPropertyComponentDefaults;
-   }
-
-   /**
-    * @method componentList
-    * return the list of components available on this view to display in the editor.
-    */
-   componentList() {
-      return [];
-   }
-};
-
-
-/***/ },
-
-/***/ 78424
-/*!********************************************************!*\
-  !*** ./AppBuilder/core/views/ABViewFormConnectCore.js ***!
-  \********************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
-
-const ABViewFormItem = __webpack_require__(/*! ../../platform/views/ABViewFormItem */ 86962);
-
-const ABViewFormConnectPropertyComponentDefaults = {
-   formView: "", // id of form to add new data
-   filterConditions: {
-      // array of filters to apply to the data table
-      glue: "and",
-      rules: [],
-   },
-   sortFields: [],
-   // objectWorkspace: {
-   //    filterConditions: {
-   //       // array of filters to apply to the data table
-   //       glue: "and",
-   //       rules: [],
-   //    },
-   // },
-   popupWidth: 700,
-   popupHeight: 450,
-};
-
-const ABViewFormConnectDefaults = {
-   key: "connect", // {string} unique key for this view
-   icon: "list-ul", // {string} fa-[icon] reference for this view
-   labelKey: "Connect", // {string} the multilingual label key for the class label
-};
-
-module.exports = class ABViewFormConnectCore extends ABViewFormItem {
-   constructor(values, application, parent, defaultValues) {
-      super(
-         values,
-         application,
-         parent,
-         defaultValues || ABViewFormConnectDefaults
-      );
-   }
-
-   static common() {
-      return ABViewFormConnectDefaults;
-   }
-
-   static defaultValues() {
-      return ABViewFormConnectPropertyComponentDefaults;
-   }
-
-   ///
-   /// Instance Methods
-   ///
-
-   /**
-    * @method fromValues()
-    *
-    * initialze this object with the given set of values.
-    * @param {obj} values
-    */
-   fromValues(values) {
-      super.fromValues(values);
-
-      this.settings.filterConditions =
-         this.settings.filterConditions ||
-         ABViewFormConnectPropertyComponentDefaults.filterConditions;
-   }
-
-   /**
-    * @method componentList
-    * return the list of components available on this view to display in the editor.
-    */
-   componentList() {
-      return [];
-   }
-};
-
-
-/***/ },
-
-/***/ 25378
-/*!*************************************************!*\
-  !*** ./AppBuilder/core/views/ABViewFormCore.js ***!
-  \*************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
-
-const ABViewContainer = __webpack_require__(/*! ../../platform/views/ABViewContainer */ 76528);
-const ABViewFormItem = __webpack_require__(/*! ../../platform/views/ABViewFormItem */ 86962);
-
-const ABRecordRule = __webpack_require__(/*! ../../rules/ABViewRuleListFormRecordRules */ 1148);
-const ABSubmitRule = __webpack_require__(/*! ../../rules/ABViewRuleListFormSubmitRules */ 41171);
-
-const ABViewFormDefaults = {
-   key: "form", // unique key identifier for this ABViewForm
-   icon: "list-alt", // icon reference: (without 'fa-' )
-   labelKey: "Form", // {string} the multilingual label key for the class label
-};
-
-const ABViewFormPropertyComponentDefaults = {
-   dataviewID: null,
-   showLabel: true,
-   labelPosition: "left",
-   labelWidth: 120,
-   height: 200,
-   clearOnLoad: false,
-   clearOnSave: false,
-   displayRules: [],
-   editForm: "none", // The url pointer of ABViewForm
-
-   //	[{
-   //		action: {string},
-   //		when: [
-   //			{
-   //				fieldId: {UUID},
-   //				comparer: {string},
-   //				value: {string}
-   //			}
-   //		],
-   //		values: [
-   //			{
-   //				fieldId: {UUID},
-   //				value: {object}
-   //			}
-   //		]
-   //	}]
-   recordRules: [],
-
-   //	[{
-   //		action: {string},
-   //		when: [
-   //			{
-   //				fieldId: {UUID},
-   //				comparer: {string},
-   //				value: {string}
-   //			}
-   //		],
-   //		value: {string}
-   //	}]
-   submitRules: [],
-};
-
-module.exports = class ABViewFormCore extends ABViewContainer {
-   constructor(values, application, parent, defaultValues) {
-      super(values, application, parent, defaultValues || ABViewFormDefaults);
-      this.isForm = true;
-   }
-
-   static common() {
-      return ABViewFormDefaults;
-   }
-
-   static defaultValues() {
-      return ABViewFormPropertyComponentDefaults;
-   }
-
-   ///
-   /// Instance Methods
-   ///
-
-   /**
-    * @method fromValues()
-    *
-    * initialze this object with the given set of values.
-    * @param {obj} values
-    */
-   fromValues(values) {
-      super.fromValues(values);
-
-      this.settings.labelPosition =
-         this.settings.labelPosition ||
-         ABViewFormPropertyComponentDefaults.labelPosition;
-
-      // convert from "0" => true/false
-      this.settings.showLabel = JSON.parse(
-         this.settings.showLabel != null
-            ? this.settings.showLabel
-            : ABViewFormPropertyComponentDefaults.showLabel
-      );
-      this.settings.clearOnLoad = JSON.parse(
-         this.settings.clearOnLoad != null
-            ? this.settings.clearOnLoad
-            : ABViewFormPropertyComponentDefaults.clearOnLoad
-      );
-      this.settings.clearOnSave = JSON.parse(
-         this.settings.clearOnSave != null
-            ? this.settings.clearOnSave
-            : ABViewFormPropertyComponentDefaults.clearOnSave
-      );
-
-      // convert from "0" => 0
-      this.settings.labelWidth = parseInt(
-         this.settings.labelWidth == null
-            ? ABViewFormPropertyComponentDefaults.labelWidth
-            : this.settings.labelWidth
-      );
-      this.settings.height = parseInt(
-         this.settings.height == null
-            ? ABViewFormPropertyComponentDefaults.height
-            : this.settings.height
-      );
-   }
-
-   // Use this function in kanban
-   objectLoad(object) {
-      this._currentObject = object;
-   }
-
-   /**
-    * @method componentList
-    * return the list of components available on this view to display in the editor.
-    */
-   componentList() {
-      var viewsToAllow = ["label", "layout", "button", "text"],
-         allComponents = this.application.viewAll();
-
-      return allComponents.filter((c) => {
-         return viewsToAllow.indexOf(c.common().key) > -1;
-      });
-   }
-
-   /**
-    * @method fieldComponents()
-    *
-    * return an array of all the ABViewFormField children
-    *
-    * @param {fn} filter  	a filter fn to return a set of ABViewFormField that this fn
-    *						returns true for.
-    * @return {array} 	array of ABViewFormField
-    */
-   fieldComponents(filter) {
-      const flattenComponents = (views) => {
-         let components = [];
-
-         views.forEach((v) => {
-            if (v == null) return;
-
-            components.push(v);
-
-            if (v._views?.length) {
-               components = components.concat(flattenComponents(v._views));
-            }
-         });
-
-         return components;
-      };
-
-      if (this._views?.length) {
-         const allComponents = flattenComponents(this._views);
-
-         if (filter == null) {
-            filter = (comp) => comp instanceof ABViewFormItem;
-         }
-
-         return allComponents.filter(filter);
-      } else {
-         return [];
-      }
-   }
-
-   addFieldToForm(field, yPosition) {
-      if (field == null) return;
-
-      var fieldComponent = field.formComponent();
-      if (fieldComponent == null) return;
-
-      var newView = fieldComponent.newInstance(this.application, this);
-      if (newView == null) return;
-
-      // set settings to component
-      newView.settings = newView.settings || {};
-      newView.settings.fieldId = field.id;
-      // TODO : Default settings
-
-      if (yPosition != null) newView.position.y = yPosition;
-
-      // add a new component
-      this._views.push(newView);
-
-      return newView;
-   }
-
-   get RecordRule() {
-      let object = this.datacollection.datasource;
-
-      if (this._recordRule == null) {
-         this._recordRule = new ABRecordRule();
-      }
-
-      this._recordRule.formLoad(this);
-      this._recordRule.fromSettings(this.settings.recordRules);
-      this._recordRule.objectLoad(object);
-
-      return this._recordRule;
-   }
-
-   doRecordRulesPre(rowData) {
-      return this.RecordRule.processPre({ data: rowData, form: this });
-   }
-
-   doRecordRules(rowData) {
-      // validate for record rules
-      if (rowData) {
-         let object = this.datacollection.datasource;
-         let ruleValidator = object.isValidData(rowData);
-         let isUpdatedDataValid = ruleValidator.pass();
-         if (!isUpdatedDataValid) {
-            console.error("Updated data is invalid.", { rowData: rowData });
-            return Promise.reject(new Error("Updated data is invalid."));
-         }
-      }
-
-      return this.RecordRule.process({ data: rowData, form: this });
-   }
-
-   doSubmitRules(rowData) {
-      var object = this.datacollection.datasource;
-
-      var SubmitRules = new ABSubmitRule();
-      SubmitRules.formLoad(this);
-      SubmitRules.fromSettings(this.settings.submitRules);
-      SubmitRules.objectLoad(object);
-
-      return SubmitRules.process({ data: rowData, form: this });
-   }
-};
-
-
-/***/ },
-
-/***/ 6209
-/*!*******************************************************!*\
-  !*** ./AppBuilder/core/views/ABViewFormCustomCore.js ***!
-  \*******************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
-
-const ABViewFormItem = __webpack_require__(/*! ../../platform/views/ABViewFormItem */ 86962);
-
-const ABViewFormCustomPropertyComponentDefaults = {};
-
-const ABViewFormCustomDefaults = {
-   key: "fieldcustom",
-   // {string} unique key for this view
-   icon: "object-group",
-   // {string} fa-[icon] reference for this view
-   labelKey: "ab.components.custom",
-   // {string} the multilingual label key for the class label
-};
-
-module.exports = class ABViewFormCustom extends ABViewFormItem {
-   constructor(values, application, parent, defaultValues) {
-      super(
-         values,
-         application,
-         parent,
-         defaultValues || ABViewFormCustomDefaults
-      );
-   }
-
-   static common() {
-      return ABViewFormCustomDefaults;
-   }
-
-   static defaultValues() {
-      return ABViewFormCustomPropertyComponentDefaults;
-   }
-
-   /**
-    * @method componentList
-    * return the list of components available on this view to display in the editor.
-    */
-   componentList() {
-      return [];
-   }
-};
-
-
-/***/ },
-
-/***/ 43548
-/*!***********************************************************!*\
-  !*** ./AppBuilder/core/views/ABViewFormDatepickerCore.js ***!
-  \***********************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
-
-const ABViewFormItem = __webpack_require__(/*! ../../platform/views/ABViewFormItem */ 86962);
-
-const ABViewFormDatepickerPropertyComponentDefaults = {
-   timepicker: false,
-};
-
-const ABViewFormDatepickerDefaults = {
-   key: "datepicker", // {string} unique key for this view
-   icon: "calendar", // {string} fa-[icon] reference for this view
-   labelKey: "ab.components.datepicker", // {string} the multilingual label key for the class label
-};
-
-module.exports = class ABViewFormDatepickerCore extends ABViewFormItem {
-   constructor(values, application, parent, defaultValues) {
-      super(
-         values,
-         application,
-         parent,
-         defaultValues || ABViewFormDatepickerDefaults
-      );
-   }
-
-   static common() {
-      return ABViewFormDatepickerDefaults;
-   }
-
-   static defaultValues() {
-      return ABViewFormDatepickerPropertyComponentDefaults;
-   }
-
-   ///
-   /// Instance Methods
-   ///
-
-   /**
-    * @method componentList
-    * return the list of components available on this view to display in the editor.
-    */
-   componentList() {
-      return [];
-   }
-};
-
-
-/***/ },
-
-/***/ 64049
-/*!*****************************************************!*\
-  !*** ./AppBuilder/core/views/ABViewFormItemCore.js ***!
-  \*****************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
-
-const ABView = __webpack_require__(/*! ../../platform/views/ABView */ 30747);
-
-const ABViewFormFieldPropertyComponentDefaults = {
-   required: 0,
-   disable: 0,
-};
-
-module.exports = class ABViewFormComponentCore extends ABView {
-   // constructor(values, application, parent, defaultValues) {
-   //    super(values, application, parent, defaultValues);
-   // }
-
-   static defaultValues() {
-      return ABViewFormFieldPropertyComponentDefaults;
-   }
-
-   /**
-    * @property datacollection
-    * return data source
-    * NOTE: this view doesn't track a DataCollection.
-    * @return {ABDataCollection}
-    */
-   get datacollection() {
-      let form = this.parentFormComponent();
-      if (form == null) return null;
-
-      let datacollection = form.datacollection;
-      if (datacollection == null) return null;
-
-      return datacollection;
-   }
-
-   field() {
-      if (this.settings.objectId) {
-         let object = this.AB.objectByID(this.settings.objectId);
-         if (!object) return null;
-
-         return object.fieldByID(this.settings.fieldId);
-      } else {
-         let form = this.parentFormComponent();
-         if (form == null) return null;
-
-         let object;
-         if (form._currentObject) {
-            object = form._currentObject;
-         } else {
-            let datacollection = form.datacollection;
-            if (datacollection == null) return null;
-
-            object = datacollection.datasource;
-         }
-
-         if (object == null) return null;
-
-         let field = object.fieldByID(this.settings.fieldId);
-         return field;
-      }
-   }
-};
-
-
-/***/ },
-
-/***/ 73404
-/*!*****************************************************!*\
-  !*** ./AppBuilder/core/views/ABViewFormJsonCore.js ***!
-  \*****************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
-
-const ABViewFormItem = __webpack_require__(/*! ../../platform/views/ABViewFormItem */ 86962);
-
-const ABViewFormJsonPropertyComponentDefaults = {
-   type: "string", // 'string', 'systemObject' or 'filter'
-};
-
-const ABViewFormJsonDefaults = {
-   key: "json", // {string} unique key for this view
-   icon: "brackets-curly", // {string} fa-[icon] reference for this view
-   labelKey: "ab.components.json", // {string} the multilingual label key for the class label
-};
-
-module.exports = class ABViewFormJsonCore extends ABViewFormItem {
-   constructor(values, application, parent, defaultValues) {
-      super(
-         values,
-         application,
-         parent,
-         defaultValues || ABViewFormJsonDefaults
-      );
-   }
-
-   static common() {
-      return ABViewFormJsonDefaults;
-   }
-
-   static defaultValues() {
-      return ABViewFormJsonPropertyComponentDefaults;
-   }
-
-   /**
-    * @method componentList
-    * return the list of components available on this view to display in the editor.
-    */
-   componentList() {
-      return [];
-   }
-};
-
-
-/***/ },
-
-/***/ 41191
-/*!*******************************************************!*\
-  !*** ./AppBuilder/core/views/ABViewFormNumberCore.js ***!
-  \*******************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
-
-const ABViewFormItem = __webpack_require__(/*! ../../platform/views/ABViewFormItem */ 86962);
-
-const ABViewFormNumberPropertyComponentDefaults = {
-   isStepper: 0,
-};
-
-const ABViewFormNumberDefaults = {
-   key: "numberbox", // {string} unique key for this view
-   icon: "hashtag", // {string} fa-[icon] reference for this view
-   labelKey: "ab.components.number", // {string} the multilingual label key for the class label
-};
-
-module.exports = class ABViewFormNumberCore extends ABViewFormItem {
-   constructor(values, application, parent, defaultValues) {
-      super(
-         values,
-         application,
-         parent,
-         defaultValues || ABViewFormNumberDefaults
-      );
-   }
-
-   static common() {
-      return ABViewFormNumberDefaults;
-   }
-
-   static defaultValues() {
-      return ABViewFormNumberPropertyComponentDefaults;
-   }
-
-   ///
-   /// Instance Methods
-   ///
-
-   /**
-    * @method toObj()
-    *
-    * properly compile the current state of this ABViewFormText instance
-    * into the values needed for saving.
-    *
-    * @return {json}
-    */
-   toObj() {
-      this.unTranslate(this, this, ["label", "formLabel"]);
-
-      var obj = super.toObj();
-      obj.views = []; // no subviews
-      return obj;
-   }
-
-   /**
-    * @method fromValues()
-    *
-    * initialze this object with the given set of values.
-    * @param {obj} values
-    */
-   fromValues(values) {
-      super.fromValues(values);
-
-      // if this is being instantiated on a read from the Property UI,
-      this.settings.isStepper =
-         this.settings.isStepper ||
-         ABViewFormNumberPropertyComponentDefaults.isStepper;
-
-      // convert from "0" => 0
-      this.settings.isStepper = parseInt(this.settings.isStepper);
-   }
-
-   /**
-    * @method componentList
-    * return the list of components available on this view to display in the editor.
-    */
-   componentList() {
-      return [];
-   }
-};
-
-
-/***/ },
-
-/***/ 2700
-/*!*********************************************************!*\
-  !*** ./AppBuilder/core/views/ABViewFormReadonlyCore.js ***!
-  \*********************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
-
-const ABViewFormCustom = __webpack_require__(/*! ../../platform/views/ABViewFormCustom */ 96234);
-
-const ABViewFormReadonlyPropertyComponentDefaults = {};
-
-const ABViewFormReadonlyDefaults = {
-   key: "fieldreadonly", // {string} unique key for this view
-   icon: "calculator", // {string} fa-[icon] reference for this view
-   labelKey: "ab.components.readonly", // {string} the multilingual label key for the class label
-};
-
-module.exports = class ABViewFormReadonly extends ABViewFormCustom {
-   constructor(values, application, parent, defaultValues) {
-      super(
-         values,
-         application,
-         parent,
-         defaultValues || ABViewFormReadonlyDefaults
-      );
-   }
-
-   static common() {
-      return ABViewFormReadonlyDefaults;
-   }
-
-   static defaultValues() {
-      return ABViewFormReadonlyPropertyComponentDefaults;
-   }
-
-   /**
-    * @method componentList
-    * return the list of components available on this view to display in the editor.
-    */
-   componentList() {
-      return [];
-   }
-};
-
-
-/***/ },
-
-/***/ 84510
-/*!***************************************************************!*\
-  !*** ./AppBuilder/core/views/ABViewFormSelectMultipleCore.js ***!
-  \***************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
-
-const ABViewFormItem = __webpack_require__(/*! ../../platform/views/ABViewFormItem */ 86962);
-
-const ABViewFormSelectMultiplePropertyComponentDefaults = {
-   type: "multicombo", // 'richselect' or 'radio'
-};
-
-const ABSelectMultipleDefaults = {
-   key: "selectmultiple", // {string} unique key for this view
-   icon: "list-ul", // {string} fa-[icon] reference for this view
-   labelKey: "ab.components.selectmultiple", // {string} the multilingual label key for the class label
-};
-
-module.exports = class ABViewFormSelectMultipleCore extends ABViewFormItem {
-   constructor(values, application, parent, defaultValues) {
-      super(
-         values,
-         application,
-         parent,
-         defaultValues || ABSelectMultipleDefaults
-      );
-   }
-
-   static common() {
-      return ABSelectMultipleDefaults;
-   }
-
-   static defaultValues() {
-      return ABViewFormSelectMultiplePropertyComponentDefaults;
-   }
-
-   /**
-    * @method componentList
-    * return the list of components available on this view to display in the editor.
-    */
-   componentList() {
-      return [];
-   }
-};
-
-
-/***/ },
-
-/***/ 33218
-/*!*************************************************************!*\
-  !*** ./AppBuilder/core/views/ABViewFormSelectSingleCore.js ***!
-  \*************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
-
-const ABViewFormItem = __webpack_require__(/*! ../../platform/views/ABViewFormItem */ 86962);
-
-const ABViewFormSelectSinglePropertyComponentDefaults = {
-   type: "richselect", // 'richselect' or 'radio'
-};
-
-const ABSelectSingleDefaults = {
-   key: "selectsingle", // {string} unique key for this view
-   icon: "list-ul", // {string} fa-[icon] reference for this view
-   labelKey: "ab.components.selectsingle", // {string} the multilingual label key for the class label
-};
-
-module.exports = class ABViewFormSelectSingleCore extends ABViewFormItem {
-   constructor(values, application, parent, defaultValues) {
-      super(
-         values,
-         application,
-         parent,
-         defaultValues || ABSelectSingleDefaults
-      );
-   }
-
-   static common() {
-      return ABSelectSingleDefaults;
-   }
-
-   static defaultValues() {
-      return ABViewFormSelectSinglePropertyComponentDefaults;
-   }
-
-   /**
-    * @method componentList
-    * return the list of components available on this view to display in the editor.
-    */
-   componentList() {
-      return [];
-   }
-};
-
-
-/***/ },
-
-/***/ 97694
-/*!********************************************************!*\
-  !*** ./AppBuilder/core/views/ABViewFormTextboxCore.js ***!
-  \********************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
-
-const ABViewFormItem = __webpack_require__(/*! ../../platform/views/ABViewFormItem */ 86962);
-
-const ABViewFormTextboxPropertyComponentDefaults = {
-   type: "single", // 'single', 'multiple' or 'rich'
-};
-
-const ABViewFormTextboxDefaults = {
-   key: "textbox", // {string} unique key for this view
-   icon: "i-cursor", // {string} fa-[icon] reference for this view
-   labelKey: "ab.components.textbox", // {string} the multilingual label key for the class label
-};
-
-module.exports = class ABViewFormTextboxCore extends ABViewFormItem {
-   constructor(values, application, parent, defaultValues) {
-      super(
-         values,
-         application,
-         parent,
-         defaultValues || ABViewFormTextboxDefaults
-      );
-   }
-
-   static common() {
-      return ABViewFormTextboxDefaults;
-   }
-
-   static defaultValues() {
-      return ABViewFormTextboxPropertyComponentDefaults;
-   }
-
-   /**
-    * @method componentList
-    * return the list of components available on this view to display in the editor.
-    */
-   componentList() {
-      return [];
-   }
-};
-
-
-/***/ },
-
-/***/ 38566
-/*!*****************************************************!*\
-  !*** ./AppBuilder/core/views/ABViewFormTreeCore.js ***!
-  \*****************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
-
-const ABViewFormCustom = __webpack_require__(/*! ../../platform/views/ABViewFormCustom */ 96234);
-
-const ABViewFormTreePropertyComponentDefaults = {};
-
-const ABTreeDefaults = {
-   key: "formtree", // {string} unique key for this view
-   icon: "sitemap", // {string} fa-[icon] reference for this view
-   labelKey: "ab.components.tree", // {string} the multilingual label key for the class label
-};
-
-module.exports = class ABViewFormTreeCore extends ABViewFormCustom {
-   constructor(values, application, parent, defaultValues) {
-      super(values, application, parent, defaultValues || ABTreeDefaults);
-   }
-
-   static common() {
-      return ABTreeDefaults;
-   }
-
-   static defaultValues() {
-      return ABViewFormTreePropertyComponentDefaults;
-   }
-
-   /**
-    * @method componentList
-    * return the list of components available on this view to display in the editor.
-    */
-   componentList() {
-      return [];
    }
 };
 
@@ -33145,28 +31872,32 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   viewEditorCreate: () => (/* binding */ viewEditorCreate),
 /* harmony export */   viewPropertiesAll: () => (/* binding */ viewPropertiesAll)
 /* harmony export */ });
-/* harmony import */ var _plugins_ABUIPlugin_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./plugins/ABUIPlugin.js */ 4341);
-/* harmony import */ var _plugins_ABPropertiesObjectPlugin__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./plugins/ABPropertiesObjectPlugin */ 56965);
+/* harmony import */ var _dataFields_ABFieldImage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./dataFields/ABFieldImage */ 9932);
+/* harmony import */ var _dataFields_ABFieldImage__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_dataFields_ABFieldImage__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _plugins_ABModelPlugin_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./plugins/ABModelPlugin.js */ 84364);
 /* harmony import */ var _plugins_ABObjectPlugin_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./plugins/ABObjectPlugin.js */ 84788);
-/* harmony import */ var _plugins_ABModelPlugin_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./plugins/ABModelPlugin.js */ 84364);
-/* harmony import */ var _plugins_ABViewPlugin_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./plugins/ABViewPlugin.js */ 65006);
-/* harmony import */ var _plugins_ABViewWidgetPlugin_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./plugins/ABViewWidgetPlugin.js */ 76554);
-/* harmony import */ var _plugins_ABViewComponentPlugin_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./plugins/ABViewComponentPlugin.js */ 7105);
-/* harmony import */ var _plugins_ABViewPropertiesPlugin_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./plugins/ABViewPropertiesPlugin.js */ 49243);
+/* harmony import */ var _plugins_ABPropertiesObjectPlugin__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./plugins/ABPropertiesObjectPlugin */ 56965);
+/* harmony import */ var _plugins_ABUIPlugin_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./plugins/ABUIPlugin.js */ 4341);
+/* harmony import */ var _plugins_ABViewComponentPlugin_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./plugins/ABViewComponentPlugin.js */ 7105);
+/* harmony import */ var _views_ABViewContainer_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./views/ABViewContainer.js */ 76528);
+/* harmony import */ var _views_ABViewContainer_js__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_views_ABViewContainer_js__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _views_viewComponent_ABViewContainerComponent_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./views/viewComponent/ABViewContainerComponent.js */ 71980);
+/* harmony import */ var _views_viewComponent_ABViewContainerComponent_js__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_views_viewComponent_ABViewContainerComponent_js__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _plugins_ABViewEditorPlugin_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./plugins/ABViewEditorPlugin.js */ 98487);
-/* harmony import */ var _views_ABViewContainer_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./views/ABViewContainer.js */ 76528);
-/* harmony import */ var _views_ABViewContainer_js__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_views_ABViewContainer_js__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _views_viewComponent_ABViewContainerComponent_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./views/viewComponent/ABViewContainerComponent.js */ 71980);
-/* harmony import */ var _views_viewComponent_ABViewContainerComponent_js__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_views_viewComponent_ABViewContainerComponent_js__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var _views_ABViewPopupSortFields_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./views/ABViewPopupSortFields.js */ 49000);
-/* harmony import */ var _views_viewProperties_ABViewPropertyFilterData__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./views/viewProperties/ABViewPropertyFilterData */ 95889);
-/* harmony import */ var _views_viewProperties_ABViewPropertyLinkPage__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./views/viewProperties/ABViewPropertyLinkPage */ 42588);
-/* harmony import */ var _rules_ABViewRuleListFormRecordRules__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../rules/ABViewRuleListFormRecordRules */ 1148);
-/* harmony import */ var _rules_ABViewRuleListFormRecordRules__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(_rules_ABViewRuleListFormRecordRules__WEBPACK_IMPORTED_MODULE_14__);
-/* harmony import */ var _rules_ABViewRuleListFormSubmitRules__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../rules/ABViewRuleListFormSubmitRules */ 41171);
-/* harmony import */ var _rules_ABViewRuleListFormSubmitRules__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(_rules_ABViewRuleListFormSubmitRules__WEBPACK_IMPORTED_MODULE_15__);
-/* harmony import */ var _ABViewManager_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./ABViewManager.js */ 40765);
-/* harmony import */ var _ABViewManager_js__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(_ABViewManager_js__WEBPACK_IMPORTED_MODULE_16__);
+/* harmony import */ var _ABViewManager_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./ABViewManager.js */ 40765);
+/* harmony import */ var _ABViewManager_js__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_ABViewManager_js__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _plugins_ABViewPlugin_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./plugins/ABViewPlugin.js */ 65006);
+/* harmony import */ var _plugins_ABViewPropertiesPlugin_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./plugins/ABViewPropertiesPlugin.js */ 49243);
+/* harmony import */ var _views_viewProperties_ABViewPropertyAddPage__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./views/viewProperties/ABViewPropertyAddPage */ 64947);
+/* harmony import */ var _views_viewProperties_ABViewPropertyEditPage__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./views/viewProperties/ABViewPropertyEditPage */ 24904);
+/* harmony import */ var _views_ABViewPopupSortFields_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./views/ABViewPopupSortFields.js */ 49000);
+/* harmony import */ var _views_viewProperties_ABViewPropertyFilterData__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./views/viewProperties/ABViewPropertyFilterData */ 95889);
+/* harmony import */ var _views_viewProperties_ABViewPropertyLinkPage__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./views/viewProperties/ABViewPropertyLinkPage */ 42588);
+/* harmony import */ var _rules_ABViewRuleListFormRecordRules__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../rules/ABViewRuleListFormRecordRules */ 1148);
+/* harmony import */ var _rules_ABViewRuleListFormRecordRules__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(_rules_ABViewRuleListFormRecordRules__WEBPACK_IMPORTED_MODULE_17__);
+/* harmony import */ var _rules_ABViewRuleListFormSubmitRules__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../rules/ABViewRuleListFormSubmitRules */ 41171);
+/* harmony import */ var _rules_ABViewRuleListFormSubmitRules__WEBPACK_IMPORTED_MODULE_18___default = /*#__PURE__*/__webpack_require__.n(_rules_ABViewRuleListFormSubmitRules__WEBPACK_IMPORTED_MODULE_18__);
+/* harmony import */ var _plugins_ABViewWidgetPlugin_js__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./plugins/ABViewWidgetPlugin.js */ 76554);
 
 
 
@@ -33177,7 +31908,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-// some views need to reference ABViewContainer,
+
 
 
 
@@ -33188,8 +31919,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-// MIGRATION: ABViewManager is depreciated.  Use ABClassManager instead.
 
 
 const classRegistry = {
@@ -33230,22 +31959,25 @@ function registerViewTypes(name, ctor) {
  */
 function getPluginAPI() {
    return {
-      ABUIPlugin: _plugins_ABUIPlugin_js__WEBPACK_IMPORTED_MODULE_0__["default"],
-      ABPropertiesObjectPlugin: _plugins_ABPropertiesObjectPlugin__WEBPACK_IMPORTED_MODULE_1__["default"],
+      ABUIPlugin: _plugins_ABUIPlugin_js__WEBPACK_IMPORTED_MODULE_4__["default"],
+      ABPropertiesObjectPlugin: _plugins_ABPropertiesObjectPlugin__WEBPACK_IMPORTED_MODULE_3__["default"],
       ABObjectPlugin: _plugins_ABObjectPlugin_js__WEBPACK_IMPORTED_MODULE_2__["default"],
-      ABModelPlugin: _plugins_ABModelPlugin_js__WEBPACK_IMPORTED_MODULE_3__["default"],
-      ABViewPlugin: _plugins_ABViewPlugin_js__WEBPACK_IMPORTED_MODULE_4__["default"],
-      ABViewWidgetPlugin: _plugins_ABViewWidgetPlugin_js__WEBPACK_IMPORTED_MODULE_5__["default"],
-      ABViewComponentPlugin: _plugins_ABViewComponentPlugin_js__WEBPACK_IMPORTED_MODULE_6__["default"],
-      ABViewPropertiesPlugin: _plugins_ABViewPropertiesPlugin_js__WEBPACK_IMPORTED_MODULE_7__["default"],
+      ABModelPlugin: _plugins_ABModelPlugin_js__WEBPACK_IMPORTED_MODULE_1__["default"],
+      ABViewPlugin: _plugins_ABViewPlugin_js__WEBPACK_IMPORTED_MODULE_10__["default"],
+      ABViewWidgetPlugin: _plugins_ABViewWidgetPlugin_js__WEBPACK_IMPORTED_MODULE_19__["default"],
+      ABViewComponentPlugin: _plugins_ABViewComponentPlugin_js__WEBPACK_IMPORTED_MODULE_5__["default"],
+      ABViewPropertiesPlugin: _plugins_ABViewPropertiesPlugin_js__WEBPACK_IMPORTED_MODULE_11__["default"],
       ABViewEditorPlugin: _plugins_ABViewEditorPlugin_js__WEBPACK_IMPORTED_MODULE_8__["default"],
-      ABViewContainer: (_views_ABViewContainer_js__WEBPACK_IMPORTED_MODULE_9___default()),
-      ABViewContainerComponent: (_views_viewComponent_ABViewContainerComponent_js__WEBPACK_IMPORTED_MODULE_10___default()),
-      ABViewPropertyFilterData: _views_viewProperties_ABViewPropertyFilterData__WEBPACK_IMPORTED_MODULE_12__["default"],
-      ABViewPropertyLinkPage: _views_viewProperties_ABViewPropertyLinkPage__WEBPACK_IMPORTED_MODULE_13__["default"],
-      ABViewRuleListFormRecordRules: (_rules_ABViewRuleListFormRecordRules__WEBPACK_IMPORTED_MODULE_14___default()),
-      ABViewRuleListFormSubmitRules: (_rules_ABViewRuleListFormSubmitRules__WEBPACK_IMPORTED_MODULE_15___default()),
-      ABViewPopupSortFields: _views_ABViewPopupSortFields_js__WEBPACK_IMPORTED_MODULE_11__["default"],
+      ABViewContainer: (_views_ABViewContainer_js__WEBPACK_IMPORTED_MODULE_6___default()),
+      ABViewContainerComponent: (_views_viewComponent_ABViewContainerComponent_js__WEBPACK_IMPORTED_MODULE_7___default()),
+      ABViewPropertyFilterData: _views_viewProperties_ABViewPropertyFilterData__WEBPACK_IMPORTED_MODULE_15__["default"],
+      ABViewPropertyLinkPage: _views_viewProperties_ABViewPropertyLinkPage__WEBPACK_IMPORTED_MODULE_16__["default"],
+      ABViewRuleListFormRecordRules: (_rules_ABViewRuleListFormRecordRules__WEBPACK_IMPORTED_MODULE_17___default()),
+      ABViewRuleListFormSubmitRules: (_rules_ABViewRuleListFormSubmitRules__WEBPACK_IMPORTED_MODULE_18___default()),
+      ABViewPropertyAddPage: _views_viewProperties_ABViewPropertyAddPage__WEBPACK_IMPORTED_MODULE_12__["default"],
+      ABViewPropertyEditPage: _views_viewProperties_ABViewPropertyEditPage__WEBPACK_IMPORTED_MODULE_13__["default"],
+      ABFieldImage: (_dataFields_ABFieldImage__WEBPACK_IMPORTED_MODULE_0___default()),
+      ABViewPopupSortFields: _views_ABViewPopupSortFields_js__WEBPACK_IMPORTED_MODULE_14__["default"],
       //  ABFieldPlugin,
       //  ABViewPlugin,
    };
@@ -33281,7 +32013,7 @@ function allObjectProperties() {
 function viewClass(type) {
    var ViewClass = classRegistry.ViewTypes.get(type);
    if (!ViewClass) {
-      ViewClass = _ABViewManager_js__WEBPACK_IMPORTED_MODULE_16___default().viewClass(type, false);
+      ViewClass = _ABViewManager_js__WEBPACK_IMPORTED_MODULE_9___default().viewClass(type, false);
       if (!ViewClass) {
          throw new Error(`Unknown View type: ${type}`);
       }
@@ -39964,7 +38696,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ui_ClassUI__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../ui/ClassUI */ 93692);
 // const ABComponent = require("./ABComponent");
 
-const ABViewForm = __webpack_require__(/*! ../platform/views/ABViewForm */ 10365);
 
 let L = null;
 
@@ -40277,15 +39008,13 @@ class RowUpdater extends _ui_ClassUI__WEBPACK_IMPORTED_MODULE_0__["default"] {
       this._Object = object;
 
       this._mockApp = this.AB.applicationNew({});
-      this._mockFormWidget = new ABViewForm(
-         {
-            settings: {
-               showLabel: false,
-               labelWidth: 0,
-            },
+      this._mockFormWidget = this.AB.viewNewDetatched({
+         key: "form",
+         settings: {
+            showLabel: false,
+            labelWidth: 0,
          },
-         this._mockApp // just need any ABApplication here
-      );
+      });
       this._mockFormWidget.objectLoad(object);
 
       this.setValue(null); // clear
@@ -44097,13 +42826,47 @@ module.exports = class ABFieldJson extends ABFieldJsonCore {
    columnHeader(options) {
       const config = super.columnHeader(options);
 
-      // config.editor = null; // read only for now
       config.editor = "text";
       config.css = "textCell";
 
       // when called by ABViewFormCustom, will need a .template() fn.
-      // currently we don't need to return anything so ...
-      config.template = () => "";
+      config.template = (obj) => {
+         const val = obj[this.columnName];
+
+         if (val && typeof val == "object") {
+            try {
+               return JSON.stringify(val);
+            } catch (e) {
+               return val.toString();
+            }
+         }
+
+         return val || "";
+      };
+
+      config.editFormat = (val) => {
+         if (val && typeof val == "object") {
+            try {
+               return JSON.stringify(val);
+            } catch (e) {
+               return val.toString();
+            }
+         }
+
+         return val || "";
+      };
+
+      config.editParse = (val) => {
+         if (val && typeof val == "string") {
+            try {
+               return JSON.parse(val);
+            } catch (e) {
+               /* ignore */
+            }
+         }
+
+         return val;
+      };
 
       return config;
    }
@@ -44151,9 +42914,22 @@ module.exports = class ABFieldJson extends ABFieldJsonCore {
    }
 
    setValue(item, rowData) {
-      super.setValue(item, rowData, "");
+      let val = rowData[this.columnName];
+
+      if (val && typeof val == "object") {
+         try {
+            val = JSON.stringify(val);
+         } catch (e) {
+            /* ignore */
+         }
+      }
+
+      const cloneRow = Object.assign({}, rowData, { [this.columnName]: val });
+
+      super.setValue(item, cloneRow);
+
       if (item) {
-         item.config.value = rowData[this.columnName];
+         item.config.value = val;
       }
    }
 
@@ -44607,8 +43383,14 @@ module.exports = class ABFieldList extends ABFieldListCore {
             result.push(rowData);
          }
       }
-      if (result.length) {
-         if (typeof result == "string") result = JSON.parse(result);
+      if (result && result.length) {
+         if (typeof result == "string") {
+            try {
+               result = JSON.parse(result);
+            } catch (e) {
+               console.error(`Error JSON.parsing result [${result}]: `, e);
+            }
+         }
 
          // Pull text with current language
          if (this.settings) {
@@ -44645,7 +43427,7 @@ function _getSelectedOptions(field, rowData = {}) {
          if (typeof result == "string" && result !== "") result = JSON.parse(result);
          else if (typeof result == "string" && result === "") result = [];
       } catch (e) {
-         console.error(`Error JSON.pars()ing result [${result}]: `, e);
+         console.error(`Error JSON.parsing result [${result}]: `, e);
          // just go with what is there
          result = rowData[field.columnName];
       }
@@ -45518,6 +44300,9 @@ const ABFieldTreeCore = __webpack_require__(/*! ../../core/dataFields/ABFieldTre
 
 const L = (...params) => AB.Multilingual.label(...params);
 
+/** Hex colour used for selected-item tags */
+const TAG_COLOR = "#4CAF50";
+
 module.exports = class ABFieldTree extends ABFieldTreeCore {
    // constructor(values, object) {
    //    super(values, object);
@@ -45530,7 +44315,7 @@ module.exports = class ABFieldTree extends ABFieldTreeCore {
    // isValid() {
    //    const validator = super.isValid();
 
-   //    // validator.addError('columnName', L('ab.validation.object.name.unique', 'Field columnName must be unique (#name# already used in this Application)').replace('#name#', this.name) );
+   //    // validator.addError('columnName', L('ab.validation.object.name.unique', 'Field columnName must be unique (#name# already used in this Application)').replace('#name#', this.name) );\
 
    //    return validator;
    // }
@@ -45543,6 +44328,74 @@ module.exports = class ABFieldTree extends ABFieldTreeCore {
       return `${this.columnName.replace(/ /g, "_")}-${obj.id}-tree`;
    }
 
+   /**
+    * Build an array of human-readable branch label strings for the
+    * given list of selected item ids, walking up the tree collection
+    * to prepend ancestor labels.
+    *
+    * @param {webix.TreeCollection} treeCollection
+    * @param {Array<string|number>} selectedIds
+    * @returns {string[]}
+    */
+   _buildBranchLabels(treeCollection, selectedIds) {
+      const labels = [];
+
+      treeCollection.data.each(function (item) {
+         if (
+            typeof selectedIds.indexOf !== "undefined" &&
+            selectedIds.indexOf(item.id) !== -1
+         ) {
+            let labelText = "";
+            let ancestorId = item.id;
+
+            while (this.getParentId(ancestorId)) {
+               treeCollection.data.each(function (candidate) {
+                  if (
+                     treeCollection.data.getParentId(ancestorId) ===
+                     candidate.id
+                  ) {
+                     labelText = `${candidate.text}: ${labelText}`;
+                  }
+               });
+               ancestorId = this.getParentId(ancestorId);
+            }
+
+            labelText += item.text;
+            labels.push(labelText);
+         }
+      });
+
+      return labels;
+   }
+
+   /**
+    * Build the inner HTML string that renders selected-item tags.
+    *
+    * @param {string[]} labels     - Branch label strings to display
+    * @param {string}   cssClass   - Extra CSS class on the wrapper div
+    * @param {string}   [placeholder] - HTML shown when labels is empty
+    * @returns {string}
+    */
+   _renderTagsHtml(labels, cssClass, placeholder = "") {
+      const wrapperClass = `list-data-values${cssClass ? ` ${cssClass}` : ""}`;
+      let html = `<div class='${wrapperClass}'>`;
+
+      if (labels.length === 0) {
+         html += placeholder;
+      } else {
+         labels.forEach((label) => {
+            html +=
+               `<span class="selectivity-multiple-selected-item rendered" ` +
+               `style="background-color:${TAG_COLOR} !important;">` +
+               label +
+               `</span>`;
+         });
+      }
+
+      html += "</div>";
+      return html;
+   }
+
    // return the grid column header definition for this instance of ABFieldTree
    columnHeader(options) {
       options = options || {};
@@ -45550,92 +44403,42 @@ module.exports = class ABFieldTree extends ABFieldTreeCore {
       const config = super.columnHeader(options);
       const field = this;
 
-      let formClass = "";
-      let placeHolder = "";
-      if (options.isForm) {
-         formClass = " form-entry";
-         placeHolder =
-            "<span style='color: #CCC; padding: 0 5px;'>" +
-            L("Select items") +
-            "</span>";
-      }
+      const isForm = options.isForm;
+      const indentWidth = options.width;
 
-      const width = options.width;
+      const emptyPlaceholder = isForm
+         ? `<span style='color: #CCC; padding: 0 5px;'>${L(
+              "Select items"
+           )}</span>`
+         : "";
 
-      config.template = (obj) => {
-         if (obj.$group) return obj[field.columnName];
+      config.template = (row) => {
+         if (row.$group) return row[field.columnName];
 
-         const branches = [];
-         let selectOptions = this.AB.cloneDeep(field.settings.options);
-         selectOptions = new webix.TreeCollection({
-            data: selectOptions,
+         const treeCollection = new webix.TreeCollection({
+            data: field.AB.cloneDeep(field.settings.options),
          });
 
-         let values = obj;
-         if (obj[field.columnName] != null) {
-            values = obj[field.columnName];
-         }
+         const selectedIds =
+            row[field.columnName] != null ? row[field.columnName] : row;
 
-         selectOptions.data.each(function (obj) {
-            if (
-               typeof values.indexOf != "undefined" &&
-               values.indexOf(obj.id) != -1
-            ) {
-               let html = "";
+         const labels = field._buildBranchLabels(treeCollection, selectedIds);
+         const tagsHtml = field._renderTagsHtml(labels, "", emptyPlaceholder);
 
-               let rootid = obj.id;
-               while (this.getParentId(rootid)) {
-                  selectOptions.data.each(function (par) {
-                     if (selectOptions.data.getParentId(rootid) == par.id) {
-                        html = par.text + ": " + html;
-                     }
-                  });
-                  rootid = this.getParentId(rootid);
-               }
-
-               html += obj.text;
-               branches.push(html);
-            }
-         });
-
-         const myHex = "#4CAF50";
-         let nodeHTML = "";
-         nodeHTML += "<div class='list-data-values'>";
-         if (branches.length == 0) {
-            nodeHTML += placeHolder;
-         } else {
-            branches.forEach(function (item) {
-               nodeHTML +=
-                  '<span class="selectivity-multiple-selected-item rendered" style="background-color:' +
-                  myHex +
-                  ' !important;">' +
-                  item +
-                  "</span>";
-            });
-         }
-         nodeHTML += "</div>";
-
-         // field.setBadge(node, App, row);
-
-         if (width) {
+         if (indentWidth) {
             return (
-               '<div style="margin-left: ' +
-               width +
-               'px;" class="list-data-values' +
-               formClass +
-               '">' +
-               nodeHTML +
-               "</div>"
-            );
-         } else {
-            return (
-               '<div class="list-data-values' +
-               formClass +
-               '">' +
-               nodeHTML +
-               "</div>"
+               `<div style="margin-left: ${indentWidth}px;" ` +
+               `class="list-data-values${isForm ? " form-entry" : ""}">` +
+               tagsHtml +
+               `</div>`
             );
          }
+
+         return (
+            `<div class="list-data-values${isForm ? " form-entry" : ""}">` +
+            tagsHtml +
+            `</div>`
+         );
       };
 
       return config;
@@ -45646,78 +44449,40 @@ module.exports = class ABFieldTree extends ABFieldTreeCore {
     * perform any custom display modifications for this field.
     * @param {object} row is the {name=>value} hash of the current row of data.
     * @param {App} App the shared ui App object useful more making globally
-    *					unique id references.
+    *                  unique id references.
     * @param {HtmlDOM} node  the HTML Dom object for this field's display.
     */
    customDisplay(row, App, node, options) {
       // sanity check.
-      if (!node) {
-         return;
-      }
+      if (!node) return;
 
       options = options || {};
 
       const field = this;
 
       if (options.isForm) {
-         if (!row || row.length == 0) {
+         if (!row || row.length === 0) {
             node.innerHTML =
-               "<div class='list-data-values form-entry'><span style='color: #CCC; padding: 0 5px;'>" +
-               L("Select items") +
-               "</span></div>";
+               `<div class='list-data-values form-entry'>` +
+               `<span style='color: #CCC; padding: 0 5px;'>${L(
+                  "Select items"
+               )}</span>` +
+               `</div>`;
             return;
          }
 
-         const branches = [];
-         options = this.AB.cloneDeep(field.settings.options);
-         options = new webix.TreeCollection({
-            data: options,
+         const treeCollection = new webix.TreeCollection({
+            data: field.AB.cloneDeep(field.settings.options),
          });
 
-         let values = row;
-         if (row[field.columnName] != null) {
-            values = row[field.columnName];
-         }
+         const selectedIds =
+            row[field.columnName] != null ? row[field.columnName] : row;
 
-         options.data.each(function (obj) {
-            if (
-               typeof values.indexOf != "undefined" &&
-               values.indexOf(obj.id) != -1
-            ) {
-               let html = "";
-
-               let rootid = obj.id;
-               while (this.getParentId(rootid)) {
-                  options.data.each(function (par) {
-                     if (options.data.getParentId(rootid) == par.id) {
-                        html = par.text + ": " + html;
-                     }
-                  });
-                  rootid = this.getParentId(rootid);
-               }
-
-               html += obj.text;
-               branches.push(html);
-            }
-         });
-
-         const myHex = "#4CAF50";
-         let nodeHTML = "";
-         nodeHTML += "<div class='list-data-values form-entry'>";
-         branches.forEach(function (item) {
-            nodeHTML +=
-               '<span class="selectivity-multiple-selected-item rendered" style="background-color:' +
-               myHex +
-               ' !important;">' +
-               item +
-               "</span>";
-         });
-         nodeHTML += "</div>";
-
-         node.innerHTML = nodeHTML;
+         const labels = field._buildBranchLabels(treeCollection, selectedIds);
+         node.innerHTML = field._renderTagsHtml(labels, "form-entry");
       }
 
-      field.setBadge(node, App, row);
+      field.setBadge(node, row);
    }
 
    /*
@@ -45725,200 +44490,261 @@ module.exports = class ABFieldTree extends ABFieldTreeCore {
     *
     * @param {object} row is the {name=>value} hash of the current row of data.
     * @param {App} App the shared ui App object useful more making globally
-    *					unique id references.
+    *                  unique id references.
     * @param {HtmlDOM} node  the HTML Dom object for this field's display.
     */
    customEdit(row, App, node, component) {
-      const idBase = App.unique(this.idCustomContainer(row));
+      // Normalise arguments: (row, node, component) when App is not an App instance
+      if (App && typeof App === "object" && typeof App.unique !== "function") {
+         component = node;
+         node = App;
+         App = null;
+      }
+
+      const idBase =
+         App && typeof App.unique === "function"
+            ? App.unique(this.idCustomContainer(row))
+            : this.idCustomContainer(row);
+
       const idPopup = `${idBase}-popup`;
       const idTree = `${idBase}-tree`;
-      const view = $$(node);
+
+      const gridView = $$(node);
       const field = this;
-      const parentComponent = component;
-      let values = {};
-      let firstRender = true;
+      const formComponent = component;
 
-      function getValues(field, row) {
-         let values = {};
-         if (
-            typeof field != "undefined" &&
-            typeof field.columnName != "undefined" &&
-            typeof row[field.columnName] != "undefined"
-         ) {
-            values = row[field.columnName];
+      let activeRow = row;
+
+      // ── Helpers ──────────────────────────────────────────────────────────
+
+      /**
+       * Normalise a raw column value into an array of strings.
+       * Handles: Array, JSON string, comma-separated string, scalar.
+       */
+      function normaliseToArray(raw) {
+         if (raw == null || raw === "") return [];
+         if (Array.isArray(raw)) return raw.map(String);
+         if (typeof raw === "string") {
+            try {
+               const parsed = JSON.parse(raw);
+               if (Array.isArray(parsed)) return parsed.map(String);
+               return [String(parsed)];
+            } catch {
+               return raw
+                  .split(",")
+                  .filter((v) => v !== "")
+                  .map(String);
+            }
          }
-         return values;
+         return [String(raw)];
       }
 
-      function populateTree(field, vals) {
-         values = getValues(field, vals);
+      /**
+       * Tick the checkboxes in the Webix tree that match the ids stored in
+       * `rowData`.  Must be called after the tree DOM is rendered.
+       */
+      function applyCheckedItems(rowData) {
+         const $tree = $$(idTree);
+         if (!$tree) return;
 
-         const $Tree = $$(idTree);
-         $Tree.blockEvent(); // prevents endless loop
+         const selectedIds = normaliseToArray(rowData[field.columnName]);
 
-         const options = field.AB.cloneDeep(field.settings.options);
-         $Tree.clearAll();
-         $Tree.parse(options);
-         $Tree.refresh();
-         $Tree.uncheckAll();
-         $Tree.openAll();
+         $tree.blockEvent();
+         $tree.uncheckAll();
 
-         if (values != null && values.length) {
-            values.forEach(function (id) {
-               if ($Tree.exists(id)) {
-                  $Tree.checkItem(id);
-                  const dom = $Tree.getItemNode(id);
-                  dom.classList.add("selected");
-               }
-            });
-         }
-         $Tree.unblockEvent();
+         selectedIds.forEach((id) => {
+            // Webix ids may be stored as strings or numbers — try both.
+            let resolvedId = id;
+            if (!$tree.exists(resolvedId)) resolvedId = String(id);
+            if (!$tree.exists(resolvedId) && !isNaN(id))
+               resolvedId = Number(id);
+
+            if ($tree.exists(resolvedId)) {
+               $tree.checkItem(resolvedId);
+            }
+         });
+
+         $tree.unblockEvent();
       }
+
+      /**
+       * Re-load the tree with fresh option data, open all nodes, then
+       * apply saved check-marks after Webix finishes rendering (50 ms).
+       */
+      function refreshTree(rowData) {
+         const $tree = $$(idTree);
+         if (!$tree) return;
+
+         const treeData = field.AB.cloneDeep(field.settings.options);
+         $tree.clearAll();
+         $tree.parse(treeData);
+         $tree.openAll();
+
+         setTimeout(() => applyCheckedItems(rowData), 50);
+      }
+
+      // ── Open popup ───────────────────────────────────────────────────────
 
       if ($$(idPopup)) {
-         $$(idPopup).show();
-         populateTree(this, row);
-      } else {
-         webix
-            .ui({
-               id: idPopup,
-               view: "popup",
-               width: 500,
-               height: 400,
-               on: {
-                  onShow: () => {
-                     if (firstRender == true) populateTree(this, row);
-
-                     firstRender = false;
-                  },
-               },
-               body: {
-                  id: idTree,
-                  view: "tree",
-                  css: "ab-data-tree",
-                  template: function (obj, common) {
-                     return (
-                        "<label>" +
-                        common.checkbox(obj, common) +
-                        "&nbsp;" +
-                        obj.text +
-                        "</label>"
-                     );
-                  },
-                  on: {
-                     onItemCheck: async function (id, value, event) {
-                        const dom = this.getItemNode(id);
-                        const tree = this;
-                        if (value == true) {
-                           dom.classList.add("selected");
-                        } else {
-                           dom.classList.remove("selected");
-                        }
-                        // works for the same-level children only
-                        // except root items
-                        if (this.getParentId(id)) {
-                           tree.blockEvent(); // prevents endless loop
-
-                           let rootid = id;
-                           while (this.getParentId(rootid)) {
-                              rootid = this.getParentId(rootid);
-                              if (rootid != id) tree.uncheckItem(rootid);
-                           }
-
-                           this.data.eachSubItem(rootid, function (item) {
-                              if (item.id != id) tree.uncheckItem(item.id);
-                           });
-
-                           tree.unblockEvent();
-                        } else {
-                           tree.blockEvent(); // prevents endless loop
-                           this.data.eachSubItem(id, function (obj) {
-                              if (obj.id != id) tree.uncheckItem(obj.id);
-                           });
-                           tree.unblockEvent();
-                        }
-                        const values = {};
-                        values[field.columnName] = $$(idTree).getChecked();
-
-                        if (row.id) {
-                           // pass null because it could not put empty array in REST api
-                           if (values[field.columnName].length == 0)
-                              values[field.columnName] = "";
-
-                           try {
-                              await field.object.model().update(row.id, values);
-
-                              // update the client side data object as well so other data changes won't cause this save to be reverted
-                              if (view && view.updateItem) {
-                                 view.updateItem(row.id, values);
-                              }
-                           } catch (err) {
-                              node.classList.add("webix_invalid");
-                              node.classList.add("webix_invalid_cell");
-
-                              this.AB.notify.developer(err, {
-                                 message:
-                                    "ABFieldTree:onItemClick(): Error updating our entry.",
-                                 row: row,
-                                 values: values,
-                              });
-                           }
-                        } else {
-                           const rowData = {};
-                           rowData[field.columnName] = $$(idTree).getChecked();
-
-                           field.setValue($$(parentComponent.ui.id), rowData);
-                        }
-                     },
-                  },
-               },
-            })
-            .show(node, {
-               x: -7,
-            });
+         activeRow = row;
+         $$(idPopup).show(node, { x: -7 });
+         refreshTree(activeRow);
+         return false;
       }
+
+      // ── Create popup (first open) ─────────────────────────────────────────
+
+      webix
+         .ui({
+            id: idPopup,
+            view: "popup",
+            width: 500,
+            height: 400,
+            body: {
+               id: idTree,
+               view: "tree",
+               css: "ab-data-tree",
+               template(treeItem, common) {
+                  return (
+                     "<label>" +
+                     common.checkbox(treeItem, common) +
+                     `&nbsp;${treeItem.text}` +
+                     "</label>"
+                  );
+               },
+               on: {
+                  /**
+                   * Fired when a tree checkbox is toggled.
+                   * Rules:
+                   *  - Checking a child → uncheck its ancestors (parent+child
+                   *    together would be redundant).
+                   *  - Checking a root  → uncheck all its descendants.
+                   *  - Cross-branch selections are unrestricted.
+                   */
+                  onItemCheck: async function onItemCheck(
+                     checkedId,
+                     isChecked
+                  ) {
+                     const $tree = this;
+                     const itemNode = $tree.getItemNode(checkedId);
+
+                     // Update visual "selected" highlight
+                     if (itemNode) {
+                        itemNode.classList.toggle("selected", isChecked);
+                     }
+
+                     // Enforce parent ↔ child exclusivity within the same branch
+                     $tree.blockEvent();
+
+                     if (isChecked && $tree.getParentId(checkedId)) {
+                        // Child checked → uncheck all its ancestors
+                        let parentId = $tree.getParentId(checkedId);
+                        while (parentId) {
+                           $tree.uncheckItem(parentId);
+                           parentId = $tree.getParentId(parentId);
+                        }
+                     } else if (isChecked && !$tree.getParentId(checkedId)) {
+                        // Root checked → uncheck all descendants
+                        $tree.data.eachSubItem(checkedId, (child) => {
+                           $tree.uncheckItem(child.id);
+                        });
+                     }
+
+                     $tree.unblockEvent();
+
+                     // Build payload from currently checked ids
+                     const checkedIds = ($$(idTree).getChecked() || []).map(
+                        String
+                     );
+                     const columnValue =
+                        checkedIds.length === 0 ? null : checkedIds;
+
+                     // Sync activeRow so re-opening the popup shows current state
+                     activeRow[field.columnName] = columnValue;
+
+                     if (activeRow.id) {
+                        // ── Grid / existing record ───────────────────────
+                        const payload = { [field.columnName]: columnValue };
+
+                        try {
+                           await field.object
+                              .model()
+                              .update(activeRow.id, payload);
+
+                           if (gridView && gridView.updateItem) {
+                              gridView.updateItem(activeRow.id, payload);
+                           }
+                        } catch (err) {
+                           node.classList.add(
+                              "webix_invalid",
+                              "webix_invalid_cell"
+                           );
+
+                           field.AB.notify.developer(err, {
+                              message:
+                                 "ABFieldTree:onItemCheck(): Error updating entry.",
+                              row: activeRow,
+                              payload,
+                           });
+                        }
+                     } else {
+                        // ── Form / new record ─────────────────────────────
+                        field.setValue($$(formComponent.ids.formItem), {
+                           [field.columnName]: checkedIds,
+                        });
+                     }
+                  },
+               },
+            },
+         })
+         .show(node, { x: -7 });
+
+      refreshTree(activeRow);
       return false;
    }
 
    setBadge(domNode, row) {
       const field = this;
-      domNode = domNode.querySelector(".list-data-values");
-      const innerHeight = domNode.scrollHeight;
-      const outerHeight = domNode.parentElement.clientHeight;
-      if (innerHeight - outerHeight > 5) {
-         let count = 0;
-         if (row[field.columnName] && row[field.columnName].length)
-            count = row[field.columnName].length;
-         else count = 0;
+      const listNode = domNode.querySelector(".list-data-values");
+      if (!listNode) return;
 
-         if (count > 1) {
-            const badge = domNode.querySelector(
-               ".webix_badge.selectivityBadge"
-            );
-            if (badge != null) {
-               badge.innerHTML = count;
-            } else {
-               const anchor = document.createElement("A");
-               anchor.href = "javascript:void(0);";
-               anchor.addEventListener("click", function (event) {
-                  // v2: this was just saving the new height to the
-                  // field properties. We don't do that anymore:
-                  // App.actions.onRowResizeAuto(row.id, innerHeight);
-                  event.stopPropagation();
-               });
-               const node = document.createElement("SPAN");
-               const textnode = document.createTextNode(count);
-               node.classList.add("webix_badge", "selectivityBadge");
-               node.appendChild(textnode);
-               anchor.appendChild(node);
-               domNode.appendChild(anchor);
-            }
-         }
+      const innerHeight = listNode.scrollHeight;
+      const outerHeight = listNode.parentElement.clientHeight;
+
+      if (innerHeight - outerHeight <= 5) return;
+
+      const selectedCount =
+         row[field.columnName] && row[field.columnName].length
+            ? row[field.columnName].length
+            : 0;
+
+      if (selectedCount <= 1) return;
+
+      const existingBadge = listNode.querySelector(
+         ".webix_badge.selectivityBadge"
+      );
+      if (existingBadge) {
+         existingBadge.innerHTML = selectedCount;
+         return;
       }
+
+      // Create badge anchor + span
+      const anchor = document.createElement("a");
+      anchor.href = "javascript:void(0);";
+      anchor.addEventListener("click", (event) => {
+         event.stopPropagation();
+      });
+
+      const badgeSpan = document.createElement("span");
+      badgeSpan.classList.add("webix_badge", "selectivityBadge");
+      badgeSpan.textContent = selectedCount;
+
+      anchor.appendChild(badgeSpan);
+      listNode.appendChild(anchor);
    }
 
    /*
-    * @funciton formComponent
+    * @function formComponent
     * returns a drag and droppable component that is used on the UI
     * interface builder to place form components related to this ABField.
     *
@@ -45933,19 +44759,18 @@ module.exports = class ABFieldTree extends ABFieldTreeCore {
    detailComponent() {
       const detailComponentSetting = super.detailComponent();
 
-      detailComponentSetting.common = () => {
-         return {
-            key: "detailtree",
-         };
-      };
+      detailComponentSetting.common = () => ({
+         key: "detailtree",
+      });
 
       return detailComponentSetting;
    }
 
-   getValue(item, rowData) {
-      let values = {};
-      values = item.getValues();
-      return values;
+   getValue(item) {
+      if (!item) return {};
+      if (typeof item.getValues === "function") return item.getValues();
+      if (typeof item.getValue === "function") return item.getValue();
+      return {};
    }
 
    setValue(item, rowData) {
@@ -45953,23 +44778,22 @@ module.exports = class ABFieldTree extends ABFieldTreeCore {
 
       const val = rowData[this.columnName] || [];
 
-      item.setValues(val);
-      // get dom
-      const dom = item.$view.querySelector(".list-data-values");
+      if (typeof item.setValues === "function") {
+         item.setValues(val);
+      } else if (typeof item.setValue === "function") {
+         item.setValue(val);
+      }
 
-      if (!dom) return false;
+      const listNode = item.$view.querySelector(".list-data-values");
+      if (!listNode) return false;
 
-      // set value to selectivity
-      this.customDisplay(val, this.App, dom, {
+      this.customDisplay(val, this.App, listNode, {
          editable: true,
          isForm: true,
       });
 
-      setTimeout(function () {
-         let height = 33;
-         if (dom.scrollHeight > 33) {
-            height = dom.scrollHeight;
-         }
+      setTimeout(() => {
+         const height = listNode.scrollHeight > 33 ? listNode.scrollHeight : 33;
          item.config.height = height + 5;
          item.resize();
       }, 200);
@@ -53287,59 +52111,6 @@ class ABViewDataFilter extends (_core_views_ABViewDataFilterCore__WEBPACK_IMPORT
 
 /***/ },
 
-/***/ 6286
-/*!*****************************************************!*\
-  !*** ./AppBuilder/platform/views/ABViewDataview.js ***!
-  \*****************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
-
-const ABViewDataviewCore = __webpack_require__(/*! ../../core/views/ABViewDataviewCore */ 46021);
-const ABViewDataviewComponent = __webpack_require__(/*! ./viewComponent/ABViewDataviewComponent */ 65812);
-
-const ABViewDataviewDefaults = ABViewDataviewCore.defaultValues();
-
-const L = (...params) => AB.Multilingual.label(...params);
-
-module.exports = class ABViewDataview extends ABViewDataviewCore {
-   // constructor(values, application, parent, defaultValues) {
-   //    super(values, application, parent, defaultValues);
-   // }
-
-   /**
-    * @method fromValues()
-    *
-    * initialze this object with the given set of values.
-    * @param {obj} values
-    */
-   fromValues(values) {
-      super.fromValues(values);
-
-      this.settings.detailsPage =
-         this.settings.detailsPage ?? ABViewDataviewDefaults.detailsPage;
-      this.settings.editPage =
-         this.settings.editPage ?? ABViewDataviewDefaults.editPage;
-      this.settings.detailsTab =
-         this.settings.detailsTab ?? ABViewDataviewDefaults.detailsTab;
-      this.settings.editTab =
-         this.settings.editTab ?? ABViewDataviewDefaults.editTab;
-   }
-
-   /**
-    * @method component()
-    * return a UI component based upon this view.
-    * @param {obj } v1App
-    * @param {string} idPrefix - define to support in 'Datacollection' widget
-    *
-    * @return {obj } UI component
-    */
-   component() {
-      return new ABViewDataviewComponent(this);
-   }
-};
-
-
-/***/ },
-
 /***/ 86566
 /*!***************************************************!*\
   !*** ./AppBuilder/platform/views/ABViewDetail.js ***!
@@ -53583,1127 +52354,6 @@ module.exports = class ABViewDetailTree extends ABViewDetailTreeCore {
     */
    component() {
       return new ABViewDetailTreeComponent(this);
-   }
-};
-
-
-/***/ },
-
-/***/ 4634
-/*!********************************************************!*\
-  !*** ./AppBuilder/platform/views/ABViewDocxBuilder.js ***!
-  \********************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
-
-const ABViewDocxBuilderCore = __webpack_require__(/*! ../../core/views/ABViewDocxBuilderCore */ 72481);
-const ABViewDocxBuilderComponent = __webpack_require__(/*! ./viewComponent/ABViewDocxBuilderComponent */ 36942);
-
-module.exports = class ABViewDocxBuilder extends ABViewDocxBuilderCore {
-   /**
-    * @function component()
-    * return a UI component based upon this view.
-    * @return {obj} UI component
-    */
-   component() {
-      return new ABViewDocxBuilderComponent(this);
-   }
-
-   letUserDownload(blob, filename) {
-      const url = window.URL.createObjectURL(blob);
-
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = filename;
-      document.body.appendChild(a); // we need to append the element to the dom -> otherwise it will not work in firefox
-      a.click();
-      a.remove(); //afterwards we remove the element again
-
-      window.URL.revokeObjectURL(url);
-   }
-
-   warningsEval() {
-      super.warningsEval();
-
-      let DC = this.datacollections || this.datacollection;
-      if (!DC) {
-         this.warningsMessage(
-            `can't resolve it's datacollection[${this.settings.dataviewID}]`
-         );
-      }
-
-      if (!this.settings.filename) {
-         this.warningsMessage("is missing a DOCX template file");
-      } else {
-         // TODO: should we check for the existance of the file?
-         // this isn't currently an async friendly fn, so how?
-         // let url = this.downloadUrl();
-      }
-   }
-};
-
-
-/***/ },
-
-/***/ 10365
-/*!*************************************************!*\
-  !*** ./AppBuilder/platform/views/ABViewForm.js ***!
-  \*************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
-
-const ABViewFormCore = __webpack_require__(/*! ../../core/views/ABViewFormCore */ 25378);
-const ABViewFormComponent = __webpack_require__(/*! ./viewComponent/ABViewFormComponent */ 98165);
-const ABViewFormButton = __webpack_require__(/*! ./ABViewFormButton */ 45341);
-const ABViewFormCustom = __webpack_require__(/*! ./ABViewFormCustom */ 96234);
-const ABViewFormConnect = __webpack_require__(/*! ./ABViewFormConnect */ 77927);
-const ABViewFormDatepicker = __webpack_require__(/*! ./ABViewFormDatepicker */ 19835);
-const ABViewFormSelectMultiple = __webpack_require__(/*! ./ABViewFormSelectMultiple */ 71881);
-const ABViewFormTextbox = __webpack_require__(/*! ./ABViewFormTextbox */ 10449);
-const ABViewFormJson = __webpack_require__(/*! ./ABViewFormJson */ 71803);
-
-const L = (...params) => AB.Multilingual.label(...params);
-
-// const ABRecordRule = require("../../rules/ABViewRuleListFormRecordRules");
-// const ABSubmitRule = require("../../rules/ABViewRuleListFormSubmitRules");
-
-// let PopupRecordRule = null;
-// let PopupSubmitRule = null;
-
-const ABViewFormPropertyComponentDefaults = ABViewFormCore.defaultValues();
-
-module.exports = class ABViewForm extends ABViewFormCore {
-   constructor(values, application, parent, defaultValues) {
-      super(values, application, parent, defaultValues);
-
-      this._callbacks = {
-         onBeforeSaveData: () => true,
-      };
-   }
-
-   superComponent() {
-      if (this._superComponent == null)
-         this._superComponent = super.component();
-
-      return this._superComponent;
-   }
-
-   /**
-    * @method component()
-    * return a UI component based upon this view.
-    * @return {obj} UI component
-    */
-   component() {
-      return new ABViewFormComponent(this);
-   }
-
-   refreshDefaultButton(ids) {
-      // If default button is not exists, then skip this
-      let defaultButton = this.views(
-         (v) => v instanceof ABViewFormButton && v.settings.isDefault
-      )[0];
-
-      // Add a default button
-      if (defaultButton == null) {
-         defaultButton = ABViewFormButton.newInstance(this.application, this);
-         defaultButton.settings.isDefault = true;
-      }
-      // Remove default button from array, then we will add it to be the last item later (.push)
-      else {
-         this._views = this.views((v) => v.id != defaultButton.id);
-      }
-
-      // Calculate position Y of the default button
-      let yList = this.views().map((v) => (v.position.y || 0) + 1);
-      yList.push(this._views.length || 0);
-      yList.push($$(ids.fields).length || 0);
-      let posY = Math.max(...yList);
-
-      // Update to be the last item
-      defaultButton.position.y = posY;
-
-      // Keep the default button is always the last item of array
-      this._views.push(defaultButton);
-
-      return defaultButton;
-   }
-
-   /**
-    * @method getFormValues
-    *
-    * @param {webix form} formView
-    * @param {ABObject} obj
-    * @param {ABDatacollection} dc
-    * @param {ABDatacollection} dcLink [optional]
-    */
-   getFormValues(formView, obj, dc, dcLink) {
-      // get the fields that are on this form
-      const visibleFields = ["id"]; // we always want the id so we can udpate records
-      formView.getValues(function (obj) {
-         visibleFields.push(obj.config.name);
-      });
-
-      // only get data passed from form
-      const allVals = formView.getValues();
-      const formVals = {};
-      visibleFields.forEach((val) => {
-         formVals[val] = allVals[val];
-      });
-
-      // get custom values
-      this.fieldComponents(
-         (comp) =>
-            comp instanceof ABViewFormCustom ||
-            comp instanceof ABViewFormConnect ||
-            comp instanceof ABViewFormDatepicker ||
-            comp instanceof ABViewFormSelectMultiple ||
-            (comp instanceof ABViewFormJson && comp.settings.type == "filter")
-      ).forEach((f) => {
-         const vComponent = this.viewComponents[f.id];
-         if (vComponent == null) return;
-
-         const field = f.field();
-         if (field) {
-            const getValue = vComponent.getValue ?? vComponent.logic.getValue;
-            if (getValue)
-               formVals[field.columnName] = getValue.call(vComponent, formVals);
-         }
-      });
-
-      // remove connected fields if they were not on the form and they are present in the formVals because it is a datacollection
-      obj.connectFields().forEach((f) => {
-         if (
-            visibleFields.indexOf(f.columnName) == -1 &&
-            formVals[f.columnName]
-         ) {
-            delete formVals[f.columnName];
-            delete formVals[f.relationName()];
-         }
-      });
-
-      // clear undefined values or empty arrays
-      for (const prop in formVals) {
-         if (formVals[prop] == null || formVals[prop].length == 0)
-            formVals[prop] = "";
-      }
-
-      // Add parent's data collection cursor when a connect field does not show
-      let linkValues;
-
-      if (dcLink) {
-         linkValues = dcLink.getCursor();
-      }
-
-      if (linkValues) {
-         const objectLink = dcLink.datasource;
-
-         const connectFields = obj.connectFields();
-         connectFields.forEach((f) => {
-            const formFieldCom = this.fieldComponents(
-               (fComp) => fComp?.field?.()?.id === f?.id
-            );
-
-            if (
-               objectLink.id == f.settings.linkObject &&
-               formFieldCom.length < 1 && // check field does not show
-               formVals[f.columnName] === undefined
-            ) {
-               const linkColName = f.indexField
-                  ? f.indexField.columnName
-                  : objectLink.PK();
-
-               formVals[f.columnName] = {};
-               formVals[f.columnName][linkColName] =
-                  linkValues[linkColName] ?? linkValues.id;
-            }
-         });
-      }
-
-      // NOTE: need to pull data of current cursor to calculate Calculate & Formula fields
-      // .formVals variable does not include data that does not display in the Form widget
-      const cursorFormVals = Object.assign(dc.getCursor() ?? {}, formVals);
-
-      // Set value of calculate or formula fields to use in record rule
-      obj.fields((f) => f.key == "calculate" || f.key == "formula").forEach(
-         (f) => {
-            if (formVals[f.columnName] == null) {
-               let reCalculate = true;
-
-               // WORKAROUND: If "Formula" field will have Filter conditions,
-               // Then it is not able to re-calculate on client side
-               // because relational data is not full data so FilterComplex will not have data to check
-               if (f.key == "formula" && f.settings?.where?.rules?.length > 0) {
-                  reCalculate = false;
-               }
-
-               formVals[f.columnName] = f.format(cursorFormVals, reCalculate);
-            }
-         }
-      );
-
-      if (allVals.translations?.length > 0)
-         formVals.translations = allVals.translations;
-
-      // give the Object a final chance to review the data being handled.
-      obj.formCleanValues(formVals);
-
-      return formVals;
-   }
-
-   /**
-    * @method validateData
-    *
-    * @param {webix form} formView
-    * @param {ABObject} object
-    * @param {object} formVals
-    *
-    * @return {boolean} isValid
-    */
-   validateData($formView, object, formVals) {
-      let list = "";
-
-      // validate required fields
-      const requiredFields = this.fieldComponents(
-         (fComp) =>
-            fComp?.field?.().settings?.required == true ||
-            fComp?.settings?.required == true
-      ).map((fComp) => fComp.field());
-
-      // validate data
-      const validator = object.isValidData(formVals);
-      let isValid = validator.pass();
-
-      // $$($formView).validate();
-      $formView.validate();
-      /**
-       * helper function to fix the webix ui after adding an validation error
-       * message.
-       * @param {string} col - field.columnName
-       */
-      const fixInvalidMessageUI = (col) => {
-         const $forminput = $formView.elements[col];
-         if (!$forminput) return;
-         // Y position
-         const height = $forminput.$height;
-         if (height < 56) {
-            $forminput.define("height", 60);
-            $forminput.resize();
-         }
-
-         // X position
-         const domInvalidMessage = $forminput.$view.getElementsByClassName(
-            "webix_inp_bottom_label"
-         )[0];
-         if (!domInvalidMessage?.style["margin-left"]) {
-            domInvalidMessage.style.marginLeft = `${
-               this.settings.labelWidth ??
-               ABViewFormPropertyComponentDefaults.labelWidth
-            }px`;
-         }
-      };
-
-      // Display required messages
-      requiredFields.forEach((f) => {
-         if (!f) return;
-
-         const fieldVal = formVals[f.columnName];
-         if (fieldVal == "" || fieldVal == null || fieldVal.length < 1) {
-            $formView.markInvalid(f.columnName, L("This is a required field."));
-            list += `<li>${L("Missing Required Field")} ${f.columnName}</li>`;
-            isValid = false;
-
-            // Fix position of invalid message
-            fixInvalidMessageUI(f.columnName);
-         }
-      });
-
-      // if data is invalid
-      if (!isValid) {
-         const saveButton = $formView.queryView({
-            view: "button",
-            type: "form",
-         });
-
-         // error message
-         if (validator?.errors?.length) {
-            validator.errors.forEach((err) => {
-               $formView.markInvalid(err.name, err.message);
-               list += `<li>${err.name}: ${err.message}</li>`;
-               fixInvalidMessageUI(err.name);
-            });
-
-            saveButton?.disable();
-         } else {
-            saveButton?.enable();
-         }
-      }
-      if (list) {
-         webix.alert({
-            type: "alert-error",
-            title: L("Problems Saving"),
-            width: 400,
-            text: `<ul style='text-align:left'>${list}</ul>`,
-         });
-      }
-
-      return isValid;
-   }
-
-   /**
-    * @method recordRulesReady()
-    * This returns a Promise that gets resolved when all record rules report
-    * that they are ready.
-    * @return {Promise}
-    */
-   async recordRulesReady() {
-      return this.RecordRule.rulesReady();
-   }
-
-   /**
-    * @method saveData
-    * save data in to database
-    * @param $formView - webix's form element
-    *
-    * @return {Promise}
-    */
-   async saveData($formView) {
-      // call .onBeforeSaveData event
-      // if this function returns false, then it will not go on.
-      if (!this._callbacks?.onBeforeSaveData?.()) return;
-
-      $formView.clearValidation();
-
-      // get ABDatacollection
-      const dv = this.datacollection;
-      if (dv == null) return;
-
-      // get ABObject
-      const obj = dv.datasource;
-      if (obj == null) return;
-
-      // show progress icon
-      $formView.showProgress?.({ type: "icon" });
-
-      // get update data
-      const formVals = this.getFormValues(
-         $formView,
-         obj,
-         dv,
-         dv.datacollectionLink
-      );
-
-      // form ready function
-      const formReady = (newFormVals) => {
-         // clear cursor after saving.
-         if (dv) {
-            if (this.settings.clearOnSave) {
-               dv.setCursor(null);
-               $formView.clear();
-            } else {
-               if (newFormVals && newFormVals.id) dv.setCursor(newFormVals.id);
-            }
-         }
-
-         $formView.hideProgress?.();
-
-         // if there was saved data pass it up to the onSaveData callback
-         // if (newFormVals) this._logic.callbacks.onSaveData(newFormVals);
-         if (newFormVals) this.emit("saved", newFormVals); // Q? is this the right upgrade?
-      };
-
-      const formError = (err) => {
-         const $saveButton = $formView.queryView({
-            view: "button",
-            type: "form",
-         });
-
-         // mark error
-         if (err) {
-            if (err.invalidAttributes) {
-               for (const attr in err.invalidAttributes) {
-                  let invalidAttrs = err.invalidAttributes[attr];
-                  if (invalidAttrs && invalidAttrs[0])
-                     invalidAttrs = invalidAttrs[0];
-
-                  $formView.markInvalid(attr, invalidAttrs.message);
-               }
-            } else if (err.sqlMessage) {
-               webix.message({
-                  text: err.sqlMessage,
-                  type: "error",
-               });
-            } else {
-               webix.message({
-                  text: L("System could not save your data"),
-                  type: "error",
-               });
-               this.AB.notify.developer(err, {
-                  message: "Could not save your data",
-                  view: this.toObj(),
-               });
-            }
-         }
-
-         $saveButton?.enable();
-
-         $formView?.hideProgress?.();
-      };
-
-      // Load data of DCs that use in record rules
-      await this.loadDcDataOfRecordRules();
-
-      // wait for our Record Rules to be ready before we continue.
-      await this.recordRulesReady();
-
-      // update value from the record rule (pre-update)
-      this.doRecordRulesPre(formVals);
-
-      // validate data
-      if (!this.validateData($formView, obj, formVals)) {
-         // console.warn("Data is invalid.");
-         $formView.hideProgress?.();
-         return;
-      }
-      let newFormVals;
-      try {
-         newFormVals = await this.submitValues(formVals);
-      } catch (err) {
-         formError(err.data);
-         return;
-      }
-      // {obj}
-      // The fully populated values returned back from service call
-      // We use this in our post processing Rules
-
-      /*
-      // OLD CODE:
-      try {
-         await this.doRecordRules(newFormVals);
-         // make sure any updates from RecordRules get passed along here.
-         this.doSubmitRules(newFormVals);
-         formReady(newFormVals);
-         return newFormVals;
-      } catch (err) {
-         this.AB.notify.developer(err, {
-            message: "Error processing Record Rules.",
-            view: this.toObj(),
-            newFormVals: newFormVals,
-         });
-         // Question:  how do we respond to an error?
-         // ?? just keep going ??
-         this.doSubmitRules(newFormVals);
-         formReady(newFormVals);
-         return;
-      }
-      */
-
-      try {
-         await this.doRecordRules(newFormVals);
-      } catch (err) {
-         this.AB.notify.developer(err, {
-            message: "Error processing Record Rules.",
-            view: this.toObj(),
-            newFormVals: newFormVals,
-         });
-      }
-
-      // make sure any updates from RecordRules get passed along here.
-      try {
-         this.doSubmitRules(newFormVals);
-      } catch (errs) {
-         this.AB.notify.developer(errs, {
-            message: "Error processing Submit Rules.",
-            view: this.toObj(),
-            newFormVals: newFormVals,
-         });
-      }
-
-      formReady(newFormVals);
-      return newFormVals;
-   }
-
-   focusOnFirst() {
-      let topPosition = 0;
-      let topPositionId = "";
-      this.views().forEach((item) => {
-         if (item.key == "textbox" || item.key == "numberbox") {
-            if (item.position.y == topPosition) {
-               // topPosition = item.position.y;
-               topPositionId = item.id;
-            }
-         }
-      });
-      let childComponent = this.viewComponents[topPositionId];
-      if (childComponent && $$(childComponent.ui.id)) {
-         $$(childComponent.ui.id).focus();
-      }
-   }
-
-   async loadDcDataOfRecordRules() {
-      const tasks = [];
-
-      (this.settings?.recordRules ?? []).forEach((rule) => {
-         (rule?.actionSettings?.valueRules?.fieldOperations ?? []).forEach(
-            (op) => {
-               if (op.valueType !== "exist") return;
-
-               const pullDataDC = this.AB.datacollectionByID(op.value);
-
-               if (
-                  pullDataDC?.dataStatus ===
-                  pullDataDC.dataStatusFlag.notInitial
-               )
-                  tasks.push(pullDataDC.loadData());
-            }
-         );
-      });
-
-      await Promise.all(tasks);
-
-      return true;
-   }
-
-   get viewComponents() {
-      const superComponent = this.superComponent();
-      return superComponent.viewComponents;
-   }
-
-   warningsEval() {
-      super.warningsEval();
-
-      let DC = this.datacollection;
-      if (!DC) {
-         this.warningsMessage(
-            `can't resolve it's datacollection[${this.settings.dataviewID}]`
-         );
-      }
-
-      if (this.settings.recordRules) {
-         // TODO: scan recordRules for warnings
-      }
-
-      if (this.settings.submitRules) {
-         // TODO: scan submitRules for warnings.
-      }
-   }
-
-   async submitValues(formVals) {
-      // get ABModel
-      const model = this.datacollection.model;
-      if (model == null) return;
-
-      // is this an update or create?
-      if (formVals.id) {
-         return await model.update(formVals.id, formVals);
-      } else {
-         return await model.create(formVals);
-      }
-   }
-
-   /**
-    * @method deleteData
-    * delete data in to database
-    * @param $formView - webix's form element
-    *
-    * @return {Promise}
-    */
-   async deleteData($formView) {
-      // get ABDatacollection
-      const dc = this.datacollection;
-      if (dc == null) return;
-
-      // get ABObject
-      const obj = dc.datasource;
-      if (obj == null) return;
-
-      // get ABModel
-      const model = dc.model;
-      if (model == null) return;
-
-      // get update data
-      const formVals = $formView.getValues();
-
-      if (formVals?.id) {
-         const result = await model.delete(formVals.id);
-
-         // clear form
-         if (result) {
-            dc.setCursor(null);
-            $formView.clear();
-         }
-
-         return result;
-      }
-   }
-};
-
-
-/***/ },
-
-/***/ 45341
-/*!*******************************************************!*\
-  !*** ./AppBuilder/platform/views/ABViewFormButton.js ***!
-  \*******************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
-
-const ABViewFormButtonCore = __webpack_require__(/*! ../../core/views/ABViewFormButtonCore */ 95994);
-const ABViewFormButtonComponent = __webpack_require__(/*! ./viewComponent/ABViewFormButtonComponent */ 91645);
-
-module.exports = class ABViewFormButton extends ABViewFormButtonCore {
-   /**
-    * @method component()
-    * return a UI component based upon this view.
-    * @return {obj} UI component
-    */
-   component() {
-      return new ABViewFormButtonComponent(this);
-   }
-};
-
-
-/***/ },
-
-/***/ 96276
-/*!*********************************************************!*\
-  !*** ./AppBuilder/platform/views/ABViewFormCheckbox.js ***!
-  \*********************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
-
-const ABViewFormCheckboxCore = __webpack_require__(/*! ../../core/views/ABViewFormCheckboxCore */ 14647);
-const ABViewFormCheckboxComponent = __webpack_require__(/*! ./viewComponent/ABViewFormCheckboxComponent */ 14134);
-
-module.exports = class ABViewFormCheckbox extends ABViewFormCheckboxCore {
-   /**
-    * @method component()
-    * return a UI component based upon this view.
-    * @return {obj} UI component
-    */
-   component() {
-      return new ABViewFormCheckboxComponent(this);
-   }
-};
-
-
-/***/ },
-
-/***/ 77927
-/*!********************************************************!*\
-  !*** ./AppBuilder/platform/views/ABViewFormConnect.js ***!
-  \********************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
-
-const ABViewFormConnectCore = __webpack_require__(/*! ../../core/views/ABViewFormConnectCore */ 78424);
-const ABViewFormConnectComponent = __webpack_require__(/*! ./viewComponent/ABViewFormConnectComponent */ 64161);
-const ABViewPropertyAddPage =
-   (__webpack_require__(/*! ./viewProperties/ABViewPropertyAddPage */ 64947)["default"]);
-const ABViewPropertyEditPage =
-   (__webpack_require__(/*! ./viewProperties/ABViewPropertyEditPage */ 24904)["default"]);
-
-const ABViewFormConnectPropertyComponentDefaults =
-   ABViewFormConnectCore.defaultValues();
-
-module.exports = class ABViewFormConnect extends ABViewFormConnectCore {
-   /**
-    * @param {obj} values  key=>value hash of ABView values
-    * @param {ABApplication} application the application object this view is under
-    * @param {ABView} parent the ABView this view is a child of. (can be null)
-    */
-   constructor(values, application, parent, defaultValues) {
-      super(values, application, parent, defaultValues);
-
-      // Set filter value
-      this.__filterComponent = this.AB.filterComplexNew(
-         `${this.id}__filterComponent`
-      );
-      // this.__filterComponent.applicationLoad(application);
-      this.__filterComponent.fieldsLoad(
-         this.datasource ? this.datasource.fields() : [],
-         this.datasource ? this.datasource : null
-      );
-
-      // NOTE: .objectWorkspace is a v1 setting
-      // if (
-      //    !this.settings.objectWorkspace ||
-      //    !this.settings.objectWorkspace.filterConditions
-      // ) {
-      //    this.AB.error("Error: filter conditions do not exist", {
-      //       error: "filterConditions do not exist",
-      //       viewLocation: {
-      //          application: this.application.name,
-      //          id: this.id,
-      //          name: this.label,
-      //       },
-      //       view: this,
-      //    });
-      //    // manually place an empty filter
-      //    this.settings["objectWorkspace"] = {};
-      //    this.settings["objectWorkspace"]["filterConditions"] = { glue: "and" };
-      // }
-
-      this.__filterComponent.setValue(
-         this.settings.filterConditions ??
-            ABViewFormConnectPropertyComponentDefaults.filterConditions
-      );
-   }
-
-   ///
-   /// Instance Methods
-   ///
-
-   /**
-    * @method fromValues()
-    *
-    * initialze this object with the given set of values.
-    * @param {obj} values
-    */
-   fromValues(values) {
-      super.fromValues(values);
-
-      this.addPageTool.fromSettings(this.settings);
-      this.editPageTool.fromSettings(this.settings);
-   }
-
-   static get addPageProperty() {
-      return ABViewPropertyAddPage.propertyComponent(this.App, this.idBase);
-   }
-
-   static get editPageProperty() {
-      return ABViewPropertyEditPage.propertyComponent(this.App, this.idBase);
-   }
-
-   /**
-    * @method component()
-    * return a UI component based upon this view.
-    * @return {obj} UI component
-    */
-   component() {
-      return new ABViewFormConnectComponent(this);
-   }
-
-   get addPageTool() {
-      if (this.__addPageTool == null)
-         this.__addPageTool = new ABViewPropertyAddPage();
-
-      return this.__addPageTool;
-   }
-
-   get editPageTool() {
-      if (this.__editPageTool == null)
-         this.__editPageTool = new ABViewPropertyEditPage();
-
-      return this.__editPageTool;
-   }
-};
-
-
-/***/ },
-
-/***/ 96234
-/*!*******************************************************!*\
-  !*** ./AppBuilder/platform/views/ABViewFormCustom.js ***!
-  \*******************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
-
-const ABViewFormCustomCore = __webpack_require__(/*! ../../core/views/ABViewFormCustomCore */ 6209);
-const ABViewFormCustomComponent = __webpack_require__(/*! ./viewComponent/ABViewFormCustomComponent */ 37416);
-
-module.exports = class ABViewFormCustom extends ABViewFormCustomCore {
-   /**
-    * @method component()
-    * return a UI component based upon this view.
-    * @return {obj} UI component
-    */
-   component() {
-      return new ABViewFormCustomComponent(this);
-   }
-};
-
-
-/***/ },
-
-/***/ 19835
-/*!***********************************************************!*\
-  !*** ./AppBuilder/platform/views/ABViewFormDatepicker.js ***!
-  \***********************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
-
-const ABViewFormDatepickerCore = __webpack_require__(/*! ../../core/views/ABViewFormDatepickerCore */ 43548);
-const ABViewFormDatepickerComponent = __webpack_require__(/*! ./viewComponent/ABViewFormDatepickerComponent */ 58419);
-
-module.exports = class ABViewFormDatepicker extends ABViewFormDatepickerCore {
-   /**
-    * @method component()
-    * return a UI component based upon this view.
-    * @return {obj} UI component
-    */
-   component() {
-      return new ABViewFormDatepickerComponent(this);
-   }
-};
-
-
-/***/ },
-
-/***/ 86962
-/*!*****************************************************!*\
-  !*** ./AppBuilder/platform/views/ABViewFormItem.js ***!
-  \*****************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
-
-const ABViewFormItemCore = __webpack_require__(/*! ../../core/views/ABViewFormItemCore */ 64049);
-const ABViewFormItemComponent = __webpack_require__(/*! ./viewComponent/ABViewFormItemComponent */ 8772);
-
-const ABViewFormFieldPropertyComponentDefaults =
-   ABViewFormItemCore.defaultValues();
-
-module.exports = class ABViewFormItem extends ABViewFormItemCore {
-   // constructor(values, application, parent, defaultValues) {
-   //    super(values, application, parent, defaultValues);
-   // }
-
-   static get componentUI() {
-      return ABViewFormItemComponent;
-   }
-
-   /**
-    * @method component()
-    * return a UI component based upon this view.
-    * @return {obj} UI component
-    */
-   component() {
-      return new ABViewFormItemComponent(this);
-   }
-
-   /**
-    * @method parentFormUniqueID
-    * return a unique ID based upon the closest form object this component is on.
-    * @param {string} key  The basic id string we will try to make unique
-    * @return {string}
-    */
-   parentFormUniqueID(key) {
-      var form = this.parentFormComponent();
-      var uniqueInstanceID;
-      if (form) {
-         uniqueInstanceID = form.uniqueInstanceID;
-      } else {
-         uniqueInstanceID = webix.uid();
-      }
-
-      return key + uniqueInstanceID;
-   }
-};
-
-
-/***/ },
-
-/***/ 71803
-/*!*****************************************************!*\
-  !*** ./AppBuilder/platform/views/ABViewFormJson.js ***!
-  \*****************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
-
-const ABViewFormJsonCore = __webpack_require__(/*! ../../core/views/ABViewFormJsonCore */ 73404);
-const ABViewFormJsonComponent = __webpack_require__(/*! ./viewComponent/ABViewFormJsonComponent */ 29119);
-
-module.exports = class ABViewFormJson extends ABViewFormJsonCore {
-   /**
-    * @method component()
-    * return a UI component based upon this view.
-    * @return {obj} UI component
-    */
-   component() {
-      return new ABViewFormJsonComponent(this);
-   }
-};
-
-
-/***/ },
-
-/***/ 45140
-/*!*******************************************************!*\
-  !*** ./AppBuilder/platform/views/ABViewFormNumber.js ***!
-  \*******************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
-
-const ABViewFormNumberCore = __webpack_require__(/*! ../../core/views/ABViewFormNumberCore */ 41191);
-const ABViewFormNumberComponent = __webpack_require__(/*! ./viewComponent/ABViewFormNumberComponent */ 10246);
-
-module.exports = class ABViewFormNumber extends ABViewFormNumberCore {
-   /**
-    * @method component()
-    * return a UI component based upon this view.
-    * @return {obj} UI component
-    */
-   component() {
-      return new ABViewFormNumberComponent(this);
-   }
-};
-
-
-/***/ },
-
-/***/ 19235
-/*!*********************************************************!*\
-  !*** ./AppBuilder/platform/views/ABViewFormReadonly.js ***!
-  \*********************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
-
-const ABViewFormReadonlyCore = __webpack_require__(/*! ../../core/views/ABViewFormReadonlyCore */ 2700);
-const ABViewFormReadonlyComponent = __webpack_require__(/*! ./viewComponent/ABViewFormReadonlyComponent */ 71207);
-
-module.exports = class ABViewFormReadonly extends ABViewFormReadonlyCore {
-   /**
-    * @method component()
-    * return a UI component based upon this view.
-    * @return {obj} UI component
-    */
-   component() {
-      return new ABViewFormReadonlyComponent(this);
-   }
-};
-
-
-/***/ },
-
-/***/ 71881
-/*!***************************************************************!*\
-  !*** ./AppBuilder/platform/views/ABViewFormSelectMultiple.js ***!
-  \***************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
-
-const ABViewFormSelectMultipleCore = __webpack_require__(/*! ../../core/views/ABViewFormSelectMultipleCore */ 84510);
-const ABViewFormSelectMultipleComponent = __webpack_require__(/*! ./viewComponent/ABViewFormSelectMultipleComponent */ 55977);
-
-module.exports = class ABViewFormSelectMultiple extends (
-   ABViewFormSelectMultipleCore
-) {
-   /**
-    * @method component()
-    * return a UI component based upon this view.
-    * @return {obj} UI component
-    */
-   component() {
-      return new ABViewFormSelectMultipleComponent(this);
-   }
-};
-
-
-/***/ },
-
-/***/ 46125
-/*!*************************************************************!*\
-  !*** ./AppBuilder/platform/views/ABViewFormSelectSingle.js ***!
-  \*************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
-
-const ABViewFormSelectSingleCore = __webpack_require__(/*! ../../core/views/ABViewFormSelectSingleCore */ 33218);
-const ABViewFormSelectSingleComponent = __webpack_require__(/*! ./viewComponent/ABViewFormSelectSingleComponent */ 37117);
-
-module.exports = class ABViewFormSelectSingle extends (
-   ABViewFormSelectSingleCore
-) {
-   /**
-    * @method component()
-    * return a UI component based upon this view.
-    * @return {obj} UI component
-    */
-   component() {
-      return new ABViewFormSelectSingleComponent(this);
-   }
-};
-
-
-/***/ },
-
-/***/ 10449
-/*!********************************************************!*\
-  !*** ./AppBuilder/platform/views/ABViewFormTextbox.js ***!
-  \********************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
-
-const ABViewFormTextboxCore = __webpack_require__(/*! ../../core/views/ABViewFormTextboxCore */ 97694);
-const ABViewFormTextboxComponent = __webpack_require__(/*! ./viewComponent/ABViewFormTextboxComponent */ 25411);
-
-module.exports = class ABViewFormTextbox extends ABViewFormTextboxCore {
-   /**
-    * @method component()
-    * return a UI component based upon this view.
-    * @return {obj} UI component
-    */
-   component() {
-      return new ABViewFormTextboxComponent(this);
-   }
-};
-
-
-/***/ },
-
-/***/ 35865
-/*!*****************************************************!*\
-  !*** ./AppBuilder/platform/views/ABViewFormTree.js ***!
-  \*****************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
-
-const ABViewFormTreeCore = __webpack_require__(/*! ../../core/views/ABViewFormTreeCore */ 38566);
-const ABViewFormTreeComponent = __webpack_require__(/*! ./viewComponent/ABViewFormTreeComponent */ 48585);
-
-module.exports = class ABViewFormTree extends ABViewFormTreeCore {
-   /**
-    * @method component()
-    * return a UI component based upon this view.
-    * @param {obj} App
-    * @return {obj} UI component
-    */
-   component() {
-      return new ABViewFormTreeComponent(this);
-   }
-};
-
-
-/***/ },
-
-/***/ 71616
-/*!****************************************************!*\
-  !*** ./AppBuilder/platform/views/ABViewFormURL.js ***!
-  \****************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
-
-const ABViewForm = __webpack_require__(/*! ./ABViewForm */ 10365);
-
-const ABViewFormURLDefaults = {
-   key: "form-url", // unique key identifier for this ABViewForm
-   icon: "list-alt", // icon reference: (without 'fa-' )
-   labelKey: "FormUrl", // {string} the multilingual label key for the class label
-};
-
-module.exports = class ABViewFormURL extends ABViewForm {
-   static common() {
-      return ABViewFormURLDefaults;
-   }
-
-   async submitValues(formVals) {
-      let url = this.settings.url;
-      let method = this.settings.method || "get";
-      method = method.toLowerCase();
-      if (!["get", "post", "put", "delete"].includes(method)) {
-         throw new Error(
-            `Invalid method "${method}" specified for ABViewFormURL`
-         );
-      }
-
-      // remove empty id from formVals
-      if (formVals.id === "") {
-         delete formVals.id;
-      }
-
-      let params = {
-         data: formVals,
-         url,
-      };
-
-      if (this.settings.headers) {
-         params.headers = this.settings.headers;
-      }
-
-      return await this.AB.Network[method](params);
    }
 };
 
@@ -56151,6 +53801,8 @@ module.exports = class ABViewContainerComponent extends ABViewComponent {
       const defaultSettings = this.view.constructor.defaultValues();
 
       views.forEach((v) => {
+         if (v === this.view) return;
+
          // let component = v.component(/* App, idPrefix */);
          // NOTE: PONG - Just temporary to be compatible old & new versions
          let component;
@@ -56696,407 +54348,6 @@ class ABViewDataFilterComponent extends _ABViewComponent__WEBPACK_IMPORTED_MODUL
       // this.datacollection?.removeListener("changeCursor", this.handler_select);
    }
 }
-
-
-/***/ },
-
-/***/ 65812
-/*!****************************************************************************!*\
-  !*** ./AppBuilder/platform/views/viewComponent/ABViewDataviewComponent.js ***!
-  \****************************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
-
-const ABViewComponent = (__webpack_require__(/*! ./ABViewComponent */ 23687)["default"]);
-const ABViewDetailComponent = __webpack_require__(/*! ./ABViewDetailComponent */ 97376);
-const ABViewPropertyLinkPage =
-   (__webpack_require__(/*! ../viewProperties/ABViewPropertyLinkPage */ 42588)["default"]);
-
-module.exports = class ABViewDataviewComponent extends ABViewComponent {
-   constructor(baseView, idBase, ids) {
-      super(
-         baseView,
-         idBase || `ABViewDataview_${baseView.id}`,
-         Object.assign(
-            {
-               dataview: "",
-               reload: "",
-            },
-            ids
-         )
-      );
-
-      this.linkPage = null;
-   }
-
-   ui() {
-      // NOTE: need to initial the detail component here
-      // because its dom width & height values are used .template function
-      this.initDetailComponent();
-
-      const ids = this.ids;
-      const L = (...params) => (this.AB ?? AB).Multilingual.label(...params);
-      const _ui = super.ui([
-         {
-            view: "layout",
-            rows: [
-               {
-                  id: ids.reload,
-                  view: "button",
-                  value: L("New data available. Click to reload."),
-                  css: "webix_primary webix_warn",
-                  hidden: true,
-                  click: (id, event) => {
-                     this.reloadData();
-                  },
-               },
-               {
-                  id: ids.dataview,
-                  view: "dataview",
-                  scroll: "y",
-                  sizeToContent: true,
-                  css: "borderless transparent",
-                  xCount: this.settings.xCount != 1 ? this.settings.xCount : 0,
-                  height: this.settings.height,
-                  template: (item) => this.itemTemplate(item),
-                  on: {
-                     onAfterRender: () => {
-                        this.applyClickEvent();
-                        this.addCyAttribute();
-                     },
-                  },
-               },
-            ],
-         },
-      ]);
-
-      return _ui;
-   }
-
-   async init(AB) {
-      await super.init(AB);
-
-      const dc = this.datacollection;
-      if (!dc) return;
-
-      // Initial the link page helper
-      this.linkPage = this.linkPageHelper.component();
-      this.linkPage.init({
-         view: this.view,
-         datacollection: dc,
-      });
-
-      const ids = this.ids;
-      const $dataView = $$(ids.dataview);
-      AB.Webix.extend($dataView, AB.Webix.ProgressBar);
-      dc.bind($dataView);
-
-      this.initRefreshWarning();
-
-      window.addEventListener("resize", () => {
-         clearTimeout(this._resizeEvent);
-         this._resizeEvent = setTimeout(() => {
-            this.resize($dataView.getParentView());
-            delete this._resizeEvent;
-         }, 20);
-      });
-   }
-
-   /**
-    * @method initRefreshWarning
-    *
-    */
-   initRefreshWarning() {
-      const dc = this.datacollection;
-      const includeInQuery =
-         (dc?.settings?.objectWorkspace?.filterConditions?.rules ?? []).filter(
-            (r) =>
-               [
-                  "in_query",
-                  "not_in_query",
-                  "in_query_field",
-                  "not_in_query_field",
-               ].includes(r.rule)
-         ).length > 0;
-
-      if (!includeInQuery) return;
-      [
-         "ab.datacollection.create",
-         "ab.datacollection.update",
-         "ab.datacollection.delete",
-      ].forEach((eventKey) => {
-         dc.on(eventKey, (data) => {
-            if (data.objectId == dc.datasource.id)
-               this.showRefreshWarning(data);
-         });
-      });
-   }
-
-   showRefreshWarning() {
-      if (this.__throttleRefreshWarning)
-         clearTimeout(this.__throttleRefreshWarning);
-
-      this.__throttleRefreshWarning = setTimeout(() => {
-         $$(this.ids.reload)?.show();
-      }, 200);
-   }
-
-   reloadData() {
-      const dc = this.datacollection;
-      dc?.reloadData();
-
-      $$(this.ids.reload)?.hide();
-   }
-
-   onShow() {
-      super.onShow();
-
-      this.resize();
-   }
-
-   resize(base_element) {
-      const $dataview = $$(this.ids.dataview);
-      if (!$dataview) {
-         // Not sure if its a problem so notify
-         this.AB.notify.developer(
-            new Error("Resize called on missing dataview component"),
-            { context: "ABViewDataviewComponent.resize()", ids: this.ids }
-         );
-         return;
-      }
-      $dataview.resize();
-
-      const item_width = this.getItemWidth(base_element);
-      $dataview.customize({ width: item_width });
-      $dataview.getTopParentView?.().resize?.();
-   }
-
-   initDetailComponent() {
-      const detailUI = this.getDetailUI();
-      this._detail_ui = this.AB.Webix.ui(detailUI);
-
-      // 2 - Always allow access to components inside data view
-      this.detailComponent.init(null, 2);
-   }
-
-   getDetailUI() {
-      const detailCom = this.detailComponent;
-      const editPage = this.settings.editPage;
-      const detailsPage = this.settings.detailsPage;
-
-      const _ui = detailCom.ui();
-      // adjust the UI to make sure it will look like a "card"
-      _ui.type = "clean";
-      _ui.css = "ab-detail-view";
-
-      if (detailsPage || editPage) {
-         _ui.css += ` ab-detail-hover ab-record-#itemId#`;
-
-         if (detailsPage) _ui.css += " ab-detail-page";
-         if (editPage) _ui.css += " ab-edit-page";
-      }
-
-      return _ui;
-   }
-
-   itemTemplate(item) {
-      const detailCom = this.detailComponent;
-      const $dataview = $$(this.ids.dataview);
-      const $detail_item = this._detail_ui;
-
-      // Mock up data to initialize height of item
-      if (!item || !Object.keys(item).length) {
-         item = item ?? {};
-         this.datacollection?.datasource?.fields().forEach((f) => {
-            switch (f.key) {
-               case "string":
-               case "LongText":
-                  item[f.columnName] = "Lorem Ipsum";
-                  break;
-               case "date":
-               case "datetime":
-                  item[f.columnName] = new Date();
-                  break;
-               case "number":
-                  item[f.columnName] = 7;
-                  break;
-            }
-         });
-      }
-      detailCom.displayData(item);
-
-      const itemWidth =
-         $dataview.data.count() > 0
-            ? $dataview.type.width
-            : ($detail_item.$width - 20) / this.settings.xCount;
-
-      const itemHeight =
-         $dataview.data.count() > 0
-            ? $dataview.type.height
-            : $detail_item.getChildViews()?.[0]?.$height;
-
-      const tmp_dom = document.createElement("div");
-      tmp_dom.appendChild($detail_item.$view);
-
-      $detail_item.define("width", itemWidth - 24);
-      $detail_item.define("height", itemHeight + 15);
-      $detail_item.adjust();
-
-      // Add cy attributes
-      this.addCyItemAttributes(tmp_dom, item);
-
-      return tmp_dom.innerHTML.replace(/#itemId#/g, item.id);
-   }
-
-   getItemWidth(base_element) {
-      const $dataview = $$(this.ids.dataview);
-
-      let currElem = base_element ?? $dataview;
-      let parentWidth = currElem?.$width;
-      while (currElem) {
-         if (
-            currElem.config.view == "scrollview" ||
-            currElem.config.view == "layout"
-         )
-            parentWidth =
-               currElem?.$width < parentWidth ? currElem?.$width : parentWidth;
-
-         currElem = currElem?.getParentView?.();
-      }
-
-      if (!parentWidth)
-         parentWidth = $dataview?.getParentView?.().$width || window.innerWidth;
-
-      if (parentWidth > window.innerWidth) parentWidth = window.innerWidth;
-
-      // check if the browser window minus webix default padding is the same as the parent window
-      // if so we need to check to see if there is a sidebar and reduce the usable space by the
-      // width of the sidebar
-      if (window.innerWidth - 19 <= parentWidth) {
-         const $sidebar = this.getTabSidebar();
-         if ($sidebar) {
-            parentWidth -= $sidebar.$width;
-         }
-      }
-
-      const recordWidth = Math.floor(parentWidth / this.settings.xCount);
-
-      return recordWidth;
-   }
-
-   getTabSidebar() {
-      const $dataview = $$(this.ids.dataview);
-      let $sidebar;
-      let currElem = $dataview;
-      while (currElem && !$sidebar) {
-         $sidebar = (currElem.getChildViews?.() ?? []).filter(
-            (item) => item?.config?.view == "sidebar"
-         )[0];
-
-         currElem = currElem?.getParentView?.();
-      }
-
-      return $sidebar;
-   }
-
-   applyClickEvent() {
-      const editPage = this.settings.editPage;
-      const detailsPage = this.settings.detailsPage;
-      if (!detailsPage && !editPage) return;
-
-      const $dataview = $$(this.ids.dataview);
-      if (!$dataview) return;
-
-      $dataview.$view.onclick = (e) => {
-         let clicked = false;
-         let divs = e.path ?? [];
-
-         // NOTE: Some web browser clients do not support .path
-         if (!divs.length) {
-            divs.push(e.target);
-            divs.push(e.target.parentNode);
-         }
-
-         if (editPage) {
-            for (let p of divs) {
-               if (
-                  p.className &&
-                  p.className.indexOf("webix_accordionitem_header") > -1
-               ) {
-                  clicked = true;
-                  p.parentNode.parentNode.classList.forEach((c) => {
-                     if (c.indexOf("ab-record-") > -1) {
-                        // var record = parseInt(c.replace("ab-record-", ""));
-                        const record = c.replace("ab-record-", "");
-                        this.linkPage.changePage(editPage, record);
-                        // com.logic.toggleTab(detailsTab, ids.component);
-                     }
-                  });
-                  break;
-               }
-            }
-         }
-
-         if (detailsPage && !clicked) {
-            for (let p of divs) {
-               if (
-                  p.className &&
-                  p.className.indexOf("webix_accordionitem") > -1
-               ) {
-                  p.parentNode.parentNode.classList.forEach((c) => {
-                     if (c.indexOf("ab-record-") > -1) {
-                        // var record = parseInt(c.replace("ab-record-", ""));
-                        const record = c.replace("ab-record-", "");
-                        this.linkPage.changePage(detailsPage, record);
-                        // com.logic.toggleTab(detailsTab, ids.component);
-                     }
-                  });
-
-                  break;
-               }
-            }
-         }
-      };
-   }
-
-   addCyAttribute() {
-      const baseView = this.view;
-      const $dataview = $$(this.ids.dataview);
-      const name = (baseView.name ?? "").replace(".dataview", "");
-
-      $dataview.$view.setAttribute(
-         "data-cy",
-         `dataview container ${name} ${baseView.id}`
-      );
-   }
-
-   addCyItemAttributes(dom, item) {
-      const baseView = this.view;
-      const uuid = item.uuid;
-      const name = (baseView.name ?? "").replace(".dataview", "");
-      dom.querySelector(".webix_accordionitem_body")?.setAttribute(
-         "data-cy",
-         `dataview item ${name} ${uuid} ${baseView.id}`
-      );
-      dom.querySelector(".webix_accordionitem_button")?.setAttribute(
-         "data-cy",
-         `dataview item button ${name} ${uuid} ${baseView.id}`
-      );
-   }
-
-   get detailComponent() {
-      return (this._detailComponent =
-         this._detailComponent ??
-         new ABViewDetailComponent(
-            this.view,
-            `${this.ids.component}_detail_view`
-         ));
-   }
-
-   get linkPageHelper() {
-      return (this.__linkPageHelper =
-         this.__linkPageHelper || new ABViewPropertyLinkPage());
-   }
-};
 
 
 /***/ },
@@ -57731,7 +54982,8 @@ module.exports = class ABViewDetailItemComponent extends ABViewComponent {
       switch (field?.key) {
          case "string":
          case "LongText": {
-            const strVal = val
+            const strVal = (val || "")
+               .toString()
                // Sanitize all of HTML tags
                .replace(/[<]/gm, "&lt;")
                // Allow safe HTML tags
@@ -57741,6 +54993,16 @@ module.exports = class ABViewDetailItemComponent extends ABViewComponent {
                );
 
             $detailItem.setValues({ display: strVal });
+            break;
+         }
+         case "json": {
+            let jsonVal = val;
+
+            if (typeof val == "object") {
+               jsonVal = JSON.stringify(val, null, 2);
+            }
+
+            $detailItem.setValues({ display: jsonVal });
             break;
          }
          default:
@@ -57830,9 +55092,36 @@ module.exports = class ABViewDetailTreeComponent extends (
 
    setValue(val) {
       // convert value to array
-      const vals = [];
+      let vals = [];
 
-      if (val && !Array.isArray(val)) vals.push(val);
+      if (Array.isArray(val)) {
+         vals = val;
+      } else if (val) {
+         // if it is the initial html string, then just set it and return
+         if (typeof val == "string" && val.indexOf(this.className) > -1) {
+            super.setValue(val);
+            return;
+         }
+
+         try {
+            const parsed = JSON.parse(val);
+
+            if (Array.isArray(parsed)) {
+               vals = parsed;
+            } else {
+               vals.push(parsed);
+            }
+         } catch (e) {
+            if (typeof val == "string")
+               vals = val.split(",").filter((v) => v !== "");
+            else vals.push(val);
+         }
+
+         // Normalize all entries to IDs
+         vals = vals.map((v) =>
+            v && typeof v === "object" && v.id ? v.id : v
+         );
+      }
 
       setTimeout(() => {
          // get tree dom
@@ -57843,27 +55132,25 @@ module.exports = class ABViewDetailTreeComponent extends (
          const field = this.view.field();
          const branches = [];
 
-         if (typeof field.settings.options.data === "undefined")
-            field.settings.options = new this.AB.Webix.TreeCollection({
-               data: field.settings.options,
-            });
+         let selectOptions = this.AB.cloneDeep(field.settings.options);
 
-         field.settings.options.data.each(function (obj) {
-            if (vals.indexOf(obj.id) !== -1) {
+         selectOptions = new this.AB.Webix.TreeCollection({
+            data: selectOptions,
+         });
+
+         selectOptions.data.each(function (obj) {
+            if (vals.some((v) => v == obj.id)) {
                let html = "";
                let rootid = obj.id;
 
-               while (this.getParentId(rootid)) {
-                  field.settings.options.data.each(function (par) {
-                     if (
-                        field.settings.options.data.getParentId(rootid) ===
-                        par.id
-                     ) {
+               while (selectOptions.data.getParentId(rootid)) {
+                  selectOptions.data.each(function (par) {
+                     if (selectOptions.data.getParentId(rootid) === par.id) {
                         html = `${par.text}: ${html}`;
                      }
                   });
 
-                  rootid = this.getParentId(rootid);
+                  rootid = selectOptions.data.getParentId(rootid);
                }
 
                html += obj.text;
@@ -57891,3587 +55178,6 @@ module.exports = class ABViewDetailTreeComponent extends (
          $detailItem.config.height = height;
          $detailItem.resize();
       }, 50);
-   }
-};
-
-
-/***/ },
-
-/***/ 36942
-/*!*******************************************************************************!*\
-  !*** ./AppBuilder/platform/views/viewComponent/ABViewDocxBuilderComponent.js ***!
-  \*******************************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
-
-const Docxtemplater = __webpack_require__(/*! ../../../../js/docxtemplater.v3.0.12.min.js */ 26831);
-const ImageModule = __webpack_require__(/*! ../../../../js/docxtemplater-image-module.v3.0.2.min.js */ 32477);
-const JSZipUtils = __webpack_require__(/*! jszip-utils/dist/jszip-utils.min.js */ 61336);
-const JSZip = __webpack_require__(/*! ../../../../js/jszip.min.js */ 56115);
-const sizeOf = __webpack_require__(/*! image-size */ 57975);
-
-const ABFieldConnect = __webpack_require__(/*! ../../dataFields/ABFieldConnect */ 95399);
-const ABFieldImage = __webpack_require__(/*! ../../dataFields/ABFieldImage */ 9932);
-const ABObjectQuery = __webpack_require__(/*! ../../ABObjectQuery */ 55532);
-
-const ABViewComponent = (__webpack_require__(/*! ./ABViewComponent */ 23687)["default"]);
-
-module.exports = class ABViewDocxBuilderComponent extends ABViewComponent {
-   constructor(baseView, idBase, ids) {
-      super(
-         baseView,
-         idBase || `ABViewDocxBuilder_${baseView.id}`,
-         Object.assign(
-            {
-               downloadButton: "",
-               noFileLabel: "",
-            },
-            ids
-         )
-      );
-   }
-
-   ui() {
-      const baseView = this.view;
-      const settings = this.settings;
-      const defaultSettings = baseView.constructor.defaultValues();
-      const buttonWidth = settings.width ?? defaultSettings.width;
-
-      let autowidth = false;
-
-      if (buttonWidth === 0) autowidth = true;
-
-      let leftSpacer = {
-         type: "spacer",
-         width: 1,
-      };
-      let rightSpacer = {
-         type: "spacer",
-         width: 1,
-      };
-
-      switch (settings.buttonPosition ?? defaultSettings.buttonPosition) {
-         case "left":
-            break;
-         case "center":
-            leftSpacer = {
-               type: "spacer",
-            };
-            rightSpacer = {
-               type: "spacer",
-            };
-            break;
-         case "right":
-            leftSpacer = {
-               type: "spacer",
-            };
-            break;
-      }
-
-      const buttonLabelText =
-         baseView.buttonlabel ||
-         settings.buttonlabel ||
-         defaultSettings.buttonlabel; // Use || to check empty string ""
-      const ids = this.ids;
-      const _ui = super.ui([
-         {
-            view: "toolbar",
-            css:
-               settings.toolbarBackground ?? defaultSettings.toolbarBackground,
-            cols: [
-               leftSpacer,
-               {
-                  id: ids.downloadButton,
-                  view: "button",
-                  css: "webix_primary",
-                  type: "icon",
-                  icon: "fa fa-file-word-o",
-                  label: buttonLabelText,
-                  width: settings.width || defaultSettings.width,
-                  autowidth: autowidth,
-                  click: () => {
-                     this.renderFile();
-                  },
-                  on: {
-                     // Add data-cy attribute for cypress tests
-                     onAfterRender: () => {
-                        const name = baseView.name?.replace(".docxBuilder", "");
-                        const dataCy = `docx download ${name} ${baseView.id}`;
-                        $$(ids.downloadButton)
-                           ?.$view.querySelector("button")
-                           .setAttribute("data-cy", dataCy);
-                     },
-                  },
-               },
-               {
-                  id: ids.noFileLabel,
-                  view: "label",
-                  label: this.label("No template file"),
-               },
-               {
-                  type: "spacer",
-               },
-               rightSpacer,
-            ],
-         },
-      ]);
-
-      delete _ui.type;
-
-      return _ui;
-   }
-
-   async init(AB) {
-      await super.init(AB);
-
-      const ids = this.ids;
-      const $downloadButton = $$(ids.downloadButton);
-      const $noFileLabel = $$(ids.noFileLabel);
-
-      if (this.view.settings.filename) {
-         $downloadButton.show();
-         $noFileLabel.hide();
-      } else {
-         $downloadButton.hide();
-         $noFileLabel.show();
-      }
-   }
-
-   async onShow() {
-      super.onShow();
-
-      const tasks = [];
-
-      this.view.datacollections.forEach((dc) => {
-         if (dc.dataStatus === dc.dataStatusFlag.notInitial)
-            // load data when a widget is showing
-            tasks.push(dc.loadData());
-      });
-
-      // Show loading cursor
-      if (tasks.length > 0) this.busy();
-
-      await Promise.all(tasks);
-
-      // Hide loading cursor
-      this.ready();
-   }
-
-   busy() {
-      const $downloadButton = $$(this.ids.downloadButton);
-
-      if (!$downloadButton) return;
-
-      $downloadButton.disable();
-      $downloadButton.define("icon", "fa fa-refresh fa-spin");
-      $downloadButton.refresh();
-   }
-
-   ready() {
-      const $downloadButton = $$(this.ids.downloadButton);
-
-      if (!$downloadButton) return;
-
-      $downloadButton.enable();
-      $downloadButton.define("icon", "fa fa-file-word-o");
-      $downloadButton.refresh();
-   }
-
-   async renderFile() {
-      this.busy();
-
-      const reportValues = await this.getReportData();
-
-      // console.log("DOCX data: ", reportValues);
-
-      // Download images
-      const images = await this.downloadImages(reportValues);
-
-      // Download the template file
-      const contentTemplateFile = await this.downloadTemplateFile();
-
-      // Generate Docx file
-      const blobFile = this.generateDocxFile(
-         contentTemplateFile,
-         reportValues,
-         images
-      );
-
-      const baseView = this.view;
-
-      // Let user download the output file
-      baseView.letUserDownload(blobFile, baseView.filelabel);
-
-      // Final step
-      this.ready();
-   }
-
-   async getReportData() {
-      const result = {};
-      const tasks = [];
-
-      // Get current cursor
-      const datacollections = this.view.datacollections;
-      const isDcLabelAdded = datacollections.length > 1;
-
-      datacollections
-         .filter((dc) => dc?.datasource)
-         .forEach(async (dc) => {
-            tasks.push(
-               new Promise((resolve, reject) => {
-                  const obj = dc.datasource;
-                  const objModel = obj.model();
-                  const dcCursor = dc.getCursor();
-                  const dcValues = [];
-
-                  // pull the defined sort values
-                  let sorts = dc.settings.objectWorkspace.sortFields || [];
-
-                  // pull filter conditions
-                  let wheres = this.AB.cloneDeep(
-                     dc.settings.objectWorkspace.filterConditions ?? {}
-                  );
-                  // if there is a selected cursor set the filter here
-                  if (dcCursor) {
-                     // if there is a selected cursor set the filter here
-                     wheres = {
-                        glue: "and",
-                        rules: [
-                           {
-                              key: obj.PK(),
-                              rule: "equals",
-                              value: dcCursor[obj.PK()],
-                           },
-                        ],
-                     };
-                  } else if (dc.__reloadWheres) {
-                     // if we pass new wheres with a reload use them instead
-                     wheres = dc.__reloadWheres;
-                  }
-                  wheres.glue = wheres.glue || "and";
-                  wheres.rules = wheres.rules || [];
-
-                  const __additionalWheres = {
-                     glue: "and",
-                     rules: [],
-                  };
-
-                  // add the filterCond from user filters if there are rules to add
-                  if (dc?.__filterCond?.rules?.length > 0) {
-                     __additionalWheres.rules.push(dc?.__filterCond);
-                  }
-
-                  // Filter by a selected cursor of a link DC
-                  let linkRule = dc.ruleLinkedData();
-                  if (!dc.settings.loadAll && linkRule) {
-                     __additionalWheres.rules.push(linkRule);
-                  }
-                  // pull data rows following the follow data collection
-                  else if (dc.datacollectionFollow) {
-                     const followCursor = dc.datacollectionFollow.getCursor();
-                     // store the PK as a variable
-                     let PK = dc.datasource.PK();
-                     // if the datacollection we are following is a query
-                     // add "BASE_OBJECT." to the PK so we can select the
-                     // right value to report the cursor change to
-                     if (dc.datacollectionFollow.settings.isQuery) {
-                        PK = "BASE_OBJECT." + PK;
-                     }
-                     if (followCursor) {
-                        wheres = {
-                           glue: "and",
-                           rules: [
-                              {
-                                 key: dc.datasource.PK(),
-                                 rule: "equals",
-                                 value: followCursor[PK],
-                              },
-                           ],
-                        };
-                     }
-                     // Set no return rows
-                     else {
-                        wheres = {
-                           glue: "and",
-                           rules: [
-                              {
-                                 key: this.datasource.PK(),
-                                 rule: "equals",
-                                 value: "NO RESULT ROW",
-                              },
-                           ],
-                        };
-                     }
-                  }
-
-                  // Combine setting & program filters
-                  if (__additionalWheres.rules.length) {
-                     if (wheres.rules.length) {
-                        __additionalWheres.rules.unshift(wheres);
-                     }
-                     wheres = __additionalWheres;
-                  }
-
-                  // remove any null in the .rules
-                  // if (wheres?.rules?.filter) wheres.rules = wheres.rules.filter((r) => r);
-                  wheres = obj.whereCleanUp(wheres);
-
-                  // Pull data that have full relation values.
-                  // NOTE: When get data from DataCollection, those data is pruned.
-                  objModel
-                     .findAll({
-                        where: wheres || {},
-                        skip: 0,
-                        sort: sorts,
-                        populate: true,
-                     })
-                     .then((dataList) => {
-                        // update property names to column labels to match format names in docx file
-                        const mlFields = obj.multilingualFields();
-
-                        dataList?.data.forEach((data) => {
-                           let resultData;
-
-                           // For support label of columns every languages
-                           obj.fields().forEach((f) => {
-                              const fieldLabels = [];
-
-                              // Query Objects
-                              if (obj instanceof ABObjectQuery) {
-                                 if (typeof f.object.translations === "string")
-                                    f.object.translations = JSON.parse(
-                                       f.object.translations
-                                    );
-
-                                 if (typeof f.translations === "string")
-                                    f.translations = JSON.parse(f.translations);
-
-                                 (f.object.translations || []).forEach(
-                                    (objTran) => {
-                                       const fieldTran = (
-                                          f.translations || []
-                                       ).filter(
-                                          (fieldTran) =>
-                                             fieldTran.language_code ===
-                                             objTran.language_code
-                                       )[0];
-
-                                       if (!fieldTran) return;
-
-                                       const objectLabel = objTran.label;
-                                       const fieldLabel = fieldTran.label;
-
-                                       // Replace alias with label of object
-                                       fieldLabels.push(
-                                          `${objectLabel}.${fieldLabel}`
-                                       );
-                                    }
-                                 );
-                              }
-                              // Normal Objects
-                              else if (typeof f.translations === "string")
-                                 f.translations = JSON.parse(f.translations);
-
-                              f.translations.forEach((tran) => {
-                                 fieldLabels.push(tran.label);
-                              });
-
-                              resultData = Object.assign(
-                                 resultData ?? {},
-                                 this.setReportValues(
-                                    data,
-                                    f,
-                                    fieldLabels,
-                                    mlFields
-                                 ) ?? {}
-                              );
-
-                              // Keep ABObject into .scope of DOCX templater
-                              resultData._object = obj;
-                           });
-
-                           dcValues.push(resultData);
-                        });
-
-                        // If data sources have more than 1 or the result data more than 1 items, then add label of data source
-                        const datacollectionData =
-                           dcValues.length > 1 ? dcValues : dcValues[0];
-
-                        if (
-                           isDcLabelAdded ||
-                           (Array.isArray(datacollectionData) &&
-                              datacollectionData.length > 1)
-                        )
-                           (dc.translations || []).forEach((tran) => {
-                              result[tran.label] = datacollectionData;
-                           });
-                        else Object.assign(result, datacollectionData);
-
-                        resolve();
-                     });
-               })
-            );
-         });
-
-      await Promise.all(tasks);
-
-      return result;
-   }
-
-   setReportValues(data, field, fieldLabels = [], multilinguageFields) {
-      const result = {};
-
-      let val = null;
-
-      result.id = data.id;
-      result[`${field.columnName}_ORIGIN`] = data[field.columnName]; // Keep origin value for compare value with custom index
-
-      const baseView = this.view;
-
-      // Translate multilinguage fields
-      if (multilinguageFields.length) {
-         const transFields = (multilinguageFields || []).filter(
-            (fieldName) => data[fieldName] != null
-         );
-
-         baseView.translate(data, data, transFields, baseView.languageCode);
-      }
-
-      // Pull value
-      if (field instanceof ABFieldConnect) {
-         // If field is connected field, then
-         // {
-         //    fieldName: {Object} or [Array]
-         // }
-         val = data[this.AB.rules.toFieldRelationFormat(field.columnName)];
-
-         if (val?.forEach)
-            val.forEach((v) => {
-               if (!v) return;
-
-               // Sentry Fix: sometimes v is just the uuid
-               // Q: what should we do in this case?
-               if (typeof v == "string") return;
-
-               // format relation data
-               if (field.datasourceLink) {
-                  field.datasourceLink
-                     .fields((f) => !f.isConnection)
-                     .forEach((f) => {
-                        v[`${f.columnName}_ORIGIN`] = v[f.columnName];
-
-                        v[f.columnName] = f.format(v, {
-                           languageCode: baseView.languageCode,
-                        });
-                     });
-               }
-
-               // Keep ABObject to relation data
-               if (v && typeof v === "object") v._object = field.datasourceLink;
-            });
-
-         // TODO
-         // data[label + '_label'] = field.format(baseData);
-      } else
-         val = field.format(data, {
-            languageCode: baseView.languageCode,
-         });
-
-      // Set value to report with every languages of label
-      fieldLabels.forEach((label) => {
-         if (val) result[label] = val;
-         else if (!result[label]) result[label] = "";
-      });
-
-      // normalize child items
-      if (data.data?.length) {
-         result.data = result.data || [];
-
-         (data.data || []).forEach((childItem, index) => {
-            // add new data item
-            result.data[index] = this.setReportValues(
-               childItem,
-               field,
-               fieldLabels,
-               multilinguageFields
-            );
-         });
-      }
-
-      return result;
-   }
-
-   async downloadImages(reportValues) {
-      const images = {};
-      const tasks = [];
-      const addDownloadTask = (fieldImage, data = []) => {
-         if (Array.isArray(data) == false) {
-            data = [data];
-         }
-         data.forEach((d) => {
-            const imageVal = fieldImage.format(d);
-
-            if (imageVal && !images[imageVal]) {
-               tasks.push(
-                  new Promise((resolve, reject) => {
-                     const imgUrl = fieldImage.urlImage(imageVal); // `/opsportal/image/${this.application.name}/${imageVal}`;
-
-                     JSZipUtils.getBinaryContent(imgUrl, (error, content) => {
-                        if (error) return reject(error);
-
-                        // store binary of image
-                        images[imageVal] = content;
-
-                        resolve();
-                     });
-                  })
-               );
-            }
-
-            // download images of child items
-            addDownloadTask(fieldImage, d.data || []);
-         });
-      };
-
-      this.view.datacollections
-         .filter((dc) => dc?.datasource)
-         .forEach((dc) => {
-            const obj = dc.datasource;
-
-            // let currCursor = dc.getCursor();
-
-            // if (currCursor) {
-            //    // Current cursor
-            //    const treeCursor = dc.getCursor(true);
-
-            //    currCursor = [this.AB.merge({}, currCursor, treeCursor)];
-            // } // List of data
-            // else currCursor = dc.getData();
-
-            obj.fields((f) => f instanceof ABFieldImage).forEach((f) => {
-               addDownloadTask(f, reportValues[dc.label] || [reportValues]);
-            });
-         });
-
-      await Promise.all(tasks);
-
-      return images;
-   }
-
-   downloadTemplateFile() {
-      const url = this.view.downloadUrl();
-
-      return new Promise((resolve, reject) => {
-         JSZipUtils.getBinaryContent(url, (error, content) => {
-            if (error) return reject(error);
-
-            resolve(content);
-         });
-      });
-   }
-
-   generateDocxFile(contentFile, data, images) {
-      const summaries = {}; // { varName: sum number, ..., varName2: number2 }
-      const zip = new JSZip(contentFile);
-      const doc = new Docxtemplater();
-      const imageModule = new ImageModule({
-         centered: false,
-         getImage: (tagValue, tagName) => {
-            // NOTE: .getImage of version 3.0.2 does not support async
-            //       we can buy newer version to support it
-            //       https://docxtemplater.com/modules/image/
-
-            return images[tagValue] || "";
-         },
-         getSize: (imgBuffer, tagValue, tagName) => {
-            const defaultVal = [300, 160];
-            const baseView = this.view;
-            const dc = baseView.datacollection;
-
-            if (!dc) {
-               const dcs = baseView.datacollections;
-
-               if (dcs) {
-                  dcs.forEach((dc) => {
-                     let obj = dc.datasource;
-
-                     if (!obj) return false;
-
-                     // This is a query object
-                     if (tagName.indexOf(".") > -1) {
-                        let tagNames = tagName.split(".");
-
-                        if (!obj.objects) return false; // not a query
-
-                        obj = obj.objects((o) => o.label === tagNames[0])[0]; // Label of object
-
-                        if (!obj) return false;
-
-                        tagName = tagNames[1]; // Field name
-                     }
-
-                     const imageField = obj.fields(
-                        (f) => f.columnName === tagName
-                     )[0];
-
-                     if (!imageField?.settings) return false;
-
-                     if (
-                        imageField.settings.useWidth &&
-                        imageField.settings.imageWidth
-                     )
-                        defaultVal[0] = imageField.settings.imageWidth;
-
-                     if (
-                        imageField.settings.useHeight &&
-                        imageField.settings.imageHeight
-                     )
-                        defaultVal[1] = imageField.settings.imageHeight;
-
-                     return false;
-                  });
-               }
-            } else {
-               let obj = dc.datasource;
-
-               if (!obj) return defaultVal;
-
-               // This is a query object
-               if (tagName.indexOf(".") > -1) {
-                  const tagNames = tagName.split(".");
-
-                  obj = obj.objects((o) => o.label === tagNames[0])[0]; // Label of object
-
-                  if (!obj) return defaultVal;
-
-                  tagName = tagNames[1]; // Field name
-               }
-
-               const imageField = obj.fields(
-                  (f) => f.columnName === tagName
-               )[0];
-
-               if (!imageField?.settings) return defaultVal;
-
-               if (
-                  imageField.settings.useWidth &&
-                  imageField.settings.imageWidth
-               )
-                  defaultVal[0] = imageField.settings.imageWidth;
-
-               if (
-                  imageField.settings.useHeight &&
-                  imageField.settings.imageHeight
-               )
-                  defaultVal[1] = imageField.settings.imageHeight;
-            }
-            // Find aspect ratio image dimensions
-            try {
-               var img = new Uint8Array(imgBuffer);
-               var image = sizeOf(img);
-               var ratio = Math.min(
-                  defaultVal[0] / image.width,
-                  defaultVal[1] / image.height
-               );
-
-               return [image.width * ratio, image.height * ratio];
-            } catch (err) {
-               // if invalid image, then should return 0, 0 sizes
-               return defaultVal;
-            }
-         },
-         // getSize: function (imgBuffer, tagValue, tagName) {
-         //    if (imgBuffer) {
-         //       var maxWidth = 300;
-         //       var maxHeight = 160;
-
-         //       // Find aspect ratio image dimensions
-         //       try {
-         //          var image = sizeOf(imgBuffer);
-         //          var ratio = Math.min(maxWidth / image.width, maxHeight / image.height);
-
-         //          return [image.width * ratio, image.height * ratio];
-         //       }
-         //       // if invalid image, then should return 0, 0 sizes
-         //       catch (err) {
-         //          return [0, 0];
-         //       }
-
-         //    }
-         //    else {
-         //       return [0, 0];
-         //    }
-         // }
-      });
-
-      try {
-         doc.attachModule(imageModule)
-            .loadZip(zip)
-            .setData(data)
-            .setOptions({
-               parser: function (tag) {
-                  return {
-                     get: function (scope, context) {
-                        // NOTE: AppBuilder custom filter : no return empty items
-                        if (tag.indexOf("data|") === 0) {
-                           const prop = (tag.split("|")[1] || "").trim();
-
-                           return (scope["data"] || []).filter(function (item) {
-                              return item[prop] ? true : false;
-                           });
-                        }
-                        // Mark number to add to a variable
-                        else if (tag.indexOf("|$sum?") > -1) {
-                           const prop = tag.split("|$sum?")[0];
-                           const varName = tag.split("|$sum?")[1];
-
-                           let number = scope[prop];
-
-                           if (typeof number === "string")
-                              number = number.replace(
-                                 /[^\d.]/g, // return only number and dot
-                                 ""
-                              );
-
-                           if (!summaries[varName]) summaries[varName] = 0.0;
-
-                           summaries[varName] += parseFloat(number);
-
-                           return scope[prop];
-                        }
-                        // Show sum value ^
-                        else if (tag.indexOf("$sum?") === 0) {
-                           const varName = tag.replace("$sum?", "");
-
-                           return summaries[varName] || 0;
-                        }
-                        // // Sum number of .data (Grouped query)
-                        // else if (tag.indexOf("$sum|") === 0) {
-                        //    const prop = (
-                        //       tag.split("|")[1] || ""
-                        //    ).trim();
-
-                        //    let sum = 0;
-                        //    (scope["data"] || []).forEach(
-                        //       (childItem) => {
-                        //          if (!childItem[prop]) return;
-
-                        //          let number = childItem[prop];
-                        //          if (typeof number === "string") {
-                        //             number = number.replace(
-                        //                /[^\d.]/g, // return only number and dot
-                        //                ""
-                        //             );
-                        //          }
-
-                        //          try {
-                        //             sum += parseFloat(
-                        //                number || 0
-                        //             );
-                        //          } catch (e) {}
-                        //       }
-                        //    );
-
-                        //    // Print number with commas
-                        //    if (sum) {
-                        //       sum = sum
-                        //          .toString()
-                        //          .replace(
-                        //             /\B(?=(\d{3})+(?!\d))/g,
-                        //             ","
-                        //          );
-                        //    }
-
-                        //    return sum;
-                        // }
-                        // NOTE: AppBuilder custom filter of another data source
-                        else if (tag.indexOf("$") === 0) {
-                           const props = tag.replace("$", "").split("|");
-                           const propSource = props[0].trim();
-                           const propFilter = props[1].trim(); // column name of ABFieldConnect
-
-                           if (!propSource || !propFilter) return "";
-
-                           // Pull Index field of connect field
-                           let indexColName;
-
-                           const obj = scope._object;
-
-                           if (obj) {
-                              const connectedField = obj.fields(
-                                 (f) => f.columnName === propFilter
-                              )[0];
-
-                              if (connectedField) {
-                                 const indexField = connectedField.indexField;
-
-                                 indexColName = indexField
-                                    ? indexField.columnName
-                                    : null;
-                              }
-                           }
-
-                           let sourceVals = data[propSource];
-
-                           if (sourceVals && !Array.isArray(sourceVals))
-                              sourceVals = [sourceVals];
-
-                           const getVal = (data) =>
-                              data[`${indexColName}_ORIGIN`] || // Pull origin data to compare by custom index
-                              data[indexColName] ||
-                              data.id ||
-                              data;
-
-                           return (sourceVals || []).filter(function (item) {
-                              // Pull data of parent to compare
-                              let comparer = scope[propFilter];
-
-                              if (Array.isArray(comparer))
-                                 return (
-                                    comparer.filter(
-                                       (c) => getVal(c) === getVal(item)
-                                    ).length > 0
-                                 );
-                              else return getVal(item) === getVal(comparer);
-                           });
-                        }
-                        // ์NOTE : Custom filter
-                        else if (tag.indexOf("?") > -1) {
-                           const result = scope;
-                           const prop = tag.split("?")[0];
-                           const condition = tag.split("?")[1];
-
-                           if (prop && condition) {
-                              let data = scope[prop];
-
-                              if (data) {
-                                 if (!Array.isArray(data)) data = [data];
-
-                                 return data.filter((d) =>
-                                    eval(condition.replace(/\./g, "d."))
-                                 );
-                              }
-                           }
-                           return result;
-                        } else if (tag === ".") return scope;
-                        else return scope[tag];
-                     },
-                  };
-               },
-            })
-            .render(); // render the document
-      } catch (error) {
-         return error;
-      }
-
-      // Output the document using Data-URI
-      const docxFile = doc.getZip().generate({
-         type: "blob",
-         mimeType:
-            "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-      });
-
-      return docxFile;
-   }
-};
-
-
-/***/ },
-
-/***/ 91645
-/*!******************************************************************************!*\
-  !*** ./AppBuilder/platform/views/viewComponent/ABViewFormButtonComponent.js ***!
-  \******************************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
-
-const ABViewFormItemComponent = __webpack_require__(/*! ./ABViewFormItemComponent */ 8772);
-
-module.exports = class ABViewFormButton extends ABViewFormItemComponent {
-   constructor(baseView, idBase, ids) {
-      super(baseView, idBase || `ABViewFormButton_${baseView.id}`, ids);
-   }
-
-   ui() {
-      const self = this;
-      const baseView = this.view;
-      const form = baseView.parentFormComponent();
-      const settings = baseView.settings ?? {};
-
-      const alignment =
-         settings.alignment || baseView.constructor.defaultValues().alignment;
-
-      const _ui = {
-         cols: [],
-      };
-
-      // spacer
-      if (alignment === "center" || alignment === "right") {
-         _ui.cols.push({});
-      }
-
-      // delete button
-      if (settings.includeDelete) {
-         _ui.cols.push(
-            {
-               view: "button",
-               autowidth: true,
-               value: settings.deleteLabel || this.label("Delete"),
-               css: "webix_danger",
-               click: function () {
-                  self.onDelete(this);
-               },
-               on: {
-                  onAfterRender: function () {
-                     this.getInputNode().setAttribute(
-                        "data-cy",
-                        `button delete ${form.id}`
-                     );
-                  },
-               },
-            },
-            {
-               width: 10,
-            }
-         );
-      }
-
-      // cancel button
-      if (settings.includeCancel) {
-         _ui.cols.push(
-            {
-               view: "button",
-               autowidth: true,
-               value: settings.cancelLabel || this.label("Cancel"),
-               click: function () {
-                  self.onCancel(this);
-               },
-               on: {
-                  onAfterRender: function () {
-                     this.getInputNode().setAttribute(
-                        "data-cy",
-                        `button cancel ${form.id}`
-                     );
-                  },
-               },
-            },
-            {
-               width: 10,
-            }
-         );
-      }
-
-      // reset button
-      if (settings.includeReset) {
-         _ui.cols.push(
-            {
-               view: "button",
-               autowidth: true,
-               value: settings.resetLabel || this.label("Reset"),
-               click: function () {
-                  self.onClear(this);
-               },
-               on: {
-                  onAfterRender: function () {
-                     this.getInputNode().setAttribute(
-                        "data-cy",
-                        `button reset ${form.id}`
-                     );
-                  },
-               },
-            },
-            {
-               width: 10,
-            }
-         );
-      }
-
-      // save button
-      if (settings.includeSave) {
-         _ui.cols.push({
-            view: "button",
-            type: "form",
-            css: "webix_primary",
-            autowidth: true,
-            value: settings.saveLabel || this.label("Save"),
-            click: function () {
-               self.onSave(this);
-            },
-            on: {
-               onAfterRender: function () {
-                  this.getInputNode().setAttribute(
-                     "data-cy",
-                     `button save ${form.id}`
-                  );
-               },
-            },
-         });
-      }
-
-      // spacer
-      if (alignment === "center" || alignment === "left") _ui.cols.push({});
-
-      return super.ui(_ui);
-   }
-
-   onCancel(cancelButton) {
-      const baseView = this.view;
-      const settings = baseView.settings ?? {};
-
-      // get form component
-      const form = baseView.parentFormComponent();
-
-      // get ABDatacollection
-      const dc = form.datacollection;
-
-      // clear cursor of DC if not set to follow another
-      if (!dc?.isCursorFollow) {
-         dc?.setCursor(null);
-      }
-      // dc?.setStaticCursor(); // unless it should be static
-
-      cancelButton?.getFormView?.().clear();
-
-      if (settings.afterCancel) form.changePage(settings.afterCancel);
-      // If the redirect page is not defined, then redirect to parent page
-      else {
-         const noPopupFilter = (p) => p.settings && p.settings.type != "popup";
-
-         const pageCurr = this.view.pageParent();
-         if (pageCurr) {
-            const pageParent = pageCurr.pageParent(noPopupFilter) ?? pageCurr;
-
-            if (pageParent) form.changePage(pageParent.id);
-         }
-      }
-   }
-
-   onClear(resetButton) {
-      // get form component
-      const form = this.view.parentFormComponent();
-
-      // get ABDatacollection
-      const dc = form.datacollection;
-
-      // clear cursor of DC
-      if (dc) {
-         dc.setCursor(null);
-      }
-
-      resetButton?.getFormView?.().clear();
-   }
-
-   onSave(saveButton) {
-      if (!saveButton) {
-         console.error("Require the button element");
-         return;
-      }
-      // get form component
-      const form = this.view.parentFormComponent();
-      const formView = saveButton.getFormView();
-
-      // disable the save button
-      saveButton.disable?.();
-
-      // save data
-      form
-         .saveData(formView)
-         .then(() => {
-            saveButton.enable?.();
-
-            //Focus on first focusable component
-            form.focusOnFirst();
-         })
-         .catch((err) => {
-            console.error(err);
-            // Catch uncaught error reported in Sentry and add context
-            // APPBUILDER-WEB-1A3(https://appdev-designs.sentry.io/issues/4631880265/)
-            try {
-               saveButton.enable?.();
-            } catch (e) {
-               this.AB.notify.developer(e, {
-                  context:
-                     "formButton.onSave > catch err > saveButton.enable()",
-                  buttonID: this?.view?.id,
-                  formID: this?.view?.parent?.id,
-               });
-            }
-         });
-   }
-
-   onDelete(deleteButton) {
-      this.AB.Webix.confirm({
-         title: this.label("Delete data"),
-         text: this.label("Do you want to delete this data?"),
-         callback: async (confirm) => {
-            if (!confirm) return;
-
-            deleteButton.disable?.();
-
-            try {
-               // get form component
-               const form = this.view.parentFormComponent();
-               const $formView = deleteButton.getFormView();
-
-               // delete a record row
-               await form.deleteData($formView);
-            } catch (err) {
-               console.error(err);
-            } finally {
-               deleteButton.enable?.();
-            }
-         },
-      });
-   }
-};
-
-
-/***/ },
-
-/***/ 14134
-/*!********************************************************************************!*\
-  !*** ./AppBuilder/platform/views/viewComponent/ABViewFormCheckboxComponent.js ***!
-  \********************************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
-
-const ABViewFormItemComponent = __webpack_require__(/*! ./ABViewFormItemComponent */ 8772);
-
-module.exports = class ABViewFormCheckboxComponent extends (
-   ABViewFormItemComponent
-) {
-   constructor(baseView, idBase, ids) {
-      super(baseView, idBase || `ABViewFormCheckbox_${baseView.id}`, ids);
-   }
-
-   ui() {
-      return super.ui({
-         view: "checkbox",
-      });
-   }
-};
-
-
-/***/ },
-
-/***/ 98165
-/*!************************************************************************!*\
-  !*** ./AppBuilder/platform/views/viewComponent/ABViewFormComponent.js ***!
-  \************************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
-
-const ABViewComponent = (__webpack_require__(/*! ./ABViewComponent */ 23687)["default"]);
-const ABViewFormItem = __webpack_require__(/*! ../ABViewFormItem */ 86962);
-const ABViewFormConnect = __webpack_require__(/*! ../ABViewFormConnect */ 77927);
-const ABViewFormCustom = __webpack_require__(/*! ../ABViewFormCustom */ 96234);
-const ABViewFormTextbox = __webpack_require__(/*! ../ABViewFormTextbox */ 10449);
-const ABViewFormJson = __webpack_require__(/*! ../ABViewFormJson */ 71803);
-
-async function timeout(ms) {
-   return new Promise((resolve) => setTimeout(resolve, ms));
-}
-
-const fieldValidations = [];
-
-module.exports = class ABViewFormComponent extends ABViewComponent {
-   constructor(baseView, idBase, ids) {
-      super(
-         baseView,
-         idBase || `ABViewForm_${baseView.id}`,
-         Object.assign(
-            {
-               form: "",
-
-               layout: "",
-               filterComplex: "",
-            },
-            ids
-         )
-      );
-
-      this.timerId = null;
-      this._showed = false;
-   }
-
-   ui() {
-      const baseView = this.view;
-      const superComponent = baseView.superComponent();
-      const rows = superComponent.ui().rows ?? [];
-      const fieldValidationsHolder = this.uiValidationHolder();
-      const _ui = super.ui([
-         {
-            id: this.ids.form,
-            view: "form",
-            abid: baseView.id,
-            rows: rows.concat(fieldValidationsHolder),
-         },
-      ]);
-
-      delete _ui.type;
-
-      return _ui;
-   }
-
-   uiValidationHolder() {
-      const result = [
-         {
-            hidden: true,
-            rows: [],
-         },
-      ];
-
-      // NOTE: this._currentObject can be set in the KanBan Side Panel
-      const baseView = this.view;
-      const object = this.datacollection?.datasource ?? baseView._currentObject;
-
-      if (!object) return result;
-
-      const validationUI = [];
-      const existsFields = baseView.fieldComponents();
-
-      object
-         // Pull fields that have validation rules
-         .fields((f) => f?.settings?.validationRules)
-         .forEach((f) => {
-            const view = existsFields.find(
-               (com) => f.id === com.settings.fieldId
-            );
-            if (!view) return;
-
-            // parse the rules because they were stored as a string
-            // check if rules are still a string...if so lets parse them
-            if (typeof f.settings.validationRules === "string") {
-               f.settings.validationRules = JSON.parse(
-                  f.settings.validationRules
-               );
-            }
-
-            // there could be more than one so lets loop through and build the UI
-            f.settings.validationRules.forEach((rule, indx) => {
-               const Filter = this.AB.filterComplexNew(
-                  `${f.columnName}_${indx}`
-               );
-               // add the new ui to an array so we can add them all at the same time
-               if (typeof Filter.ui === "function") {
-                  validationUI.push(Filter.ui());
-               } else {
-                  // Legacy v1 method:
-                  validationUI.push(Filter.ui);
-               }
-
-               // store the filter's info so we can assign values and settings after the ui is rendered
-               fieldValidations.push({
-                  filter: Filter,
-                  view: Filter.ids.querybuilder,
-                  columnName: f.columnName,
-                  validationRules: rule.rules,
-                  invalidMessage: rule.invalidMessage,
-               });
-            });
-         });
-
-      result.rows = validationUI;
-
-      return result;
-   }
-
-   async init(AB, accessLevel, options = {}) {
-      await super.init(AB);
-
-      this.view.superComponent().init(AB, accessLevel, options);
-
-      this.initCallbacks(options);
-      this.initEvents();
-      this.initValidationRules();
-
-      const abWebix = this.AB.Webix;
-      const $form = $$(this.ids.form);
-
-      if ($form) {
-         abWebix.extend($form, abWebix.ProgressBar);
-      }
-
-      if (accessLevel < 2) $form.disable();
-   }
-
-   initCallbacks(options = {}) {
-      // ? We need to determine from these options whether to clear on load?
-      if (options?.clearOnLoad) {
-         // does this need to be a function?
-         this.view.settings.clearOnLoad = options.clearOnLoad();
-      }
-      // Q: Should we use emit the event instead ?
-      const baseView = this.view;
-
-      if (options.onBeforeSaveData)
-         baseView._callbacks.onBeforeSaveData = options.onBeforeSaveData;
-      else baseView._callbacks.onBeforeSaveData = () => true;
-   }
-
-   initEvents() {
-      // bind a data collection to form component
-      const dc = this.datacollection;
-
-      if (!dc) return;
-
-      // listen DC events
-      ["changeCursor", "cursorStale"].forEach((key) => {
-         this.eventAdd({
-            emitter: dc,
-            eventName: key,
-            listener: (rowData) => {
-               const baseView = this.view;
-               const linkViaOneConnection = baseView.fieldComponents(
-                  (comp) => comp instanceof ABViewFormConnect
-               );
-               // clear previous xxx->one selections and add new from
-               // cursor change
-               linkViaOneConnection.forEach((f) => {
-                  const field = f.field();
-                  if (
-                     field?.settings?.linkViaType == "one" &&
-                     field?.linkViaOneValues
-                  ) {
-                     delete field.linkViaOneValues;
-                     const relationVals =
-                        rowData?.[field.relationName()] ??
-                        rowData?.[field.columnName];
-                     if (relationVals) {
-                        if (Array.isArray(relationVals)) {
-                           const valArray = [];
-                           relationVals.forEach((v) => {
-                              valArray.push(
-                                 field.getRelationValue(v, { forUpdate: true })
-                              );
-                           });
-                           field.linkViaOneValues = valArray.join(",");
-                        } else {
-                           field.linkViaOneValues = field.getRelationValue(
-                              relationVals,
-                              { forUpdate: true }
-                           );
-                        }
-                     }
-                  }
-               });
-
-               this.displayData(rowData);
-            },
-         });
-      });
-
-      const ids = this.ids;
-
-      this.eventAdd({
-         emitter: dc,
-         eventName: "initializingData",
-         listener: () => {
-            const $form = $$(ids.form);
-
-            if ($form) {
-               $form.disable();
-
-               $form.showProgress?.({ type: "icon" });
-            }
-         },
-      });
-
-      this.eventAdd({
-         emitter: dc,
-         eventName: "initializedData",
-         listener: () => {
-            const $form = $$(ids.form);
-
-            if ($form) {
-               $form.enable();
-
-               $form.hideProgress?.();
-            }
-         },
-      });
-
-      // I think this case is currently handled by the DC.[changeCursor, cursorStale]
-      // events:
-      // this.eventAdd({
-      //    emitter: dc,
-      //    eventName: "ab.datacollection.update",
-      //    listener: (msg, data) => {
-      //       if (!data?.objectId) return;
-
-      //       const object = dc.datasource;
-
-      //       if (!object) return;
-
-      //       if (
-      //          object.id === data.objectId ||
-      //          object.fields((f) => f.settings.linkObject === data.objectId)
-      //             .length > 0
-      //       ) {
-      //          const currData = dc.getCursor();
-
-      //          if (currData) this.displayData(currData);
-      //       }
-      //    },
-      // });
-
-      // bind the cursor event of the parent DC
-      const linkDv = dc.datacollectionLink;
-
-      if (linkDv)
-         // update the value of link field when data of the parent dc is changed
-         ["changeCursor", "cursorStale"].forEach((key) => {
-            this.eventAdd({
-               emitter: linkDv,
-               eventName: key,
-               listener: (rowData) => {
-                  this.displayParentData(rowData);
-               },
-            });
-         });
-   }
-
-   initValidationRules() {
-      const dc = this.datacollection;
-
-      if (!dc) return;
-
-      if (!fieldValidations.length) return;
-
-      // we need to store the rules for use later so lets build a container array
-      const complexValidations = [];
-
-      fieldValidations.forEach((f) => {
-         // init each ui to have the properties (app and fields) of the object we are editing
-         f.filter.applicationLoad?.(dc.datasource.application); // depreciated.
-         f.filter.fieldsLoad(dc.datasource.fields());
-         // now we can set the value because the fields are properly initialized
-         f.filter.setValue(f.validationRules);
-
-         // if there are validation rules present we need to store them in a lookup hash
-         // so multiple rules can be stored on a single field
-         if (!Array.isArray(complexValidations[f.columnName]))
-            complexValidations[f.columnName] = [];
-
-         // now we can push the rules into the hash
-         // what happens if $$(f.view) isn't present?
-         if ($$(f.view)) {
-            complexValidations[f.columnName].push({
-               filters: $$(f.view).getFilterHelper(),
-               // values: $$(ids.form).getValues(),
-               invalidMessage: f.invalidMessage,
-            });
-         }
-      });
-
-      const ids = this.ids;
-
-      // use the lookup to build the validation rules
-      Object.keys(complexValidations).forEach((key) => {
-         // get our field that has validation rules
-         const formField = $$(ids.form).queryView({
-            name: key,
-         });
-
-         if (!formField) return;
-
-         // store the rules in a data param to be used later
-         formField.$view.complexValidations = complexValidations[key];
-         // define validation rules
-         formField.define("validate", function (nval, oval, field) {
-            // get field now that we are validating
-            const fieldValidating = $$(ids.form)?.queryView({
-               name: field,
-            });
-            if (!fieldValidating) return true;
-
-            // default valid is true
-            let isValid = true;
-
-            // check each rule that was stored previously on the element
-            fieldValidating.$view.complexValidations.forEach((filter) => {
-               const object = dc.datasource;
-               const data = this.getValues();
-
-               // convert rowData from { colName : data } to { id : data }
-               const newData = {};
-
-               (object.fields() || []).forEach((field) => {
-                  newData[field.id] = data[field.columnName];
-               });
-
-               // for the case of "this_object" conditions:
-               if (data.uuid) newData["this_object"] = data.uuid;
-
-               // use helper funtion to check if valid
-               const ruleValid = filter.filters(newData);
-
-               // if invalid we need to tell the field
-               if (!ruleValid) {
-                  isValid = false;
-                  // we also need to define an error message
-                  fieldValidating.define(
-                     "invalidMessage",
-                     filter.invalidMessage
-                  );
-               }
-            });
-
-            return isValid;
-         });
-
-         formField.refresh();
-      });
-   }
-
-   async onShow(data) {
-      this.saveButton?.disable();
-
-      this._showed = true;
-
-      const baseView = this.view;
-
-      // call .onShow in the base component
-      const superComponent = baseView.superComponent();
-      await superComponent.onShow();
-
-      const $form = $$(this.ids.form);
-      const dc = this.datacollection;
-
-      if (dc) {
-         // clear current cursor on load
-         // if (this.settings.clearOnLoad || _logic.callbacks.clearOnLoad() ) {
-         const settings = this.settings;
-
-         if (settings.clearOnLoad) {
-            dc.setCursor(null);
-         }
-
-         // pull data of current cursor
-         // await dc.waitReady();
-         const rowData = dc.getCursor();
-
-         if ($form) dc.bind($form);
-
-         // do this for the initial form display so we can see defaults
-         await this.displayData(rowData);
-      }
-      // show blank data in the form
-      else await this.displayData(data ?? {});
-
-      //Focus on first focusable component
-      this.focusOnFirst();
-
-      if ($form) $form.adjust();
-
-      // Load data of DCs that are use in record rules here
-      // no need to wait until they are done. (Let the save button enable)
-      // It will be re-check again when saving.
-      baseView.loadDcDataOfRecordRules();
-
-      this.saveButton?.enable();
-   }
-
-   async displayData(rowData) {
-      // If setTimeout is already scheduled, no need to do anything
-      if (this.timerId) return;
-      else this.timerId = await timeout(80);
-
-      const baseView = this.view;
-      const customFields = baseView.fieldComponents(
-         (comp) =>
-            comp instanceof ABViewFormCustom ||
-            // rich text
-            (comp instanceof ABViewFormTextbox &&
-               comp.settings.type === "rich") ||
-            (comp instanceof ABViewFormJson && comp.settings.type === "filter")
-      );
-
-      const normalFields = baseView.fieldComponents(
-         (comp) =>
-            comp instanceof ABViewFormItem &&
-            !(comp instanceof ABViewFormCustom)
-      );
-
-      // Set default values
-      if (!rowData) {
-         customFields.forEach((f) => {
-            const field = f.field();
-            if (!field) return;
-
-            const comp = baseView.viewComponents[f.id];
-            if (!comp) return;
-
-            // var colName = field.columnName;
-            if (this._showed) comp?.onShow?.();
-
-            // set value to each components
-            const defaultRowData = {};
-
-            field.defaultValue(defaultRowData);
-            field.setValue($$(comp.ids.formItem), defaultRowData);
-
-            comp?.refresh?.(defaultRowData);
-         });
-
-         normalFields.forEach((f) => {
-            if (f.key === "button") return;
-
-            const field = f.field();
-            if (!field) return;
-
-            const comp = baseView.viewComponents[f.id];
-            if (!comp) return;
-
-            const colName = field.columnName;
-
-            // set value to each components
-            const values = {};
-
-            field.defaultValue(values);
-            $$(comp.ids.formItem)?.setValue(values[colName] ?? "");
-         });
-
-         // select parent data to default value
-         const dc = this.datacollection;
-         const linkDv = dc.datacollectionLink;
-
-         if (linkDv) {
-            const parentData = linkDv.getCursor();
-
-            this.displayParentData(parentData);
-         }
-      }
-
-      // Populate value to custom fields
-      else {
-         customFields.forEach((f) => {
-            const comp = baseView.viewComponents[f.id];
-            if (!comp) return;
-
-            if (this._showed) comp?.onShow?.();
-
-            // set value to each components
-            f?.field()?.setValue($$(comp.ids.formItem), rowData);
-
-            comp?.refresh?.(rowData);
-         });
-
-         normalFields.forEach((f) => {
-            if (f.key === "button") return;
-
-            const field = f.field();
-            if (!field) return;
-
-            const comp = baseView.viewComponents[f.id];
-            if (!comp) return;
-            //
-            if (f.key === "datepicker") {
-               // Not sure why, but the local format isn't applied correctly
-               // without a timeout here
-               setTimeout(() => {
-                  field.setValue($$(comp.ids.formItem), rowData);
-               }, 200);
-               return;
-            }
-
-            field.setValue($$(comp.ids.formItem), rowData);
-         });
-      }
-
-      this.timerId = null;
-   }
-
-   displayParentData(rowData) {
-      const dc = this.datacollection;
-
-      // If the cursor is selected, then it will not update value of the parent field
-      const currCursor = dc.getCursor();
-      if (currCursor) return;
-
-      const relationField = dc.fieldLink;
-      if (!relationField) return;
-
-      const baseView = this.view;
-      // Pull a component of relation field
-      const relationFieldCom = baseView.fieldComponents((comp) => {
-         if (!(comp instanceof ABViewFormItem)) return false;
-
-         return comp.field()?.id === relationField.id;
-      })[0];
-      if (!relationFieldCom) return;
-
-      const relationFieldView = baseView.viewComponents[relationFieldCom.id];
-      if (!relationFieldView) return;
-
-      const $relationFieldView = $$(relationFieldView.ids.formItem),
-         relationName = relationField.relationName();
-
-      // pull data of parent's dc
-      const formData = {};
-
-      formData[relationName] = rowData;
-
-      // set data of parent to default value
-      relationField.setValue($relationFieldView, formData);
-   }
-
-   detatch() {
-      // TODO: remove any handlers we have attached.
-   }
-
-   focusOnFirst() {
-      const baseView = this.view;
-
-      let topPosition = 0;
-      let topPositionId = "";
-
-      baseView.views().forEach((item) => {
-         if (item.key === "textbox" || item.key === "numberbox")
-            if (item.position.y === topPosition) {
-               topPosition = item.position.y;
-               topPositionId = item.id;
-            }
-      });
-
-      const childComponent = baseView.viewComponents[topPositionId];
-
-      if (childComponent && $$(childComponent.ids.formItem))
-         $$(childComponent.ids.formItem).focus();
-   }
-
-   get saveButton() {
-      return $$(this.ids.form)?.queryView({
-         view: "button",
-         type: "form",
-      });
-   }
-};
-
-
-/***/ },
-
-/***/ 64161
-/*!*******************************************************************************!*\
-  !*** ./AppBuilder/platform/views/viewComponent/ABViewFormConnectComponent.js ***!
-  \*******************************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
-
-const ABViewFormItemComponent = __webpack_require__(/*! ./ABViewFormItemComponent */ 8772);
-
-module.exports = class ABViewFormConnectComponent extends (
-   ABViewFormItemComponent
-) {
-   constructor(baseView, idBase, ids) {
-      super(
-         baseView,
-         idBase || `ABViewFormConnect_${baseView.id}`,
-         Object.assign(
-            {
-               popup: "",
-               editpopup: "",
-            },
-            ids
-         )
-      );
-
-      this.addPageComponent = null;
-      this.editPageComponent = null;
-   }
-
-   get field() {
-      return this.view.field();
-   }
-
-   get multiselect() {
-      return this.field?.settings.linkType == "many";
-   }
-
-   ui() {
-      const field = this.field;
-      const baseView = this.view;
-      const form = baseView.parentFormComponent();
-      const settings = this.settings;
-
-      if (!field) {
-         console.error(`This field could not found : ${settings.fieldId}`);
-
-         return super.ui({
-            view: "label",
-            label: "",
-         });
-      }
-
-      const multiselect = this.multiselect; // field.settings.linkType == "many";
-      const formSettings = form?.settings || {};
-      const ids = this.ids;
-
-      let _ui = {
-         id: ids.formItem,
-         view: multiselect ? "multicombo" : "combo",
-         name: field.columnName,
-         required:
-            field?.settings?.required || parseInt(settings?.required) || false,
-         // label: field.label,
-         // labelWidth: settings.labelWidth,
-         dataFieldId: field.id,
-         on: {
-            onItemClick: (id, e) => {
-               if (
-                  e.target.classList.contains("editConnectedPage") &&
-                  e.target.dataset.itemId
-               ) {
-                  const rowId = e.target.dataset.itemId;
-                  if (!rowId) return;
-                  this.goToEditPage(rowId);
-               }
-            },
-            onChange: (data) => {
-               this._onChange(data);
-            },
-         },
-      };
-
-      if (formSettings.showLabel) {
-         _ui.label = field.label;
-         _ui.labelWidth = formSettings.labelWidth;
-         _ui.labelPosition = formSettings.labelPosition;
-      }
-
-      this.initAddEditTool();
-
-      _ui.suggest = {
-         button: true,
-         selectAll: multiselect ? true : false,
-         body: {
-            data: [],
-            template: `${
-               baseView?.settings?.editForm
-                  ? '<i data-item-id="#id#" class="fa fa-cog editConnectedPage"></i>'
-                  : ""
-            }#value#`,
-         },
-         on: {
-            onShow: () => {
-               field.populateOptionsDataCy($$(ids.formItem), field, form);
-            },
-         },
-         // Support partial matches
-         filter: ({ value }, search) =>
-            value.toLowerCase().includes(search.toLowerCase()),
-      };
-
-      _ui.onClick = {
-         customField: (id, e, trg) => {
-            if (settings.disable === 1) return;
-
-            const rowData = {};
-            const $formItem = $$(ids.formItem);
-
-            if ($formItem) {
-               const node = $formItem.$view;
-
-               field.customEdit(rowData, /* App,*/ node);
-            }
-         },
-      };
-
-      let apcUI = this.addPageComponent?.ui;
-      if (apcUI) {
-         // reset some component vals to make room for button
-         _ui.label = "";
-         _ui.labelWidth = 0;
-
-         // add click event to add new button
-         apcUI.on = {
-            onItemClick: (/*id, evt*/) => {
-               // let $form = $$(id).getFormView();
-               this.addPageComponent?.onClick(form.datacollection);
-
-               return false;
-            },
-         };
-
-         if (_ui.labelPosition == "top") {
-            _ui.labelPosition = "left";
-            _ui = {
-               inputId: ids.formItem,
-               rows: [
-                  {
-                     view: "label",
-                     label: field.label,
-                     // height: 22,
-                     align: "left",
-                  },
-                  {
-                     cols: [apcUI, _ui],
-                  },
-               ],
-            };
-         } else {
-            _ui = {
-               inputId: ids.formItem,
-               rows: [
-                  {
-                     cols: [
-                        {
-                           view: "label",
-                           label: field.label,
-                           width: formSettings.labelWidth,
-                           align: "left",
-                        },
-                        apcUI,
-                        _ui,
-                     ],
-                  },
-               ],
-            };
-         }
-
-         _ui = super.ui(_ui);
-      } else {
-         _ui = {
-            inputId: ids.formItem,
-            rows: [_ui],
-         };
-
-         _ui = super.ui(_ui);
-
-         delete _ui.rows[0].id;
-      }
-
-      return _ui;
-   }
-
-   async _onChange(data) {
-      const ids = this.ids;
-      const field = this.field;
-      const baseView = this.view;
-
-      if (this.multiselect) {
-         if (typeof data == "string") {
-            data = data.split(",");
-         }
-      }
-
-      let selectedValues;
-      if (Array.isArray(data)) {
-         selectedValues = [];
-         data.forEach((record) => {
-            selectedValues.push(record.id || record);
-            // let recordObj = record;
-            // if (typeof record != "object") {
-            //    // we need to convert either index or uuid to full data object
-            //    recordObj = field.getItemFromVal(record);
-            // }
-            // if (recordObj?.id) selectedValues.push(recordObj.id);
-         });
-      } else {
-         selectedValues = data;
-         if (typeof data != "object") {
-            // we need to convert either index or uuid to full data object
-            selectedValues = field.getItemFromVal(data);
-         }
-         // selectedValues = field.pullRecordRelationValues(selectedValues);
-         if (selectedValues?.id) {
-            selectedValues = selectedValues.id;
-         } else {
-            selectedValues = data;
-         }
-      }
-
-      // We can now set the new value but we need to block event listening
-      // so it doesn't trigger onChange again
-      const $formItem = $$(ids.formItem);
-
-      // Q: if we don't have a $formItem, is any of the rest valid?
-      if ($formItem) {
-         // for xxx->one connections we need to populate again before setting
-         // values because we need to use the selected values to add options
-         // to the UI
-         if (this?.field?.settings?.linkViaType == "one") {
-            this.busy();
-            await field.getAndPopulateOptions(
-               $formItem,
-               baseView.options,
-               field,
-               baseView.parentFormComponent()
-            );
-            this.ready();
-         }
-
-         $formItem.blockEvent();
-
-         // store the user's selected option in local storage.
-         field.saveSelect(selectedValues);
-
-         const prepedVals = selectedValues.join
-            ? selectedValues.join()
-            : selectedValues;
-
-         $formItem.setValue(prepedVals);
-         $formItem.unblockEvent();
-      }
-   }
-
-   async init(AB, options) {
-      await super.init(AB);
-
-      const $formItem = $$(this.ids.formItem);
-      if ($formItem) webix.extend($formItem, webix.ProgressBar);
-
-      this.initAddEditTool();
-   }
-
-   initAddEditTool() {
-      const baseView = this.view;
-
-      // Initial add/edit page tools
-      const addFormID = baseView?.settings?.formView;
-      if (addFormID && baseView && !this.addPageComponent) {
-         this.addPageComponent = baseView.addPageTool.component(
-            this.AB,
-            `${baseView.id}_${addFormID}`
-         );
-         this.addPageComponent.applicationLoad(baseView.application);
-         this.addPageComponent.init({
-            onSaveData: this.callbackSaveData.bind(this),
-            onCancelClick: this.callbackCancel.bind(this),
-            clearOnLoad: this.callbackClearOnLoad.bind(this),
-         });
-      }
-
-      const editFormID = baseView?.settings?.editForm;
-      if (editFormID && baseView && !this.editPageComponent) {
-         this.editPageComponent = baseView.editPageTool.component(
-            this.AB,
-            `${baseView.id}_${editFormID}`
-         );
-         this.editPageComponent.applicationLoad(baseView.application);
-         this.editPageComponent.init({
-            onSaveData: this.callbackSaveData.bind(this),
-            onCancelClick: this.callbackCancel.bind(this),
-            clearOnLoad: this.callbackClearOnLoad.bind(this),
-         });
-      }
-   }
-
-   async callbackSaveData(saveData) {
-      if (saveData == null) return;
-      else if (!Array.isArray(saveData)) saveData = [saveData];
-
-      const ids = this.ids;
-      const field = this.field;
-
-      // find the select component
-      const $formItem = $$(ids.formItem);
-      if (!$formItem) return;
-
-      // Refresh option list
-      this.busy();
-      field.clearStorage(this.view.settings.filterConditions);
-      const data = await field.getAndPopulateOptions(
-         $formItem,
-         this.view.options,
-         field,
-         this.view.parentFormComponent()
-      );
-      this.ready();
-
-      // field.once("option.data", (data) => {
-      data.forEach((item) => {
-         item.value = item.text;
-      });
-
-      $formItem.getList().clearAll();
-      $formItem.getList().define("data", data);
-
-      if (field.settings.linkType === "many") {
-         let selectedItems = $formItem.getValue();
-         saveData.forEach((sData) => {
-            if (selectedItems.indexOf(sData.id) === -1)
-               selectedItems = selectedItems
-                  ? `${selectedItems},${sData.id}`
-                  : sData.id;
-         });
-
-         $formItem.setValue(selectedItems);
-      } else {
-         $formItem.setValue(saveData[0].id);
-      }
-      // close the popup when we are finished
-      // $$(ids.popup)?.close();
-      // $$(ids.editpopup)?.close();
-      // });
-
-      // field.getOptions(this.settings.filterConditions, "");
-      // .then(function (data) {
-      //    // we need new option that will be returned from server (above)
-      //    // so we will not set this and then just reset it.
-      // });
-   }
-
-   callbackCancel() {
-      $$(this.ids?.popup)?.close?.();
-
-      return false;
-   }
-
-   callbackClearOnLoad() {
-      return true;
-   }
-
-   getValue(rowData) {
-      return this.field.getValue($$(this.ids.formItem), rowData);
-   }
-
-   formBusy($form) {
-      if (!$form) return;
-
-      $form.disable?.();
-      $form.showProgress?.({ type: "icon" });
-   }
-
-   formReady($form) {
-      if (!$form) return;
-
-      $form.enable?.();
-      $form.hideProgress?.();
-   }
-
-   goToEditPage(rowId) {
-      const settings = this.settings;
-
-      if (!settings.editForm) return;
-
-      const editForm = this.view.application.urlResolve(settings.editForm);
-
-      if (!editForm) return;
-
-      const $form = $$(this.ids.formItem).getFormView() || null;
-
-      // Open the form popup
-      this.editPageComponent.onClick().then(() => {
-         const dc = editForm.datacollection;
-
-         if (dc) {
-            dc.setCursor(rowId);
-
-            this.__editFormDcEvent =
-               this.__editFormDcEvent ||
-               dc.on("initializedData", () => {
-                  dc.setCursor(rowId);
-               });
-         }
-      });
-   }
-
-   async onShow() {
-      const ids = this.ids;
-      const $formItem = $$(ids.formItem);
-
-      if (!$formItem) return;
-
-      const field = this.field;
-
-      if (!field) return;
-
-      const node = $formItem.$view;
-
-      if (!node) return;
-
-      const $node = $$(node);
-
-      if (!$node) return;
-
-      const settings = this.settings;
-      let filterConditions = {
-         glue: "and",
-         rules: [],
-      };
-
-      if (settings?.filterConditions?.rules?.length) {
-         filterConditions = this.AB.cloneDeep(
-            this.view.settings.filterConditions
-         );
-      }
-
-      // NOTE: compatible with version 1. This code should not be here too long.
-      if (
-         !filterConditions?.rules?.length &&
-         settings?.objectWorkspace?.filterConditions?.rules?.length
-      ) {
-         filterConditions = this.AB.cloneDeep(
-            settings.objectWorkspace.filterConditions
-         );
-      }
-
-      // Add the filter connected value
-      if ((settings?.filterConnectedValue ?? "").indexOf(":") > -1) {
-         const values = settings.filterConnectedValue.split(":"),
-            uiConfigName = values[0],
-            connectFieldId = values[1];
-
-         filterConditions.rules.push({
-            key: connectFieldId,
-            rule: "filterByConnectValue",
-            value: uiConfigName,
-         });
-      }
-
-      const getFilterByConnectValues = (conditions, depth = 0) => {
-         return [
-            ...conditions.rules
-               .filter((e) => e.rule === "filterByConnectValue")
-               .map((e) => {
-                  const filterByConnectValue = Object.assign({}, e);
-
-                  filterByConnectValue.depth = depth;
-
-                  return filterByConnectValue;
-               }),
-         ].concat(
-            ...conditions.rules
-               .filter((e) => e.glue)
-               .map((e) => getFilterByConnectValues(e, depth + 1))
-         );
-      };
-
-      const baseView = this.view;
-      const filterByConnectValues = getFilterByConnectValues(
-         filterConditions
-      ).map((e) => {
-         for (const key in baseView.parent.viewComponents) {
-            if (
-               !(
-                  baseView.parent.viewComponents[key] instanceof
-                  this.constructor
-               )
-            )
-               continue;
-
-            const $ui = $$(
-               baseView.parent.viewComponents[key]
-                  .ui()
-                  .rows.find((vc) => vc.inputId)?.inputId
-            );
-
-            if ($ui?.config?.name === e.value) {
-               // we need to use the element id stored in the settings to find out what the
-               // ui component id is so later we can use it to look up its current value
-               e.filterValue = $ui;
-
-               break;
-            }
-         }
-
-         const ab = this.AB;
-         const field = ab
-            .objectByID(settings.objectId)
-            .fieldByID(settings.fieldId);
-         const linkedObject = ab.objectByID(field.settings.linkObject);
-         const linkedField = linkedObject.fieldByID(e.key);
-
-         if (linkedField?.settings?.isCustomFK) {
-            // finally if this is a custom foreign key we need the stored columnName by
-            // default uuid is passed for all non CFK
-            e.filterColumn = ab
-               .objectByID(linkedField.settings.linkObject)
-               .fields(
-                  (filter) =>
-                     filter.id === linkedField.settings.indexField ||
-                     linkedField.settings.indexField2
-               )[0].columnName;
-         } else e.filterColumn = null;
-
-         return e;
-      });
-
-      baseView.options = {
-         formView: settings.formView,
-         filters: filterConditions,
-         // NOTE: settings.objectWorkspace.xxx is a depreciated setting.
-         // We will be phasing this out.
-         sort: settings.sortFields ?? settings.objectWorkspace?.sortFields,
-         editable: settings.disable === 1 ? false : true,
-         editPage:
-            !settings.editForm || settings.editForm === "none" ? false : true,
-         filterByConnectValues,
-      };
-
-      // if this field's options are filtered off another field's value we need
-      // to make sure the UX helps the user know what to do.
-      // fetch the options and set placeholder text for this view
-      if (baseView.options.editable) {
-         const parentFields = [];
-
-         filterByConnectValues.forEach((fv) => {
-            if (fv.filterValue && fv.key) {
-               const $filterValueConfig = $$(fv.filterValue.config.id);
-
-               let parentField = null;
-
-               if (!$filterValueConfig) {
-                  // this happens in the Interface Builder when only the single form UI is displayed
-                  parentField = {
-                     id: "perentElement",
-                     label: this.label("PARENT ELEMENT"),
-                  };
-               } else {
-                  const value = field.getValue($filterValueConfig);
-
-                  if (!value) {
-                     // if there isn't a value on the parent select element set this one to readonly and change placeholder text
-                     parentField = {
-                        id: fv.filterValue.config.id,
-                        label: $filterValueConfig.config.label,
-                     };
-                  }
-
-                  $filterValueConfig.attachEvent(
-                     "onChange",
-                     async (e) => {
-                        const parentVal = $filterValueConfig.getValue();
-
-                        if (parentVal) {
-                           $node.define("disabled", false);
-                           $node.define(
-                              "placeholder",
-                              this.label("Select items")
-                           );
-                           this.busy();
-                           await field.getAndPopulateOptions(
-                              $node,
-                              baseView.options,
-                              field,
-                              baseView.parentFormComponent()
-                           );
-                           this.ready();
-                        } else {
-                           $node.define("disabled", true);
-                           $node.define(
-                              "placeholder",
-                              this.label("Must select item from '{0}' first.", [
-                                 $filterValueConfig.config.label,
-                              ])
-                           );
-                        }
-
-                        // TODO: Do we need to clear selected value?
-                        // $node.setValue("");
-                        $node.refresh();
-                     },
-                     false
-                  );
-               }
-
-               if (
-                  parentField &&
-                  parentFields.findIndex((e) => e.id === parentField.id) < 0
-               )
-                  parentFields.push(parentField);
-            }
-         });
-
-         if (parentFields.length && !$node.getValue()) {
-            $node.define("disabled", true);
-            $node.define(
-               "placeholder",
-               this.label(`Must select item from '{0}' first.`, [
-                  parentFields.map((e) => e.label).join(", "),
-               ])
-            );
-         } else {
-            $node.define("disabled", false);
-            $node.define("placeholder", this.label("Select items"));
-         }
-      } else {
-         $node.define("placeholder", "");
-         $node.define("disabled", true);
-      }
-
-      $node.refresh();
-
-      // Add data-cy attributes
-      const dataCy = `${field.key} ${field.columnName} ${field.id} ${baseView.parent.id}`;
-      node.setAttribute("data-cy", dataCy);
-
-      this.busy();
-      try {
-         await field.getAndPopulateOptions(
-            // $node,
-            $formItem,
-            baseView.options,
-            field,
-            baseView.parentFormComponent()
-         );
-      } catch (err) {
-         this.AB.notify.developer(err, {
-            context:
-               "ABViewFormConnectComponent > onShow() error calling field.getAndPopulateOptions",
-         });
-      }
-      this.ready();
-
-      // Need to refresh selected values when they are custom index
-      this._onChange($formItem.getValue());
-   }
-
-   busy() {
-      const $formItem = $$(this.ids.formItem);
-
-      $formItem?.disable();
-      $formItem?.showProgress?.({ type: "icon" });
-   }
-
-   ready() {
-      const $formItem = $$(this.ids.formItem);
-
-      $formItem?.enable();
-      $formItem?.hideProgress?.();
-   }
-};
-
-
-/***/ },
-
-/***/ 37416
-/*!******************************************************************************!*\
-  !*** ./AppBuilder/platform/views/viewComponent/ABViewFormCustomComponent.js ***!
-  \******************************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
-
-const ABViewFormItemComponent = __webpack_require__(/*! ./ABViewFormItemComponent */ 8772);
-const ABFieldImage = __webpack_require__(/*! ../../dataFields/ABFieldImage */ 9932);
-const FocusableTemplate = __webpack_require__(/*! ../../../../webix_custom_components/focusableTemplate */ 14038);
-
-const DEFAULT_HEIGHT = 80;
-
-module.exports = class ABViewFormCustomComponent extends (
-   ABViewFormItemComponent
-) {
-   constructor(baseView, idBase, ids) {
-      super(baseView, idBase || `ABViewFormCustom_${baseView.id}`, ids);
-   }
-
-   get new_width() {
-      const baseView = this.view;
-      const form = baseView.parentFormComponent();
-      const formSettings = form?.settings ?? {};
-      const settings = baseView.settings ?? {};
-
-      let newWidth = formSettings.labelWidth;
-
-      if (settings.formView) newWidth += 40;
-      else if (formSettings.showLabel && formSettings.labelPosition === "top")
-         newWidth = 0;
-
-      return newWidth;
-   }
-
-   ui() {
-      const baseView = this.view;
-      const field = baseView.field();
-      const form = baseView.parentFormComponent();
-      const formSettings = form?.settings ?? {};
-      const settings = field?.settings ?? baseView.settings ?? {};
-
-      const requiredClass =
-         field?.settings?.required || this.settings.required
-            ? "webix_required"
-            : "";
-
-      let templateLabel = "";
-
-      if (formSettings.showLabel) {
-         if (formSettings.labelPosition === "top")
-            templateLabel = `<label style="box-sizing: border-box; display:block; text-align: left; margin: 0; padding:1px 7.5px 0 3px; text-overflow:ellipsis; overflow:hidden; white-space:nowrap; color: #313131;" class="webix_inp_top_label ${requiredClass}">#label#</label>`;
-         else
-            templateLabel = `<label style="box-sizing: border-box; width: #width#px; display: inline-block; line-height: 32px; float: left; margin: 0; padding:1px 8px 0 0; text-overflow:ellipsis; overflow:hidden; white-space:nowrap; color: #313131;" class="${requiredClass}">#label#</label>`;
-      }
-
-      let height = 38;
-      let width = this.new_width;
-
-      if (typeof field == "undefined") {
-         console.warn(
-            `BaseView[${baseView.id}] returned an undefined field()`,
-            baseView.toObj()
-         );
-      }
-
-      if (field instanceof ABFieldImage) {
-         if (settings.useHeight) {
-            if (formSettings.labelPosition === "top") {
-               height = parseInt(settings.imageHeight) || DEFAULT_HEIGHT;
-               height += 38;
-            } else {
-               height = parseInt(settings.imageHeight) || DEFAULT_HEIGHT;
-            }
-         } else if (formSettings.labelPosition === "top") {
-            height = DEFAULT_HEIGHT + 38;
-         } else {
-            if (DEFAULT_HEIGHT > 38) {
-               height = DEFAULT_HEIGHT;
-            }
-         }
-         width =
-            settings.useWidth && settings.imageWidth ? settings.imageWidth : 0;
-      } else if (formSettings.showLabel && formSettings.labelPosition === "top")
-         height = DEFAULT_HEIGHT;
-
-      let template = `<div class="customField ${formSettings.labelPosition}">${
-         formSettings.labelPosition == "top" ? "" : templateLabel
-      }#template#</div>`
-         .replace(/#width#/g, formSettings.labelWidth)
-         .replace(/#label#/g, field?.label ?? "")
-         .replace(
-            /#template#/g,
-            field
-               ?.columnHeader({
-                  width: width,
-                  height: height,
-                  editable: true,
-               })
-               .template({}) ?? ""
-         );
-
-      if (settings.useWidth == 0) {
-         template = template.replace(
-            /"ab-image-data-field" style="float: left; width: 100%/g,
-            '"ab-image-data-field" style="float: left; width: calc(100% - ' +
-               formSettings.labelWidth +
-               "px)"
-         );
-      }
-
-      return super.ui({
-         view: "forminput",
-         labelWidth: 0,
-         paddingY: 0,
-         paddingX: 0,
-         css: "ab-custom-field",
-         // label:  field.label,
-         // labelPosition: settings.labelPosition, // webix.forminput does not have .labelPosition T T
-         // labelWidth: settings.labelWidth,
-         body: {
-            view: new FocusableTemplate(this.AB._App).key,
-            css: "customFieldCls",
-            borderless: true,
-            template: template,
-            height: height,
-            onClick: {
-               customField: (evt, e, trg) => {
-                  if (settings.disable === 1) return;
-
-                  let rowData = {};
-
-                  const formView =
-                     this?.parentFormComponent?.() ||
-                     this.view?.parentFormComponent?.();
-
-                  if (formView) {
-                     const dv = formView.datacollection;
-                     if (dv) rowData = dv.getCursor() || {};
-                  }
-
-                  // var node = $$(ids.formItem).$view;
-                  let node = $$(trg).getParentView().$view;
-                  field?.customEdit(
-                     rowData,
-                     this.AB_App,
-                     node,
-                     this.ids.formItem,
-                     evt
-                  );
-               },
-            },
-         },
-      });
-   }
-
-   onShow() {
-      const ids = this.ids;
-      const $formItem = $$(ids.formItem);
-
-      if (!$formItem) return;
-
-      const baseView = this.view;
-      const field = baseView.field(),
-         rowData = {},
-         node = $formItem.$view;
-
-      // Add data-cy attributes
-      const dataCy = `${baseView.key} ${field.key} ${field.columnName} ${baseView.id} ${baseView.parent.id}`;
-      node.setAttribute("data-cy", dataCy);
-
-      const options = {
-         formId: ids.formItem,
-         editable: baseView.settings.disable === 1 ? false : true,
-      };
-
-      if (field instanceof ABFieldImage) {
-         options.height = field.settings.useHeight
-            ? parseInt(field.settings.imageHeight) || DEFAULT_HEIGHT
-            : DEFAULT_HEIGHT;
-         options.width = field.settings.useWidth
-            ? parseInt(field.settings.imageWidth) || 0
-            : 0;
-      }
-
-      field.customDisplay(rowData, this.AB._App, node, options);
-   }
-
-   getValue(rowData) {
-      const field = this.view.field();
-      const $formItem = $$(this.ids.formItem);
-
-      return field.getValue($formItem, rowData);
-   }
-};
-
-
-/***/ },
-
-/***/ 58419
-/*!**********************************************************************************!*\
-  !*** ./AppBuilder/platform/views/viewComponent/ABViewFormDatepickerComponent.js ***!
-  \**********************************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
-
-const ABViewFormItemComponent = __webpack_require__(/*! ./ABViewFormItemComponent */ 8772);
-
-module.exports = class ABViewFormDatepickerComponent extends (
-   ABViewFormItemComponent
-) {
-   constructor(baseView, idBase, ids) {
-      super(baseView, idBase || `ABViewFormDatepicker_${baseView.id}`, ids);
-   }
-
-   ui() {
-      const self = this;
-      const field = this.view.field();
-
-      const _ui = {
-         view: "datepicker",
-         suggest: {
-            body: {
-               view:
-                  this.AB.Account?._config?.languageCode == "th"
-                     ? "thaicalendar"
-                     : "calendar",
-               type: field.settings?.dateFormat === 1 ? "time" : "",
-               timepicker:
-                  field.key === "datetime" && field.settings?.timeFormat !== 1
-                     ? true
-                     : false,
-               editable: true,
-               on: {
-                  onAfterDateSelect: function (date) {
-                     this.getParentView().setMasterValue({
-                        value: date,
-                     });
-                  },
-                  onTodaySet: function (date) {
-                     this.getParentView().setMasterValue({
-                        value: date,
-                     });
-                  },
-                  onDateClear: function (date) {
-                     this.getParentView().setMasterValue({
-                        value: date,
-                     });
-                  },
-               },
-            },
-            on: {
-               onShow: function () {
-                  const text = this.getMasterValue();
-                  const field = self.view.field();
-                  if (!text || !field) return true;
-
-                  const vals = {};
-                  vals[field.columnName] = text;
-                  const date = self.getValue(vals);
-
-                  const $calendar = this.getChildViews()[0];
-                  $calendar.setValue(date);
-               },
-            },
-         },
-      };
-
-      if (!field) return _ui;
-
-      // Ignore date - Only time picker
-      if (field.settings?.dateFormat === 1) _ui.type = "time";
-
-      // Date & Time picker
-      if (field.key === "datetime" && field.settings?.timeFormat !== 1)
-         _ui.timepicker = true;
-
-      // allows entering characters in datepicker input, false by default
-      _ui.editable = true;
-
-      // default value
-      if (_ui.value && !(_ui.value instanceof Date))
-         _ui.value = new Date(_ui.value);
-
-      // if we have webix locale set, will use the date format form there.
-      if (!window.webixLocale) _ui.format = field.getFormat();
-
-      return super.ui(_ui);
-   }
-
-   getValue(rowData) {
-      const field = this.view.field();
-      const text = rowData[field.columnName];
-      if (!field || !text) return null;
-
-      // Sentry Fix: caught an error where this.AB was not set, but this.view was...
-      // attempt to catch this situation and post more data:
-      if (!this.AB) {
-         if (this.view.AB) {
-            this.AB = this.view.AB;
-         } else {
-            let errNoAB = new Error(
-               "ABViewFormDatePicerComponent:getValue(): AB was not set."
-            );
-            // sentry logs the console before the error, so dump the offending view here:
-            console.log("view:", JSON.stringify(this.view.toObj()));
-            throw errNoAB;
-         }
-      }
-      // NOTE: if we are using the Thai language we force the format to be "%d/%m/%Y" in th-TH.js:13
-      //       so we have to use that format here
-      let dateVal = this.AB.Webix.Date.strToDate(field.getFormat())(text);
-      if (this.AB.Account?._config?.languageCode == "th") {
-         dateVal = this.AB.Webix.Date.strToDate("%j/%m/%Y")(text);
-      }
-      const date = dateVal;
-
-      if (
-         this.AB.Account?._config?.languageCode == "th" &&
-         field.settings?.dateFormat !== 1
-      )
-         date.setFullYear(date.getFullYear() - 543);
-
-      return date;
-   }
-};
-
-
-/***/ },
-
-/***/ 8772
-/*!****************************************************************************!*\
-  !*** ./AppBuilder/platform/views/viewComponent/ABViewFormItemComponent.js ***!
-  \****************************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
-
-const ABViewComponent = (__webpack_require__(/*! ./ABViewComponent */ 23687)["default"]);
-
-module.exports = class ABViewFormItemComponent extends ABViewComponent {
-   constructor(baseView, idBase, ids) {
-      super(
-         baseView,
-         idBase || `ABViewFormItem_${baseView.id}`,
-         Object.assign({ formItem: "" }, ids)
-      );
-   }
-
-   ui(uiFormItemComponent = {}) {
-      // setup 'label' of the element
-      const baseView = this.view;
-      const form = baseView.parentFormComponent(),
-         field = baseView.field?.() || null,
-         label = "";
-      const settings = form?.settings || {};
-      const _uiFormItem = {
-         id: this.ids.formItem,
-         labelPosition: settings.labelPosition,
-         labelWidth: settings.labelWidth,
-         label,
-      };
-
-      if (field) {
-         _uiFormItem.name = field.columnName;
-
-         // default value
-         const data = {};
-
-         field.defaultValue(data);
-
-         if (data[field.columnName]) _uiFormItem.value = data[field.columnName];
-
-         if (settings.showLabel) _uiFormItem.label = field.label;
-
-         if (field.settings.required || baseView.settings?.required)
-            _uiFormItem.required = 1;
-
-         if (baseView.settings?.disable === 1) _uiFormItem.disabled = true;
-
-         // add data-cy to form element for better testing code
-         _uiFormItem.on = {
-            onAfterRender() {
-               if (this.getList) {
-                  const popup = this.getPopup();
-
-                  if (!popup) return;
-
-                  this.getList().data.each((option) => {
-                     if (!option) return;
-
-                     // our option.ids are based on builder input and can include the ' character
-                     const node = popup.$view.querySelector(
-                        `[webix_l_id='${(option?.id ?? "")
-                           .toString()
-                           .replaceAll("'", "\\'")}']`
-                     );
-
-                     if (!node) return;
-
-                     node.setAttribute(
-                        "data-cy",
-                        `${field.key} options ${option.id} ${field.id} ${
-                           form?.id || "nf"
-                        }`
-                     );
-                  });
-               }
-
-               this.getInputNode?.().setAttribute?.(
-                  "data-cy",
-                  `${field.key} ${field.columnName} ${field.id} ${
-                     form?.id || "nf"
-                  }`
-               );
-            },
-         };
-
-         // this may be needed if we want to format data at this point
-         // if (field.format) data = field.format(data);
-
-         _uiFormItem.validate = (val, data, colName) => {
-            const validator = this.AB.Validation.validator();
-
-            field.isValidData(data, validator);
-
-            return validator.pass();
-         };
-      }
-
-      const _ui = super.ui([
-         Object.assign({}, _uiFormItem, uiFormItemComponent),
-      ]);
-
-      delete _ui.type;
-
-      return _ui;
-   }
-};
-
-
-/***/ },
-
-/***/ 29119
-/*!****************************************************************************!*\
-  !*** ./AppBuilder/platform/views/viewComponent/ABViewFormJsonComponent.js ***!
-  \****************************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
-
-const ABViewFormItemComponent = __webpack_require__(/*! ./ABViewFormItemComponent */ 8772);
-
-module.exports = class ABViewFormJsonComponent extends ABViewFormItemComponent {
-   constructor(baseView, idBase, ids) {
-      super(baseView, idBase || `ABViewFormJson_${baseView.id}`, ids);
-      if (this.settings.type == "filter") {
-         this.rowFilter = this.AB.filterComplexNew(
-            `${baseView.id}_filterComplex`,
-            {
-               isSaveHidden: true,
-               height: 300,
-               borderless: false,
-               showObjectName: true,
-            }
-         );
-      }
-   }
-
-   getFilterField(instance) {
-      if (
-         instance?.settings?.filterField &&
-         instance?.view?.parent?.viewComponents
-      ) {
-         let filterField = "";
-         for (const [key, value] of Object.entries(
-            instance.view.parent.viewComponents
-         )) {
-            if (value.settings.fieldId == instance.settings.filterField) {
-               filterField = value;
-            }
-         }
-
-         if (filterField?.ids?.formItem) {
-            return filterField.ids.formItem;
-         } else {
-            return "";
-         }
-      } else {
-         return "";
-      }
-   }
-
-   get getSystemObjects() {
-      // get list of all objects in the app
-      let objects = this.AB.objects();
-      // reformat objects into simple array for Webix multicombo
-      // if you do not the data causes a maximum stack error
-      let objectsArray = [];
-      objects.forEach((obj) => {
-         objectsArray.push({ id: obj.id, label: obj.label });
-      });
-      // return the simple array
-      return objectsArray;
-   }
-
-   refreshFilter(values) {
-      if (values) {
-         let fieldDefs = [];
-         values.forEach((obj) => {
-            let object = this.AB.objectByID(obj);
-            let fields = object.fields();
-            if (fields.length) {
-               fields.forEach((f) => {
-                  fieldDefs.push(f);
-               });
-            }
-         });
-         this.rowFilter.fieldsLoad(fieldDefs);
-         if ($$(this.ids.formItem).config.value)
-            this.rowFilter.setValue($$(this.ids.formItem).config.value);
-      } else {
-         this.rowFilter.fieldsLoad([]);
-         if ($$(this.ids.formItem).config.value)
-            this.rowFilter.setValue($$(this.ids.formItem).config.value);
-      }
-   }
-
-   getValue() {
-      return this.rowFilter.getValue();
-   }
-
-   setValue(formVals) {
-      $$(this.ids.formItem).config.value = formVals;
-   }
-
-   ui() {
-      const _ui = {};
-
-      switch (
-         this.settings.type ||
-         this.view.settings.type ||
-         this.view.constructor.defaultValues().type
-      ) {
-         case "string":
-            _ui.view = "textarea";
-            _ui.disabled = true;
-            _ui.height = 200;
-            _ui.format = {
-               parse: function (parsed) {
-                  try {
-                     parsed = JSON.parse(parsed);
-                  } catch (err) {
-                     // already parsed
-                  }
-                  return parsed;
-               },
-               edit: function (stringify) {
-                  try {
-                     stringify = JSON.stringify(stringify);
-                  } catch (err) {
-                     // already a string
-                  }
-                  return stringify;
-               },
-            };
-            break;
-         case "systemObject":
-            _ui.view = "multicombo";
-            _ui.placeholder = this.label("Select one or more system objects");
-            _ui.button = false;
-            _ui.stringResult = false;
-            _ui.suggest = {
-               selectAll: true,
-               body: {
-                  data: this.getSystemObjects,
-                  template: webix.template("#label#"),
-               },
-            };
-            break;
-         case "filter":
-            _ui.view = "forminput";
-            _ui.css = "ab-custom-field";
-            _ui.body = this.rowFilter.ui;
-            break;
-      }
-
-      return super.ui(_ui);
-   }
-
-   init() {
-      // if (this.settings.type == "filter") {
-      //    this.rowFilter.init({ showObjectName: true });
-      // }
-   }
-
-   onShow() {
-      const _ui = this.ui();
-      if (this?.settings?.type == "filter") {
-         let filterField = this.getFilterField(this);
-         if (!$$(filterField)) return;
-         $$(filterField).detachEvent("onChange");
-         $$(filterField).attachEvent("onChange", (values) => {
-            this.refreshFilter(values);
-         });
-         this.rowFilter.init({ showObjectName: true });
-         this.rowFilter.on("changed", (val) => {
-            this.setValue(val);
-         });
-         if ($$(this.ids.formItem).config.value) {
-            this.rowFilter.setValue($$(this.ids.formItem).config.value);
-         } else {
-            this.rowFilter.setValue("");
-         }
-      }
-   }
-};
-
-
-/***/ },
-
-/***/ 10246
-/*!******************************************************************************!*\
-  !*** ./AppBuilder/platform/views/viewComponent/ABViewFormNumberComponent.js ***!
-  \******************************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
-
-const ABViewFormItemComponent = __webpack_require__(/*! ./ABViewFormItemComponent */ 8772);
-const NumberTextInput = __webpack_require__(/*! ../../../../webix_custom_components/numbertext */ 90212);
-
-module.exports = class ABViewFormNumberComponent extends (
-   ABViewFormItemComponent
-) {
-   constructor(baseView, idBase, ids) {
-      super(baseView, idBase || `ABViewFormNumber_${baseView.id}`, ids);
-
-      this._numberTextInputKey = null;
-   }
-
-   get numberTextInputKey() {
-      return (this._numberTextInputKey =
-         this._numberTextInputKey || new NumberTextInput(this.AB._App).key);
-   }
-
-   ui() {
-      return super.ui({
-         view: this.settings.isStepper ? "counter" : this.numberTextInputKey,
-         type: "number",
-         validate: (val) => !isNaN(val * 1),
-      });
-   }
-};
-
-
-/***/ },
-
-/***/ 71207
-/*!********************************************************************************!*\
-  !*** ./AppBuilder/platform/views/viewComponent/ABViewFormReadonlyComponent.js ***!
-  \********************************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
-
-const ABViewFormItemComponent = __webpack_require__(/*! ./ABViewFormItemComponent */ 8772);
-
-module.exports = class ABViewFormReadonlyComponent extends (
-   ABViewFormItemComponent
-) {
-   constructor(baseView, idBase, ids) {
-      super(
-         baseView,
-         idBase || `ABViewFormReadonly_${baseView.id}`,
-         Object.assign(
-            {
-               template: "",
-            },
-            ids
-         )
-      );
-   }
-
-   ui() {
-      const baseView = this.view;
-      const field = baseView.field();
-
-      const _ui = {
-         view: "forminput",
-         labelWidth: 0,
-         paddingY: 0,
-         paddingX: 0,
-         readonly: true,
-         css: "ab-readonly-field",
-         // name: component.ui.name,
-         // label:  field.label,
-         // labelPosition: settings.labelPosition, // webix.forminput does not have .labelPosition T T
-         // labelWidth: settings.labelWidth,
-         body: {
-            id: this.ids.template,
-            view: "label",
-            borderless: true,
-            css: { "background-color": "#fff" },
-            label: "",
-         },
-      };
-
-      const settings = baseView.parentFormComponent().settings || {};
-
-      if (settings.showLabel == true && settings.labelPosition == "top") {
-         _ui.body.height = 80;
-      } else if (field.settings.useHeight) {
-         _ui.body.height = parseInt(field.settings.imageHeight) || 38;
-      } else _ui.body.height = 38;
-
-      return super.ui(_ui);
-   }
-
-   async init(AB) {
-      await super.init(AB);
-
-      const $formItem = $$(this.ids.formItem);
-      if (!$formItem) return;
-
-      const $form = $formItem.getFormView();
-      const rowData = $form?.getValues() ?? {};
-
-      this.refresh(rowData);
-      $form?.attachEvent("onChange", (newv, oldv) => {
-         const rowData = $form?.getValues() ?? {};
-
-         this.refresh(rowData);
-      });
-   }
-
-   onShow() {
-      const $formItem = $$(this.ids.formItem);
-      if (!$formItem) return;
-
-      const $form = $formItem.getFormView();
-      const rowData = $form?.getValues() ?? {};
-
-      this.refresh(rowData);
-   }
-
-   getValue(rowData) {
-      const field = this.view.field();
-      if (!field) return null;
-
-      return rowData[field.columnName];
-   }
-
-   refresh(rowData) {
-      const baseView = this.view;
-      const form = baseView.parentFormComponent(),
-         field = baseView.field();
-
-      const formSettings = form.settings || {};
-
-      let templateLabel = "";
-
-      if (formSettings.showLabel) {
-         if (formSettings.labelPosition === "top")
-            templateLabel = `<label style="display:block; text-align: left; margin: 0; padding:1px 7.5px 0 3px; text-overflow:ellipsis; overflow:hidden; white-space:nowrap;" class="webix_inp_top_label">${field.label}</label>`;
-         else
-            templateLabel = `<label style="width: ${formSettings.labelWidth}px; display: inline-block; line-height: 32px; float: left; margin: 0; padding:1px 7.5px 0 3px; text-overflow:ellipsis; overflow:hidden; white-space:nowrap;">${field.label}</label>`;
-      }
-
-      let newWidth = formSettings.labelWidth;
-
-      if (this.settings.formView) newWidth += 40;
-      else if (formSettings.showLabel && formSettings.labelPosition === "top")
-         newWidth = 0;
-
-      const template =
-         `<div class="readonlyField">${templateLabel}#template#</div>`.replace(
-            /#template#/g,
-            field
-               .columnHeader({
-                  width: newWidth,
-                  editable: true,
-               })
-               .template(rowData)
-         );
-
-      // Re-build template element
-      $$(this.ids.template)?.setHTML(template);
-   }
-};
-
-
-/***/ },
-
-/***/ 55977
-/*!**************************************************************************************!*\
-  !*** ./AppBuilder/platform/views/viewComponent/ABViewFormSelectMultipleComponent.js ***!
-  \**************************************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
-
-const ABViewFormItemComponent = __webpack_require__(/*! ./ABViewFormItemComponent */ 8772);
-
-module.exports = class ABViewFormSelectMultipleComponentComponent extends (
-   ABViewFormItemComponent
-) {
-   constructor(baseView, idBase, ids) {
-      super(baseView, idBase || `ABViewFormSelectMultiple_${baseView.id}`, ids);
-   }
-
-   ui() {
-      const baseView = this.view;
-      const field = baseView.field(),
-         settings = this.settings;
-      const options = [];
-
-      if (field?.key === "user") options.push(...field.getUsers());
-      else if (field)
-         options.push(...(field.settings.options ?? settings.options ?? []));
-
-      const ids = this.ids;
-      const _ui = {
-         id: ids.formItem,
-         view: settings.type || baseView.constructor.defaultValues().type,
-         options: options.map((opt) => {
-            return {
-               id: opt.id,
-               value: opt.text,
-               hex: opt.hex,
-            };
-         }),
-      };
-
-      switch (_ui.view) {
-         case "multicombo":
-            _ui.tagMode = false;
-            _ui.css = "hideWebixMulticomboTag";
-            _ui.tagTemplate = (values) => {
-               const selectedOptions = [];
-               const $formItem = $$(ids.formItem) ?? $$(_ui.id);
-
-               values.forEach((val) => {
-                  selectedOptions.push($formItem.getList().getItem(val));
-               });
-
-               let vals = selectedOptions;
-
-               if (field.getSelectedOptions)
-                  vals = field.getSelectedOptions(field, selectedOptions);
-
-               const items = [];
-
-               vals.forEach((val) => {
-                  let hasCustomColor = "";
-                  let optionHex = "";
-
-                  if (field.settings.hasColors && val.hex) {
-                     hasCustomColor = "hascustomcolor";
-                     optionHex = `background: ${val.hex};`;
-                  }
-
-                  const text = val.text ? val.text : val.value;
-
-                  items.push(
-                     `<span class="webix_multicombo_value ${hasCustomColor}" style="${optionHex}" optvalue="${val.id}"><span>${text}</span><span class="webix_multicombo_delete" role="button" aria-label="Remove item"></span></span>`
-                  );
-               });
-
-               return items.join("");
-            };
-
-            break;
-
-         case "checkbox":
-            // radio element could not be empty options
-            _ui.options.push({
-               id: "temp",
-               value: this.label("Option"),
-            });
-
-            break;
-      }
-
-      return super.ui(_ui);
-   }
-
-   getValue(rowData) {
-      const field = this.view.field(),
-         $formItem = $$(this.ids.formItem);
-
-      return field.getValue($formItem, rowData);
-   }
-};
-
-
-/***/ },
-
-/***/ 37117
-/*!************************************************************************************!*\
-  !*** ./AppBuilder/platform/views/viewComponent/ABViewFormSelectSingleComponent.js ***!
-  \************************************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
-
-const ABViewFormItemComponent = __webpack_require__(/*! ./ABViewFormItemComponent */ 8772);
-
-module.exports = class ABViewFormSelectSingleComponentComponent extends (
-   ABViewFormItemComponent
-) {
-   constructor(baseView, idBase, ids) {
-      super(baseView, idBase || `ABViewFormSelectSingle_${baseView.id}`, ids);
-   }
-
-   ui() {
-      const baseView = this.view;
-      const field = baseView.field(),
-         settings = baseView.settings;
-      const options = [];
-
-      if (field?.key === "user") options.push(...field.getUsers());
-      else if (field)
-         options.push(...(field.settings.options ?? settings.options ?? []));
-      else options.push(...(settings.options ?? []));
-
-      const _ui = {
-         view: settings.type || baseView.constructor.defaultValues().type,
-      };
-
-      if (field?.settings.hasColors) {
-         _ui.css = "combowithcolors";
-         _ui.options = {
-            view: "suggest",
-            body: {
-               view: "list",
-               data: options.map((opt) => {
-                  return {
-                     id: opt.id,
-                     value: opt.text || opt.value,
-                     hex: field.settings.hasColors ? opt.hex : "",
-                  };
-               }),
-               template: function (value) {
-                  const items = [];
-
-                  let hasCustomColor = "";
-                  let optionHex = "";
-
-                  if (value.hex) {
-                     hasCustomColor = "hascustomcolor";
-                     optionHex = `background: ${value.hex};`;
-                  }
-
-                  items.push(
-                     `<span class="webix_multicombo_value ${hasCustomColor}" style="${optionHex}" optvalue="${value.id}"><span>${value.value}</span></span>`
-                  );
-
-                  return items.join("");
-               },
-            },
-         };
-      } else
-         _ui.options = options.map((opt) => {
-            return {
-               id: opt.id,
-               value: opt.text || opt.value,
-            };
-         });
-
-      // radio element could not be empty options
-      if (_ui.view === "radio" && _ui.options.length < 1)
-         _ui.options.push({
-            id: "temp",
-            value: this.label("Option"),
-         });
-
-      return super.ui(_ui);
-   }
-};
-
-
-/***/ },
-
-/***/ 25411
-/*!*******************************************************************************!*\
-  !*** ./AppBuilder/platform/views/viewComponent/ABViewFormTextboxComponent.js ***!
-  \*******************************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
-
-const ABViewFormItemComponent = __webpack_require__(/*! ./ABViewFormItemComponent */ 8772);
-
-module.exports = class ABViewFormTextboxComponent extends (
-   ABViewFormItemComponent
-) {
-   constructor(baseView, idBase, ids) {
-      super(baseView, idBase || `ABViewFormTextbox_${baseView.id}`, ids);
-      this.type =
-         this.settings.type ||
-         this.view.settings.type ||
-         this.view.constructor.defaultValues().type;
-   }
-
-   ui() {
-      const _ui = {};
-
-      switch (this.type) {
-         case "single":
-            _ui.view = "text";
-            break;
-         case "multiple":
-            _ui.view = "textarea";
-            _ui.height = 200;
-            break;
-         case "rich":
-            _ui.view = "forminput";
-            _ui.height = 200;
-            _ui.css = "ab-rich-text";
-            _ui.body = {
-               view: "tinymce-editor",
-               value: "",
-               cdn: "/js/webix/extras/tinymce",
-               config: {
-                  plugins: "link",
-                  menubar: "format edit",
-                  toolbar:
-                     "undo redo | styles | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | fontsize | link",
-               },
-            };
-            break;
-      }
-
-      return super.ui(_ui);
-   }
-
-   async onShow() {
-      if (this.type !== "rich") return;
-      await this.initTinyMCE();
-      const _ui = this.ui();
-      const _uiFormItem = _ui.rows[0];
-      let $formItem = $$(this.ids.formItem);
-
-      // WORKAROUND : to fix breaks TinyMCE when switch pages/tabs
-      // https://forum.webix.com/discussion/6772/switching-tabs-breaks-tinymce
-      if ($formItem) {
-         // recreate rich editor
-         $formItem = this.AB.Webix.ui(_uiFormItem, $formItem);
-
-         // Add dataCy to TinyMCE text editor
-         const baseView = this.view;
-
-         $formItem
-            .getChildViews()[0]
-            .getEditor(true)
-            .then((editor) => {
-               const dataCy = `${baseView.key} rich ${_uiFormItem.name} ${
-                  baseView.id ?? ""
-               } ${baseView.parent?.id ?? ""}`;
-
-               editor.contentAreaContainer.setAttribute("data-cy", dataCy);
-            });
-      }
-   }
-
-   /**
-    * Ensure TinyMCE has been loaded and initialized.
-    */
-   async initTinyMCE() {
-      await this.AB.custom["tinymce-editor"].init();
-   }
-};
-
-
-/***/ },
-
-/***/ 48585
-/*!****************************************************************************!*\
-  !*** ./AppBuilder/platform/views/viewComponent/ABViewFormTreeComponent.js ***!
-  \****************************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
-
-const ABViewFormItemComponent = __webpack_require__(/*! ./ABViewFormItemComponent */ 8772);
-
-module.exports = class ABViewFormTreeComponent extends ABViewFormItemComponent {
-   constructor(baseView, idBase, ids) {
-      super(baseView, idBase || `ABViewFormTree_${baseView.id}`, ids);
-   }
-
-   ui() {
-      const baseView = this.view;
-      const field = baseView.field();
-
-      const _ui = {};
-
-      // this field may be deleted
-      if (!field) return super.ui(_ui);
-
-      const formSettings = baseView.parentFormComponent().settings || {};
-
-      const requiredClass =
-         field.settings.required === 1 ? "webix_required" : "";
-
-      let templateLabel = "";
-
-      if (formSettings.showLabel) {
-         if (formSettings.labelPosition === "top")
-            templateLabel = `<label style="display:block; text-align: left; margin: 0; padding:1px 7.5px 0 3px; text-overflow:ellipsis; overflow:hidden; white-space:nowrap;" class="webix_inp_top_label ${requiredClass}">#label#</label>`;
-         else
-            templateLabel = `<label style="width: #width#px; display: inline-block; line-height: 32px; float: left; margin: 0; padding:1px 7.5px 0 3px; text-overflow:ellipsis; overflow:hidden; white-space:nowrap;" class="${requiredClass}">#label#</label>`;
-      }
-
-      let newWidth = formSettings.labelWidth;
-
-      if (this.settings.formView) newWidth += 40;
-
-      const template = `${templateLabel}#template#`
-         .replace(/#width#/g, formSettings.labelWidth)
-         .replace(/#label#/g, field.label)
-         .replace(
-            /#template#/g,
-            field.columnHeader({
-               width: newWidth,
-            }).template
-         );
-
-      _ui.view = "template";
-      _ui.css = "webix_el_box";
-      _ui.height =
-         field.settings.useHeight === 1
-            ? parseInt(field.settings.imageHeight)
-            : 38;
-      _ui.borderless = true;
-
-      _ui.template = `<div class="customField">${template}</div>`;
-
-      _ui.onClick = {
-         customField: (id, e, trg) => {
-            const rowData = {},
-               node = $$(this.ids.formItem).$view;
-
-            rowData[field.columnName] = this.getValue();
-            field.customEdit(rowData, this.AB._App, node, this);
-         },
-      };
-
-      return super.ui(_ui);
-   }
-
-   getValue(rowData) {
-      let vals = $$(this.ids.formItem).getValues();
-
-      // Pass empty string if the returned values is empty array
-      if (Array.isArray(vals) && vals.length === 0) vals = "";
-
-      return vals;
    }
 };
 
@@ -63227,10 +56933,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ ABViewPropertyAddPage)
 /* harmony export */ });
 /* harmony import */ var _ABViewProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABViewProperty */ 3419);
-/* harmony import */ var _ABViewFormButton__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../ABViewFormButton */ 45341);
-/* harmony import */ var _ABViewFormButton__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_ABViewFormButton__WEBPACK_IMPORTED_MODULE_1__);
-
-
 
 
 let L = (...params) => AB.Multilingual.label(...params);
@@ -63447,15 +57149,12 @@ class ABViewPropertyAddPage extends _ABViewProperty__WEBPACK_IMPORTED_MODULE_0__
                // Listen 'saved' event of the form widget
                const saveViews =
                   pageClone.views(
-                     (v) =>
-                        v instanceof (_ABViewFormButton__WEBPACK_IMPORTED_MODULE_1___default()) ||
-                        v.key == "pdfImporter",
+                     (v) => v.key == "button" || v.key == "pdfImporter",
                      true
                   ) ?? [];
 
                saveViews.forEach((view) => {
-                  const v =
-                     view instanceof (_ABViewFormButton__WEBPACK_IMPORTED_MODULE_1___default()) ? view.parent : view;
+                  const v = view.key == "button" ? view.parent : view;
                   v.on("saved", (savedData) => {
                      _logic?.callbacks?.onSaveData(savedData);
                      // ? is there ever a case where we want to keep an add popup open after saving?
@@ -70862,56 +64561,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ },
 
-/***/ 32477
-/*!*****************************************************!*\
-  !*** ./js/docxtemplater-image-module.v3.0.2.min.js ***!
-  \*****************************************************/
-(module) {
-
-(function(f){if(true){module.exports=f()}else // removed by dead control flow
-{ var g; }})(function(){var define,module,exports;return function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=undefined;if(!u&&a)return require(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=undefined;for(var o=0;o<r.length;o++)s(r[o]);return s}({1:[function(require,module,exports){"use strict";var DocUtils=require("docxtemplater").DocUtils;DocUtils.convertPixelsToEmus=function(pixel){return Math.round(pixel*9525)};module.exports=DocUtils},{docxtemplater:5}],2:[function(require,module,exports){"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function")}}var DocUtils=require("./docUtils");var extensionRegex=/[^.]+\.([^.]+)/;var rels={getPrefix:function getPrefix(fileType){return fileType==="docx"?"word":"ppt"},getFileTypeName:function getFileTypeName(fileType){return fileType==="docx"?"document":"presentation"},getRelsFileName:function getRelsFileName(fileName){return fileName.replace(/^.*?([a-zA-Z0-9]+)\.xml$/,"$1")+".xml.rels"},getRelsFilePath:function getRelsFilePath(fileName,fileType){var relsFileName=rels.getRelsFileName(fileName);var prefix=fileType==="pptx"?"ppt/slides":"word";return prefix+"/_rels/"+relsFileName}};module.exports=function(){function ImgManager(zip,fileName,xmlDocuments,fileType){_classCallCheck(this,ImgManager);this.fileName=fileName;this.prefix=rels.getPrefix(fileType);this.zip=zip;this.xmlDocuments=xmlDocuments;this.fileTypeName=rels.getFileTypeName(fileType);this.mediaPrefix=fileType==="pptx"?"../media":"media";var relsFilePath=rels.getRelsFilePath(fileName,fileType);this.relsDoc=xmlDocuments[relsFilePath]||this.createEmptyRelsDoc(xmlDocuments,relsFilePath)}_createClass(ImgManager,[{key:"createEmptyRelsDoc",value:function createEmptyRelsDoc(xmlDocuments,relsFileName){var mainRels=this.prefix+"/_rels/"+this.fileTypeName+".xml.rels";var doc=xmlDocuments[mainRels];if(!doc){var err=new Error("Could not copy from empty relsdoc");err.properties={mainRels:mainRels,relsFileName:relsFileName,files:Object.keys(this.zip.files)};throw err}var relsDoc=DocUtils.str2xml(DocUtils.xml2str(doc));var relationships=relsDoc.getElementsByTagName("Relationships")[0];var relationshipChilds=relationships.getElementsByTagName("Relationship");for(var i=0,l=relationshipChilds.length;i<l;i++){relationships.removeChild(relationshipChilds[i])}xmlDocuments[relsFileName]=relsDoc;return relsDoc}},{key:"loadImageRels",value:function loadImageRels(){var iterable=this.relsDoc.getElementsByTagName("Relationship");return Array.prototype.reduce.call(iterable,function(max,relationship){var id=relationship.getAttribute("Id");if(/^rId[0-9]+$/.test(id)){return Math.max(max,parseInt(id.substr(3),10))}return max},0)}},{key:"addExtensionRels",value:function addExtensionRels(contentType,extension){var contentTypeDoc=this.xmlDocuments["[Content_Types].xml"];var defaultTags=contentTypeDoc.getElementsByTagName("Default");var extensionRegistered=Array.prototype.some.call(defaultTags,function(tag){return tag.getAttribute("Extension")===extension});if(extensionRegistered){return}var types=contentTypeDoc.getElementsByTagName("Types")[0];var newTag=contentTypeDoc.createElement("Default");newTag.namespaceURI=null;newTag.setAttribute("ContentType",contentType);newTag.setAttribute("Extension",extension);types.appendChild(newTag)}},{key:"addImageRels",value:function addImageRels(imageName,imageData,i){if(i==null){i=0}var realImageName=i===0?imageName:imageName+("("+i+")");var imagePath=this.prefix+"/media/"+realImageName;if(this.zip.files[imagePath]!=null){return this.addImageRels(imageName,imageData,i+1)}var image={name:imagePath,data:imageData,options:{binary:true}};this.zip.file(image.name,image.data,image.options);var extension=realImageName.replace(extensionRegex,"$1");this.addExtensionRels("image/"+extension,extension);var relationships=this.relsDoc.getElementsByTagName("Relationships")[0];var newTag=this.relsDoc.createElement("Relationship");newTag.namespaceURI=null;var maxRid=this.loadImageRels()+1;newTag.setAttribute("Id","rId"+maxRid);newTag.setAttribute("Type","http://schemas.openxmlformats.org/officeDocument/2006/relationships/image");newTag.setAttribute("Target",this.mediaPrefix+"/"+realImageName);relationships.appendChild(newTag);return maxRid}}]);return ImgManager}()},{"./docUtils":1}],3:[function(require,module,exports){"use strict";module.exports={getImageXml:function getImageXml(rId,size){return('<w:drawing>\n\t\t<wp:inline distT="0" distB="0" distL="0" distR="0">\n\t\t\t<wp:extent cx="'+size[0]+'" cy="'+size[1]+'"/>\n\t\t\t<wp:effectExtent l="0" t="0" r="0" b="0"/>\n\t\t\t<wp:docPr id="2" name="Image 2" descr="image"/>\n\t\t\t<wp:cNvGraphicFramePr>\n\t\t\t\t<a:graphicFrameLocks xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" noChangeAspect="1"/>\n\t\t\t</wp:cNvGraphicFramePr>\n\t\t\t<a:graphic xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main">\n\t\t\t\t<a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture">\n\t\t\t\t\t<pic:pic xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture">\n\t\t\t\t\t\t<pic:nvPicPr>\n\t\t\t\t\t\t\t<pic:cNvPr id="0" name="Picture 1" descr="image"/>\n\t\t\t\t\t\t\t<pic:cNvPicPr>\n\t\t\t\t\t\t\t\t<a:picLocks noChangeAspect="1" noChangeArrowheads="1"/>\n\t\t\t\t\t\t\t</pic:cNvPicPr>\n\t\t\t\t\t\t</pic:nvPicPr>\n\t\t\t\t\t\t<pic:blipFill>\n\t\t\t\t\t\t\t<a:blip r:embed="rId'+rId+'">\n\t\t\t\t\t\t\t\t<a:extLst>\n\t\t\t\t\t\t\t\t\t<a:ext uri="{28A0092B-C50C-407E-A947-70E740481C1C}">\n\t\t\t\t\t\t\t\t\t\t<a14:useLocalDpi xmlns:a14="http://schemas.microsoft.com/office/drawing/2010/main" val="0"/>\n\t\t\t\t\t\t\t\t\t</a:ext>\n\t\t\t\t\t\t\t\t</a:extLst>\n\t\t\t\t\t\t\t</a:blip>\n\t\t\t\t\t\t\t<a:srcRect/>\n\t\t\t\t\t\t\t<a:stretch>\n\t\t\t\t\t\t\t\t<a:fillRect/>\n\t\t\t\t\t\t\t</a:stretch>\n\t\t\t\t\t\t</pic:blipFill>\n\t\t\t\t\t\t<pic:spPr bwMode="auto">\n\t\t\t\t\t\t\t<a:xfrm>\n\t\t\t\t\t\t\t\t<a:off x="0" y="0"/>\n\t\t\t\t\t\t\t\t<a:ext cx="'+size[0]+'" cy="'+size[1]+'"/>\n\t\t\t\t\t\t\t</a:xfrm>\n\t\t\t\t\t\t\t<a:prstGeom prst="rect">\n\t\t\t\t\t\t\t\t<a:avLst/>\n\t\t\t\t\t\t\t</a:prstGeom>\n\t\t\t\t\t\t\t<a:noFill/>\n\t\t\t\t\t\t\t<a:ln>\n\t\t\t\t\t\t\t\t<a:noFill/>\n\t\t\t\t\t\t\t</a:ln>\n\t\t\t\t\t\t</pic:spPr>\n\t\t\t\t\t</pic:pic>\n\t\t\t\t</a:graphicData>\n\t\t\t</a:graphic>\n\t\t</wp:inline>\n\t</w:drawing>\n\t\t').replace(/\t|\n/g,"")},getImageXmlCentered:function getImageXmlCentered(rId,size){return('<w:p>\n\t\t\t<w:pPr>\n\t\t\t\t<w:jc w:val="center"/>\n\t\t\t</w:pPr>\n\t\t\t<w:r>\n\t\t\t\t<w:rPr/>\n\t\t\t\t<w:drawing>\n\t\t\t\t\t<wp:inline distT="0" distB="0" distL="0" distR="0">\n\t\t\t\t\t<wp:extent cx="'+size[0]+'" cy="'+size[1]+'"/>\n\t\t\t\t\t<wp:docPr id="0" name="Picture" descr=""/>\n\t\t\t\t\t<a:graphic xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main">\n\t\t\t\t\t\t<a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture">\n\t\t\t\t\t\t<pic:pic xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture">\n\t\t\t\t\t\t\t<pic:nvPicPr>\n\t\t\t\t\t\t\t<pic:cNvPr id="0" name="Picture" descr=""/>\n\t\t\t\t\t\t\t<pic:cNvPicPr>\n\t\t\t\t\t\t\t\t<a:picLocks noChangeAspect="1" noChangeArrowheads="1"/>\n\t\t\t\t\t\t\t</pic:cNvPicPr>\n\t\t\t\t\t\t\t</pic:nvPicPr>\n\t\t\t\t\t\t\t<pic:blipFill>\n\t\t\t\t\t\t\t<a:blip r:embed="rId'+rId+'"/>\n\t\t\t\t\t\t\t<a:stretch>\n\t\t\t\t\t\t\t\t<a:fillRect/>\n\t\t\t\t\t\t\t</a:stretch>\n\t\t\t\t\t\t\t</pic:blipFill>\n\t\t\t\t\t\t\t<pic:spPr bwMode="auto">\n\t\t\t\t\t\t\t<a:xfrm>\n\t\t\t\t\t\t\t\t<a:off x="0" y="0"/>\n\t\t\t\t\t\t\t\t<a:ext cx="'+size[0]+'" cy="'+size[1]+'"/>\n\t\t\t\t\t\t\t</a:xfrm>\n\t\t\t\t\t\t\t<a:prstGeom prst="rect">\n\t\t\t\t\t\t\t\t<a:avLst/>\n\t\t\t\t\t\t\t</a:prstGeom>\n\t\t\t\t\t\t\t<a:noFill/>\n\t\t\t\t\t\t\t<a:ln w="9525">\n\t\t\t\t\t\t\t\t<a:noFill/>\n\t\t\t\t\t\t\t\t<a:miter lim="800000"/>\n\t\t\t\t\t\t\t\t<a:headEnd/>\n\t\t\t\t\t\t\t\t<a:tailEnd/>\n\t\t\t\t\t\t\t</a:ln>\n\t\t\t\t\t\t\t</pic:spPr>\n\t\t\t\t\t\t</pic:pic>\n\t\t\t\t\t\t</a:graphicData>\n\t\t\t\t\t</a:graphic>\n\t\t\t\t\t</wp:inline>\n\t\t\t\t</w:drawing>\n\t\t\t</w:r>\n\t\t</w:p>\n\t\t').replace(/\t|\n/g,"")},getPptxImageXml:function getPptxImageXml(rId,size,offset){return('<p:pic>\n\t\t\t<p:nvPicPr>\n\t\t\t\t<p:cNvPr id="6" name="Picture 2"/>\n\t\t\t\t<p:cNvPicPr>\n\t\t\t\t\t<a:picLocks noChangeAspect="1" noChangeArrowheads="1"/>\n\t\t\t\t</p:cNvPicPr>\n\t\t\t\t<p:nvPr/>\n\t\t\t</p:nvPicPr>\n\t\t\t<p:blipFill>\n\t\t\t\t<a:blip r:embed="rId'+rId+'" cstate="print">\n\t\t\t\t\t<a:extLst>\n\t\t\t\t\t\t<a:ext uri="{28A0092B-C50C-407E-A947-70E740481C1C}">\n\t\t\t\t\t\t\t<a14:useLocalDpi xmlns:a14="http://schemas.microsoft.com/office/drawing/2010/main" val="0"/>\n\t\t\t\t\t\t</a:ext>\n\t\t\t\t\t</a:extLst>\n\t\t\t\t</a:blip>\n\t\t\t\t<a:srcRect/>\n\t\t\t\t<a:stretch>\n\t\t\t\t\t<a:fillRect/>\n\t\t\t\t</a:stretch>\n\t\t\t</p:blipFill>\n\t\t\t<p:spPr bwMode="auto">\n\t\t\t\t<a:xfrm>\n\t\t\t\t\t<a:off x="'+offset.x+'" y="'+offset.y+'"/>\n\t\t\t\t\t<a:ext cx="'+size[0]+'" cy="'+size[1]+'"/>\n\t\t\t\t</a:xfrm>\n\t\t\t\t<a:prstGeom prst="rect">\n\t\t\t\t\t<a:avLst/>\n\t\t\t\t</a:prstGeom>\n\t\t\t\t<a:noFill/>\n\t\t\t\t<a:ln>\n\t\t\t\t\t<a:noFill/>\n\t\t\t\t</a:ln>\n\t\t\t\t<a:effectLst/>\n\t\t\t\t<a:extLst>\n\t\t\t\t\t<a:ext uri="{909E8E84-426E-40DD-AFC4-6F175D3DCCD1}">\n\t\t\t\t\t\t<a14:hiddenFill xmlns:a14="http://schemas.microsoft.com/office/drawing/2010/main">\n\t\t\t\t\t\t\t<a:solidFill>\n\t\t\t\t\t\t\t\t<a:schemeClr val="accent1"/>\n\t\t\t\t\t\t\t</a:solidFill>\n\t\t\t\t\t\t</a14:hiddenFill>\n\t\t\t\t\t</a:ext>\n\t\t\t\t\t<a:ext uri="{91240B29-F687-4F45-9708-019B960494DF}">\n\t\t\t\t\t\t<a14:hiddenLine xmlns:a14="http://schemas.microsoft.com/office/drawing/2010/main" w="9525">\n\t\t\t\t\t\t\t<a:solidFill>\n\t\t\t\t\t\t\t\t<a:schemeClr val="tx1"/>\n\t\t\t\t\t\t\t</a:solidFill>\n\t\t\t\t\t\t\t<a:miter lim="800000"/>\n\t\t\t\t\t\t\t<a:headEnd/>\n\t\t\t\t\t\t\t<a:tailEnd/>\n\t\t\t\t\t\t</a14:hiddenLine>\n\t\t\t\t\t</a:ext>\n\t\t\t\t\t<a:ext uri="{AF507438-7753-43E0-B8FC-AC1667EBCBE1}">\n\t\t\t\t\t\t<a14:hiddenEffects xmlns:a14="http://schemas.microsoft.com/office/drawing/2010/main">\n\t\t\t\t\t\t\t<a:effectLst>\n\t\t\t\t\t\t\t\t<a:outerShdw dist="35921" dir="2700000" algn="ctr" rotWithShape="0">\n\t\t\t\t\t\t\t\t\t<a:schemeClr val="bg2"/>\n\t\t\t\t\t\t\t\t</a:outerShdw>\n\t\t\t\t\t\t\t</a:effectLst>\n\t\t\t\t\t\t</a14:hiddenEffects>\n\t\t\t\t\t</a:ext>\n\t\t\t\t</a:extLst>\n\t\t\t</p:spPr>\n\t\t</p:pic>\n\t\t').replace(/\t|\n/g,"")}}},{}],4:[function(require,module,exports){"use strict";function _defineProperty(obj,key,value){if(key in obj){Object.defineProperty(obj,key,{value:value,enumerable:true,configurable:true,writable:true})}else{obj[key]=value}return obj}var memoize=require("./memoize");var DOMParser=require("xmldom").DOMParser;var XMLSerializer=require("xmldom").XMLSerializer;var Errors=require("./errors");var DocUtils={};function parser(tag){return _defineProperty({},"get",function get(scope){if(tag==="."){return scope}return scope[tag]})}DocUtils.defaults={nullGetter:function nullGetter(part){if(!part.module){return"undefined"}if(part.module==="rawxml"){return""}return""},parser:memoize(parser),fileType:"docx",delimiters:{start:"{",end:"}"}};DocUtils.mergeObjects=function(){var resObj={};var obj=void 0,keys=void 0;for(var i=0;i<arguments.length;i+=1){obj=arguments[i];keys=Object.keys(obj);for(var j=0;j<keys.length;j+=1){resObj[keys[j]]=obj[keys[j]]}}return resObj};DocUtils.xml2str=function(xmlNode){var a=new XMLSerializer;return a.serializeToString(xmlNode)};DocUtils.decodeUtf8=function(s){try{if(s===undefined){return undefined}return decodeURIComponent(escape(DocUtils.convertSpaces(s)))}catch(e){var err=new Error("End");err.properties.data=s;err.properties.explanation="Could not decode string to UTF8";throw err}};DocUtils.encodeUtf8=function(s){return unescape(encodeURIComponent(s))};DocUtils.str2xml=function(str,errorHandler){var parser=new DOMParser({errorHandler:errorHandler});return parser.parseFromString(str,"text/xml")};DocUtils.charMap={"&":"&amp;","'":"&apos;","<":"&lt;",">":"&gt;"};var regexStripRegexp=/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g;DocUtils.escapeRegExp=function(str){return str.replace(regexStripRegexp,"\\$&")};DocUtils.charMapRegexes=Object.keys(DocUtils.charMap).map(function(endChar){var startChar=DocUtils.charMap[endChar];return{rstart:new RegExp(DocUtils.escapeRegExp(startChar),"g"),rend:new RegExp(DocUtils.escapeRegExp(endChar),"g"),start:startChar,end:endChar}});DocUtils.wordToUtf8=function(string){var r=void 0;for(var i=0,l=DocUtils.charMapRegexes.length;i<l;i++){r=DocUtils.charMapRegexes[i];string=string.replace(r.rstart,r.end)}return string};DocUtils.utf8ToWord=function(string){if(typeof string!=="string"){string=string.toString()}var r=void 0;for(var i=0,l=DocUtils.charMapRegexes.length;i<l;i++){r=DocUtils.charMapRegexes[i];string=string.replace(r.rend,r.start)}return string};DocUtils.cloneDeep=function(obj){return JSON.parse(JSON.stringify(obj))};DocUtils.concatArrays=function(arrays){return arrays.reduce(function(result,array){Array.prototype.push.apply(result,array);return result},[])};var spaceRegexp=new RegExp(String.fromCharCode(160),"g");DocUtils.convertSpaces=function(s){return s.replace(spaceRegexp," ")};DocUtils.pregMatchAll=function(regex,content){var matchArray=[];var match=void 0;while((match=regex.exec(content))!=null){matchArray.push({array:match,offset:match.index})}return matchArray};DocUtils.sizeOfObject=function(obj){return Object.keys(obj).length};function throwXmlTagNotFound(options){var err=new Errors.XTTemplateError("No tag '"+options.element+"' was found at the "+options.position);err.properties={id:"no_xml_tag_found_at_"+options.position,explanation:"No tag '"+options.element+"' was found at the "+options.position,parsed:options.parsed,index:options.index,element:options.element};throw err}DocUtils.getRight=function(parsed,element,index){for(var i=index,l=parsed.length;i<l;i++){var part=parsed[i];if(part.value==="</"+element+">"){return i}}throwXmlTagNotFound({position:"right",element:element,parsed:parsed,index:index})};DocUtils.getLeft=function(parsed,element,index){var parts=parsed.slice(0,index);for(var i=parts.length-1;i>=0;i--){var part=parts[i];if(part.value.indexOf("<"+element)===0&&[">"," "].indexOf(part.value[element.length+1])!==-1){return i}}throwXmlTagNotFound({position:"left",element:element,parsed:parsed,index:index})};module.exports=DocUtils;DocUtils.traits=require("./traits");DocUtils.moduleWrapper=require("./module-wrapper")},{"./errors":6,"./memoize":9,"./module-wrapper":11,"./traits":20,xmldom:23}],5:[function(require,module,exports){"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function")}}var DocUtils=require("./doc-utils");var wrapper=DocUtils.moduleWrapper;var Docxtemplater=function(){function Docxtemplater(){_classCallCheck(this,Docxtemplater);if(arguments.length>0){throw new Error("The constructor with parameters have been removed in docxtemplater 3.0, please check the upgrade guide.")}this.compiled={};this.modules=[];this.setOptions({})}_createClass(Docxtemplater,[{key:"attachModule",value:function attachModule(module){this.modules.push(wrapper(module));return this}},{key:"setOptions",value:function setOptions(options){var _this=this;this.options=options;Object.keys(DocUtils.defaults).forEach(function(key){var defaultValue=DocUtils.defaults[key];_this[key]=_this.options[key]!=null?_this.options[key]:defaultValue});if(this.fileType==="docx"||this.fileType==="pptx"){this.fileTypeConfig=Docxtemplater.FileTypeConfig[this.fileType]}this.fileTypeConfig=this.options.fileTypeConfig||this.fileTypeConfig;this.options.xmlFileNames=[];return this}},{key:"loadZip",value:function loadZip(zip){if(zip.loadAsync){throw new Error("Docxtemplater doesn't handle JSZip version >=3, see changelog")}this.zip=zip;return this}},{key:"compileFile",value:function compileFile(fileName){var currentFile=this.createTemplateClass(fileName);currentFile.parse();this.compiled[fileName]=currentFile}},{key:"compile",value:function compile(){this.templatedFiles=this.fileTypeConfig.getTemplatedFiles(this.zip)}},{key:"render",value:function render(){var _this2=this;this.modules=this.fileTypeConfig.baseModules.map(function(moduleFunction){return moduleFunction()}).concat(this.modules);this.options=this.modules.reduce(function(options,module){return module.optionsTransformer(options,_this2)},this.options);this.xmlDocuments=this.options.xmlFileNames.reduce(function(xmlDocuments,fileName){var content=_this2.zip.files[fileName].asText();xmlDocuments[fileName]=DocUtils.str2xml(content);return xmlDocuments},{});this.modules.forEach(function(module){module.set({zip:_this2.zip,xmlDocuments:_this2.xmlDocuments,data:_this2.data})});this.compile();this.modules.forEach(function(module){module.set({compiled:_this2.compiled})});this.templatedFiles.forEach(function(fileName){if(_this2.zip.files[fileName]!=null){_this2.compileFile(fileName)}});this.mapper=this.modules.reduce(function(value,module){return module.getRenderedMap(value)},{});Object.keys(this.mapper).forEach(function(to){var mapped=_this2.mapper[to];var from=mapped.from;var currentFile=_this2.compiled[from];currentFile.setTags(mapped.data);currentFile.render();_this2.zip.file(to,currentFile.content)});Object.keys(this.xmlDocuments).forEach(function(fileName){_this2.zip.remove(fileName);var content=DocUtils.encodeUtf8(DocUtils.xml2str(_this2.xmlDocuments[fileName]));return _this2.zip.file(fileName,content,{})});return this}},{key:"setData",value:function setData(data){this.data=data;return this}},{key:"getZip",value:function getZip(){return this.zip}},{key:"createTemplateClass",value:function createTemplateClass(path){var usedData=this.zip.files[path].asText();return this.createTemplateClassFromContent(usedData,path)}},{key:"createTemplateClassFromContent",value:function createTemplateClassFromContent(content,filePath){var _this3=this;var xmltOptions={filePath:filePath};Object.keys(DocUtils.defaults).forEach(function(key){xmltOptions[key]=_this3[key]});xmltOptions.fileTypeConfig=this.fileTypeConfig;xmltOptions.modules=this.modules;return new Docxtemplater.XmlTemplater(content,xmltOptions)}},{key:"getFullText",value:function getFullText(path){return this.createTemplateClass(path||this.fileTypeConfig.textPath).getFullText()}},{key:"getTemplatedFiles",value:function getTemplatedFiles(){this.compile();return this.templatedFiles}}]);return Docxtemplater}();Docxtemplater.DocUtils=require("./doc-utils");Docxtemplater.Errors=require("./errors");Docxtemplater.XmlTemplater=require("./xml-templater");Docxtemplater.FileTypeConfig=require("./file-type-config");Docxtemplater.XmlMatcher=require("./xml-matcher");module.exports=Docxtemplater},{"./doc-utils":4,"./errors":6,"./file-type-config":7,"./xml-matcher":21,"./xml-templater":22}],6:[function(require,module,exports){"use strict";function XTError(message){this.name="GenericError";this.message=message;this.stack=new Error(message).stack}XTError.prototype=Error.prototype;function XTTemplateError(message){this.name="TemplateError";this.message=message;this.stack=new Error(message).stack}XTTemplateError.prototype=new XTError;function XTScopeParserError(message){this.name="ScopeParserError";this.message=message;this.stack=new Error(message).stack}XTScopeParserError.prototype=new XTError;function XTInternalError(message){this.name="InternalError";this.properties={explanation:"InternalError"};this.message=message;this.stack=new Error(message).stack}XTInternalError.prototype=new XTError;module.exports={XTError:XTError,XTTemplateError:XTTemplateError,XTInternalError:XTInternalError,XTScopeParserError:XTScopeParserError}},{}],7:[function(require,module,exports){"use strict";var loopModule=require("./modules/loop");var spacePreserveModule=require("./modules/space-preserve");var rawXmlModule=require("./modules/rawxml");var expandPairTrait=require("./modules/expand-pair-trait");var render=require("./modules/render");var PptXFileTypeConfig={getTemplatedFiles:function getTemplatedFiles(zip){var slideTemplates=zip.file(/ppt\/(slides|slideMasters)\/(slide|slideMaster)\d+\.xml/).map(function(file){return file.name});return slideTemplates.concat(["ppt/presentation.xml"])},textPath:"ppt/slides/slide1.xml",tagsXmlTextArray:["a:t","m:t"],tagsXmlLexedArray:["p:sp","a:tc","a:tr","a:table","a:p","a:r"],tagRawXml:"p:sp",tagTextXml:"a:t",baseModules:[render,expandPairTrait,rawXmlModule,loopModule]};var DocXFileTypeConfig={getTemplatedFiles:function getTemplatedFiles(zip){var slideTemplates=zip.file(/word\/(header|footer)\d+\.xml/).map(function(file){return file.name});return slideTemplates.concat(["word/document.xml"])},textPath:"word/document.xml",tagsXmlTextArray:["w:t","m:t"],tagsXmlLexedArray:["w:tc","w:tr","w:table","w:p","w:r"],tagRawXml:"w:p",tagTextXml:"w:t",baseModules:[render,spacePreserveModule,expandPairTrait,rawXmlModule,loopModule]};module.exports={docx:DocXFileTypeConfig,pptx:PptXFileTypeConfig}},{"./modules/expand-pair-trait":12,"./modules/loop":13,"./modules/rawxml":14,"./modules/render":15,"./modules/space-preserve":16}],8:[function(require,module,exports){"use strict";var Errors=require("./errors");var DocUtils=require("./doc-utils");function inRange(range,match){return range[0]<=match.offset&&match.offset<range[1]}function updateInTextTag(part,inTextTag){if(part.type==="tag"&&part.position==="start"&&part.text){if(inTextTag){throw new Error("Malformed xml : Already in text tag")}return true}if(part.type==="tag"&&part.position==="end"&&part.text){if(!inTextTag){throw new Error("Malformed xml : Already not in text tag")}return false}return inTextTag}function offsetSort(a,b){return a.offset-b.offset}function getTag(tag){var start=1;if(tag[1]==="/"){start=2}var index=tag.indexOf(" ");var end=index===-1?tag.length-1:index;return{tag:tag.slice(start,end),position:start===1?"start":"end"}}function tagMatcher(content,textMatchArray,othersMatchArray){var cursor=0;var contentLength=content.length;var allMatches=DocUtils.concatArrays([textMatchArray.map(function(tag){return{tag:tag,text:true}}),othersMatchArray.map(function(tag){return{tag:tag,text:false}})]).reduce(function(allMatches,t){allMatches[t.tag]=t.text;return allMatches},{});var totalMatches=[];while(cursor<contentLength){cursor=content.indexOf("<",cursor);if(cursor===-1){break}var offset=cursor;cursor=content.indexOf(">",cursor);var tagText=content.slice(offset,cursor+1);var _getTag=getTag(tagText),tag=_getTag.tag,position=_getTag.position;var text=allMatches[tag];if(text==null){continue}totalMatches.push({type:"tag",position:position,text:text,offset:offset,value:tagText})}return totalMatches}function throwUnopenedTagException(options){var err=new Errors.XTTemplateError("Unopened tag");err.properties={xtag:options.xtag.split(" ")[0],id:"unopened_tag",context:options.xtag,explanation:"The tag beginning with '"+options.xtag.substr(0,10)+"' is unclosed"};throw err}function throwUnclosedTagException(options){var err=new Errors.XTTemplateError("Unclosed tag");err.properties={xtag:options.xtag.split(" ")[0].substr(1),id:"unclosed_tag",context:options.xtag,explanation:"The tag beginning with '"+options.xtag.substr(0,10)+"' is unclosed"};throw err}function assertDelimiterOrdered(delimiterMatches,fullText){var inDelimiter=false;var lastDelimiterMatch={offset:0};var xtag=void 0;delimiterMatches.forEach(function(delimiterMatch){xtag=fullText.substr(lastDelimiterMatch.offset,delimiterMatch.offset-lastDelimiterMatch.offset);if(delimiterMatch.position==="start"&&inDelimiter||delimiterMatch.position==="end"&&!inDelimiter){if(delimiterMatch.position==="start"){throwUnclosedTagException({xtag:xtag})}else{throwUnopenedTagException({xtag:xtag})}}inDelimiter=!inDelimiter;lastDelimiterMatch=delimiterMatch});var delimiterMatch={offset:fullText.length};xtag=fullText.substr(lastDelimiterMatch.offset,delimiterMatch.offset-lastDelimiterMatch.offset);if(inDelimiter){throwUnclosedTagException({xtag:xtag})}}function getAllIndexes(arr,val,position){var indexes=[];var offset=-1;do{offset=arr.indexOf(val,offset+1);if(offset!==-1){indexes.push({offset:offset,position:position})}}while(offset!==-1);return indexes}function Reader(innerContentParts){var _this=this;this.innerContentParts=innerContentParts;this.full="";this.parseDelimiters=function(delimiters){_this.full=_this.innerContentParts.join("");var offset=0;_this.ranges=_this.innerContentParts.map(function(part){offset+=part.length;return offset-part.length});var delimiterMatches=DocUtils.concatArrays([getAllIndexes(_this.full,delimiters.start,"start"),getAllIndexes(_this.full,delimiters.end,"end")]).sort(offsetSort);assertDelimiterOrdered(delimiterMatches,_this.full);var delimiterLength={start:delimiters.start.length,end:delimiters.end.length};var cutNext=0;var delimiterIndex=0;_this.parsed=_this.ranges.map(function(offset,i){var range=[offset,offset+this.innerContentParts[i].length];var partContent=this.innerContentParts[i];var delimitersInOffset=[];while(delimiterIndex<delimiterMatches.length&&inRange(range,delimiterMatches[delimiterIndex])){delimitersInOffset.push(delimiterMatches[delimiterIndex]);delimiterIndex++}var parts=[];var cursor=0;if(cutNext>0){cursor=cutNext;cutNext=0}delimitersInOffset.forEach(function(delimiterInOffset){var value=partContent.substr(cursor,delimiterInOffset.offset-offset-cursor);if(value.length>0){parts.push({type:"content",value:value})}parts.push({type:"delimiter",position:delimiterInOffset.position});cursor=delimiterInOffset.offset-offset+delimiterLength[delimiterInOffset.position]});cutNext=cursor-partContent.length;var value=partContent.substr(cursor);if(value.length>0){parts.push({type:"content",value:value})}return parts},_this)}}module.exports={parse:function parse(xmlparsed,delimiters){var inTextTag=false;var innerContentParts=[];xmlparsed.forEach(function(part){inTextTag=updateInTextTag(part,inTextTag);if(inTextTag&&part.type==="content"){innerContentParts.push(part.value)}});var reader=new Reader(innerContentParts);reader.parseDelimiters(delimiters);var newArray=[];var index=0;xmlparsed.forEach(function(part){inTextTag=updateInTextTag(part,inTextTag);if(part.type==="content"){part.position=inTextTag?"insidetag":"outsidetag"}if(inTextTag&&part.type==="content"){Array.prototype.push.apply(newArray,reader.parsed[index].map(function(p){if(p.type==="content"){p.position="insidetag"}return p}));index++}else{newArray.push(part)}});return newArray},xmlparse:function xmlparse(content,xmltags){var matches=tagMatcher(content,xmltags.text,xmltags.other);var cursor=0;var parsed=matches.reduce(function(parsed,match){var value=content.substr(cursor,match.offset-cursor);if(value.length>0){parsed.push({type:"content",value:value})}cursor=match.offset+match.value.length;delete match.offset;if(match.value.length>0){parsed.push(match)}return parsed},[]);var value=content.substr(cursor);if(value.length>0){parsed.push({type:"content",value:value})}return parsed}}},{"./doc-utils":4,"./errors":6}],9:[function(require,module,exports){"use strict";function memoize(func){var stringifyJson=JSON.stringify,cache={};function cachedfun(){var hash=stringifyJson(arguments);return hash in cache?cache[hash]:cache[hash]=func.apply(this,arguments)}return cachedfun}module.exports=memoize},{}],10:[function(require,module,exports){"use strict";function getMinFromArrays(arrays,state){var minIndex=-1;for(var i=0,l=arrays.length;i<l;i++){if(state[i]>=arrays[i].length){continue}if(minIndex===-1||arrays[i][state[i]].offset<arrays[minIndex][state[minIndex]].offset){minIndex=i}}if(minIndex===-1){throw new Error("minIndex negative")}return minIndex}module.exports=function(arrays){var totalLength=arrays.reduce(function(sum,array){return sum+array.length},0);arrays=arrays.filter(function(array){return array.length>0});var resultArray=new Array(totalLength);var state=arrays.map(function(){return 0});var i=0;while(i<=totalLength-1){var arrayIndex=getMinFromArrays(arrays,state);resultArray[i]=arrays[arrayIndex][state[arrayIndex]];state[arrayIndex]++;i++}return resultArray}},{}],11:[function(require,module,exports){"use strict";function emptyFun(){}function identity(i){return i}module.exports=function(module){var defaults={set:emptyFun,parse:emptyFun,render:emptyFun,getTraits:emptyFun,optionsTransformer:identity,getRenderedMap:identity,postparse:identity};if(Object.keys(defaults).every(function(key){return!module[key]})){throw new Error("This module cannot be wrapped, because it doesn't define any of the necessary functions")}Object.keys(defaults).forEach(function(key){module[key]=module[key]||defaults[key]});return module}},{}],12:[function(require,module,exports){"use strict";var traitName="expandPair";var mergeSort=require("../mergesort");var DocUtils=require("../doc-utils");var wrapper=require("../module-wrapper");var _require=require("../traits"),getExpandToDefault=_require.getExpandToDefault;var Errors=require("../errors");function throwUnmatchedLoopException(options){var location=options.location;var t=location==="start"?"unclosed":"unopened";var T=location==="start"?"Unclosed":"Unopened";var err=new Errors.XTTemplateError(T+" loop");var tag=options.part.value;err.properties={id:t+"_loop",explanation:"The loop with tag "+tag+" is "+t,xtag:tag};throw err}function throwClosingTagNotMatchOpeningTag(options){var tags=options.tags;var err=new Errors.XTTemplateError("Closing tag does not match opening tag");err.properties={id:"closing_tag_does_not_match_opening_tag",explanation:'The tag "'+tags[0].value+'" is closed by the tag "'+tags[1].value+'"',openingtag:tags[0].value,closingtag:tags[1].value};throw err}function getOpenCountChange(part){switch(part.location){case"start":return 1;case"end":return-1;default:throw new Error("Location should be one of 'start' or 'end' (given : "+part.location+")")}}function getPairs(traits){if(traits.length===0){return[]}var countOpen=1;var firstTrait=traits[0];for(var i=1;i<traits.length;i++){var currentTrait=traits[i];countOpen+=getOpenCountChange(currentTrait.part);if(countOpen===0){if(currentTrait.part.value!==firstTrait.part.value&&currentTrait.part.value!==""){throwClosingTagNotMatchOpeningTag({tags:[firstTrait.part,currentTrait.part]})}var outer=getPairs(traits.slice(i+1));
-return[[firstTrait,currentTrait]].concat(outer)}}var part=firstTrait.part;throwUnmatchedLoopException({part:part,location:part.location})}var expandPairTrait={name:"ExpandPairTrait",postparse:function postparse(parsed,_ref){var getTraits=_ref.getTraits,_postparse=_ref.postparse;var traits=getTraits(traitName,parsed);traits=traits.map(function(trait){return trait||[]});traits=mergeSort(traits);var pairs=getPairs(traits);var expandedPairs=pairs.map(function(pair){var expandTo=pair[0].part.expandTo;if(expandTo==="auto"){expandTo=getExpandToDefault(parsed.slice(pair[0].offset,pair[1].offset))}if(!expandTo){return[pair[0].offset,pair[1].offset]}var left=DocUtils.getLeft(parsed,expandTo,pair[0].offset);var right=DocUtils.getRight(parsed,expandTo,pair[1].offset);return[left,right]});var currentPairIndex=0;var innerParts=void 0;return parsed.reduce(function(newParsed,part,i){var inPair=currentPairIndex<pairs.length&&expandedPairs[currentPairIndex][0]<=i;var pair=pairs[currentPairIndex];var expandedPair=expandedPairs[currentPairIndex];if(!inPair){newParsed.push(part);return newParsed}if(expandedPair[0]===i){innerParts=[]}if(pair[0].offset!==i&&pair[1].offset!==i){innerParts.push(part)}if(expandedPair[1]===i){var basePart=parsed[pair[0].offset];delete basePart.location;delete basePart.expandTo;basePart.subparsed=_postparse(innerParts);newParsed.push(basePart);currentPairIndex++}return newParsed},[])}};module.exports=function(){return wrapper(expandPairTrait)}},{"../doc-utils":4,"../errors":6,"../mergesort":10,"../module-wrapper":11,"../traits":20}],13:[function(require,module,exports){"use strict";var DocUtils=require("../doc-utils");var dashInnerRegex=/^-([^\s]+)\s(.+)$/;var wrapper=require("../module-wrapper");var moduleName="loop";var loopModule={name:"LoopModule",parse:function parse(placeHolderContent){var module=moduleName;var type="placeholder";if(placeHolderContent[0]==="#"){return{type:type,value:placeHolderContent.substr(1),expandTo:"auto",module:module,location:"start",inverted:false}}if(placeHolderContent[0]==="^"){return{type:type,value:placeHolderContent.substr(1),expandTo:"auto",module:module,location:"start",inverted:true}}if(placeHolderContent[0]==="/"){return{type:type,value:placeHolderContent.substr(1),module:module,location:"end"}}if(placeHolderContent[0]==="-"){var value=placeHolderContent.replace(dashInnerRegex,"$2");var expandTo=placeHolderContent.replace(dashInnerRegex,"$1");return{type:type,value:value,expandTo:expandTo,module:module,location:"start",inverted:false}}return null},getTraits:function getTraits(traitName,parsed){if(traitName!=="expandPair"){return}return parsed.reduce(function(tags,part,offset){if(part.type==="placeholder"&&part.module===moduleName){tags.push({part:part,offset:offset})}return tags},[])},render:function render(part,options){if(!part.type==="placeholder"||part.module!==moduleName){return null}var totalValue=[];function loopOver(scope){var scopeManager=options.scopeManager.createSubScopeManager(scope,part.value);totalValue.push(options.render(DocUtils.mergeObjects({},options,{compiled:part.subparsed,tags:{},scopeManager:scopeManager})))}options.scopeManager.loopOver(part.value,loopOver,part.inverted);return{value:totalValue.join("")}}};module.exports=function(){return wrapper(loopModule)}},{"../doc-utils":4,"../module-wrapper":11}],14:[function(require,module,exports){"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function")}}var DocUtils=require("../doc-utils");var Errors=require("../errors");var moduleName="rawxml";var wrapper=require("../module-wrapper");function throwRawTagShouldBeOnlyTextInParagraph(options){var err=new Errors.XTTemplateError("Raw tag should be the only text in paragraph");var tag=options.part.value;err.properties={id:"raw_xml_tag_should_be_only_text_in_paragraph",explanation:"The tag "+tag,xtag:options.part.value,paragraphParts:options.paragraphParts};throw err}function getInner(_ref){var part=_ref.part,left=_ref.left,right=_ref.right,postparsed=_ref.postparsed,index=_ref.index;var paragraphParts=postparsed.slice(left+1,right);paragraphParts.forEach(function(p,i){if(i===index-left-1){return}if(p.type==="placeholder"||p.type==="content"&&p.position==="insidetag"){throwRawTagShouldBeOnlyTextInParagraph({paragraphParts:paragraphParts,part:part})}});return part}var RawXmlModule=function(){function RawXmlModule(){_classCallCheck(this,RawXmlModule);this.name="RawXmlModule"}_createClass(RawXmlModule,[{key:"optionsTransformer",value:function optionsTransformer(options,docxtemplater){this.fileTypeConfig=docxtemplater.fileTypeConfig;return options}},{key:"parse",value:function parse(placeHolderContent){var type="placeholder";if(placeHolderContent[0]!=="@"){return null}return{type:type,value:placeHolderContent.substr(1),module:moduleName}}},{key:"postparse",value:function postparse(parsed){return DocUtils.traits.expandToOne(parsed,{moduleName:moduleName,getInner:getInner,expandTo:this.fileTypeConfig.tagRawXml})}},{key:"render",value:function render(part,options){if(part.module!==moduleName){return null}var value=options.scopeManager.getValue(part.value);if(value==null){value=options.nullGetter(part)}return{value:value}}}]);return RawXmlModule}();module.exports=function(){return wrapper(new RawXmlModule)}},{"../doc-utils":4,"../errors":6,"../module-wrapper":11}],15:[function(require,module,exports){"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function")}}var wrapper=require("../module-wrapper");var Render=function(){function Render(){_classCallCheck(this,Render);this.name="Render"}_createClass(Render,[{key:"set",value:function set(obj){if(obj.compiled){this.compiled=obj.compiled}if(obj.data!=null){this.data=obj.data}}},{key:"getRenderedMap",value:function getRenderedMap(mapper){var _this=this;return Object.keys(this.compiled).reduce(function(mapper,from){mapper[from]={from:from,data:_this.data};return mapper},mapper)}}]);return Render}();module.exports=function(){return wrapper(new Render)}},{"../module-wrapper":11}],16:[function(require,module,exports){"use strict";var wrapper=require("../module-wrapper");var spacePreserve={name:"SpacePreserveModule",postparse:function postparse(parsed){var chunk=[];var inChunk=false;var result=parsed.reduce(function(parsed,part){if(part.type==="tag"&&part.position==="start"&&part.text&&part.value==="<w:t>"){inChunk=true}if(inChunk){if(part.type==="placeholder"&&!part.module){chunk[0].value='<w:t xml:space="preserve">'}chunk.push(part)}else{parsed.push(part)}if(part.type==="tag"&&part.position==="end"&&part.text&&part.value==="</w:t>"){Array.prototype.push.apply(parsed,chunk);inChunk=false;chunk=[]}return parsed},[]);Array.prototype.push.apply(result,chunk);return result}};module.exports=function(){return wrapper(spacePreserve)}},{"../module-wrapper":11}],17:[function(require,module,exports){"use strict";var DocUtils=require("./doc-utils");var parser={postparse:function postparse(parsed,modules){function getTraits(traitName,parsed){return modules.map(function(module){return module.getTraits(traitName,parsed)})}function postparse(parsed){return modules.reduce(function(parsed,module){return module.postparse(parsed,{postparse:postparse,getTraits:getTraits})},parsed)}return postparse(parsed)},parse:function parse(lexed,modules){function moduleParse(placeHolderContent,parsed){var moduleParsed=void 0;for(var i=0,l=modules.length;i<l;i++){var _module=modules[i];moduleParsed=_module.parse(placeHolderContent);if(moduleParsed){parsed.push(moduleParsed);return moduleParsed}}return null}var inPlaceHolder=false;var placeHolderContent=void 0;var tailParts=[];return lexed.reduce(function(parsed,token){if(token.type==="delimiter"){inPlaceHolder=token.position==="start";if(token.position==="end"){placeHolderContent=DocUtils.wordToUtf8(placeHolderContent);if(!moduleParse(placeHolderContent,parsed)){parsed.push({type:"placeholder",value:placeHolderContent})}Array.prototype.push.apply(parsed,tailParts);tailParts=[];return parsed}placeHolderContent="";return parsed}if(inPlaceHolder){if(token.type==="content"&&token.position==="insidetag"){placeHolderContent+=token.value}else{tailParts.push(token)}return parsed}parsed.push(token);return parsed},[])}};module.exports=parser},{"./doc-utils":4}],18:[function(require,module,exports){"use strict";var ScopeManager=require("./scope-manager");var DocUtils=require("./doc-utils");function moduleRender(part,options){var moduleRendered=void 0;for(var i=0,l=options.modules.length;i<l;i++){var _module=options.modules[i];moduleRendered=_module.render(part,options);if(moduleRendered){return moduleRendered}}return false}function render(options){options.render=render;options.modules=options.modules;if(!options.scopeManager){options.scopeManager=ScopeManager.createBaseScopeManager(options)}return options.compiled.map(function(part){var moduleRendered=moduleRender(part,options);if(moduleRendered){return moduleRendered.value}if(part.type==="placeholder"){var value=options.scopeManager.getValue(part.value);if(value==null){value=options.nullGetter(part)}return DocUtils.utf8ToWord(value)}if(part.type==="content"||part.type==="tag"){return part.value}throw new Error('Unimplemented tag type "'+part.type+'"')}).join("")}module.exports=render},{"./doc-utils":4,"./scope-manager":19}],19:[function(require,module,exports){"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function")}}var Errors=require("./errors");var ScopeManager=function(){function ScopeManager(options){_classCallCheck(this,ScopeManager);this.scopePath=options.scopePath;this.scopeList=options.scopeList;this.parser=options.parser}_createClass(ScopeManager,[{key:"loopOver",value:function loopOver(tag,callback,inverted){inverted=inverted||false;return this.loopOverValue(this.getValue(tag),callback,inverted)}},{key:"functorIfInverted",value:function functorIfInverted(inverted,functor,value){if(inverted){functor(value)}}},{key:"isValueFalsy",value:function isValueFalsy(value,type){return value==null||!value||type==="[object Array]"&&value.length===0}},{key:"loopOverValue",value:function loopOverValue(value,functor,inverted){var type=Object.prototype.toString.call(value);var currentValue=this.scopeList[this.num];if(this.isValueFalsy(value,type)){return this.functorIfInverted(inverted,functor,currentValue)}if(type==="[object Array]"){for(var i=0,scope;i<value.length;i++){scope=value[i];this.functorIfInverted(!inverted,functor,scope)}return}if(type==="[object Object]"){return this.functorIfInverted(!inverted,functor,value)}if(value===true){return this.functorIfInverted(!inverted,functor,currentValue)}}},{key:"getValue",value:function getValue(tag,num){this.num=num==null?this.scopeList.length-1:num;var err=void 0;var parser=void 0;var result=void 0;var scope=this.scopeList[this.num];try{parser=this.parser(tag)}catch(error){err=new Errors.XTScopeParserError("Scope parser compilation failed");err.properties={id:"scopeparser_compilation_failed",tag:tag,explanation:"The scope parser for the tag "+tag+" failed to compile",rootError:error};throw err}try{result=parser.get(scope,{num:this.num,scopeList:this.scopeList})}catch(error){err=new Errors.XTScopeParserError("Scope parser execution failed");err.properties={id:"scopeparser_execution_failed",explanation:"The scope parser for the tag "+tag+" failed to execute",scope:scope,tag:tag,rootError:error};throw err}if(result==null&&this.num>0){return this.getValue(tag,this.num-1)}return result}},{key:"createSubScopeManager",value:function createSubScopeManager(scope,tag){var options={scopePath:this.scopePath.slice(0),scopeList:this.scopeList.slice(0)};options.parser=this.parser;options.scopeList=this.scopeList.concat(scope);options.scopePath=this.scopePath.concat(tag);return new ScopeManager(options)}}]);return ScopeManager}();ScopeManager.createBaseScopeManager=function(_ref){var parser=_ref.parser,tags=_ref.tags;var options={parser:parser,tags:tags};options.scopePath=[];options.scopeList=[tags];return new ScopeManager(options)};module.exports=ScopeManager},{"./errors":6}],20:[function(require,module,exports){"use strict";var DocUtils=require("./doc-utils");var Errors=require("./errors");function throwRawTagNotInParagraph(options){var err=new Errors.XTTemplateError("Raw tag not in paragraph");var tag=options.part.value;err.properties={id:"raw_tag_outerxml_invalid",explanation:'The tag "'+tag+'"',rootError:options.rootError,xtag:tag};throw err}function lastTagIsOpenTag(array,tag){if(array.length===0){return false}var lastTag=array[array.length-1];var innerLastTag=lastTag.tag.substr(1);var innerCurrentTag=tag.substr(2,tag.length-3);return innerLastTag.indexOf(innerCurrentTag)===0}function addTag(array,tag){array.push({tag:tag});return array}function getListXmlElements(parts){var tags=parts.filter(function(part){return part.type==="tag"}).map(function(part){return part.value});var result=[];for(var i=0,tag;i<tags.length;i++){tag=tags[i];if(tag[1]==="/"){if(lastTagIsOpenTag(result,tag)){result.pop()}else{result=addTag(result,tag)}}else if(tag[tag.length-1]!=="/"){result=addTag(result,tag)}}return result}function getExpandToDefault(parts){var xmlElements=getListXmlElements(parts);for(var i=0;i<xmlElements.length;i++){var xmlElement=xmlElements[i];if(xmlElement.tag.indexOf("<w:tc")===0){return"w:tr"}}return false}function expandOne(part,postparsed,options){var expandTo=part.expandTo||options.expandTo;var index=postparsed.indexOf(part);if(!expandTo){return postparsed}var right=void 0,left=void 0;try{right=DocUtils.getRight(postparsed,expandTo,index);left=DocUtils.getLeft(postparsed,expandTo,index)}catch(rootError){throwRawTagNotInParagraph({part:part,rootError:rootError})}var leftParts=postparsed.slice(left,index);var rightParts=postparsed.slice(index+1,right+1);var inner=options.getInner({index:index,part:part,leftParts:leftParts,rightParts:rightParts,left:left,right:right,postparsed:postparsed});var type=Object.prototype.toString.call(inner);if(type==="[object Array]"){inner=DocUtils.concatArrays(inner)}return DocUtils.concatArrays([postparsed.slice(0,left),[inner],postparsed.slice(right+1)])}function expandToOne(postparsed,options){var expandToElements=postparsed.reduce(function(elements,part){if(part.type==="placeholder"&&part.module===options.moduleName){elements.push(part)}return elements},[]);expandToElements.forEach(function(part){postparsed=expandOne(part,postparsed,options)});return postparsed}module.exports={expandToOne:expandToOne,getExpandToDefault:getExpandToDefault}},{"./doc-utils":4,"./errors":6}],21:[function(require,module,exports){"use strict";var DocUtils=require("./doc-utils");var memoize=require("./memoize");function handleRecursiveCase(res){function replacerUnshift(){var pn={array:Array.prototype.slice.call(arguments)};pn.array.shift();var match=pn.array[0]+pn.array[1];pn.array.unshift(match);pn.array.pop();var offset=pn.array.pop();pn.offset=offset;pn.first=true;res.matches.unshift(pn);res.charactersAdded.unshift(0);return res.charactersAddedCumulative.unshift(0)}if(res.content.indexOf("<")===-1&&res.content.indexOf(">")===-1){res.content.replace(/^()([^<>]*)$/,replacerUnshift)}var r=new RegExp("^()([^<]+)</(?:"+res.tagsXmlArrayJoined+")>");res.content.replace(r,replacerUnshift);function replacerPush(){var pn={array:Array.prototype.slice.call(arguments)};pn.array.pop();var offset=pn.array.pop();pn.offset=offset;pn.last=true;res.matches.push(pn);res.charactersAdded.push(0);return res.charactersAddedCumulative.push(0)}r=new RegExp("(<(?:"+res.tagsXmlArrayJoined+")[^>]*>)([^>]+)$");res.content.replace(r,replacerPush);return res}function xmlMatcher(content,tagsXmlArray){var res={};res.content=content;res.tagsXmlArray=tagsXmlArray;res.tagsXmlArrayJoined=res.tagsXmlArray.join("|");var regexp=new RegExp("(<(?:"+res.tagsXmlArrayJoined+")[^>]*>)([^<>]*)</(?:"+res.tagsXmlArrayJoined+")>","g");res.matches=DocUtils.pregMatchAll(regexp,res.content);res.charactersAddedCumulative=res.matches.map(function(){return 0});res.charactersAdded=res.matches.map(function(){return 0});return handleRecursiveCase(res)}var memoized=memoize(xmlMatcher);module.exports=function(content,tagsXmlArray){return DocUtils.cloneDeep(memoized(content,tagsXmlArray))}},{"./doc-utils":4,"./memoize":9}],22:[function(require,module,exports){"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function")}}var DocUtils=require("./doc-utils");var ScopeManager=require("./scope-manager");var xmlMatcher=require("./xml-matcher");var Errors=require("./errors");var Lexer=require("./lexer");var Parser=require("./parser.js");var _render=require("./render.js");function _getFullText(content,tagsXmlArray){var matcher=xmlMatcher(content,tagsXmlArray);var result=matcher.matches.map(function(match){return match.array[2]});return DocUtils.wordToUtf8(DocUtils.convertSpaces(result.join("")))}module.exports=function(){function XmlTemplater(content,options){_classCallCheck(this,XmlTemplater);this.fromJson(options);this.setModules({inspect:{filePath:this.filePath}});this.load(content)}_createClass(XmlTemplater,[{key:"load",value:function load(content){if(typeof content!=="string"){var err=new Errors.XTInternalError("Content must be a string");err.properties.id="xmltemplater_content_must_be_string";throw err}this.content=content}},{key:"setTags",value:function setTags(tags){this.tags=tags!=null?tags:{};this.scopeManager=ScopeManager.createBaseScopeManager({tags:this.tags,parser:this.parser});return this}},{key:"fromJson",value:function fromJson(options){this.filePath=options.filePath;this.modules=options.modules;this.fileTypeConfig=options.fileTypeConfig;Object.keys(DocUtils.defaults).map(function(key){this[key]=options[key]!=null?options[key]:DocUtils.defaults[key]},this)}},{key:"getFullText",value:function getFullText(){return _getFullText(this.content,this.fileTypeConfig.tagsXmlTextArray)}},{key:"setModules",value:function setModules(obj){this.modules.forEach(function(module){module.set(obj)})}},{key:"parse",value:function parse(){this.xmllexed=Lexer.xmlparse(this.content,{text:this.fileTypeConfig.tagsXmlTextArray,other:this.fileTypeConfig.tagsXmlLexedArray});this.setModules({inspect:{xmllexed:this.xmllexed}});this.lexed=Lexer.parse(this.xmllexed,this.delimiters);this.setModules({inspect:{lexed:this.lexed}});this.parsed=Parser.parse(this.lexed,this.modules);this.setModules({inspect:{parsed:this.parsed}});this.postparsed=Parser.postparse(this.parsed,this.modules);return this}},{key:"render",value:function render(){this.setModules({inspect:{postparsed:this.postparsed}});this.content=_render({compiled:this.postparsed,tags:this.tags,modules:this.modules,parser:this.parser,nullGetter:this.nullGetter,filePath:this.filePath});this.setModules({inspect:{content:this.content}});return this}}]);return XmlTemplater}()},{"./doc-utils":4,"./errors":6,"./lexer":8,"./parser.js":17,"./render.js":18,"./scope-manager":19,"./xml-matcher":21}],23:[function(require,module,exports){function DOMParser(options){this.options=options||{locator:{}}}DOMParser.prototype.parseFromString=function(source,mimeType){var options=this.options;var sax=new XMLReader;var domBuilder=options.domBuilder||new DOMHandler;var errorHandler=options.errorHandler;var locator=options.locator;var defaultNSMap=options.xmlns||{};var entityMap={lt:"<",gt:">",amp:"&",quot:'"',apos:"'"};if(locator){domBuilder.setDocumentLocator(locator)}sax.errorHandler=buildErrorHandler(errorHandler,domBuilder,locator);sax.domBuilder=options.domBuilder||domBuilder;if(/\/x?html?$/.test(mimeType)){entityMap.nbsp=" ";entityMap.copy="©";defaultNSMap[""]="http://www.w3.org/1999/xhtml"}defaultNSMap.xml=defaultNSMap.xml||"http://www.w3.org/XML/1998/namespace";if(source){sax.parse(source,defaultNSMap,entityMap)}else{sax.errorHandler.error("invalid doc source")}return domBuilder.doc};function buildErrorHandler(errorImpl,domBuilder,locator){if(!errorImpl){if(domBuilder instanceof DOMHandler){return domBuilder}errorImpl=domBuilder}var errorHandler={};var isCallback=errorImpl instanceof Function;locator=locator||{};function build(key){var fn=errorImpl[key];if(!fn&&isCallback){fn=errorImpl.length==2?function(msg){errorImpl(key,msg)}:errorImpl}errorHandler[key]=fn&&function(msg){fn("[xmldom "+key+"]\t"+msg+_locator(locator))}||function(){}}build("warning");build("error");build("fatalError");return errorHandler}function DOMHandler(){this.cdata=false}function position(locator,node){node.lineNumber=locator.lineNumber;node.columnNumber=locator.columnNumber}DOMHandler.prototype={startDocument:function(){this.doc=(new DOMImplementation).createDocument(null,null,null);if(this.locator){this.doc.documentURI=this.locator.systemId}},startElement:function(namespaceURI,localName,qName,attrs){var doc=this.doc;var el=doc.createElementNS(namespaceURI,qName||localName);var len=attrs.length;appendElement(this,el);this.currentElement=el;this.locator&&position(this.locator,el);for(var i=0;i<len;i++){var namespaceURI=attrs.getURI(i);var value=attrs.getValue(i);var qName=attrs.getQName(i);var attr=doc.createAttributeNS(namespaceURI,qName);this.locator&&position(attrs.getLocator(i),attr);attr.value=attr.nodeValue=value;el.setAttributeNode(attr)}},endElement:function(namespaceURI,localName,qName){var current=this.currentElement;var tagName=current.tagName;this.currentElement=current.parentNode},startPrefixMapping:function(prefix,uri){},endPrefixMapping:function(prefix){},processingInstruction:function(target,data){var ins=this.doc.createProcessingInstruction(target,data);this.locator&&position(this.locator,ins);appendElement(this,ins)},ignorableWhitespace:function(ch,start,length){},characters:function(chars,start,length){chars=_toString.apply(this,arguments);if(chars){if(this.cdata){var charNode=this.doc.createCDATASection(chars)}else{var charNode=this.doc.createTextNode(chars)}if(this.currentElement){this.currentElement.appendChild(charNode)}else if(/^\s*$/.test(chars)){this.doc.appendChild(charNode)}this.locator&&position(this.locator,charNode)}},skippedEntity:function(name){},endDocument:function(){this.doc.normalize()},setDocumentLocator:function(locator){if(this.locator=locator){locator.lineNumber=0}},comment:function(chars,start,length){chars=_toString.apply(this,arguments);var comm=this.doc.createComment(chars);this.locator&&position(this.locator,comm);appendElement(this,comm)},startCDATA:function(){this.cdata=true},endCDATA:function(){this.cdata=false},startDTD:function(name,publicId,systemId){var impl=this.doc.implementation;if(impl&&impl.createDocumentType){var dt=impl.createDocumentType(name,publicId,systemId);this.locator&&position(this.locator,dt);appendElement(this,dt)}},warning:function(error){console.warn("[xmldom warning]\t"+error,_locator(this.locator))},error:function(error){console.error("[xmldom error]\t"+error,_locator(this.locator))},fatalError:function(error){console.error("[xmldom fatalError]\t"+error,_locator(this.locator));throw error}};function _locator(l){if(l){return"\n@"+(l.systemId||"")+"#[line:"+l.lineNumber+",col:"+l.columnNumber+"]"}}function _toString(chars,start,length){if(typeof chars=="string"){return chars.substr(start,length)}else{if(chars.length>=start+length||start){return new java.lang.String(chars,start,length)+""}return chars}}"endDTD,startEntity,endEntity,attributeDecl,elementDecl,externalEntityDecl,internalEntityDecl,resolveEntity,getExternalSubset,notationDecl,unparsedEntityDecl".replace(/\w+/g,function(key){DOMHandler.prototype[key]=function(){return null}});function appendElement(hander,node){if(!hander.currentElement){hander.doc.appendChild(node)}else{hander.currentElement.appendChild(node)}}var XMLReader=require("./sax").XMLReader;var DOMImplementation=exports.DOMImplementation=require("./dom").DOMImplementation;exports.XMLSerializer=require("./dom").XMLSerializer;exports.DOMParser=DOMParser},{"./dom":24,"./sax":25}],24:[function(require,module,exports){function copy(src,dest){for(var p in src){dest[p]=src[p]}}function _extends(Class,Super){var pt=Class.prototype;if(Object.create){var ppt=Object.create(Super.prototype);pt.__proto__=ppt}if(!(pt instanceof Super)){function t(){}t.prototype=Super.prototype;t=new t;copy(pt,t);Class.prototype=pt=t}if(pt.constructor!=Class){if(typeof Class!="function"){console.error("unknow Class:"+Class)}pt.constructor=Class}}var htmlns="http://www.w3.org/1999/xhtml";var NodeType={};var ELEMENT_NODE=NodeType.ELEMENT_NODE=1;var ATTRIBUTE_NODE=NodeType.ATTRIBUTE_NODE=2;var TEXT_NODE=NodeType.TEXT_NODE=3;var CDATA_SECTION_NODE=NodeType.CDATA_SECTION_NODE=4;var ENTITY_REFERENCE_NODE=NodeType.ENTITY_REFERENCE_NODE=5;var ENTITY_NODE=NodeType.ENTITY_NODE=6;var PROCESSING_INSTRUCTION_NODE=NodeType.PROCESSING_INSTRUCTION_NODE=7;var COMMENT_NODE=NodeType.COMMENT_NODE=8;var DOCUMENT_NODE=NodeType.DOCUMENT_NODE=9;var DOCUMENT_TYPE_NODE=NodeType.DOCUMENT_TYPE_NODE=10;var DOCUMENT_FRAGMENT_NODE=NodeType.DOCUMENT_FRAGMENT_NODE=11;var NOTATION_NODE=NodeType.NOTATION_NODE=12;var ExceptionCode={};var ExceptionMessage={};var INDEX_SIZE_ERR=ExceptionCode.INDEX_SIZE_ERR=(ExceptionMessage[1]="Index size error",1);var DOMSTRING_SIZE_ERR=ExceptionCode.DOMSTRING_SIZE_ERR=(ExceptionMessage[2]="DOMString size error",2);var HIERARCHY_REQUEST_ERR=ExceptionCode.HIERARCHY_REQUEST_ERR=(ExceptionMessage[3]="Hierarchy request error",3);var WRONG_DOCUMENT_ERR=ExceptionCode.WRONG_DOCUMENT_ERR=(ExceptionMessage[4]="Wrong document",4);var INVALID_CHARACTER_ERR=ExceptionCode.INVALID_CHARACTER_ERR=(ExceptionMessage[5]="Invalid character",5);var NO_DATA_ALLOWED_ERR=ExceptionCode.NO_DATA_ALLOWED_ERR=(ExceptionMessage[6]="No data allowed",6);var NO_MODIFICATION_ALLOWED_ERR=ExceptionCode.NO_MODIFICATION_ALLOWED_ERR=(ExceptionMessage[7]="No modification allowed",7);var NOT_FOUND_ERR=ExceptionCode.NOT_FOUND_ERR=(ExceptionMessage[8]="Not found",8);var NOT_SUPPORTED_ERR=ExceptionCode.NOT_SUPPORTED_ERR=(ExceptionMessage[9]="Not supported",9);var INUSE_ATTRIBUTE_ERR=ExceptionCode.INUSE_ATTRIBUTE_ERR=(ExceptionMessage[10]="Attribute in use",10);var INVALID_STATE_ERR=ExceptionCode.INVALID_STATE_ERR=(ExceptionMessage[11]="Invalid state",11);var SYNTAX_ERR=ExceptionCode.SYNTAX_ERR=(ExceptionMessage[12]="Syntax error",12);var INVALID_MODIFICATION_ERR=ExceptionCode.INVALID_MODIFICATION_ERR=(ExceptionMessage[13]="Invalid modification",13);var NAMESPACE_ERR=ExceptionCode.NAMESPACE_ERR=(ExceptionMessage[14]="Invalid namespace",14);var INVALID_ACCESS_ERR=ExceptionCode.INVALID_ACCESS_ERR=(ExceptionMessage[15]="Invalid access",15);function DOMException(code,message){if(message instanceof Error){var error=message}else{error=this;Error.call(this,ExceptionMessage[code]);this.message=ExceptionMessage[code];if(Error.captureStackTrace)Error.captureStackTrace(this,DOMException)}error.code=code;if(message)this.message=this.message+": "+message;return error}DOMException.prototype=Error.prototype;copy(ExceptionCode,DOMException);function NodeList(){}NodeList.prototype={length:0,item:function(index){return this[index]||null},toString:function(isHTML,nodeFilter){for(var buf=[],i=0;i<this.length;i++){serializeToString(this[i],buf,isHTML,nodeFilter)}return buf.join("")}};function LiveNodeList(node,refresh){this._node=node;this._refresh=refresh;_updateLiveList(this)}function _updateLiveList(list){var inc=list._node._inc||list._node.ownerDocument._inc;if(list._inc!=inc){var ls=list._refresh(list._node);__set__(list,"length",ls.length);copy(ls,list);list._inc=inc}}LiveNodeList.prototype.item=function(i){_updateLiveList(this);return this[i]};_extends(LiveNodeList,NodeList);function NamedNodeMap(){}function _findNodeIndex(list,node){var i=list.length;while(i--){if(list[i]===node){return i}}}function _addNamedNode(el,list,newAttr,oldAttr){if(oldAttr){list[_findNodeIndex(list,oldAttr)]=newAttr}else{list[list.length++]=newAttr}if(el){newAttr.ownerElement=el;var doc=el.ownerDocument;if(doc){oldAttr&&_onRemoveAttribute(doc,el,oldAttr);_onAddAttribute(doc,el,newAttr)}}}function _removeNamedNode(el,list,attr){var i=_findNodeIndex(list,attr);if(i>=0){var lastIndex=list.length-1;while(i<lastIndex){list[i]=list[++i]}list.length=lastIndex;if(el){var doc=el.ownerDocument;if(doc){_onRemoveAttribute(doc,el,attr);attr.ownerElement=null}}}else{throw DOMException(NOT_FOUND_ERR,new Error(el.tagName+"@"+attr))}}NamedNodeMap.prototype={length:0,item:NodeList.prototype.item,getNamedItem:function(key){var i=this.length;while(i--){var attr=this[i];if(attr.nodeName==key){return attr}}},setNamedItem:function(attr){var el=attr.ownerElement;if(el&&el!=this._ownerElement){throw new DOMException(INUSE_ATTRIBUTE_ERR)}var oldAttr=this.getNamedItem(attr.nodeName);_addNamedNode(this._ownerElement,this,attr,oldAttr);return oldAttr},setNamedItemNS:function(attr){var el=attr.ownerElement,oldAttr;if(el&&el!=this._ownerElement){throw new DOMException(INUSE_ATTRIBUTE_ERR)}oldAttr=this.getNamedItemNS(attr.namespaceURI,attr.localName);_addNamedNode(this._ownerElement,this,attr,oldAttr);return oldAttr},removeNamedItem:function(key){var attr=this.getNamedItem(key);_removeNamedNode(this._ownerElement,this,attr);return attr},removeNamedItemNS:function(namespaceURI,localName){var attr=this.getNamedItemNS(namespaceURI,localName);_removeNamedNode(this._ownerElement,this,attr);return attr},getNamedItemNS:function(namespaceURI,localName){var i=this.length;while(i--){var node=this[i];if(node.localName==localName&&node.namespaceURI==namespaceURI){return node}}return null}};function DOMImplementation(features){this._features={};if(features){for(var feature in features){this._features=features[feature]}}}DOMImplementation.prototype={hasFeature:function(feature,version){var versions=this._features[feature.toLowerCase()];if(versions&&(!version||version in versions)){
-return true}else{return false}},createDocument:function(namespaceURI,qualifiedName,doctype){var doc=new Document;doc.implementation=this;doc.childNodes=new NodeList;doc.doctype=doctype;if(doctype){doc.appendChild(doctype)}if(qualifiedName){var root=doc.createElementNS(namespaceURI,qualifiedName);doc.appendChild(root)}return doc},createDocumentType:function(qualifiedName,publicId,systemId){var node=new DocumentType;node.name=qualifiedName;node.nodeName=qualifiedName;node.publicId=publicId;node.systemId=systemId;return node}};function Node(){}Node.prototype={firstChild:null,lastChild:null,previousSibling:null,nextSibling:null,attributes:null,parentNode:null,childNodes:null,ownerDocument:null,nodeValue:null,namespaceURI:null,prefix:null,localName:null,insertBefore:function(newChild,refChild){return _insertBefore(this,newChild,refChild)},replaceChild:function(newChild,oldChild){this.insertBefore(newChild,oldChild);if(oldChild){this.removeChild(oldChild)}},removeChild:function(oldChild){return _removeChild(this,oldChild)},appendChild:function(newChild){return this.insertBefore(newChild,null)},hasChildNodes:function(){return this.firstChild!=null},cloneNode:function(deep){return cloneNode(this.ownerDocument||this,this,deep)},normalize:function(){var child=this.firstChild;while(child){var next=child.nextSibling;if(next&&next.nodeType==TEXT_NODE&&child.nodeType==TEXT_NODE){this.removeChild(next);child.appendData(next.data)}else{child.normalize();child=next}}},isSupported:function(feature,version){return this.ownerDocument.implementation.hasFeature(feature,version)},hasAttributes:function(){return this.attributes.length>0},lookupPrefix:function(namespaceURI){var el=this;while(el){var map=el._nsMap;if(map){for(var n in map){if(map[n]==namespaceURI){return n}}}el=el.nodeType==ATTRIBUTE_NODE?el.ownerDocument:el.parentNode}return null},lookupNamespaceURI:function(prefix){var el=this;while(el){var map=el._nsMap;if(map){if(prefix in map){return map[prefix]}}el=el.nodeType==ATTRIBUTE_NODE?el.ownerDocument:el.parentNode}return null},isDefaultNamespace:function(namespaceURI){var prefix=this.lookupPrefix(namespaceURI);return prefix==null}};function _xmlEncoder(c){return c=="<"&&"&lt;"||c==">"&&"&gt;"||c=="&"&&"&amp;"||c=='"'&&"&quot;"||"&#"+c.charCodeAt()+";"}copy(NodeType,Node);copy(NodeType,Node.prototype);function _visitNode(node,callback){if(callback(node)){return true}if(node=node.firstChild){do{if(_visitNode(node,callback)){return true}}while(node=node.nextSibling)}}function Document(){}function _onAddAttribute(doc,el,newAttr){doc&&doc._inc++;var ns=newAttr.namespaceURI;if(ns=="http://www.w3.org/2000/xmlns/"){el._nsMap[newAttr.prefix?newAttr.localName:""]=newAttr.value}}function _onRemoveAttribute(doc,el,newAttr,remove){doc&&doc._inc++;var ns=newAttr.namespaceURI;if(ns=="http://www.w3.org/2000/xmlns/"){delete el._nsMap[newAttr.prefix?newAttr.localName:""]}}function _onUpdateChild(doc,el,newChild){if(doc&&doc._inc){doc._inc++;var cs=el.childNodes;if(newChild){cs[cs.length++]=newChild}else{var child=el.firstChild;var i=0;while(child){cs[i++]=child;child=child.nextSibling}cs.length=i}}}function _removeChild(parentNode,child){var previous=child.previousSibling;var next=child.nextSibling;if(previous){previous.nextSibling=next}else{parentNode.firstChild=next}if(next){next.previousSibling=previous}else{parentNode.lastChild=previous}_onUpdateChild(parentNode.ownerDocument,parentNode);return child}function _insertBefore(parentNode,newChild,nextChild){var cp=newChild.parentNode;if(cp){cp.removeChild(newChild)}if(newChild.nodeType===DOCUMENT_FRAGMENT_NODE){var newFirst=newChild.firstChild;if(newFirst==null){return newChild}var newLast=newChild.lastChild}else{newFirst=newLast=newChild}var pre=nextChild?nextChild.previousSibling:parentNode.lastChild;newFirst.previousSibling=pre;newLast.nextSibling=nextChild;if(pre){pre.nextSibling=newFirst}else{parentNode.firstChild=newFirst}if(nextChild==null){parentNode.lastChild=newLast}else{nextChild.previousSibling=newLast}do{newFirst.parentNode=parentNode}while(newFirst!==newLast&&(newFirst=newFirst.nextSibling));_onUpdateChild(parentNode.ownerDocument||parentNode,parentNode);if(newChild.nodeType==DOCUMENT_FRAGMENT_NODE){newChild.firstChild=newChild.lastChild=null}return newChild}function _appendSingleChild(parentNode,newChild){var cp=newChild.parentNode;if(cp){var pre=parentNode.lastChild;cp.removeChild(newChild);var pre=parentNode.lastChild}var pre=parentNode.lastChild;newChild.parentNode=parentNode;newChild.previousSibling=pre;newChild.nextSibling=null;if(pre){pre.nextSibling=newChild}else{parentNode.firstChild=newChild}parentNode.lastChild=newChild;_onUpdateChild(parentNode.ownerDocument,parentNode,newChild);return newChild}Document.prototype={nodeName:"#document",nodeType:DOCUMENT_NODE,doctype:null,documentElement:null,_inc:1,insertBefore:function(newChild,refChild){if(newChild.nodeType==DOCUMENT_FRAGMENT_NODE){var child=newChild.firstChild;while(child){var next=child.nextSibling;this.insertBefore(child,refChild);child=next}return newChild}if(this.documentElement==null&&newChild.nodeType==ELEMENT_NODE){this.documentElement=newChild}return _insertBefore(this,newChild,refChild),newChild.ownerDocument=this,newChild},removeChild:function(oldChild){if(this.documentElement==oldChild){this.documentElement=null}return _removeChild(this,oldChild)},importNode:function(importedNode,deep){return importNode(this,importedNode,deep)},getElementById:function(id){var rtv=null;_visitNode(this.documentElement,function(node){if(node.nodeType==ELEMENT_NODE){if(node.getAttribute("id")==id){rtv=node;return true}}});return rtv},createElement:function(tagName){var node=new Element;node.ownerDocument=this;node.nodeName=tagName;node.tagName=tagName;node.childNodes=new NodeList;var attrs=node.attributes=new NamedNodeMap;attrs._ownerElement=node;return node},createDocumentFragment:function(){var node=new DocumentFragment;node.ownerDocument=this;node.childNodes=new NodeList;return node},createTextNode:function(data){var node=new Text;node.ownerDocument=this;node.appendData(data);return node},createComment:function(data){var node=new Comment;node.ownerDocument=this;node.appendData(data);return node},createCDATASection:function(data){var node=new CDATASection;node.ownerDocument=this;node.appendData(data);return node},createProcessingInstruction:function(target,data){var node=new ProcessingInstruction;node.ownerDocument=this;node.tagName=node.target=target;node.nodeValue=node.data=data;return node},createAttribute:function(name){var node=new Attr;node.ownerDocument=this;node.name=name;node.nodeName=name;node.localName=name;node.specified=true;return node},createEntityReference:function(name){var node=new EntityReference;node.ownerDocument=this;node.nodeName=name;return node},createElementNS:function(namespaceURI,qualifiedName){var node=new Element;var pl=qualifiedName.split(":");var attrs=node.attributes=new NamedNodeMap;node.childNodes=new NodeList;node.ownerDocument=this;node.nodeName=qualifiedName;node.tagName=qualifiedName;node.namespaceURI=namespaceURI;if(pl.length==2){node.prefix=pl[0];node.localName=pl[1]}else{node.localName=qualifiedName}attrs._ownerElement=node;return node},createAttributeNS:function(namespaceURI,qualifiedName){var node=new Attr;var pl=qualifiedName.split(":");node.ownerDocument=this;node.nodeName=qualifiedName;node.name=qualifiedName;node.namespaceURI=namespaceURI;node.specified=true;if(pl.length==2){node.prefix=pl[0];node.localName=pl[1]}else{node.localName=qualifiedName}return node}};_extends(Document,Node);function Element(){this._nsMap={}}Element.prototype={nodeType:ELEMENT_NODE,hasAttribute:function(name){return this.getAttributeNode(name)!=null},getAttribute:function(name){var attr=this.getAttributeNode(name);return attr&&attr.value||""},getAttributeNode:function(name){return this.attributes.getNamedItem(name)},setAttribute:function(name,value){var attr=this.ownerDocument.createAttribute(name);attr.value=attr.nodeValue=""+value;this.setAttributeNode(attr)},removeAttribute:function(name){var attr=this.getAttributeNode(name);attr&&this.removeAttributeNode(attr)},appendChild:function(newChild){if(newChild.nodeType===DOCUMENT_FRAGMENT_NODE){return this.insertBefore(newChild,null)}else{return _appendSingleChild(this,newChild)}},setAttributeNode:function(newAttr){return this.attributes.setNamedItem(newAttr)},setAttributeNodeNS:function(newAttr){return this.attributes.setNamedItemNS(newAttr)},removeAttributeNode:function(oldAttr){return this.attributes.removeNamedItem(oldAttr.nodeName)},removeAttributeNS:function(namespaceURI,localName){var old=this.getAttributeNodeNS(namespaceURI,localName);old&&this.removeAttributeNode(old)},hasAttributeNS:function(namespaceURI,localName){return this.getAttributeNodeNS(namespaceURI,localName)!=null},getAttributeNS:function(namespaceURI,localName){var attr=this.getAttributeNodeNS(namespaceURI,localName);return attr&&attr.value||""},setAttributeNS:function(namespaceURI,qualifiedName,value){var attr=this.ownerDocument.createAttributeNS(namespaceURI,qualifiedName);attr.value=attr.nodeValue=""+value;this.setAttributeNode(attr)},getAttributeNodeNS:function(namespaceURI,localName){return this.attributes.getNamedItemNS(namespaceURI,localName)},getElementsByTagName:function(tagName){return new LiveNodeList(this,function(base){var ls=[];_visitNode(base,function(node){if(node!==base&&node.nodeType==ELEMENT_NODE&&(tagName==="*"||node.tagName==tagName)){ls.push(node)}});return ls})},getElementsByTagNameNS:function(namespaceURI,localName){return new LiveNodeList(this,function(base){var ls=[];_visitNode(base,function(node){if(node!==base&&node.nodeType===ELEMENT_NODE&&(namespaceURI==="*"||node.namespaceURI===namespaceURI)&&(localName==="*"||node.localName==localName)){ls.push(node)}});return ls})}};Document.prototype.getElementsByTagName=Element.prototype.getElementsByTagName;Document.prototype.getElementsByTagNameNS=Element.prototype.getElementsByTagNameNS;_extends(Element,Node);function Attr(){}Attr.prototype.nodeType=ATTRIBUTE_NODE;_extends(Attr,Node);function CharacterData(){}CharacterData.prototype={data:"",substringData:function(offset,count){return this.data.substring(offset,offset+count)},appendData:function(text){text=this.data+text;this.nodeValue=this.data=text;this.length=text.length},insertData:function(offset,text){this.replaceData(offset,0,text)},appendChild:function(newChild){throw new Error(ExceptionMessage[HIERARCHY_REQUEST_ERR])},deleteData:function(offset,count){this.replaceData(offset,count,"")},replaceData:function(offset,count,text){var start=this.data.substring(0,offset);var end=this.data.substring(offset+count);text=start+text+end;this.nodeValue=this.data=text;this.length=text.length}};_extends(CharacterData,Node);function Text(){}Text.prototype={nodeName:"#text",nodeType:TEXT_NODE,splitText:function(offset){var text=this.data;var newText=text.substring(offset);text=text.substring(0,offset);this.data=this.nodeValue=text;this.length=text.length;var newNode=this.ownerDocument.createTextNode(newText);if(this.parentNode){this.parentNode.insertBefore(newNode,this.nextSibling)}return newNode}};_extends(Text,CharacterData);function Comment(){}Comment.prototype={nodeName:"#comment",nodeType:COMMENT_NODE};_extends(Comment,CharacterData);function CDATASection(){}CDATASection.prototype={nodeName:"#cdata-section",nodeType:CDATA_SECTION_NODE};_extends(CDATASection,CharacterData);function DocumentType(){}DocumentType.prototype.nodeType=DOCUMENT_TYPE_NODE;_extends(DocumentType,Node);function Notation(){}Notation.prototype.nodeType=NOTATION_NODE;_extends(Notation,Node);function Entity(){}Entity.prototype.nodeType=ENTITY_NODE;_extends(Entity,Node);function EntityReference(){}EntityReference.prototype.nodeType=ENTITY_REFERENCE_NODE;_extends(EntityReference,Node);function DocumentFragment(){}DocumentFragment.prototype.nodeName="#document-fragment";DocumentFragment.prototype.nodeType=DOCUMENT_FRAGMENT_NODE;_extends(DocumentFragment,Node);function ProcessingInstruction(){}ProcessingInstruction.prototype.nodeType=PROCESSING_INSTRUCTION_NODE;_extends(ProcessingInstruction,Node);function XMLSerializer(){}XMLSerializer.prototype.serializeToString=function(node,isHtml,nodeFilter){return nodeSerializeToString.call(node,isHtml,nodeFilter)};Node.prototype.toString=nodeSerializeToString;function nodeSerializeToString(isHtml,nodeFilter){var buf=[];var refNode=this.nodeType==9?this.documentElement:this;var prefix=refNode.prefix;var uri=refNode.namespaceURI;if(uri&&prefix==null){var prefix=refNode.lookupPrefix(uri);if(prefix==null){var visibleNamespaces=[{namespace:uri,prefix:null}]}}serializeToString(this,buf,isHtml,nodeFilter,visibleNamespaces);return buf.join("")}function needNamespaceDefine(node,isHTML,visibleNamespaces){var prefix=node.prefix||"";var uri=node.namespaceURI;if(!prefix&&!uri){return false}if(prefix==="xml"&&uri==="http://www.w3.org/XML/1998/namespace"||uri=="http://www.w3.org/2000/xmlns/"){return false}var i=visibleNamespaces.length;while(i--){var ns=visibleNamespaces[i];if(ns.prefix==prefix){return ns.namespace!=uri}}return true}function serializeToString(node,buf,isHTML,nodeFilter,visibleNamespaces){if(nodeFilter){node=nodeFilter(node);if(node){if(typeof node=="string"){buf.push(node);return}}else{return}}switch(node.nodeType){case ELEMENT_NODE:if(!visibleNamespaces)visibleNamespaces=[];var startVisibleNamespaces=visibleNamespaces.length;var attrs=node.attributes;var len=attrs.length;var child=node.firstChild;var nodeName=node.tagName;isHTML=htmlns===node.namespaceURI||isHTML;buf.push("<",nodeName);for(var i=0;i<len;i++){var attr=attrs.item(i);if(attr.prefix=="xmlns"){visibleNamespaces.push({prefix:attr.localName,namespace:attr.value})}else if(attr.nodeName=="xmlns"){visibleNamespaces.push({prefix:"",namespace:attr.value})}}for(var i=0;i<len;i++){var attr=attrs.item(i);if(needNamespaceDefine(attr,isHTML,visibleNamespaces)){var prefix=attr.prefix||"";var uri=attr.namespaceURI;var ns=prefix?" xmlns:"+prefix:" xmlns";buf.push(ns,'="',uri,'"');visibleNamespaces.push({prefix:prefix,namespace:uri})}serializeToString(attr,buf,isHTML,nodeFilter,visibleNamespaces)}if(needNamespaceDefine(node,isHTML,visibleNamespaces)){var prefix=node.prefix||"";var uri=node.namespaceURI;var ns=prefix?" xmlns:"+prefix:" xmlns";buf.push(ns,'="',uri,'"');visibleNamespaces.push({prefix:prefix,namespace:uri})}if(child||isHTML&&!/^(?:meta|link|img|br|hr|input)$/i.test(nodeName)){buf.push(">");if(isHTML&&/^script$/i.test(nodeName)){while(child){if(child.data){buf.push(child.data)}else{serializeToString(child,buf,isHTML,nodeFilter,visibleNamespaces)}child=child.nextSibling}}else{while(child){serializeToString(child,buf,isHTML,nodeFilter,visibleNamespaces);child=child.nextSibling}}buf.push("</",nodeName,">")}else{buf.push("/>")}return;case DOCUMENT_NODE:case DOCUMENT_FRAGMENT_NODE:var child=node.firstChild;while(child){serializeToString(child,buf,isHTML,nodeFilter,visibleNamespaces);child=child.nextSibling}return;case ATTRIBUTE_NODE:return buf.push(" ",node.name,'="',node.value.replace(/[<&"]/g,_xmlEncoder),'"');case TEXT_NODE:return buf.push(node.data.replace(/[<&]/g,_xmlEncoder));case CDATA_SECTION_NODE:return buf.push("<![CDATA[",node.data,"]]>");case COMMENT_NODE:return buf.push("<!--",node.data,"-->");case DOCUMENT_TYPE_NODE:var pubid=node.publicId;var sysid=node.systemId;buf.push("<!DOCTYPE ",node.name);if(pubid){buf.push(' PUBLIC "',pubid);if(sysid&&sysid!="."){buf.push('" "',sysid)}buf.push('">')}else if(sysid&&sysid!="."){buf.push(' SYSTEM "',sysid,'">')}else{var sub=node.internalSubset;if(sub){buf.push(" [",sub,"]")}buf.push(">")}return;case PROCESSING_INSTRUCTION_NODE:return buf.push("<?",node.target," ",node.data,"?>");case ENTITY_REFERENCE_NODE:return buf.push("&",node.nodeName,";");default:buf.push("??",node.nodeName)}}function importNode(doc,node,deep){var node2;switch(node.nodeType){case ELEMENT_NODE:node2=node.cloneNode(false);node2.ownerDocument=doc;case DOCUMENT_FRAGMENT_NODE:break;case ATTRIBUTE_NODE:deep=true;break}if(!node2){node2=node.cloneNode(false)}node2.ownerDocument=doc;node2.parentNode=null;if(deep){var child=node.firstChild;while(child){node2.appendChild(importNode(doc,child,deep));child=child.nextSibling}}return node2}function cloneNode(doc,node,deep){var node2=new node.constructor;for(var n in node){var v=node[n];if(typeof v!="object"){if(v!=node2[n]){node2[n]=v}}}if(node.childNodes){node2.childNodes=new NodeList}node2.ownerDocument=doc;switch(node2.nodeType){case ELEMENT_NODE:var attrs=node.attributes;var attrs2=node2.attributes=new NamedNodeMap;var len=attrs.length;attrs2._ownerElement=node2;for(var i=0;i<len;i++){node2.setAttributeNode(cloneNode(doc,attrs.item(i),true))}break;case ATTRIBUTE_NODE:deep=true}if(deep){var child=node.firstChild;while(child){node2.appendChild(cloneNode(doc,child,deep));child=child.nextSibling}}return node2}function __set__(object,key,value){object[key]=value}try{if(Object.defineProperty){Object.defineProperty(LiveNodeList.prototype,"length",{get:function(){_updateLiveList(this);return this.$$length}});Object.defineProperty(Node.prototype,"textContent",{get:function(){return getTextContent(this)},set:function(data){switch(this.nodeType){case ELEMENT_NODE:case DOCUMENT_FRAGMENT_NODE:while(this.firstChild){this.removeChild(this.firstChild)}if(data||String(data)){this.appendChild(this.ownerDocument.createTextNode(data))}break;default:this.data=data;this.value=data;this.nodeValue=data}}});function getTextContent(node){switch(node.nodeType){case ELEMENT_NODE:case DOCUMENT_FRAGMENT_NODE:var buf=[];node=node.firstChild;while(node){if(node.nodeType!==7&&node.nodeType!==8){buf.push(getTextContent(node))}node=node.nextSibling}return buf.join("");default:return node.nodeValue}}__set__=function(object,key,value){object["$$"+key]=value}}}catch(e){}exports.DOMImplementation=DOMImplementation;exports.XMLSerializer=XMLSerializer},{}],25:[function(require,module,exports){var nameStartChar=/[A-Z_a-z\xC0-\xD6\xD8-\xF6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD]/;var nameChar=new RegExp("[\\-\\.0-9"+nameStartChar.source.slice(1,-1)+"\\u00B7\\u0300-\\u036F\\u203F-\\u2040]");var tagNamePattern=new RegExp("^"+nameStartChar.source+nameChar.source+"*(?::"+nameStartChar.source+nameChar.source+"*)?$");var S_TAG=0;var S_ATTR=1;var S_ATTR_SPACE=2;var S_EQ=3;var S_ATTR_NOQUOT_VALUE=4;var S_ATTR_END=5;var S_TAG_SPACE=6;var S_TAG_CLOSE=7;function XMLReader(){}XMLReader.prototype={parse:function(source,defaultNSMap,entityMap){var domBuilder=this.domBuilder;domBuilder.startDocument();_copy(defaultNSMap,defaultNSMap={});parse(source,defaultNSMap,entityMap,domBuilder,this.errorHandler);domBuilder.endDocument()}};function parse(source,defaultNSMapCopy,entityMap,domBuilder,errorHandler){function fixedFromCharCode(code){if(code>65535){code-=65536;var surrogate1=55296+(code>>10),surrogate2=56320+(code&1023);return String.fromCharCode(surrogate1,surrogate2)}else{return String.fromCharCode(code)}}function entityReplacer(a){var k=a.slice(1,-1);if(k in entityMap){return entityMap[k]}else if(k.charAt(0)==="#"){return fixedFromCharCode(parseInt(k.substr(1).replace("x","0x")))}else{errorHandler.error("entity not found:"+a);return a}}function appendText(end){if(end>start){var xt=source.substring(start,end).replace(/&#?\w+;/g,entityReplacer);locator&&position(start);domBuilder.characters(xt,0,end-start);start=end}}function position(p,m){while(p>=lineEnd&&(m=linePattern.exec(source))){lineStart=m.index;lineEnd=lineStart+m[0].length;locator.lineNumber++}locator.columnNumber=p-lineStart+1}var lineStart=0;var lineEnd=0;var linePattern=/.*(?:\r\n?|\n)|.*$/g;var locator=domBuilder.locator;var parseStack=[{currentNSMap:defaultNSMapCopy}];var closeMap={};var start=0;while(true){try{var tagStart=source.indexOf("<",start);if(tagStart<0){if(!source.substr(start).match(/^\s*$/)){var doc=domBuilder.doc;var text=doc.createTextNode(source.substr(start));doc.appendChild(text);domBuilder.currentElement=text}return}if(tagStart>start){appendText(tagStart)}switch(source.charAt(tagStart+1)){case"/":var end=source.indexOf(">",tagStart+3);var tagName=source.substring(tagStart+2,end);var config=parseStack.pop();if(end<0){tagName=source.substring(tagStart+2).replace(/[\s<].*/,"");errorHandler.error("end tag name: "+tagName+" is not complete:"+config.tagName);end=tagStart+1+tagName.length}else if(tagName.match(/\s</)){tagName=tagName.replace(/[\s<].*/,"");errorHandler.error("end tag name: "+tagName+" maybe not complete");end=tagStart+1+tagName.length}var localNSMap=config.localNSMap;var endMatch=config.tagName==tagName;var endIgnoreCaseMach=endMatch||config.tagName&&config.tagName.toLowerCase()==tagName.toLowerCase();if(endIgnoreCaseMach){domBuilder.endElement(config.uri,config.localName,tagName);if(localNSMap){for(var prefix in localNSMap){domBuilder.endPrefixMapping(prefix)}}if(!endMatch){errorHandler.fatalError("end tag name: "+tagName+" is not match the current start tagName:"+config.tagName)}}else{parseStack.push(config)}end++;break;case"?":locator&&position(tagStart);end=parseInstruction(source,tagStart,domBuilder);break;case"!":locator&&position(tagStart);end=parseDCC(source,tagStart,domBuilder,errorHandler);break;default:locator&&position(tagStart);var el=new ElementAttributes;var currentNSMap=parseStack[parseStack.length-1].currentNSMap;var end=parseElementStartPart(source,tagStart,el,currentNSMap,entityReplacer,errorHandler);var len=el.length;if(!el.closed&&fixSelfClosed(source,end,el.tagName,closeMap)){el.closed=true;if(!entityMap.nbsp){errorHandler.warning("unclosed xml attribute")}}if(locator&&len){var locator2=copyLocator(locator,{});for(var i=0;i<len;i++){var a=el[i];position(a.offset);a.locator=copyLocator(locator,{})}domBuilder.locator=locator2;if(appendElement(el,domBuilder,currentNSMap)){parseStack.push(el)}domBuilder.locator=locator}else{if(appendElement(el,domBuilder,currentNSMap)){parseStack.push(el)}}if(el.uri==="http://www.w3.org/1999/xhtml"&&!el.closed){end=parseHtmlSpecialContent(source,end,el.tagName,entityReplacer,domBuilder)}else{end++}}}catch(e){errorHandler.error("element parse error: "+e);end=-1}if(end>start){start=end}else{appendText(Math.max(tagStart,start)+1)}}}function copyLocator(f,t){t.lineNumber=f.lineNumber;t.columnNumber=f.columnNumber;return t}function parseElementStartPart(source,start,el,currentNSMap,entityReplacer,errorHandler){var attrName;var value;var p=++start;var s=S_TAG;while(true){var c=source.charAt(p);switch(c){case"=":if(s===S_ATTR){attrName=source.slice(start,p);s=S_EQ}else if(s===S_ATTR_SPACE){s=S_EQ}else{throw new Error("attribute equal must after attrName")}break;case"'":case'"':if(s===S_EQ||s===S_ATTR){if(s===S_ATTR){errorHandler.warning('attribute value must after "="');attrName=source.slice(start,p)}start=p+1;p=source.indexOf(c,start);if(p>0){value=source.slice(start,p).replace(/&#?\w+;/g,entityReplacer);el.add(attrName,value,start-1);s=S_ATTR_END}else{throw new Error("attribute value no end '"+c+"' match")}}else if(s==S_ATTR_NOQUOT_VALUE){value=source.slice(start,p).replace(/&#?\w+;/g,entityReplacer);el.add(attrName,value,start);errorHandler.warning('attribute "'+attrName+'" missed start quot('+c+")!!");start=p+1;s=S_ATTR_END}else{throw new Error('attribute value must after "="')}break;case"/":switch(s){case S_TAG:el.setTagName(source.slice(start,p));case S_ATTR_END:case S_TAG_SPACE:case S_TAG_CLOSE:s=S_TAG_CLOSE;el.closed=true;case S_ATTR_NOQUOT_VALUE:case S_ATTR:case S_ATTR_SPACE:break;default:throw new Error("attribute invalid close char('/')")}break;case"":errorHandler.error("unexpected end of input");if(s==S_TAG){el.setTagName(source.slice(start,p))}return p;case">":switch(s){case S_TAG:el.setTagName(source.slice(start,p));case S_ATTR_END:case S_TAG_SPACE:case S_TAG_CLOSE:break;case S_ATTR_NOQUOT_VALUE:case S_ATTR:value=source.slice(start,p);if(value.slice(-1)==="/"){el.closed=true;value=value.slice(0,-1)}case S_ATTR_SPACE:if(s===S_ATTR_SPACE){value=attrName}if(s==S_ATTR_NOQUOT_VALUE){errorHandler.warning('attribute "'+value+'" missed quot(")!!');el.add(attrName,value.replace(/&#?\w+;/g,entityReplacer),start)}else{if(currentNSMap[""]!=="http://www.w3.org/1999/xhtml"||!value.match(/^(?:disabled|checked|selected)$/i)){errorHandler.warning('attribute "'+value+'" missed value!! "'+value+'" instead!!')}el.add(value,value,start)}break;case S_EQ:throw new Error("attribute value missed!!")}return p;case"":c=" ";default:if(c<=" "){switch(s){case S_TAG:el.setTagName(source.slice(start,p));s=S_TAG_SPACE;break;case S_ATTR:attrName=source.slice(start,p);s=S_ATTR_SPACE;break;case S_ATTR_NOQUOT_VALUE:var value=source.slice(start,p).replace(/&#?\w+;/g,entityReplacer);errorHandler.warning('attribute "'+value+'" missed quot(")!!');el.add(attrName,value,start);case S_ATTR_END:s=S_TAG_SPACE;break}}else{switch(s){case S_ATTR_SPACE:var tagName=el.tagName;if(currentNSMap[""]!=="http://www.w3.org/1999/xhtml"||!attrName.match(/^(?:disabled|checked|selected)$/i)){errorHandler.warning('attribute "'+attrName+'" missed value!! "'+attrName+'" instead2!!')}el.add(attrName,attrName,start);start=p;s=S_ATTR;break;case S_ATTR_END:errorHandler.warning('attribute space is required"'+attrName+'"!!');case S_TAG_SPACE:s=S_ATTR;start=p;break;case S_EQ:s=S_ATTR_NOQUOT_VALUE;start=p;break;case S_TAG_CLOSE:throw new Error("elements closed character '/' and '>' must be connected to")}}}p++}}function appendElement(el,domBuilder,currentNSMap){var tagName=el.tagName;var localNSMap=null;var i=el.length;while(i--){var a=el[i];var qName=a.qName;var value=a.value;var nsp=qName.indexOf(":");if(nsp>0){var prefix=a.prefix=qName.slice(0,nsp);var localName=qName.slice(nsp+1);var nsPrefix=prefix==="xmlns"&&localName}else{localName=qName;prefix=null;nsPrefix=qName==="xmlns"&&""}a.localName=localName;if(nsPrefix!==false){if(localNSMap==null){localNSMap={};_copy(currentNSMap,currentNSMap={})}currentNSMap[nsPrefix]=localNSMap[nsPrefix]=value;a.uri="http://www.w3.org/2000/xmlns/";domBuilder.startPrefixMapping(nsPrefix,value)}}var i=el.length;while(i--){a=el[i];var prefix=a.prefix;if(prefix){if(prefix==="xml"){a.uri="http://www.w3.org/XML/1998/namespace"}if(prefix!=="xmlns"){a.uri=currentNSMap[prefix||""]}}}var nsp=tagName.indexOf(":");if(nsp>0){prefix=el.prefix=tagName.slice(0,nsp);localName=el.localName=tagName.slice(nsp+1)}else{prefix=null;localName=el.localName=tagName}var ns=el.uri=currentNSMap[prefix||""];domBuilder.startElement(ns,localName,tagName,el);if(el.closed){domBuilder.endElement(ns,localName,tagName);if(localNSMap){for(prefix in localNSMap){domBuilder.endPrefixMapping(prefix)}}}else{el.currentNSMap=currentNSMap;el.localNSMap=localNSMap;return true}}function parseHtmlSpecialContent(source,elStartEnd,tagName,entityReplacer,domBuilder){if(/^(?:script|textarea)$/i.test(tagName)){var elEndStart=source.indexOf("</"+tagName+">",elStartEnd);var text=source.substring(elStartEnd+1,elEndStart);if(/[&<]/.test(text)){if(/^script$/i.test(tagName)){domBuilder.characters(text,0,text.length);return elEndStart}text=text.replace(/&#?\w+;/g,entityReplacer);domBuilder.characters(text,0,text.length);return elEndStart}}return elStartEnd+1}function fixSelfClosed(source,elStartEnd,tagName,closeMap){var pos=closeMap[tagName];if(pos==null){pos=source.lastIndexOf("</"+tagName+">");if(pos<elStartEnd){pos=source.lastIndexOf("</"+tagName)}closeMap[tagName]=pos}return pos<elStartEnd}function _copy(source,target){for(var n in source){target[n]=source[n]}}function parseDCC(source,start,domBuilder,errorHandler){var next=source.charAt(start+2);switch(next){case"-":if(source.charAt(start+3)==="-"){var end=source.indexOf("-->",start+4);if(end>start){domBuilder.comment(source,start+4,end-start-4);return end+3}else{errorHandler.error("Unclosed comment");return-1}}else{return-1}default:if(source.substr(start+3,6)=="CDATA["){var end=source.indexOf("]]>",start+9);domBuilder.startCDATA();domBuilder.characters(source,start+9,end-start-9);domBuilder.endCDATA();return end+3}var matchs=split(source,start);var len=matchs.length;if(len>1&&/!doctype/i.test(matchs[0][0])){var name=matchs[1][0];var pubid=len>3&&/^public$/i.test(matchs[2][0])&&matchs[3][0];var sysid=len>4&&matchs[4][0];var lastMatch=matchs[len-1];domBuilder.startDTD(name,pubid&&pubid.replace(/^(['"])(.*?)\1$/,"$2"),sysid&&sysid.replace(/^(['"])(.*?)\1$/,"$2"));domBuilder.endDTD();return lastMatch.index+lastMatch[0].length}}return-1}function parseInstruction(source,start,domBuilder){var end=source.indexOf("?>",start);if(end){var match=source.substring(start,end).match(/^<\?(\S*)\s*([\s\S]*?)\s*$/);if(match){var len=match[0].length;domBuilder.processingInstruction(match[1],match[2]);return end+2}else{return-1}}return-1}function ElementAttributes(source){}ElementAttributes.prototype={setTagName:function(tagName){if(!tagNamePattern.test(tagName)){throw new Error("invalid tagName:"+tagName)}this.tagName=tagName},add:function(qName,value,offset){if(!tagNamePattern.test(qName)){throw new Error("invalid attribute:"+qName)}this[this.length++]={qName:qName,value:value,offset:offset}},length:0,getLocalName:function(i){return this[i].localName},getLocator:function(i){return this[i].locator},getQName:function(i){return this[i].qName},getURI:function(i){return this[i].uri},getValue:function(i){return this[i].value}};function _set_proto_(thiz,parent){thiz.__proto__=parent;return thiz}if(!(_set_proto_({},_set_proto_.prototype)instanceof _set_proto_)){_set_proto_=function(thiz,parent){function p(){}p.prototype=parent;p=new p;for(parent in thiz){p[parent]=thiz[parent]}return p}}function split(source,start){var match;var buf=[];var reg=/'[^']+'|"[^"]+"|[^\s<>\/=]+=?|(\/?\s*>|<)/g;reg.lastIndex=start;reg.exec(source);while(match=reg.exec(source)){buf.push(match);if(match[1])return buf}}exports.XMLReader=XMLReader},{}],"/src/js/index.js":[function(require,module,exports){"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function")}}var templates=require("./templates");var DocUtils=require("docxtemplater").DocUtils;var DOMParser=require("xmldom").DOMParser;function isNaN(number){return!(number===number)}var ImgManager=require("./imgManager");var moduleName="open-xml-templating/docxtemplater-image-module";function getInnerDocx(_ref){var part=_ref.part;return part}function getInnerPptx(_ref2){var part=_ref2.part,left=_ref2.left,right=_ref2.right,postparsed=_ref2.postparsed;var xmlString=postparsed.slice(left+1,right).reduce(function(concat,item){return concat+item.value},"");var xmlDoc=(new DOMParser).parseFromString("<xml>"+xmlString+"</xml>");var offset=xmlDoc.getElementsByTagName("a:off");var ext=xmlDoc.getElementsByTagName("a:ext");part.ext={cx:parseInt(ext[0].getAttribute("cx"),10),cy:parseInt(ext[0].getAttribute("cy"),10)};part.offset={x:parseInt(offset[0].getAttribute("x"),10),y:parseInt(offset[0].getAttribute("y"),10)};return part}var ImageModule=function(){function ImageModule(options){_classCallCheck(this,ImageModule);this.name="ImageModule";this.options=options||{};this.imgManagers={};if(this.options.centered==null){this.options.centered=false}if(this.options.getImage==null){throw new Error("You should pass getImage")}if(this.options.getSize==null){throw new Error("You should pass getSize")}this.imageNumber=1}_createClass(ImageModule,[{key:"optionsTransformer",value:function optionsTransformer(options,docxtemplater){
-var relsFiles=docxtemplater.zip.file(/\.xml\.rels/).concat(docxtemplater.zip.file(/\[Content_Types\].xml/)).map(function(file){return file.name});this.fileTypeConfig=docxtemplater.fileTypeConfig;this.fileType=docxtemplater.fileType;this.zip=docxtemplater.zip;options.xmlFileNames=options.xmlFileNames.concat(relsFiles);return options}},{key:"set",value:function set(options){if(options.zip){this.zip=options.zip}if(options.xmlDocuments){this.xmlDocuments=options.xmlDocuments}}},{key:"parse",value:function parse(placeHolderContent){var module=moduleName;var type="placeholder";if(placeHolderContent.substring(0,2)==="%%"){return{type:type,value:placeHolderContent.substr(2),module:module,centered:true}}if(placeHolderContent.substring(0,1)==="%"){return{type:type,value:placeHolderContent.substr(1),module:module,centered:false}}return null}},{key:"postparse",value:function postparse(parsed){var expandTo=void 0;var getInner=void 0;if(this.fileType==="pptx"){expandTo="p:sp";getInner=getInnerPptx}else{expandTo=this.options.centered?"w:p":"w:t";getInner=getInnerDocx}return DocUtils.traits.expandToOne(parsed,{moduleName:moduleName,getInner:getInner,expandTo:expandTo})}},{key:"render",value:function render(part,options){this.imgManagers[options.filePath]=this.imgManagers[options.filePath]||new ImgManager(this.zip,options.filePath,this.xmlDocuments,this.fileType);var imgManager=this.imgManagers[options.filePath];if(!part.type==="placeholder"||part.module!==moduleName){return null}try{var tagValue=options.scopeManager.getValue(part.value);if(!tagValue){throw new Error("tagValue is empty")}var imgBuffer=this.options.getImage(tagValue,part.value);var rId=imgManager.addImageRels(this.getNextImageName(),imgBuffer);var sizePixel=this.options.getSize(imgBuffer,tagValue,part.value);return this.getRenderedPart(part,rId,sizePixel)}catch(e){return{value:this.fileTypeConfig.tagTextXml}}}},{key:"getRenderedPart",value:function getRenderedPart(part,rId,sizePixel){if(isNaN(rId)){throw new Error("rId is NaN, aborting")}var size=[DocUtils.convertPixelsToEmus(sizePixel[0]),DocUtils.convertPixelsToEmus(sizePixel[1])];var centered=this.options.centered||part.centered;var newText=void 0;if(this.fileType==="pptx"){newText=this.getRenderedPartPptx(part,rId,size,centered)}else{newText=this.getRenderedPartDocx(rId,size,centered)}return{value:newText}}},{key:"getRenderedPartPptx",value:function getRenderedPartPptx(part,rId,size,centered){var offset={x:part.offset.x,y:part.offset.y};var cellCX=part.ext.cx;var cellCY=part.ext.cy;var imgW=size[0];var imgH=size[1];if(centered){offset.x+=cellCX/2-imgW/2;offset.y+=cellCY/2-imgH/2}return templates.getPptxImageXml(rId,[imgW,imgH],offset)}},{key:"getRenderedPartDocx",value:function getRenderedPartDocx(rId,size,centered){return centered?templates.getImageXmlCentered(rId,size):templates.getImageXml(rId,size)}},{key:"getNextImageName",value:function getNextImageName(){var name="image_generated_"+this.imageNumber+".png";this.imageNumber++;return name}}]);return ImageModule}();module.exports=ImageModule},{"./imgManager":2,"./templates":3,docxtemplater:5,xmldom:23}]},{},[])("/src/js/index.js")});
-
-/***/ },
-
-/***/ 26831
-/*!*****************************************!*\
-  !*** ./js/docxtemplater.v3.0.12.min.js ***!
-  \*****************************************/
-(module) {
-
-(function(f){if(true){module.exports=f()}else // removed by dead control flow
-{ var g; }})(function(){var define,module,exports;return function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=undefined;if(!u&&a)return require(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=undefined;for(var o=0;o<r.length;o++)s(r[o]);return s}({1:[function(require,module,exports){"use strict";function _defineProperty(obj,key,value){if(key in obj){Object.defineProperty(obj,key,{value:value,enumerable:true,configurable:true,writable:true})}else{obj[key]=value}return obj}var memoize=require("./memoize");var DOMParser=require("xmldom").DOMParser;var XMLSerializer=require("xmldom").XMLSerializer;var Errors=require("./errors");var DocUtils={};function parser(tag){return _defineProperty({},"get",function get(scope){if(tag==="."){return scope}return scope[tag]})}DocUtils.defaults={nullGetter:function nullGetter(part){if(!part.module){return"undefined"}if(part.module==="rawxml"){return""}return""},parser:memoize(parser),delimiters:{start:"{",end:"}"}};DocUtils.mergeObjects=function(){var resObj={};var obj=void 0,keys=void 0;for(var i=0;i<arguments.length;i+=1){obj=arguments[i];keys=Object.keys(obj);for(var j=0;j<keys.length;j+=1){resObj[keys[j]]=obj[keys[j]]}}return resObj};DocUtils.xml2str=function(xmlNode){var a=new XMLSerializer;return a.serializeToString(xmlNode)};DocUtils.decodeUtf8=function(s){try{if(s===undefined){return undefined}return decodeURIComponent(escape(DocUtils.convertSpaces(s)))}catch(e){var err=new Error("End");err.properties.data=s;err.properties.explanation="Could not decode string to UTF8";throw err}};DocUtils.encodeUtf8=function(s){return unescape(encodeURIComponent(s))};DocUtils.str2xml=function(str,errorHandler){var parser=new DOMParser({errorHandler:errorHandler});return parser.parseFromString(str,"text/xml")};DocUtils.charMap={"&":"&amp;","'":"&apos;","<":"&lt;",">":"&gt;"};var regexStripRegexp=/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g;DocUtils.escapeRegExp=function(str){return str.replace(regexStripRegexp,"\\$&")};DocUtils.charMapRegexes=Object.keys(DocUtils.charMap).map(function(endChar){var startChar=DocUtils.charMap[endChar];return{rstart:new RegExp(DocUtils.escapeRegExp(startChar),"g"),rend:new RegExp(DocUtils.escapeRegExp(endChar),"g"),start:startChar,end:endChar}});DocUtils.wordToUtf8=function(string){var r=void 0;for(var i=0,l=DocUtils.charMapRegexes.length;i<l;i++){r=DocUtils.charMapRegexes[i];string=string.replace(r.rstart,r.end)}return string};DocUtils.utf8ToWord=function(string){if(typeof string!=="string"){string=string.toString()}var r=void 0;for(var i=0,l=DocUtils.charMapRegexes.length;i<l;i++){r=DocUtils.charMapRegexes[i];string=string.replace(r.rend,r.start)}return string};DocUtils.cloneDeep=function(obj){return JSON.parse(JSON.stringify(obj))};DocUtils.concatArrays=function(arrays){return arrays.reduce(function(result,array){Array.prototype.push.apply(result,array);return result},[])};var spaceRegexp=new RegExp(String.fromCharCode(160),"g");DocUtils.convertSpaces=function(s){return s.replace(spaceRegexp," ")};DocUtils.pregMatchAll=function(regex,content){var matchArray=[];var match=void 0;while((match=regex.exec(content))!=null){matchArray.push({array:match,offset:match.index})}return matchArray};DocUtils.sizeOfObject=function(obj){return Object.keys(obj).length};function throwXmlTagNotFound(options){var err=new Errors.XTTemplateError("No tag '"+options.element+"' was found at the "+options.position);err.properties={id:"no_xml_tag_found_at_"+options.position,explanation:"No tag '"+options.element+"' was found at the "+options.position,parsed:options.parsed,index:options.index,element:options.element};throw err}DocUtils.getRight=function(parsed,element,index){for(var i=index,l=parsed.length;i<l;i++){var part=parsed[i];if(part.value==="</"+element+">"){return i}}throwXmlTagNotFound({position:"right",element:element,parsed:parsed,index:index})};DocUtils.getLeft=function(parsed,element,index){for(var i=index;i>=0;i--){var part=parsed[i];if(part.value.indexOf("<"+element)===0&&[">"," "].indexOf(part.value[element.length+1])!==-1){return i}}throwXmlTagNotFound({position:"left",element:element,parsed:parsed,index:index})};module.exports=DocUtils},{"./errors":2,"./memoize":5,xmldom:19}],2:[function(require,module,exports){"use strict";function XTError(message){this.name="GenericError";this.message=message;this.stack=new Error(message).stack}XTError.prototype=Error.prototype;function XTTemplateError(message){this.name="TemplateError";this.message=message;this.stack=new Error(message).stack}XTTemplateError.prototype=new XTError;function XTScopeParserError(message){this.name="ScopeParserError";this.message=message;this.stack=new Error(message).stack}XTScopeParserError.prototype=new XTError;function XTInternalError(message){this.name="InternalError";this.properties={explanation:"InternalError"};this.message=message;this.stack=new Error(message).stack}XTInternalError.prototype=new XTError;module.exports={XTError:XTError,XTTemplateError:XTTemplateError,XTInternalError:XTInternalError,XTScopeParserError:XTScopeParserError}},{}],3:[function(require,module,exports){"use strict";var loopModule=require("./modules/loop");var spacePreserveModule=require("./modules/space-preserve");var rawXmlModule=require("./modules/rawxml");var expandPairTrait=require("./modules/expand-pair-trait");var render=require("./modules/render");var PptXFileTypeConfig={getTemplatedFiles:function getTemplatedFiles(zip){var slideTemplates=zip.file(/ppt\/(slides|slideMasters)\/(slide|slideMaster)\d+\.xml/).map(function(file){return file.name});return slideTemplates.concat(["ppt/presentation.xml"])},textPath:"ppt/slides/slide1.xml",tagsXmlTextArray:["a:t","m:t"],tagsXmlLexedArray:["p:sp","a:tc","a:tr","a:table","a:p","a:r"],tagRawXml:"p:sp",tagTextXml:"a:t",baseModules:[render,expandPairTrait,rawXmlModule,loopModule]};var DocXFileTypeConfig={getTemplatedFiles:function getTemplatedFiles(zip){var slideTemplates=zip.file(/word\/(header|footer)\d+\.xml/).map(function(file){return file.name});return slideTemplates.concat(["word/document.xml"])},textPath:"word/document.xml",tagsXmlTextArray:["w:t","m:t"],tagsXmlLexedArray:["w:tc","w:tr","w:table","w:p","w:r"],tagRawXml:"w:p",tagTextXml:"w:t",baseModules:[render,spacePreserveModule,expandPairTrait,rawXmlModule,loopModule]};module.exports={docx:DocXFileTypeConfig,pptx:PptXFileTypeConfig}},{"./modules/expand-pair-trait":8,"./modules/loop":9,"./modules/rawxml":10,"./modules/render":11,"./modules/space-preserve":12}],4:[function(require,module,exports){"use strict";var Errors=require("./errors");var DocUtils=require("./doc-utils");function inRange(range,match){return range[0]<=match.offset&&match.offset<range[1]}function updateInTextTag(part,inTextTag){if(part.type==="tag"&&part.position==="start"&&part.text){if(inTextTag){throw new Error("Malformed xml : Already in text tag")}return true}if(part.type==="tag"&&part.position==="end"&&part.text){if(!inTextTag){throw new Error("Malformed xml : Already not in text tag")}return false}return inTextTag}function offsetSort(a,b){return a.offset-b.offset}function getTag(tag){var start=1;if(tag[1]==="/"){start=2}var index=tag.indexOf(" ");var end=index===-1?tag.length-1:index;return{tag:tag.slice(start,end),position:start===1?"start":"end"}}function tagMatcher(content,textMatchArray,othersMatchArray){var cursor=0;var contentLength=content.length;var allMatches=DocUtils.concatArrays([textMatchArray.map(function(tag){return{tag:tag,text:true}}),othersMatchArray.map(function(tag){return{tag:tag,text:false}})]).reduce(function(allMatches,t){allMatches[t.tag]=t.text;return allMatches},{});var totalMatches=[];while(cursor<contentLength){cursor=content.indexOf("<",cursor);if(cursor===-1){break}var offset=cursor;cursor=content.indexOf(">",cursor);var tagText=content.slice(offset,cursor+1);var _getTag=getTag(tagText),tag=_getTag.tag,position=_getTag.position;var text=allMatches[tag];if(text==null){continue}totalMatches.push({type:"tag",position:position,text:text,offset:offset,value:tagText})}return totalMatches}function throwUnopenedTagException(options){var err=new Errors.XTTemplateError("Unopened tag");err.properties={xtag:options.xtag.split(" ")[0],id:"unopened_tag",context:options.xtag,explanation:"The tag beginning with '"+options.xtag.substr(0,10)+"' is unclosed"};throw err}function throwUnclosedTagException(options){var err=new Errors.XTTemplateError("Unclosed tag");err.properties={xtag:options.xtag.split(" ")[0].substr(1),id:"unclosed_tag",context:options.xtag,explanation:"The tag beginning with '"+options.xtag.substr(0,10)+"' is unclosed"};throw err}function assertDelimiterOrdered(delimiterMatches,fullText){var inDelimiter=false;var lastDelimiterMatch={offset:0};var xtag=void 0;delimiterMatches.forEach(function(delimiterMatch){xtag=fullText.substr(lastDelimiterMatch.offset,delimiterMatch.offset-lastDelimiterMatch.offset);if(delimiterMatch.position==="start"&&inDelimiter||delimiterMatch.position==="end"&&!inDelimiter){if(delimiterMatch.position==="start"){throwUnclosedTagException({xtag:xtag})}else{throwUnopenedTagException({xtag:xtag})}}inDelimiter=!inDelimiter;lastDelimiterMatch=delimiterMatch});var delimiterMatch={offset:fullText.length};xtag=fullText.substr(lastDelimiterMatch.offset,delimiterMatch.offset-lastDelimiterMatch.offset);if(inDelimiter){throwUnclosedTagException({xtag:xtag})}}function getAllIndexes(arr,val,position){var indexes=[];var offset=-1;do{offset=arr.indexOf(val,offset+1);if(offset!==-1){indexes.push({offset:offset,position:position})}}while(offset!==-1);return indexes}function Reader(innerContentParts){var _this=this;this.innerContentParts=innerContentParts;this.full="";this.parseDelimiters=function(delimiters){_this.full=_this.innerContentParts.join("");var offset=0;_this.ranges=_this.innerContentParts.map(function(part){offset+=part.length;return offset-part.length});var delimiterMatches=DocUtils.concatArrays([getAllIndexes(_this.full,delimiters.start,"start"),getAllIndexes(_this.full,delimiters.end,"end")]).sort(offsetSort);assertDelimiterOrdered(delimiterMatches,_this.full);var delimiterLength={start:delimiters.start.length,end:delimiters.end.length};var cutNext=0;var delimiterIndex=0;_this.parsed=_this.ranges.map(function(offset,i){var range=[offset,offset+this.innerContentParts[i].length];var partContent=this.innerContentParts[i];var delimitersInOffset=[];while(delimiterIndex<delimiterMatches.length&&inRange(range,delimiterMatches[delimiterIndex])){delimitersInOffset.push(delimiterMatches[delimiterIndex]);delimiterIndex++}var parts=[];var cursor=0;if(cutNext>0){cursor=cutNext;cutNext=0}delimitersInOffset.forEach(function(delimiterInOffset){var value=partContent.substr(cursor,delimiterInOffset.offset-offset-cursor);if(value.length>0){parts.push({type:"content",value:value})}parts.push({type:"delimiter",position:delimiterInOffset.position});cursor=delimiterInOffset.offset-offset+delimiterLength[delimiterInOffset.position]});cutNext=cursor-partContent.length;var value=partContent.substr(cursor);if(value.length>0){parts.push({type:"content",value:value})}return parts},_this)}}module.exports={parse:function parse(xmlparsed,delimiters){var inTextTag=false;var innerContentParts=[];xmlparsed.forEach(function(part){inTextTag=updateInTextTag(part,inTextTag);if(inTextTag&&part.type==="content"){innerContentParts.push(part.value)}});var reader=new Reader(innerContentParts);reader.parseDelimiters(delimiters);var newArray=[];var index=0;xmlparsed.forEach(function(part){inTextTag=updateInTextTag(part,inTextTag);if(part.type==="content"){part.position=inTextTag?"insidetag":"outsidetag"}if(inTextTag&&part.type==="content"){Array.prototype.push.apply(newArray,reader.parsed[index].map(function(p){if(p.type==="content"){p.position="insidetag"}return p}));index++}else{newArray.push(part)}});return newArray},xmlparse:function xmlparse(content,xmltags){var matches=tagMatcher(content,xmltags.text,xmltags.other);var cursor=0;var parsed=matches.reduce(function(parsed,match){var value=content.substr(cursor,match.offset-cursor);if(value.length>0){parsed.push({type:"content",value:value})}cursor=match.offset+match.value.length;delete match.offset;if(match.value.length>0){parsed.push(match)}return parsed},[]);var value=content.substr(cursor);if(value.length>0){parsed.push({type:"content",value:value})}return parsed}}},{"./doc-utils":1,"./errors":2}],5:[function(require,module,exports){"use strict";function memoize(func){var stringifyJson=JSON.stringify,cache={};function cachedfun(){var hash=stringifyJson(arguments);return hash in cache?cache[hash]:cache[hash]=func.apply(this,arguments)}return cachedfun}module.exports=memoize},{}],6:[function(require,module,exports){"use strict";function getMinFromArrays(arrays,state){var minIndex=-1;for(var i=0,l=arrays.length;i<l;i++){if(state[i]>=arrays[i].length){continue}if(minIndex===-1||arrays[i][state[i]].offset<arrays[minIndex][state[minIndex]].offset){minIndex=i}}if(minIndex===-1){throw new Error("minIndex negative")}return minIndex}module.exports=function(arrays){var totalLength=arrays.reduce(function(sum,array){return sum+array.length},0);arrays=arrays.filter(function(array){return array.length>0});var resultArray=new Array(totalLength);var state=arrays.map(function(){return 0});var i=0;while(i<=totalLength-1){var arrayIndex=getMinFromArrays(arrays,state);resultArray[i]=arrays[arrayIndex][state[arrayIndex]];state[arrayIndex]++;i++}return resultArray}},{}],7:[function(require,module,exports){"use strict";function emptyFun(){}function identity(i){return i}module.exports=function(module){var defaults={set:emptyFun,parse:emptyFun,render:emptyFun,getTraits:emptyFun,optionsTransformer:identity,getRenderedMap:identity,postparse:identity};if(Object.keys(defaults).every(function(key){return!module[key]})){throw new Error("This module cannot be wrapped, because it doesn't define any of the necessary functions")}Object.keys(defaults).forEach(function(key){module[key]=module[key]||defaults[key]});return module}},{}],8:[function(require,module,exports){"use strict";var traitName="expandPair";var mergeSort=require("../mergesort");var DocUtils=require("../doc-utils");var wrapper=require("../module-wrapper");var _require=require("../traits"),getExpandToDefault=_require.getExpandToDefault;var Errors=require("../errors");function throwUnmatchedLoopException(options){var location=options.location;var t=location==="start"?"unclosed":"unopened";var T=location==="start"?"Unclosed":"Unopened";var err=new Errors.XTTemplateError(T+" loop");var tag=options.part.value;err.properties={id:t+"_loop",explanation:"The loop with tag "+tag+" is "+t,xtag:tag};throw err}function throwClosingTagNotMatchOpeningTag(options){var tags=options.tags;var err=new Errors.XTTemplateError("Closing tag does not match opening tag");err.properties={id:"closing_tag_does_not_match_opening_tag",explanation:'The tag "'+tags[0].value+'" is closed by the tag "'+tags[1].value+'"',openingtag:tags[0].value,closingtag:tags[1].value};throw err}function getOpenCountChange(part){switch(part.location){case"start":return 1;case"end":return-1;default:throw new Error("Location should be one of 'start' or 'end' (given : "+part.location+")")}}function getPairs(traits){if(traits.length===0){return[]}var countOpen=1;var firstTrait=traits[0];for(var i=1;i<traits.length;i++){var currentTrait=traits[i];countOpen+=getOpenCountChange(currentTrait.part);if(countOpen===0){if(currentTrait.part.value!==firstTrait.part.value&&currentTrait.part.value!==""){throwClosingTagNotMatchOpeningTag({tags:[firstTrait.part,currentTrait.part]})}var outer=getPairs(traits.slice(i+1));return[[firstTrait,currentTrait]].concat(outer)}}var part=firstTrait.part;throwUnmatchedLoopException({part:part,location:part.location})}var expandPairTrait={name:"ExpandPairTrait",postparse:function postparse(parsed,_ref){var getTraits=_ref.getTraits,_postparse=_ref.postparse;var traits=getTraits(traitName,parsed);traits=traits.map(function(trait){return trait||[]});traits=mergeSort(traits);var pairs=getPairs(traits);var expandedPairs=pairs.map(function(pair){var expandTo=pair[0].part.expandTo;if(expandTo==="auto"){expandTo=getExpandToDefault(parsed.slice(pair[0].offset,pair[1].offset))}if(!expandTo){return[pair[0].offset,pair[1].offset]}var left=DocUtils.getLeft(parsed,expandTo,pair[0].offset);var right=DocUtils.getRight(parsed,expandTo,pair[1].offset);return[left,right]});var currentPairIndex=0;var innerParts=void 0;return parsed.reduce(function(newParsed,part,i){var inPair=currentPairIndex<pairs.length&&expandedPairs[currentPairIndex][0]<=i;var pair=pairs[currentPairIndex];var expandedPair=expandedPairs[currentPairIndex];if(!inPair){newParsed.push(part);return newParsed}if(expandedPair[0]===i){innerParts=[]}if(pair[0].offset!==i&&pair[1].offset!==i){innerParts.push(part)}if(expandedPair[1]===i){var basePart=parsed[pair[0].offset];delete basePart.location;delete basePart.expandTo;basePart.subparsed=_postparse(innerParts);newParsed.push(basePart);currentPairIndex++}return newParsed},[])}};module.exports=function(){return wrapper(expandPairTrait)}},{"../doc-utils":1,"../errors":2,"../mergesort":6,"../module-wrapper":7,"../traits":16}],9:[function(require,module,exports){"use strict";var DocUtils=require("../doc-utils");var dashInnerRegex=/^-([^\s]+)\s(.+)$/;var wrapper=require("../module-wrapper");var moduleName="loop";var loopModule={name:"LoopModule",parse:function parse(placeHolderContent){var module=moduleName;var type="placeholder";if(placeHolderContent[0]==="#"){return{type:type,value:placeHolderContent.substr(1),expandTo:"auto",module:module,location:"start",inverted:false}}if(placeHolderContent[0]==="^"){return{type:type,value:placeHolderContent.substr(1),expandTo:"auto",module:module,location:"start",inverted:true}}if(placeHolderContent[0]==="/"){return{type:type,value:placeHolderContent.substr(1),module:module,location:"end"}}if(placeHolderContent[0]==="-"){var value=placeHolderContent.replace(dashInnerRegex,"$2");var expandTo=placeHolderContent.replace(dashInnerRegex,"$1");return{type:type,value:value,expandTo:expandTo,module:module,location:"start",inverted:false}}return null},getTraits:function getTraits(traitName,parsed){if(traitName!=="expandPair"){return}return parsed.reduce(function(tags,part,offset){if(part.type==="placeholder"&&part.module===moduleName){tags.push({part:part,offset:offset})}return tags},[])},render:function render(part,options){if(!part.type==="placeholder"||part.module!==moduleName){return null}var totalValue=[];function loopOver(scope){var scopeManager=options.scopeManager.createSubScopeManager(scope,part.value);totalValue.push(options.render(DocUtils.mergeObjects({},options,{compiled:part.subparsed,tags:{},scopeManager:scopeManager})))}options.scopeManager.loopOver(part.value,loopOver,part.inverted);return{value:totalValue.join("")}}};module.exports=function(){return wrapper(loopModule)}},{"../doc-utils":1,"../module-wrapper":7}],10:[function(require,module,exports){"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function")}}var DocUtils=require("../doc-utils");var Errors=require("../errors");var moduleName="rawxml";var wrapper=require("../module-wrapper");function throwRawTagShouldBeOnlyTextInParagraph(options){var err=new Errors.XTTemplateError("Raw tag should be the only text in paragraph");var tag=options.part.value;err.properties={id:"raw_xml_tag_should_be_only_text_in_paragraph",explanation:"The tag "+tag,xtag:options.part.value,paragraphParts:options.paragraphParts};throw err}function getInner(_ref){var part=_ref.part,left=_ref.left,right=_ref.right,postparsed=_ref.postparsed,index=_ref.index;var paragraphParts=postparsed.slice(left+1,right);paragraphParts.forEach(function(p,i){if(i===index-left-1){return}if(p.type==="placeholder"||p.type==="content"&&p.position==="insidetag"){throwRawTagShouldBeOnlyTextInParagraph({paragraphParts:paragraphParts,part:part})}});return part}var RawXmlModule=function(){function RawXmlModule(){_classCallCheck(this,RawXmlModule);this.name="RawXmlModule"}_createClass(RawXmlModule,[{key:"optionsTransformer",value:function optionsTransformer(options,docxtemplater){this.fileTypeConfig=docxtemplater.fileTypeConfig;return options}},{key:"parse",value:function parse(placeHolderContent){var type="placeholder";if(placeHolderContent[0]!=="@"){return null}return{type:type,value:placeHolderContent.substr(1),module:moduleName}}},{key:"postparse",value:function postparse(parsed){return DocUtils.traits.expandToOne(parsed,{moduleName:moduleName,getInner:getInner,expandTo:this.fileTypeConfig.tagRawXml})}},{key:"render",value:function render(part,options){if(part.module!==moduleName){return null}var value=options.scopeManager.getValue(part.value);if(value==null){value=options.nullGetter(part)}return{value:value}}}]);return RawXmlModule}();module.exports=function(){return wrapper(new RawXmlModule)}},{"../doc-utils":1,"../errors":2,"../module-wrapper":7}],11:[function(require,module,exports){"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function")}}var wrapper=require("../module-wrapper");var Render=function(){function Render(){_classCallCheck(this,Render);this.name="Render"}_createClass(Render,[{key:"set",value:function set(obj){if(obj.compiled){this.compiled=obj.compiled}if(obj.data!=null){this.data=obj.data}}},{key:"getRenderedMap",value:function getRenderedMap(mapper){var _this=this;return Object.keys(this.compiled).reduce(function(mapper,from){mapper[from]={from:from,data:_this.data};return mapper},mapper)}}]);return Render}();module.exports=function(){return wrapper(new Render)}},{"../module-wrapper":7}],12:[function(require,module,exports){"use strict";var wrapper=require("../module-wrapper");var spacePreserve={name:"SpacePreserveModule",postparse:function postparse(parsed){var chunk=[];var inChunk=false;var result=parsed.reduce(function(parsed,part){if(part.type==="tag"&&part.position==="start"&&part.text&&part.value==="<w:t>"){inChunk=true}if(inChunk){if(part.type==="placeholder"&&!part.module){chunk[0].value='<w:t xml:space="preserve">'}chunk.push(part)}else{parsed.push(part)}if(part.type==="tag"&&part.position==="end"&&part.text&&part.value==="</w:t>"){Array.prototype.push.apply(parsed,chunk);inChunk=false;chunk=[]}return parsed},[]);Array.prototype.push.apply(result,chunk);return result}};module.exports=function(){return wrapper(spacePreserve)}},{"../module-wrapper":7}],13:[function(require,module,exports){"use strict";var DocUtils=require("./doc-utils");var parser={postparse:function postparse(parsed,modules){function getTraits(traitName,parsed){return modules.map(function(module){return module.getTraits(traitName,parsed)})}function postparse(parsed){return modules.reduce(function(parsed,module){return module.postparse(parsed,{postparse:postparse,getTraits:getTraits})},parsed)}return postparse(parsed)},parse:function parse(lexed,modules){function moduleParse(placeHolderContent,parsed){var moduleParsed=void 0;for(var i=0,l=modules.length;i<l;i++){var _module=modules[i];moduleParsed=_module.parse(placeHolderContent);if(moduleParsed){parsed.push(moduleParsed);return moduleParsed}}return null}var inPlaceHolder=false;var placeHolderContent=void 0;var tailParts=[];return lexed.reduce(function(parsed,token){if(token.type==="delimiter"){inPlaceHolder=token.position==="start";if(token.position==="end"){placeHolderContent=DocUtils.wordToUtf8(placeHolderContent);if(!moduleParse(placeHolderContent,parsed)){parsed.push({type:"placeholder",value:placeHolderContent})}Array.prototype.push.apply(parsed,tailParts);tailParts=[];return parsed}placeHolderContent="";return parsed}if(inPlaceHolder){if(token.type==="content"&&token.position==="insidetag"){placeHolderContent+=token.value}else{tailParts.push(token)}return parsed}parsed.push(token);return parsed},[])}};module.exports=parser},{"./doc-utils":1}],14:[function(require,module,exports){"use strict";var ScopeManager=require("./scope-manager");var DocUtils=require("./doc-utils");function moduleRender(part,options){var moduleRendered=void 0;for(var i=0,l=options.modules.length;i<l;i++){var _module=options.modules[i];moduleRendered=_module.render(part,options);if(moduleRendered){return moduleRendered}}return false}function render(options){options.render=render;options.modules=options.modules;if(!options.scopeManager){options.scopeManager=ScopeManager.createBaseScopeManager(options)}return options.compiled.map(function(part){var moduleRendered=moduleRender(part,options);if(moduleRendered){return moduleRendered.value}if(part.type==="placeholder"){var value=options.scopeManager.getValue(part.value);if(value==null){value=options.nullGetter(part)}return DocUtils.utf8ToWord(value)}if(part.type==="content"||part.type==="tag"){return part.value}throw new Error('Unimplemented tag type "'+part.type+'"')}).join("")}module.exports=render},{"./doc-utils":1,"./scope-manager":15}],15:[function(require,module,exports){"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function")}}var Errors=require("./errors");var ScopeManager=function(){function ScopeManager(options){_classCallCheck(this,ScopeManager);this.scopePath=options.scopePath;this.scopeList=options.scopeList;this.parser=options.parser}_createClass(ScopeManager,[{key:"loopOver",value:function loopOver(tag,callback,inverted){inverted=inverted||false;return this.loopOverValue(this.getValue(tag),callback,inverted)}},{key:"functorIfInverted",value:function functorIfInverted(inverted,functor,value){if(inverted){functor(value)}}},{key:"isValueFalsy",value:function isValueFalsy(value,type){return value==null||!value||type==="[object Array]"&&value.length===0}},{key:"loopOverValue",value:function loopOverValue(value,functor,inverted){var type=Object.prototype.toString.call(value);var currentValue=this.scopeList[this.num];if(this.isValueFalsy(value,type)){return this.functorIfInverted(inverted,functor,currentValue)}if(type==="[object Array]"){for(var i=0,scope;i<value.length;i++){scope=value[i];this.functorIfInverted(!inverted,functor,scope)}return}if(type==="[object Object]"){return this.functorIfInverted(!inverted,functor,value)}if(value===true){return this.functorIfInverted(!inverted,functor,currentValue)}}},{key:"getValue",value:function getValue(tag,num){this.num=num==null?this.scopeList.length-1:num;var err=void 0;var parser=void 0;var result=void 0;var scope=this.scopeList[this.num];try{parser=this.parser(tag)}catch(error){err=new Errors.XTScopeParserError("Scope parser compilation failed");err.properties={id:"scopeparser_compilation_failed",tag:tag,explanation:"The scope parser for the tag "+tag+" failed to compile",rootError:error};throw err}try{result=parser.get(scope,{num:this.num,scopeList:this.scopeList})}catch(error){err=new Errors.XTScopeParserError("Scope parser execution failed");err.properties={id:"scopeparser_execution_failed",explanation:"The scope parser for the tag "+tag+" failed to execute",scope:scope,tag:tag,rootError:error};throw err}if(result==null&&this.num>0){return this.getValue(tag,this.num-1)}return result}},{key:"createSubScopeManager",value:function createSubScopeManager(scope,tag){var options={scopePath:this.scopePath.slice(0),scopeList:this.scopeList.slice(0)};options.parser=this.parser;options.scopeList=this.scopeList.concat(scope);options.scopePath=this.scopePath.concat(tag);return new ScopeManager(options)}}]);return ScopeManager}();ScopeManager.createBaseScopeManager=function(_ref){var parser=_ref.parser,tags=_ref.tags;var options={parser:parser,tags:tags};options.scopePath=[];options.scopeList=[tags];return new ScopeManager(options)};module.exports=ScopeManager},{"./errors":2}],16:[function(require,module,exports){"use strict";var DocUtils=require("./doc-utils");var Errors=require("./errors");function throwRawTagNotInParagraph(options){var err=new Errors.XTTemplateError("Raw tag not in paragraph");var tag=options.part.value;err.properties={id:"raw_tag_outerxml_invalid",explanation:'The tag "'+tag+'"',rootError:options.rootError,xtag:tag,postparsed:options.postparsed,expandTo:options.expandTo,index:options.index};throw err}function lastTagIsOpenTag(array,tag){if(array.length===0){return false}var lastTag=array[array.length-1];var innerLastTag=lastTag.tag.substr(1);var innerCurrentTag=tag.substr(2,tag.length-3);return innerLastTag.indexOf(innerCurrentTag)===0}function addTag(array,tag){array.push({tag:tag});return array}function getListXmlElements(parts){var tags=parts.filter(function(part){return part.type==="tag"}).map(function(part){return part.value});var result=[];for(var i=0,tag;i<tags.length;i++){tag=tags[i];if(tag[1]==="/"){if(lastTagIsOpenTag(result,tag)){result.pop()}else{result=addTag(result,tag)}}else if(tag[tag.length-1]!=="/"){result=addTag(result,tag)}}return result}function getExpandToDefault(parts){var xmlElements=getListXmlElements(parts);for(var i=0;i<xmlElements.length;i++){var xmlElement=xmlElements[i];if(xmlElement.tag.indexOf("<w:tc")===0){return"w:tr"}if(xmlElement.tag.indexOf("<a:tc")===0){return"a:tr"}}return false}function expandOne(part,postparsed,options){var expandTo=part.expandTo||options.expandTo;var index=postparsed.indexOf(part);if(!expandTo){return postparsed}var right=void 0,left=void 0;try{right=DocUtils.getRight(postparsed,expandTo,index);left=DocUtils.getLeft(postparsed,expandTo,index)}catch(rootError){if(rootError instanceof Errors.XTTemplateError){throwRawTagNotInParagraph({part:part,rootError:rootError,postparsed:postparsed,expandTo:expandTo,index:index})}throw rootError}var leftParts=postparsed.slice(left,index);var rightParts=postparsed.slice(index+1,right+1);var inner=options.getInner({index:index,part:part,leftParts:leftParts,rightParts:rightParts,left:left,right:right,postparsed:postparsed});if(!inner.length){inner.expanded=[leftParts,rightParts];inner=[inner]}return DocUtils.concatArrays([postparsed.slice(0,left),inner,postparsed.slice(right+1)])}function expandToOne(postparsed,options){var expandToElements=postparsed.reduce(function(elements,part){if(part.type==="placeholder"&&part.module===options.moduleName){elements.push(part)}return elements},[]);expandToElements.forEach(function(part){postparsed=expandOne(part,postparsed,options)});return postparsed}module.exports={expandToOne:expandToOne,getExpandToDefault:getExpandToDefault}},{"./doc-utils":1,"./errors":2}],17:[function(require,module,exports){"use strict";var DocUtils=require("./doc-utils");var memoize=require("./memoize");function handleRecursiveCase(res){function replacerUnshift(){var pn={array:Array.prototype.slice.call(arguments)};pn.array.shift();var match=pn.array[0]+pn.array[1];pn.array.unshift(match);pn.array.pop();var offset=pn.array.pop();pn.offset=offset;pn.first=true;res.matches.unshift(pn);res.charactersAdded.unshift(0);return res.charactersAddedCumulative.unshift(0)}if(res.content.indexOf("<")===-1&&res.content.indexOf(">")===-1){res.content.replace(/^()([^<>]*)$/,replacerUnshift)}var r=new RegExp("^()([^<]+)</(?:"+res.tagsXmlArrayJoined+")>");res.content.replace(r,replacerUnshift);function replacerPush(){var pn={array:Array.prototype.slice.call(arguments)};pn.array.pop();var offset=pn.array.pop();pn.offset=offset;pn.last=true;res.matches.push(pn);res.charactersAdded.push(0);return res.charactersAddedCumulative.push(0)}r=new RegExp("(<(?:"+res.tagsXmlArrayJoined+")[^>]*>)([^>]+)$");res.content.replace(r,replacerPush);return res}function xmlMatcher(content,tagsXmlArray){var res={};res.content=content;res.tagsXmlArray=tagsXmlArray;res.tagsXmlArrayJoined=res.tagsXmlArray.join("|");var regexp=new RegExp("(<(?:"+res.tagsXmlArrayJoined+")[^>]*>)([^<>]*)</(?:"+res.tagsXmlArrayJoined+")>","g");res.matches=DocUtils.pregMatchAll(regexp,res.content);res.charactersAddedCumulative=res.matches.map(function(){return 0});res.charactersAdded=res.matches.map(function(){return 0});return handleRecursiveCase(res)}var memoized=memoize(xmlMatcher);module.exports=function(content,tagsXmlArray){return DocUtils.cloneDeep(memoized(content,tagsXmlArray))}},{"./doc-utils":1,"./memoize":5}],18:[function(require,module,exports){"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function")}}var DocUtils=require("./doc-utils");var ScopeManager=require("./scope-manager");var xmlMatcher=require("./xml-matcher");var Errors=require("./errors");var Lexer=require("./lexer");var Parser=require("./parser.js");var _render=require("./render.js");function _getFullText(content,tagsXmlArray){var matcher=xmlMatcher(content,tagsXmlArray);var result=matcher.matches.map(function(match){return match.array[2]});return DocUtils.wordToUtf8(DocUtils.convertSpaces(result.join("")))}module.exports=function(){function XmlTemplater(content,options){_classCallCheck(this,XmlTemplater);this.fromJson(options);this.setModules({inspect:{filePath:this.filePath}});this.load(content)}_createClass(XmlTemplater,[{key:"load",value:function load(content){if(typeof content!=="string"){var err=new Errors.XTInternalError("Content must be a string");err.properties.id="xmltemplater_content_must_be_string";throw err}this.content=content}},{key:"setTags",value:function setTags(tags){this.tags=tags!=null?tags:{};this.scopeManager=ScopeManager.createBaseScopeManager({tags:this.tags,parser:this.parser});return this}},{key:"fromJson",value:function fromJson(options){this.filePath=options.filePath;this.modules=options.modules;this.fileTypeConfig=options.fileTypeConfig;Object.keys(DocUtils.defaults).map(function(key){this[key]=options[key]!=null?options[key]:DocUtils.defaults[key]},this)}},{key:"getFullText",value:function getFullText(){return _getFullText(this.content,this.fileTypeConfig.tagsXmlTextArray)}},{key:"setModules",value:function setModules(obj){this.modules.forEach(function(module){module.set(obj)})}},{key:"parse",value:function parse(){this.xmllexed=Lexer.xmlparse(this.content,{text:this.fileTypeConfig.tagsXmlTextArray,other:this.fileTypeConfig.tagsXmlLexedArray});this.setModules({inspect:{xmllexed:this.xmllexed}});this.lexed=Lexer.parse(this.xmllexed,this.delimiters);this.setModules({inspect:{lexed:this.lexed}});this.parsed=Parser.parse(this.lexed,this.modules);this.setModules({inspect:{parsed:this.parsed}});this.postparsed=Parser.postparse(this.parsed,this.modules);return this}},{key:"render",value:function render(to){this.filePath=to;this.setModules({inspect:{postparsed:this.postparsed}});this.content=_render({compiled:this.postparsed,tags:this.tags,modules:this.modules,parser:this.parser,nullGetter:this.nullGetter,filePath:this.filePath});this.setModules({inspect:{content:this.content}});return this}}]);return XmlTemplater}()},{"./doc-utils":1,"./errors":2,"./lexer":4,"./parser.js":13,"./render.js":14,"./scope-manager":15,"./xml-matcher":17}],19:[function(require,module,exports){function DOMParser(options){this.options=options||{locator:{}}}DOMParser.prototype.parseFromString=function(source,mimeType){var options=this.options;var sax=new XMLReader;var domBuilder=options.domBuilder||new DOMHandler;var errorHandler=options.errorHandler;var locator=options.locator;var defaultNSMap=options.xmlns||{};var entityMap={lt:"<",gt:">",amp:"&",quot:'"',apos:"'"};if(locator){domBuilder.setDocumentLocator(locator)}sax.errorHandler=buildErrorHandler(errorHandler,domBuilder,locator);sax.domBuilder=options.domBuilder||domBuilder;if(/\/x?html?$/.test(mimeType)){entityMap.nbsp=" ";entityMap.copy="©";defaultNSMap[""]="http://www.w3.org/1999/xhtml"}defaultNSMap.xml=defaultNSMap.xml||"http://www.w3.org/XML/1998/namespace";if(source){sax.parse(source,defaultNSMap,entityMap)}else{sax.errorHandler.error("invalid doc source")}return domBuilder.doc};function buildErrorHandler(errorImpl,domBuilder,locator){if(!errorImpl){if(domBuilder instanceof DOMHandler){return domBuilder}errorImpl=domBuilder}var errorHandler={};var isCallback=errorImpl instanceof Function;locator=locator||{};function build(key){var fn=errorImpl[key];if(!fn&&isCallback){fn=errorImpl.length==2?function(msg){errorImpl(key,msg)}:errorImpl}errorHandler[key]=fn&&function(msg){fn("[xmldom "+key+"]\t"+msg+_locator(locator))}||function(){}}build("warning");build("error");build("fatalError");return errorHandler}function DOMHandler(){this.cdata=false}function position(locator,node){node.lineNumber=locator.lineNumber;node.columnNumber=locator.columnNumber}DOMHandler.prototype={startDocument:function(){this.doc=(new DOMImplementation).createDocument(null,null,null);if(this.locator){this.doc.documentURI=this.locator.systemId}},startElement:function(namespaceURI,localName,qName,attrs){var doc=this.doc;var el=doc.createElementNS(namespaceURI,qName||localName);var len=attrs.length;appendElement(this,el);this.currentElement=el;this.locator&&position(this.locator,el);for(var i=0;i<len;i++){var namespaceURI=attrs.getURI(i);var value=attrs.getValue(i);var qName=attrs.getQName(i);var attr=doc.createAttributeNS(namespaceURI,qName);this.locator&&position(attrs.getLocator(i),attr);attr.value=attr.nodeValue=value;el.setAttributeNode(attr)}},endElement:function(namespaceURI,localName,qName){var current=this.currentElement;var tagName=current.tagName;this.currentElement=current.parentNode},startPrefixMapping:function(prefix,uri){},endPrefixMapping:function(prefix){},processingInstruction:function(target,data){var ins=this.doc.createProcessingInstruction(target,data);this.locator&&position(this.locator,ins);appendElement(this,ins)},ignorableWhitespace:function(ch,start,length){},characters:function(chars,start,length){chars=_toString.apply(this,arguments);if(chars){if(this.cdata){var charNode=this.doc.createCDATASection(chars)}else{var charNode=this.doc.createTextNode(chars)}if(this.currentElement){this.currentElement.appendChild(charNode)}else if(/^\s*$/.test(chars)){this.doc.appendChild(charNode)}this.locator&&position(this.locator,charNode)}},skippedEntity:function(name){},endDocument:function(){this.doc.normalize()},setDocumentLocator:function(locator){if(this.locator=locator){locator.lineNumber=0}},comment:function(chars,start,length){chars=_toString.apply(this,arguments);var comm=this.doc.createComment(chars);this.locator&&position(this.locator,comm);appendElement(this,comm)},startCDATA:function(){this.cdata=true},endCDATA:function(){this.cdata=false},startDTD:function(name,publicId,systemId){var impl=this.doc.implementation;if(impl&&impl.createDocumentType){var dt=impl.createDocumentType(name,publicId,systemId);this.locator&&position(this.locator,dt);appendElement(this,dt)}},warning:function(error){console.warn("[xmldom warning]\t"+error,_locator(this.locator))},error:function(error){console.error("[xmldom error]\t"+error,_locator(this.locator))},fatalError:function(error){console.error("[xmldom fatalError]\t"+error,_locator(this.locator));throw error}};function _locator(l){if(l){return"\n@"+(l.systemId||"")+"#[line:"+l.lineNumber+",col:"+l.columnNumber+"]"}}function _toString(chars,start,length){if(typeof chars=="string"){return chars.substr(start,length)}else{if(chars.length>=start+length||start){return new java.lang.String(chars,start,length)+""}return chars}}"endDTD,startEntity,endEntity,attributeDecl,elementDecl,externalEntityDecl,internalEntityDecl,resolveEntity,getExternalSubset,notationDecl,unparsedEntityDecl".replace(/\w+/g,function(key){DOMHandler.prototype[key]=function(){return null}});function appendElement(hander,node){if(!hander.currentElement){hander.doc.appendChild(node)}else{hander.currentElement.appendChild(node)}}var XMLReader=require("./sax").XMLReader;var DOMImplementation=exports.DOMImplementation=require("./dom").DOMImplementation;exports.XMLSerializer=require("./dom").XMLSerializer;exports.DOMParser=DOMParser},{"./dom":20,"./sax":21}],20:[function(require,module,exports){function copy(src,dest){for(var p in src){dest[p]=src[p]}}function _extends(Class,Super){var pt=Class.prototype;if(Object.create){var ppt=Object.create(Super.prototype);pt.__proto__=ppt}if(!(pt instanceof Super)){function t(){}t.prototype=Super.prototype;t=new t;copy(pt,t);Class.prototype=pt=t}if(pt.constructor!=Class){if(typeof Class!="function"){console.error("unknow Class:"+Class)}pt.constructor=Class}}var htmlns="http://www.w3.org/1999/xhtml";var NodeType={};var ELEMENT_NODE=NodeType.ELEMENT_NODE=1;var ATTRIBUTE_NODE=NodeType.ATTRIBUTE_NODE=2;var TEXT_NODE=NodeType.TEXT_NODE=3;var CDATA_SECTION_NODE=NodeType.CDATA_SECTION_NODE=4;var ENTITY_REFERENCE_NODE=NodeType.ENTITY_REFERENCE_NODE=5;var ENTITY_NODE=NodeType.ENTITY_NODE=6;var PROCESSING_INSTRUCTION_NODE=NodeType.PROCESSING_INSTRUCTION_NODE=7;var COMMENT_NODE=NodeType.COMMENT_NODE=8;var DOCUMENT_NODE=NodeType.DOCUMENT_NODE=9;var DOCUMENT_TYPE_NODE=NodeType.DOCUMENT_TYPE_NODE=10;var DOCUMENT_FRAGMENT_NODE=NodeType.DOCUMENT_FRAGMENT_NODE=11;var NOTATION_NODE=NodeType.NOTATION_NODE=12;var ExceptionCode={};var ExceptionMessage={};var INDEX_SIZE_ERR=ExceptionCode.INDEX_SIZE_ERR=(ExceptionMessage[1]="Index size error",1);var DOMSTRING_SIZE_ERR=ExceptionCode.DOMSTRING_SIZE_ERR=(ExceptionMessage[2]="DOMString size error",2);var HIERARCHY_REQUEST_ERR=ExceptionCode.HIERARCHY_REQUEST_ERR=(ExceptionMessage[3]="Hierarchy request error",3);var WRONG_DOCUMENT_ERR=ExceptionCode.WRONG_DOCUMENT_ERR=(ExceptionMessage[4]="Wrong document",4);var INVALID_CHARACTER_ERR=ExceptionCode.INVALID_CHARACTER_ERR=(ExceptionMessage[5]="Invalid character",5);var NO_DATA_ALLOWED_ERR=ExceptionCode.NO_DATA_ALLOWED_ERR=(ExceptionMessage[6]="No data allowed",6);var NO_MODIFICATION_ALLOWED_ERR=ExceptionCode.NO_MODIFICATION_ALLOWED_ERR=(ExceptionMessage[7]="No modification allowed",7);var NOT_FOUND_ERR=ExceptionCode.NOT_FOUND_ERR=(ExceptionMessage[8]="Not found",8);var NOT_SUPPORTED_ERR=ExceptionCode.NOT_SUPPORTED_ERR=(ExceptionMessage[9]="Not supported",9);var INUSE_ATTRIBUTE_ERR=ExceptionCode.INUSE_ATTRIBUTE_ERR=(ExceptionMessage[10]="Attribute in use",10);var INVALID_STATE_ERR=ExceptionCode.INVALID_STATE_ERR=(ExceptionMessage[11]="Invalid state",11);var SYNTAX_ERR=ExceptionCode.SYNTAX_ERR=(ExceptionMessage[12]="Syntax error",12);var INVALID_MODIFICATION_ERR=ExceptionCode.INVALID_MODIFICATION_ERR=(ExceptionMessage[13]="Invalid modification",13);var NAMESPACE_ERR=ExceptionCode.NAMESPACE_ERR=(ExceptionMessage[14]="Invalid namespace",14);var INVALID_ACCESS_ERR=ExceptionCode.INVALID_ACCESS_ERR=(ExceptionMessage[15]="Invalid access",15);function DOMException(code,message){if(message instanceof Error){var error=message}else{error=this;Error.call(this,ExceptionMessage[code]);this.message=ExceptionMessage[code];if(Error.captureStackTrace)Error.captureStackTrace(this,DOMException)}error.code=code;if(message)this.message=this.message+": "+message;return error}DOMException.prototype=Error.prototype;copy(ExceptionCode,DOMException);function NodeList(){}NodeList.prototype={length:0,item:function(index){return this[index]||null},toString:function(isHTML,nodeFilter){for(var buf=[],i=0;i<this.length;i++){serializeToString(this[i],buf,isHTML,nodeFilter)}return buf.join("")}};function LiveNodeList(node,refresh){this._node=node;this._refresh=refresh;_updateLiveList(this)}function _updateLiveList(list){var inc=list._node._inc||list._node.ownerDocument._inc;if(list._inc!=inc){var ls=list._refresh(list._node);__set__(list,"length",ls.length);copy(ls,list);list._inc=inc}}LiveNodeList.prototype.item=function(i){_updateLiveList(this);return this[i]};_extends(LiveNodeList,NodeList);function NamedNodeMap(){}function _findNodeIndex(list,node){var i=list.length;while(i--){if(list[i]===node){return i}}}function _addNamedNode(el,list,newAttr,oldAttr){if(oldAttr){list[_findNodeIndex(list,oldAttr)]=newAttr}else{list[list.length++]=newAttr}if(el){newAttr.ownerElement=el;var doc=el.ownerDocument;if(doc){oldAttr&&_onRemoveAttribute(doc,el,oldAttr);_onAddAttribute(doc,el,newAttr)}}}function _removeNamedNode(el,list,attr){var i=_findNodeIndex(list,attr);if(i>=0){var lastIndex=list.length-1;while(i<lastIndex){list[i]=list[++i]}list.length=lastIndex;if(el){var doc=el.ownerDocument;if(doc){_onRemoveAttribute(doc,el,attr);attr.ownerElement=null}}}else{throw DOMException(NOT_FOUND_ERR,new Error(el.tagName+"@"+attr))}}NamedNodeMap.prototype={length:0,item:NodeList.prototype.item,getNamedItem:function(key){var i=this.length;while(i--){var attr=this[i];if(attr.nodeName==key){return attr}}},setNamedItem:function(attr){var el=attr.ownerElement;if(el&&el!=this._ownerElement){throw new DOMException(INUSE_ATTRIBUTE_ERR)}var oldAttr=this.getNamedItem(attr.nodeName);_addNamedNode(this._ownerElement,this,attr,oldAttr);return oldAttr},setNamedItemNS:function(attr){var el=attr.ownerElement,oldAttr;if(el&&el!=this._ownerElement){throw new DOMException(INUSE_ATTRIBUTE_ERR)}oldAttr=this.getNamedItemNS(attr.namespaceURI,attr.localName);_addNamedNode(this._ownerElement,this,attr,oldAttr);return oldAttr},removeNamedItem:function(key){var attr=this.getNamedItem(key);_removeNamedNode(this._ownerElement,this,attr);return attr},removeNamedItemNS:function(namespaceURI,localName){var attr=this.getNamedItemNS(namespaceURI,localName);_removeNamedNode(this._ownerElement,this,attr);return attr},getNamedItemNS:function(namespaceURI,localName){var i=this.length;while(i--){var node=this[i];if(node.localName==localName&&node.namespaceURI==namespaceURI){return node}}return null}};function DOMImplementation(features){this._features={};if(features){for(var feature in features){this._features=features[feature]}}}DOMImplementation.prototype={hasFeature:function(feature,version){var versions=this._features[feature.toLowerCase()];if(versions&&(!version||version in versions)){return true}else{return false}},createDocument:function(namespaceURI,qualifiedName,doctype){var doc=new Document;doc.implementation=this;doc.childNodes=new NodeList;doc.doctype=doctype;if(doctype){doc.appendChild(doctype)}if(qualifiedName){var root=doc.createElementNS(namespaceURI,qualifiedName);doc.appendChild(root)}return doc},createDocumentType:function(qualifiedName,publicId,systemId){var node=new DocumentType;node.name=qualifiedName;node.nodeName=qualifiedName;node.publicId=publicId;node.systemId=systemId;return node}};function Node(){}Node.prototype={firstChild:null,lastChild:null,previousSibling:null,nextSibling:null,attributes:null,parentNode:null,childNodes:null,ownerDocument:null,nodeValue:null,namespaceURI:null,prefix:null,localName:null,insertBefore:function(newChild,refChild){return _insertBefore(this,newChild,refChild)},replaceChild:function(newChild,oldChild){this.insertBefore(newChild,oldChild);if(oldChild){this.removeChild(oldChild)}},removeChild:function(oldChild){return _removeChild(this,oldChild)},appendChild:function(newChild){return this.insertBefore(newChild,null)},hasChildNodes:function(){return this.firstChild!=null},cloneNode:function(deep){return cloneNode(this.ownerDocument||this,this,deep)},normalize:function(){var child=this.firstChild;while(child){var next=child.nextSibling;if(next&&next.nodeType==TEXT_NODE&&child.nodeType==TEXT_NODE){this.removeChild(next);child.appendData(next.data)}else{child.normalize();child=next}}},isSupported:function(feature,version){return this.ownerDocument.implementation.hasFeature(feature,version)},hasAttributes:function(){return this.attributes.length>0},lookupPrefix:function(namespaceURI){var el=this;while(el){var map=el._nsMap;if(map){for(var n in map){if(map[n]==namespaceURI){return n}}}el=el.nodeType==ATTRIBUTE_NODE?el.ownerDocument:el.parentNode}return null},lookupNamespaceURI:function(prefix){var el=this;while(el){var map=el._nsMap;if(map){if(prefix in map){return map[prefix]}}el=el.nodeType==ATTRIBUTE_NODE?el.ownerDocument:el.parentNode}return null},isDefaultNamespace:function(namespaceURI){var prefix=this.lookupPrefix(namespaceURI);return prefix==null}};function _xmlEncoder(c){return c=="<"&&"&lt;"||c==">"&&"&gt;"||c=="&"&&"&amp;"||c=='"'&&"&quot;"||"&#"+c.charCodeAt()+";"}copy(NodeType,Node);copy(NodeType,Node.prototype);function _visitNode(node,callback){if(callback(node)){return true}if(node=node.firstChild){do{if(_visitNode(node,callback)){return true}}while(node=node.nextSibling)}}function Document(){}function _onAddAttribute(doc,el,newAttr){doc&&doc._inc++;var ns=newAttr.namespaceURI;if(ns=="http://www.w3.org/2000/xmlns/"){el._nsMap[newAttr.prefix?newAttr.localName:""]=newAttr.value}}function _onRemoveAttribute(doc,el,newAttr,remove){doc&&doc._inc++;var ns=newAttr.namespaceURI;if(ns=="http://www.w3.org/2000/xmlns/"){delete el._nsMap[newAttr.prefix?newAttr.localName:""]}}function _onUpdateChild(doc,el,newChild){if(doc&&doc._inc){doc._inc++;var cs=el.childNodes;if(newChild){cs[cs.length++]=newChild}else{var child=el.firstChild;var i=0;while(child){cs[i++]=child;child=child.nextSibling}cs.length=i}}}function _removeChild(parentNode,child){var previous=child.previousSibling;var next=child.nextSibling;if(previous){previous.nextSibling=next}else{parentNode.firstChild=next}if(next){next.previousSibling=previous}else{parentNode.lastChild=previous}_onUpdateChild(parentNode.ownerDocument,parentNode);return child}function _insertBefore(parentNode,newChild,nextChild){var cp=newChild.parentNode;if(cp){cp.removeChild(newChild)}if(newChild.nodeType===DOCUMENT_FRAGMENT_NODE){var newFirst=newChild.firstChild;if(newFirst==null){return newChild}var newLast=newChild.lastChild}else{newFirst=newLast=newChild}var pre=nextChild?nextChild.previousSibling:parentNode.lastChild;newFirst.previousSibling=pre;newLast.nextSibling=nextChild;if(pre){pre.nextSibling=newFirst}else{parentNode.firstChild=newFirst}if(nextChild==null){parentNode.lastChild=newLast}else{nextChild.previousSibling=newLast}do{newFirst.parentNode=parentNode}while(newFirst!==newLast&&(newFirst=newFirst.nextSibling));_onUpdateChild(parentNode.ownerDocument||parentNode,parentNode);if(newChild.nodeType==DOCUMENT_FRAGMENT_NODE){newChild.firstChild=newChild.lastChild=null}return newChild}function _appendSingleChild(parentNode,newChild){var cp=newChild.parentNode;if(cp){var pre=parentNode.lastChild;cp.removeChild(newChild);var pre=parentNode.lastChild}var pre=parentNode.lastChild;newChild.parentNode=parentNode;newChild.previousSibling=pre;newChild.nextSibling=null;if(pre){pre.nextSibling=newChild}else{parentNode.firstChild=newChild}parentNode.lastChild=newChild;_onUpdateChild(parentNode.ownerDocument,parentNode,newChild);return newChild}Document.prototype={nodeName:"#document",nodeType:DOCUMENT_NODE,doctype:null,documentElement:null,_inc:1,insertBefore:function(newChild,refChild){if(newChild.nodeType==DOCUMENT_FRAGMENT_NODE){var child=newChild.firstChild;while(child){var next=child.nextSibling;this.insertBefore(child,refChild);child=next}return newChild}if(this.documentElement==null&&newChild.nodeType==ELEMENT_NODE){this.documentElement=newChild}return _insertBefore(this,newChild,refChild),newChild.ownerDocument=this,newChild},removeChild:function(oldChild){if(this.documentElement==oldChild){this.documentElement=null}return _removeChild(this,oldChild)},importNode:function(importedNode,deep){return importNode(this,importedNode,deep)},getElementById:function(id){var rtv=null;_visitNode(this.documentElement,function(node){if(node.nodeType==ELEMENT_NODE){if(node.getAttribute("id")==id){rtv=node;return true}}});return rtv},createElement:function(tagName){var node=new Element;node.ownerDocument=this;node.nodeName=tagName;node.tagName=tagName;node.childNodes=new NodeList;var attrs=node.attributes=new NamedNodeMap;attrs._ownerElement=node;return node},createDocumentFragment:function(){var node=new DocumentFragment;node.ownerDocument=this;node.childNodes=new NodeList;return node},createTextNode:function(data){var node=new Text;node.ownerDocument=this;node.appendData(data);return node},createComment:function(data){var node=new Comment;node.ownerDocument=this;node.appendData(data);return node},createCDATASection:function(data){var node=new CDATASection;node.ownerDocument=this;node.appendData(data);return node},createProcessingInstruction:function(target,data){var node=new ProcessingInstruction;node.ownerDocument=this;node.tagName=node.target=target;node.nodeValue=node.data=data;return node},createAttribute:function(name){var node=new Attr;node.ownerDocument=this;node.name=name;node.nodeName=name;node.localName=name;node.specified=true;return node},createEntityReference:function(name){var node=new EntityReference;node.ownerDocument=this;node.nodeName=name;return node},createElementNS:function(namespaceURI,qualifiedName){var node=new Element;var pl=qualifiedName.split(":");var attrs=node.attributes=new NamedNodeMap;node.childNodes=new NodeList;node.ownerDocument=this;node.nodeName=qualifiedName;node.tagName=qualifiedName;node.namespaceURI=namespaceURI;if(pl.length==2){node.prefix=pl[0];node.localName=pl[1]}else{node.localName=qualifiedName}attrs._ownerElement=node;return node},createAttributeNS:function(namespaceURI,qualifiedName){var node=new Attr;var pl=qualifiedName.split(":");node.ownerDocument=this;node.nodeName=qualifiedName;node.name=qualifiedName;node.namespaceURI=namespaceURI;node.specified=true;if(pl.length==2){node.prefix=pl[0];node.localName=pl[1]}else{node.localName=qualifiedName}return node}};_extends(Document,Node);function Element(){this._nsMap={}}Element.prototype={nodeType:ELEMENT_NODE,hasAttribute:function(name){return this.getAttributeNode(name)!=null},getAttribute:function(name){var attr=this.getAttributeNode(name);return attr&&attr.value||""},getAttributeNode:function(name){return this.attributes.getNamedItem(name)},setAttribute:function(name,value){var attr=this.ownerDocument.createAttribute(name);attr.value=attr.nodeValue=""+value;this.setAttributeNode(attr)},removeAttribute:function(name){var attr=this.getAttributeNode(name);attr&&this.removeAttributeNode(attr)},appendChild:function(newChild){if(newChild.nodeType===DOCUMENT_FRAGMENT_NODE){return this.insertBefore(newChild,null)}else{return _appendSingleChild(this,newChild)}},setAttributeNode:function(newAttr){return this.attributes.setNamedItem(newAttr)},setAttributeNodeNS:function(newAttr){return this.attributes.setNamedItemNS(newAttr)},removeAttributeNode:function(oldAttr){return this.attributes.removeNamedItem(oldAttr.nodeName)},removeAttributeNS:function(namespaceURI,localName){var old=this.getAttributeNodeNS(namespaceURI,localName);old&&this.removeAttributeNode(old)},hasAttributeNS:function(namespaceURI,localName){return this.getAttributeNodeNS(namespaceURI,localName)!=null},getAttributeNS:function(namespaceURI,localName){var attr=this.getAttributeNodeNS(namespaceURI,localName);return attr&&attr.value||""},setAttributeNS:function(namespaceURI,qualifiedName,value){var attr=this.ownerDocument.createAttributeNS(namespaceURI,qualifiedName);attr.value=attr.nodeValue=""+value;this.setAttributeNode(attr)},getAttributeNodeNS:function(namespaceURI,localName){return this.attributes.getNamedItemNS(namespaceURI,localName)},getElementsByTagName:function(tagName){return new LiveNodeList(this,function(base){var ls=[];_visitNode(base,function(node){if(node!==base&&node.nodeType==ELEMENT_NODE&&(tagName==="*"||node.tagName==tagName)){ls.push(node)}});return ls})},getElementsByTagNameNS:function(namespaceURI,localName){return new LiveNodeList(this,function(base){var ls=[];_visitNode(base,function(node){if(node!==base&&node.nodeType===ELEMENT_NODE&&(namespaceURI==="*"||node.namespaceURI===namespaceURI)&&(localName==="*"||node.localName==localName)){ls.push(node)}});return ls})}};Document.prototype.getElementsByTagName=Element.prototype.getElementsByTagName;Document.prototype.getElementsByTagNameNS=Element.prototype.getElementsByTagNameNS;_extends(Element,Node);function Attr(){}Attr.prototype.nodeType=ATTRIBUTE_NODE;_extends(Attr,Node);function CharacterData(){}CharacterData.prototype={data:"",substringData:function(offset,count){return this.data.substring(offset,offset+count)},appendData:function(text){text=this.data+text;this.nodeValue=this.data=text;this.length=text.length},insertData:function(offset,text){this.replaceData(offset,0,text)},appendChild:function(newChild){throw new Error(ExceptionMessage[HIERARCHY_REQUEST_ERR])},deleteData:function(offset,count){this.replaceData(offset,count,"")},replaceData:function(offset,count,text){var start=this.data.substring(0,offset);var end=this.data.substring(offset+count);text=start+text+end;this.nodeValue=this.data=text;this.length=text.length}};_extends(CharacterData,Node);function Text(){}Text.prototype={nodeName:"#text",nodeType:TEXT_NODE,splitText:function(offset){var text=this.data;var newText=text.substring(offset);text=text.substring(0,offset);this.data=this.nodeValue=text;this.length=text.length;var newNode=this.ownerDocument.createTextNode(newText);if(this.parentNode){this.parentNode.insertBefore(newNode,this.nextSibling)}return newNode}};_extends(Text,CharacterData);function Comment(){}Comment.prototype={nodeName:"#comment",nodeType:COMMENT_NODE};_extends(Comment,CharacterData);function CDATASection(){}CDATASection.prototype={nodeName:"#cdata-section",nodeType:CDATA_SECTION_NODE};_extends(CDATASection,CharacterData);function DocumentType(){}DocumentType.prototype.nodeType=DOCUMENT_TYPE_NODE;_extends(DocumentType,Node);function Notation(){}Notation.prototype.nodeType=NOTATION_NODE;_extends(Notation,Node);function Entity(){}Entity.prototype.nodeType=ENTITY_NODE;_extends(Entity,Node);function EntityReference(){}EntityReference.prototype.nodeType=ENTITY_REFERENCE_NODE;_extends(EntityReference,Node);function DocumentFragment(){}DocumentFragment.prototype.nodeName="#document-fragment";DocumentFragment.prototype.nodeType=DOCUMENT_FRAGMENT_NODE;_extends(DocumentFragment,Node);function ProcessingInstruction(){}ProcessingInstruction.prototype.nodeType=PROCESSING_INSTRUCTION_NODE;_extends(ProcessingInstruction,Node);function XMLSerializer(){}XMLSerializer.prototype.serializeToString=function(node,isHtml,nodeFilter){return nodeSerializeToString.call(node,isHtml,nodeFilter)};Node.prototype.toString=nodeSerializeToString;function nodeSerializeToString(isHtml,nodeFilter){var buf=[];var refNode=this.nodeType==9?this.documentElement:this;var prefix=refNode.prefix;var uri=refNode.namespaceURI;if(uri&&prefix==null){var prefix=refNode.lookupPrefix(uri);if(prefix==null){var visibleNamespaces=[{namespace:uri,prefix:null}]}}serializeToString(this,buf,isHtml,nodeFilter,visibleNamespaces);return buf.join("")}function needNamespaceDefine(node,isHTML,visibleNamespaces){var prefix=node.prefix||"";var uri=node.namespaceURI;if(!prefix&&!uri){return false}if(prefix==="xml"&&uri==="http://www.w3.org/XML/1998/namespace"||uri=="http://www.w3.org/2000/xmlns/"){return false}var i=visibleNamespaces.length;while(i--){var ns=visibleNamespaces[i];if(ns.prefix==prefix){return ns.namespace!=uri}}return true}function serializeToString(node,buf,isHTML,nodeFilter,visibleNamespaces){if(nodeFilter){node=nodeFilter(node);if(node){if(typeof node=="string"){buf.push(node);return}}else{return}}switch(node.nodeType){case ELEMENT_NODE:if(!visibleNamespaces)visibleNamespaces=[];var startVisibleNamespaces=visibleNamespaces.length;var attrs=node.attributes;var len=attrs.length;var child=node.firstChild;var nodeName=node.tagName;isHTML=htmlns===node.namespaceURI||isHTML;buf.push("<",nodeName);for(var i=0;i<len;i++){var attr=attrs.item(i);if(attr.prefix=="xmlns"){visibleNamespaces.push({prefix:attr.localName,namespace:attr.value})}else if(attr.nodeName=="xmlns"){visibleNamespaces.push({prefix:"",namespace:attr.value})}}for(var i=0;i<len;i++){var attr=attrs.item(i);if(needNamespaceDefine(attr,isHTML,visibleNamespaces)){var prefix=attr.prefix||"";var uri=attr.namespaceURI;var ns=prefix?" xmlns:"+prefix:" xmlns";buf.push(ns,'="',uri,'"');visibleNamespaces.push({prefix:prefix,namespace:uri})}serializeToString(attr,buf,isHTML,nodeFilter,visibleNamespaces)}if(needNamespaceDefine(node,isHTML,visibleNamespaces)){var prefix=node.prefix||"";var uri=node.namespaceURI;var ns=prefix?" xmlns:"+prefix:" xmlns";buf.push(ns,'="',uri,'"');visibleNamespaces.push({prefix:prefix,namespace:uri})}if(child||isHTML&&!/^(?:meta|link|img|br|hr|input)$/i.test(nodeName)){buf.push(">");if(isHTML&&/^script$/i.test(nodeName)){while(child){if(child.data){buf.push(child.data)}else{serializeToString(child,buf,isHTML,nodeFilter,visibleNamespaces)}child=child.nextSibling}}else{while(child){serializeToString(child,buf,isHTML,nodeFilter,visibleNamespaces);child=child.nextSibling}}buf.push("</",nodeName,">")}else{buf.push("/>")}return;case DOCUMENT_NODE:case DOCUMENT_FRAGMENT_NODE:var child=node.firstChild;while(child){serializeToString(child,buf,isHTML,nodeFilter,visibleNamespaces);child=child.nextSibling}return;case ATTRIBUTE_NODE:return buf.push(" ",node.name,'="',node.value.replace(/[<&"]/g,_xmlEncoder),'"');case TEXT_NODE:return buf.push(node.data.replace(/[<&]/g,_xmlEncoder));case CDATA_SECTION_NODE:return buf.push("<![CDATA[",node.data,"]]>");case COMMENT_NODE:return buf.push("\x3c!--",node.data,"--\x3e");case DOCUMENT_TYPE_NODE:var pubid=node.publicId;var sysid=node.systemId;buf.push("<!DOCTYPE ",node.name);if(pubid){buf.push(' PUBLIC "',pubid);if(sysid&&sysid!="."){buf.push('" "',sysid)}buf.push('">')}else if(sysid&&sysid!="."){buf.push(' SYSTEM "',sysid,'">')}else{var sub=node.internalSubset;if(sub){buf.push(" [",sub,"]")}buf.push(">")}return;case PROCESSING_INSTRUCTION_NODE:return buf.push("<?",node.target," ",node.data,"?>");case ENTITY_REFERENCE_NODE:return buf.push("&",node.nodeName,";");default:buf.push("??",node.nodeName)}}function importNode(doc,node,deep){var node2;switch(node.nodeType){case ELEMENT_NODE:node2=node.cloneNode(false);node2.ownerDocument=doc;case DOCUMENT_FRAGMENT_NODE:break;case ATTRIBUTE_NODE:deep=true;break}if(!node2){node2=node.cloneNode(false)}node2.ownerDocument=doc;node2.parentNode=null;if(deep){var child=node.firstChild;while(child){node2.appendChild(importNode(doc,child,deep));child=child.nextSibling}}return node2}function cloneNode(doc,node,deep){var node2=new node.constructor;for(var n in node){var v=node[n];if(typeof v!="object"){if(v!=node2[n]){node2[n]=v}}}if(node.childNodes){node2.childNodes=new NodeList}node2.ownerDocument=doc;switch(node2.nodeType){case ELEMENT_NODE:var attrs=node.attributes;var attrs2=node2.attributes=new NamedNodeMap;var len=attrs.length;attrs2._ownerElement=node2;for(var i=0;i<len;i++){node2.setAttributeNode(cloneNode(doc,attrs.item(i),true))}break;case ATTRIBUTE_NODE:deep=true}if(deep){var child=node.firstChild;while(child){node2.appendChild(cloneNode(doc,child,deep));child=child.nextSibling}}return node2}function __set__(object,key,value){object[key]=value}try{if(Object.defineProperty){Object.defineProperty(LiveNodeList.prototype,"length",{get:function(){_updateLiveList(this);return this.$$length}});Object.defineProperty(Node.prototype,"textContent",{get:function(){return getTextContent(this)},set:function(data){switch(this.nodeType){case ELEMENT_NODE:case DOCUMENT_FRAGMENT_NODE:while(this.firstChild){this.removeChild(this.firstChild)}if(data||String(data)){this.appendChild(this.ownerDocument.createTextNode(data))}break;default:this.data=data;this.value=data;this.nodeValue=data}}});function getTextContent(node){switch(node.nodeType){case ELEMENT_NODE:case DOCUMENT_FRAGMENT_NODE:var buf=[];node=node.firstChild;while(node){if(node.nodeType!==7&&node.nodeType!==8){buf.push(getTextContent(node))}node=node.nextSibling}return buf.join("");default:return node.nodeValue}}__set__=function(object,key,value){object["$$"+key]=value}}}catch(e){}exports.DOMImplementation=DOMImplementation;exports.XMLSerializer=XMLSerializer},{}],21:[function(require,module,exports){var nameStartChar=/[A-Z_a-z\xC0-\xD6\xD8-\xF6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD]/;var nameChar=new RegExp("[\\-\\.0-9"+nameStartChar.source.slice(1,-1)+"\\u00B7\\u0300-\\u036F\\u203F-\\u2040]");var tagNamePattern=new RegExp("^"+nameStartChar.source+nameChar.source+"*(?::"+nameStartChar.source+nameChar.source+"*)?$");var S_TAG=0;var S_ATTR=1;var S_ATTR_SPACE=2;var S_EQ=3;var S_ATTR_NOQUOT_VALUE=4;var S_ATTR_END=5;var S_TAG_SPACE=6;var S_TAG_CLOSE=7;function XMLReader(){}XMLReader.prototype={parse:function(source,defaultNSMap,entityMap){var domBuilder=this.domBuilder;domBuilder.startDocument();_copy(defaultNSMap,defaultNSMap={});parse(source,defaultNSMap,entityMap,domBuilder,this.errorHandler);domBuilder.endDocument()}};function parse(source,defaultNSMapCopy,entityMap,domBuilder,errorHandler){function fixedFromCharCode(code){if(code>65535){code-=65536;var surrogate1=55296+(code>>10),surrogate2=56320+(code&1023);return String.fromCharCode(surrogate1,surrogate2)}else{return String.fromCharCode(code)}}function entityReplacer(a){var k=a.slice(1,-1);if(k in entityMap){return entityMap[k]}else if(k.charAt(0)==="#"){return fixedFromCharCode(parseInt(k.substr(1).replace("x","0x")))}else{errorHandler.error("entity not found:"+a);return a}}function appendText(end){if(end>start){var xt=source.substring(start,end).replace(/&#?\w+;/g,entityReplacer);locator&&position(start);domBuilder.characters(xt,0,end-start);start=end}}function position(p,m){while(p>=lineEnd&&(m=linePattern.exec(source))){lineStart=m.index;lineEnd=lineStart+m[0].length;locator.lineNumber++}locator.columnNumber=p-lineStart+1}var lineStart=0;var lineEnd=0;var linePattern=/.*(?:\r\n?|\n)|.*$/g;var locator=domBuilder.locator;var parseStack=[{currentNSMap:defaultNSMapCopy}];var closeMap={};var start=0;while(true){try{var tagStart=source.indexOf("<",start);if(tagStart<0){if(!source.substr(start).match(/^\s*$/)){var doc=domBuilder.doc;var text=doc.createTextNode(source.substr(start));doc.appendChild(text);domBuilder.currentElement=text}return}if(tagStart>start){appendText(tagStart)}switch(source.charAt(tagStart+1)){case"/":var end=source.indexOf(">",tagStart+3);var tagName=source.substring(tagStart+2,end);var config=parseStack.pop();if(end<0){tagName=source.substring(tagStart+2).replace(/[\s<].*/,"");errorHandler.error("end tag name: "+tagName+" is not complete:"+config.tagName);end=tagStart+1+tagName.length}else if(tagName.match(/\s</)){tagName=tagName.replace(/[\s<].*/,"");errorHandler.error("end tag name: "+tagName+" maybe not complete");end=tagStart+1+tagName.length}var localNSMap=config.localNSMap;var endMatch=config.tagName==tagName;var endIgnoreCaseMach=endMatch||config.tagName&&config.tagName.toLowerCase()==tagName.toLowerCase();if(endIgnoreCaseMach){domBuilder.endElement(config.uri,config.localName,tagName);if(localNSMap){for(var prefix in localNSMap){domBuilder.endPrefixMapping(prefix)}}if(!endMatch){errorHandler.fatalError("end tag name: "+tagName+" is not match the current start tagName:"+config.tagName)}}else{parseStack.push(config)}end++;break;case"?":locator&&position(tagStart);end=parseInstruction(source,tagStart,domBuilder);break;case"!":locator&&position(tagStart);end=parseDCC(source,tagStart,domBuilder,errorHandler);break;default:locator&&position(tagStart);var el=new ElementAttributes;var currentNSMap=parseStack[parseStack.length-1].currentNSMap;var end=parseElementStartPart(source,tagStart,el,currentNSMap,entityReplacer,errorHandler);var len=el.length;if(!el.closed&&fixSelfClosed(source,end,el.tagName,closeMap)){el.closed=true;if(!entityMap.nbsp){errorHandler.warning("unclosed xml attribute")}}if(locator&&len){var locator2=copyLocator(locator,{});for(var i=0;i<len;i++){var a=el[i];position(a.offset);a.locator=copyLocator(locator,{})}domBuilder.locator=locator2;if(appendElement(el,domBuilder,currentNSMap)){parseStack.push(el)}domBuilder.locator=locator}else{if(appendElement(el,domBuilder,currentNSMap)){parseStack.push(el)}}if(el.uri==="http://www.w3.org/1999/xhtml"&&!el.closed){end=parseHtmlSpecialContent(source,end,el.tagName,entityReplacer,domBuilder)}else{end++}}}catch(e){errorHandler.error("element parse error: "+e);end=-1}if(end>start){start=end}else{appendText(Math.max(tagStart,start)+1)}}}function copyLocator(f,t){t.lineNumber=f.lineNumber;t.columnNumber=f.columnNumber;return t}function parseElementStartPart(source,start,el,currentNSMap,entityReplacer,errorHandler){var attrName;var value;var p=++start;var s=S_TAG;while(true){var c=source.charAt(p);switch(c){case"=":if(s===S_ATTR){attrName=source.slice(start,p);s=S_EQ}else if(s===S_ATTR_SPACE){s=S_EQ}else{throw new Error("attribute equal must after attrName")}break;case"'":case'"':if(s===S_EQ||s===S_ATTR){if(s===S_ATTR){errorHandler.warning('attribute value must after "="');attrName=source.slice(start,p)}start=p+1;p=source.indexOf(c,start);if(p>0){value=source.slice(start,p).replace(/&#?\w+;/g,entityReplacer);el.add(attrName,value,start-1);s=S_ATTR_END}else{throw new Error("attribute value no end '"+c+"' match")}}else if(s==S_ATTR_NOQUOT_VALUE){value=source.slice(start,p).replace(/&#?\w+;/g,entityReplacer);el.add(attrName,value,start);errorHandler.warning('attribute "'+attrName+'" missed start quot('+c+")!!");start=p+1;s=S_ATTR_END}else{throw new Error('attribute value must after "="')}break;case"/":switch(s){case S_TAG:el.setTagName(source.slice(start,p));case S_ATTR_END:case S_TAG_SPACE:case S_TAG_CLOSE:s=S_TAG_CLOSE;el.closed=true;case S_ATTR_NOQUOT_VALUE:case S_ATTR:case S_ATTR_SPACE:break;default:throw new Error("attribute invalid close char('/')")}break;case"":errorHandler.error("unexpected end of input");if(s==S_TAG){el.setTagName(source.slice(start,p))}return p;case">":switch(s){case S_TAG:el.setTagName(source.slice(start,p));case S_ATTR_END:case S_TAG_SPACE:case S_TAG_CLOSE:break;case S_ATTR_NOQUOT_VALUE:case S_ATTR:value=source.slice(start,p);if(value.slice(-1)==="/"){el.closed=true;value=value.slice(0,-1)}case S_ATTR_SPACE:if(s===S_ATTR_SPACE){value=attrName}if(s==S_ATTR_NOQUOT_VALUE){errorHandler.warning('attribute "'+value+'" missed quot(")!!');el.add(attrName,value.replace(/&#?\w+;/g,entityReplacer),start)}else{if(currentNSMap[""]!=="http://www.w3.org/1999/xhtml"||!value.match(/^(?:disabled|checked|selected)$/i)){errorHandler.warning('attribute "'+value+'" missed value!! "'+value+'" instead!!')}el.add(value,value,start)}break;case S_EQ:throw new Error("attribute value missed!!")}return p;case"":c=" ";default:if(c<=" "){switch(s){case S_TAG:el.setTagName(source.slice(start,p));s=S_TAG_SPACE;break;case S_ATTR:attrName=source.slice(start,p);s=S_ATTR_SPACE;break;case S_ATTR_NOQUOT_VALUE:var value=source.slice(start,p).replace(/&#?\w+;/g,entityReplacer);errorHandler.warning('attribute "'+value+'" missed quot(")!!');el.add(attrName,value,start);case S_ATTR_END:s=S_TAG_SPACE;break}}else{switch(s){case S_ATTR_SPACE:var tagName=el.tagName;if(currentNSMap[""]!=="http://www.w3.org/1999/xhtml"||!attrName.match(/^(?:disabled|checked|selected)$/i)){errorHandler.warning('attribute "'+attrName+'" missed value!! "'+attrName+'" instead2!!')}el.add(attrName,attrName,start);start=p;s=S_ATTR;break;case S_ATTR_END:errorHandler.warning('attribute space is required"'+attrName+'"!!');case S_TAG_SPACE:s=S_ATTR;start=p;break;case S_EQ:s=S_ATTR_NOQUOT_VALUE;start=p;break;case S_TAG_CLOSE:throw new Error("elements closed character '/' and '>' must be connected to")}}}p++}}function appendElement(el,domBuilder,currentNSMap){var tagName=el.tagName;var localNSMap=null;var i=el.length;while(i--){var a=el[i];var qName=a.qName;var value=a.value;var nsp=qName.indexOf(":");if(nsp>0){var prefix=a.prefix=qName.slice(0,nsp);var localName=qName.slice(nsp+1);var nsPrefix=prefix==="xmlns"&&localName}else{localName=qName;prefix=null;nsPrefix=qName==="xmlns"&&""}a.localName=localName;if(nsPrefix!==false){if(localNSMap==null){localNSMap={};_copy(currentNSMap,currentNSMap={})}currentNSMap[nsPrefix]=localNSMap[nsPrefix]=value;a.uri="http://www.w3.org/2000/xmlns/";domBuilder.startPrefixMapping(nsPrefix,value)}}var i=el.length;while(i--){a=el[i];var prefix=a.prefix;if(prefix){if(prefix==="xml"){a.uri="http://www.w3.org/XML/1998/namespace"}if(prefix!=="xmlns"){a.uri=currentNSMap[prefix||""]}}}var nsp=tagName.indexOf(":");if(nsp>0){prefix=el.prefix=tagName.slice(0,nsp);localName=el.localName=tagName.slice(nsp+1)}else{prefix=null;localName=el.localName=tagName}var ns=el.uri=currentNSMap[prefix||""];domBuilder.startElement(ns,localName,tagName,el);if(el.closed){domBuilder.endElement(ns,localName,tagName);if(localNSMap){for(prefix in localNSMap){domBuilder.endPrefixMapping(prefix)}}}else{el.currentNSMap=currentNSMap;el.localNSMap=localNSMap;return true}}function parseHtmlSpecialContent(source,elStartEnd,tagName,entityReplacer,domBuilder){if(/^(?:script|textarea)$/i.test(tagName)){var elEndStart=source.indexOf("</"+tagName+">",elStartEnd);var text=source.substring(elStartEnd+1,elEndStart);if(/[&<]/.test(text)){if(/^script$/i.test(tagName)){domBuilder.characters(text,0,text.length);return elEndStart}text=text.replace(/&#?\w+;/g,entityReplacer);domBuilder.characters(text,0,text.length);return elEndStart}}return elStartEnd+1}function fixSelfClosed(source,elStartEnd,tagName,closeMap){var pos=closeMap[tagName];if(pos==null){pos=source.lastIndexOf("</"+tagName+">");if(pos<elStartEnd){pos=source.lastIndexOf("</"+tagName)}closeMap[tagName]=pos}return pos<elStartEnd}function _copy(source,target){for(var n in source){target[n]=source[n]}}function parseDCC(source,start,domBuilder,errorHandler){var next=source.charAt(start+2);switch(next){case"-":if(source.charAt(start+3)==="-"){var end=source.indexOf("--\x3e",start+4);if(end>start){domBuilder.comment(source,start+4,end-start-4);return end+3}else{errorHandler.error("Unclosed comment");return-1}}else{return-1}default:if(source.substr(start+3,6)=="CDATA["){var end=source.indexOf("]]>",start+9);domBuilder.startCDATA();domBuilder.characters(source,start+9,end-start-9);domBuilder.endCDATA();return end+3}var matchs=split(source,start);var len=matchs.length;if(len>1&&/!doctype/i.test(matchs[0][0])){var name=matchs[1][0];var pubid=len>3&&/^public$/i.test(matchs[2][0])&&matchs[3][0];var sysid=len>4&&matchs[4][0];var lastMatch=matchs[len-1];domBuilder.startDTD(name,pubid&&pubid.replace(/^(['"])(.*?)\1$/,"$2"),sysid&&sysid.replace(/^(['"])(.*?)\1$/,"$2"));domBuilder.endDTD();return lastMatch.index+lastMatch[0].length}}return-1}function parseInstruction(source,start,domBuilder){var end=source.indexOf("?>",start);if(end){var match=source.substring(start,end).match(/^<\?(\S*)\s*([\s\S]*?)\s*$/);if(match){var len=match[0].length;domBuilder.processingInstruction(match[1],match[2]);return end+2}else{return-1}}return-1}function ElementAttributes(source){}ElementAttributes.prototype={setTagName:function(tagName){if(!tagNamePattern.test(tagName)){throw new Error("invalid tagName:"+tagName)}this.tagName=tagName},add:function(qName,value,offset){if(!tagNamePattern.test(qName)){throw new Error("invalid attribute:"+qName)}this[this.length++]={qName:qName,value:value,offset:offset}},length:0,getLocalName:function(i){return this[i].localName},getLocator:function(i){return this[i].locator},getQName:function(i){return this[i].qName},getURI:function(i){return this[i].uri},getValue:function(i){return this[i].value}};function _set_proto_(thiz,parent){thiz.__proto__=parent;return thiz}if(!(_set_proto_({},_set_proto_.prototype)instanceof _set_proto_)){_set_proto_=function(thiz,parent){function p(){}p.prototype=parent;p=new p;for(parent in thiz){p[parent]=thiz[parent]}return p}}function split(source,start){var match;var buf=[];var reg=/'[^']+'|"[^"]+"|[^\s<>\/=]+=?|(\/?\s*>|<)/g;reg.lastIndex=start;reg.exec(source);while(match=reg.exec(source)){buf.push(match);if(match[1])return buf}}exports.XMLReader=XMLReader},{}],"/src/js/docxtemplater.js":[function(require,module,exports){"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function")}}var DocUtils=require("./doc-utils");DocUtils.traits=require("./traits");DocUtils.moduleWrapper=require("./module-wrapper");var wrapper=DocUtils.moduleWrapper;var Docxtemplater=function(){function Docxtemplater(){_classCallCheck(this,Docxtemplater);if(arguments.length>0){throw new Error("The constructor with parameters have been removed in docxtemplater 3.0, please check the upgrade guide.")}this.compiled={};this.modules=[];this.setOptions({})}_createClass(Docxtemplater,[{key:"attachModule",value:function attachModule(module){this.modules.push(wrapper(module));return this}},{key:"setOptions",value:function setOptions(options){var _this=this;this.options=options;Object.keys(DocUtils.defaults).forEach(function(key){var defaultValue=DocUtils.defaults[key];_this[key]=_this.options[key]!=null?_this.options[key]:defaultValue});if(this.zip){this.updateFileTypeConfig()}return this}},{key:"loadZip",value:function loadZip(zip){if(zip.loadAsync){throw new Error("Docxtemplater doesn't handle JSZip version >=3, see changelog")}this.zip=zip;this.updateFileTypeConfig();return this}},{key:"compileFile",value:function compileFile(fileName){var currentFile=this.createTemplateClass(fileName);currentFile.parse();this.compiled[fileName]=currentFile}},{key:"compile",value:function compile(){this.templatedFiles=this.fileTypeConfig.getTemplatedFiles(this.zip);return this}},{key:"updateFileTypeConfig",value:function updateFileTypeConfig(){this.fileType=this.zip.files["word/document.xml"]?"docx":"pptx";this.fileTypeConfig=this.options.fileTypeConfig||Docxtemplater.FileTypeConfig[this.fileType];return this}},{key:"render",value:function render(){var _this2=this;this.options.xmlFileNames=[];this.modules=this.fileTypeConfig.baseModules.map(function(moduleFunction){return moduleFunction()}).concat(this.modules);this.options=this.modules.reduce(function(options,module){return module.optionsTransformer(options,_this2)},this.options);this.xmlDocuments=this.options.xmlFileNames.reduce(function(xmlDocuments,fileName){var content=_this2.zip.files[fileName].asText();xmlDocuments[fileName]=DocUtils.str2xml(content);return xmlDocuments},{});this.modules.forEach(function(module){module.set({zip:_this2.zip,xmlDocuments:_this2.xmlDocuments,data:_this2.data})});this.compile();this.modules.forEach(function(module){module.set({compiled:_this2.compiled})});this.templatedFiles.forEach(function(fileName){if(_this2.zip.files[fileName]!=null){_this2.compileFile(fileName)}});this.mapper=this.modules.reduce(function(value,module){return module.getRenderedMap(value)},{});Object.keys(this.mapper).forEach(function(to){var mapped=_this2.mapper[to];var from=mapped.from;var currentFile=_this2.compiled[from];currentFile.setTags(mapped.data);currentFile.render(to);_this2.zip.file(to,currentFile.content)});Object.keys(this.xmlDocuments).forEach(function(fileName){_this2.zip.remove(fileName);var content=DocUtils.xml2str(_this2.xmlDocuments[fileName]);return _this2.zip.file(fileName,content,{})});return this}},{key:"setData",value:function setData(data){this.data=data;return this}},{key:"getZip",value:function getZip(){return this.zip}},{key:"createTemplateClass",value:function createTemplateClass(path){var usedData=this.zip.files[path].asText();return this.createTemplateClassFromContent(usedData,path)}},{key:"createTemplateClassFromContent",value:function createTemplateClassFromContent(content,filePath){var _this3=this;var xmltOptions={filePath:filePath};Object.keys(DocUtils.defaults).forEach(function(key){xmltOptions[key]=_this3[key]});xmltOptions.fileTypeConfig=this.fileTypeConfig;xmltOptions.modules=this.modules;return new Docxtemplater.XmlTemplater(content,xmltOptions)}},{key:"getFullText",value:function getFullText(path){return this.createTemplateClass(path||this.fileTypeConfig.textPath).getFullText()}},{key:"getTemplatedFiles",value:function getTemplatedFiles(){this.compile();return this.templatedFiles}}]);return Docxtemplater}();Docxtemplater.DocUtils=require("./doc-utils");Docxtemplater.Errors=require("./errors");Docxtemplater.XmlTemplater=require("./xml-templater");Docxtemplater.FileTypeConfig=require("./file-type-config");Docxtemplater.XmlMatcher=require("./xml-matcher");module.exports=Docxtemplater},{"./doc-utils":1,"./errors":2,"./file-type-config":3,"./module-wrapper":7,"./traits":16,"./xml-matcher":17,"./xml-templater":18}]},{},[])("/src/js/docxtemplater.js")});
-
-/***/ },
-
-/***/ 56115
-/*!*************************!*\
-  !*** ./js/jszip.min.js ***!
-  \*************************/
-(module) {
-
-/*!
-
-JSZip - A Javascript class for generating and reading zip files
-<http://stuartk.com/jszip>
-
-(c) 2009-2014 Stuart Knightley <stuart [at] stuartk.com>
-Dual licenced under the MIT license or GPLv3. See https://raw.github.com/Stuk/jszip/master/LICENSE.markdown.
-
-JSZip uses the library pako released under the MIT license :
-https://github.com/nodeca/pako/blob/master/LICENSE
-*/
-!function(a){if(true)module.exports=a();else // removed by dead control flow
-{ var b; }}(function(){return function a(b,c,d){function e(g,h){if(!c[g]){if(!b[g]){var i=undefined;if(!h&&i)return require(g,!0);if(f)return f(g,!0);var j=new Error("Cannot find module '"+g+"'");throw j.code="MODULE_NOT_FOUND",j}var k=c[g]={exports:{}};b[g][0].call(k.exports,function(a){var c=b[g][1][a];return e(c?c:a)},k,k.exports,a,b,c,d)}return c[g].exports}for(var f=undefined,g=0;g<d.length;g++)e(d[g]);return e}({1:[function(a,b,c){"use strict";function d(a){if(a){this.data=a,this.length=this.data.length,this.index=0,this.zero=0;for(var b=0;b<this.data.length;b++)a[b]=255&a[b]}}var e=a("./dataReader");d.prototype=new e,d.prototype.byteAt=function(a){return this.data[this.zero+a]},d.prototype.lastIndexOfSignature=function(a){for(var b=a.charCodeAt(0),c=a.charCodeAt(1),d=a.charCodeAt(2),e=a.charCodeAt(3),f=this.length-4;f>=0;--f)if(this.data[f]===b&&this.data[f+1]===c&&this.data[f+2]===d&&this.data[f+3]===e)return f-this.zero;return-1},d.prototype.readData=function(a){if(this.checkOffset(a),0===a)return[];var b=this.data.slice(this.zero+this.index,this.zero+this.index+a);return this.index+=a,b},b.exports=d},{"./dataReader":6}],2:[function(a,b,c){"use strict";var d="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";c.encode=function(a,b){for(var c,e,f,g,h,i,j,k="",l=0;l<a.length;)c=a.charCodeAt(l++),e=a.charCodeAt(l++),f=a.charCodeAt(l++),g=c>>2,h=(3&c)<<4|e>>4,i=(15&e)<<2|f>>6,j=63&f,isNaN(e)?i=j=64:isNaN(f)&&(j=64),k=k+d.charAt(g)+d.charAt(h)+d.charAt(i)+d.charAt(j);return k},c.decode=function(a,b){var c,e,f,g,h,i,j,k="",l=0;for(a=a.replace(/[^A-Za-z0-9\+\/\=]/g,"");l<a.length;)g=d.indexOf(a.charAt(l++)),h=d.indexOf(a.charAt(l++)),i=d.indexOf(a.charAt(l++)),j=d.indexOf(a.charAt(l++)),c=g<<2|h>>4,e=(15&h)<<4|i>>2,f=(3&i)<<6|j,k+=String.fromCharCode(c),64!=i&&(k+=String.fromCharCode(e)),64!=j&&(k+=String.fromCharCode(f));return k}},{}],3:[function(a,b,c){"use strict";function d(){this.compressedSize=0,this.uncompressedSize=0,this.crc32=0,this.compressionMethod=null,this.compressedContent=null}d.prototype={getContent:function(){return null},getCompressedContent:function(){return null}},b.exports=d},{}],4:[function(a,b,c){"use strict";c.STORE={magic:"\0\0",compress:function(a,b){return a},uncompress:function(a){return a},compressInputType:null,uncompressInputType:null},c.DEFLATE=a("./flate")},{"./flate":9}],5:[function(a,b,c){"use strict";var d=a("./utils"),e=[0,1996959894,3993919788,2567524794,124634137,1886057615,3915621685,2657392035,249268274,2044508324,3772115230,2547177864,162941995,2125561021,3887607047,2428444049,498536548,1789927666,4089016648,2227061214,450548861,1843258603,4107580753,2211677639,325883990,1684777152,4251122042,2321926636,335633487,1661365465,4195302755,2366115317,997073096,1281953886,3579855332,2724688242,1006888145,1258607687,3524101629,2768942443,901097722,1119000684,3686517206,2898065728,853044451,1172266101,3705015759,2882616665,651767980,1373503546,3369554304,3218104598,565507253,1454621731,3485111705,3099436303,671266974,1594198024,3322730930,2970347812,795835527,1483230225,3244367275,3060149565,1994146192,31158534,2563907772,4023717930,1907459465,112637215,2680153253,3904427059,2013776290,251722036,2517215374,3775830040,2137656763,141376813,2439277719,3865271297,1802195444,476864866,2238001368,4066508878,1812370925,453092731,2181625025,4111451223,1706088902,314042704,2344532202,4240017532,1658658271,366619977,2362670323,4224994405,1303535960,984961486,2747007092,3569037538,1256170817,1037604311,2765210733,3554079995,1131014506,879679996,2909243462,3663771856,1141124467,855842277,2852801631,3708648649,1342533948,654459306,3188396048,3373015174,1466479909,544179635,3110523913,3462522015,1591671054,702138776,2966460450,3352799412,1504918807,783551873,3082640443,3233442989,3988292384,2596254646,62317068,1957810842,3939845945,2647816111,81470997,1943803523,3814918930,2489596804,225274430,2053790376,3826175755,2466906013,167816743,2097651377,4027552580,2265490386,503444072,1762050814,4150417245,2154129355,426522225,1852507879,4275313526,2312317920,282753626,1742555852,4189708143,2394877945,397917763,1622183637,3604390888,2714866558,953729732,1340076626,3518719985,2797360999,1068828381,1219638859,3624741850,2936675148,906185462,1090812512,3747672003,2825379669,829329135,1181335161,3412177804,3160834842,628085408,1382605366,3423369109,3138078467,570562233,1426400815,3317316542,2998733608,733239954,1555261956,3268935591,3050360625,752459403,1541320221,2607071920,3965973030,1969922972,40735498,2617837225,3943577151,1913087877,83908371,2512341634,3803740692,2075208622,213261112,2463272603,3855990285,2094854071,198958881,2262029012,4057260610,1759359992,534414190,2176718541,4139329115,1873836001,414664567,2282248934,4279200368,1711684554,285281116,2405801727,4167216745,1634467795,376229701,2685067896,3608007406,1308918612,956543938,2808555105,3495958263,1231636301,1047427035,2932959818,3654703836,1088359270,936918e3,2847714899,3736837829,1202900863,817233897,3183342108,3401237130,1404277552,615818150,3134207493,3453421203,1423857449,601450431,3009837614,3294710456,1567103746,711928724,3020668471,3272380065,1510334235,755167117];b.exports=function(a,b){if("undefined"==typeof a||!a.length)return 0;var c="string"!==d.getTypeOf(a);"undefined"==typeof b&&(b=0);var f=0,g=0,h=0;b^=-1;for(var i=0,j=a.length;i<j;i++)h=c?a[i]:a.charCodeAt(i),g=255&(b^h),f=e[g],b=b>>>8^f;return b^-1}},{"./utils":22}],6:[function(a,b,c){"use strict";function d(a){this.data=null,this.length=0,this.index=0,this.zero=0}var e=a("./utils");d.prototype={checkOffset:function(a){this.checkIndex(this.index+a)},checkIndex:function(a){if(this.length<this.zero+a||a<0)throw new Error("End of data reached (data length = "+this.length+", asked index = "+a+"). Corrupted zip ?")},setIndex:function(a){this.checkIndex(a),this.index=a},skip:function(a){this.setIndex(this.index+a)},byteAt:function(a){},readInt:function(a){var b,c=0;for(this.checkOffset(a),b=this.index+a-1;b>=this.index;b--)c=(c<<8)+this.byteAt(b);return this.index+=a,c},readString:function(a){return e.transformTo("string",this.readData(a))},readData:function(a){},lastIndexOfSignature:function(a){},readDate:function(){var a=this.readInt(4);return new Date((a>>25&127)+1980,(a>>21&15)-1,a>>16&31,a>>11&31,a>>5&63,(31&a)<<1)}},b.exports=d},{"./utils":22}],7:[function(a,b,c){"use strict";c.base64=!1,c.binary=!1,c.dir=!1,c.createFolders=!1,c.date=null,c.compression=null,c.compressionOptions=null,c.comment=null,c.unixPermissions=null,c.dosPermissions=null},{}],8:[function(a,b,c){"use strict";var d=a("./utils");c.string2binary=function(a){return d.string2binary(a)},c.string2Uint8Array=function(a){return d.transformTo("uint8array",a)},c.uint8Array2String=function(a){return d.transformTo("string",a)},c.string2Blob=function(a){var b=d.transformTo("arraybuffer",a);return d.arrayBuffer2Blob(b)},c.arrayBuffer2Blob=function(a){return d.arrayBuffer2Blob(a)},c.transformTo=function(a,b){return d.transformTo(a,b)},c.getTypeOf=function(a){return d.getTypeOf(a)},c.checkSupport=function(a){return d.checkSupport(a)},c.MAX_VALUE_16BITS=d.MAX_VALUE_16BITS,c.MAX_VALUE_32BITS=d.MAX_VALUE_32BITS,c.pretty=function(a){return d.pretty(a)},c.findCompression=function(a){return d.findCompression(a)},c.isRegExp=function(a){return d.isRegExp(a)}},{"./utils":22}],9:[function(a,b,c){"use strict";var d="undefined"!=typeof Uint8Array&&"undefined"!=typeof Uint16Array&&"undefined"!=typeof Uint32Array,e=a("pako");c.uncompressInputType=d?"uint8array":"array",c.compressInputType=d?"uint8array":"array",c.magic="\b\0",c.compress=function(a,b){return e.deflateRaw(a,{level:b.level||-1})},c.uncompress=function(a){return e.inflateRaw(a)}},{pako:25}],10:[function(a,b,c){"use strict";function d(a,b){return this instanceof d?(this.files={},this.comment=null,this.root="",a&&this.load(a,b),void(this.clone=function(){var a=new d;for(var b in this)"function"!=typeof this[b]&&(a[b]=this[b]);return a})):new d(a,b)}var e=a("./base64");d.prototype=a("./object"),d.prototype.load=a("./load"),d.support=a("./support"),d.defaults=a("./defaults"),d.utils=a("./deprecatedPublicUtils"),d.base64={encode:function(a){return e.encode(a)},decode:function(a){return e.decode(a)}},d.compressions=a("./compressions"),b.exports=d},{"./base64":2,"./compressions":4,"./defaults":7,"./deprecatedPublicUtils":8,"./load":11,"./object":14,"./support":18}],11:[function(a,b,c){"use strict";var d=a("./base64"),e=a("./utf8"),f=a("./utils"),g=a("./zipEntries");b.exports=function(a,b){var c,h,i,j;for(b=f.extend(b||{},{base64:!1,checkCRC32:!1,optimizedBinaryString:!1,createFolders:!1,decodeFileName:e.utf8decode}),b.base64&&(a=d.decode(a)),h=new g(a,b),c=h.files,i=0;i<c.length;i++)j=c[i],this.file(j.fileNameStr,j.decompressed,{binary:!0,optimizedBinaryString:!0,date:j.date,dir:j.dir,comment:j.fileCommentStr.length?j.fileCommentStr:null,unixPermissions:j.unixPermissions,dosPermissions:j.dosPermissions,createFolders:b.createFolders});return h.zipComment.length&&(this.comment=h.zipComment),this}},{"./base64":2,"./utf8":21,"./utils":22,"./zipEntries":23}],12:[function(a,b,c){(function(a){"use strict";b.exports=function(b,c){return new a(b,c)},b.exports.test=function(b){return a.isBuffer(b)}}).call(this,"undefined"!=typeof Buffer?Buffer:void 0)},{}],13:[function(a,b,c){"use strict";function d(a){this.data=a,this.length=this.data.length,this.index=0,this.zero=0}var e=a("./uint8ArrayReader");d.prototype=new e,d.prototype.readData=function(a){this.checkOffset(a);var b=this.data.slice(this.zero+this.index,this.zero+this.index+a);return this.index+=a,b},b.exports=d},{"./uint8ArrayReader":19}],14:[function(a,b,c){"use strict";var d=a("./support"),e=a("./utils"),f=a("./crc32"),g=a("./signature"),h=a("./defaults"),i=a("./base64"),j=a("./compressions"),k=a("./compressedObject"),l=a("./nodeBuffer"),m=a("./utf8"),n=a("./stringWriter"),o=a("./uint8ArrayWriter"),p=function(a){if(a._data instanceof k&&(a._data=a._data.getContent(),a.options.binary=!0,a.options.base64=!1,"uint8array"===e.getTypeOf(a._data))){var b=a._data;a._data=new Uint8Array(b.length),0!==b.length&&a._data.set(b,0)}return a._data},q=function(a){var b=p(a),c=e.getTypeOf(b);return"string"===c?!a.options.binary&&d.nodebuffer?l(b,"utf-8"):a.asBinary():b},r=function(a){var b=p(this);return null===b||"undefined"==typeof b?"":(this.options.base64&&(b=i.decode(b)),b=a&&this.options.binary?D.utf8decode(b):e.transformTo("string",b),a||this.options.binary||(b=e.transformTo("string",D.utf8encode(b))),b)},s=function(a,b,c){this.name=a,this.dir=c.dir,this.date=c.date,this.comment=c.comment,this.unixPermissions=c.unixPermissions,this.dosPermissions=c.dosPermissions,this._data=b,this.options=c,this._initialMetadata={dir:c.dir,date:c.date}};s.prototype={asText:function(){return r.call(this,!0)},asBinary:function(){return r.call(this,!1)},asNodeBuffer:function(){var a=q(this);return e.transformTo("nodebuffer",a)},asUint8Array:function(){var a=q(this);return e.transformTo("uint8array",a)},asArrayBuffer:function(){return this.asUint8Array().buffer}};var t=function(a,b){var c,d="";for(c=0;c<b;c++)d+=String.fromCharCode(255&a),a>>>=8;return d},u=function(a){return a=a||{},a.base64!==!0||null!==a.binary&&void 0!==a.binary||(a.binary=!0),a=e.extend(a,h),a.date=a.date||new Date,null!==a.compression&&(a.compression=a.compression.toUpperCase()),a},v=function(a,b,c){var d,f=e.getTypeOf(b);if(c=u(c),"string"==typeof c.unixPermissions&&(c.unixPermissions=parseInt(c.unixPermissions,8)),c.unixPermissions&&16384&c.unixPermissions&&(c.dir=!0),c.dosPermissions&&16&c.dosPermissions&&(c.dir=!0),c.dir&&(a=x(a)),c.createFolders&&(d=w(a))&&y.call(this,d,!0),c.dir||null===b||"undefined"==typeof b)c.base64=!1,c.binary=!1,b=null,f=null;else if("string"===f)c.binary&&!c.base64&&c.optimizedBinaryString!==!0&&(b=e.string2binary(b));else{if(c.base64=!1,c.binary=!0,!(f||b instanceof k))throw new Error("The data of '"+a+"' is in an unsupported format !");"arraybuffer"===f&&(b=e.transformTo("uint8array",b))}var g=new s(a,b,c);return this.files[a]=g,g},w=function(a){"/"==a.slice(-1)&&(a=a.substring(0,a.length-1));var b=a.lastIndexOf("/");return b>0?a.substring(0,b):""},x=function(a){return"/"!=a.slice(-1)&&(a+="/"),a},y=function(a,b){return b="undefined"!=typeof b&&b,a=x(a),this.files[a]||v.call(this,a,null,{dir:!0,createFolders:b}),this.files[a]},z=function(a,b,c){var d,g=new k;return a._data instanceof k?(g.uncompressedSize=a._data.uncompressedSize,g.crc32=a._data.crc32,0===g.uncompressedSize||a.dir?(b=j.STORE,g.compressedContent="",g.crc32=0):a._data.compressionMethod===b.magic?g.compressedContent=a._data.getCompressedContent():(d=a._data.getContent(),g.compressedContent=b.compress(e.transformTo(b.compressInputType,d),c))):(d=q(a),d&&0!==d.length&&!a.dir||(b=j.STORE,d=""),g.uncompressedSize=d.length,g.crc32=f(d),g.compressedContent=b.compress(e.transformTo(b.compressInputType,d),c)),g.compressedSize=g.compressedContent.length,g.compressionMethod=b.magic,g},A=function(a,b){var c=a;return a||(c=b?16893:33204),(65535&c)<<16},B=function(a,b){return 63&(a||0)},C=function(a,b,c,d,h,i){var j,k,l,n,o=(c.compressedContent,i!==m.utf8encode),p=e.transformTo("string",i(b.name)),q=e.transformTo("string",m.utf8encode(b.name)),r=b.comment||"",s=e.transformTo("string",i(r)),u=e.transformTo("string",m.utf8encode(r)),v=q.length!==b.name.length,w=u.length!==r.length,x=b.options,y="",z="",C="";l=b._initialMetadata.dir!==b.dir?b.dir:x.dir,n=b._initialMetadata.date!==b.date?b.date:x.date;var D=0,E=0;l&&(D|=16),"UNIX"===h?(E=798,D|=A(b.unixPermissions,l)):(E=20,D|=B(b.dosPermissions,l)),j=n.getHours(),j<<=6,j|=n.getMinutes(),j<<=5,j|=n.getSeconds()/2,k=n.getFullYear()-1980,k<<=4,k|=n.getMonth()+1,k<<=5,k|=n.getDate(),v&&(z=t(1,1)+t(f(p),4)+q,y+="up"+t(z.length,2)+z),w&&(C=t(1,1)+t(this.crc32(s),4)+u,y+="uc"+t(C.length,2)+C);var F="";F+="\n\0",F+=o||!v&&!w?"\0\0":"\0\b",F+=c.compressionMethod,F+=t(j,2),F+=t(k,2),F+=t(c.crc32,4),F+=t(c.compressedSize,4),F+=t(c.uncompressedSize,4),F+=t(p.length,2),F+=t(y.length,2);var G=g.LOCAL_FILE_HEADER+F+p+y,H=g.CENTRAL_FILE_HEADER+t(E,2)+F+t(s.length,2)+"\0\0\0\0"+t(D,4)+t(d,4)+p+y+s;return{fileRecord:G,dirRecord:H,compressedObject:c}},D={load:function(a,b){throw new Error("Load method is not defined. Is the file jszip-load.js included ?")},filter:function(a){var b,c,d,f,g=[];for(b in this.files)this.files.hasOwnProperty(b)&&(d=this.files[b],f=new s(d.name,d._data,e.extend(d.options)),c=b.slice(this.root.length,b.length),b.slice(0,this.root.length)===this.root&&a(c,f)&&g.push(f));return g},file:function(a,b,c){if(1===arguments.length){if(e.isRegExp(a)){var d=a;return this.filter(function(a,b){return!b.dir&&d.test(a)})}return this.filter(function(b,c){return!c.dir&&b===a})[0]||null}return a=this.root+a,v.call(this,a,b,c),this},folder:function(a){if(!a)return this;if(e.isRegExp(a))return this.filter(function(b,c){return c.dir&&a.test(b)});var b=this.root+a,c=y.call(this,b),d=this.clone();return d.root=c.name,d},remove:function(a){a=this.root+a;var b=this.files[a];if(b||("/"!=a.slice(-1)&&(a+="/"),b=this.files[a]),b&&!b.dir)delete this.files[a];else for(var c=this.filter(function(b,c){return c.name.slice(0,a.length)===a}),d=0;d<c.length;d++)delete this.files[c[d].name];return this},generate:function(a){a=e.extend(a||{},{base64:!0,compression:"STORE",compressionOptions:null,type:"base64",platform:"DOS",comment:null,mimeType:"application/zip",encodeFileName:m.utf8encode}),e.checkSupport(a.type),"darwin"!==a.platform&&"freebsd"!==a.platform&&"linux"!==a.platform&&"sunos"!==a.platform||(a.platform="UNIX"),"win32"===a.platform&&(a.platform="DOS");var b,c,d=[],f=0,h=0,k=e.transformTo("string",a.encodeFileName(a.comment||this.comment||""));for(var l in this.files)if(this.files.hasOwnProperty(l)){var p=this.files[l],q=p.options.compression||a.compression.toUpperCase(),r=j[q];if(!r)throw new Error(q+" is not a valid compression method !");var s=p.options.compressionOptions||a.compressionOptions||{},u=z.call(this,p,r,s),v=C.call(this,l,p,u,f,a.platform,a.encodeFileName);f+=v.fileRecord.length+u.compressedSize,h+=v.dirRecord.length,d.push(v)}var w="";w=g.CENTRAL_DIRECTORY_END+"\0\0\0\0"+t(d.length,2)+t(d.length,2)+t(h,4)+t(f,4)+t(k.length,2)+k;var x=a.type.toLowerCase();for(b="uint8array"===x||"arraybuffer"===x||"blob"===x||"nodebuffer"===x?new o(f+h+w.length):new n(f+h+w.length),c=0;c<d.length;c++)b.append(d[c].fileRecord),b.append(d[c].compressedObject.compressedContent);for(c=0;c<d.length;c++)b.append(d[c].dirRecord);b.append(w);var y=b.finalize();switch(a.type.toLowerCase()){case"uint8array":case"arraybuffer":case"nodebuffer":return e.transformTo(a.type.toLowerCase(),y);case"blob":return e.arrayBuffer2Blob(e.transformTo("arraybuffer",y),a.mimeType);case"base64":return a.base64?i.encode(y):y;default:return y}},crc32:function(a,b){return f(a,b)},utf8encode:function(a){return e.transformTo("string",m.utf8encode(a))},utf8decode:function(a){return m.utf8decode(a)}};b.exports=D},{"./base64":2,"./compressedObject":3,"./compressions":4,"./crc32":5,"./defaults":7,"./nodeBuffer":12,"./signature":15,"./stringWriter":17,"./support":18,"./uint8ArrayWriter":20,"./utf8":21,"./utils":22}],15:[function(a,b,c){"use strict";c.LOCAL_FILE_HEADER="PK",c.CENTRAL_FILE_HEADER="PK",c.CENTRAL_DIRECTORY_END="PK",c.ZIP64_CENTRAL_DIRECTORY_LOCATOR="PK",c.ZIP64_CENTRAL_DIRECTORY_END="PK",c.DATA_DESCRIPTOR="PK\b"},{}],16:[function(a,b,c){"use strict";function d(a,b){this.data=a,b||(this.data=f.string2binary(this.data)),this.length=this.data.length,this.index=0,this.zero=0}var e=a("./dataReader"),f=a("./utils");d.prototype=new e,d.prototype.byteAt=function(a){return this.data.charCodeAt(this.zero+a)},d.prototype.lastIndexOfSignature=function(a){return this.data.lastIndexOf(a)-this.zero},d.prototype.readData=function(a){this.checkOffset(a);var b=this.data.slice(this.zero+this.index,this.zero+this.index+a);return this.index+=a,b},b.exports=d},{"./dataReader":6,"./utils":22}],17:[function(a,b,c){"use strict";var d=a("./utils"),e=function(){this.data=[]};e.prototype={append:function(a){a=d.transformTo("string",a),this.data.push(a)},finalize:function(){return this.data.join("")}},b.exports=e},{"./utils":22}],18:[function(a,b,c){(function(a){"use strict";if(c.base64=!0,c.array=!0,c.string=!0,c.arraybuffer="undefined"!=typeof ArrayBuffer&&"undefined"!=typeof Uint8Array,c.nodebuffer="undefined"!=typeof a,c.uint8array="undefined"!=typeof Uint8Array,"undefined"==typeof ArrayBuffer)c.blob=!1;else{var b=new ArrayBuffer(0);try{c.blob=0===new Blob([b],{type:"application/zip"}).size}catch(d){try{var e=window.BlobBuilder||window.WebKitBlobBuilder||window.MozBlobBuilder||window.MSBlobBuilder,f=new e;f.append(b),c.blob=0===f.getBlob("application/zip").size}catch(d){c.blob=!1}}}}).call(this,"undefined"!=typeof Buffer?Buffer:void 0)},{}],19:[function(a,b,c){"use strict";function d(a){a&&(this.data=a,this.length=this.data.length,this.index=0,this.zero=0)}var e=a("./arrayReader");d.prototype=new e,d.prototype.readData=function(a){if(this.checkOffset(a),0===a)return new Uint8Array(0);var b=this.data.subarray(this.zero+this.index,this.zero+this.index+a);return this.index+=a,b},b.exports=d},{"./arrayReader":1}],20:[function(a,b,c){"use strict";var d=a("./utils"),e=function(a){this.data=new Uint8Array(a),this.index=0};e.prototype={append:function(a){0!==a.length&&(a=d.transformTo("uint8array",a),this.data.set(a,this.index),this.index+=a.length)},finalize:function(){return this.data}},b.exports=e},{"./utils":22}],21:[function(a,b,c){"use strict";for(var d=a("./utils"),e=a("./support"),f=a("./nodeBuffer"),g=new Array(256),h=0;h<256;h++)g[h]=h>=252?6:h>=248?5:h>=240?4:h>=224?3:h>=192?2:1;g[254]=g[254]=1;var i=function(a){var b,c,d,f,g,h=a.length,i=0;for(f=0;f<h;f++)c=a.charCodeAt(f),55296===(64512&c)&&f+1<h&&(d=a.charCodeAt(f+1),56320===(64512&d)&&(c=65536+(c-55296<<10)+(d-56320),f++)),i+=c<128?1:c<2048?2:c<65536?3:4;for(b=e.uint8array?new Uint8Array(i):new Array(i),g=0,f=0;g<i;f++)c=a.charCodeAt(f),55296===(64512&c)&&f+1<h&&(d=a.charCodeAt(f+1),56320===(64512&d)&&(c=65536+(c-55296<<10)+(d-56320),f++)),c<128?b[g++]=c:c<2048?(b[g++]=192|c>>>6,b[g++]=128|63&c):c<65536?(b[g++]=224|c>>>12,b[g++]=128|c>>>6&63,b[g++]=128|63&c):(b[g++]=240|c>>>18,b[g++]=128|c>>>12&63,b[g++]=128|c>>>6&63,b[g++]=128|63&c);return b},j=function(a,b){var c;for(b=b||a.length,b>a.length&&(b=a.length),c=b-1;c>=0&&128===(192&a[c]);)c--;return c<0?b:0===c?b:c+g[a[c]]>b?c:b},k=function(a){var b,c,e,f,h=a.length,i=new Array(2*h);for(c=0,b=0;b<h;)if(e=a[b++],e<128)i[c++]=e;else if(f=g[e],f>4)i[c++]=65533,b+=f-1;else{for(e&=2===f?31:3===f?15:7;f>1&&b<h;)e=e<<6|63&a[b++],f--;f>1?i[c++]=65533:e<65536?i[c++]=e:(e-=65536,i[c++]=55296|e>>10&1023,i[c++]=56320|1023&e)}return i.length!==c&&(i.subarray?i=i.subarray(0,c):i.length=c),d.applyFromCharCode(i)};c.utf8encode=function(a){return e.nodebuffer?f(a,"utf-8"):i(a)},c.utf8decode=function(a){if(e.nodebuffer)return d.transformTo("nodebuffer",a).toString("utf-8");a=d.transformTo(e.uint8array?"uint8array":"array",a);for(var b=[],c=0,f=a.length,g=65536;c<f;){var h=j(a,Math.min(c+g,f));e.uint8array?b.push(k(a.subarray(c,h))):b.push(k(a.slice(c,h))),c=h}return b.join("")}},{"./nodeBuffer":12,"./support":18,"./utils":22}],22:[function(a,b,c){"use strict";function d(a){return a}function e(a,b){for(var c=0;c<a.length;++c)b[c]=255&a.charCodeAt(c);return b}function f(a){var b=65536,d=[],e=a.length,f=c.getTypeOf(a),g=0,h=!0;try{switch(f){case"uint8array":String.fromCharCode.apply(null,new Uint8Array(0));break;case"nodebuffer":String.fromCharCode.apply(null,j(0))}}catch(i){h=!1}if(!h){for(var k="",l=0;l<a.length;l++)k+=String.fromCharCode(a[l]);return k}for(;g<e&&b>1;)try{"array"===f||"nodebuffer"===f?d.push(String.fromCharCode.apply(null,a.slice(g,Math.min(g+b,e)))):d.push(String.fromCharCode.apply(null,a.subarray(g,Math.min(g+b,e)))),g+=b}catch(i){b=Math.floor(b/2)}return d.join("")}function g(a,b){for(var c=0;c<a.length;c++)b[c]=a[c];return b}var h=a("./support"),i=a("./compressions"),j=a("./nodeBuffer");c.string2binary=function(a){for(var b="",c=0;c<a.length;c++)b+=String.fromCharCode(255&a.charCodeAt(c));return b},c.arrayBuffer2Blob=function(a,b){c.checkSupport("blob"),b=b||"application/zip";try{return new Blob([a],{type:b})}catch(d){try{var e=window.BlobBuilder||window.WebKitBlobBuilder||window.MozBlobBuilder||window.MSBlobBuilder,f=new e;return f.append(a),f.getBlob(b)}catch(d){throw new Error("Bug : can't construct the Blob.")}}},c.applyFromCharCode=f;var k={};k.string={string:d,array:function(a){return e(a,new Array(a.length))},arraybuffer:function(a){return k.string.uint8array(a).buffer},uint8array:function(a){return e(a,new Uint8Array(a.length))},nodebuffer:function(a){return e(a,j(a.length))}},k.array={string:f,array:d,arraybuffer:function(a){return new Uint8Array(a).buffer},uint8array:function(a){return new Uint8Array(a)},nodebuffer:function(a){return j(a)}},k.arraybuffer={string:function(a){return f(new Uint8Array(a))},array:function(a){return g(new Uint8Array(a),new Array(a.byteLength))},arraybuffer:d,uint8array:function(a){return new Uint8Array(a)},nodebuffer:function(a){return j(new Uint8Array(a))}},k.uint8array={string:f,array:function(a){return g(a,new Array(a.length))},arraybuffer:function(a){return a.buffer},uint8array:d,nodebuffer:function(a){return j(a)}},k.nodebuffer={string:f,array:function(a){return g(a,new Array(a.length))},arraybuffer:function(a){return k.nodebuffer.uint8array(a).buffer},uint8array:function(a){return g(a,new Uint8Array(a.length))},nodebuffer:d},c.transformTo=function(a,b){if(b||(b=""),!a)return b;c.checkSupport(a);var d=c.getTypeOf(b),e=k[d][a](b);return e},c.getTypeOf=function(a){return"string"==typeof a?"string":"[object Array]"===Object.prototype.toString.call(a)?"array":h.nodebuffer&&j.test(a)?"nodebuffer":h.uint8array&&a instanceof Uint8Array?"uint8array":h.arraybuffer&&a instanceof ArrayBuffer?"arraybuffer":void 0},c.checkSupport=function(a){var b=h[a.toLowerCase()];if(!b)throw new Error(a+" is not supported by this browser")},c.MAX_VALUE_16BITS=65535,c.MAX_VALUE_32BITS=-1,c.pretty=function(a){var b,c,d="";for(c=0;c<(a||"").length;c++)b=a.charCodeAt(c),d+="\\x"+(b<16?"0":"")+b.toString(16).toUpperCase();return d},c.findCompression=function(a){for(var b in i)if(i.hasOwnProperty(b)&&i[b].magic===a)return i[b];return null},c.isRegExp=function(a){return"[object RegExp]"===Object.prototype.toString.call(a)},c.extend=function(){var a,b,c={};for(a=0;a<arguments.length;a++)for(b in arguments[a])arguments[a].hasOwnProperty(b)&&"undefined"==typeof c[b]&&(c[b]=arguments[a][b]);return c}},{"./compressions":4,"./nodeBuffer":12,"./support":18}],23:[function(a,b,c){"use strict";function d(a,b){this.files=[],this.loadOptions=b,a&&this.load(a)}var e=a("./stringReader"),f=a("./nodeBufferReader"),g=a("./uint8ArrayReader"),h=a("./arrayReader"),i=a("./utils"),j=a("./signature"),k=a("./zipEntry"),l=a("./support");a("./object");d.prototype={checkSignature:function(a){var b=this.reader.readString(4);if(b!==a)throw new Error("Corrupted zip or bug : unexpected signature ("+i.pretty(b)+", expected "+i.pretty(a)+")")},isSignature:function(a,b){var c=this.reader.index;this.reader.setIndex(a);var d=this.reader.readString(4),e=d===b;return this.reader.setIndex(c),e},readBlockEndOfCentral:function(){this.diskNumber=this.reader.readInt(2),this.diskWithCentralDirStart=this.reader.readInt(2),this.centralDirRecordsOnThisDisk=this.reader.readInt(2),this.centralDirRecords=this.reader.readInt(2),this.centralDirSize=this.reader.readInt(4),this.centralDirOffset=this.reader.readInt(4),this.zipCommentLength=this.reader.readInt(2);var a=this.reader.readData(this.zipCommentLength),b=l.uint8array?"uint8array":"array",c=i.transformTo(b,a);this.zipComment=this.loadOptions.decodeFileName(c)},readBlockZip64EndOfCentral:function(){this.zip64EndOfCentralSize=this.reader.readInt(8),this.versionMadeBy=this.reader.readString(2),this.versionNeeded=this.reader.readInt(2),this.diskNumber=this.reader.readInt(4),this.diskWithCentralDirStart=this.reader.readInt(4),this.centralDirRecordsOnThisDisk=this.reader.readInt(8),this.centralDirRecords=this.reader.readInt(8),this.centralDirSize=this.reader.readInt(8),this.centralDirOffset=this.reader.readInt(8),this.zip64ExtensibleData={};for(var a,b,c,d=this.zip64EndOfCentralSize-44,e=0;e<d;)a=this.reader.readInt(2),b=this.reader.readInt(4),c=this.reader.readString(b),this.zip64ExtensibleData[a]={id:a,length:b,value:c}},readBlockZip64EndOfCentralLocator:function(){if(this.diskWithZip64CentralDirStart=this.reader.readInt(4),this.relativeOffsetEndOfZip64CentralDir=this.reader.readInt(8),this.disksCount=this.reader.readInt(4),this.disksCount>1)throw new Error("Multi-volumes zip are not supported")},readLocalFiles:function(){var a,b;for(a=0;a<this.files.length;a++)b=this.files[a],this.reader.setIndex(b.localHeaderOffset),this.checkSignature(j.LOCAL_FILE_HEADER),b.readLocalPart(this.reader),b.handleUTF8(),b.processAttributes()},readCentralDir:function(){var a;for(this.reader.setIndex(this.centralDirOffset);this.reader.readString(4)===j.CENTRAL_FILE_HEADER;)a=new k({zip64:this.zip64},this.loadOptions),a.readCentralPart(this.reader),this.files.push(a);if(this.centralDirRecords!==this.files.length&&0!==this.centralDirRecords&&0===this.files.length)throw new Error("Corrupted zip or bug: expected "+this.centralDirRecords+" records in central dir, got "+this.files.length)},readEndOfCentral:function(){var a=this.reader.lastIndexOfSignature(j.CENTRAL_DIRECTORY_END);if(a<0){var b=!this.isSignature(0,j.LOCAL_FILE_HEADER);throw b?new Error("Can't find end of central directory : is this a zip file ? If it is, see http://stuk.github.io/jszip/documentation/howto/read_zip.html"):new Error("Corrupted zip : can't find end of central directory")}this.reader.setIndex(a);var c=a;if(this.checkSignature(j.CENTRAL_DIRECTORY_END),this.readBlockEndOfCentral(),this.diskNumber===i.MAX_VALUE_16BITS||this.diskWithCentralDirStart===i.MAX_VALUE_16BITS||this.centralDirRecordsOnThisDisk===i.MAX_VALUE_16BITS||this.centralDirRecords===i.MAX_VALUE_16BITS||this.centralDirSize===i.MAX_VALUE_32BITS||this.centralDirOffset===i.MAX_VALUE_32BITS){if(this.zip64=!0,a=this.reader.lastIndexOfSignature(j.ZIP64_CENTRAL_DIRECTORY_LOCATOR),a<0)throw new Error("Corrupted zip : can't find the ZIP64 end of central directory locator");if(this.reader.setIndex(a),this.checkSignature(j.ZIP64_CENTRAL_DIRECTORY_LOCATOR),this.readBlockZip64EndOfCentralLocator(),!this.isSignature(this.relativeOffsetEndOfZip64CentralDir,j.ZIP64_CENTRAL_DIRECTORY_END)&&(this.relativeOffsetEndOfZip64CentralDir=this.reader.lastIndexOfSignature(j.ZIP64_CENTRAL_DIRECTORY_END),this.relativeOffsetEndOfZip64CentralDir<0))throw new Error("Corrupted zip : can't find the ZIP64 end of central directory");this.reader.setIndex(this.relativeOffsetEndOfZip64CentralDir),this.checkSignature(j.ZIP64_CENTRAL_DIRECTORY_END),this.readBlockZip64EndOfCentral()}var d=this.centralDirOffset+this.centralDirSize;this.zip64&&(d+=20,d+=12+this.zip64EndOfCentralSize);var e=c-d;if(e>0)this.isSignature(c,j.CENTRAL_FILE_HEADER)||(this.reader.zero=e);else if(e<0)throw new Error("Corrupted zip: missing "+Math.abs(e)+" bytes.")},prepareReader:function(a){var b=i.getTypeOf(a);if(i.checkSupport(b),"string"!==b||l.uint8array)if("nodebuffer"===b)this.reader=new f(a);else if(l.uint8array)this.reader=new g(i.transformTo("uint8array",a));else{if(!l.array)throw new Error("Unexpected error: unsupported type '"+b+"'");this.reader=new h(i.transformTo("array",a))}else this.reader=new e(a,this.loadOptions.optimizedBinaryString)},load:function(a){this.prepareReader(a),this.readEndOfCentral(),this.readCentralDir(),this.readLocalFiles()}},b.exports=d},{"./arrayReader":1,"./nodeBufferReader":13,"./object":14,"./signature":15,"./stringReader":16,"./support":18,"./uint8ArrayReader":19,"./utils":22,"./zipEntry":24}],24:[function(a,b,c){"use strict";function d(a,b){this.options=a,this.loadOptions=b}var e=a("./stringReader"),f=a("./utils"),g=a("./compressedObject"),h=a("./object"),i=a("./support"),j=0,k=3;d.prototype={isEncrypted:function(){return 1===(1&this.bitFlag)},useUTF8:function(){return 2048===(2048&this.bitFlag)},prepareCompressedContent:function(a,b,c){return function(){var d=a.index;a.setIndex(b);var e=a.readData(c);return a.setIndex(d),e}},prepareContent:function(a,b,c,d,e){return function(){var a=f.transformTo(d.uncompressInputType,this.getCompressedContent()),b=d.uncompress(a);if(b.length!==e)throw new Error("Bug : uncompressed data size mismatch");return b}},readLocalPart:function(a){var b,c;if(a.skip(22),this.fileNameLength=a.readInt(2),c=a.readInt(2),this.fileName=a.readData(this.fileNameLength),a.skip(c),this.compressedSize==-1||this.uncompressedSize==-1)throw new Error("Bug or corrupted zip : didn't get enough informations from the central directory (compressedSize == -1 || uncompressedSize == -1)");if(b=f.findCompression(this.compressionMethod),null===b)throw new Error("Corrupted zip : compression "+f.pretty(this.compressionMethod)+" unknown (inner file : "+f.transformTo("string",this.fileName)+")");if(this.decompressed=new g,this.decompressed.compressedSize=this.compressedSize,this.decompressed.uncompressedSize=this.uncompressedSize,this.decompressed.crc32=this.crc32,this.decompressed.compressionMethod=this.compressionMethod,this.decompressed.getCompressedContent=this.prepareCompressedContent(a,a.index,this.compressedSize,b),this.decompressed.getContent=this.prepareContent(a,a.index,this.compressedSize,b,this.uncompressedSize),this.loadOptions.checkCRC32&&(this.decompressed=f.transformTo("string",this.decompressed.getContent()),h.crc32(this.decompressed)!==this.crc32))throw new Error("Corrupted zip : CRC32 mismatch");
-},readCentralPart:function(a){if(this.versionMadeBy=a.readInt(2),this.versionNeeded=a.readInt(2),this.bitFlag=a.readInt(2),this.compressionMethod=a.readString(2),this.date=a.readDate(),this.crc32=a.readInt(4),this.compressedSize=a.readInt(4),this.uncompressedSize=a.readInt(4),this.fileNameLength=a.readInt(2),this.extraFieldsLength=a.readInt(2),this.fileCommentLength=a.readInt(2),this.diskNumberStart=a.readInt(2),this.internalFileAttributes=a.readInt(2),this.externalFileAttributes=a.readInt(4),this.localHeaderOffset=a.readInt(4),this.isEncrypted())throw new Error("Encrypted zip are not supported");this.fileName=a.readData(this.fileNameLength),this.readExtraFields(a),this.parseZIP64ExtraField(a),this.fileComment=a.readData(this.fileCommentLength)},processAttributes:function(){this.unixPermissions=null,this.dosPermissions=null;var a=this.versionMadeBy>>8;this.dir=!!(16&this.externalFileAttributes),a===j&&(this.dosPermissions=63&this.externalFileAttributes),a===k&&(this.unixPermissions=this.externalFileAttributes>>16&65535),this.dir||"/"!==this.fileNameStr.slice(-1)||(this.dir=!0)},parseZIP64ExtraField:function(a){if(this.extraFields[1]){var b=new e(this.extraFields[1].value);this.uncompressedSize===f.MAX_VALUE_32BITS&&(this.uncompressedSize=b.readInt(8)),this.compressedSize===f.MAX_VALUE_32BITS&&(this.compressedSize=b.readInt(8)),this.localHeaderOffset===f.MAX_VALUE_32BITS&&(this.localHeaderOffset=b.readInt(8)),this.diskNumberStart===f.MAX_VALUE_32BITS&&(this.diskNumberStart=b.readInt(4))}},readExtraFields:function(a){var b,c,d,e=a.index;for(this.extraFields=this.extraFields||{};a.index<e+this.extraFieldsLength;)b=a.readInt(2),c=a.readInt(2),d=a.readString(c),this.extraFields[b]={id:b,length:c,value:d}},handleUTF8:function(){var a=i.uint8array?"uint8array":"array";if(this.useUTF8())this.fileNameStr=h.utf8decode(this.fileName),this.fileCommentStr=h.utf8decode(this.fileComment);else{var b=this.findExtraFieldUnicodePath();if(null!==b)this.fileNameStr=b;else{var c=f.transformTo(a,this.fileName);this.fileNameStr=this.loadOptions.decodeFileName(c)}var d=this.findExtraFieldUnicodeComment();if(null!==d)this.fileCommentStr=d;else{var e=f.transformTo(a,this.fileComment);this.fileCommentStr=this.loadOptions.decodeFileName(e)}}},findExtraFieldUnicodePath:function(){var a=this.extraFields[28789];if(a){var b=new e(a.value);return 1!==b.readInt(1)?null:h.crc32(this.fileName)!==b.readInt(4)?null:h.utf8decode(b.readString(a.length-5))}return null},findExtraFieldUnicodeComment:function(){var a=this.extraFields[25461];if(a){var b=new e(a.value);return 1!==b.readInt(1)?null:h.crc32(this.fileComment)!==b.readInt(4)?null:h.utf8decode(b.readString(a.length-5))}return null}},b.exports=d},{"./compressedObject":3,"./object":14,"./stringReader":16,"./support":18,"./utils":22}],25:[function(a,b,c){"use strict";var d=a("./lib/utils/common").assign,e=a("./lib/deflate"),f=a("./lib/inflate"),g=a("./lib/zlib/constants"),h={};d(h,e,f,g),b.exports=h},{"./lib/deflate":26,"./lib/inflate":27,"./lib/utils/common":28,"./lib/zlib/constants":31}],26:[function(a,b,c){"use strict";function d(a){if(!(this instanceof d))return new d(a);this.options=i.assign({level:s,method:u,chunkSize:16384,windowBits:15,memLevel:8,strategy:t,to:""},a||{});var b=this.options;b.raw&&b.windowBits>0?b.windowBits=-b.windowBits:b.gzip&&b.windowBits>0&&b.windowBits<16&&(b.windowBits+=16),this.err=0,this.msg="",this.ended=!1,this.chunks=[],this.strm=new l,this.strm.avail_out=0;var c=h.deflateInit2(this.strm,b.level,b.method,b.windowBits,b.memLevel,b.strategy);if(c!==p)throw new Error(k[c]);if(b.header&&h.deflateSetHeader(this.strm,b.header),b.dictionary){var e;if(e="string"==typeof b.dictionary?j.string2buf(b.dictionary):"[object ArrayBuffer]"===m.call(b.dictionary)?new Uint8Array(b.dictionary):b.dictionary,c=h.deflateSetDictionary(this.strm,e),c!==p)throw new Error(k[c]);this._dict_set=!0}}function e(a,b){var c=new d(b);if(c.push(a,!0),c.err)throw c.msg;return c.result}function f(a,b){return b=b||{},b.raw=!0,e(a,b)}function g(a,b){return b=b||{},b.gzip=!0,e(a,b)}var h=a("./zlib/deflate"),i=a("./utils/common"),j=a("./utils/strings"),k=a("./zlib/messages"),l=a("./zlib/zstream"),m=Object.prototype.toString,n=0,o=4,p=0,q=1,r=2,s=-1,t=0,u=8;d.prototype.push=function(a,b){var c,d,e=this.strm,f=this.options.chunkSize;if(this.ended)return!1;d=b===~~b?b:b===!0?o:n,"string"==typeof a?e.input=j.string2buf(a):"[object ArrayBuffer]"===m.call(a)?e.input=new Uint8Array(a):e.input=a,e.next_in=0,e.avail_in=e.input.length;do{if(0===e.avail_out&&(e.output=new i.Buf8(f),e.next_out=0,e.avail_out=f),c=h.deflate(e,d),c!==q&&c!==p)return this.onEnd(c),this.ended=!0,!1;0!==e.avail_out&&(0!==e.avail_in||d!==o&&d!==r)||("string"===this.options.to?this.onData(j.buf2binstring(i.shrinkBuf(e.output,e.next_out))):this.onData(i.shrinkBuf(e.output,e.next_out)))}while((e.avail_in>0||0===e.avail_out)&&c!==q);return d===o?(c=h.deflateEnd(this.strm),this.onEnd(c),this.ended=!0,c===p):d!==r||(this.onEnd(p),e.avail_out=0,!0)},d.prototype.onData=function(a){this.chunks.push(a)},d.prototype.onEnd=function(a){a===p&&("string"===this.options.to?this.result=this.chunks.join(""):this.result=i.flattenChunks(this.chunks)),this.chunks=[],this.err=a,this.msg=this.strm.msg},c.Deflate=d,c.deflate=e,c.deflateRaw=f,c.gzip=g},{"./utils/common":28,"./utils/strings":29,"./zlib/deflate":33,"./zlib/messages":38,"./zlib/zstream":40}],27:[function(a,b,c){"use strict";function d(a){if(!(this instanceof d))return new d(a);this.options=h.assign({chunkSize:16384,windowBits:0,to:""},a||{});var b=this.options;b.raw&&b.windowBits>=0&&b.windowBits<16&&(b.windowBits=-b.windowBits,0===b.windowBits&&(b.windowBits=-15)),!(b.windowBits>=0&&b.windowBits<16)||a&&a.windowBits||(b.windowBits+=32),b.windowBits>15&&b.windowBits<48&&0===(15&b.windowBits)&&(b.windowBits|=15),this.err=0,this.msg="",this.ended=!1,this.chunks=[],this.strm=new l,this.strm.avail_out=0;var c=g.inflateInit2(this.strm,b.windowBits);if(c!==j.Z_OK)throw new Error(k[c]);this.header=new m,g.inflateGetHeader(this.strm,this.header)}function e(a,b){var c=new d(b);if(c.push(a,!0),c.err)throw c.msg;return c.result}function f(a,b){return b=b||{},b.raw=!0,e(a,b)}var g=a("./zlib/inflate"),h=a("./utils/common"),i=a("./utils/strings"),j=a("./zlib/constants"),k=a("./zlib/messages"),l=a("./zlib/zstream"),m=a("./zlib/gzheader"),n=Object.prototype.toString;d.prototype.push=function(a,b){var c,d,e,f,k,l,m=this.strm,o=this.options.chunkSize,p=this.options.dictionary,q=!1;if(this.ended)return!1;d=b===~~b?b:b===!0?j.Z_FINISH:j.Z_NO_FLUSH,"string"==typeof a?m.input=i.binstring2buf(a):"[object ArrayBuffer]"===n.call(a)?m.input=new Uint8Array(a):m.input=a,m.next_in=0,m.avail_in=m.input.length;do{if(0===m.avail_out&&(m.output=new h.Buf8(o),m.next_out=0,m.avail_out=o),c=g.inflate(m,j.Z_NO_FLUSH),c===j.Z_NEED_DICT&&p&&(l="string"==typeof p?i.string2buf(p):"[object ArrayBuffer]"===n.call(p)?new Uint8Array(p):p,c=g.inflateSetDictionary(this.strm,l)),c===j.Z_BUF_ERROR&&q===!0&&(c=j.Z_OK,q=!1),c!==j.Z_STREAM_END&&c!==j.Z_OK)return this.onEnd(c),this.ended=!0,!1;m.next_out&&(0!==m.avail_out&&c!==j.Z_STREAM_END&&(0!==m.avail_in||d!==j.Z_FINISH&&d!==j.Z_SYNC_FLUSH)||("string"===this.options.to?(e=i.utf8border(m.output,m.next_out),f=m.next_out-e,k=i.buf2string(m.output,e),m.next_out=f,m.avail_out=o-f,f&&h.arraySet(m.output,m.output,e,f,0),this.onData(k)):this.onData(h.shrinkBuf(m.output,m.next_out)))),0===m.avail_in&&0===m.avail_out&&(q=!0)}while((m.avail_in>0||0===m.avail_out)&&c!==j.Z_STREAM_END);return c===j.Z_STREAM_END&&(d=j.Z_FINISH),d===j.Z_FINISH?(c=g.inflateEnd(this.strm),this.onEnd(c),this.ended=!0,c===j.Z_OK):d!==j.Z_SYNC_FLUSH||(this.onEnd(j.Z_OK),m.avail_out=0,!0)},d.prototype.onData=function(a){this.chunks.push(a)},d.prototype.onEnd=function(a){a===j.Z_OK&&("string"===this.options.to?this.result=this.chunks.join(""):this.result=h.flattenChunks(this.chunks)),this.chunks=[],this.err=a,this.msg=this.strm.msg},c.Inflate=d,c.inflate=e,c.inflateRaw=f,c.ungzip=e},{"./utils/common":28,"./utils/strings":29,"./zlib/constants":31,"./zlib/gzheader":34,"./zlib/inflate":36,"./zlib/messages":38,"./zlib/zstream":40}],28:[function(a,b,c){"use strict";var d="undefined"!=typeof Uint8Array&&"undefined"!=typeof Uint16Array&&"undefined"!=typeof Int32Array;c.assign=function(a){for(var b=Array.prototype.slice.call(arguments,1);b.length;){var c=b.shift();if(c){if("object"!=typeof c)throw new TypeError(c+"must be non-object");for(var d in c)c.hasOwnProperty(d)&&(a[d]=c[d])}}return a},c.shrinkBuf=function(a,b){return a.length===b?a:a.subarray?a.subarray(0,b):(a.length=b,a)};var e={arraySet:function(a,b,c,d,e){if(b.subarray&&a.subarray)return void a.set(b.subarray(c,c+d),e);for(var f=0;f<d;f++)a[e+f]=b[c+f]},flattenChunks:function(a){var b,c,d,e,f,g;for(d=0,b=0,c=a.length;b<c;b++)d+=a[b].length;for(g=new Uint8Array(d),e=0,b=0,c=a.length;b<c;b++)f=a[b],g.set(f,e),e+=f.length;return g}},f={arraySet:function(a,b,c,d,e){for(var f=0;f<d;f++)a[e+f]=b[c+f]},flattenChunks:function(a){return[].concat.apply([],a)}};c.setTyped=function(a){a?(c.Buf8=Uint8Array,c.Buf16=Uint16Array,c.Buf32=Int32Array,c.assign(c,e)):(c.Buf8=Array,c.Buf16=Array,c.Buf32=Array,c.assign(c,f))},c.setTyped(d)},{}],29:[function(a,b,c){"use strict";function d(a,b){if(b<65537&&(a.subarray&&g||!a.subarray&&f))return String.fromCharCode.apply(null,e.shrinkBuf(a,b));for(var c="",d=0;d<b;d++)c+=String.fromCharCode(a[d]);return c}var e=a("./common"),f=!0,g=!0;try{String.fromCharCode.apply(null,[0])}catch(h){f=!1}try{String.fromCharCode.apply(null,new Uint8Array(1))}catch(h){g=!1}for(var i=new e.Buf8(256),j=0;j<256;j++)i[j]=j>=252?6:j>=248?5:j>=240?4:j>=224?3:j>=192?2:1;i[254]=i[254]=1,c.string2buf=function(a){var b,c,d,f,g,h=a.length,i=0;for(f=0;f<h;f++)c=a.charCodeAt(f),55296===(64512&c)&&f+1<h&&(d=a.charCodeAt(f+1),56320===(64512&d)&&(c=65536+(c-55296<<10)+(d-56320),f++)),i+=c<128?1:c<2048?2:c<65536?3:4;for(b=new e.Buf8(i),g=0,f=0;g<i;f++)c=a.charCodeAt(f),55296===(64512&c)&&f+1<h&&(d=a.charCodeAt(f+1),56320===(64512&d)&&(c=65536+(c-55296<<10)+(d-56320),f++)),c<128?b[g++]=c:c<2048?(b[g++]=192|c>>>6,b[g++]=128|63&c):c<65536?(b[g++]=224|c>>>12,b[g++]=128|c>>>6&63,b[g++]=128|63&c):(b[g++]=240|c>>>18,b[g++]=128|c>>>12&63,b[g++]=128|c>>>6&63,b[g++]=128|63&c);return b},c.buf2binstring=function(a){return d(a,a.length)},c.binstring2buf=function(a){for(var b=new e.Buf8(a.length),c=0,d=b.length;c<d;c++)b[c]=a.charCodeAt(c);return b},c.buf2string=function(a,b){var c,e,f,g,h=b||a.length,j=new Array(2*h);for(e=0,c=0;c<h;)if(f=a[c++],f<128)j[e++]=f;else if(g=i[f],g>4)j[e++]=65533,c+=g-1;else{for(f&=2===g?31:3===g?15:7;g>1&&c<h;)f=f<<6|63&a[c++],g--;g>1?j[e++]=65533:f<65536?j[e++]=f:(f-=65536,j[e++]=55296|f>>10&1023,j[e++]=56320|1023&f)}return d(j,e)},c.utf8border=function(a,b){var c;for(b=b||a.length,b>a.length&&(b=a.length),c=b-1;c>=0&&128===(192&a[c]);)c--;return c<0?b:0===c?b:c+i[a[c]]>b?c:b}},{"./common":28}],30:[function(a,b,c){"use strict";function d(a,b,c,d){for(var e=65535&a|0,f=a>>>16&65535|0,g=0;0!==c;){g=c>2e3?2e3:c,c-=g;do e=e+b[d++]|0,f=f+e|0;while(--g);e%=65521,f%=65521}return e|f<<16|0}b.exports=d},{}],31:[function(a,b,c){"use strict";b.exports={Z_NO_FLUSH:0,Z_PARTIAL_FLUSH:1,Z_SYNC_FLUSH:2,Z_FULL_FLUSH:3,Z_FINISH:4,Z_BLOCK:5,Z_TREES:6,Z_OK:0,Z_STREAM_END:1,Z_NEED_DICT:2,Z_ERRNO:-1,Z_STREAM_ERROR:-2,Z_DATA_ERROR:-3,Z_BUF_ERROR:-5,Z_NO_COMPRESSION:0,Z_BEST_SPEED:1,Z_BEST_COMPRESSION:9,Z_DEFAULT_COMPRESSION:-1,Z_FILTERED:1,Z_HUFFMAN_ONLY:2,Z_RLE:3,Z_FIXED:4,Z_DEFAULT_STRATEGY:0,Z_BINARY:0,Z_TEXT:1,Z_UNKNOWN:2,Z_DEFLATED:8}},{}],32:[function(a,b,c){"use strict";function d(){for(var a,b=[],c=0;c<256;c++){a=c;for(var d=0;d<8;d++)a=1&a?3988292384^a>>>1:a>>>1;b[c]=a}return b}function e(a,b,c,d){var e=f,g=d+c;a^=-1;for(var h=d;h<g;h++)a=a>>>8^e[255&(a^b[h])];return a^-1}var f=d();b.exports=e},{}],33:[function(a,b,c){"use strict";function d(a,b){return a.msg=I[b],b}function e(a){return(a<<1)-(a>4?9:0)}function f(a){for(var b=a.length;--b>=0;)a[b]=0}function g(a){var b=a.state,c=b.pending;c>a.avail_out&&(c=a.avail_out),0!==c&&(E.arraySet(a.output,b.pending_buf,b.pending_out,c,a.next_out),a.next_out+=c,b.pending_out+=c,a.total_out+=c,a.avail_out-=c,b.pending-=c,0===b.pending&&(b.pending_out=0))}function h(a,b){F._tr_flush_block(a,a.block_start>=0?a.block_start:-1,a.strstart-a.block_start,b),a.block_start=a.strstart,g(a.strm)}function i(a,b){a.pending_buf[a.pending++]=b}function j(a,b){a.pending_buf[a.pending++]=b>>>8&255,a.pending_buf[a.pending++]=255&b}function k(a,b,c,d){var e=a.avail_in;return e>d&&(e=d),0===e?0:(a.avail_in-=e,E.arraySet(b,a.input,a.next_in,e,c),1===a.state.wrap?a.adler=G(a.adler,b,e,c):2===a.state.wrap&&(a.adler=H(a.adler,b,e,c)),a.next_in+=e,a.total_in+=e,e)}function l(a,b){var c,d,e=a.max_chain_length,f=a.strstart,g=a.prev_length,h=a.nice_match,i=a.strstart>a.w_size-la?a.strstart-(a.w_size-la):0,j=a.window,k=a.w_mask,l=a.prev,m=a.strstart+ka,n=j[f+g-1],o=j[f+g];a.prev_length>=a.good_match&&(e>>=2),h>a.lookahead&&(h=a.lookahead);do if(c=b,j[c+g]===o&&j[c+g-1]===n&&j[c]===j[f]&&j[++c]===j[f+1]){f+=2,c++;do;while(j[++f]===j[++c]&&j[++f]===j[++c]&&j[++f]===j[++c]&&j[++f]===j[++c]&&j[++f]===j[++c]&&j[++f]===j[++c]&&j[++f]===j[++c]&&j[++f]===j[++c]&&f<m);if(d=ka-(m-f),f=m-ka,d>g){if(a.match_start=b,g=d,d>=h)break;n=j[f+g-1],o=j[f+g]}}while((b=l[b&k])>i&&0!==--e);return g<=a.lookahead?g:a.lookahead}function m(a){var b,c,d,e,f,g=a.w_size;do{if(e=a.window_size-a.lookahead-a.strstart,a.strstart>=g+(g-la)){E.arraySet(a.window,a.window,g,g,0),a.match_start-=g,a.strstart-=g,a.block_start-=g,c=a.hash_size,b=c;do d=a.head[--b],a.head[b]=d>=g?d-g:0;while(--c);c=g,b=c;do d=a.prev[--b],a.prev[b]=d>=g?d-g:0;while(--c);e+=g}if(0===a.strm.avail_in)break;if(c=k(a.strm,a.window,a.strstart+a.lookahead,e),a.lookahead+=c,a.lookahead+a.insert>=ja)for(f=a.strstart-a.insert,a.ins_h=a.window[f],a.ins_h=(a.ins_h<<a.hash_shift^a.window[f+1])&a.hash_mask;a.insert&&(a.ins_h=(a.ins_h<<a.hash_shift^a.window[f+ja-1])&a.hash_mask,a.prev[f&a.w_mask]=a.head[a.ins_h],a.head[a.ins_h]=f,f++,a.insert--,!(a.lookahead+a.insert<ja)););}while(a.lookahead<la&&0!==a.strm.avail_in)}function n(a,b){var c=65535;for(c>a.pending_buf_size-5&&(c=a.pending_buf_size-5);;){if(a.lookahead<=1){if(m(a),0===a.lookahead&&b===J)return ua;if(0===a.lookahead)break}a.strstart+=a.lookahead,a.lookahead=0;var d=a.block_start+c;if((0===a.strstart||a.strstart>=d)&&(a.lookahead=a.strstart-d,a.strstart=d,h(a,!1),0===a.strm.avail_out))return ua;if(a.strstart-a.block_start>=a.w_size-la&&(h(a,!1),0===a.strm.avail_out))return ua}return a.insert=0,b===M?(h(a,!0),0===a.strm.avail_out?wa:xa):a.strstart>a.block_start&&(h(a,!1),0===a.strm.avail_out)?ua:ua}function o(a,b){for(var c,d;;){if(a.lookahead<la){if(m(a),a.lookahead<la&&b===J)return ua;if(0===a.lookahead)break}if(c=0,a.lookahead>=ja&&(a.ins_h=(a.ins_h<<a.hash_shift^a.window[a.strstart+ja-1])&a.hash_mask,c=a.prev[a.strstart&a.w_mask]=a.head[a.ins_h],a.head[a.ins_h]=a.strstart),0!==c&&a.strstart-c<=a.w_size-la&&(a.match_length=l(a,c)),a.match_length>=ja)if(d=F._tr_tally(a,a.strstart-a.match_start,a.match_length-ja),a.lookahead-=a.match_length,a.match_length<=a.max_lazy_match&&a.lookahead>=ja){a.match_length--;do a.strstart++,a.ins_h=(a.ins_h<<a.hash_shift^a.window[a.strstart+ja-1])&a.hash_mask,c=a.prev[a.strstart&a.w_mask]=a.head[a.ins_h],a.head[a.ins_h]=a.strstart;while(0!==--a.match_length);a.strstart++}else a.strstart+=a.match_length,a.match_length=0,a.ins_h=a.window[a.strstart],a.ins_h=(a.ins_h<<a.hash_shift^a.window[a.strstart+1])&a.hash_mask;else d=F._tr_tally(a,0,a.window[a.strstart]),a.lookahead--,a.strstart++;if(d&&(h(a,!1),0===a.strm.avail_out))return ua}return a.insert=a.strstart<ja-1?a.strstart:ja-1,b===M?(h(a,!0),0===a.strm.avail_out?wa:xa):a.last_lit&&(h(a,!1),0===a.strm.avail_out)?ua:va}function p(a,b){for(var c,d,e;;){if(a.lookahead<la){if(m(a),a.lookahead<la&&b===J)return ua;if(0===a.lookahead)break}if(c=0,a.lookahead>=ja&&(a.ins_h=(a.ins_h<<a.hash_shift^a.window[a.strstart+ja-1])&a.hash_mask,c=a.prev[a.strstart&a.w_mask]=a.head[a.ins_h],a.head[a.ins_h]=a.strstart),a.prev_length=a.match_length,a.prev_match=a.match_start,a.match_length=ja-1,0!==c&&a.prev_length<a.max_lazy_match&&a.strstart-c<=a.w_size-la&&(a.match_length=l(a,c),a.match_length<=5&&(a.strategy===U||a.match_length===ja&&a.strstart-a.match_start>4096)&&(a.match_length=ja-1)),a.prev_length>=ja&&a.match_length<=a.prev_length){e=a.strstart+a.lookahead-ja,d=F._tr_tally(a,a.strstart-1-a.prev_match,a.prev_length-ja),a.lookahead-=a.prev_length-1,a.prev_length-=2;do++a.strstart<=e&&(a.ins_h=(a.ins_h<<a.hash_shift^a.window[a.strstart+ja-1])&a.hash_mask,c=a.prev[a.strstart&a.w_mask]=a.head[a.ins_h],a.head[a.ins_h]=a.strstart);while(0!==--a.prev_length);if(a.match_available=0,a.match_length=ja-1,a.strstart++,d&&(h(a,!1),0===a.strm.avail_out))return ua}else if(a.match_available){if(d=F._tr_tally(a,0,a.window[a.strstart-1]),d&&h(a,!1),a.strstart++,a.lookahead--,0===a.strm.avail_out)return ua}else a.match_available=1,a.strstart++,a.lookahead--}return a.match_available&&(d=F._tr_tally(a,0,a.window[a.strstart-1]),a.match_available=0),a.insert=a.strstart<ja-1?a.strstart:ja-1,b===M?(h(a,!0),0===a.strm.avail_out?wa:xa):a.last_lit&&(h(a,!1),0===a.strm.avail_out)?ua:va}function q(a,b){for(var c,d,e,f,g=a.window;;){if(a.lookahead<=ka){if(m(a),a.lookahead<=ka&&b===J)return ua;if(0===a.lookahead)break}if(a.match_length=0,a.lookahead>=ja&&a.strstart>0&&(e=a.strstart-1,d=g[e],d===g[++e]&&d===g[++e]&&d===g[++e])){f=a.strstart+ka;do;while(d===g[++e]&&d===g[++e]&&d===g[++e]&&d===g[++e]&&d===g[++e]&&d===g[++e]&&d===g[++e]&&d===g[++e]&&e<f);a.match_length=ka-(f-e),a.match_length>a.lookahead&&(a.match_length=a.lookahead)}if(a.match_length>=ja?(c=F._tr_tally(a,1,a.match_length-ja),a.lookahead-=a.match_length,a.strstart+=a.match_length,a.match_length=0):(c=F._tr_tally(a,0,a.window[a.strstart]),a.lookahead--,a.strstart++),c&&(h(a,!1),0===a.strm.avail_out))return ua}return a.insert=0,b===M?(h(a,!0),0===a.strm.avail_out?wa:xa):a.last_lit&&(h(a,!1),0===a.strm.avail_out)?ua:va}function r(a,b){for(var c;;){if(0===a.lookahead&&(m(a),0===a.lookahead)){if(b===J)return ua;break}if(a.match_length=0,c=F._tr_tally(a,0,a.window[a.strstart]),a.lookahead--,a.strstart++,c&&(h(a,!1),0===a.strm.avail_out))return ua}return a.insert=0,b===M?(h(a,!0),0===a.strm.avail_out?wa:xa):a.last_lit&&(h(a,!1),0===a.strm.avail_out)?ua:va}function s(a,b,c,d,e){this.good_length=a,this.max_lazy=b,this.nice_length=c,this.max_chain=d,this.func=e}function t(a){a.window_size=2*a.w_size,f(a.head),a.max_lazy_match=D[a.level].max_lazy,a.good_match=D[a.level].good_length,a.nice_match=D[a.level].nice_length,a.max_chain_length=D[a.level].max_chain,a.strstart=0,a.block_start=0,a.lookahead=0,a.insert=0,a.match_length=a.prev_length=ja-1,a.match_available=0,a.ins_h=0}function u(){this.strm=null,this.status=0,this.pending_buf=null,this.pending_buf_size=0,this.pending_out=0,this.pending=0,this.wrap=0,this.gzhead=null,this.gzindex=0,this.method=$,this.last_flush=-1,this.w_size=0,this.w_bits=0,this.w_mask=0,this.window=null,this.window_size=0,this.prev=null,this.head=null,this.ins_h=0,this.hash_size=0,this.hash_bits=0,this.hash_mask=0,this.hash_shift=0,this.block_start=0,this.match_length=0,this.prev_match=0,this.match_available=0,this.strstart=0,this.match_start=0,this.lookahead=0,this.prev_length=0,this.max_chain_length=0,this.max_lazy_match=0,this.level=0,this.strategy=0,this.good_match=0,this.nice_match=0,this.dyn_ltree=new E.Buf16(2*ha),this.dyn_dtree=new E.Buf16(2*(2*fa+1)),this.bl_tree=new E.Buf16(2*(2*ga+1)),f(this.dyn_ltree),f(this.dyn_dtree),f(this.bl_tree),this.l_desc=null,this.d_desc=null,this.bl_desc=null,this.bl_count=new E.Buf16(ia+1),this.heap=new E.Buf16(2*ea+1),f(this.heap),this.heap_len=0,this.heap_max=0,this.depth=new E.Buf16(2*ea+1),f(this.depth),this.l_buf=0,this.lit_bufsize=0,this.last_lit=0,this.d_buf=0,this.opt_len=0,this.static_len=0,this.matches=0,this.insert=0,this.bi_buf=0,this.bi_valid=0}function v(a){var b;return a&&a.state?(a.total_in=a.total_out=0,a.data_type=Z,b=a.state,b.pending=0,b.pending_out=0,b.wrap<0&&(b.wrap=-b.wrap),b.status=b.wrap?na:sa,a.adler=2===b.wrap?0:1,b.last_flush=J,F._tr_init(b),O):d(a,Q)}function w(a){var b=v(a);return b===O&&t(a.state),b}function x(a,b){return a&&a.state?2!==a.state.wrap?Q:(a.state.gzhead=b,O):Q}function y(a,b,c,e,f,g){if(!a)return Q;var h=1;if(b===T&&(b=6),e<0?(h=0,e=-e):e>15&&(h=2,e-=16),f<1||f>_||c!==$||e<8||e>15||b<0||b>9||g<0||g>X)return d(a,Q);8===e&&(e=9);var i=new u;return a.state=i,i.strm=a,i.wrap=h,i.gzhead=null,i.w_bits=e,i.w_size=1<<i.w_bits,i.w_mask=i.w_size-1,i.hash_bits=f+7,i.hash_size=1<<i.hash_bits,i.hash_mask=i.hash_size-1,i.hash_shift=~~((i.hash_bits+ja-1)/ja),i.window=new E.Buf8(2*i.w_size),i.head=new E.Buf16(i.hash_size),i.prev=new E.Buf16(i.w_size),i.lit_bufsize=1<<f+6,i.pending_buf_size=4*i.lit_bufsize,i.pending_buf=new E.Buf8(i.pending_buf_size),i.d_buf=1*i.lit_bufsize,i.l_buf=3*i.lit_bufsize,i.level=b,i.strategy=g,i.method=c,w(a)}function z(a,b){return y(a,b,$,aa,ba,Y)}function A(a,b){var c,h,k,l;if(!a||!a.state||b>N||b<0)return a?d(a,Q):Q;if(h=a.state,!a.output||!a.input&&0!==a.avail_in||h.status===ta&&b!==M)return d(a,0===a.avail_out?S:Q);if(h.strm=a,c=h.last_flush,h.last_flush=b,h.status===na)if(2===h.wrap)a.adler=0,i(h,31),i(h,139),i(h,8),h.gzhead?(i(h,(h.gzhead.text?1:0)+(h.gzhead.hcrc?2:0)+(h.gzhead.extra?4:0)+(h.gzhead.name?8:0)+(h.gzhead.comment?16:0)),i(h,255&h.gzhead.time),i(h,h.gzhead.time>>8&255),i(h,h.gzhead.time>>16&255),i(h,h.gzhead.time>>24&255),i(h,9===h.level?2:h.strategy>=V||h.level<2?4:0),i(h,255&h.gzhead.os),h.gzhead.extra&&h.gzhead.extra.length&&(i(h,255&h.gzhead.extra.length),i(h,h.gzhead.extra.length>>8&255)),h.gzhead.hcrc&&(a.adler=H(a.adler,h.pending_buf,h.pending,0)),h.gzindex=0,h.status=oa):(i(h,0),i(h,0),i(h,0),i(h,0),i(h,0),i(h,9===h.level?2:h.strategy>=V||h.level<2?4:0),i(h,ya),h.status=sa);else{var m=$+(h.w_bits-8<<4)<<8,n=-1;n=h.strategy>=V||h.level<2?0:h.level<6?1:6===h.level?2:3,m|=n<<6,0!==h.strstart&&(m|=ma),m+=31-m%31,h.status=sa,j(h,m),0!==h.strstart&&(j(h,a.adler>>>16),j(h,65535&a.adler)),a.adler=1}if(h.status===oa)if(h.gzhead.extra){for(k=h.pending;h.gzindex<(65535&h.gzhead.extra.length)&&(h.pending!==h.pending_buf_size||(h.gzhead.hcrc&&h.pending>k&&(a.adler=H(a.adler,h.pending_buf,h.pending-k,k)),g(a),k=h.pending,h.pending!==h.pending_buf_size));)i(h,255&h.gzhead.extra[h.gzindex]),h.gzindex++;h.gzhead.hcrc&&h.pending>k&&(a.adler=H(a.adler,h.pending_buf,h.pending-k,k)),h.gzindex===h.gzhead.extra.length&&(h.gzindex=0,h.status=pa)}else h.status=pa;if(h.status===pa)if(h.gzhead.name){k=h.pending;do{if(h.pending===h.pending_buf_size&&(h.gzhead.hcrc&&h.pending>k&&(a.adler=H(a.adler,h.pending_buf,h.pending-k,k)),g(a),k=h.pending,h.pending===h.pending_buf_size)){l=1;break}l=h.gzindex<h.gzhead.name.length?255&h.gzhead.name.charCodeAt(h.gzindex++):0,i(h,l)}while(0!==l);h.gzhead.hcrc&&h.pending>k&&(a.adler=H(a.adler,h.pending_buf,h.pending-k,k)),0===l&&(h.gzindex=0,h.status=qa)}else h.status=qa;if(h.status===qa)if(h.gzhead.comment){k=h.pending;do{if(h.pending===h.pending_buf_size&&(h.gzhead.hcrc&&h.pending>k&&(a.adler=H(a.adler,h.pending_buf,h.pending-k,k)),g(a),k=h.pending,h.pending===h.pending_buf_size)){l=1;break}l=h.gzindex<h.gzhead.comment.length?255&h.gzhead.comment.charCodeAt(h.gzindex++):0,i(h,l)}while(0!==l);h.gzhead.hcrc&&h.pending>k&&(a.adler=H(a.adler,h.pending_buf,h.pending-k,k)),0===l&&(h.status=ra)}else h.status=ra;if(h.status===ra&&(h.gzhead.hcrc?(h.pending+2>h.pending_buf_size&&g(a),h.pending+2<=h.pending_buf_size&&(i(h,255&a.adler),i(h,a.adler>>8&255),a.adler=0,h.status=sa)):h.status=sa),0!==h.pending){if(g(a),0===a.avail_out)return h.last_flush=-1,O}else if(0===a.avail_in&&e(b)<=e(c)&&b!==M)return d(a,S);if(h.status===ta&&0!==a.avail_in)return d(a,S);if(0!==a.avail_in||0!==h.lookahead||b!==J&&h.status!==ta){var o=h.strategy===V?r(h,b):h.strategy===W?q(h,b):D[h.level].func(h,b);if(o!==wa&&o!==xa||(h.status=ta),o===ua||o===wa)return 0===a.avail_out&&(h.last_flush=-1),O;if(o===va&&(b===K?F._tr_align(h):b!==N&&(F._tr_stored_block(h,0,0,!1),b===L&&(f(h.head),0===h.lookahead&&(h.strstart=0,h.block_start=0,h.insert=0))),g(a),0===a.avail_out))return h.last_flush=-1,O}return b!==M?O:h.wrap<=0?P:(2===h.wrap?(i(h,255&a.adler),i(h,a.adler>>8&255),i(h,a.adler>>16&255),i(h,a.adler>>24&255),i(h,255&a.total_in),i(h,a.total_in>>8&255),i(h,a.total_in>>16&255),i(h,a.total_in>>24&255)):(j(h,a.adler>>>16),j(h,65535&a.adler)),g(a),h.wrap>0&&(h.wrap=-h.wrap),0!==h.pending?O:P)}function B(a){var b;return a&&a.state?(b=a.state.status,b!==na&&b!==oa&&b!==pa&&b!==qa&&b!==ra&&b!==sa&&b!==ta?d(a,Q):(a.state=null,b===sa?d(a,R):O)):Q}function C(a,b){var c,d,e,g,h,i,j,k,l=b.length;if(!a||!a.state)return Q;if(c=a.state,g=c.wrap,2===g||1===g&&c.status!==na||c.lookahead)return Q;for(1===g&&(a.adler=G(a.adler,b,l,0)),c.wrap=0,l>=c.w_size&&(0===g&&(f(c.head),c.strstart=0,c.block_start=0,c.insert=0),k=new E.Buf8(c.w_size),E.arraySet(k,b,l-c.w_size,c.w_size,0),b=k,l=c.w_size),h=a.avail_in,i=a.next_in,j=a.input,a.avail_in=l,a.next_in=0,a.input=b,m(c);c.lookahead>=ja;){d=c.strstart,e=c.lookahead-(ja-1);do c.ins_h=(c.ins_h<<c.hash_shift^c.window[d+ja-1])&c.hash_mask,c.prev[d&c.w_mask]=c.head[c.ins_h],c.head[c.ins_h]=d,d++;while(--e);c.strstart=d,c.lookahead=ja-1,m(c)}return c.strstart+=c.lookahead,c.block_start=c.strstart,c.insert=c.lookahead,c.lookahead=0,c.match_length=c.prev_length=ja-1,c.match_available=0,a.next_in=i,a.input=j,a.avail_in=h,c.wrap=g,O}var D,E=a("../utils/common"),F=a("./trees"),G=a("./adler32"),H=a("./crc32"),I=a("./messages"),J=0,K=1,L=3,M=4,N=5,O=0,P=1,Q=-2,R=-3,S=-5,T=-1,U=1,V=2,W=3,X=4,Y=0,Z=2,$=8,_=9,aa=15,ba=8,ca=29,da=256,ea=da+1+ca,fa=30,ga=19,ha=2*ea+1,ia=15,ja=3,ka=258,la=ka+ja+1,ma=32,na=42,oa=69,pa=73,qa=91,ra=103,sa=113,ta=666,ua=1,va=2,wa=3,xa=4,ya=3;D=[new s(0,0,0,0,n),new s(4,4,8,4,o),new s(4,5,16,8,o),new s(4,6,32,32,o),new s(4,4,16,16,p),new s(8,16,32,32,p),new s(8,16,128,128,p),new s(8,32,128,256,p),new s(32,128,258,1024,p),new s(32,258,258,4096,p)],c.deflateInit=z,c.deflateInit2=y,c.deflateReset=w,c.deflateResetKeep=v,c.deflateSetHeader=x,c.deflate=A,c.deflateEnd=B,c.deflateSetDictionary=C,c.deflateInfo="pako deflate (from Nodeca project)"},{"../utils/common":28,"./adler32":30,"./crc32":32,"./messages":38,"./trees":39}],34:[function(a,b,c){"use strict";function d(){this.text=0,this.time=0,this.xflags=0,this.os=0,this.extra=null,this.extra_len=0,this.name="",this.comment="",this.hcrc=0,this.done=!1}b.exports=d},{}],35:[function(a,b,c){"use strict";var d=30,e=12;b.exports=function(a,b){var c,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,A,B,C;c=a.state,f=a.next_in,B=a.input,g=f+(a.avail_in-5),h=a.next_out,C=a.output,i=h-(b-a.avail_out),j=h+(a.avail_out-257),k=c.dmax,l=c.wsize,m=c.whave,n=c.wnext,o=c.window,p=c.hold,q=c.bits,r=c.lencode,s=c.distcode,t=(1<<c.lenbits)-1,u=(1<<c.distbits)-1;a:do{q<15&&(p+=B[f++]<<q,q+=8,p+=B[f++]<<q,q+=8),v=r[p&t];b:for(;;){if(w=v>>>24,p>>>=w,q-=w,w=v>>>16&255,0===w)C[h++]=65535&v;else{if(!(16&w)){if(0===(64&w)){v=r[(65535&v)+(p&(1<<w)-1)];continue b}if(32&w){c.mode=e;break a}a.msg="invalid literal/length code",c.mode=d;break a}x=65535&v,w&=15,w&&(q<w&&(p+=B[f++]<<q,q+=8),x+=p&(1<<w)-1,p>>>=w,q-=w),q<15&&(p+=B[f++]<<q,q+=8,p+=B[f++]<<q,q+=8),v=s[p&u];c:for(;;){if(w=v>>>24,p>>>=w,q-=w,w=v>>>16&255,!(16&w)){if(0===(64&w)){v=s[(65535&v)+(p&(1<<w)-1)];continue c}a.msg="invalid distance code",c.mode=d;break a}if(y=65535&v,w&=15,q<w&&(p+=B[f++]<<q,q+=8,q<w&&(p+=B[f++]<<q,q+=8)),y+=p&(1<<w)-1,y>k){a.msg="invalid distance too far back",c.mode=d;break a}if(p>>>=w,q-=w,w=h-i,y>w){if(w=y-w,w>m&&c.sane){a.msg="invalid distance too far back",c.mode=d;break a}if(z=0,A=o,0===n){if(z+=l-w,w<x){x-=w;do C[h++]=o[z++];while(--w);z=h-y,A=C}}else if(n<w){if(z+=l+n-w,w-=n,w<x){x-=w;do C[h++]=o[z++];while(--w);if(z=0,n<x){w=n,x-=w;do C[h++]=o[z++];while(--w);z=h-y,A=C}}}else if(z+=n-w,w<x){x-=w;do C[h++]=o[z++];while(--w);z=h-y,A=C}for(;x>2;)C[h++]=A[z++],C[h++]=A[z++],C[h++]=A[z++],x-=3;x&&(C[h++]=A[z++],x>1&&(C[h++]=A[z++]))}else{z=h-y;do C[h++]=C[z++],C[h++]=C[z++],C[h++]=C[z++],x-=3;while(x>2);x&&(C[h++]=C[z++],x>1&&(C[h++]=C[z++]))}break}}break}}while(f<g&&h<j);x=q>>3,f-=x,q-=x<<3,p&=(1<<q)-1,a.next_in=f,a.next_out=h,a.avail_in=f<g?5+(g-f):5-(f-g),a.avail_out=h<j?257+(j-h):257-(h-j),c.hold=p,c.bits=q}},{}],36:[function(a,b,c){"use strict";function d(a){return(a>>>24&255)+(a>>>8&65280)+((65280&a)<<8)+((255&a)<<24)}function e(){this.mode=0,this.last=!1,this.wrap=0,this.havedict=!1,this.flags=0,this.dmax=0,this.check=0,this.total=0,this.head=null,this.wbits=0,this.wsize=0,this.whave=0,this.wnext=0,this.window=null,this.hold=0,this.bits=0,this.length=0,this.offset=0,this.extra=0,this.lencode=null,this.distcode=null,this.lenbits=0,this.distbits=0,this.ncode=0,this.nlen=0,this.ndist=0,this.have=0,this.next=null,this.lens=new s.Buf16(320),this.work=new s.Buf16(288),this.lendyn=null,this.distdyn=null,this.sane=0,this.back=0,this.was=0}function f(a){var b;return a&&a.state?(b=a.state,a.total_in=a.total_out=b.total=0,a.msg="",b.wrap&&(a.adler=1&b.wrap),b.mode=L,b.last=0,b.havedict=0,b.dmax=32768,b.head=null,b.hold=0,b.bits=0,b.lencode=b.lendyn=new s.Buf32(pa),b.distcode=b.distdyn=new s.Buf32(qa),b.sane=1,b.back=-1,D):G}function g(a){var b;return a&&a.state?(b=a.state,b.wsize=0,b.whave=0,b.wnext=0,f(a)):G}function h(a,b){var c,d;return a&&a.state?(d=a.state,b<0?(c=0,b=-b):(c=(b>>4)+1,b<48&&(b&=15)),b&&(b<8||b>15)?G:(null!==d.window&&d.wbits!==b&&(d.window=null),d.wrap=c,d.wbits=b,g(a))):G}function i(a,b){var c,d;return a?(d=new e,a.state=d,d.window=null,c=h(a,b),c!==D&&(a.state=null),c):G}function j(a){return i(a,sa)}function k(a){if(ta){var b;for(q=new s.Buf32(512),r=new s.Buf32(32),b=0;b<144;)a.lens[b++]=8;for(;b<256;)a.lens[b++]=9;for(;b<280;)a.lens[b++]=7;for(;b<288;)a.lens[b++]=8;for(w(y,a.lens,0,288,q,0,a.work,{bits:9}),b=0;b<32;)a.lens[b++]=5;w(z,a.lens,0,32,r,0,a.work,{bits:5}),ta=!1}a.lencode=q,a.lenbits=9,a.distcode=r,a.distbits=5}function l(a,b,c,d){var e,f=a.state;return null===f.window&&(f.wsize=1<<f.wbits,f.wnext=0,f.whave=0,f.window=new s.Buf8(f.wsize)),d>=f.wsize?(s.arraySet(f.window,b,c-f.wsize,f.wsize,0),f.wnext=0,f.whave=f.wsize):(e=f.wsize-f.wnext,e>d&&(e=d),s.arraySet(f.window,b,c-d,e,f.wnext),d-=e,d?(s.arraySet(f.window,b,c-d,d,0),f.wnext=d,f.whave=f.wsize):(f.wnext+=e,f.wnext===f.wsize&&(f.wnext=0),f.whave<f.wsize&&(f.whave+=e))),0}function m(a,b){var c,e,f,g,h,i,j,m,n,o,p,q,r,pa,qa,ra,sa,ta,ua,va,wa,xa,ya,za,Aa=0,Ba=new s.Buf8(4),Ca=[16,17,18,0,8,7,9,6,10,5,11,4,12,3,13,2,14,1,15];if(!a||!a.state||!a.output||!a.input&&0!==a.avail_in)return G;c=a.state,c.mode===W&&(c.mode=X),h=a.next_out,f=a.output,j=a.avail_out,g=a.next_in,e=a.input,i=a.avail_in,m=c.hold,n=c.bits,o=i,p=j,xa=D;a:for(;;)switch(c.mode){case L:if(0===c.wrap){c.mode=X;break}for(;n<16;){if(0===i)break a;i--,m+=e[g++]<<n,n+=8}if(2&c.wrap&&35615===m){c.check=0,Ba[0]=255&m,Ba[1]=m>>>8&255,c.check=u(c.check,Ba,2,0),m=0,n=0,c.mode=M;break}if(c.flags=0,c.head&&(c.head.done=!1),!(1&c.wrap)||(((255&m)<<8)+(m>>8))%31){a.msg="incorrect header check",c.mode=ma;break}if((15&m)!==K){a.msg="unknown compression method",c.mode=ma;break}if(m>>>=4,n-=4,wa=(15&m)+8,0===c.wbits)c.wbits=wa;else if(wa>c.wbits){a.msg="invalid window size",c.mode=ma;break}c.dmax=1<<wa,a.adler=c.check=1,c.mode=512&m?U:W,m=0,n=0;break;case M:for(;n<16;){if(0===i)break a;i--,m+=e[g++]<<n,n+=8}if(c.flags=m,(255&c.flags)!==K){a.msg="unknown compression method",c.mode=ma;break}if(57344&c.flags){a.msg="unknown header flags set",c.mode=ma;break}c.head&&(c.head.text=m>>8&1),512&c.flags&&(Ba[0]=255&m,Ba[1]=m>>>8&255,c.check=u(c.check,Ba,2,0)),m=0,n=0,c.mode=N;case N:for(;n<32;){if(0===i)break a;i--,m+=e[g++]<<n,n+=8}c.head&&(c.head.time=m),512&c.flags&&(Ba[0]=255&m,Ba[1]=m>>>8&255,Ba[2]=m>>>16&255,Ba[3]=m>>>24&255,c.check=u(c.check,Ba,4,0)),m=0,n=0,c.mode=O;case O:for(;n<16;){if(0===i)break a;i--,m+=e[g++]<<n,
-n+=8}c.head&&(c.head.xflags=255&m,c.head.os=m>>8),512&c.flags&&(Ba[0]=255&m,Ba[1]=m>>>8&255,c.check=u(c.check,Ba,2,0)),m=0,n=0,c.mode=P;case P:if(1024&c.flags){for(;n<16;){if(0===i)break a;i--,m+=e[g++]<<n,n+=8}c.length=m,c.head&&(c.head.extra_len=m),512&c.flags&&(Ba[0]=255&m,Ba[1]=m>>>8&255,c.check=u(c.check,Ba,2,0)),m=0,n=0}else c.head&&(c.head.extra=null);c.mode=Q;case Q:if(1024&c.flags&&(q=c.length,q>i&&(q=i),q&&(c.head&&(wa=c.head.extra_len-c.length,c.head.extra||(c.head.extra=new Array(c.head.extra_len)),s.arraySet(c.head.extra,e,g,q,wa)),512&c.flags&&(c.check=u(c.check,e,q,g)),i-=q,g+=q,c.length-=q),c.length))break a;c.length=0,c.mode=R;case R:if(2048&c.flags){if(0===i)break a;q=0;do wa=e[g+q++],c.head&&wa&&c.length<65536&&(c.head.name+=String.fromCharCode(wa));while(wa&&q<i);if(512&c.flags&&(c.check=u(c.check,e,q,g)),i-=q,g+=q,wa)break a}else c.head&&(c.head.name=null);c.length=0,c.mode=S;case S:if(4096&c.flags){if(0===i)break a;q=0;do wa=e[g+q++],c.head&&wa&&c.length<65536&&(c.head.comment+=String.fromCharCode(wa));while(wa&&q<i);if(512&c.flags&&(c.check=u(c.check,e,q,g)),i-=q,g+=q,wa)break a}else c.head&&(c.head.comment=null);c.mode=T;case T:if(512&c.flags){for(;n<16;){if(0===i)break a;i--,m+=e[g++]<<n,n+=8}if(m!==(65535&c.check)){a.msg="header crc mismatch",c.mode=ma;break}m=0,n=0}c.head&&(c.head.hcrc=c.flags>>9&1,c.head.done=!0),a.adler=c.check=0,c.mode=W;break;case U:for(;n<32;){if(0===i)break a;i--,m+=e[g++]<<n,n+=8}a.adler=c.check=d(m),m=0,n=0,c.mode=V;case V:if(0===c.havedict)return a.next_out=h,a.avail_out=j,a.next_in=g,a.avail_in=i,c.hold=m,c.bits=n,F;a.adler=c.check=1,c.mode=W;case W:if(b===B||b===C)break a;case X:if(c.last){m>>>=7&n,n-=7&n,c.mode=ja;break}for(;n<3;){if(0===i)break a;i--,m+=e[g++]<<n,n+=8}switch(c.last=1&m,m>>>=1,n-=1,3&m){case 0:c.mode=Y;break;case 1:if(k(c),c.mode=ca,b===C){m>>>=2,n-=2;break a}break;case 2:c.mode=_;break;case 3:a.msg="invalid block type",c.mode=ma}m>>>=2,n-=2;break;case Y:for(m>>>=7&n,n-=7&n;n<32;){if(0===i)break a;i--,m+=e[g++]<<n,n+=8}if((65535&m)!==(m>>>16^65535)){a.msg="invalid stored block lengths",c.mode=ma;break}if(c.length=65535&m,m=0,n=0,c.mode=Z,b===C)break a;case Z:c.mode=$;case $:if(q=c.length){if(q>i&&(q=i),q>j&&(q=j),0===q)break a;s.arraySet(f,e,g,q,h),i-=q,g+=q,j-=q,h+=q,c.length-=q;break}c.mode=W;break;case _:for(;n<14;){if(0===i)break a;i--,m+=e[g++]<<n,n+=8}if(c.nlen=(31&m)+257,m>>>=5,n-=5,c.ndist=(31&m)+1,m>>>=5,n-=5,c.ncode=(15&m)+4,m>>>=4,n-=4,c.nlen>286||c.ndist>30){a.msg="too many length or distance symbols",c.mode=ma;break}c.have=0,c.mode=aa;case aa:for(;c.have<c.ncode;){for(;n<3;){if(0===i)break a;i--,m+=e[g++]<<n,n+=8}c.lens[Ca[c.have++]]=7&m,m>>>=3,n-=3}for(;c.have<19;)c.lens[Ca[c.have++]]=0;if(c.lencode=c.lendyn,c.lenbits=7,ya={bits:c.lenbits},xa=w(x,c.lens,0,19,c.lencode,0,c.work,ya),c.lenbits=ya.bits,xa){a.msg="invalid code lengths set",c.mode=ma;break}c.have=0,c.mode=ba;case ba:for(;c.have<c.nlen+c.ndist;){for(;Aa=c.lencode[m&(1<<c.lenbits)-1],qa=Aa>>>24,ra=Aa>>>16&255,sa=65535&Aa,!(qa<=n);){if(0===i)break a;i--,m+=e[g++]<<n,n+=8}if(sa<16)m>>>=qa,n-=qa,c.lens[c.have++]=sa;else{if(16===sa){for(za=qa+2;n<za;){if(0===i)break a;i--,m+=e[g++]<<n,n+=8}if(m>>>=qa,n-=qa,0===c.have){a.msg="invalid bit length repeat",c.mode=ma;break}wa=c.lens[c.have-1],q=3+(3&m),m>>>=2,n-=2}else if(17===sa){for(za=qa+3;n<za;){if(0===i)break a;i--,m+=e[g++]<<n,n+=8}m>>>=qa,n-=qa,wa=0,q=3+(7&m),m>>>=3,n-=3}else{for(za=qa+7;n<za;){if(0===i)break a;i--,m+=e[g++]<<n,n+=8}m>>>=qa,n-=qa,wa=0,q=11+(127&m),m>>>=7,n-=7}if(c.have+q>c.nlen+c.ndist){a.msg="invalid bit length repeat",c.mode=ma;break}for(;q--;)c.lens[c.have++]=wa}}if(c.mode===ma)break;if(0===c.lens[256]){a.msg="invalid code -- missing end-of-block",c.mode=ma;break}if(c.lenbits=9,ya={bits:c.lenbits},xa=w(y,c.lens,0,c.nlen,c.lencode,0,c.work,ya),c.lenbits=ya.bits,xa){a.msg="invalid literal/lengths set",c.mode=ma;break}if(c.distbits=6,c.distcode=c.distdyn,ya={bits:c.distbits},xa=w(z,c.lens,c.nlen,c.ndist,c.distcode,0,c.work,ya),c.distbits=ya.bits,xa){a.msg="invalid distances set",c.mode=ma;break}if(c.mode=ca,b===C)break a;case ca:c.mode=da;case da:if(i>=6&&j>=258){a.next_out=h,a.avail_out=j,a.next_in=g,a.avail_in=i,c.hold=m,c.bits=n,v(a,p),h=a.next_out,f=a.output,j=a.avail_out,g=a.next_in,e=a.input,i=a.avail_in,m=c.hold,n=c.bits,c.mode===W&&(c.back=-1);break}for(c.back=0;Aa=c.lencode[m&(1<<c.lenbits)-1],qa=Aa>>>24,ra=Aa>>>16&255,sa=65535&Aa,!(qa<=n);){if(0===i)break a;i--,m+=e[g++]<<n,n+=8}if(ra&&0===(240&ra)){for(ta=qa,ua=ra,va=sa;Aa=c.lencode[va+((m&(1<<ta+ua)-1)>>ta)],qa=Aa>>>24,ra=Aa>>>16&255,sa=65535&Aa,!(ta+qa<=n);){if(0===i)break a;i--,m+=e[g++]<<n,n+=8}m>>>=ta,n-=ta,c.back+=ta}if(m>>>=qa,n-=qa,c.back+=qa,c.length=sa,0===ra){c.mode=ia;break}if(32&ra){c.back=-1,c.mode=W;break}if(64&ra){a.msg="invalid literal/length code",c.mode=ma;break}c.extra=15&ra,c.mode=ea;case ea:if(c.extra){for(za=c.extra;n<za;){if(0===i)break a;i--,m+=e[g++]<<n,n+=8}c.length+=m&(1<<c.extra)-1,m>>>=c.extra,n-=c.extra,c.back+=c.extra}c.was=c.length,c.mode=fa;case fa:for(;Aa=c.distcode[m&(1<<c.distbits)-1],qa=Aa>>>24,ra=Aa>>>16&255,sa=65535&Aa,!(qa<=n);){if(0===i)break a;i--,m+=e[g++]<<n,n+=8}if(0===(240&ra)){for(ta=qa,ua=ra,va=sa;Aa=c.distcode[va+((m&(1<<ta+ua)-1)>>ta)],qa=Aa>>>24,ra=Aa>>>16&255,sa=65535&Aa,!(ta+qa<=n);){if(0===i)break a;i--,m+=e[g++]<<n,n+=8}m>>>=ta,n-=ta,c.back+=ta}if(m>>>=qa,n-=qa,c.back+=qa,64&ra){a.msg="invalid distance code",c.mode=ma;break}c.offset=sa,c.extra=15&ra,c.mode=ga;case ga:if(c.extra){for(za=c.extra;n<za;){if(0===i)break a;i--,m+=e[g++]<<n,n+=8}c.offset+=m&(1<<c.extra)-1,m>>>=c.extra,n-=c.extra,c.back+=c.extra}if(c.offset>c.dmax){a.msg="invalid distance too far back",c.mode=ma;break}c.mode=ha;case ha:if(0===j)break a;if(q=p-j,c.offset>q){if(q=c.offset-q,q>c.whave&&c.sane){a.msg="invalid distance too far back",c.mode=ma;break}q>c.wnext?(q-=c.wnext,r=c.wsize-q):r=c.wnext-q,q>c.length&&(q=c.length),pa=c.window}else pa=f,r=h-c.offset,q=c.length;q>j&&(q=j),j-=q,c.length-=q;do f[h++]=pa[r++];while(--q);0===c.length&&(c.mode=da);break;case ia:if(0===j)break a;f[h++]=c.length,j--,c.mode=da;break;case ja:if(c.wrap){for(;n<32;){if(0===i)break a;i--,m|=e[g++]<<n,n+=8}if(p-=j,a.total_out+=p,c.total+=p,p&&(a.adler=c.check=c.flags?u(c.check,f,p,h-p):t(c.check,f,p,h-p)),p=j,(c.flags?m:d(m))!==c.check){a.msg="incorrect data check",c.mode=ma;break}m=0,n=0}c.mode=ka;case ka:if(c.wrap&&c.flags){for(;n<32;){if(0===i)break a;i--,m+=e[g++]<<n,n+=8}if(m!==(4294967295&c.total)){a.msg="incorrect length check",c.mode=ma;break}m=0,n=0}c.mode=la;case la:xa=E;break a;case ma:xa=H;break a;case na:return I;case oa:default:return G}return a.next_out=h,a.avail_out=j,a.next_in=g,a.avail_in=i,c.hold=m,c.bits=n,(c.wsize||p!==a.avail_out&&c.mode<ma&&(c.mode<ja||b!==A))&&l(a,a.output,a.next_out,p-a.avail_out)?(c.mode=na,I):(o-=a.avail_in,p-=a.avail_out,a.total_in+=o,a.total_out+=p,c.total+=p,c.wrap&&p&&(a.adler=c.check=c.flags?u(c.check,f,p,a.next_out-p):t(c.check,f,p,a.next_out-p)),a.data_type=c.bits+(c.last?64:0)+(c.mode===W?128:0)+(c.mode===ca||c.mode===Z?256:0),(0===o&&0===p||b===A)&&xa===D&&(xa=J),xa)}function n(a){if(!a||!a.state)return G;var b=a.state;return b.window&&(b.window=null),a.state=null,D}function o(a,b){var c;return a&&a.state?(c=a.state,0===(2&c.wrap)?G:(c.head=b,b.done=!1,D)):G}function p(a,b){var c,d,e,f=b.length;return a&&a.state?(c=a.state,0!==c.wrap&&c.mode!==V?G:c.mode===V&&(d=1,d=t(d,b,f,0),d!==c.check)?H:(e=l(a,b,f,f))?(c.mode=na,I):(c.havedict=1,D)):G}var q,r,s=a("../utils/common"),t=a("./adler32"),u=a("./crc32"),v=a("./inffast"),w=a("./inftrees"),x=0,y=1,z=2,A=4,B=5,C=6,D=0,E=1,F=2,G=-2,H=-3,I=-4,J=-5,K=8,L=1,M=2,N=3,O=4,P=5,Q=6,R=7,S=8,T=9,U=10,V=11,W=12,X=13,Y=14,Z=15,$=16,_=17,aa=18,ba=19,ca=20,da=21,ea=22,fa=23,ga=24,ha=25,ia=26,ja=27,ka=28,la=29,ma=30,na=31,oa=32,pa=852,qa=592,ra=15,sa=ra,ta=!0;c.inflateReset=g,c.inflateReset2=h,c.inflateResetKeep=f,c.inflateInit=j,c.inflateInit2=i,c.inflate=m,c.inflateEnd=n,c.inflateGetHeader=o,c.inflateSetDictionary=p,c.inflateInfo="pako inflate (from Nodeca project)"},{"../utils/common":28,"./adler32":30,"./crc32":32,"./inffast":35,"./inftrees":37}],37:[function(a,b,c){"use strict";var d=a("../utils/common"),e=15,f=852,g=592,h=0,i=1,j=2,k=[3,4,5,6,7,8,9,10,11,13,15,17,19,23,27,31,35,43,51,59,67,83,99,115,131,163,195,227,258,0,0],l=[16,16,16,16,16,16,16,16,17,17,17,17,18,18,18,18,19,19,19,19,20,20,20,20,21,21,21,21,16,72,78],m=[1,2,3,4,5,7,9,13,17,25,33,49,65,97,129,193,257,385,513,769,1025,1537,2049,3073,4097,6145,8193,12289,16385,24577,0,0],n=[16,16,16,16,17,17,18,18,19,19,20,20,21,21,22,22,23,23,24,24,25,25,26,26,27,27,28,28,29,29,64,64];b.exports=function(a,b,c,o,p,q,r,s){var t,u,v,w,x,y,z,A,B,C=s.bits,D=0,E=0,F=0,G=0,H=0,I=0,J=0,K=0,L=0,M=0,N=null,O=0,P=new d.Buf16(e+1),Q=new d.Buf16(e+1),R=null,S=0;for(D=0;D<=e;D++)P[D]=0;for(E=0;E<o;E++)P[b[c+E]]++;for(H=C,G=e;G>=1&&0===P[G];G--);if(H>G&&(H=G),0===G)return p[q++]=20971520,p[q++]=20971520,s.bits=1,0;for(F=1;F<G&&0===P[F];F++);for(H<F&&(H=F),K=1,D=1;D<=e;D++)if(K<<=1,K-=P[D],K<0)return-1;if(K>0&&(a===h||1!==G))return-1;for(Q[1]=0,D=1;D<e;D++)Q[D+1]=Q[D]+P[D];for(E=0;E<o;E++)0!==b[c+E]&&(r[Q[b[c+E]]++]=E);if(a===h?(N=R=r,y=19):a===i?(N=k,O-=257,R=l,S-=257,y=256):(N=m,R=n,y=-1),M=0,E=0,D=F,x=q,I=H,J=0,v=-1,L=1<<H,w=L-1,a===i&&L>f||a===j&&L>g)return 1;for(var T=0;;){T++,z=D-J,r[E]<y?(A=0,B=r[E]):r[E]>y?(A=R[S+r[E]],B=N[O+r[E]]):(A=96,B=0),t=1<<D-J,u=1<<I,F=u;do u-=t,p[x+(M>>J)+u]=z<<24|A<<16|B|0;while(0!==u);for(t=1<<D-1;M&t;)t>>=1;if(0!==t?(M&=t-1,M+=t):M=0,E++,0===--P[D]){if(D===G)break;D=b[c+r[E]]}if(D>H&&(M&w)!==v){for(0===J&&(J=H),x+=F,I=D-J,K=1<<I;I+J<G&&(K-=P[I+J],!(K<=0));)I++,K<<=1;if(L+=1<<I,a===i&&L>f||a===j&&L>g)return 1;v=M&w,p[v]=H<<24|I<<16|x-q|0}}return 0!==M&&(p[x+M]=D-J<<24|64<<16|0),s.bits=H,0}},{"../utils/common":28}],38:[function(a,b,c){"use strict";b.exports={2:"need dictionary",1:"stream end",0:"","-1":"file error","-2":"stream error","-3":"data error","-4":"insufficient memory","-5":"buffer error","-6":"incompatible version"}},{}],39:[function(a,b,c){"use strict";function d(a){for(var b=a.length;--b>=0;)a[b]=0}function e(a,b,c,d,e){this.static_tree=a,this.extra_bits=b,this.extra_base=c,this.elems=d,this.max_length=e,this.has_stree=a&&a.length}function f(a,b){this.dyn_tree=a,this.max_code=0,this.stat_desc=b}function g(a){return a<256?ia[a]:ia[256+(a>>>7)]}function h(a,b){a.pending_buf[a.pending++]=255&b,a.pending_buf[a.pending++]=b>>>8&255}function i(a,b,c){a.bi_valid>X-c?(a.bi_buf|=b<<a.bi_valid&65535,h(a,a.bi_buf),a.bi_buf=b>>X-a.bi_valid,a.bi_valid+=c-X):(a.bi_buf|=b<<a.bi_valid&65535,a.bi_valid+=c)}function j(a,b,c){i(a,c[2*b],c[2*b+1])}function k(a,b){var c=0;do c|=1&a,a>>>=1,c<<=1;while(--b>0);return c>>>1}function l(a){16===a.bi_valid?(h(a,a.bi_buf),a.bi_buf=0,a.bi_valid=0):a.bi_valid>=8&&(a.pending_buf[a.pending++]=255&a.bi_buf,a.bi_buf>>=8,a.bi_valid-=8)}function m(a,b){var c,d,e,f,g,h,i=b.dyn_tree,j=b.max_code,k=b.stat_desc.static_tree,l=b.stat_desc.has_stree,m=b.stat_desc.extra_bits,n=b.stat_desc.extra_base,o=b.stat_desc.max_length,p=0;for(f=0;f<=W;f++)a.bl_count[f]=0;for(i[2*a.heap[a.heap_max]+1]=0,c=a.heap_max+1;c<V;c++)d=a.heap[c],f=i[2*i[2*d+1]+1]+1,f>o&&(f=o,p++),i[2*d+1]=f,d>j||(a.bl_count[f]++,g=0,d>=n&&(g=m[d-n]),h=i[2*d],a.opt_len+=h*(f+g),l&&(a.static_len+=h*(k[2*d+1]+g)));if(0!==p){do{for(f=o-1;0===a.bl_count[f];)f--;a.bl_count[f]--,a.bl_count[f+1]+=2,a.bl_count[o]--,p-=2}while(p>0);for(f=o;0!==f;f--)for(d=a.bl_count[f];0!==d;)e=a.heap[--c],e>j||(i[2*e+1]!==f&&(a.opt_len+=(f-i[2*e+1])*i[2*e],i[2*e+1]=f),d--)}}function n(a,b,c){var d,e,f=new Array(W+1),g=0;for(d=1;d<=W;d++)f[d]=g=g+c[d-1]<<1;for(e=0;e<=b;e++){var h=a[2*e+1];0!==h&&(a[2*e]=k(f[h]++,h))}}function o(){var a,b,c,d,f,g=new Array(W+1);for(c=0,d=0;d<Q-1;d++)for(ka[d]=c,a=0;a<1<<ba[d];a++)ja[c++]=d;for(ja[c-1]=d,f=0,d=0;d<16;d++)for(la[d]=f,a=0;a<1<<ca[d];a++)ia[f++]=d;for(f>>=7;d<T;d++)for(la[d]=f<<7,a=0;a<1<<ca[d]-7;a++)ia[256+f++]=d;for(b=0;b<=W;b++)g[b]=0;for(a=0;a<=143;)ga[2*a+1]=8,a++,g[8]++;for(;a<=255;)ga[2*a+1]=9,a++,g[9]++;for(;a<=279;)ga[2*a+1]=7,a++,g[7]++;for(;a<=287;)ga[2*a+1]=8,a++,g[8]++;for(n(ga,S+1,g),a=0;a<T;a++)ha[2*a+1]=5,ha[2*a]=k(a,5);ma=new e(ga,ba,R+1,S,W),na=new e(ha,ca,0,T,W),oa=new e(new Array(0),da,0,U,Y)}function p(a){var b;for(b=0;b<S;b++)a.dyn_ltree[2*b]=0;for(b=0;b<T;b++)a.dyn_dtree[2*b]=0;for(b=0;b<U;b++)a.bl_tree[2*b]=0;a.dyn_ltree[2*Z]=1,a.opt_len=a.static_len=0,a.last_lit=a.matches=0}function q(a){a.bi_valid>8?h(a,a.bi_buf):a.bi_valid>0&&(a.pending_buf[a.pending++]=a.bi_buf),a.bi_buf=0,a.bi_valid=0}function r(a,b,c,d){q(a),d&&(h(a,c),h(a,~c)),G.arraySet(a.pending_buf,a.window,b,c,a.pending),a.pending+=c}function s(a,b,c,d){var e=2*b,f=2*c;return a[e]<a[f]||a[e]===a[f]&&d[b]<=d[c]}function t(a,b,c){for(var d=a.heap[c],e=c<<1;e<=a.heap_len&&(e<a.heap_len&&s(b,a.heap[e+1],a.heap[e],a.depth)&&e++,!s(b,d,a.heap[e],a.depth));)a.heap[c]=a.heap[e],c=e,e<<=1;a.heap[c]=d}function u(a,b,c){var d,e,f,h,k=0;if(0!==a.last_lit)do d=a.pending_buf[a.d_buf+2*k]<<8|a.pending_buf[a.d_buf+2*k+1],e=a.pending_buf[a.l_buf+k],k++,0===d?j(a,e,b):(f=ja[e],j(a,f+R+1,b),h=ba[f],0!==h&&(e-=ka[f],i(a,e,h)),d--,f=g(d),j(a,f,c),h=ca[f],0!==h&&(d-=la[f],i(a,d,h)));while(k<a.last_lit);j(a,Z,b)}function v(a,b){var c,d,e,f=b.dyn_tree,g=b.stat_desc.static_tree,h=b.stat_desc.has_stree,i=b.stat_desc.elems,j=-1;for(a.heap_len=0,a.heap_max=V,c=0;c<i;c++)0!==f[2*c]?(a.heap[++a.heap_len]=j=c,a.depth[c]=0):f[2*c+1]=0;for(;a.heap_len<2;)e=a.heap[++a.heap_len]=j<2?++j:0,f[2*e]=1,a.depth[e]=0,a.opt_len--,h&&(a.static_len-=g[2*e+1]);for(b.max_code=j,c=a.heap_len>>1;c>=1;c--)t(a,f,c);e=i;do c=a.heap[1],a.heap[1]=a.heap[a.heap_len--],t(a,f,1),d=a.heap[1],a.heap[--a.heap_max]=c,a.heap[--a.heap_max]=d,f[2*e]=f[2*c]+f[2*d],a.depth[e]=(a.depth[c]>=a.depth[d]?a.depth[c]:a.depth[d])+1,f[2*c+1]=f[2*d+1]=e,a.heap[1]=e++,t(a,f,1);while(a.heap_len>=2);a.heap[--a.heap_max]=a.heap[1],m(a,b),n(f,j,a.bl_count)}function w(a,b,c){var d,e,f=-1,g=b[1],h=0,i=7,j=4;for(0===g&&(i=138,j=3),b[2*(c+1)+1]=65535,d=0;d<=c;d++)e=g,g=b[2*(d+1)+1],++h<i&&e===g||(h<j?a.bl_tree[2*e]+=h:0!==e?(e!==f&&a.bl_tree[2*e]++,a.bl_tree[2*$]++):h<=10?a.bl_tree[2*_]++:a.bl_tree[2*aa]++,h=0,f=e,0===g?(i=138,j=3):e===g?(i=6,j=3):(i=7,j=4))}function x(a,b,c){var d,e,f=-1,g=b[1],h=0,k=7,l=4;for(0===g&&(k=138,l=3),d=0;d<=c;d++)if(e=g,g=b[2*(d+1)+1],!(++h<k&&e===g)){if(h<l){do j(a,e,a.bl_tree);while(0!==--h)}else 0!==e?(e!==f&&(j(a,e,a.bl_tree),h--),j(a,$,a.bl_tree),i(a,h-3,2)):h<=10?(j(a,_,a.bl_tree),i(a,h-3,3)):(j(a,aa,a.bl_tree),i(a,h-11,7));h=0,f=e,0===g?(k=138,l=3):e===g?(k=6,l=3):(k=7,l=4)}}function y(a){var b;for(w(a,a.dyn_ltree,a.l_desc.max_code),w(a,a.dyn_dtree,a.d_desc.max_code),v(a,a.bl_desc),b=U-1;b>=3&&0===a.bl_tree[2*ea[b]+1];b--);return a.opt_len+=3*(b+1)+5+5+4,b}function z(a,b,c,d){var e;for(i(a,b-257,5),i(a,c-1,5),i(a,d-4,4),e=0;e<d;e++)i(a,a.bl_tree[2*ea[e]+1],3);x(a,a.dyn_ltree,b-1),x(a,a.dyn_dtree,c-1)}function A(a){var b,c=4093624447;for(b=0;b<=31;b++,c>>>=1)if(1&c&&0!==a.dyn_ltree[2*b])return I;if(0!==a.dyn_ltree[18]||0!==a.dyn_ltree[20]||0!==a.dyn_ltree[26])return J;for(b=32;b<R;b++)if(0!==a.dyn_ltree[2*b])return J;return I}function B(a){pa||(o(),pa=!0),a.l_desc=new f(a.dyn_ltree,ma),a.d_desc=new f(a.dyn_dtree,na),a.bl_desc=new f(a.bl_tree,oa),a.bi_buf=0,a.bi_valid=0,p(a)}function C(a,b,c,d){i(a,(L<<1)+(d?1:0),3),r(a,b,c,!0)}function D(a){i(a,M<<1,3),j(a,Z,ga),l(a)}function E(a,b,c,d){var e,f,g=0;a.level>0?(a.strm.data_type===K&&(a.strm.data_type=A(a)),v(a,a.l_desc),v(a,a.d_desc),g=y(a),e=a.opt_len+3+7>>>3,f=a.static_len+3+7>>>3,f<=e&&(e=f)):e=f=c+5,c+4<=e&&b!==-1?C(a,b,c,d):a.strategy===H||f===e?(i(a,(M<<1)+(d?1:0),3),u(a,ga,ha)):(i(a,(N<<1)+(d?1:0),3),z(a,a.l_desc.max_code+1,a.d_desc.max_code+1,g+1),u(a,a.dyn_ltree,a.dyn_dtree)),p(a),d&&q(a)}function F(a,b,c){return a.pending_buf[a.d_buf+2*a.last_lit]=b>>>8&255,a.pending_buf[a.d_buf+2*a.last_lit+1]=255&b,a.pending_buf[a.l_buf+a.last_lit]=255&c,a.last_lit++,0===b?a.dyn_ltree[2*c]++:(a.matches++,b--,a.dyn_ltree[2*(ja[c]+R+1)]++,a.dyn_dtree[2*g(b)]++),a.last_lit===a.lit_bufsize-1}var G=a("../utils/common"),H=4,I=0,J=1,K=2,L=0,M=1,N=2,O=3,P=258,Q=29,R=256,S=R+1+Q,T=30,U=19,V=2*S+1,W=15,X=16,Y=7,Z=256,$=16,_=17,aa=18,ba=[0,0,0,0,0,0,0,0,1,1,1,1,2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,0],ca=[0,0,0,0,1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10,11,11,12,12,13,13],da=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,3,7],ea=[16,17,18,0,8,7,9,6,10,5,11,4,12,3,13,2,14,1,15],fa=512,ga=new Array(2*(S+2));d(ga);var ha=new Array(2*T);d(ha);var ia=new Array(fa);d(ia);var ja=new Array(P-O+1);d(ja);var ka=new Array(Q);d(ka);var la=new Array(T);d(la);var ma,na,oa,pa=!1;c._tr_init=B,c._tr_stored_block=C,c._tr_flush_block=E,c._tr_tally=F,c._tr_align=D},{"../utils/common":28}],40:[function(a,b,c){"use strict";function d(){this.input=null,this.next_in=0,this.avail_in=0,this.total_in=0,this.output=null,this.next_out=0,this.avail_out=0,this.total_out=0,this.msg="",this.state=null,this.data_type=2,this.adler=0}b.exports=d},{}]},{},[10])(10)});
-
-
-/***/ },
-
 /***/ 42674
 /*!******************************!*\
   !*** ./resources/Account.js ***!
@@ -74245,37 +67894,7 @@ module.exports = class ABCustomEditList {
 };
 
 
-/***/ },
-
-/***/ 80236
-/*!********************!*\
-  !*** fs (ignored) ***!
-  \********************/
-() {
-
-/* (ignored) */
-
-/***/ },
-
-/***/ 88306
-/*!********************!*\
-  !*** fs (ignored) ***!
-  \********************/
-() {
-
-/* (ignored) */
-
-/***/ },
-
-/***/ 81258
-/*!**********************!*\
-  !*** path (ignored) ***!
-  \**********************/
-() {
-
-/* (ignored) */
-
 /***/ }
 
 }]);
-//# sourceMappingURL=AB.5484b8a4cf36a0c69a46.js.map
+//# sourceMappingURL=AB.ef6abf69b2b0a3b4d565.js.map
