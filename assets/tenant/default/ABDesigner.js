@@ -70877,7 +70877,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ FNAbviewdataviewProperties)
 /* harmony export */ });
-/* harmony import */ var _web_view_detail_FNAbviewdetail__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../web_view_detail/FNAbviewdetail */ "./src/plugins/web_view_detail/FNAbviewdetail.js");
+/* harmony import */ var _rootPages_Designer_properties_views_ABViewDetail__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../rootPages/Designer/properties/views/ABViewDetail */ "./src/rootPages/Designer/properties/views/ABViewDetail.js");
 /* harmony import */ var _rootPages_Designer_properties_views_viewProperties_ABViewPropertyLinkPage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../rootPages/Designer/properties/views/viewProperties/ABViewPropertyLinkPage */ "./src/rootPages/Designer/properties/views/viewProperties/ABViewPropertyLinkPage.js");
 // FNAbviewdataview Properties
 // A properties side import for an ABView.
@@ -70886,15 +70886,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function FNAbviewdataviewProperties({
-   AB,
-   // ABViewPropertiesPlugin,
-   // ABUIPlugin,
-}) {
+function FNAbviewdataviewProperties({ AB }) {
    const base = "properties_abview_dataview";
 
-   const ABViewDetail = (0,_web_view_detail_FNAbviewdetail__WEBPACK_IMPORTED_MODULE_0__["default"])({ AB });
-   // NOTE: this is another plugin, so pass in { AB }
+   const ABViewDetail = (0,_rootPages_Designer_properties_views_ABViewDetail__WEBPACK_IMPORTED_MODULE_0__["default"])(AB);
 
    const LinkPageProperty = (0,_rootPages_Designer_properties_views_viewProperties_ABViewPropertyLinkPage__WEBPACK_IMPORTED_MODULE_1__["default"])(AB, base);
    const uiConfig = AB.Config.uiSettings();
@@ -70968,7 +70963,7 @@ function FNAbviewdataviewProperties({
 
          $$(ids.xCount).setValue(
             view.settings.xCount ||
-               ABViewDataviewPropertyComponentDefaults.xCount
+            ABViewDataviewPropertyComponentDefaults.xCount
          );
 
          this.linkPageComponent.viewLoad(view);
@@ -71107,28 +71102,37 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ FNAbviewdetailProperties)
 /* harmony export */ });
-/* harmony import */ var _rootPages_Designer_properties_views_ABViewContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../rootPages/Designer/properties/views/ABViewContainer */ "./src/rootPages/Designer/properties/views/ABViewContainer.js");
-// FNAbviewdetail Properties
-// A properties side import for an ABView.
-//
+/* harmony import */ var _properties_FNAbviewDetailCheckbox_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./properties/FNAbviewDetailCheckbox.js */ "./src/plugins/web_view_detail/properties/FNAbviewDetailCheckbox.js");
+/* harmony import */ var _properties_FNAbviewDetailCustom_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./properties/FNAbviewDetailCustom.js */ "./src/plugins/web_view_detail/properties/FNAbviewDetailCustom.js");
+/* harmony import */ var _properties_FNAbviewDetailImage_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./properties/FNAbviewDetailImage.js */ "./src/plugins/web_view_detail/properties/FNAbviewDetailImage.js");
+/* harmony import */ var _properties_FNAbviewDetailItem_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./properties/FNAbviewDetailItem.js */ "./src/plugins/web_view_detail/properties/FNAbviewDetailItem.js");
+/* harmony import */ var _properties_FNAbviewDetailText_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./properties/FNAbviewDetailText.js */ "./src/plugins/web_view_detail/properties/FNAbviewDetailText.js");
+/* harmony import */ var _properties_FNAbviewDetailTree_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./properties/FNAbviewDetailTree.js */ "./src/plugins/web_view_detail/properties/FNAbviewDetailTree.js");
+/* harmony import */ var _rootPages_Designer_properties_views_ABViewContainer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../rootPages/Designer/properties/views/ABViewContainer */ "./src/rootPages/Designer/properties/views/ABViewContainer.js");
 
 
 
-function FNAbviewdetailProperties({ AB }) {
-   const ABViewContainer = (0,_rootPages_Designer_properties_views_ABViewContainer__WEBPACK_IMPORTED_MODULE_0__["default"])(AB);
+
+
+
+
+
+
+function FNAbviewdetailProperties(API) {
+   const { AB } = API;
+   const ABViewContainer = (0,_rootPages_Designer_properties_views_ABViewContainer__WEBPACK_IMPORTED_MODULE_6__["default"])(AB);
    const uiConfig = AB.Config.uiSettings();
    const L = ABViewContainer.L();
 
    let ABViewDetailPropertyComponentDefaults = {};
 
-   return class ABAbviewdetailProperties extends ABViewContainer {
+   const ABAbviewdetailProperties = class ABAbviewdetailProperties extends ABViewContainer {
       static getPluginKey() {
          return this.key;
       }
 
       static getPluginType() {
          return "properties-view";
-         // properties-view : will display in the properties panel of the ABDesigner
       }
 
       constructor(base, ids = {}) {
@@ -71481,6 +71485,16 @@ function FNAbviewdetailProperties({ AB }) {
          }
       }
    };
+
+   return [
+      ABAbviewdetailProperties,
+      (0,_properties_FNAbviewDetailItem_js__WEBPACK_IMPORTED_MODULE_3__["default"])(API),
+      (0,_properties_FNAbviewDetailCheckbox_js__WEBPACK_IMPORTED_MODULE_0__["default"])(API),
+      (0,_properties_FNAbviewDetailCustom_js__WEBPACK_IMPORTED_MODULE_1__["default"])(API),
+      (0,_properties_FNAbviewDetailImage_js__WEBPACK_IMPORTED_MODULE_2__["default"])(API),
+      (0,_properties_FNAbviewDetailText_js__WEBPACK_IMPORTED_MODULE_4__["default"])(API),
+      (0,_properties_FNAbviewDetailTree_js__WEBPACK_IMPORTED_MODULE_5__["default"])(API),
+   ];
 }
 
 
@@ -71559,6 +71573,463 @@ function FNAbviewdetailEditor({ AB /*ABViewEditorPlugin*/ }) {
          this.component?.onShow?.();
       }
    };
+}
+
+
+/***/ }),
+
+/***/ "./src/plugins/web_view_detail/properties/FNAbviewDetailCheckbox.js":
+/*!**************************************************************************!*\
+  !*** ./src/plugins/web_view_detail/properties/FNAbviewDetailCheckbox.js ***!
+  \**************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FNAbviewDetailCheckboxProperties)
+/* harmony export */ });
+/* harmony import */ var _FNAbviewDetailItem_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FNAbviewDetailItem.js */ "./src/plugins/web_view_detail/properties/FNAbviewDetailItem.js");
+
+
+function FNAbviewDetailCheckboxProperties({
+   AB,
+   ABViewPropertiesPlugin,
+}) {
+   const ABViewDetailItem = (0,_FNAbviewDetailItem_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
+      AB,
+      ABViewPropertiesPlugin,
+   });
+
+   const BASE_ID = "properties_abview_detail_checkbox";
+
+   class ABViewDetailCheckboxProperty extends ABViewDetailItem {
+      constructor() {
+         super(BASE_ID, {
+            height: "",
+         });
+
+         this.AB = AB;
+      }
+
+      static getPluginKey() {
+         return this.key;
+      }
+
+      static getPluginType() {
+         return "properties-view";
+      }
+
+      static get key() {
+         return "detailcheckbox";
+      }
+
+      ViewClass() {
+         return super._ViewClass("detailcheckbox");
+      }
+   }
+
+   return ABViewDetailCheckboxProperty;
+}
+
+
+/***/ }),
+
+/***/ "./src/plugins/web_view_detail/properties/FNAbviewDetailCustom.js":
+/*!************************************************************************!*\
+  !*** ./src/plugins/web_view_detail/properties/FNAbviewDetailCustom.js ***!
+  \************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FNAbviewDetailCustomProperties)
+/* harmony export */ });
+/* harmony import */ var _FNAbviewDetailItem_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FNAbviewDetailItem.js */ "./src/plugins/web_view_detail/properties/FNAbviewDetailItem.js");
+
+
+function FNAbviewDetailCustomProperties({
+   AB,
+   ABViewPropertiesPlugin,
+}) {
+   const ABViewDetailItem = (0,_FNAbviewDetailItem_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
+      AB,
+      ABViewPropertiesPlugin,
+   });
+
+   const BASE_ID = "properties_abview_detail_custom";
+
+   class ABViewDetailCustomProperty extends ABViewDetailItem {
+      constructor() {
+         super(BASE_ID, {
+            height: "",
+         });
+
+         this.AB = AB;
+      }
+
+      static getPluginKey() {
+         return this.key;
+      }
+
+      static getPluginType() {
+         return "properties-view";
+      }
+
+      static get key() {
+         return "detailcustom";
+      }
+
+      ViewClass() {
+         return super._ViewClass("detailcustom");
+      }
+   }
+
+   return ABViewDetailCustomProperty;
+}
+
+
+/***/ }),
+
+/***/ "./src/plugins/web_view_detail/properties/FNAbviewDetailImage.js":
+/*!***********************************************************************!*\
+  !*** ./src/plugins/web_view_detail/properties/FNAbviewDetailImage.js ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FNAbviewDetailImageProperties)
+/* harmony export */ });
+/* harmony import */ var _FNAbviewDetailItem_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FNAbviewDetailItem.js */ "./src/plugins/web_view_detail/properties/FNAbviewDetailItem.js");
+
+
+function FNAbviewDetailImageProperties({
+   AB,
+   ABViewPropertiesPlugin,
+}) {
+   const ABViewDetailItem = (0,_FNAbviewDetailItem_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
+      AB,
+      ABViewPropertiesPlugin,
+   });
+
+   const BASE_ID = "properties_abview_detail_image";
+   const DEFAULT_VALUES = {
+      height: 0,
+      width: 0,
+   };
+
+   class ABViewDetailImageProperty extends ABViewDetailItem {
+      constructor() {
+         super(BASE_ID, {
+            height: "",
+            width: "",
+         });
+
+         this.AB = AB;
+      }
+
+      static getPluginKey() {
+         return this.key;
+      }
+
+      static getPluginType() {
+         return "properties-view";
+      }
+
+      static get key() {
+         return "detailimage";
+      }
+
+      ui() {
+         return super.ui([
+            {
+               id: this.ids.height,
+               name: "height",
+               view: "counter",
+               label: this.label("Height"),
+               on: {
+                  onChange: () => this.onChange(),
+               },
+            },
+            {
+               id: this.ids.width,
+               name: "width",
+               view: "counter",
+               label: this.label("Width"),
+               on: {
+                  onChange: () => this.onChange(),
+               },
+            },
+         ]);
+      }
+
+      ViewClass() {
+         return super._ViewClass("detailimage");
+      }
+
+      populate(view) {
+         super.populate(view);
+         const defaults = this.defaultValues();
+         const height = view.settings?.height ?? defaults.height;
+         $$(this.ids.height).setValue(height);
+         const width = view.settings?.width ?? defaults.width;
+         $$(this.ids.width).setValue(width);
+      }
+
+      defaultValues() {
+         const values = super.defaultValues();
+         return Object.assign(DEFAULT_VALUES, values);
+      }
+
+      values() {
+         const values = super.values() ?? {};
+         values.settings = values.settings ?? {};
+         values.settings.height = $$(this.ids.height).getValue();
+         values.settings.width = $$(this.ids.width).getValue();
+         return values;
+      }
+   }
+
+   return ABViewDetailImageProperty;
+}
+
+
+/***/ }),
+
+/***/ "./src/plugins/web_view_detail/properties/FNAbviewDetailItem.js":
+/*!**********************************************************************!*\
+  !*** ./src/plugins/web_view_detail/properties/FNAbviewDetailItem.js ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FNAbviewDetailItemProperties)
+/* harmony export */ });
+function FNAbviewDetailItemProperties({
+   AB,
+   ABViewPropertiesPlugin,
+}) {
+   const L = AB.Label();
+
+   class ABViewDetailItemProperty extends ABViewPropertiesPlugin {
+      static getPluginKey() {
+         return this.key;
+      }
+
+      static getPluginType() {
+         return "properties-view";
+      }
+
+      static get key() {
+         return "detailitem";
+      }
+
+      constructor(BASE_ID, ids = {}) {
+         super(
+            BASE_ID ?? "properties_abview_detail_item",
+            Object.assign(ids, {
+               // Put our ids here
+               field: "",
+            })
+         );
+
+         this.AB = AB;
+      }
+
+      ui(elements = [], rules = {}) {
+         const ids = this.ids;
+         const _ui = [
+            {
+               id: ids.field,
+               name: "fieldLabel",
+               view: "text",
+               disabled: true,
+               label: L("Field"),
+            },
+         ].concat(elements);
+
+         return super.ui(_ui, rules);
+      }
+
+      populate(view) {
+         super.populate(view);
+
+         const [field] = this.AB.objectByID(view.settings.objectId).fields(
+            (f) => f.id == view.settings.fieldId
+         );
+
+         $$(this.ids.field).setValue(field ? field.label : "");
+      }
+
+      defaultValues() {
+         const ViewClass = this.ViewClass();
+
+         let values = {};
+
+         if (ViewClass) {
+            values = ViewClass.defaultValues();
+         }
+
+         return values;
+      }
+   }
+
+   return ABViewDetailItemProperty;
+}
+
+
+/***/ }),
+
+/***/ "./src/plugins/web_view_detail/properties/FNAbviewDetailText.js":
+/*!**********************************************************************!*\
+  !*** ./src/plugins/web_view_detail/properties/FNAbviewDetailText.js ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FNAbviewDetailTextProperties)
+/* harmony export */ });
+/* harmony import */ var _FNAbviewDetailItem_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FNAbviewDetailItem.js */ "./src/plugins/web_view_detail/properties/FNAbviewDetailItem.js");
+
+
+function FNAbviewDetailTextProperties({
+   AB,
+   ABViewPropertiesPlugin,
+}) {
+   const ABViewDetailItem = (0,_FNAbviewDetailItem_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
+      AB,
+      ABViewPropertiesPlugin,
+   });
+
+   const BASE_ID = "properties_abview_detail_text";
+   const DEFAULT_VALUES = {
+      height: 0,
+   };
+
+   class ABViewDetailTextProperty extends ABViewDetailItem {
+      constructor() {
+         super(BASE_ID, {
+            height: "",
+         });
+
+         this.AB = AB;
+      }
+
+      static getPluginKey() {
+         return this.key;
+      }
+
+      static getPluginType() {
+         return "properties-view";
+      }
+
+      static get key() {
+         return "detailtext";
+      }
+
+      ui() {
+         return super.ui([
+            {
+               id: this.ids.height,
+               name: "height",
+               view: "counter",
+               label: this.label("Height"),
+               on: {
+                  onChange: () => this.onChange(),
+               },
+            },
+         ]);
+      }
+
+      ViewClass() {
+         return super._ViewClass("detailtext");
+      }
+
+      populate(view) {
+         super.populate(view);
+         const defaults = this.defaultValues();
+         const height = view.settings?.height ?? defaults.height;
+         $$(this.ids.height).setValue(height);
+      }
+
+      defaultValues() {
+         const values = super.defaultValues();
+         return Object.assign(DEFAULT_VALUES, values);
+      }
+
+      values() {
+         const values = super.values() ?? {};
+         values.settings = values.settings ?? {};
+         values.settings.height = $$(this.ids.height).getValue();
+         return values;
+      }
+   }
+
+   return ABViewDetailTextProperty;
+}
+
+
+/***/ }),
+
+/***/ "./src/plugins/web_view_detail/properties/FNAbviewDetailTree.js":
+/*!**********************************************************************!*\
+  !*** ./src/plugins/web_view_detail/properties/FNAbviewDetailTree.js ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FNAbviewDetailTreeProperties)
+/* harmony export */ });
+/* harmony import */ var _FNAbviewDetailItem_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FNAbviewDetailItem.js */ "./src/plugins/web_view_detail/properties/FNAbviewDetailItem.js");
+
+
+function FNAbviewDetailTreeProperties({
+   AB,
+   ABViewPropertiesPlugin,
+}) {
+   const ABViewDetailItem = (0,_FNAbviewDetailItem_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
+      AB,
+      ABViewPropertiesPlugin,
+   });
+
+   const BASE_ID = "properties_abview_detail_tree";
+
+   class ABViewDetailTreeProperty extends ABViewDetailItem {
+      constructor() {
+         super(BASE_ID, {
+            height: "",
+         });
+
+         this.AB = AB;
+      }
+
+      static getPluginKey() {
+         return this.key;
+      }
+
+      static getPluginType() {
+         return "properties-view";
+      }
+
+      static get key() {
+         return "detailtree";
+      }
+
+      ViewClass() {
+         return super._ViewClass("detailtree");
+      }
+   }
+
+   return ABViewDetailTreeProperty;
 }
 
 
@@ -76495,22 +76966,6 @@ function FNAbviewgridProperties({
       async init(AB) {
          super.init(AB);
 
-         // Load in all the Available Datacollections:
-         var listDC = this.CurrentApplication.datacollectionsIncluded().map(
-            (d) => {
-               return {
-                  id: d.id,
-                  value: d.label,
-                  icon:
-                     d.sourceType == "query"
-                        ? "fa fa-filter"
-                        : "fa fa-database",
-               };
-            }
-         );
-         $$(this.ids.datacollection).define("options", listDC);
-         $$(this.ids.datacollection).refresh();
-
          /// Filter Data Helper:
 
          this._handler_onCancel = () => {
@@ -76644,25 +77099,32 @@ function FNAbviewgridProperties({
 
          if (!view) return;
 
+         // Load in all the Available Datacollections (done here so view.application is used directly):
+         var listDC = view.application.datacollectionsIncluded().map(
+            (d) => {
+               return {
+                  id: d.id,
+                  value: d.label,
+                  icon:
+                     d.sourceType == "query"
+                        ? "fa fa-filter"
+                        : "fa fa-database",
+               };
+            }
+         );
+         $$(ids.datacollection).define("options", listDC);
+         $$(ids.datacollection).refresh();
+
          // this.viewEditing = view;
          let $dataCollection = $$(ids.datacollection);
          $dataCollection.blockEvent();
-         $dataCollection.setValue(view.settings.dataviewID);
+         $dataCollection.setValue(view.settings.dataviewID || "");
          $dataCollection.unblockEvent();
          $$(ids.isEditable).setValue(view.settings.isEditable);
          $$(ids.massUpdate).setValue(view.settings.massUpdate);
          $$(ids.allowDelete).setValue(view.settings.allowDelete);
          $$(ids.isSortable).setValue(view.settings.isSortable);
          $$(ids.isExportable).setValue(view.settings.isExportable);
-
-         // populate the Datacollection chooser
-         if (view.settings.datacollection != "") {
-            $$(ids.datacollection).setValue(view.settings.dataviewID);
-            // $$(ids.linkedObject).show();
-         } else {
-            $$(ids.datacollection).setValue("");
-            // $$(ids.linkedObject).hide();
-         }
 
          $$(ids.height).setValue(view.settings.height);
          $$(ids.hideHeader).setValue(view.settings.hideHeader);
@@ -83358,12 +83820,12 @@ var PropertyMgr = null;
          // require("./views/ABViewDataSelect"),
          // require("./views/ABViewDataview"),
          // require("./views/ABViewDetail"),
-         __webpack_require__(/*! ./views/ABViewDetailCheckbox */ "./src/rootPages/Designer/properties/views/ABViewDetailCheckbox.js"),
-         __webpack_require__(/*! ./views/ABViewDetailCustom */ "./src/rootPages/Designer/properties/views/ABViewDetailCustom.js"),
-         __webpack_require__(/*! ./views/ABViewDetailImage */ "./src/rootPages/Designer/properties/views/ABViewDetailImage.js"),
-         __webpack_require__(/*! ./views/ABViewDetailItem */ "./src/rootPages/Designer/properties/views/ABViewDetailItem.js"),
-         __webpack_require__(/*! ./views/ABViewDetailText */ "./src/rootPages/Designer/properties/views/ABViewDetailText.js"),
-         __webpack_require__(/*! ./views/ABViewDetailTree */ "./src/rootPages/Designer/properties/views/ABViewDetailTree.js"),
+         // require("./views/ABViewDetailCheckbox"),
+         // require("./views/ABViewDetailCustom"),
+         // require("./views/ABViewDetailImage"),
+         // require("./views/ABViewDetailItem"),
+         // require("./views/ABViewDetailText"),
+         // require("./views/ABViewDetailTree"),
          // require("./views/ABViewDocxBuilder"),
          // require("./views/ABViewForm"),
          // require("./views/ABViewFormButton"),
@@ -83451,11 +83913,23 @@ var PropertyMgr = null;
          },
 
          processElements: function (f = () => true) {
-            return Plugins.concat(Processes).filter(f);
+            const dynamicPlugins = [];
+            if (AB.ClassManager && AB.ClassManager.viewPropertiesAll) {
+               AB.ClassManager.viewPropertiesAll().forEach((ViewPropertyClass) => {
+                  dynamicPlugins.push(ViewPropertyClass);
+               });
+            }
+            return dynamicPlugins.concat(Processes).filter(f);
          },
 
          views: function (v = () => true) {
-            return Plugins.concat(Views).filter(v);
+            const dynamicPlugins = [];
+            if (AB.ClassManager && AB.ClassManager.viewPropertiesAll) {
+               AB.ClassManager.viewPropertiesAll().forEach((ViewPropertyClass) => {
+                  dynamicPlugins.push(ViewPropertyClass);
+               });
+            }
+            return dynamicPlugins.concat(Views).filter(v);
          },
 
          mobileViews: function (v = () => true) {
@@ -111464,10 +111938,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/rootPages/Designer/properties/views/ABViewDetailCheckbox.js":
-/*!*************************************************************************!*\
-  !*** ./src/rootPages/Designer/properties/views/ABViewDetailCheckbox.js ***!
-  \*************************************************************************/
+/***/ "./src/rootPages/Designer/properties/views/ABViewDetail.js":
+/*!*****************************************************************!*\
+  !*** ./src/rootPages/Designer/properties/views/ABViewDetail.js ***!
+  \*****************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -111475,362 +111949,213 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* export default binding */ __WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _ABViewDetailItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABViewDetailItem */ "./src/rootPages/Designer/properties/views/ABViewDetailItem.js");
-/**
- * ABViewDetailCheckbox
- * A Property manager for our ABViewDetailCheckbox definitions
+/* harmony import */ var _ABViewContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABViewContainer */ "./src/rootPages/Designer/properties/views/ABViewContainer.js");
+/*
+ * ABViewDetail
+ * A Property manager for our ABViewDetail definitions
  */
 
 
 
 /* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__(AB) {
-   const BASE_ID = "properties_abview_detail_checkbox";
+   const ABViewContainer = (0,_ABViewContainer__WEBPACK_IMPORTED_MODULE_0__["default"])(AB);
+   const uiConfig = AB.Config.uiSettings();
+   const L = ABViewContainer.L();
 
-   const ABViewDetailItem = (0,_ABViewDetailItem__WEBPACK_IMPORTED_MODULE_0__["default"])(AB);
+   let ABViewDetailPropertyComponentDefaults = {};
 
-   class ABViewDetailCheckboxProperty extends ABViewDetailItem {
-      constructor() {
-         super(BASE_ID, {
-            height: "",
-         });
+   const base = "properties_abview_detail";
+
+   class ABViewDetailProperty extends ABViewContainer {
+      constructor(base, ids = {}) {
+         super(
+            base,
+            Object.assign(
+               {
+                  // Put our ids here
+                  datacollection: "",
+                  fields: "",
+                  showLabel: "",
+                  labelPosition: "",
+                  labelWidth: "",
+                  height: "",
+               },
+               ids
+            )
+         );
 
          this.AB = AB;
+         ABViewDetailPropertyComponentDefaults =
+            this.AB.ClassManager.viewClass("detail").defaultValues();
       }
 
       static get key() {
-         return "detailcheckbox";
+         return "detail";
       }
 
-      /**
-       * @method FieldClass()
-       * A method to return the proper ABViewXXX Definition.
-       * NOTE: Must be overwritten by the Child Class
-       */
-      ViewClass() {
-         return super._ViewClass("detailcheckbox");
-      }
-   }
+      ui(elements) {
+         const ids = this.ids;
 
-   return ABViewDetailCheckboxProperty;
-}
-
-
-/***/ }),
-
-/***/ "./src/rootPages/Designer/properties/views/ABViewDetailCustom.js":
-/*!***********************************************************************!*\
-  !*** ./src/rootPages/Designer/properties/views/ABViewDetailCustom.js ***!
-  \***********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* export default binding */ __WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _ABViewDetailItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABViewDetailItem */ "./src/rootPages/Designer/properties/views/ABViewDetailItem.js");
-/**
- * ABViewDetailCustom
- * A Property manager for our ABViewDetailCustom definitions
- */
-
-
-
-/* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__(AB) {
-   const BASE_ID = "properties_abview_detail_custom";
-
-   const ABViewDetailItem = (0,_ABViewDetailItem__WEBPACK_IMPORTED_MODULE_0__["default"])(AB);
-
-   class ABViewDetailCustomProperty extends ABViewDetailItem {
-      constructor() {
-         super(BASE_ID, {
-            height: "",
-         });
-
-         this.AB = AB;
-      }
-
-      static get key() {
-         return "detailcustom";
-      }
-
-      /**
-       * @method FieldClass()
-       * A method to return the proper ABViewXXX Definition.
-       * NOTE: Must be overwritten by the Child Class
-       */
-      ViewClass() {
-         return super._ViewClass("detailcustom");
-      }
-   }
-
-   return ABViewDetailCustomProperty;
-}
-
-
-/***/ }),
-
-/***/ "./src/rootPages/Designer/properties/views/ABViewDetailImage.js":
-/*!**********************************************************************!*\
-  !*** ./src/rootPages/Designer/properties/views/ABViewDetailImage.js ***!
-  \**********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* export default binding */ __WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _ABViewDetailItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABViewDetailItem */ "./src/rootPages/Designer/properties/views/ABViewDetailItem.js");
-/**
- * ABViewDetailImage
- * A Property manager for our ABViewDetailImage definitions
- */
-
-
-
-/* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__(AB) {
-   const BASE_ID = "properties_abview_detail_image";
-   const DEFAULT_VALUES = {
-      height: 0,
-      width: 0,
-   };
-
-   const ABViewDetailItem = (0,_ABViewDetailItem__WEBPACK_IMPORTED_MODULE_0__["default"])(AB);
-
-   class ABViewDetailImageProperty extends ABViewDetailItem {
-      constructor() {
-         super(BASE_ID, {
-            height: "",
-            width: "",
-         });
-
-         this.AB = AB;
-      }
-
-      static get key() {
-         return "detailimage";
-      }
-
-      ui() {
-         return super.ui([
+         let _ui = [
             {
-               id: this.ids.height,
+               id: ids.datacollection,
+               name: "datacollection",
+               view: "richselect",
+               label: L("Data Source"),
+               labelWidth: uiConfig.labelWidthLarge,
+               skipAutoSave: true,
+               on: {
+                  onChange: (newId, oldId) => {
+                     this.selectSource(newId, oldId);
+                  },
+               },
+            },
+            {
+               id: ids.fields,
+               name: "fields",
+               view: "list",
+               select: false,
+               minHeight: 200,
+               template: this.listTemplate,
+               type: {
+                  markCheckbox: function (item) {
+                     return (
+                        "<span class='check webix_icon fa fa-" +
+                        (item.selected ? "check-" : "") +
+                        "square-o'></span>"
+                     );
+                  },
+               },
+               onClick: {
+                  check: (...params) => this.check(...params),
+               },
+            },
+            {
+               id: ids.showLabel,
+               name: "showLabel",
+               view: "checkbox",
+               label: L("Display Label"),
+               labelWidth: uiConfig.labelWidthLarge,
+            },
+            {
+               id: ids.labelPosition,
+               name: "labelPosition",
+               view: "richselect",
+               label: L("Label Position"),
+               labelWidth: uiConfig.labelWidthLarge,
+               options: [
+                  {
+                     id: "left",
+                     value: L("Left"),
+                  },
+                  {
+                     id: "top",
+                     value: L("Top"),
+                  },
+               ],
+               on: {
+                  onChange: () => {
+                     this.onChange();
+                  },
+               },
+            },
+            {
+               id: ids.labelWidth,
+               name: "labelWidth",
+               view: "counter",
+               label: L("Label Width"),
+               labelWidth: uiConfig.labelWidthLarge,
+               on: {
+                  onChange: () => {
+                     this.onChange();
+                  },
+               },
+            },
+            {
+               id: ids.height,
                name: "height",
                view: "counter",
-               label: this.label("Height"),
+               label: L("Height:"),
+               labelWidth: uiConfig.labelWidthLarge,
                on: {
-                  onChange: () => this.onChange(),
+                  onChange: () => {
+                     this.onChange();
+                  },
                },
             },
-            {
-               id: this.ids.width,
-               name: "width",
-               view: "counter",
-               label: this.label("Width"),
-               on: {
-                  onChange: () => this.onChange(),
-               },
-            },
-         ]);
-      }
+         ];
 
-      /**
-       * @method FieldClass()
-       * A method to return the proper ABViewXXX Definition.
-       * NOTE: Must be overwritten by the Child Class
-       */
-      ViewClass() {
-         return super._ViewClass("detailimage");
+         // Union arrays: ._ui + .elements
+         (elements ?? []).forEach((elem) => {
+            _ui.push(elem);
+         });
+
+         return super.ui(_ui);
       }
 
       populate(view) {
          super.populate(view);
-         const defaults = this.defaultValues();
-         const height = view.settings?.height ?? defaults.height;
-         $$(this.ids.height).setValue(height);
-         const width = view.settings?.width ?? defaults.width;
-         $$(this.ids.width).setValue(width);
-      }
+         if (!view) return;
 
-      defaultValues() {
-         const values = super.defaultValues();
-         return Object.assign(DEFAULT_VALUES, values);
-      }
-
-      /**
-       * @method values
-       * return the values for this form.
-       * @return {obj}
-       */
-      values() {
-         const values = super.values() ?? {};
-         values.settings = values.settings ?? {};
-         values.settings.height = $$(this.ids.height).getValue();
-         values.settings.width = $$(this.ids.width).getValue();
-         return values;
-      }
-   }
-
-   return ABViewDetailImageProperty;
-}
-
-
-/***/ }),
-
-/***/ "./src/rootPages/Designer/properties/views/ABViewDetailItem.js":
-/*!*********************************************************************!*\
-  !*** ./src/rootPages/Designer/properties/views/ABViewDetailItem.js ***!
-  \*********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* export default binding */ __WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _ABView__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABView */ "./src/rootPages/Designer/properties/views/ABView.js");
-/*
- * ABViewDetailItem
- * A Property manager for our ABViewDetailItem definitions
- */
-
-
-
-/* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__(AB) {
-   const ABView = (0,_ABView__WEBPACK_IMPORTED_MODULE_0__["default"])(AB);
-   const L = ABView.L();
-
-   class ABViewDetailItemProperty extends ABView {
-      constructor(BASE_ID, ids = {}) {
-         super(
-            BASE_ID,
-            Object.assign(ids, {
-               // Put our ids here
-               field: "",
-            })
-         );
-
-         this.AB = AB;
-      }
-
-      ui(elements = [], rules = {}) {
          const ids = this.ids;
-         const _ui = [
-            {
-               id: ids.field,
-               name: "fieldLabel",
-               view: "text",
-               disabled: true,
-               label: L("Field"),
-            },
-         ].concat(elements);
 
-         return super.ui(_ui, rules);
-      }
+         const datacollectionId = view.settings?.dataviewID;
+         const SourceSelector = $$(ids.datacollection);
 
-      populate(view) {
-         super.populate(view);
+         // Pull data collections to options
+         const dcOptions = view.application
+            .datacollectionsIncluded()
+            .filter((dc) => {
+               const obj = dc.datasource;
+               return obj && !obj.isImported;
+            })
+            .map((d) => {
+               let entry = { id: d.id, value: d.label };
+               if (d.sourceType == "query") {
+                  entry.icon = "fa fa-filter";
+               } else {
+                  entry.icon = "fa fa-database";
+               }
+               return entry;
+            });
+         SourceSelector.define("options", dcOptions);
+         SourceSelector.define("value", datacollectionId);
+         SourceSelector.refresh();
 
-         const [field] = this.AB.objectByID(view.settings.objectId).fields(
-            (f) => f.id == view.settings.fieldId
+         this.propertyUpdateFieldOptions(datacollectionId, view);
+
+         $$(ids.showLabel).setValue(
+            view.settings.showLabel ??
+               ABViewDetailPropertyComponentDefaults.showLabel
+         );
+         $$(ids.labelPosition).setValue(
+            view.settings.labelPosition ??
+               ABViewDetailPropertyComponentDefaults.labelPosition
+         );
+         $$(ids.labelWidth).setValue(
+            parseInt(view.settings.labelWidth) ??
+               ABViewDetailPropertyComponentDefaults.labelWidth
+         );
+         $$(ids.height).setValue(
+            view.settings.height >= 0
+               ? view.settings.height
+               : ABViewDetailPropertyComponentDefaults.height
          );
 
-         $$(this.ids.field).setValue(field.label);
+         // update properties when a field component is deleted
+         view?.views().forEach((v) => {
+            if (v instanceof this.AB.Class.ABViewDetailItem)
+               v.once("destroyed", () => this.populate(view));
+         });
       }
 
       defaultValues() {
-         const ViewClass = this.ViewClass();
-
          let values = {};
-
+         const ViewClass = this.ViewClass();
          if (ViewClass) {
             values = ViewClass.defaultValues();
          }
-
          return values;
-      }
-   }
-
-   return ABViewDetailItemProperty;
-}
-
-
-/***/ }),
-
-/***/ "./src/rootPages/Designer/properties/views/ABViewDetailText.js":
-/*!*********************************************************************!*\
-  !*** ./src/rootPages/Designer/properties/views/ABViewDetailText.js ***!
-  \*********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* export default binding */ __WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _ABViewDetailItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABViewDetailItem */ "./src/rootPages/Designer/properties/views/ABViewDetailItem.js");
-/**
- * ABViewDetailText
- * A Property manager for our ABViewDetailText definitions
- */
-
-
-
-/* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__(AB) {
-   const BASE_ID = "properties_abview_detail_text";
-   const DEFAULT_VALUES = {
-      height: 0,
-   };
-
-   const ABViewDetailItem = (0,_ABViewDetailItem__WEBPACK_IMPORTED_MODULE_0__["default"])(AB);
-
-   class ABViewDetailTextProperty extends ABViewDetailItem {
-      constructor() {
-         super(BASE_ID, {
-            height: "",
-         });
-
-         this.AB = AB;
-      }
-
-      static get key() {
-         return "detailtext";
-      }
-
-      ui() {
-         return super.ui([
-            {
-               id: this.ids.height,
-               name: "height",
-               view: "counter",
-               label: this.label("Height"),
-               on: {
-                  onChange: () => this.onChange(),
-               },
-            },
-         ]);
-      }
-
-      /**
-       * @method FieldClass()
-       * A method to return the proper ABViewXXX Definition.
-       * NOTE: Must be overwritten by the Child Class
-       */
-      ViewClass() {
-         return super._ViewClass("detailtext");
-      }
-
-      populate(view) {
-         super.populate(view);
-         const defaults = this.defaultValues();
-         const height = view.settings?.height ?? defaults.height;
-         $$(this.ids.height).setValue(height);
-      }
-
-      defaultValues() {
-         const values = super.defaultValues();
-         return Object.assign(DEFAULT_VALUES, values);
       }
 
       /**
@@ -111839,54 +112164,17 @@ __webpack_require__.r(__webpack_exports__);
        * @return {obj}
        */
       values() {
-         const values = super.values() ?? {};
-         values.settings = values.settings ?? {};
-         values.settings.height = $$(this.ids.height).getValue();
-         return values;
-      }
-   }
+         const ids = this.ids;
+         let vals = super.values();
 
-   return ABViewDetailTextProperty;
-}
+         vals.settings = vals.settings ?? {};
+         vals.settings.dataviewID = $$(ids.datacollection).getValue();
+         vals.settings.showLabel = $$(ids.showLabel).getValue();
+         vals.settings.labelPosition = $$(ids.labelPosition).getValue();
+         vals.settings.labelWidth = $$(ids.labelWidth).getValue();
+         vals.settings.height = $$(ids.height).getValue();
 
-
-/***/ }),
-
-/***/ "./src/rootPages/Designer/properties/views/ABViewDetailTree.js":
-/*!*********************************************************************!*\
-  !*** ./src/rootPages/Designer/properties/views/ABViewDetailTree.js ***!
-  \*********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* export default binding */ __WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _ABViewDetailItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABViewDetailItem */ "./src/rootPages/Designer/properties/views/ABViewDetailItem.js");
-/**
- * ABViewDetailTree
- * A Property manager for our ABViewDetailTree definitions
- */
-
-
-
-/* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__(AB) {
-   const BASE_ID = "properties_abview_detail_tree";
-
-   const ABViewDetailItem = (0,_ABViewDetailItem__WEBPACK_IMPORTED_MODULE_0__["default"])(AB);
-
-   class ABViewDetailTreeProperty extends ABViewDetailItem {
-      constructor() {
-         super(BASE_ID, {
-            height: "",
-         });
-
-         this.AB = AB;
-      }
-
-      static get key() {
-         return "detailtree";
+         return vals;
       }
 
       /**
@@ -111895,11 +112183,142 @@ __webpack_require__.r(__webpack_exports__);
        * NOTE: Must be overwritten by the Child Class
        */
       ViewClass() {
-         return super._ViewClass("detailtree");
+         return super._ViewClass("detail");
+      }
+
+      /**
+       * @method propertyUpdateFieldOptions
+       * Populate fields of object to select list in property
+       *
+       * @param {string} dcId - id of ABDatacollection
+       */
+      propertyUpdateFieldOptions(dcId, view) {
+         const ids = this.ids;
+         const datacollection = this.AB.datacollectionByID(dcId);
+         const object = datacollection?.datasource;
+
+         // Pull field list
+         const fieldOptions = object?.fields().map((f) => {
+            f.selected =
+               view?.views((com) => f.id == com.settings.fieldId).length > 0;
+
+            return f;
+         });
+
+         $$(ids.fields).clearAll();
+         $$(ids.fields).parse(fieldOptions ?? []);
+      }
+
+      async selectSource(dcId) {
+         const ids = this.ids;
+         // _logic.busy();
+
+         let currView = this.CurrentView;
+
+         currView.settings.dataviewID = dcId;
+
+         // clear sub views
+         let viewsToRemove = currView._views;
+         currView._views = [];
+
+         // remove all old field components
+         let allRemoves = [];
+         viewsToRemove.forEach((v) => {
+            allRemoves.push(v.destroy());
+         });
+         await Promise.all(allRemoves);
+
+         // refresh UI
+         // Update field options in property
+         this.propertyUpdateFieldOptions(dcId);
+
+         // add all fields to editor by default
+         // if (currView._views.length < 1) {
+         let saveTasks = [];
+         let fields = $$(ids.fields).find({});
+         fields.reverse();
+         fields.forEach((f, index) => {
+            if (!f.selected) {
+               const yPosition = fields.length - index - 1;
+
+               // Add new form field
+               const newFieldView = currView.addFieldToDetail(f, yPosition);
+               if (newFieldView) {
+                  newFieldView.once("destroyed", () => this.populate(currView));
+
+                  // // Call save API
+                  saveTasks.push(newFieldView.save());
+               }
+
+               // update item to UI list
+               f.selected = 1;
+               $$(ids.fields).updateItem(f.id, f);
+            }
+         });
+
+         await Promise.all(saveTasks);
+         // }
+
+         // Saving
+         await currView.save();
+
+         // Finally
+         const detailView = currView.parentDetailComponent();
+         detailView?.emit("properties.updated", currView);
+
+         // _logic.ready();
+         this.onChange();
+      }
+
+      listTemplate(field, common) {
+         return `${common.markCheckbox(field)} ${field.label}`;
+      }
+
+      check(e, fieldId) {
+         const ids = this.ids;
+         const currView = this.CurrentView;
+         const detailView = currView.parentDetailComponent();
+
+         // update UI list
+         const item = $$(ids.fields).getItem(fieldId);
+         item.selected = item.selected ? 0 : 1;
+         $$(ids.fields).updateItem(fieldId, item);
+
+         const doneFn = () => {
+            // refresh UI
+            currView.emit("properties.updated", currView);
+            this.onChange();
+         };
+
+         // add a field to the form
+         if (item.selected) {
+            const fieldView = currView.addFieldToDetail(item);
+            if (fieldView) {
+               fieldView.save().then(() => {
+                  fieldView.once("destroyed", () => this.populate(currView));
+                  currView.viewInsert(fieldView).then(() => {
+                     doneFn();
+                  });
+               });
+            }
+         }
+         // remove field in the form
+         else {
+            const fieldView = detailView.views(
+               (c) => c.settings.fieldId == fieldId
+            )[0];
+
+            if (fieldView) {
+               fieldView.destroy();
+               currView.viewRemove(fieldView).then(() => {
+                  doneFn();
+               });
+            }
+         }
       }
    }
 
-   return ABViewDetailTreeProperty;
+   return ABViewDetailProperty;
 }
 
 
@@ -114886,7 +115305,7 @@ var myClass = null;
             $$(ids.filterOptionRadio).setValue(option);
             $$(ids.filterUser).setValue(
                settings.userFilterPosition ||
-                  ABViewPropertyFilterData.default.userFilterPosition
+               ABViewPropertyFilterData.default.userFilterPosition
             );
             $$(ids.globalToolbar).setValue(
                typeof settings.isGlobalToolbar != "undefined"
@@ -114896,7 +115315,7 @@ var myClass = null;
 
             $$(ids.filterGlobal).setValue(
                settings.globalFilterPosition ||
-                  ABViewPropertyFilterData.default.globalFilterPosition
+               ABViewPropertyFilterData.default.globalFilterPosition
             );
 
             // clear any existing Rules:
@@ -128624,10 +129043,11 @@ __webpack_require__.r(__webpack_exports__);
          if (view.id != this.CurrentViewID) {
             super.viewLoad(view);
 
-            let _editor = this._editorsByType[view.key];
+            let _editor = PropertyManager.views((V) => V.key == view.key)[0];
 
             if (_editor) {
                let newPanel = new _editor();
+               newPanel.AB = this.AB;
                newPanel.applicationLoad(this.CurrentApplication);
 
                let ui = [newPanel.ui()];
@@ -128640,8 +129060,12 @@ __webpack_require__.r(__webpack_exports__);
                this.currentPanel = newPanel;
                // newPanel.show();
             }
+         } else if (this.currentPanel) {
+            // Same view re-selected: re-populate so properties stay in sync
+            this.currentPanel.populate(view);
          }
       }
+
 
       ready() {
          const $component = $$(this.ids.component);
@@ -145775,6 +146199,7 @@ __webpack_require__.r(__webpack_exports__);
 
             if (_editor) {
                let newPanel = new _editor();
+               newPanel.AB = this.AB;
                newPanel.applicationLoad(this.CurrentApplication);
 
                let ui = [newPanel.ui()];
