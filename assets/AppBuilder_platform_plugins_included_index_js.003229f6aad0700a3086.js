@@ -2073,18 +2073,20 @@ function FNABViewChartCore({ ABViewWidgetPlugin }) {
       warningsEval() {
          super.warningsEval();
 
-         let labelField = this.labelField();
-         if (!labelField) {
-            this.warningsMessage(
-               `can't resolve label field[${this.settings.columnLabel}]`
-            );
-         }
+         if (this.key === "chart") {
+            let labelField = this.labelField();
+            if (!labelField) {
+               this.warningsMessage(
+                  `can't resolve label field[${this.settings.columnLabel}]`
+               );
+            }
 
-         let valueField = this.valueField();
-         if (!valueField) {
-            this.warningsMessage(
-               `can't resolve value field[${this.settings.columnValue}]`
-            );
+            let valueField = this.valueField();
+            if (!valueField) {
+               this.warningsMessage(
+                  `can't resolve value field[${this.settings.columnValue}]`
+               );
+            }
          }
       }
 
@@ -3466,12 +3468,18 @@ function FNAbviewcsvexporterComponent({
 /*!******************************************************************************!*\
   !*** ./AppBuilder/platform/plugins/included/view_csvImporter/CSVImporter.js ***!
   \******************************************************************************/
-(module) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ CSVImporter)
+/* harmony export */ });
 var L = null;
+
 // multilingual Label fn()
 
-module.exports = class CSVImporter {
+class CSVImporter {
    constructor(Label) {
       // {ABMultilingual.label()} function.
       //
@@ -3865,7 +3873,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ FNAbviewcsvimporterComponent)
 /* harmony export */ });
-const CSVImporter = __webpack_require__(/*! ./CSVImporter */ 95079);
+/* harmony import */ var _CSVImporter__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CSVImporter */ 95079);
+
 
 function FNAbviewcsvimporterComponent({
    /*AB,*/
@@ -3904,7 +3913,7 @@ function FNAbviewcsvimporterComponent({
             )
          );
 
-         this.csvImporter = new CSVImporter((...args) => this.label(...args));
+         this.csvImporter = new _CSVImporter__WEBPACK_IMPORTED_MODULE_0__["default"]((...args) => this.label(...args));
          // {CSVImporter}
          // An instance of the object that imports the CSV data.
 
@@ -24109,4 +24118,4 @@ function FNAbviewtextComponent({
 /***/ }
 
 }]);
-//# sourceMappingURL=AppBuilder_platform_plugins_included_index_js.cf3fe787dbef9bbb208c.js.map
+//# sourceMappingURL=AppBuilder_platform_plugins_included_index_js.003229f6aad0700a3086.js.map

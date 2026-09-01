@@ -317,7 +317,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _core_ABFactoryCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./core/ABFactoryCore */ 66124);
-/* harmony import */ var _core_ABFactoryCore__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_core_ABFactoryCore__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ 84529);
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! moment */ 41655);
@@ -326,7 +325,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! uuid */ 15460);
 /* harmony import */ var _utils_performance__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../utils/performance */ 76431);
 /* harmony import */ var _platform_FilterComplex__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./platform/FilterComplex */ 46334);
-/* harmony import */ var _platform_FilterComplex__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_platform_FilterComplex__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var _platform_views_ABViewPopupSortFields__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./platform/views/ABViewPopupSortFields */ 49000);
 /* harmony import */ var papaparse__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! papaparse */ 24691);
 /* harmony import */ var papaparse__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(papaparse__WEBPACK_IMPORTED_MODULE_8__);
@@ -338,7 +336,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _resources_Network_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../resources/Network.js */ 46147);
 /* harmony import */ var _resources_Storage_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../resources/Storage.js */ 97112);
 /* harmony import */ var _platform_ABViewManager__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./platform/ABViewManager */ 40765);
-/* harmony import */ var _platform_ABViewManager__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(_platform_ABViewManager__WEBPACK_IMPORTED_MODULE_16__);
 /* harmony import */ var _resources_Tenant_js__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../resources/Tenant.js */ 38913);
 /* harmony import */ var _uiSettings_config_js__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./uiSettings/config.js */ 37468);
 /* harmony import */ var _platform_views_viewComponent_ABViewComponent_js__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./platform/views/viewComponent/ABViewComponent.js */ 23687);
@@ -435,7 +432,7 @@ class ABValidator {
 // AppBuilder Objects
 //
 
-class ABFactory extends (_core_ABFactoryCore__WEBPACK_IMPORTED_MODULE_0___default()) {
+class ABFactory extends _core_ABFactoryCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(definitions) {
       super(definitions);
 
@@ -457,8 +454,8 @@ class ABFactory extends (_core_ABFactoryCore__WEBPACK_IMPORTED_MODULE_0___defaul
       this.ClassUI = _ui_ClassUI_js__WEBPACK_IMPORTED_MODULE_11__["default"];
 
       // additional Class definitions
-      this.Class.FilterComplex = (_platform_FilterComplex__WEBPACK_IMPORTED_MODULE_6___default());
-      this.Class.ABViewManager = (_platform_ABViewManager__WEBPACK_IMPORTED_MODULE_16___default());
+      this.Class.FilterComplex = _platform_FilterComplex__WEBPACK_IMPORTED_MODULE_6__["default"];
+      this.Class.ABViewManager = _platform_ABViewManager__WEBPACK_IMPORTED_MODULE_16__["default"];
       this.Class.SortPopup = _platform_views_ABViewPopupSortFields__WEBPACK_IMPORTED_MODULE_7__["default"];
       this.Class.ABViewComponent = _platform_views_viewComponent_ABViewComponent_js__WEBPACK_IMPORTED_MODULE_19__["default"];
 
@@ -1600,7 +1597,17 @@ __webpack_require__.r(__webpack_exports__);
 /*!**********************************************!*\
   !*** ./AppBuilder/core/ABApplicationCore.js ***!
   \**********************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABApplicationCore)
+/* harmony export */ });
+/* harmony import */ var _platform_ABViewManager_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../platform/ABViewManager.js */ 40765);
+/* harmony import */ var _platform_ABMLClass_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../platform/ABMLClass.js */ 72982);
+
+
 
 /**
  * ABApplicationCore
@@ -1626,9 +1633,6 @@ __webpack_require__.r(__webpack_exports__);
 
 // webpack can handle 'require()' statements, but node can't handle import
 // so let's use require():
-const ABViewManager = __webpack_require__(/*! ../platform/ABViewManager */ 40765);
-var ABMLClass = __webpack_require__(/*! ../platform/ABMLClass */ 72982);
-
 function toBool(val) {
    if (typeof val == "undefined") {
       return false;
@@ -1645,7 +1649,7 @@ function toBool(val) {
    return val;
 }
 
-module.exports = class ABApplicationCore extends ABMLClass {
+class ABApplicationCore extends _platform_ABMLClass_js__WEBPACK_IMPORTED_MODULE_1__["default"] {
    constructor(attributes, AB) {
       super(["label", "description"], AB);
 
@@ -1738,14 +1742,14 @@ module.exports = class ABApplicationCore extends ABMLClass {
       // of the detailed access permissions.
 
       this.isTranslationManaged = JSON.parse(
-         attributes.isTranslationManaged || false
+         attributes.isTranslationManaged || false,
       );
       this.translationManagers = attributes.translationManagers;
       if (typeof this.translationManagers == "string")
          this.translationManagers = JSON.parse(this.translationManagers);
 
       this.isTutorialManaged = JSON.parse(
-         attributes.isTutorialManaged || false
+         attributes.isTutorialManaged || false,
       );
       this.tutorialManagers = attributes.tutorialManagers;
       if (typeof this.tutorialManagers == "string")
@@ -1791,7 +1795,7 @@ module.exports = class ABApplicationCore extends ABMLClass {
                {
                   appID: this.id,
                   pageID: id,
-               }
+               },
             );
             // console.error(
             //    `App[${this.id}] is referenceing an unknown Page[${id}]`
@@ -1811,7 +1815,7 @@ module.exports = class ABApplicationCore extends ABMLClass {
             this.emit(
                "warning",
                `Application is referencing an unknown process.`,
-               { appID: this.id, processID: pID }
+               { appID: this.id, processID: pID },
             );
          }
       });
@@ -1825,14 +1829,14 @@ module.exports = class ABApplicationCore extends ABMLClass {
          attributes.json.objectListSettings || {};
       this.objectListSettings = this.objectListSettings || {};
       this.objectListSettings.isOpen = JSON.parse(
-         attributes.json.objectListSettings.isOpen || false
+         attributes.json.objectListSettings.isOpen || false,
       );
       this.objectListSettings.searchText =
          attributes.json.objectListSettings.searchText || "";
       this.objectListSettings.sortDirection =
          attributes.json.objectListSettings.sortDirection || "asc";
       this.objectListSettings.isGroup = JSON.parse(
-         attributes.json.objectListSettings.isGroup || false
+         attributes.json.objectListSettings.isGroup || false,
       );
 
       // let the MLClass now process the translations:
@@ -1855,7 +1859,7 @@ module.exports = class ABApplicationCore extends ABMLClass {
    ///
 
    get ViewManager() {
-      return ABViewManager;
+      return _platform_ABViewManager_js__WEBPACK_IMPORTED_MODULE_0__["default"];
    }
 
    /// ABApplication data methods
@@ -2054,7 +2058,7 @@ module.exports = class ABApplicationCore extends ABMLClass {
     */
    connectedObjects(id) {
       console.error(
-         "ABApplicationCore.connectedObjects(): who is calling this?"
+         "ABApplicationCore.connectedObjects(): who is calling this?",
       );
 
       if (id == "") return [];
@@ -2068,7 +2072,7 @@ module.exports = class ABApplicationCore extends ABMLClass {
       var connectedObj = {};
       connectedFields.forEach((f) => {
          connectedObj[f.settings.linkObject] = this.AB.objectByID(
-            f.settings.linkObject
+            f.settings.linkObject,
          );
       });
       // Look up the objects by their ID and push them in an options array
@@ -2101,7 +2105,7 @@ module.exports = class ABApplicationCore extends ABMLClass {
 
       // Get all the connected Fields for our object that match the linkedObjectID
       var connectedFields = myObj.connectFields(
-         (f) => f.settings.linkObject == linkedObjectID
+         (f) => f.settings.linkObject == linkedObjectID,
       );
       // Build an arry of options for the webix select
       var linkedFields = [];
@@ -2614,13 +2618,13 @@ module.exports = class ABApplicationCore extends ABMLClass {
 
    cloneDeep(/* object */) {
       var errorDepreciated = new Error(
-         "ABApplicationCore.cloneDeep(): Depreciated!  Use AB.cloneDeep() instead."
+         "ABApplicationCore.cloneDeep(): Depreciated!  Use AB.cloneDeep() instead.",
       );
       throw errorDepreciated;
 
       // return JSON.parse(JSON.stringify(object));
    }
-};
+}
 
 
 /***/ },
@@ -2629,7 +2633,17 @@ module.exports = class ABApplicationCore extends ABMLClass {
 /*!****************************************************!*\
   !*** ./AppBuilder/core/ABApplicationMobileCore.js ***!
   \****************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABApplicationMobileCore)
+/* harmony export */ });
+/* harmony import */ var _platform_ABViewManagerMobile_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../platform/ABViewManagerMobile.js */ 55443);
+/* harmony import */ var _platform_ABApplication_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../platform/ABApplication.js */ 27223);
+
+
 
 /**
  * ABApplicationMobileCore
@@ -2640,10 +2654,7 @@ module.exports = class ABApplicationCore extends ABMLClass {
 
 // webpack can handle 'require()' statements, but node can't handle import
 // so let's use require():
-const ABViewManagerMobile = __webpack_require__(/*! ../platform/ABViewManagerMobile */ 55443);
-var ABApplication = __webpack_require__(/*! ../platform/ABApplication */ 27223);
-
-module.exports = class ABApplicationMobileCore extends ABApplication {
+class ABApplicationMobileCore extends _platform_ABApplication_js__WEBPACK_IMPORTED_MODULE_1__["default"] {
    constructor(attributes, AB) {
       super(attributes, AB);
       this.appType = "mobile"; // Just making sure.
@@ -2666,10 +2677,10 @@ module.exports = class ABApplicationMobileCore extends ABApplication {
    ///
 
    get ViewManager() {
-      return ABViewManagerMobile;
+      return _platform_ABViewManagerMobile_js__WEBPACK_IMPORTED_MODULE_0__["default"];
    }
 
-   pageNew(def) {
+   pageNew(/* _def */) {
       console.error("TODO: pageNew for ApplicationMobile");
       return null;
    }
@@ -2694,7 +2705,7 @@ module.exports = class ABApplicationMobileCore extends ABApplication {
 
       return json;
    }
-};
+}
 
 
 /***/ },
@@ -2703,7 +2714,15 @@ module.exports = class ABApplicationMobileCore extends ABApplication {
 /*!*************************************************!*\
   !*** ./AppBuilder/core/ABDataCollectionCore.js ***!
   \*************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABDataCollectionCore)
+/* harmony export */ });
+/* harmony import */ var _platform_ABMLClass_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../platform/ABMLClass.js */ 72982);
+
 
 /*
  * ABDataCollection
@@ -2714,13 +2733,6 @@ module.exports = class ABApplicationMobileCore extends ABApplication {
  *
  *
  */
-// const ABEmitter = require("../platform/ABEmitter");
-const ABMLClass = __webpack_require__(/*! ../platform/ABMLClass */ 72982);
-
-// const ABObject = require("../platform/ABObject");
-// const ABObjectQuery = require("../platform/ABObjectQuery");
-// const RowFilter = require("../platform/RowFilter");
-
 var DefaultValues = {
    id: "uuid",
    label: "", // label
@@ -2750,9 +2762,11 @@ var DefaultValues = {
    },
 };
 
+/*
 const QueuedOperations = [];
 // {array} of operations that we want to perform but allow some space
 // between operations.
+
 var _queueTimer = null;
 
 function runQueue() {
@@ -2771,12 +2785,14 @@ function runQueue() {
    op.fn();
    _queueTimer = setTimeout(runQueue, op.timeout);
 }
+
 function queueOperation(fn, timeout = 20) {
    QueuedOperations.push({ fn, timeout });
    if (!_queueTimer) {
       runQueue();
    }
 }
+*/
 
 /**
  * @function SearchWhereCond()
@@ -2805,7 +2821,7 @@ function SearchWhereCond(cond, rules, cb) {
    }
 }
 
-module.exports = class ABDataCollectionCore extends ABMLClass {
+class ABDataCollectionCore extends _platform_ABMLClass_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(attributes, AB) {
       super(["label"], AB);
 
@@ -2924,13 +2940,13 @@ module.exports = class ABDataCollectionCore extends ABMLClass {
 
       // Convert to boolean
       this.settings.loadAll = JSON.parse(
-         values.settings.loadAll || DefaultValues.settings.loadAll
+         values.settings.loadAll || DefaultValues.settings.loadAll,
       );
       // {bool} .settings.loadAll
       // do we load all the data at one time? false == load by pages.
 
       this.settings.isQuery = JSON.parse(
-         values.settings.isQuery || DefaultValues.settings.isQuery
+         values.settings.isQuery || DefaultValues.settings.isQuery,
       );
       // {bool} .settings.isQuery
       // is the data source for this ABDataCollection based upon an
@@ -2955,7 +2971,7 @@ module.exports = class ABDataCollectionCore extends ABMLClass {
 
       // Convert to number
       this.settings.syncType = parseInt(
-         values.settings.syncType || DefaultValues.settings.syncType
+         values.settings.syncType || DefaultValues.settings.syncType,
       );
       // {int} .settings.syncType
       // how is the data between this ABDataCollection and it's
@@ -3002,7 +3018,7 @@ module.exports = class ABDataCollectionCore extends ABMLClass {
             }
          } else {
             console.error(
-               `ABDataCollection[${this.name}][${this.id}] unable to find datasource [${this.settings.datasourceID}]`
+               `ABDataCollection[${this.name}][${this.id}] unable to find datasource [${this.settings.datasourceID}]`,
             );
          }
       }
@@ -3134,7 +3150,7 @@ module.exports = class ABDataCollectionCore extends ABMLClass {
             // occassionally we have blank DCs (without .id or .name)
             // and I don't want to see errors for those
             var err = new Error(
-               `DataCollection[${this.name}][${this.id}] missing reference datasource`
+               `DataCollection[${this.name}][${this.id}] missing reference datasource`,
             );
             this.AB.notify("builder", err, { datacollection: this.toObj() });
          }
@@ -3304,7 +3320,7 @@ module.exports = class ABDataCollectionCore extends ABMLClass {
 
             // filter current id for serialize
             this.__treeCollection.filter(
-               (item) => item._itemId == currItem._itemId
+               (item) => item._itemId == currItem._itemId,
             );
 
             // pull item with child items
@@ -3627,7 +3643,7 @@ module.exports = class ABDataCollectionCore extends ABMLClass {
                         // and check to see that we are not loading the data serverside from cursor
                         if (
                            !this.__dataCollection.exists(
-                              updatedV[`${obj.PK()}`]
+                              updatedV[`${obj.PK()}`],
                            ) &&
                            !this.__reloadWheres
                         ) {
@@ -3636,16 +3652,20 @@ module.exports = class ABDataCollectionCore extends ABMLClass {
                            // this.__dataCollection.setCursor(rowData.id);
                         } else if (
                            !this.__dataCollection.exists(
-                              updatedV[`${obj.PK()}`]
+                              updatedV[`${obj.PK()}`],
                            ) &&
                            this.__reloadWheres
                         ) {
                            // debugger;
                            if (this.isParentFilterValid(updatedV)) {
+                              // TODO: $$ is a webix only command, so this code should NOT be in the core
+                              // we should probably create a ABDataCollectionCore.onReload(), then have the
+                              // platform_web insert this code there.
+
                               // we track bound components and flexlayout components
                               var attachedComponents =
                                  this.__bindComponentIds.concat(
-                                    this.__flexComponentIds
+                                    this.__flexComponentIds,
                                  );
                               attachedComponents.forEach((bcids) => {
                                  // if the reload button already exisits move on
@@ -3686,17 +3706,17 @@ module.exports = class ABDataCollectionCore extends ABMLClass {
                                           id: bcids + "_reloadView",
                                           view: "button",
                                           value: L(
-                                             "New data available. Click to reload."
+                                             "New data available. Click to reload.",
                                           ),
                                           css: "webix_primary webix_warn",
-                                          click: function (id, event) {
+                                          click: function (id /*, _event */) {
                                              DC.reloadData();
                                              $$(id)
                                                 .getParentView()
                                                 .removeView(id);
                                           },
                                        },
-                                       pos
+                                       pos,
                                     );
                                  }
                               });
@@ -3720,7 +3740,7 @@ module.exports = class ABDataCollectionCore extends ABMLClass {
                      let connectedFields = this.datasource.connectFields(
                         (f) =>
                            f.datasourceLink &&
-                           f.datasourceLink.id == data.objectId
+                           f.datasourceLink.id == data.objectId,
                      );
 
                      // It should always be only one item for ABObject
@@ -3753,7 +3773,7 @@ module.exports = class ABDataCollectionCore extends ABMLClass {
                               let valIsRelated = isRelated(
                                  updateRelateVal,
                                  d.id,
-                                 PK
+                                 PK,
                               );
 
                               // Relate data
@@ -3763,7 +3783,7 @@ module.exports = class ABDataCollectionCore extends ABMLClass {
                                     (v) =>
                                        v == updatedVals.id ||
                                        v.id == updatedVals.id ||
-                                       v[PK] == updatedVals.id
+                                       v[PK] == updatedVals.id,
                                  ).length < 1 &&
                                  valIsRelated
                               ) {
@@ -3791,18 +3811,18 @@ module.exports = class ABDataCollectionCore extends ABMLClass {
                            if (Object.keys(updateItemData).length > 0) {
                               this.__dataCollection.updateItem(
                                  d.id,
-                                 updateItemData
+                                 updateItemData,
                               );
 
                               if (this.__treeCollection)
                                  this.__treeCollection.updateItem(
                                     d.id,
-                                    updateItemData
+                                    updateItemData,
                                  );
 
                               this.emit(
                                  "update",
-                                 this.__dataCollection.getItem(d.id)
+                                 this.__dataCollection.getItem(d.id),
                               );
                            }
                         });
@@ -3858,7 +3878,7 @@ module.exports = class ABDataCollectionCore extends ABMLClass {
                      if (localField.linkType() == "many") {
                         if (!Array.isArray(row[colName])) {
                            row[colName] = [row[colName]].filter(
-                              (r) => !this.AB.isNil(r)
+                              (r) => !this.AB.isNil(r),
                            );
                         }
                         // if it isn't already in the array, add it
@@ -3869,7 +3889,7 @@ module.exports = class ABDataCollectionCore extends ABMLClass {
 
                         if (!Array.isArray(row[relName])) {
                            row[relName] = [row[relName]].filter(
-                              (r) => !this.AB.isNil(r)
+                              (r) => !this.AB.isNil(r),
                            );
                         }
                         if (
@@ -3954,14 +3974,14 @@ module.exports = class ABDataCollectionCore extends ABMLClass {
                            // is included as an [ {obj} ], but will also prevent
                            // [ undefined ] if row[col] isn't set:
                            row[colName] = [row[colName]].filter(
-                              (r) => !this.AB.isNil(r)
+                              (r) => !this.AB.isNil(r),
                            );
                         }
                         row[colName].push(field.getRelationValue(newData));
 
                         if (!Array.isArray(row[relName])) {
                            row[relName] = [row[relName]].filter(
-                              (r) => !this.AB.isNil(r)
+                              (r) => !this.AB.isNil(r),
                            );
                         }
                         row[relName].push(newData);
@@ -3978,7 +3998,7 @@ module.exports = class ABDataCollectionCore extends ABMLClass {
 
                      this.emit(
                         "update",
-                        this.__dataCollection.getItem(data.rowID)
+                        this.__dataCollection.getItem(data.rowID),
                      );
                   }
                }
@@ -4071,12 +4091,12 @@ module.exports = class ABDataCollectionCore extends ABMLClass {
                            return (
                               item[
                                  `${this.datasource.objectAlias(
-                                    o.id
+                                    o.id,
                                  )}.${o.PK()}`
                               ] == (values[o.PK()] || values.id)
                            );
                         })
-                        .map((o) => o.id) || []
+                        .map((o) => o.id) || [],
                   );
 
                   // grouped queries
@@ -4087,12 +4107,12 @@ module.exports = class ABDataCollectionCore extends ABMLClass {
                               return (
                                  item[
                                     `${this.datasource.objectAlias(
-                                       o.id
+                                       o.id,
                                     )}.${o.PK()}`
                                  ] == (values[o.PK()] || values.id)
                               );
                            })
-                           .map((o) => o.id) || []
+                           .map((o) => o.id) || [],
                      );
                   }
                });
@@ -4206,7 +4226,7 @@ module.exports = class ABDataCollectionCore extends ABMLClass {
          // if it is a linked object
          // look for connected fields that link to the incoming objectId
          let connectedFields = obj.connectFields(
-            (f) => f.datasourceLink && f.datasourceLink.id == data.objectId
+            (f) => f.datasourceLink && f.datasourceLink.id == data.objectId,
          );
 
          // update relation data
@@ -4247,7 +4267,7 @@ module.exports = class ABDataCollectionCore extends ABMLClass {
                            (v) =>
                               v == values.id ||
                               v.id == values.id ||
-                              v[PK] == values.id
+                              v[PK] == values.id,
                         ).length > 0 &&
                         !valIsRelated
                      ) {
@@ -4255,7 +4275,7 @@ module.exports = class ABDataCollectionCore extends ABMLClass {
                            // NOTE: Special case: the incoming value.id will be .uuid
                            // however in case of User Fields, v.id == username and not .uuid
                            // so we put our default check to be v[PK] here to play nice
-                           (v) => (v[PK] || v.id || v) != values.id
+                           (v) => (v[PK] || v.id || v) != values.id,
                         );
                         updateItemData[f.columnName] = updateItemData[
                            f.relationName()
@@ -4285,7 +4305,7 @@ module.exports = class ABDataCollectionCore extends ABMLClass {
                               (v) =>
                                  v == values.id ||
                                  v.id == values.id ||
-                                 v[PK] == values.id
+                                 v[PK] == values.id,
                            ).length > 0
                         ) {
                            // just update the one entry in my array with the new
@@ -4308,7 +4328,7 @@ module.exports = class ABDataCollectionCore extends ABMLClass {
                         updateItemData[f.columnName] = updateItemData[
                            f.relationName()
                         ].map(
-                           (v) => f.getRelationValue(v) /*v.id || v[PK] || v*/
+                           (v) => f.getRelationValue(v) /*v.id || v[PK] || v*/,
                         );
                      } else if (
                         !Array.isArray(rowRelateVal) &&
@@ -4338,10 +4358,10 @@ module.exports = class ABDataCollectionCore extends ABMLClass {
                                     // Populate specific connect fields
                                     (Array.isArray(this.settings?.populate) &&
                                        this.settings?.populate.indexOf(
-                                          conFld.id
+                                          conFld.id,
                                        ) > -1))
                               );
-                           }).length > 0
+                           }).length > 0,
                      ).forEach((formulaField) => {
                         updateItemData[formulaField.columnName] =
                            formulaField.format(updateItemData, true);
@@ -4361,7 +4381,7 @@ module.exports = class ABDataCollectionCore extends ABMLClass {
                      if (this.__treeCollection?.exists(d.id)) {
                         const treeItem = Object.assign(
                            this.__treeCollection.getItem(d.id),
-                           updateItemData
+                           updateItemData,
                         );
                         this.__treeCollection.updateItem(d.id, treeItem);
                      }
@@ -4369,12 +4389,12 @@ module.exports = class ABDataCollectionCore extends ABMLClass {
                      if (this.__dataCollection?.exists(d.id)) {
                         const dcItem = Object.assign(
                            this.__dataCollection.getItem(d.id),
-                           updateItemData
+                           updateItemData,
                         );
                         this.__dataCollection.updateItem(d.id, dcItem);
                         this.emit(
                            "update",
-                           this.__dataCollection.getItem(d.id)
+                           this.__dataCollection.getItem(d.id),
                         );
                         if (currCursor?.id == dcItem.id) {
                            updateCursor = dcItem;
@@ -4455,7 +4475,7 @@ module.exports = class ABDataCollectionCore extends ABMLClass {
                      if (this.__dataCollection.exists(values[PK])) {
                         this.__dataCollection.updateItem(
                            values[PK],
-                           res.data[0]
+                           res.data[0],
                         );
                      }
 
@@ -4550,7 +4570,7 @@ module.exports = class ABDataCollectionCore extends ABMLClass {
 
          // if it is a linked object
          let connectedFields = obj.connectFields(
-            (f) => f.datasourceLink && f.datasourceLink.id == data.objectId
+            (f) => f.datasourceLink && f.datasourceLink.id == data.objectId,
          );
 
          // update relation data
@@ -4582,7 +4602,7 @@ module.exports = class ABDataCollectionCore extends ABMLClass {
                      // ).length > 0
                   ) {
                      updateRelateVals[f.relationName()] = relateVal.filter(
-                        (v) => (v.id || v[PK] || v) != deleteId
+                        (v) => (v.id || v[PK] || v) != deleteId,
                      );
                      updateRelateVals[f.columnName] = updateRelateVals[
                         f.relationName()
@@ -4639,7 +4659,7 @@ module.exports = class ABDataCollectionCore extends ABMLClass {
          this.eventAdd({
             emitter: linkDC,
             eventName: "cursorStale",
-            listener: (currentCursor) => {
+            listener: (/* _currentCursor */) => {
                // cursorStale : the current cursor hasn't CHANGED, but the data
                // of that value has changed.
                // This is triggered by one of our socket updates that detects
@@ -4763,7 +4783,7 @@ module.exports = class ABDataCollectionCore extends ABMLClass {
                                     allAdds.push(res.data);
                                  }
                               }
-                           })
+                           }),
                         );
                      });
                      Promise.all(prmsAllRefreshes).then(() => {
@@ -4837,7 +4857,7 @@ module.exports = class ABDataCollectionCore extends ABMLClass {
             if (condDC) {
                listFilterDCs.push(condDC);
             }
-         }
+         },
       );
       listFilterDCs.forEach((condDC) => {
          this.eventAdd({
@@ -4863,7 +4883,7 @@ module.exports = class ABDataCollectionCore extends ABMLClass {
     *      the DC this datacollection depends on.
     * @returns {Promise}
     */
-   async waitForDataCollectionToInitialize(DC, msg) {
+   async waitForDataCollectionToInitialize(DC /*, _msg */) {
       DC.init();
 
       return new Promise((resolve, reject) => {
@@ -4901,7 +4921,6 @@ module.exports = class ABDataCollectionCore extends ABMLClass {
                resolve();
                break;
          }
-         /* eslint-enable no-fallthrough */
       });
    }
 
@@ -4968,7 +4987,7 @@ module.exports = class ABDataCollectionCore extends ABMLClass {
    getWhereClause(start, limit) {
       // pull filter conditions
       let wheres = this.AB.cloneDeep(
-         this.settings.objectWorkspace.filterConditions ?? {}
+         this.settings.objectWorkspace.filterConditions ?? {},
       );
       // if we pass new wheres with a reload use them instead
       if (this.__reloadWheres) {
@@ -5059,7 +5078,7 @@ module.exports = class ABDataCollectionCore extends ABMLClass {
       SearchWhereCond(
          wheres,
          ["in_data_collection", "not_in_data_collection"],
-         patch
+         patch,
       );
 
       // remove any null in the .rules
@@ -5124,7 +5143,7 @@ module.exports = class ABDataCollectionCore extends ABMLClass {
                if (dv) {
                   dcFilters.push(this.waitForDataCollectionToInitialize(dv));
                }
-            }
+            },
          );
 
          await Promise.all(dcFilters);
@@ -5524,7 +5543,7 @@ module.exports = class ABDataCollectionCore extends ABMLClass {
             linkVal.filter(
                (val) =>
                   (val[PK] || val.id || val) ==
-                  (linkCursor[linkObj.PK()] || linkCursor.id || linkCursor)
+                  (linkCursor[linkObj.PK()] || linkCursor.id || linkCursor),
             ).length > 0
          );
       } else {
@@ -5605,7 +5624,7 @@ module.exports = class ABDataCollectionCore extends ABMLClass {
                key: fieldLink.id,
                rule: filterRule,
                value: fieldLink.getRelationValue(
-                  dataCollectionLink.__dataCollection.getItem(linkCursorId)
+                  dataCollectionLink.__dataCollection.getItem(linkCursorId),
                ),
             };
          }
@@ -5634,7 +5653,7 @@ module.exports = class ABDataCollectionCore extends ABMLClass {
       // Set filter of ABObject
       if (this.__filterDatasource == null)
          this.__filterDatasource = this.AB.filterComplexNew(
-            `${this.id}_filterDatasource`
+            `${this.id}_filterDatasource`,
          );
 
       if (this.datasource) {
@@ -5663,7 +5682,7 @@ module.exports = class ABDataCollectionCore extends ABMLClass {
       } else {
          this.__filterDatasource.fieldsLoad([]);
          this.__filterDatasource.setValue(
-            DefaultValues.settings.objectWorkspace.filterConditions
+            DefaultValues.settings.objectWorkspace.filterConditions,
          );
       }
 
@@ -5671,14 +5690,14 @@ module.exports = class ABDataCollectionCore extends ABMLClass {
       // Apr 29, 2021 Added this code back to validate with DataCollection Filters
       if (this.__filterDatacollection == null)
          this.__filterDatacollection = this.AB.filterComplexNew(
-            `${this.id}_filterDatacollection`
+            `${this.id}_filterDatacollection`,
          );
 
       // this.__filterDatacollection.applicationLoad(
       //    this.datasource ? this.datasource.application : null
       // );
       this.__filterDatacollection.fieldsLoad(
-         this.datasource ? this.datasource.fields() : []
+         this.datasource ? this.datasource.fields() : [],
       );
 
       // if we pass in wheres, then Save that value to our internal .filterConditions
@@ -5688,7 +5707,7 @@ module.exports = class ABDataCollectionCore extends ABMLClass {
          this.settings.objectWorkspace?.filterConditions ?? {
             glue: "and",
             rules: [],
-         }
+         },
       );
       // sanity checks:
       // I've learned not to trust: this.settings.objectWorkspace
@@ -5734,21 +5753,21 @@ module.exports = class ABDataCollectionCore extends ABMLClass {
          this.__filterDatacollection.setValue(filter);
       } else {
          this.__filterDatacollection.setValue(
-            DefaultValues.settings.objectWorkspace.filterConditions
+            DefaultValues.settings.objectWorkspace.filterConditions,
          );
       }
 
       // Set filter of user's scope
       if (this.__filterScope == null)
          this.__filterScope = this.AB.filterComplexNew(
-            `${this.id}_filterScope`
+            `${this.id}_filterScope`,
          );
 
       if (this.datasource) {
          let scopeList = (this.userScopes || []).filter(
             (s) =>
                !s.allowAll &&
-               (s.objectIds || []).indexOf(this.datasource.id) > -1
+               (s.objectIds || []).indexOf(this.datasource.id) > -1,
          );
          if (scopeList && scopeList.length > 0) {
             // this.__filterScope.applicationLoad(this.datasource.application);
@@ -5758,12 +5777,12 @@ module.exports = class ABDataCollectionCore extends ABMLClass {
             let scopeRules = [];
             scopeList
                .filter(
-                  (s) => s.filter && s.filter.rules && s.filter.rules.length
+                  (s) => s.filter && s.filter.rules && s.filter.rules.length,
                )
                .forEach((s) => {
                   let sRules = (s.filter.rules || []).filter(
                      (r) =>
-                        this.datasource.fields((f) => f.id == r.key).length > 0
+                        this.datasource.fields((f) => f.id == r.key).length > 0,
                   );
 
                   scopeRules = scopeRules.concat(sRules);
@@ -5809,7 +5828,7 @@ module.exports = class ABDataCollectionCore extends ABMLClass {
     */
    _dataCollectionNew(/*data*/) {
       var error = new Error(
-         "the platform.ABDataCollection._dataCollectionNew() is expected to return a proper DataCollection!"
+         "the platform.ABDataCollection._dataCollectionNew() is expected to return a proper DataCollection!",
       );
       console.error(error);
       return null;
@@ -5824,12 +5843,12 @@ module.exports = class ABDataCollectionCore extends ABMLClass {
     */
    _treeCollectionNew() {
       console.error(
-         "the platform.ABDataCollection._treeCollectionNew() is expected to return a proper TreeCollection!"
+         "the platform.ABDataCollection._treeCollectionNew() is expected to return a proper TreeCollection!",
       );
       return null;
    }
 
-   parseTreeCollection(data = {}) {
+   parseTreeCollection(/* _data = {} */) {
       // TODO all this does is log "is missing?"
       // if (false) {
       //    console.log(
@@ -6029,7 +6048,7 @@ module.exports = class ABDataCollectionCore extends ABMLClass {
 
       // clonedDatacollection.__dataCollection = this.__dataCollection.copy();
       clonedDatacollection.__filterDatacollection.setValue(
-         settings.settings.objectWorkspace.filterConditions
+         settings.settings.objectWorkspace.filterConditions,
       );
 
       var parseMe = () => {
@@ -6038,8 +6057,8 @@ module.exports = class ABDataCollectionCore extends ABMLClass {
                this.__dataCollection
                   .find({})
                   .filter((row) =>
-                     clonedDatacollection.__filterDatacollection.isValid(row)
-                  )
+                     clonedDatacollection.__filterDatacollection.isValid(row),
+                  ),
             );
          }
          if (clonedDatacollection.__treeCollection) {
@@ -6047,8 +6066,8 @@ module.exports = class ABDataCollectionCore extends ABMLClass {
                this.__treeCollection
                   .find({})
                   .filter((row) =>
-                     clonedDatacollection.__filterDatacollection.isValid(row)
-                  )
+                     clonedDatacollection.__filterDatacollection.isValid(row),
+                  ),
             );
          }
       };
@@ -6089,7 +6108,7 @@ module.exports = class ABDataCollectionCore extends ABMLClass {
          if (obj.settings.objectWorkspace.filterConditions?.rules?.length) {
             obj.settings.objectWorkspace.filterConditions.rules =
                obj.settings.objectWorkspace.filterConditions.rules.concat(
-                  filters.rules
+                  filters.rules,
                );
          } else {
             obj.settings.objectWorkspace.filterConditions = filters;
@@ -6183,9 +6202,7 @@ module.exports = class ABDataCollectionCore extends ABMLClass {
    get datacollectionFollow() {
       if (!this.isCursorFollow) return null;
 
-      return (this.AB ?? AB).datacollectionByID(
-         this.settings.followDatacollectionID
-      );
+      return this.AB?.datacollectionByID(this.settings.followDatacollectionID);
    }
 
    get previousCursorId() {
@@ -6206,7 +6223,7 @@ module.exports = class ABDataCollectionCore extends ABMLClass {
 
       return this.waitForDataCollectionToInitialize(this);
    }
-};
+}
 
 
 /***/ },
@@ -6215,11 +6232,16 @@ module.exports = class ABDataCollectionCore extends ABMLClass {
 /*!*********************************************!*\
   !*** ./AppBuilder/core/ABDefinitionCore.js ***!
   \*********************************************/
-(module) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABDefinitionCore)
+/* harmony export */ });
 // import ABApplication from "./ABApplication"
 
-module.exports = class ABDefinitionCore {
+class ABDefinitionCore {
    constructor(attributes, AB) {
       this.AB = AB;
       this.fromValues(attributes);
@@ -6256,7 +6278,7 @@ module.exports = class ABDefinitionCore {
             {
                context: "ABDefinitionCore.fromValues()",
                attributes,
-            }
+            },
          );
       }
       this.type = attributes.type || attributes?.json?.type || "";
@@ -6306,7 +6328,7 @@ module.exports = class ABDefinitionCore {
          return this.AB.definitionCreate(this.toObj());
       }
    }
-};
+}
 
 
 /***/ },
@@ -6315,8 +6337,38 @@ module.exports = class ABDefinitionCore {
 /*!******************************************!*\
   !*** ./AppBuilder/core/ABFactoryCore.js ***!
   \******************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _platform_ABClassManager_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../platform/ABClassManager.js */ 56938);
+/* harmony import */ var _platform_ABApplication_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../platform/ABApplication.js */ 27223);
+/* harmony import */ var _platform_ABApplicationMobile_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../platform/ABApplicationMobile.js */ 31221);
+/* harmony import */ var _platform_ABDefinition_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../platform/ABDefinition.js */ 8592);
+/* harmony import */ var _platform_ABComponent_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../platform/ABComponent.js */ 85450);
+/* harmony import */ var _ABFieldManager_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ABFieldManager.js */ 634);
+/* harmony import */ var _platform_ABIndex_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../platform/ABIndex.js */ 99553);
+/* harmony import */ var _platform_ABObject_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../platform/ABObject.js */ 84154);
+/* harmony import */ var _platform_ABObjectExternal_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../platform/ABObjectExternal.js */ 31761);
+/* harmony import */ var _platform_ABObjectImport_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../platform/ABObjectImport.js */ 9983);
+/* harmony import */ var _platform_ABObjectApi_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../platform/ABObjectApi.js */ 30008);
+/* harmony import */ var _platform_ABObjectApiNetsuite_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../platform/ABObjectApiNetsuite.js */ 25285);
+/* harmony import */ var _platform_ABDataCollection_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../platform/ABDataCollection.js */ 66429);
+/* harmony import */ var _platform_ABObjectQuery_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../platform/ABObjectQuery.js */ 55532);
+/* harmony import */ var _platform_ABHint_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../platform/ABHint.js */ 5964);
+/* harmony import */ var _platform_ABProcess_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../platform/ABProcess.js */ 36676);
+/* harmony import */ var _platform_process_ABProcessParticipant_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../platform/process/ABProcessParticipant.js */ 22945);
+/* harmony import */ var _platform_process_ABProcessLane_js__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../platform/process/ABProcessLane.js */ 41260);
+/* harmony import */ var _process_ABProcessTaskManager_js__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./process/ABProcessTaskManager.js */ 94148);
+/* harmony import */ var _platform_ABStep_js__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../platform/ABStep.js */ 39631);
+/* harmony import */ var _platform_mobile_ABMobileViewFormItem_js__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../platform/mobile/ABMobileViewFormItem.js */ 36646);
+/* harmony import */ var _platform_RowFilter_js__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../platform/RowFilter.js */ 75782);
+/* harmony import */ var _platform_FilterComplex_js__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ../platform/FilterComplex.js */ 46334);
+/* harmony import */ var _platform_ABMLClass_js__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ../platform/ABMLClass.js */ 72982);
+/* harmony import */ var _platform_ABEmitter_js__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ../platform/ABEmitter.js */ 89327);
 /*
  * ABFactoryCore
  * an object that contains the definitions and references for a single tenant.
@@ -6324,50 +6376,34 @@ module.exports = class ABDefinitionCore {
  * ABBootstrap.init(req).then((AB)=>{}) call.
  */
 
-// const _ = require("lodash");
-// const uuidv4 = require("uuid");
 
-const ABClassManager = __webpack_require__(/*! ../platform/ABClassManager */ 56938);
 
-const ABApplication = __webpack_require__(/*! ../platform/ABApplication */ 27223);
-const ABApplicationMobile = __webpack_require__(/*! ../platform/ABApplicationMobile */ 31221);
-const ABDefinition = __webpack_require__(/*! ../platform/ABDefinition */ 8592);
 
-const ABComponent = __webpack_require__(/*! ../platform/ABComponent */ 85450);
 
-const ABFieldManager = __webpack_require__(/*! ./ABFieldManager */ 634);
 
-const ABIndex = __webpack_require__(/*! ../platform/ABIndex */ 99553);
-const ABObject = __webpack_require__(/*! ../platform/ABObject */ 84154);
-const ABObjectExternal = __webpack_require__(/*! ../platform/ABObjectExternal */ 31761);
-const ABObjectImport = __webpack_require__(/*! ../platform/ABObjectImport */ 9983);
-const ABObjectApi = __webpack_require__(/*! ../platform/ABObjectApi */ 30008);
-const ABObjectApiNetsuite = __webpack_require__(/*! ../platform/ABObjectApiNetsuite */ 25285);
-const ABDataCollection = __webpack_require__(/*! ../platform/ABDataCollection */ 66429);
-const ABObjectQuery = __webpack_require__(/*! ../platform/ABObjectQuery */ 55532);
 
-const ABHint = __webpack_require__(/*! ../platform/ABHint */ 5964);
-const ABProcess = __webpack_require__(/*! ../platform/ABProcess */ 36676);
 
-const ABProcessParticipant = __webpack_require__(/*! ../platform/process/ABProcessParticipant */ 22945);
-const ABProcessLane = __webpack_require__(/*! ../platform/process/ABProcessLane */ 41260);
-const ABProcessTaskManager = __webpack_require__(/*! ./process/ABProcessTaskManager */ 94148);
 
-const ABStep = __webpack_require__(/*! ../platform/ABStep */ 39631);
-const ABMobileViewFormItem = __webpack_require__(/*! ../platform/mobile/ABMobileViewFormItem */ 36646);
 
-// const ABObjectWorkspaceViewGrid = require("../platform/workspaceViews/ABObjectWorkspaceViewGrid");
-// const ABObjectWorkspaceViewKanban = require("../platform/workspaceViews/ABObjectWorkspaceViewKanban");
-// const ABObjectWorkspaceViewGantt = require("../platform/workspaceViews/ABObjectWorkspaceViewGantt");
 
-const RowFilter = __webpack_require__(/*! ../platform/RowFilter */ 75782);
-const FilterComplex = __webpack_require__(/*! ../platform/FilterComplex */ 46334);
 
-const ABMLClass = __webpack_require__(/*! ../platform/ABMLClass */ 72982);
 
-const EventEmitter = __webpack_require__(/*! ../platform/ABEmitter */ 89327);
 
-class ABFactory extends EventEmitter {
+
+
+
+
+
+
+// import ABViewDetailItem from "../platform/views/ABViewDetailItem.js";
+// import ABViewFormItem from "../platform/views/ABViewFormItem.js";
+
+
+
+
+
+
+class ABFactory extends _platform_ABEmitter_js__WEBPACK_IMPORTED_MODULE_24__["default"] {
    constructor(definitions) {
       /**
        * @param {hash} definitions
@@ -6415,35 +6451,35 @@ class ABFactory extends EventEmitter {
       this._allDatacollections = [];
       // {array} of all the ABDataCollection(s) in our site.
 
-      this.ClassManager = ABClassManager;
+      this.ClassManager = _platform_ABClassManager_js__WEBPACK_IMPORTED_MODULE_0__["default"];
       // {ClassManager} the single source for our Class Libraries.
 
       //
       // Class References
       //
       this.Class = {
-         ABApplication,
-         ABComponent,
-         ABDefinition,
-         ABFieldManager,
-         ABIndex,
-         ABMLClass,
-         ABObject,
-         ABObjectExternal,
-         ABObjectImport,
-         ABObjectApi,
-         ABObjectApiNetsuite,
-         ABObjectQuery,
-         ABProcessParticipant,
+         ABApplication: _platform_ABApplication_js__WEBPACK_IMPORTED_MODULE_1__["default"],
+         ABComponent: _platform_ABComponent_js__WEBPACK_IMPORTED_MODULE_4__["default"],
+         ABDefinition: _platform_ABDefinition_js__WEBPACK_IMPORTED_MODULE_3__["default"],
+         ABFieldManager: _ABFieldManager_js__WEBPACK_IMPORTED_MODULE_5__["default"],
+         ABIndex: _platform_ABIndex_js__WEBPACK_IMPORTED_MODULE_6__["default"],
+         ABMLClass: _platform_ABMLClass_js__WEBPACK_IMPORTED_MODULE_23__["default"],
+         ABObject: _platform_ABObject_js__WEBPACK_IMPORTED_MODULE_7__["default"],
+         ABObjectExternal: _platform_ABObjectExternal_js__WEBPACK_IMPORTED_MODULE_8__["default"],
+         ABObjectImport: _platform_ABObjectImport_js__WEBPACK_IMPORTED_MODULE_9__["default"],
+         ABObjectApi: _platform_ABObjectApi_js__WEBPACK_IMPORTED_MODULE_10__["default"],
+         ABObjectApiNetsuite: _platform_ABObjectApiNetsuite_js__WEBPACK_IMPORTED_MODULE_11__["default"],
+         ABObjectQuery: _platform_ABObjectQuery_js__WEBPACK_IMPORTED_MODULE_13__["default"],
+         ABProcessParticipant: _platform_process_ABProcessParticipant_js__WEBPACK_IMPORTED_MODULE_16__["default"],
          // ABRole      // Do we need this anymore?
 
          // ABObjectWorkspaceViewGrid,
          // ABObjectWorkspaceViewKanban,
          // ABObjectWorkspaceViewGantt,
 
-         ABProcessTaskManager,
+         ABProcessTaskManager: _process_ABProcessTaskManager_js__WEBPACK_IMPORTED_MODULE_18__["default"],
 
-         ABMobileViewFormItem,
+         ABMobileViewFormItem: _platform_mobile_ABMobileViewFormItem_js__WEBPACK_IMPORTED_MODULE_20__["default"],
       };
 
       //
@@ -6715,7 +6751,7 @@ class ABFactory extends EventEmitter {
     * @return {ABDefinition}
     */
    definitionNew(values) {
-      return new ABDefinition(values, this);
+      return new _platform_ABDefinition_js__WEBPACK_IMPORTED_MODULE_3__["default"](values, this);
    }
 
    /**
@@ -6846,7 +6882,7 @@ class ABFactory extends EventEmitter {
          return this.applicationMobileNew(values);
       }
 
-      return new ABApplication(values, this);
+      return new _platform_ABApplication_js__WEBPACK_IMPORTED_MODULE_1__["default"](values, this);
    }
 
    /**
@@ -6858,7 +6894,7 @@ class ABFactory extends EventEmitter {
     * @return {ABApplicationMobile}
     */
    applicationMobileNew(values) {
-      return new ABApplicationMobile(values, this);
+      return new _platform_ABApplicationMobile_js__WEBPACK_IMPORTED_MODULE_2__["default"](values, this);
    }
 
    /**
@@ -6901,7 +6937,7 @@ class ABFactory extends EventEmitter {
     * @return {ABDatacollection}
     */
    datacollectionNew(values) {
-      var dc = new ABDataCollection(values, this);
+      var dc = new _platform_ABDataCollection_js__WEBPACK_IMPORTED_MODULE_12__["default"](values, this);
       dc.on("destroyed", () => {
          // make sure it is no longer in our internal list
          this._allDatacollections = this._allDatacollections.filter(
@@ -6924,7 +6960,7 @@ class ABFactory extends EventEmitter {
     */
    fieldNew(values, object) {
       // NOTE: ABFieldManager returns the proper ABFieldXXXX instance.
-      return ABFieldManager.newField(values, object);
+      return _ABFieldManager_js__WEBPACK_IMPORTED_MODULE_5__["default"].newField(values, object);
    }
 
    /**
@@ -6933,7 +6969,7 @@ class ABFactory extends EventEmitter {
     * @return {ABIndex}
     */
    indexNew(values, object) {
-      return new ABIndex(values, object);
+      return new _platform_ABIndex_js__WEBPACK_IMPORTED_MODULE_6__["default"](values, object);
    }
 
    /**
@@ -7011,13 +7047,13 @@ class ABFactory extends EventEmitter {
             this
          );
       } else if (values.isExternal == true)
-         newObj = new ABObjectExternal(values, this);
+         newObj = new _platform_ABObjectExternal_js__WEBPACK_IMPORTED_MODULE_8__["default"](values, this);
       else if (values.isImported == true)
-         newObj = new ABObjectImport(values, this);
+         newObj = new _platform_ABObjectImport_js__WEBPACK_IMPORTED_MODULE_9__["default"](values, this);
       else if (values.isNetsuite == true) {
-         newObj = new ABObjectApiNetsuite(values, this);
-      } else if (values.isAPI == true) newObj = new ABObjectApi(values, this);
-      else newObj = new ABObject(values, this);
+         newObj = new _platform_ABObjectApiNetsuite_js__WEBPACK_IMPORTED_MODULE_11__["default"](values, this);
+      } else if (values.isAPI == true) newObj = new _platform_ABObjectApi_js__WEBPACK_IMPORTED_MODULE_10__["default"](values, this);
+      else newObj = new _platform_ABObject_js__WEBPACK_IMPORTED_MODULE_7__["default"](values, this);
 
       /*
       // IS THIS CORRECT?
@@ -7146,7 +7182,7 @@ class ABFactory extends EventEmitter {
     * @return {ABHint}
     */
    hintNew(values) {
-      var newHint = new ABHint(values, this);
+      var newHint = new _platform_ABHint_js__WEBPACK_IMPORTED_MODULE_14__["default"](values, this);
 
       return newHint;
    }
@@ -7189,7 +7225,7 @@ class ABFactory extends EventEmitter {
    stepNew(id, hintID) {
       var stepDef = this.definitionByID(id);
       if (stepDef) {
-         var getStep = new ABStep(stepDef, this);
+         var getStep = new _platform_ABStep_js__WEBPACK_IMPORTED_MODULE_19__["default"](stepDef, this);
          return getStep;
       } else {
          var params = {
@@ -7197,7 +7233,7 @@ class ABFactory extends EventEmitter {
                hint: hintID,
             },
          };
-         var newStep = new ABStep(params, this);
+         var newStep = new _platform_ABStep_js__WEBPACK_IMPORTED_MODULE_19__["default"](params, this);
          return newStep;
       }
       // return null;
@@ -7239,7 +7275,7 @@ class ABFactory extends EventEmitter {
     * @return {ABProcess}
     */
    processNew(values) {
-      return new ABProcess(values, this);
+      return new _platform_ABProcess_js__WEBPACK_IMPORTED_MODULE_15__["default"](values, this);
    }
 
    /**
@@ -7256,17 +7292,17 @@ class ABFactory extends EventEmitter {
       var taskDef = this.definitionByID(id);
       if (taskDef) {
          switch (taskDef.type) {
-            case ABProcessParticipant.defaults().type:
-               return new ABProcessParticipant(taskDef, process, this);
+            case _platform_process_ABProcessParticipant_js__WEBPACK_IMPORTED_MODULE_16__["default"].defaults().type:
+               return new _platform_process_ABProcessParticipant_js__WEBPACK_IMPORTED_MODULE_16__["default"](taskDef, process, this);
             // break;
 
-            case ABProcessLane.defaults().type:
-               return new ABProcessLane(taskDef, process, this);
+            case _platform_process_ABProcessLane_js__WEBPACK_IMPORTED_MODULE_17__["default"].defaults().type:
+               return new _platform_process_ABProcessLane_js__WEBPACK_IMPORTED_MODULE_17__["default"](taskDef, process, this);
             // break;
 
             default:
                // default to a Task
-               return ABProcessTaskManager.newTask(taskDef, process, this);
+               return _process_ABProcessTaskManager_js__WEBPACK_IMPORTED_MODULE_18__["default"].newTask(taskDef, process, this);
             // break;
          }
       }
@@ -7288,17 +7324,17 @@ class ABFactory extends EventEmitter {
 
       switch (element.type) {
          case "bpmn:Participant":
-            newElement = new ABProcessParticipant({}, process, this);
+            newElement = new _platform_process_ABProcessParticipant_js__WEBPACK_IMPORTED_MODULE_16__["default"]({}, process, this);
             break;
 
          case "bpmn:Lane":
-            newElement = new ABProcessLane({}, process, this);
+            newElement = new _platform_process_ABProcessLane_js__WEBPACK_IMPORTED_MODULE_17__["default"]({}, process, this);
             break;
 
          default:
-            var defaultDef = ABProcessTaskManager.definitionForElement(element);
+            var defaultDef = _process_ABProcessTaskManager_js__WEBPACK_IMPORTED_MODULE_18__["default"].definitionForElement(element);
             if (defaultDef) {
-               newElement = ABProcessTaskManager.newTask(
+               newElement = _process_ABProcessTaskManager_js__WEBPACK_IMPORTED_MODULE_18__["default"].newTask(
                   defaultDef,
                   process,
                   this
@@ -7355,7 +7391,7 @@ class ABFactory extends EventEmitter {
     * @return {ABObjectQuery}
     */
    queryNew(values) {
-      return new ABObjectQuery(values, this);
+      return new _platform_ABObjectQuery_js__WEBPACK_IMPORTED_MODULE_13__["default"](values, this);
    }
 
    /**
@@ -7368,7 +7404,7 @@ class ABFactory extends EventEmitter {
       if (App) {
          console.error("!! Who is calling this with an App?");
       }
-      return new RowFilter(App || this._App, idBase, this);
+      return new _platform_RowFilter_js__WEBPACK_IMPORTED_MODULE_21__["default"](App || this._App, idBase, this);
    }
 
    /**
@@ -7378,7 +7414,7 @@ class ABFactory extends EventEmitter {
     * @return {FilterComplex}
     */
    filterComplexNew(idBase, options = {}) {
-      return new FilterComplex(idBase, this, options);
+      return new _platform_FilterComplex_js__WEBPACK_IMPORTED_MODULE_22__["default"](idBase, this, options);
    }
 
    /**
@@ -7493,7 +7529,7 @@ class ABFactory extends EventEmitter {
    }
 }
 
-module.exports = ABFactory;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ABFactory);
 
 
 /***/ },
@@ -7502,14 +7538,60 @@ module.exports = ABFactory;
 /*!*******************************************!*\
   !*** ./AppBuilder/core/ABFieldManager.js ***!
   \*******************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABFieldManager)
+/* harmony export */ });
+/* harmony import */ var _platform_dataFields_ABFieldString_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../platform/dataFields/ABFieldString.js */ 18912);
+/* harmony import */ var _platform_dataFields_ABFieldLongText_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../platform/dataFields/ABFieldLongText.js */ 32592);
+/* harmony import */ var _platform_dataFields_ABFieldNumber_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../platform/dataFields/ABFieldNumber.js */ 89652);
+/* harmony import */ var _platform_dataFields_ABFieldDate_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../platform/dataFields/ABFieldDate.js */ 65025);
+/* harmony import */ var _platform_dataFields_ABFieldDateTime_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../platform/dataFields/ABFieldDateTime.js */ 91540);
+/* harmony import */ var _platform_dataFields_ABFieldBoolean_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../platform/dataFields/ABFieldBoolean.js */ 81093);
+/* harmony import */ var _platform_dataFields_ABFieldList_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../platform/dataFields/ABFieldList.js */ 75809);
+/* harmony import */ var _platform_dataFields_ABFieldTree_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../platform/dataFields/ABFieldTree.js */ 73849);
+/* harmony import */ var _platform_dataFields_ABFieldEmail_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../platform/dataFields/ABFieldEmail.js */ 41633);
+/* harmony import */ var _platform_dataFields_ABFieldFile_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../platform/dataFields/ABFieldFile.js */ 83963);
+/* harmony import */ var _platform_dataFields_ABFieldImage_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../platform/dataFields/ABFieldImage.js */ 9932);
+/* harmony import */ var _platform_dataFields_ABFieldUser_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../platform/dataFields/ABFieldUser.js */ 46430);
+/* harmony import */ var _platform_dataFields_ABFieldConnect_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../platform/dataFields/ABFieldConnect.js */ 95399);
+/* harmony import */ var _platform_dataFields_ABFieldCalculate_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../platform/dataFields/ABFieldCalculate.js */ 43925);
+/* harmony import */ var _platform_dataFields_ABFieldTextFormula_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../platform/dataFields/ABFieldTextFormula.js */ 51706);
+/* harmony import */ var _platform_dataFields_ABFieldFormula_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../platform/dataFields/ABFieldFormula.js */ 29491);
+/* harmony import */ var _platform_dataFields_ABFieldAutoIndex_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../platform/dataFields/ABFieldAutoIndex.js */ 2232);
+/* harmony import */ var _platform_dataFields_ABFieldJson_js__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../platform/dataFields/ABFieldJson.js */ 29563);
+/* harmony import */ var _platform_dataFields_ABFieldCombine_js__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../platform/dataFields/ABFieldCombine.js */ 78388);
+/* harmony import */ var _platform_dataFields_ABFieldSelectivity_js__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../platform/dataFields/ABFieldSelectivity.js */ 96600);
 /*
  * ABFieldManager
  *
  * An interface for managing the different ABFields available in our AppBuilder.
  *
  */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*
  * Fields
@@ -7518,33 +7600,33 @@ module.exports = ABFactory;
 var Fields = {};
 
 var AllFieldClasses = [
-   __webpack_require__(/*! ../platform/dataFields/ABFieldString */ 18912),
-   __webpack_require__(/*! ../platform/dataFields/ABFieldLongText */ 32592),
-   __webpack_require__(/*! ../platform/dataFields/ABFieldNumber */ 89652),
-   __webpack_require__(/*! ../platform/dataFields/ABFieldDate */ 65025),
-   __webpack_require__(/*! ../platform/dataFields/ABFieldDateTime */ 91540),
-   __webpack_require__(/*! ../platform/dataFields/ABFieldBoolean */ 81093),
-   __webpack_require__(/*! ../platform/dataFields/ABFieldList */ 75809),
-   __webpack_require__(/*! ../platform/dataFields/ABFieldTree */ 73849),
-   __webpack_require__(/*! ../platform/dataFields/ABFieldEmail */ 41633),
-   __webpack_require__(/*! ../platform/dataFields/ABFieldFile */ 83963),
-   __webpack_require__(/*! ../platform/dataFields/ABFieldImage */ 9932),
-   __webpack_require__(/*! ../platform/dataFields/ABFieldUser */ 46430),
-   __webpack_require__(/*! ../platform/dataFields/ABFieldConnect */ 95399),
-   __webpack_require__(/*! ../platform/dataFields/ABFieldCalculate */ 43925),
-   __webpack_require__(/*! ../platform/dataFields/ABFieldTextFormula */ 51706),
-   __webpack_require__(/*! ../platform/dataFields/ABFieldFormula */ 29491),
-   __webpack_require__(/*! ../platform/dataFields/ABFieldAutoIndex */ 2232),
-   __webpack_require__(/*! ../platform/dataFields/ABFieldJson */ 29563),
-   __webpack_require__(/*! ../platform/dataFields/ABFieldCombine */ 78388),
-   __webpack_require__(/*! ../platform/dataFields/ABFieldSelectivity */ 96600),
+   _platform_dataFields_ABFieldString_js__WEBPACK_IMPORTED_MODULE_0__["default"],
+   _platform_dataFields_ABFieldLongText_js__WEBPACK_IMPORTED_MODULE_1__["default"],
+   _platform_dataFields_ABFieldNumber_js__WEBPACK_IMPORTED_MODULE_2__["default"],
+   _platform_dataFields_ABFieldDate_js__WEBPACK_IMPORTED_MODULE_3__["default"],
+   _platform_dataFields_ABFieldDateTime_js__WEBPACK_IMPORTED_MODULE_4__["default"],
+   _platform_dataFields_ABFieldBoolean_js__WEBPACK_IMPORTED_MODULE_5__["default"],
+   _platform_dataFields_ABFieldList_js__WEBPACK_IMPORTED_MODULE_6__["default"],
+   _platform_dataFields_ABFieldTree_js__WEBPACK_IMPORTED_MODULE_7__["default"],
+   _platform_dataFields_ABFieldEmail_js__WEBPACK_IMPORTED_MODULE_8__["default"],
+   _platform_dataFields_ABFieldFile_js__WEBPACK_IMPORTED_MODULE_9__["default"],
+   _platform_dataFields_ABFieldImage_js__WEBPACK_IMPORTED_MODULE_10__["default"],
+   _platform_dataFields_ABFieldUser_js__WEBPACK_IMPORTED_MODULE_11__["default"],
+   _platform_dataFields_ABFieldConnect_js__WEBPACK_IMPORTED_MODULE_12__["default"],
+   _platform_dataFields_ABFieldCalculate_js__WEBPACK_IMPORTED_MODULE_13__["default"],
+   _platform_dataFields_ABFieldTextFormula_js__WEBPACK_IMPORTED_MODULE_14__["default"],
+   _platform_dataFields_ABFieldFormula_js__WEBPACK_IMPORTED_MODULE_15__["default"],
+   _platform_dataFields_ABFieldAutoIndex_js__WEBPACK_IMPORTED_MODULE_16__["default"],
+   _platform_dataFields_ABFieldJson_js__WEBPACK_IMPORTED_MODULE_17__["default"],
+   _platform_dataFields_ABFieldCombine_js__WEBPACK_IMPORTED_MODULE_18__["default"],
+   _platform_dataFields_ABFieldSelectivity_js__WEBPACK_IMPORTED_MODULE_19__["default"],
 ];
 
 AllFieldClasses.forEach((FIELD) => {
    Fields[FIELD.defaults().key] = FIELD;
 });
 
-module.exports = class ABFieldManager {
+class ABFieldManager {
    /*
     * @function allFields
     * return all the currently defined ABFields in an array.
@@ -7592,12 +7674,12 @@ module.exports = class ABFieldManager {
          console.error(object);
          console.log("-------");
          throw new Error(
-            `ABFieldManager.newField(): Unknown Field Key [${values.name}][${values.key}] for object[${object.name}]`
+            `ABFieldManager.newField(): Unknown Field Key [${values.name}][${values.key}] for object[${object.name}]`,
          );
          //// TODO: what to do here?
       }
    }
-};
+}
 
 
 /***/ },
@@ -7606,14 +7688,20 @@ module.exports = class ABFieldManager {
 /*!***************************************!*\
   !*** ./AppBuilder/core/ABHintCore.js ***!
   \***************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABHintCore)
+/* harmony export */ });
+/* harmony import */ var _platform_ABMLClass_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../platform/ABMLClass.js */ 72982);
+
+// import _concat from "lodash/concat";
 
 // import ABApplication from "./ABApplication"
 
-var ABMLClass = __webpack_require__(/*! ../platform/ABMLClass */ 72982);
-const _concat = __webpack_require__(/*! lodash/concat */ 53144);
-
-module.exports = class ABHintCore extends ABMLClass {
+class ABHintCore extends _platform_ABMLClass_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(attributes, AB) {
       super(["name", "description"], AB);
 
@@ -7659,7 +7747,7 @@ module.exports = class ABHintCore extends ABMLClass {
       this.settings.view = attributes?.settings?.view || "";
       this.stepIDs = attributes?.stepIDs || [];
 
-      let currSteps = this?._steps || {};
+      // let currSteps = this?._steps || {};
       this._steps = {};
       (attributes?.stepIDs || []).forEach((sID) => {
          if (!sID) return;
@@ -7750,7 +7838,7 @@ module.exports = class ABHintCore extends ABMLClass {
       // remove from _steps definitions
       delete this._steps[id];
    }
-};
+}
 
 
 /***/ },
@@ -7759,11 +7847,17 @@ module.exports = class ABHintCore extends ABMLClass {
 /*!****************************************!*\
   !*** ./AppBuilder/core/ABIndexCore.js ***!
   \****************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABMLClass = __webpack_require__(/*! ../platform/ABMLClass */ 72982);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABIndexCore)
+/* harmony export */ });
+/* harmony import */ var _platform_ABMLClass_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../platform/ABMLClass.js */ 72982);
 
-module.exports = class ABIndexCore extends ABMLClass {
+
+class ABIndexCore extends _platform_ABMLClass_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(attributes, object) {
       super(["label"], object.AB);
       this.object = object;
@@ -7799,7 +7893,7 @@ module.exports = class ABIndexCore extends ABMLClass {
             if (!field) {
                this._unknownFieldIDs.push(f);
                let err = new Error(
-                  `Index[${this.name}][${this.id}] is referencing an unknown field[${f}]`
+                  `Index[${this.name}][${this.id}] is referencing an unknown field[${f}]`,
                );
                this.AB.notify.developer(err, {
                   index: this.id,
@@ -7812,7 +7906,7 @@ module.exports = class ABIndexCore extends ABMLClass {
 
       if (this.fields.length == 0) {
          let err = new Error(
-            `Index[${this.name}][${this.id}] is not referencing any fields`
+            `Index[${this.name}][${this.id}] is not referencing any fields`,
          );
          this.AB.notify.developer(err, {
             index: this.id,
@@ -7877,7 +7971,7 @@ module.exports = class ABIndexCore extends ABMLClass {
 
       return `${indexName}_unique`;
    }
-};
+}
 
 
 /***/ },
@@ -7886,7 +7980,15 @@ module.exports = class ABIndexCore extends ABMLClass {
 /*!******************************************!*\
   !*** ./AppBuilder/core/ABMLClassCore.js ***!
   \******************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMLClassCore)
+/* harmony export */ });
+/* harmony import */ var _platform_ABEmitter_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../platform/ABEmitter.js */ 89327);
+
 
 /**
  * ABMLClassCore
@@ -7898,8 +8000,7 @@ module.exports = class ABIndexCore extends ABMLClass {
  * This core ABMLClass will internally track the multilingual fields
  * (this.mlFields) and auto
  */
-var ABEmitter = __webpack_require__(/*! ../platform/ABEmitter */ 89327);
-module.exports = class ABMLClassCore extends ABEmitter {
+class ABMLClassCore extends _platform_ABEmitter_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(fieldList, AB) {
       super();
       this.mlFields = fieldList || ["label"];
@@ -8140,7 +8241,7 @@ module.exports = class ABMLClassCore extends ABEmitter {
          }
       }
    }
-};
+}
 
 
 /***/ },
@@ -8149,7 +8250,14 @@ module.exports = class ABMLClassCore extends ABEmitter {
 /*!****************************************!*\
   !*** ./AppBuilder/core/ABModelCore.js ***!
   \****************************************/
-(module) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABModelCore)
+/* harmony export */ });
+// import { isArray } from "lodash";
 
 //
 // ABModelCore
@@ -8165,9 +8273,7 @@ module.exports = class ABMLClassCore extends ABEmitter {
 //    })
 //
 
-// const { isArray } = require("lodash");
-
-module.exports = class ABModelCore {
+class ABModelCore {
    constructor(object) {
       // link me to my ABObject
       this.object = object;
@@ -8236,7 +8342,7 @@ module.exports = class ABModelCore {
 
    request(/* method, params */) {
       console.error(
-         "!!! ABModelCore.request() should be overridden by platform."
+         "!!! ABModelCore.request() should be overridden by platform.",
       );
       return Promise.resolve();
    }
@@ -8405,7 +8511,7 @@ module.exports = class ABModelCore {
       return new Promise((resolve, reject) => {
          if (!currID) {
             var Err = new Error(
-               "Model.staleRefresh(): could not resolve ." + PK
+               "Model.staleRefresh(): could not resolve ." + PK,
             );
             Err.cond = cond;
             reject(Err);
@@ -8454,7 +8560,7 @@ module.exports = class ABModelCore {
       console.log(
          "Model.staleRefreshProcess(): buffered " +
             currentEntries.length +
-            " requests"
+            " requests",
       );
       currentEntries.forEach((e) => {
          responseHash[e[PK]] = responseHash[e[PK]] || [];
@@ -8482,7 +8588,7 @@ module.exports = class ABModelCore {
                   console.error(
                      "Model.staleRefreshProcess(): returned entry was not in our responseHash:",
                      data,
-                     responseHash
+                     responseHash,
                   );
                }
             });
@@ -8495,7 +8601,7 @@ module.exports = class ABModelCore {
             console.warn(
                "Model.staleRefreshProcess(): " +
                   allKeys.length +
-                  " entries with no responses. "
+                  " entries with no responses. ",
             );
          }
          allKeys.forEach((key) => {
@@ -8872,7 +8978,7 @@ module.exports = class ABModelCore {
       if (firstRow) {
          const columnNames = Object.keys(firstRow);
          for (const missingField of myObject.fields(
-            (f) => columnNames.indexOf(f.columnName) === -1
+            (f) => columnNames.indexOf(f.columnName) === -1,
          ))
             firstRow[missingField.columnName] = undefined;
       }
@@ -8944,7 +9050,7 @@ module.exports = class ABModelCore {
             let connRelations = this.csvPackGetRelations(
                connObject,
                values,
-               visited
+               visited,
             );
 
             // merge these into my relations
@@ -9115,7 +9221,7 @@ module.exports = class ABModelCore {
             packedData.relations[id] = await this.AB.jsonToCsvBatched(
                values,
                batchSize,
-               jobID
+               jobID,
             );
          }
       }
@@ -9124,7 +9230,7 @@ module.exports = class ABModelCore {
       packedData.data = await this.AB.jsonToCsvBatched(
          content,
          batchSize,
-         jobID
+         jobID,
       );
       packedData.type = returnType; // single or array
 
@@ -9155,7 +9261,7 @@ module.exports = class ABModelCore {
                      console.error(
                         "Error parsing JSON data for column: " + f.columnName,
                         val,
-                        e
+                        e,
                      );
                   }
                }
@@ -9226,7 +9332,7 @@ module.exports = class ABModelCore {
                         populatedData.push(connEntry);
                      } else if (id != null) {
                         console.warn(
-                           `Missing relation entry for _csvID: ${id}`
+                           `Missing relation entry for _csvID: ${id}`,
                         );
                      }
                   });
@@ -9431,7 +9537,7 @@ module.exports = class ABModelCore {
             ) {
                // if so parse the string into an object
                d[relationName].translations = JSON.parse(
-                  d[relationName].translations
+                  d[relationName].translations,
                );
             }
 
@@ -9471,7 +9577,7 @@ module.exports = class ABModelCore {
                   objectLink.translate(
                      d[relationName],
                      d[relationName],
-                     relatedMlFields
+                     relatedMlFields,
                   );
                }
             }
@@ -9516,7 +9622,7 @@ module.exports = class ABModelCore {
                         try {
                            d[c.columnName] = (d[relationName] || []).map(
                               // (i) => i[olPK]
-                              (i) => c.getRelationValue(i)
+                              (i) => c.getRelationValue(i),
                            );
                         } catch (e) {
                            console.log("+++++++++++++++");
@@ -9566,12 +9672,12 @@ module.exports = class ABModelCore {
                         {
                            format: "MM/DD/YYYY",
                            ignoreTime: true,
-                        }
+                        },
                      );
                   } else {
                      // Convert UTC to Date
                      d[date.columnName] = this.AB.rules.toDate(
-                        d[date.columnName]
+                        d[date.columnName],
                      );
                      // d[date.columnName] = new Date(moment(d[date.columnName]));
                   }
@@ -9584,7 +9690,7 @@ module.exports = class ABModelCore {
          });
       });
    }
-};
+}
 
 
 /***/ },
@@ -9593,12 +9699,19 @@ module.exports = class ABModelCore {
 /*!********************************************!*\
   !*** ./AppBuilder/core/ABObjectApiCore.js ***!
   \********************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABObject = __webpack_require__(/*! ../platform/ABObject */ 84154);
-const ABModelApi = __webpack_require__(/*! ../platform/ABModelApi */ 64238);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABObjectApiCore)
+/* harmony export */ });
+/* harmony import */ var _platform_ABObject_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../platform/ABObject.js */ 84154);
+/* harmony import */ var _platform_ABModelApi_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../platform/ABModelApi.js */ 64238);
 
-module.exports = class ABObjectApiCore extends ABObject {
+
+
+class ABObjectApiCore extends _platform_ABObject_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(attributes, AB) {
       super(attributes, AB);
 
@@ -9654,7 +9767,7 @@ module.exports = class ABObjectApiCore extends ABObject {
     * this ABObjectQuery.
     */
    model() {
-      var model = new ABModelApi(this);
+      var model = new _platform_ABModelApi_js__WEBPACK_IMPORTED_MODULE_1__["default"](this);
 
       // default the context of this model's operations to this object
       model.contextKey(this.constructor.contextKey());
@@ -9722,7 +9835,7 @@ module.exports = class ABObjectApiCore extends ABObject {
 
       return headers;
    }
-};
+}
 
 
 /***/ },
@@ -9731,12 +9844,19 @@ module.exports = class ABObjectApiCore extends ABObject {
 /*!****************************************************!*\
   !*** ./AppBuilder/core/ABObjectApiNetsuiteCore.js ***!
   \****************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABObjectApi = __webpack_require__(/*! ../platform/ABObjectApi */ 30008);
-const ABModelApiNetsuite = __webpack_require__(/*! ../platform/ABModelApiNetsuite */ 95627);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABObjectApiNetsuiteCore)
+/* harmony export */ });
+/* harmony import */ var _platform_ABObjectApi_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../platform/ABObjectApi.js */ 30008);
+/* harmony import */ var _platform_ABModelApiNetsuite_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../platform/ABModelApiNetsuite.js */ 95627);
 
-module.exports = class ABObjectApiNetsuiteCore extends ABObjectApi {
+
+
+class ABObjectApiNetsuiteCore extends _platform_ABObjectApi_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(attributes, AB) {
       super(attributes, AB);
 
@@ -9782,7 +9902,7 @@ module.exports = class ABObjectApiNetsuiteCore extends ABObjectApi {
     * this ABObjectQuery.
     */
    model() {
-      var model = new ABModelApiNetsuite(this);
+      var model = new _platform_ABModelApiNetsuite_js__WEBPACK_IMPORTED_MODULE_1__["default"](this);
 
       // default the context of this model's operations to this object
       model.contextKey(this.constructor.contextKey());
@@ -9853,7 +9973,7 @@ module.exports = class ABObjectApiNetsuiteCore extends ABObjectApi {
    }
 
    */
-};
+}
 
 
 /***/ },
@@ -9862,7 +9982,17 @@ module.exports = class ABObjectApiNetsuiteCore extends ABObjectApi {
 /*!*****************************************!*\
   !*** ./AppBuilder/core/ABObjectCore.js ***!
   \*****************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABObjectCore)
+/* harmony export */ });
+/* harmony import */ var _platform_ABModel_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../platform/ABModel.js */ 90940);
+/* harmony import */ var _platform_ABMLClass_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../platform/ABMLClass.js */ 72982);
+
+
 
 /**
  * ABObjectCore
@@ -9871,13 +10001,10 @@ module.exports = class ABObjectApiNetsuiteCore extends ABObjectApi {
  * that can instantiate themselves and provide field and model resources.
  */
 
-var ABModel = __webpack_require__(/*! ../platform/ABModel */ 90940);
-var ABMLClass = __webpack_require__(/*! ../platform/ABMLClass */ 72982);
-
 /* eslint-disable-next-line no-undef */
 const L = (...params) => AB.Multilingual.label(...params);
 
-module.exports = class ABObjectCore extends ABMLClass {
+class ABObjectCore extends _platform_ABMLClass_js__WEBPACK_IMPORTED_MODULE_1__["default"] {
    constructor(attributes, AB) {
       super(["label"], AB);
 
@@ -9981,7 +10108,7 @@ module.exports = class ABObjectCore extends ABMLClass {
       // {Object} .labelSettings
 
       this.labelSettings.isNoLabelDisplay = parseInt(
-         this.labelSettings.isNoLabelDisplay || 0
+         this.labelSettings.isNoLabelDisplay || 0,
       );
       // {bool} .isNoLabelDisplay
 
@@ -10086,7 +10213,7 @@ module.exports = class ABObjectCore extends ABMLClass {
          } else {
             this._unknownFieldIDs.push(id);
             let err = new Error(
-               `O[${this.name}] is referenceing an unknown field id[${id}]`
+               `O[${this.name}] is referenceing an unknown field id[${id}]`,
             );
             this.AB.notify.builder(err, {
                field: { id, object: { id: this.id, name: this.name } },
@@ -10118,7 +10245,7 @@ module.exports = class ABObjectCore extends ABMLClass {
          } else {
             this._unknownIndex.push(id);
             let err = new Error(
-               `O[${this.name}] is referenceing an unknown index id[${id}]`
+               `O[${this.name}] is referenceing an unknown index id[${id}]`,
             );
             this.AB.notify.builder(err, {
                field: { id, object: { id: this.id, name: this.name } },
@@ -10296,7 +10423,7 @@ module.exports = class ABObjectCore extends ABMLClass {
             this._unknownFieldIDs = this._unknownFieldIDs || [];
             this._unknownFieldIDs.push(id);
             let err = new Error(
-               `O[${this.name}] is importing an unknown field id[${id}]`
+               `O[${this.name}] is importing an unknown field id[${id}]`,
             );
             this.AB.notify.builder(err, {
                field: { id, object: { id: this.id, name: this.name } },
@@ -10338,7 +10465,7 @@ module.exports = class ABObjectCore extends ABMLClass {
       // be sure to remove this from our imported ids if it was
       // listed there.
       this.importedFieldIDs = this.importedFieldIDs.filter(
-         (fid) => fid != field.id
+         (fid) => fid != field.id,
       );
 
       if (this._fields.length < origLen) {
@@ -10527,7 +10654,7 @@ module.exports = class ABObjectCore extends ABMLClass {
     * this ABObject.
     */
    model() {
-      var model = new ABModel(this);
+      var model = new _platform_ABModel_js__WEBPACK_IMPORTED_MODULE_0__["default"](this);
 
       // default the context of this model's operations to this object
       model.contextKey(ABObjectCore.contextKey());
@@ -10746,7 +10873,7 @@ module.exports = class ABObjectCore extends ABMLClass {
    remoteCreate(data) {
       console.log(
          "object[" + this.name + "] received a remoteCreate() with data:",
-         data
+         data,
       );
    }
 
@@ -10808,7 +10935,7 @@ module.exports = class ABObjectCore extends ABMLClass {
       // System requires to include number field values
       // because they are used on Formula/Calculate fields on client side
       fields = fields.concat(
-         this.fields((f) => f.key == "number").map((f) => f.columnName)
+         this.fields((f) => f.key == "number").map((f) => f.columnName),
       );
 
       return fields;
@@ -10913,8 +11040,8 @@ module.exports = class ABObjectCore extends ABMLClass {
                // what is this entry?
                let err = new Error(
                   `ABObjectCore.whereCleanUP(): Sentry Error: AB-APPBUILDER-4H: current rule is not properly formed: ${JSON.stringify(
-                     curr
-                  )}`
+                     curr,
+                  )}`,
                );
                this.AB.notify.developer(err, { curr });
             }
@@ -10948,7 +11075,7 @@ module.exports = class ABObjectCore extends ABMLClass {
       }
       return null;
    }
-};
+}
 
 
 /***/ },
@@ -10957,7 +11084,17 @@ module.exports = class ABObjectCore extends ABMLClass {
 /*!**********************************************!*\
   !*** ./AppBuilder/core/ABObjectQueryCore.js ***!
   \**********************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABObjectQueryCore)
+/* harmony export */ });
+/* harmony import */ var _platform_ABObject_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../platform/ABObject.js */ 84154);
+/* harmony import */ var _platform_ABModelQuery_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../platform/ABModelQuery.js */ 61422);
+
+
 
 //
 // ABObjectQuery
@@ -10974,10 +11111,7 @@ module.exports = class ABObjectCore extends ABMLClass {
 // A where statement is also part of the definition.
 //
 
-var ABObject = __webpack_require__(/*! ../platform/ABObject */ 84154);
-var ABModelQuery = __webpack_require__(/*! ../platform/ABModelQuery */ 61422);
-
-module.exports = class ABObjectQueryCore extends ABObject {
+class ABObjectQueryCore extends _platform_ABObject_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(attributes, AB) {
       super(attributes, AB);
       /*
@@ -11130,10 +11264,10 @@ module.exports = class ABObjectQueryCore extends ABObject {
       if (attributes && attributes.settings) {
          // convert from "0" => true/false
          this.settings.grouping = JSON.parse(
-            attributes.settings.grouping || false
+            attributes.settings.grouping || false,
          );
          this.settings.hidePrefix = JSON.parse(
-            attributes.settings.hidePrefix || false
+            attributes.settings.hidePrefix || false,
          );
       }
    }
@@ -11216,7 +11350,7 @@ module.exports = class ABObjectQueryCore extends ABObject {
          let isNew =
             newFields.filter(
                (f) =>
-                  f.alias == fieldInfo.alias && f.field.id == fieldInfo.fieldID
+                  f.alias == fieldInfo.alias && f.field.id == fieldInfo.fieldID,
             ).length < 1;
 
          if (!isNew) {
@@ -11316,7 +11450,7 @@ module.exports = class ABObjectQueryCore extends ABObject {
       // matches for which this ABQuery is managing objects:
 
       return this.AB.objects((o) => this.objectIDs.indexOf(o.id) > -1).filter(
-         fn
+         fn,
       );
    }
 
@@ -11537,7 +11671,7 @@ module.exports = class ABObjectQueryCore extends ABObject {
     * this ABObjectQuery.
     */
    model() {
-      var model = new ABModelQuery(this);
+      var model = new _platform_ABModelQuery_js__WEBPACK_IMPORTED_MODULE_1__["default"](this);
 
       // default the context of this model's operations to this object
       model.contextKey(this.constructor.contextKey());
@@ -11597,7 +11731,7 @@ module.exports = class ABObjectQueryCore extends ABObject {
     */
    urlPointer(acrossApp) {
       console.error(
-         "ABQueryCore.urlPointer(): Depreciated: Where is this being called?"
+         "ABQueryCore.urlPointer(): Depreciated: Where is this being called?",
       );
       return this.application.urlQuery(acrossApp) + this.id;
    }
@@ -11642,7 +11776,7 @@ module.exports = class ABObjectQueryCore extends ABObject {
 
       return filterConditions;
    }
-};
+}
 
 
 /***/ },
@@ -11651,16 +11785,24 @@ module.exports = class ABObjectQueryCore extends ABObject {
 /*!******************************************!*\
   !*** ./AppBuilder/core/ABProcessCore.js ***!
   \******************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABProcessCore)
+/* harmony export */ });
+/* harmony import */ var _platform_ABMLClass_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../platform/ABMLClass.js */ 72982);
+/* harmony import */ var lodash_concat_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash/concat.js */ 53144);
+/* harmony import */ var lodash_concat_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash_concat_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _platform_process_tasks_ABProcessTaskSubProcess_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../platform/process/tasks/ABProcessTaskSubProcess.js */ 58317);
+
+
+
 
 // import ABApplication from "./ABApplication"
 
-var ABMLClass = __webpack_require__(/*! ../platform/ABMLClass */ 72982);
-const _concat = __webpack_require__(/*! lodash/concat */ 53144);
-
-const ABProcessTaskSubProcess = __webpack_require__(/*! ../platform/process/tasks/ABProcessTaskSubProcess */ 58317);
-
-module.exports = class ABProcessCore extends ABMLClass {
+class ABProcessCore extends _platform_ABMLClass_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(attributes, AB) {
       super(["label"], AB);
 
@@ -11709,7 +11851,7 @@ module.exports = class ABProcessCore extends ABMLClass {
                this.emit(
                   "warning",
                   `P[${this.name}] is referencing an unknown process element id[${eID}]`,
-                  { process: this.id, eID }
+                  { process: this.id, eID },
                );
             }
          }
@@ -11750,7 +11892,7 @@ module.exports = class ABProcessCore extends ABMLClass {
          // NOTE: when a task is initially created, it doesn't have an .id
          // so we need to reference it by it's .diagramID
          data.elementIDs.push(
-            this._elements[e].id ?? this._elements[e].diagramID
+            this._elements[e].id ?? this._elements[e].diagramID,
          );
       }
 
@@ -12089,7 +12231,7 @@ module.exports = class ABProcessCore extends ABMLClass {
          tasksToAsk,
          "processDataFields",
          null,
-         this
+         this,
       );
       // Include data from the main process as well
       if (this.key === "SubProcess") {
@@ -12178,7 +12320,7 @@ module.exports = class ABProcessCore extends ABMLClass {
          tasksToAsk,
          "processDataObjects",
          null,
-         this
+         this,
       );
       return fields.length > 0 ? fields : null;
    }
@@ -12234,7 +12376,7 @@ module.exports = class ABProcessCore extends ABMLClass {
    //         return p.diagramID == dID;
    //     });
    // }
-};
+}
 
 var queryPreviousTasks = (
    list,
@@ -12242,7 +12384,7 @@ var queryPreviousTasks = (
    param,
    process,
    responses,
-   processedIDs
+   processedIDs,
 ) => {
    // recursive fn() to step through our graph and compile
    // results.
@@ -12266,16 +12408,16 @@ var queryPreviousTasks = (
          let value = null;
 
          // get any field's it provides
-         if (!(task instanceof ABProcessTaskSubProcess))
+         if (!(task instanceof _platform_process_tasks_ABProcessTaskSubProcess_js__WEBPACK_IMPORTED_MODULE_2__["default"]))
             value = task[method].apply(task, param);
 
          // value = task[method].apply(task, param);
 
          if (value == null) value = [];
-         responses = _concat(responses, value);
+         responses = lodash_concat_js__WEBPACK_IMPORTED_MODULE_1___default()(responses, value);
 
          // add any previous tasks to our list
-         list = _concat(list, process.connectionPreviousTask(task));
+         list = lodash_concat_js__WEBPACK_IMPORTED_MODULE_1___default()(list, process.connectionPreviousTask(task));
       }
 
       // process next Task
@@ -12285,7 +12427,7 @@ var queryPreviousTasks = (
          param,
          process,
          responses,
-         processedIDs
+         processedIDs,
       );
    }
 };
@@ -12297,14 +12439,20 @@ var queryPreviousTasks = (
 /*!***************************************!*\
   !*** ./AppBuilder/core/ABStepCore.js ***!
   \***************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABStepCore)
+/* harmony export */ });
+/* harmony import */ var _platform_ABMLClass_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../platform/ABMLClass.js */ 72982);
+
+// import _concat from "lodash/concat.js";
 
 // import ABApplication from "./ABApplication"
 
-var ABMLClass = __webpack_require__(/*! ../platform/ABMLClass */ 72982);
-const _concat = __webpack_require__(/*! lodash/concat */ 53144);
-
-module.exports = class ABStepCore extends ABMLClass {
+class ABStepCore extends _platform_ABMLClass_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(attributes, AB) {
       super(["name", "text"], AB);
 
@@ -12418,7 +12566,7 @@ module.exports = class ABStepCore extends ABMLClass {
    // stepRemove(def) {
    //    delete this._steps[def.id];
    // }
-};
+}
 
 
 /***/ },
@@ -12427,7 +12575,76 @@ module.exports = class ABStepCore extends ABMLClass {
 /*!**********************************************!*\
   !*** ./AppBuilder/core/ABViewManagerCore.js ***!
   \**********************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewManagerCore)
+/* harmony export */ });
+/* harmony import */ var _platform_views_ABView_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../platform/views/ABView.js */ 30747);
+/* harmony import */ var _platform_views_ABViewConditionalContainer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../platform/views/ABViewConditionalContainer.js */ 68640);
+/* harmony import */ var _platform_views_ABViewConnectDataFilter_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../platform/views/ABViewConnectDataFilter.js */ 82859);
+/* harmony import */ var _platform_views_ABViewContainer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../platform/views/ABViewContainer.js */ 76528);
+/* harmony import */ var _platform_views_ABViewDataFilter_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../platform/views/ABViewDataFilter.js */ 70153);
+/* harmony import */ var _platform_views_ABViewMenu_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../platform/views/ABViewMenu.js */ 46672);
+/* harmony import */ var _platform_views_ABViewPage_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../platform/views/ABViewPage.js */ 44);
+/* harmony import */ var _platform_views_ABViewReportsManager_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../platform/views/ABViewReportsManager.js */ 87929);
+/* harmony import */ var _platform_views_ABViewScheduler_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../platform/views/ABViewScheduler.js */ 36506);
+
+// import Import_ABViewCarousel from "../platform/views/ABViewCarousel.js";
+// import Import_ABViewChart from "../platform/views/ABViewChart.js";
+// import Import_ABViewChartArea from "../platform/views/ABViewChartArea.js";
+// import Import_ABViewChartBar from "../platform/views/ABViewChartBar.js";
+// import Import_ABViewChartLine from "../platform/views/ABViewChartLine.js";
+// import Import_ABViewChartPie from "../platform/views/ABViewChartPie.js";
+// import Import_ABViewComment from "../platform/views/ABViewComment.js";
+
+
+
+// import Import_ABViewCSVExporter from "../platform/views/ABViewCSVExporter.js";
+// import Import_ABViewCSVImporter from "../platform/views/ABViewCSVImporter.js";
+
+// import Import_ABViewDataSelect from "../platform/views/ABViewDataSelect.js";
+// import Import_ABViewDataview from "../platform/views/ABViewDataview.js";
+// import Import_ABViewDocxBuilder from "../platform/views/ABViewDocxBuilder.js";
+// import Import_ABViewGrid from "../platform/views/ABViewGrid.js";
+// import Import_ABViewImage from "../platform/views/ABViewImage.js";
+// import Import_ABViewLabel from "../platform/views/ABViewLabel.js";
+// import Import_ABViewLayout from "../platform/views/ABViewLayout.js";
+// import Import_ABViewList from "../platform/views/ABViewList.js";
+
+
+// import Import_ABViewPDFImporter from "../platform/views/ABViewPDFImporter.js";
+// import Import_ABViewPivot from "../platform/views/ABViewPivot.js";
+// import Import_ABViewTab from "../platform/views/ABViewTab.js";
+// import Import_ABViewText from "../platform/views/ABViewText.js";
+// import Import_ABViewGantt from "../platform/views/ABViewGantt.js";
+// import Import_ABViewKanban from "../platform/views/ABViewKanban.js";
+
+
+// import Import_ABViewDetail from "../platform/views/ABViewDetail.js";
+// import Import_ABViewDetailCheckbox from "../platform/views/ABViewDetailCheckbox.js";
+// import Import_ABViewDetailConnect from "../platform/views/ABViewDetailConnect.js";
+// import Import_ABViewDetailCustom from "../platform/views/ABViewDetailCustom.js";
+// import Import_ABViewDetailImage from "../platform/views/ABViewDetailImage.js";
+// import Import_ABViewDetailSelectivity from "../platform/views/ABViewDetailSelectivity.js";
+// import Import_ABViewDetailText from "../platform/views/ABViewDetailText.js";
+// import Import_ABViewDetailTree from "../platform/views/ABViewDetailTree.js";
+// import Import_ABViewForm from "../platform/views/ABViewForm.js";
+// import Import_ABViewFormButton from "../platform/views/ABViewFormButton.js";
+// import Import_ABViewFormCheckbox from "../platform/views/ABViewFormCheckbox.js";
+// import Import_ABViewFormConnect from "../platform/views/ABViewFormConnect.js";
+// import Import_ABViewFormCustom from "../platform/views/ABViewFormCustom.js";
+// import Import_ABViewFormDatepicker from "../platform/views/ABViewFormDatepicker.js";
+// import Import_ABViewFormJson from "../platform/views/ABViewFormJson.js";
+// import Import_ABViewFormNumber from "../platform/views/ABViewFormNumber.js";
+// import Import_ABViewFormReadonly from "../platform/views/ABViewFormReadonly.js";
+// import Import_ABViewFormSelectMultiple from "../platform/views/ABViewFormSelectMultiple.js";
+// import Import_ABViewFormSelectSingle from "../platform/views/ABViewFormSelectSingle.js";
+// import Import_ABViewFormTextbox from "../platform/views/ABViewFormTextbox.js";
+// import Import_ABViewFormTree from "../platform/views/ABViewFormTree.js";
+// import Import_ABViewFormURL from "../platform/views/ABViewFormURL.js";
 
 /*
  * ABViewManager
@@ -12437,54 +12654,72 @@ module.exports = class ABStepCore extends ABMLClass {
  */
 
 var AllViews = [
-   __webpack_require__(/*! ../platform/views/ABView */ 30747),
-   // require("../platform/views/ABViewCarousel"),
-   // require("../platform/views/ABViewChart"),
-   // require("../platform/views/ABViewChartArea"),
-   // require("../platform/views/ABViewChartBar"),
-   // require("../platform/views/ABViewChartLine"),
-   // require("../platform/views/ABViewChartPie"),
-   // require("../platform/views/ABViewComment"),
-   __webpack_require__(/*! ../platform/views/ABViewConditionalContainer */ 68640),
-   __webpack_require__(/*! ../platform/views/ABViewConnectDataFilter */ 82859),
-   __webpack_require__(/*! ../platform/views/ABViewContainer */ 76528),
-   // require("../platform/views/ABViewCSVExporter"),
-   // require("../platform/views/ABViewCSVImporter"),
-   __webpack_require__(/*! ../platform/views/ABViewDataFilter */ 70153),
-   // require("../platform/views/ABViewDataSelect"),
-   // require("../platform/views/ABViewDataview"),
-   // require("../platform/views/ABViewDocxBuilder"),
-   // require("../platform/views/ABViewGrid"),
-   // require("../platform/views/ABViewImage"),
-   // require("../platform/views/ABViewLabel"),
-   // require("../platform/views/ABViewLayout"),
-   // require("../platform/views/ABViewList"),
-   __webpack_require__(/*! ../platform/views/ABViewMenu */ 46672),
-   __webpack_require__(/*! ../platform/views/ABViewPage */ 44),
-   // require("../platform/views/ABViewPDFImporter"),
-   // require("../platform/views/ABViewPivot"),
-   // require("../platform/views/ABViewTab"),
-   // require("../platform/views/ABViewText"),
+   _platform_views_ABView_js__WEBPACK_IMPORTED_MODULE_0__["default"],
+   // Import_ABViewCarousel,
+   // Import_ABViewChart,
+   // Import_ABViewChartArea,
+   // Import_ABViewChartBar,
+   // Import_ABViewChartLine,
+   // Import_ABViewChartPie,
+   // Import_ABViewComment,
+   _platform_views_ABViewConditionalContainer_js__WEBPACK_IMPORTED_MODULE_1__["default"],
+   _platform_views_ABViewConnectDataFilter_js__WEBPACK_IMPORTED_MODULE_2__["default"],
+   _platform_views_ABViewContainer_js__WEBPACK_IMPORTED_MODULE_3__["default"],
+   // Import_ABViewCSVExporter,
+   // Import_ABViewCSVImporter,
+   _platform_views_ABViewDataFilter_js__WEBPACK_IMPORTED_MODULE_4__["default"],
+   // Import_ABViewDataSelect,
+   // Import_ABViewDataview,
+   // Import_ABViewDocxBuilder,
+   // Import_ABViewGrid,
+   // Import_ABViewImage,
+   // Import_ABViewLabel,
+   // Import_ABViewLayout,
+   // Import_ABViewList,
+   _platform_views_ABViewMenu_js__WEBPACK_IMPORTED_MODULE_5__["default"],
+   _platform_views_ABViewPage_js__WEBPACK_IMPORTED_MODULE_6__["default"],
+   // Import_ABViewPDFImporter,
+   // Import_ABViewPivot,
+   // Import_ABViewTab,
+   // Import_ABViewText,
 
    //
    // Special Editors
    //
-   // require("../platform/views/ABViewKanban"),
-   // require("../platform/views/ABViewGantt"),
-   __webpack_require__(/*! ../platform/views/ABViewReportsManager */ 87929),
-   __webpack_require__(/*! ../platform/views/ABViewScheduler */ 36506),
+   // Import_ABViewGantt,
+   // Import_ABViewKanban,
+   _platform_views_ABViewReportsManager_js__WEBPACK_IMPORTED_MODULE_7__["default"],
+   _platform_views_ABViewScheduler_js__WEBPACK_IMPORTED_MODULE_8__["default"],
 
-   //
-   // Detail Components
-   //
-   // require("../platform/views/ABViewDetail"),
-   // require("../platform/views/ABViewDetailCheckbox"),
-   // require("../platform/views/ABViewDetailConnect"),
-   // require("../platform/views/ABViewDetailCustom"),
-   // require("../platform/views/ABViewDetailImage"),
-   // require("../platform/views/ABViewDetailSelectivity"),
-   // require("../platform/views/ABViewDetailText"),
-   // require("../platform/views/ABViewDetailTree"),
+   // //
+   // // Detail Components
+   // //
+   // Import_ABViewDetail,
+   // Import_ABViewDetailCheckbox,
+   // Import_ABViewDetailConnect,
+   // Import_ABViewDetailCustom,
+   // Import_ABViewDetailImage,
+   // Import_ABViewDetailSelectivity,
+   // Import_ABViewDetailText,
+   // Import_ABViewDetailTree,
+
+   // //
+   // // Form Components
+   // //
+   // Import_ABViewForm,
+   // Import_ABViewFormButton,
+   // Import_ABViewFormCheckbox,
+   // Import_ABViewFormConnect,
+   // Import_ABViewFormCustom,
+   // Import_ABViewFormDatepicker,
+   // Import_ABViewFormJson,
+   // Import_ABViewFormNumber,
+   // Import_ABViewFormReadonly,
+   // Import_ABViewFormSelectMultiple,
+   // Import_ABViewFormSelectSingle,
+   // Import_ABViewFormTextbox,
+   // Import_ABViewFormTree,
+   // Import_ABViewFormURL,
 ];
 
 /*
@@ -12499,7 +12734,7 @@ AllViews.forEach((v) => {
    Views[v.common().key] = v;
 });
 
-module.exports = class ABViewManagerCore {
+class ABViewManagerCore {
    /**
     * @function allViews
     * return all the currently defined ABViews in an array.
@@ -12534,10 +12769,10 @@ module.exports = class ABViewManagerCore {
             if (!isPlugin(values.key)) {
                console.error(
                   "!! View[" +
-                  values.key + 
-                  " (" +
-                  values.name +
-                  ")" +
+                     values.key +
+                     " (" +
+                     values.name +
+                     ")" +
                      "] not yet defined.  Have an ABView instead:"
                );
             }
@@ -12568,7 +12803,7 @@ module.exports = class ABViewManagerCore {
    static addViewClass(View) {
       Views[View.common().key] = View;
    }
-};
+}
 
 /**
  * Check if the key starts with plugin_
@@ -12584,7 +12819,55 @@ function isPlugin(key) {
 /*!****************************************************!*\
   !*** ./AppBuilder/core/ABViewManagerMobileCore.js ***!
   \****************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewManagerCore)
+/* harmony export */ });
+/* harmony import */ var _platform_mobile_ABMobilePage_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../platform/mobile/ABMobilePage.js */ 38241);
+/* harmony import */ var _platform_mobile_ABMobileView_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../platform/mobile/ABMobileView.js */ 94463);
+/* harmony import */ var _platform_mobile_ABMobileViewCustom_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../platform/mobile/ABMobileViewCustom.js */ 44496);
+/* harmony import */ var _platform_mobile_ABMobileViewForm_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../platform/mobile/ABMobileViewForm.js */ 57753);
+/* harmony import */ var _platform_mobile_ABMobileViewFormButton_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../platform/mobile/ABMobileViewFormButton.js */ 49985);
+/* harmony import */ var _platform_mobile_ABMobileViewFormCheckbox_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../platform/mobile/ABMobileViewFormCheckbox.js */ 92944);
+/* harmony import */ var _platform_mobile_ABMobileViewFormConnect_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../platform/mobile/ABMobileViewFormConnect.js */ 11523);
+/* harmony import */ var _platform_mobile_ABMobileViewFormDate_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../platform/mobile/ABMobileViewFormDate.js */ 53733);
+/* harmony import */ var _platform_mobile_ABMobileViewFormDatetime_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../platform/mobile/ABMobileViewFormDatetime.js */ 16304);
+/* harmony import */ var _platform_mobile_ABMobileViewFormEmail_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../platform/mobile/ABMobileViewFormEmail.js */ 86829);
+/* harmony import */ var _platform_mobile_ABMobileViewFormFile_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../platform/mobile/ABMobileViewFormFile.js */ 52895);
+/* harmony import */ var _platform_mobile_ABMobileViewFormFormula_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../platform/mobile/ABMobileViewFormFormula.js */ 88671);
+/* harmony import */ var _platform_mobile_ABMobileViewFormImage_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../platform/mobile/ABMobileViewFormImage.js */ 20008);
+/* harmony import */ var _platform_mobile_ABMobileViewFormNumber_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../platform/mobile/ABMobileViewFormNumber.js */ 78720);
+/* harmony import */ var _platform_mobile_ABMobileViewFormReadonly_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../platform/mobile/ABMobileViewFormReadonly.js */ 61031);
+/* harmony import */ var _platform_mobile_ABMobileViewFormSelectMultiple_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../platform/mobile/ABMobileViewFormSelectMultiple.js */ 38101);
+/* harmony import */ var _platform_mobile_ABMobileViewFormSelectSingle_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../platform/mobile/ABMobileViewFormSelectSingle.js */ 86681);
+/* harmony import */ var _platform_mobile_ABMobileViewFormTextbox_js__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../platform/mobile/ABMobileViewFormTextbox.js */ 72805);
+/* harmony import */ var _platform_mobile_ABMobileViewLabel_js__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../platform/mobile/ABMobileViewLabel.js */ 521);
+/* harmony import */ var _platform_mobile_ABMobileViewList_js__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../platform/mobile/ABMobileViewList.js */ 53767);
+/* harmony import */ var _platform_mobile_ABMobileViewTimeline_js__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../platform/mobile/ABMobileViewTimeline.js */ 41768);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*
  * ABViewManagerMobile
@@ -12599,27 +12882,27 @@ function isPlugin(key) {
  */
 var Views = {};
 [
-   __webpack_require__(/*! ../platform/mobile/ABMobilePage */ 38241),
-   __webpack_require__(/*! ../platform/mobile/ABMobileView */ 94463),
-   __webpack_require__(/*! ../platform/mobile/ABMobileViewCustom */ 44496),
-   __webpack_require__(/*! ../platform/mobile/ABMobileViewForm */ 57753),
-   __webpack_require__(/*! ../platform/mobile/ABMobileViewFormButton */ 49985),
-   __webpack_require__(/*! ../platform/mobile/ABMobileViewFormCheckbox */ 92944),
-   __webpack_require__(/*! ../platform/mobile/ABMobileViewFormConnect */ 11523),
-   __webpack_require__(/*! ../platform/mobile/ABMobileViewFormDate */ 53733),
-   __webpack_require__(/*! ../platform/mobile/ABMobileViewFormDatetime */ 16304),
-   __webpack_require__(/*! ../platform/mobile/ABMobileViewFormEmail */ 86829),
-   __webpack_require__(/*! ../platform/mobile/ABMobileViewFormFile */ 52895),
-   __webpack_require__(/*! ../platform/mobile/ABMobileViewFormFormula */ 88671),
-   __webpack_require__(/*! ../platform/mobile/ABMobileViewFormImage */ 20008),
-   __webpack_require__(/*! ../platform/mobile/ABMobileViewFormNumber */ 78720),
-   __webpack_require__(/*! ../platform/mobile/ABMobileViewFormReadonly */ 61031),
-   __webpack_require__(/*! ../platform/mobile/ABMobileViewFormSelectMultiple */ 38101),
-   __webpack_require__(/*! ../platform/mobile/ABMobileViewFormSelectSingle */ 86681),
-   __webpack_require__(/*! ../platform/mobile/ABMobileViewFormTextbox */ 72805),
-   __webpack_require__(/*! ../platform/mobile/ABMobileViewLabel */ 521),
-   __webpack_require__(/*! ../platform/mobile/ABMobileViewList */ 53767),
-   __webpack_require__(/*! ../platform/mobile/ABMobileViewTimeline */ 41768),
+   _platform_mobile_ABMobilePage_js__WEBPACK_IMPORTED_MODULE_0__["default"],
+   _platform_mobile_ABMobileView_js__WEBPACK_IMPORTED_MODULE_1__["default"],
+   _platform_mobile_ABMobileViewCustom_js__WEBPACK_IMPORTED_MODULE_2__["default"],
+   _platform_mobile_ABMobileViewForm_js__WEBPACK_IMPORTED_MODULE_3__["default"],
+   _platform_mobile_ABMobileViewFormButton_js__WEBPACK_IMPORTED_MODULE_4__["default"],
+   _platform_mobile_ABMobileViewFormCheckbox_js__WEBPACK_IMPORTED_MODULE_5__["default"],
+   _platform_mobile_ABMobileViewFormConnect_js__WEBPACK_IMPORTED_MODULE_6__["default"],
+   _platform_mobile_ABMobileViewFormDate_js__WEBPACK_IMPORTED_MODULE_7__["default"],
+   _platform_mobile_ABMobileViewFormDatetime_js__WEBPACK_IMPORTED_MODULE_8__["default"],
+   _platform_mobile_ABMobileViewFormEmail_js__WEBPACK_IMPORTED_MODULE_9__["default"],
+   _platform_mobile_ABMobileViewFormFile_js__WEBPACK_IMPORTED_MODULE_10__["default"],
+   _platform_mobile_ABMobileViewFormFormula_js__WEBPACK_IMPORTED_MODULE_11__["default"],
+   _platform_mobile_ABMobileViewFormImage_js__WEBPACK_IMPORTED_MODULE_12__["default"],
+   _platform_mobile_ABMobileViewFormNumber_js__WEBPACK_IMPORTED_MODULE_13__["default"],
+   _platform_mobile_ABMobileViewFormReadonly_js__WEBPACK_IMPORTED_MODULE_14__["default"],
+   _platform_mobile_ABMobileViewFormSelectMultiple_js__WEBPACK_IMPORTED_MODULE_15__["default"],
+   _platform_mobile_ABMobileViewFormSelectSingle_js__WEBPACK_IMPORTED_MODULE_16__["default"],
+   _platform_mobile_ABMobileViewFormTextbox_js__WEBPACK_IMPORTED_MODULE_17__["default"],
+   _platform_mobile_ABMobileViewLabel_js__WEBPACK_IMPORTED_MODULE_18__["default"],
+   _platform_mobile_ABMobileViewList_js__WEBPACK_IMPORTED_MODULE_19__["default"],
+   _platform_mobile_ABMobileViewTimeline_js__WEBPACK_IMPORTED_MODULE_20__["default"],
 ].forEach((v) => {
    if (v.default?.common) {
       v = v.default;
@@ -12627,7 +12910,7 @@ var Views = {};
    Views[v.common().key] = v;
 });
 
-module.exports = class ABViewManagerCore {
+class ABViewManagerCore {
    /**
     * @function allViews
     * return all the currently defined ABViews in an array.
@@ -12662,7 +12945,7 @@ module.exports = class ABViewManagerCore {
             console.error(
                "!! View[" +
                   values.key +
-                  "] not yet defined.  Have an ABView instead:"
+                  "] not yet defined.  Have an ABView instead:",
             );
             return new Views["mobile-view"](values, application, parent);
          }
@@ -12687,7 +12970,7 @@ module.exports = class ABViewManagerCore {
       console.error(`Unknown View Key[${key}]`);
       return;
    }
-};
+}
 
 
 /***/ },
@@ -12696,10 +12979,16 @@ module.exports = class ABViewManagerCore {
 /*!**********************************************!*\
   !*** ./AppBuilder/core/FilterComplexCore.js ***!
   \**********************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABComponent = __webpack_require__(/*! ../platform/ABComponent */ 85450);
-// const ABObjectQuery = require("../platform/ABObjectQuery");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FilterComplexCore)
+/* harmony export */ });
+/* harmony import */ var _platform_ABComponent_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../platform/ABComponent.js */ 85450);
+
+// import ABObjectQuery from "../platform/ABObjectQuery.js";
 
 /**
  *  support get data from objects and queries
@@ -12780,7 +13069,7 @@ function getConnectFieldValue(rowData, field) {
    return connectedVal;
 }
 
-module.exports = class FilterComplexCore extends ABComponent {
+class FilterComplexCore extends _platform_ABComponent_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(idBase, AB) {
       idBase = idBase || "ab_filter_complex";
 
@@ -12799,7 +13088,8 @@ module.exports = class FilterComplexCore extends ABComponent {
       this._Fields;
 
       // internal business logic
-      const _logic = (this._logic = {
+      // TODO: removeHtmlTags() is a web only command, so this code should NOT be in the core
+      this._logic = {
          callbacks: {
             onChange: () => {},
          },
@@ -12817,7 +13107,7 @@ module.exports = class FilterComplexCore extends ABComponent {
 
             return result;
          },
-      });
+      };
 
       // Interface methods for parent component:
       // this.objectLoad = _logic.objectLoad;
@@ -12861,7 +13151,7 @@ module.exports = class FilterComplexCore extends ABComponent {
          else if (!filter || !filter.key || !filter.rule) return;
 
          const fieldInfo = (this._Fields || []).filter(
-            (f) => f.id == filter.key || f.columnName == filter.key
+            (f) => f.id == filter.key || f.columnName == filter.key,
          )[0];
 
          if (!fieldInfo) return;
@@ -12919,14 +13209,14 @@ module.exports = class FilterComplexCore extends ABComponent {
                   rowData,
                   fieldInfo,
                   filter.rule,
-                  filter.value
+                  filter.value,
                );
                break;
             case "this_object":
                condResult = this.thisObjectValid(
                   rowData,
                   filter.rule,
-                  filter.value
+                  filter.value,
                );
                break;
          }
@@ -13018,20 +13308,25 @@ module.exports = class FilterComplexCore extends ABComponent {
             result = value >= compareValue;
             break;
          case "less_current":
-            result = value.setHours?.(0, 0, 0, 0) < (new Date()).setHours(0, 0, 0, 0);
+            result =
+               value.setHours?.(0, 0, 0, 0) < new Date().setHours(0, 0, 0, 0);
             break;
          case "greater_current":
-            result = value.setHours?.(0, 0, 0, 0) > (new Date()).setHours(0, 0, 0, 0);
+            result =
+               value.setHours?.(0, 0, 0, 0) > new Date().setHours(0, 0, 0, 0);
             break;
          case "less_or_equal_current":
-            result = value.setHours?.(0, 0, 0, 0) <= (new Date()).setHours(0, 0, 0, 0);
+            result =
+               value.setHours?.(0, 0, 0, 0) <= new Date().setHours(0, 0, 0, 0);
             break;
          case "greater_or_equal_current":
-            result = value.setHours?.(0, 0, 0, 0) >= (new Date()).setHours(0, 0, 0, 0);
-            break
+            result =
+               value.setHours?.(0, 0, 0, 0) >= new Date().setHours(0, 0, 0, 0);
+            break;
          case "is_current_date":
             result =
-               value.setHours?.(0, 0, 0, 0) == compareValue.setHours(0, 0, 0, 0);
+               value.setHours?.(0, 0, 0, 0) ==
+               compareValue.setHours(0, 0, 0, 0);
             break;
          case "is_null":
          case "is_empty":
@@ -13148,7 +13443,6 @@ module.exports = class FilterComplexCore extends ABComponent {
 
       if (!Array.isArray(value)) value = [value];
 
-      /* eslint-disable no-fallthrough */
       switch (rule) {
          case "is_current_user":
             result =
@@ -13182,7 +13476,6 @@ module.exports = class FilterComplexCore extends ABComponent {
             result = this.queryFieldValid(value, rule, compareValue);
             break;
       }
-      /* eslint-enable no-fallthrough */
 
       return result;
    }
@@ -13288,7 +13581,7 @@ module.exports = class FilterComplexCore extends ABComponent {
             if (linkType == "many") {
                // lets get an array of connected ids => stringified()
                connectedVal = JSON.stringify(
-                  getConnectFieldValue(rowData, field).map((i) => i.id || i)
+                  getConnectFieldValue(rowData, field).map((i) => i.id || i),
                );
             } else {
                // connectedVal = (
@@ -13412,7 +13705,7 @@ module.exports = class FilterComplexCore extends ABComponent {
                // this object as part of the query.
 
                console.error(
-                  "HEY!  Can't compare this_object to a query that has > 1 copy of that object!"
+                  "HEY!  Can't compare this_object to a query that has > 1 copy of that object!",
                );
 
                return true;
@@ -13457,7 +13750,7 @@ module.exports = class FilterComplexCore extends ABComponent {
     */
    fieldsLoad(fields = [], object = null) {
       this._Fields = fields.filter(
-         (f) => f && f.fieldIsFilterable && f.fieldIsFilterable()
+         (f) => f && f.fieldIsFilterable && f.fieldIsFilterable(),
       );
       this._QueryFields = this._Fields
          ? this._Fields.filter((f) => f && f.isConnection && f.key != "user")
@@ -13531,7 +13824,7 @@ module.exports = class FilterComplexCore extends ABComponent {
             switch (f.key) {
                case "boolean":
                   conditions = conditions.concat(
-                     this.fieldsAddFiltersBoolean(f)
+                     this.fieldsAddFiltersBoolean(f),
                   );
                   processFieldKeys = ["boolean"];
 
@@ -13551,19 +13844,19 @@ module.exports = class FilterComplexCore extends ABComponent {
                         f.settings.isSource)
                   ) {
                      const stringResults = this.fieldsAddFiltersString(
-                        f
+                        f,
                      ).filter(
                         (opt) =>
                            f.settings.isCustomFK ||
                            // If this connect field does not use custom FK, then allow just `is empty` and `is not empty` filter options
                            opt.id == "is_empty" ||
-                           opt.id == "is_not_empty"
+                           opt.id == "is_not_empty",
                      );
                      conditions = stringResults.concat(conditions);
 
                      // By Query Field
                      conditions = conditions.concat(
-                        this.fieldsAddFiltersQuery(f, true)
+                        this.fieldsAddFiltersQuery(f, true),
                      );
                   }
 
@@ -13585,7 +13878,7 @@ module.exports = class FilterComplexCore extends ABComponent {
                case "number":
                   type = "number";
                   conditions = conditions.concat(
-                     this.fieldsAddFiltersNumber(f)
+                     this.fieldsAddFiltersNumber(f),
                   );
                   processFieldKeys = ["calculate", "formula", "number"];
 
@@ -13597,7 +13890,7 @@ module.exports = class FilterComplexCore extends ABComponent {
                case "LongText":
                case "AutoIndex":
                   conditions = conditions.concat(
-                     this.fieldsAddFiltersString(f)
+                     this.fieldsAddFiltersString(f),
                   );
                   processFieldKeys = [
                      "string",
@@ -13621,7 +13914,7 @@ module.exports = class FilterComplexCore extends ABComponent {
 
                case "uuid":
                   conditions = conditions.concat(
-                     this.fieldsAddFiltersThisObject(f)
+                     this.fieldsAddFiltersThisObject(f),
                   );
                   hasQueryField = false;
 
@@ -13639,7 +13932,7 @@ module.exports = class FilterComplexCore extends ABComponent {
             }
 
          conditions = conditions.concat(
-            this.fieldsAddFiltersQuery(f, hasQueryField)
+            this.fieldsAddFiltersQuery(f, hasQueryField),
          );
 
          if (this._settings.isRecordRule) {
@@ -13709,7 +14002,7 @@ module.exports = class FilterComplexCore extends ABComponent {
       return fields;
    }
 
-   fieldsAddFiltersDate(field) {
+   fieldsAddFiltersDate(/* _field */) {
       let dateConditions = {
          less: this.labels.component.beforeCondition,
          greater: this.labels.component.afterCondition,
@@ -13766,7 +14059,7 @@ module.exports = class FilterComplexCore extends ABComponent {
       return result;
    }
 
-   fieldsAddFiltersString(field) {
+   fieldsAddFiltersString(/* _field */) {
       let stringConditions = {
          contains: {
             batch: "text",
@@ -13808,7 +14101,7 @@ module.exports = class FilterComplexCore extends ABComponent {
       return result;
    }
 
-   fieldsAddFiltersNumber(field) {
+   fieldsAddFiltersNumber(/* _field */) {
       let numberConditions = {
          equals: this.labels.component.equalCondition,
          not_equal: this.labels.component.notEqualCondition,
@@ -13832,7 +14125,7 @@ module.exports = class FilterComplexCore extends ABComponent {
       return result;
    }
 
-   fieldsAddFiltersList(field) {
+   fieldsAddFiltersList(/* _field */) {
       let listConditions = {
          equals: this.labels.component.equalListCondition,
          not_equal: this.labels.component.notEqualListCondition,
@@ -13852,7 +14145,7 @@ module.exports = class FilterComplexCore extends ABComponent {
       return result;
    }
 
-   fieldsAddFiltersBoolean(field) {
+   fieldsAddFiltersBoolean(/* _field */) {
       let booleanConditions = {
          checked: this.labels.component.checkedCondition,
          unchecked: this.labels.component.notCheckedCondition,
@@ -13872,7 +14165,7 @@ module.exports = class FilterComplexCore extends ABComponent {
       return result;
    }
 
-   fieldsAddFiltersEmail(field) {
+   fieldsAddFiltersEmail(/* _field */) {
       let userConditions = {
          is_current_email: {
             batch: "none",
@@ -13898,7 +14191,7 @@ module.exports = class FilterComplexCore extends ABComponent {
       return result;
    }
 
-   fieldsAddFiltersUser(field) {
+   fieldsAddFiltersUser(/* _field */) {
       let userConditions = {
          is_current_user: {
             batch: "none",
@@ -13940,7 +14233,7 @@ module.exports = class FilterComplexCore extends ABComponent {
       return result;
    }
 
-   fieldsAddFiltersConnectObject(field) {
+   fieldsAddFiltersConnectObject(/* _field */) {
       const connectConditions = {
          same_as_user: {
             batch: "user",
@@ -14022,7 +14315,7 @@ module.exports = class FilterComplexCore extends ABComponent {
       return result;
    }
 
-   fieldsAddFiltersThisObject(field) {
+   fieldsAddFiltersThisObject(/* _field */) {
       let thisObjectConditions = {
          in_data_collection: {
             batch: "datacollection",
@@ -14048,7 +14341,7 @@ module.exports = class FilterComplexCore extends ABComponent {
       return result;
    }
 
-   fieldsAddFiltersRecordRule(field) {
+   fieldsAddFiltersRecordRule(/* _field */) {
       let recordRuleConditions = {
          same_as_field: this.labels.component.sameAsField,
          not_same_as_field: this.labels.component.notSameAsField,
@@ -14061,14 +14354,14 @@ module.exports = class FilterComplexCore extends ABComponent {
             id: condKey,
             value: recordRuleConditions[condKey],
             batch: "recordRule",
-            handler: (a, b) => true, // TODO: record rule validation
+            handler: (/* _a, _b */) => true, // TODO: record rule validation
          });
       }
 
       return result;
    }
 
-   fieldsAddFiltersContext(field) {
+   fieldsAddFiltersContext(/* _field */) {
       let contextConditions = {
          context_equals: {
             batch: "context",
@@ -14201,7 +14494,7 @@ module.exports = class FilterComplexCore extends ABComponent {
 
       return result;
    }
-};
+}
 
 
 /***/ },
@@ -14210,9 +14503,15 @@ module.exports = class FilterComplexCore extends ABComponent {
 /*!******************************************!*\
   !*** ./AppBuilder/core/RowFilterCore.js ***!
   \******************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABComponent = __webpack_require__(/*! ../platform/ABComponent */ 85450);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ RowFilterCore)
+/* harmony export */ });
+/* harmony import */ var _platform_ABComponent_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../platform/ABComponent.js */ 85450);
+
 
 /**
  *  support get data from objects and queries
@@ -14256,7 +14555,7 @@ function getFieldVal(rowData, field, returnSingular = true) {
    return value;
 }
 
-module.exports = class RowFilterCore extends ABComponent {
+class RowFilterCore extends _platform_ABComponent_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(App, idBase, AB) {
       idBase = idBase || "ab_row_filter";
 
@@ -14646,7 +14945,7 @@ module.exports = class RowFilterCore extends ABComponent {
 
                   result =
                      dc.getData(
-                        (d) => (d.id || d.uuid) == (rowData.id || rowData.uuid)
+                        (d) => (d.id || d.uuid) == (rowData.id || rowData.uuid),
                      ).length > 0;
                   break;
                case "not_in_data_collection":
@@ -14654,7 +14953,7 @@ module.exports = class RowFilterCore extends ABComponent {
 
                   result =
                      dc.getData(
-                        (d) => (d.id || d.uuid) == (rowData.id || rowData.uuid)
+                        (d) => (d.id || d.uuid) == (rowData.id || rowData.uuid),
                      ).length < 1;
                   break;
             }
@@ -14717,7 +15016,7 @@ module.exports = class RowFilterCore extends ABComponent {
                      rowData,
                      relationName,
                      rule,
-                     compareValue
+                     compareValue,
                   );
                case "is_current_user":
                case "is_not_current_user":
@@ -14743,7 +15042,7 @@ module.exports = class RowFilterCore extends ABComponent {
                      rowData,
                      relationName,
                      rule,
-                     compareValue
+                     compareValue,
                   );
             }
          },
@@ -14770,7 +15069,7 @@ module.exports = class RowFilterCore extends ABComponent {
                      // this object as part of the query.
 
                      console.error(
-                        "HEY!  Can't compare this_object to a query that has > 1 copy of that object!"
+                        "HEY!  Can't compare this_object to a query that has > 1 copy of that object!",
                      );
                      return true;
                   }
@@ -14789,7 +15088,7 @@ module.exports = class RowFilterCore extends ABComponent {
                      newRowData,
                      null,
                      rule,
-                     compareValue
+                     compareValue,
                   );
                // break; /* eslint no-unreachable */
 
@@ -14801,7 +15100,7 @@ module.exports = class RowFilterCore extends ABComponent {
                      rowData,
                      null,
                      rule,
-                     compareValue
+                     compareValue,
                   );
                // break; /* eslint no-unreachable */
             }
@@ -14870,7 +15169,7 @@ module.exports = class RowFilterCore extends ABComponent {
                   rowData,
                   fieldInfo,
                   filter.rule,
-                  filter.value
+                  filter.value,
                );
                break;
             case "date":
@@ -14879,7 +15178,7 @@ module.exports = class RowFilterCore extends ABComponent {
                   rowData,
                   fieldInfo,
                   filter.rule,
-                  filter.value
+                  filter.value,
                );
                break;
             case "number":
@@ -14888,7 +15187,7 @@ module.exports = class RowFilterCore extends ABComponent {
                   rowData,
                   fieldInfo,
                   filter.rule,
-                  filter.value
+                  filter.value,
                );
                break;
             case "list":
@@ -14896,7 +15195,7 @@ module.exports = class RowFilterCore extends ABComponent {
                   rowData,
                   fieldInfo,
                   filter.rule,
-                  filter.value
+                  filter.value,
                );
                break;
             case "boolean":
@@ -14904,7 +15203,7 @@ module.exports = class RowFilterCore extends ABComponent {
                   rowData,
                   fieldInfo,
                   filter.rule,
-                  filter.value
+                  filter.value,
                );
                break;
             case "user":
@@ -14912,7 +15211,7 @@ module.exports = class RowFilterCore extends ABComponent {
                   rowData,
                   fieldInfo,
                   filter.rule,
-                  filter.value
+                  filter.value,
                );
                break;
             case "connectField":
@@ -14921,14 +15220,14 @@ module.exports = class RowFilterCore extends ABComponent {
                   rowData,
                   fieldInfo,
                   filter.rule,
-                  filter.value
+                  filter.value,
                );
                break;
             case "this_object":
                condResult = _logic.thisObjectValid(
                   rowData,
                   filter.rule,
-                  filter.value
+                  filter.value,
                );
                break;
          }
@@ -15011,8 +15310,9 @@ module.exports = class RowFilterCore extends ABComponent {
       if (this._Queries) {
          result = result.concat(
             (this._Queries || []).filter(
-               (q) => filter(q) && result.filter((r) => r.id == q.id).length < 1
-            )
+               (q) =>
+                  filter(q) && result.filter((r) => r.id == q.id).length < 1,
+            ),
          );
       }
 
@@ -15023,7 +15323,7 @@ module.exports = class RowFilterCore extends ABComponent {
       this.config_settings = settings || {};
       this.config_settings.rules = this.config_settings.rules || [];
    }
-};
+}
 
 
 /***/ },
@@ -15032,7 +15332,15 @@ module.exports = class RowFilterCore extends ABComponent {
 /*!************************************************************!*\
   !*** ./AppBuilder/core/dataFields/ABFieldAutoIndexCore.js ***!
   \************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABFieldAutoIndexCore)
+/* harmony export */ });
+/* harmony import */ var _platform_dataFields_ABField_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/dataFields/ABField.js */ 35709);
+
 
 /*
  * ABFieldAutoIndex
@@ -15040,8 +15348,6 @@ module.exports = class RowFilterCore extends ABComponent {
  * An ABFieldAutoIndex defines a AutoIndex field type.
  *
  */
-
-const ABField = __webpack_require__(/*! ../../platform/dataFields/ABField */ 35709);
 
 function L(key, altText) {
    // TODO:
@@ -15109,7 +15415,7 @@ const defaultValues = {
    previewText: "0000",
 };
 
-module.exports = class ABFieldAutoIndexCore extends ABField {
+class ABFieldAutoIndexCore extends _platform_dataFields_ABField_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(values, object) {
       super(values, object, ABFieldAutoIndexDefaults);
    }
@@ -15177,7 +15483,7 @@ module.exports = class ABFieldAutoIndexCore extends ABField {
             this.settings.prefix,
             this.settings.delimiter,
             this.settings.displayLength,
-            rowData[this.columnName]
+            rowData[this.columnName],
          );
 
          return resultAutoIndex;
@@ -15185,7 +15491,7 @@ module.exports = class ABFieldAutoIndexCore extends ABField {
          return "";
       }
    }
-};
+}
 
 
 /***/ },
@@ -15194,7 +15500,15 @@ module.exports = class ABFieldAutoIndexCore extends ABField {
 /*!**********************************************************!*\
   !*** ./AppBuilder/core/dataFields/ABFieldBooleanCore.js ***!
   \**********************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABFieldBooleanCore)
+/* harmony export */ });
+/* harmony import */ var _platform_dataFields_ABField_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/dataFields/ABField.js */ 35709);
+
 
 /*
  * ABFieldBoolean
@@ -15202,13 +15516,6 @@ module.exports = class ABFieldAutoIndexCore extends ABField {
  * An ABFieldBoolean defines a boolean field type.
  *
  */
-
-const ABField = __webpack_require__(/*! ../../platform/dataFields/ABField */ 35709);
-
-function L(key, altText) {
-   // TODO:
-   return altText; // AD.lang.label.getLabel(key) || altText;
-}
 
 const ABFieldBooleanDefaults = {
    key: "boolean",
@@ -15267,7 +15574,7 @@ const defaultValues = {
    default: 0,
 };
 
-module.exports = class ABFieldBooleanCore extends ABField {
+class ABFieldBooleanCore extends _platform_dataFields_ABField_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(values, object) {
       super(values, object, ABFieldBooleanDefaults);
    }
@@ -15309,7 +15616,7 @@ module.exports = class ABFieldBooleanCore extends ABField {
          values[this.columnName] = this.settings.default;
       }
    }
-};
+}
 
 
 /***/ },
@@ -15318,7 +15625,15 @@ module.exports = class ABFieldBooleanCore extends ABField {
 /*!************************************************************!*\
   !*** ./AppBuilder/core/dataFields/ABFieldCalculateCore.js ***!
   \************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABFieldCalculateCore)
+/* harmony export */ });
+/* harmony import */ var _platform_dataFields_ABField_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/dataFields/ABField.js */ 35709);
+
 
 /*
  * ABFieldCalculate
@@ -15327,15 +15642,8 @@ module.exports = class ABFieldBooleanCore extends ABField {
  *
  */
 
-const ABField = __webpack_require__(/*! ../../platform/dataFields/ABField */ 35709);
-
-function L(key, altText) {
-   // TODO:
-   return altText; // AD.lang.label.getLabel(key) || altText;
-}
-
 /** Private methods */
-function AGE(dateString) {
+function _AGE(dateString) {
    // validate
    if (!dateString) return 0;
    const dataDate = new Date(dateString);
@@ -15363,7 +15671,7 @@ function AGE(dateString) {
    // return age;
 }
 
-function YEAR(dateString) {
+function _YEAR(dateString) {
    // validate
    if (!dateString) return 0;
    const dataDate = new Date(dateString);
@@ -15372,7 +15680,7 @@ function YEAR(dateString) {
    return dataDate.getFullYear();
 }
 
-function MONTH(dateString) {
+function _MONTH(dateString) {
    // validate
    if (!dateString) return 0;
    const dataDate = new Date(dateString);
@@ -15382,7 +15690,7 @@ function MONTH(dateString) {
    return dataDate.getMonth();
 }
 
-function DAY(dateString) {
+function _DAY(dateString) {
    // validate
    if (!dateString) return 0;
    const dataDate = new Date(dateString);
@@ -15391,7 +15699,7 @@ function DAY(dateString) {
    return dataDate.getDate();
 }
 
-function DATE(dateString) {
+function _DATE(dateString) {
    // validate
    if (!dateString) return 0;
    const dataDate = new Date(dateString);
@@ -15404,7 +15712,7 @@ function DATE(dateString) {
    return Math.round(dataDate.getTime() / oneDay);
 }
 
-function HOUR(dateString) {
+function _HOUR(dateString) {
    // validate
    if (!dateString) return 0;
    const dataDate = new Date(dateString);
@@ -15417,7 +15725,7 @@ function HOUR(dateString) {
    return Math.round(dataDate.getTime() / oneHour);
 }
 
-function MINUTE(dateString) {
+function _MINUTE(dateString) {
    // validate
    if (!dateString) return 0;
    const dataDate = new Date(dateString);
@@ -15430,7 +15738,7 @@ function MINUTE(dateString) {
    return Math.round(dataDate.getTime() / oneMinute);
 }
 
-function MINUTE_TO_HOUR(mins) {
+function _MINUTE_TO_HOUR(mins) {
    const hours = mins / 60;
    const rhours = Math.floor(hours);
    const minutes = (hours - rhours) * 60;
@@ -15454,7 +15762,7 @@ const ABFieldCalculateDefaults = {
    isFilterable: (field) => {
       const unsupportedInFilter = ["MINUTE_TO_HOUR", "DATE", "HOUR", "MINUTE"];
       const unsupported = unsupportedInFilter.filter((item) =>
-         field.settings.formula.includes(item)
+         field.settings.formula.includes(item),
       );
       return unsupported.length == 0;
    },
@@ -15517,7 +15825,7 @@ const defaultValues = {
    decimalPlaces: 0, // 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
 };
 
-module.exports = class ABFieldCalculateCore extends ABField {
+class ABFieldCalculateCore extends _platform_dataFields_ABField_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(values, object) {
       super(values, object, ABFieldCalculateDefaults);
    }
@@ -15546,7 +15854,7 @@ module.exports = class ABFieldCalculateCore extends ABField {
       rowData,
       place,
       alias = null,
-      recalculate = false
+      recalculate = false,
    ) {
       if (!formula) return "";
 
@@ -15571,7 +15879,7 @@ module.exports = class ABFieldCalculateCore extends ABField {
             const numberVal = `(${data || 0})`; // (number) - NOTE : (-5) to support negative number
             formula = formula.replace(
                new RegExp("{" + colName + "}", "g"),
-               numberVal
+               numberVal,
             );
          }
          // calculate and formula fields
@@ -15586,7 +15894,7 @@ module.exports = class ABFieldCalculateCore extends ABField {
 
             formula = formula.replace(
                new RegExp("{" + colName + "}", "g"),
-               calVal
+               calVal,
             );
          }
          // date fields
@@ -15594,7 +15902,7 @@ module.exports = class ABFieldCalculateCore extends ABField {
             const dateVal = `"${data || ""}"`; // "date"
             formula = formula.replace(
                new RegExp("{" + colName + "}", "g"),
-               dateVal
+               dateVal,
             );
          }
          // boolean fields
@@ -15602,7 +15910,7 @@ module.exports = class ABFieldCalculateCore extends ABField {
             const booleanVal = `(${data || 0})`; // show 1 or 0 for boolean
             formula = formula.replace(
                new RegExp("{" + colName + "}", "g"),
-               booleanVal
+               booleanVal,
             );
          }
       });
@@ -15641,7 +15949,7 @@ module.exports = class ABFieldCalculateCore extends ABField {
             rowData,
             place,
             this.alias,
-            recalculate
+            recalculate,
          );
 
          if (typeof result == "string")
@@ -15661,7 +15969,7 @@ module.exports = class ABFieldCalculateCore extends ABField {
          return "";
       }
    }
-};
+}
 
 
 /***/ },
@@ -15670,7 +15978,15 @@ module.exports = class ABFieldCalculateCore extends ABField {
 /*!**********************************************************!*\
   !*** ./AppBuilder/core/dataFields/ABFieldCombineCore.js ***!
   \**********************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABFieldCombineCore)
+/* harmony export */ });
+/* harmony import */ var _platform_dataFields_ABField_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/dataFields/ABField.js */ 35709);
+
 
 /*
  * ABFieldCombine
@@ -15678,8 +15994,6 @@ module.exports = class ABFieldCalculateCore extends ABField {
  * An ABFieldCombine defines a combined field type.
  *
  */
-
-const ABField = __webpack_require__(/*! ../../platform/dataFields/ABField */ 35709);
 
 // function L(key, altText) {
 //    // TODO:
@@ -15749,7 +16063,7 @@ const defaultValues = {
    delimiter: "plus", // plus, space, dash, period
 };
 
-module.exports = class ABFieldCombineCore extends ABField {
+class ABFieldCombineCore extends _platform_dataFields_ABField_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(values, object) {
       super(values, object, ABFieldCombinedDefaults);
    }
@@ -15810,7 +16124,7 @@ module.exports = class ABFieldCombineCore extends ABField {
    format(rowData) {
       let val = rowData[this.columnName] ?? "";
 
-      this.getCombinedFields().forEach((f, index) => {
+      this.getCombinedFields().forEach((f /*, _index */) => {
          if (
             f.key != "connectObject" ||
             f.settings.indexField ||
@@ -15832,7 +16146,7 @@ module.exports = class ABFieldCombineCore extends ABField {
 
       return val;
    }
-};
+}
 
 
 /***/ },
@@ -15841,7 +16155,15 @@ module.exports = class ABFieldCombineCore extends ABField {
 /*!**********************************************************!*\
   !*** ./AppBuilder/core/dataFields/ABFieldConnectCore.js ***!
   \**********************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABFieldConnectCore)
+/* harmony export */ });
+/* harmony import */ var _platform_dataFields_ABField_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/dataFields/ABField.js */ 35709);
+
 
 /*
  * ABFieldConnect
@@ -15849,8 +16171,6 @@ module.exports = class ABFieldCombineCore extends ABField {
  * An ABFieldConnect defines a connect to other object field type.
  *
  */
-
-var ABField = __webpack_require__(/*! ../../platform/dataFields/ABField */ 35709);
 
 // function L(key, altText) {
 //    // TODO:
@@ -15959,7 +16279,7 @@ const defaultValues = {
    //       custom Key for the data we are storing.
 };
 
-module.exports = class ABFieldConnectCore extends ABField {
+class ABFieldConnectCore extends _platform_dataFields_ABField_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(values, object, fieldDefaults = ABFieldConnectDefaults) {
       super(values, object, fieldDefaults);
 
@@ -16039,7 +16359,7 @@ module.exports = class ABFieldConnectCore extends ABField {
       const linkObj = this.AB.objectByID(this.settings.linkObject);
       if (!linkObj) {
          const configError = new Error(
-            `ConnectField[${this.label}][${this.id}] unable to find linkObject[${this.settings.linkObject}]`
+            `ConnectField[${this.label}][${this.id}] unable to find linkObject[${this.settings.linkObject}]`,
          );
          this.AB.notify.builder(configError, {
             field: this,
@@ -16061,7 +16381,7 @@ module.exports = class ABFieldConnectCore extends ABField {
       const linkColumn = objectLink.fieldByID(this.settings.linkColumn);
       if (!linkColumn) {
          const configError = new Error(
-            `ConnectField[${this.label}][${this.id}] unable to find linkColumn[${this.settings.linkColumn}]`
+            `ConnectField[${this.label}][${this.id}] unable to find linkColumn[${this.settings.linkColumn}]`,
          );
          this.AB.notify.builder(configError, {
             field: this,
@@ -16194,7 +16514,7 @@ module.exports = class ABFieldConnectCore extends ABField {
 
          if (indexField == null)
             indexField = this.datasourceLink.fieldByID(
-               this.settings.indexField
+               this.settings.indexField,
             );
 
          return indexField;
@@ -16223,7 +16543,7 @@ module.exports = class ABFieldConnectCore extends ABField {
 
          if (indexField == null)
             indexField = this.datasourceLink.fieldByID(
-               this.settings.indexField2
+               this.settings.indexField2,
             );
       }
 
@@ -16295,7 +16615,7 @@ module.exports = class ABFieldConnectCore extends ABField {
 
       return result;
    }
-};
+}
 
 
 /***/ },
@@ -16304,7 +16624,16 @@ module.exports = class ABFieldConnectCore extends ABField {
 /*!***************************************************!*\
   !*** ./AppBuilder/core/dataFields/ABFieldCore.js ***!
   \***************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABFieldCore)
+/* harmony export */ });
+/* harmony import */ var _platform_ABMLClass_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/ABMLClass.js */ 72982);
+// import ABEmitter from "../../platform/ABEmitter.js";
+
 
 /*
  * ABFieldCore
@@ -16314,10 +16643,7 @@ module.exports = class ABFieldConnectCore extends ABField {
  * how it is related to the ABObject classes.
  *
  */
-// const ABEmitter = require("../../platform/ABEmitter");
-const ABMLClass = __webpack_require__(/*! ../../platform/ABMLClass */ 72982);
-
-module.exports = class ABFieldCore extends ABMLClass {
+class ABFieldCore extends _platform_ABMLClass_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(values, object, fieldDefaults) {
       super(["label"], object.AB);
 
@@ -16555,7 +16881,7 @@ module.exports = class ABFieldCore extends ABMLClass {
       for (const dv in defaultValues) {
          this.settings[dv] = this.defaultCheck(
             values.settings[dv],
-            defaultValues[dv]
+            defaultValues[dv],
          );
       }
 
@@ -16662,7 +16988,7 @@ module.exports = class ABFieldCore extends ABMLClass {
       }
       return myDef;
    }
-};
+}
 
 
 /***/ },
@@ -16671,7 +16997,16 @@ module.exports = class ABFieldCore extends ABMLClass {
 /*!*******************************************************!*\
   !*** ./AppBuilder/core/dataFields/ABFieldDateCore.js ***!
   \*******************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   RegEx: () => (/* binding */ RegEx),
+/* harmony export */   "default": () => (/* binding */ ABFieldDateCore)
+/* harmony export */ });
+/* harmony import */ var _platform_dataFields_ABField_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/dataFields/ABField.js */ 35709);
+
 
 /*
  * ABFieldDate
@@ -16679,8 +17014,6 @@ module.exports = class ABFieldCore extends ABMLClass {
  * An ABFieldDate defines a date field type.
  *
  */
-
-const ABField = __webpack_require__(/*! ../../platform/dataFields/ABField */ 35709);
 
 /*function L(key, altText) {
    // TODO:git 
@@ -16752,7 +17085,7 @@ const defaultValues = {
    validateEndDate: null,
 };
 
-module.exports = class ABFieldDateCore extends ABField {
+class ABFieldDateCore extends _platform_dataFields_ABField_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(values, object, defaultValues = ABFieldDateDefaults) {
       super(values, object, defaultValues);
    }
@@ -16866,12 +17199,12 @@ module.exports = class ABFieldDateCore extends ABField {
                const minDate = this.AB.rules.subtractDate(
                   new Date(),
                   this.settings.validateRangeBefore,
-                  this.settings.validateRangeUnit
+                  this.settings.validateRangeUnit,
                );
                const maxDate = this.AB.rules.addDate(
                   new Date(),
                   this.settings.validateRangeAfter,
-                  this.settings.validateRangeUnit
+                  this.settings.validateRangeUnit,
                );
                switch (this.settings.validateCondition) {
                   case "dateRange":
@@ -16883,7 +17216,7 @@ module.exports = class ABFieldDateCore extends ABField {
                            L("Should be in between {0} and {1}", [
                               this.getDateDisplay(minDate),
                               this.getDateDisplay(maxDate),
-                           ])
+                           ]),
                         );
                      }
 
@@ -16897,7 +17230,7 @@ module.exports = class ABFieldDateCore extends ABField {
                            L("Should be in between {0} and {1}", [
                               startDateDisplay,
                               endDateDisplay,
-                           ])
+                           ]),
                         );
                      }
                      break;
@@ -16910,7 +17243,7 @@ module.exports = class ABFieldDateCore extends ABField {
                            L("Should not be in between {0} and {1}", [
                               startDateDisplay,
                               endDateDisplay,
-                           ])
+                           ]),
                         );
                      }
                      break;
@@ -16922,7 +17255,7 @@ module.exports = class ABFieldDateCore extends ABField {
                      if (!isValid)
                         validator.addError(
                            this.columnName,
-                           L("Should equal {0}", [startDateDisplay])
+                           L("Should equal {0}", [startDateDisplay]),
                         );
                      break;
                   case "<>":
@@ -16933,7 +17266,7 @@ module.exports = class ABFieldDateCore extends ABField {
                      if (!isValid)
                         validator.addError(
                            this.columnName,
-                           L("Should not equal {0}", [startDateDisplay])
+                           L("Should not equal {0}", [startDateDisplay]),
                         );
                      break;
                   case ">":
@@ -16944,7 +17277,7 @@ module.exports = class ABFieldDateCore extends ABField {
                      if (!isValid)
                         validator.addError(
                            this.columnName,
-                           L("Should after {0}", [startDateDisplay])
+                           L("Should after {0}", [startDateDisplay]),
                         );
                      break;
                   case "<":
@@ -16955,7 +17288,7 @@ module.exports = class ABFieldDateCore extends ABField {
                      if (!isValid)
                         validator.addError(
                            this.columnName,
-                           L("Should before {0}", [startDateDisplay])
+                           L("Should before {0}", [startDateDisplay]),
                         );
                      break;
                   case ">=":
@@ -16966,7 +17299,7 @@ module.exports = class ABFieldDateCore extends ABField {
                      if (!isValid)
                         validator.addError(
                            this.columnName,
-                           L("Should after or equal {0}", [startDateDisplay])
+                           L("Should after or equal {0}", [startDateDisplay]),
                         );
                      break;
                   case "<=":
@@ -16977,7 +17310,7 @@ module.exports = class ABFieldDateCore extends ABField {
                      if (!isValid)
                         validator.addError(
                            this.columnName,
-                           L("Should before or equal {0}", [startDateDisplay])
+                           L("Should before or equal {0}", [startDateDisplay]),
                         );
                      break;
                   case "lessCurrentDate":
@@ -16989,7 +17322,7 @@ module.exports = class ABFieldDateCore extends ABField {
                            this.columnName,
                            L("Should before {0}", [
                               this.getDateDisplay(currentDate),
-                           ])
+                           ]),
                         );
                      break;
                   case "lessEqualCurrentDate":
@@ -17001,7 +17334,7 @@ module.exports = class ABFieldDateCore extends ABField {
                            this.columnName,
                            L("Should before or equal {0}", [
                               this.getDateDisplay(currentDate),
-                           ])
+                           ]),
                         );
                      break;
                }
@@ -17132,11 +17465,10 @@ module.exports = class ABFieldDateCore extends ABField {
       if (dateData && dateData.toString) return dateData.toString();
       else return "";
    }
-};
+}
 
-// Transition Code:
-// revert to static RegEx once babel-loader is working locally.
-module.exports.RegEx = "^[0-9]{4}-[0-9]{2}-[0-9]{2}$";
+// Transition Code: RegEx for date format validation
+const RegEx = "^[0-9]{4}-[0-9]{2}-[0-9]{2}$";
 
 
 /***/ },
@@ -17145,7 +17477,16 @@ module.exports.RegEx = "^[0-9]{4}-[0-9]{2}-[0-9]{2}$";
 /*!***********************************************************!*\
   !*** ./AppBuilder/core/dataFields/ABFieldDateTimeCore.js ***!
   \***********************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   RegEx: () => (/* binding */ RegEx),
+/* harmony export */   "default": () => (/* binding */ ABFieldDateTimeCore)
+/* harmony export */ });
+/* harmony import */ var _ABFieldDateCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABFieldDateCore.js */ 33574);
+
 
 /*
  * ABFieldDateTime
@@ -17153,13 +17494,6 @@ module.exports.RegEx = "^[0-9]{4}-[0-9]{2}-[0-9]{2}$";
  * An ABFieldDateTime defines a datetime field type.
  *
  */
-
-const ABFieldDateCore = __webpack_require__(/*! ./ABFieldDateCore */ 33574);
-
-function L(key, altText) {
-   // TODO:
-   return altText; // AD.lang.label.getLabel(key) || altText;
-}
 
 const ABFieldDateDefaults = {
    key: "datetime",
@@ -17220,7 +17554,7 @@ const defaultValues = {
    defaultTimeValue: null, // {Date}
 };
 
-module.exports = class ABFieldDateTimeCore extends ABFieldDateCore {
+class ABFieldDateTimeCore extends _ABFieldDateCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(values, object) {
       super(values, object, ABFieldDateDefaults);
    }
@@ -17339,8 +17673,7 @@ module.exports = class ABFieldDateTimeCore extends ABFieldDateCore {
 
       if (this.AB.Webix)
          return this.AB.Webix.Date.dateToStr(datetimeFormat)(dateObj);
-      else
-         return dateObj?.toISOString() ?? "";
+      else return dateObj?.toISOString() ?? "";
    }
 
    getTimeFormat() {
@@ -17363,12 +17696,10 @@ module.exports = class ABFieldDateTimeCore extends ABFieldDateCore {
    exportValue(date) {
       return date?.toISOString?.() ?? "";
    }
-};
+}
 
-// Transition Code:
-// revert to static RegEx once babel-loader is working locally.
-module.exports.RegEx =
-   "^[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}$";
+// Transition Code: RegEx for datetime format validation
+const RegEx = "^[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}$";
 
 
 /***/ },
@@ -17377,7 +17708,15 @@ module.exports.RegEx =
 /*!********************************************************!*\
   !*** ./AppBuilder/core/dataFields/ABFieldEmailCore.js ***!
   \********************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABFieldEmailCore)
+/* harmony export */ });
+/* harmony import */ var _platform_dataFields_ABField_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/dataFields/ABField.js */ 35709);
+
 
 /*
  * ABFieldEmail
@@ -17385,13 +17724,6 @@ module.exports.RegEx =
  * An ABFieldEmail defines a boolean field type.
  *
  */
-
-const ABField = __webpack_require__(/*! ../../platform/dataFields/ABField */ 35709);
-
-function L(key, altText) {
-   // TODO:
-   return altText; // AD.lang.label.getLabel(key) || altText;
-}
 
 const ABFieldEmailDefaults = {
    key: "email",
@@ -17451,7 +17783,7 @@ const defaultValues = {
    defaultCheckbox: 0,
 };
 
-module.exports = class ABFieldEmailCore extends ABField {
+class ABFieldEmailCore extends _platform_dataFields_ABField_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(values, object) {
       super(values, object, ABFieldEmailDefaults);
    }
@@ -17515,7 +17847,7 @@ module.exports = class ABFieldEmailCore extends ABField {
          }
       }
    }
-};
+}
 
 
 /***/ },
@@ -17524,7 +17856,15 @@ module.exports = class ABFieldEmailCore extends ABField {
 /*!*******************************************************!*\
   !*** ./AppBuilder/core/dataFields/ABFieldFileCore.js ***!
   \*******************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABFieldFileCore)
+/* harmony export */ });
+/* harmony import */ var _platform_dataFields_ABField_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/dataFields/ABField.js */ 35709);
+
 
 /*
  * ABFieldFile
@@ -17532,13 +17872,6 @@ module.exports = class ABFieldEmailCore extends ABField {
  * An ABFieldFile defines a File field type.
  *
  */
-
-const ABField = __webpack_require__(/*! ../../platform/dataFields/ABField */ 35709);
-
-function L(key, altText) {
-   // TODO:
-   return altText; // AD.lang.label.getLabel(key) || altText;
-}
 
 const ABFieldFileDefaults = {
    key: "file",
@@ -17599,7 +17932,7 @@ const defaultValues = {
    fileType: "",
 };
 
-module.exports = class ABFieldFileCore extends ABField {
+class ABFieldFileCore extends _platform_dataFields_ABField_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(values, object) {
       super(values, object, ABFieldFileDefaults);
    }
@@ -17625,7 +17958,7 @@ module.exports = class ABFieldFileCore extends ABField {
       this.settings.limitFileSize = parseInt(this.settings.limitFileSize);
       this.settings.limitFileType = parseInt(this.settings.limitFileType);
       this.settings.removeExistingData = parseInt(
-         this.settings.removeExistingData
+         this.settings.removeExistingData,
       );
    }
 
@@ -17715,7 +18048,7 @@ module.exports = class ABFieldFileCore extends ABField {
 
       return myParameter;
    }
-};
+}
 
 
 /***/ },
@@ -17724,7 +18057,15 @@ module.exports = class ABFieldFileCore extends ABField {
 /*!**********************************************************!*\
   !*** ./AppBuilder/core/dataFields/ABFieldFormulaCore.js ***!
   \**********************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABFieldFormulaCore)
+/* harmony export */ });
+/* harmony import */ var _platform_dataFields_ABField_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/dataFields/ABField.js */ 35709);
+
 
 /*
  * ABFieldFormula
@@ -17733,8 +18074,6 @@ module.exports = class ABFieldFileCore extends ABField {
  * and store the total of that calculation in the parent.
  *
  */
-
-const ABField = __webpack_require__(/*! ../../platform/dataFields/ABField */ 35709);
 
 const ABFieldFormulaDefaults = {
    key: "formula",
@@ -17819,7 +18158,7 @@ const defaultValues = {
    where: "",
 };
 
-module.exports = class ABFieldFormulaCore extends ABField {
+class ABFieldFormulaCore extends _platform_dataFields_ABField_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(values, object) {
       super(values, object, ABFieldFormulaDefaults);
    }
@@ -18011,7 +18350,7 @@ module.exports = class ABFieldFormulaCore extends ABField {
 
       return this._rowFilter;
    }
-};
+}
 
 
 /***/ },
@@ -18020,7 +18359,15 @@ module.exports = class ABFieldFormulaCore extends ABField {
 /*!********************************************************!*\
   !*** ./AppBuilder/core/dataFields/ABFieldImageCore.js ***!
   \********************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABFieldImageCore)
+/* harmony export */ });
+/* harmony import */ var _platform_dataFields_ABField_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/dataFields/ABField.js */ 35709);
+
 
 /*
  * ABFieldImageCore
@@ -18028,8 +18375,6 @@ module.exports = class ABFieldFormulaCore extends ABField {
  * An ABFieldImage defines a Image field type.
  *
  */
-
-const ABField = __webpack_require__(/*! ../../platform/dataFields/ABField */ 35709);
 
 const ABFieldImageDefaults = {
    key: "image",
@@ -18094,7 +18439,7 @@ const defaultValues = {
    defaultImageUrl: "",
 };
 
-module.exports = class ABFieldImageCore extends ABField {
+class ABFieldImageCore extends _platform_dataFields_ABField_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(values, object) {
       super(values, object, ABFieldImageDefaults);
 
@@ -18144,7 +18489,7 @@ module.exports = class ABFieldImageCore extends ABField {
       this.settings.imageHeight = parseInt(this.settings.imageHeight);
       this.settings.useDefaultImage = parseInt(this.settings.useDefaultImage);
       this.settings.removeExistingData = parseInt(
-         this.settings.removeExistingData
+         this.settings.removeExistingData,
       );
    }
 
@@ -18159,7 +18504,7 @@ module.exports = class ABFieldImageCore extends ABField {
    isValidData(data, validator) {
       super.isValidData(data, validator);
    }
-};
+}
 
 
 /***/ },
@@ -18168,7 +18513,15 @@ module.exports = class ABFieldImageCore extends ABField {
 /*!*******************************************************!*\
   !*** ./AppBuilder/core/dataFields/ABFieldJsonCore.js ***!
   \*******************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABFieldJsonCore)
+/* harmony export */ });
+/* harmony import */ var _platform_dataFields_ABField_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/dataFields/ABField.js */ 35709);
+
 
 /*
  * ABFieldJson
@@ -18176,8 +18529,6 @@ module.exports = class ABFieldImageCore extends ABField {
  * An ABFieldJson defines a JSON field type.
  *
  */
-
-const ABField = __webpack_require__(/*! ../../platform/dataFields/ABField */ 35709);
 
 const ABFieldJsonDefaults = {
    key: "json",
@@ -18234,7 +18585,7 @@ const ABFieldJsonDefaults = {
 
 const defaultValues = {};
 
-module.exports = class ABFieldJsonCore extends ABField {
+class ABFieldJsonCore extends _platform_dataFields_ABField_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(values, object) {
       super(values, object, ABFieldJsonDefaults);
    }
@@ -18254,12 +18605,12 @@ module.exports = class ABFieldJsonCore extends ABField {
     * for this field.
     * @param {obj} values a key=>value hash of the current values.
     */
-   defaultValue(values) {
+   defaultValue(/* _values */) {
       // in the case of a JSON data type, we should NOT insert a ""
       //
       // values[this.columnName] = "";
    }
-};
+}
 
 
 /***/ },
@@ -18268,7 +18619,16 @@ module.exports = class ABFieldJsonCore extends ABField {
 /*!*******************************************************!*\
   !*** ./AppBuilder/core/dataFields/ABFieldListCore.js ***!
   \*******************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABFieldListCore)
+/* harmony export */ });
+/* harmony import */ var _platform_dataFields_ABField_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/dataFields/ABField.js */ 35709);
+// import ABFieldSelectivity from "../../platform/dataFields/ABFieldSelectivity.js";
+
 
 /*
  * ABFieldListCore
@@ -18277,13 +18637,10 @@ module.exports = class ABFieldJsonCore extends ABField {
  *
  */
 
-// const ABFieldSelectivity = require("../../platform/dataFields/ABFieldSelectivity");
-const ABField = __webpack_require__(/*! ../../platform/dataFields/ABField */ 35709);
-
-function L(key, altText) {
-   // TODO:
-   return altText; // AD.lang.label.getLabel(key) || altText;
-}
+// function L(key, altText) {
+//    // TODO:
+//    return altText; // AD.lang.label.getLabel(key) || altText;
+// }
 
 const ABFieldListDefaults = {
    key: "list",
@@ -18385,7 +18742,7 @@ const defaultValues = {
    multipleDefault: [],
 };
 
-module.exports = class ABFieldListCore extends ABField {
+class ABFieldListCore extends _platform_dataFields_ABField_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(values, object) {
       super(values, object, ABFieldListDefaults);
 
@@ -18529,7 +18886,7 @@ module.exports = class ABFieldListCore extends ABField {
 
             // Pull text of option with specify language code
             const optTran = (opt.translations || []).filter(
-               (o) => o.language_code == languageCode
+               (o) => o.language_code == languageCode,
             )[0];
             if (optTran) text = optTran.text;
 
@@ -18538,7 +18895,7 @@ module.exports = class ABFieldListCore extends ABField {
 
       return displayOpts.join(", ");
    }
-};
+}
 
 
 /***/ },
@@ -18547,7 +18904,15 @@ module.exports = class ABFieldListCore extends ABField {
 /*!***********************************************************!*\
   !*** ./AppBuilder/core/dataFields/ABFieldLongTextCore.js ***!
   \***********************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABFieldLongText)
+/* harmony export */ });
+/* harmony import */ var _platform_dataFields_ABField_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/dataFields/ABField.js */ 35709);
+
 
 /*
  * ABFieldLongText
@@ -18556,14 +18921,12 @@ module.exports = class ABFieldListCore extends ABField {
  *
  */
 
-const ABField = __webpack_require__(/*! ../../platform/dataFields/ABField */ 35709);
-
 const MAX_CHAR_LENGTH = 5000;
 
-function L(key, altText) {
-   // TODO:
-   return altText; // AD.lang.label.getLabel(key) || altText;
-}
+// function L(key, altText) {
+//    // TODO:
+//    return altText; // AD.lang.label.getLabel(key) || altText;
+// }
 
 const ABFieldLongTextDefaults = {
    key: "LongText", // unique key to reference this specific DataField
@@ -18627,7 +18990,7 @@ const defaultValues = {
    supportMultilingual: 0,
 };
 
-module.exports = class ABFieldLongText extends ABField {
+class ABFieldLongText extends _platform_dataFields_ABField_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(values, object) {
       super(values, object, ABFieldLongTextDefaults);
 
@@ -18672,7 +19035,7 @@ module.exports = class ABFieldLongText extends ABField {
 
       // text to Int:
       this.settings.supportMultilingual = parseInt(
-         this.settings.supportMultilingual
+         this.settings.supportMultilingual,
       );
 
       if (this.settings.supportMultilingual) {
@@ -18746,11 +19109,11 @@ module.exports = class ABFieldLongText extends ABField {
       ) {
          validator.addError(
             this.columnName,
-            `should NOT be longer than ${MAX_CHAR_LENGTH} characters`
+            `should NOT be longer than ${MAX_CHAR_LENGTH} characters`,
          );
       }
    }
-};
+}
 
 
 /***/ },
@@ -18759,7 +19122,15 @@ module.exports = class ABFieldLongText extends ABField {
 /*!*********************************************************!*\
   !*** ./AppBuilder/core/dataFields/ABFieldNumberCore.js ***!
   \*********************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABFieldNumberCore)
+/* harmony export */ });
+/* harmony import */ var _platform_dataFields_ABField_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/dataFields/ABField.js */ 35709);
+
 
 /*
  * ABFieldNumber
@@ -18767,8 +19138,6 @@ module.exports = class ABFieldLongText extends ABField {
  * An ABFieldNumber defines a Number field type.
  *
  */
-
-const ABField = __webpack_require__(/*! ../../platform/dataFields/ABField */ 35709);
 
 const ABFieldNumberDefaults = {
    key: "number",
@@ -18851,7 +19220,7 @@ const defaultValues = {
 
 let L = null; //AB.Label();
 
-module.exports = class ABFieldNumberCore extends ABField {
+class ABFieldNumberCore extends _platform_dataFields_ABField_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(values, object) {
       super(values, object, ABFieldNumberDefaults);
 
@@ -19151,7 +19520,7 @@ module.exports = class ABFieldNumberCore extends ABField {
          return 0;
       }
    }
-};
+}
 
 
 /***/ },
@@ -19160,7 +19529,15 @@ module.exports = class ABFieldNumberCore extends ABField {
 /*!*********************************************************!*\
   !*** ./AppBuilder/core/dataFields/ABFieldStringCore.js ***!
   \*********************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABFieldStringCore)
+/* harmony export */ });
+/* harmony import */ var _platform_dataFields_ABField_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/dataFields/ABField.js */ 35709);
+
 
 /*
  * ABFieldString
@@ -19168,8 +19545,6 @@ module.exports = class ABFieldNumberCore extends ABField {
  * An ABFieldString defines a string field type.
  *
  */
-
-const ABField = __webpack_require__(/*! ../../platform/dataFields/ABField */ 35709);
 
 const MAX_CHAR_LENGTH = 255;
 
@@ -19235,7 +19610,7 @@ const defaultValues = {
    supportMultilingual: 0,
 };
 
-module.exports = class ABFieldStringCore extends ABField {
+class ABFieldStringCore extends _platform_dataFields_ABField_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(values, object) {
       super(values, object, ABFieldStringDefaults);
 
@@ -19279,7 +19654,7 @@ module.exports = class ABFieldStringCore extends ABField {
 
       // text to Int:
       this.settings.supportMultilingual = parseInt(
-         this.settings.supportMultilingual
+         this.settings.supportMultilingual,
       );
 
       if (this.settings.supportMultilingual) {
@@ -19347,7 +19722,7 @@ module.exports = class ABFieldStringCore extends ABField {
          const L = this.AB.Label();
          validator.addError(
             this.columnName,
-            L("should NOT be longer than {0} characters", [MAX_CHAR_LENGTH])
+            L("should NOT be longer than {0} characters", [MAX_CHAR_LENGTH]),
          );
       }
    }
@@ -19360,7 +19735,7 @@ module.exports = class ABFieldStringCore extends ABField {
    get isMultilingual() {
       return this.settings.supportMultilingual == 1;
    }
-};
+}
 
 
 /***/ },
@@ -19369,7 +19744,15 @@ module.exports = class ABFieldStringCore extends ABField {
 /*!**************************************************************!*\
   !*** ./AppBuilder/core/dataFields/ABFieldTextFormulaCore.js ***!
   \**************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABFieldTextFormulaCore)
+/* harmony export */ });
+/* harmony import */ var _platform_dataFields_ABField_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/dataFields/ABField.js */ 35709);
+
 
 /*
  * ABFieldTextFormula
@@ -19377,13 +19760,6 @@ module.exports = class ABFieldStringCore extends ABField {
  * An ABFieldTextFormula defines a TextFormula field type.
  *
  */
-
-const ABField = __webpack_require__(/*! ../../platform/dataFields/ABField */ 35709);
-
-function L(key, altText) {
-   // TODO:
-   return altText; // AD.lang.label.getLabel(key) || altText;
-}
 
 const ABFieldTextFormulaDefaults = {
    key: "TextFormula",
@@ -19482,16 +19858,15 @@ function setValueToFormula(object, formulaString, rowData) {
                   element,
                   rowData[columnName]
                      ? field.exportValue(rowData[columnName])
-                     : ""
+                     : "",
                );
             } else {
-               
                formulaString = formulaString.replace(
                   element,
                   // support normal field and connect field
-                  (rowData[columnName] || rowData[field.relationName?.()])
+                  rowData[columnName] || rowData[field.relationName?.()]
                      ? field.format(rowData)
-                     : ""
+                     : "",
                );
             }
          }
@@ -19519,7 +19894,7 @@ function setBuildinValueToFormula(AB, formulaString) {
             formula_array.length > 2 && formula_array[2] != "";
          const functionName = formula_array[0];
          const parameters_array = formula_array[1].split(",");
-         let isMatch = false;
+
          for (let i = 0; i < buildinList.length; i++) {
             let resultParameters = element;
             if (functionName == buildinList[i].id) {
@@ -19528,20 +19903,20 @@ function setBuildinValueToFormula(AB, formulaString) {
                      case "left":
                         resultParameters = getLeft(
                            parameters_array[0],
-                           parameters_array[1]
+                           parameters_array[1],
                         );
                         break;
                      case "right":
                         resultParameters = getRight(
                            parameters_array[0],
-                           parameters_array[1]
+                           parameters_array[1],
                         );
                         break;
                      case "mid":
                         resultParameters = getMid(
                            parameters_array[0],
                            parameters_array[1],
-                           parameters_array[2]
+                           parameters_array[2],
                         );
                         break;
                      case "trim":
@@ -19560,20 +19935,20 @@ function setBuildinValueToFormula(AB, formulaString) {
                         resultParameters = getRegExpReplace(
                            parameters_array[0],
                            parameters_array[1].trimLeft(),
-                           parameters_array[2].trimLeft()
+                           parameters_array[2].trimLeft(),
                         );
                         break;
                      case "extractRegex":
                         resultParameters = getExtractRegex(
                            parameters_array[0],
-                           parameters_array[1].trimLeft()
+                           parameters_array[1].trimLeft(),
                         );
                         break;
                      case "replace":
                         resultParameters = getReplace(
                            parameters_array[0],
                            parameters_array[1].trimLeft(),
-                           parameters_array[2].trimLeft()
+                           parameters_array[2].trimLeft(),
                         );
                         break;
                      case "lower":
@@ -19590,7 +19965,7 @@ function setBuildinValueToFormula(AB, formulaString) {
                         break;
                      case "numberToWords":
                         resultParameters = getNumberToWords(
-                           parameters_array[0]
+                           parameters_array[0],
                         );
                         break;
                      case "getDateDayOfWeekName":
@@ -19599,7 +19974,7 @@ function setBuildinValueToFormula(AB, formulaString) {
                         }
                         resultParameters = getDateDayOfWeekName(
                            AB,
-                           parameters_array[0]
+                           parameters_array[0],
                         );
                         break;
                      case "getDateMonthOfYearName":
@@ -19608,29 +19983,29 @@ function setBuildinValueToFormula(AB, formulaString) {
                         }
                         resultParameters = getDateMonthOfYearName(
                            AB,
-                           parameters_array[0]
+                           parameters_array[0],
                         );
                         break;
                      case "formatDate":
                         resultParameters = getFormatDate(
                            parameters_array[0],
-                           parameters_array[1].trimLeft()
+                           parameters_array[1].trimLeft(),
                         );
                         break;
                      default:
                         break;
                   }
-                  isMatch = true;
+
                   formulaString = formulaString.replace(
                      element,
-                     resultParameters
+                     resultParameters,
                   );
                   return;
                } else {
                   resultParameters = functionName + "(Bad Parameter)";
                   formulaString = formulaString.replace(
                      element,
-                     resultParameters
+                     resultParameters,
                   );
                }
             }
@@ -19766,7 +20141,7 @@ function getMid(string, startPosition, length) {
    if (string.length < startPosition) return "mid(Bad Parameter)";
    return string.substring(
       parseInt(startPosition),
-      parseInt(startPosition) + parseInt(length)
+      parseInt(startPosition) + parseInt(length),
    );
 }
 
@@ -19998,7 +20373,7 @@ function getFormatDate(date, format) {
    return dt.toString(format);
 }
 
-module.exports = class ABFieldTextFormulaCore extends ABField {
+class ABFieldTextFormulaCore extends _platform_dataFields_ABField_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(values, object) {
       super(values, object, ABFieldTextFormulaDefaults);
 
@@ -20089,7 +20464,7 @@ module.exports = class ABFieldTextFormulaCore extends ABField {
          return "";
       }
    }
-};
+}
 
 //// NOTE: if you need a unique [edit_type] by your returned config.editor above:
 // webix.editors = {
@@ -20113,7 +20488,15 @@ module.exports = class ABFieldTextFormulaCore extends ABField {
 /*!*******************************************************!*\
   !*** ./AppBuilder/core/dataFields/ABFieldTreeCore.js ***!
   \*******************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABFieldTreeCore)
+/* harmony export */ });
+/* harmony import */ var _platform_dataFields_ABFieldSelectivity_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/dataFields/ABFieldSelectivity.js */ 96600);
+
 
 /*
  * ABFieldTreeCore
@@ -20121,13 +20504,6 @@ module.exports = class ABFieldTextFormulaCore extends ABField {
  * An ABFieldTree defines a select list field type.
  *
  */
-
-const ABFieldSelectivity = __webpack_require__(/*! ../../platform/dataFields/ABFieldSelectivity */ 96600);
-
-function L(key, altText) {
-   // TODO:
-   return altText; // AD.lang.label.getLabel(key) || altText;
-}
 
 const ABFieldTreeDefaults = {
    key: "tree",
@@ -20187,7 +20563,7 @@ const defaultValues = {
    options: [],
 };
 
-module.exports = class ABFieldTreeCore extends ABFieldSelectivity {
+class ABFieldTreeCore extends _platform_dataFields_ABFieldSelectivity_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(values, object) {
       super(values, object, ABFieldTreeDefaults);
    }
@@ -20256,7 +20632,7 @@ module.exports = class ABFieldTreeCore extends ABFieldSelectivity {
     * for this field.
     * @param {obj} values a key=>value hash of the current values.
     */
-   defaultValue(values) {}
+   defaultValue(/* _values */) {}
 
    /**
     * @method isValidData
@@ -20269,7 +20645,7 @@ module.exports = class ABFieldTreeCore extends ABFieldSelectivity {
    isValidData(data, validator) {
       super.isValidData(data, validator);
    }
-};
+}
 
 
 /***/ },
@@ -20278,7 +20654,15 @@ module.exports = class ABFieldTreeCore extends ABFieldSelectivity {
 /*!*******************************************************!*\
   !*** ./AppBuilder/core/dataFields/ABFieldUserCore.js ***!
   \*******************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABFieldUserCore)
+/* harmony export */ });
+/* harmony import */ var _platform_dataFields_ABFieldConnect_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/dataFields/ABFieldConnect.js */ 95399);
+
 
 /*
  * ABFieldUser
@@ -20286,13 +20670,6 @@ module.exports = class ABFieldTreeCore extends ABFieldSelectivity {
  * An ABFieldUser defines a user field type.
  *
  */
-
-const ABFieldConnect = __webpack_require__(/*! ../../platform/dataFields/ABFieldConnect */ 95399);
-
-function L(key, altText) {
-   // TODO:
-   return altText; // AD.lang.label.getLabel(key) || altText;
-}
 
 const ABFieldUserDefaults = {
    key: "user",
@@ -20366,7 +20743,7 @@ const defaultValues = {
    isShowUsername: 1,
 };
 
-module.exports = class ABFieldUserCore extends ABFieldConnect {
+class ABFieldUserCore extends _platform_dataFields_ABFieldConnect_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(values, object) {
       super(values, object, ABFieldUserDefaults);
 
@@ -20398,7 +20775,7 @@ module.exports = class ABFieldUserCore extends ABFieldConnect {
       this.settings.isMultiple = parseInt(this.settings.isMultiple);
       this.settings.isCurrentUser = parseInt(this.settings.isCurrentUser);
       this.settings.isShowProfileImage = parseInt(
-         this.settings.isShowProfileImage
+         this.settings.isShowProfileImage,
       );
       this.settings.isShowUsername = parseInt(this.settings.isShowUsername);
    }
@@ -20415,7 +20792,7 @@ module.exports = class ABFieldUserCore extends ABFieldConnect {
 
       return val.map((v) => v.username || v).join(", ");
    }
-};
+}
 
 
 /***/ },
@@ -20424,7 +20801,15 @@ module.exports = class ABFieldUserCore extends ABFieldConnect {
 /*!****************************************************!*\
   !*** ./AppBuilder/core/mobile/ABMobilePageCore.js ***!
   \****************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobilePageCore)
+/* harmony export */ });
+/* harmony import */ var _platform_mobile_ABMobileView_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileView.js */ 94463);
+
 
 /*
  * ABMobilePageCore
@@ -20438,10 +20823,7 @@ module.exports = class ABFieldUserCore extends ABFieldConnect {
  *
  */
 
-const ABMobileView = __webpack_require__(/*! ../../platform/mobile/ABMobileView */ 94463);
-// var ABViewManager = require("../ABViewManager");
-
-// function L(key, altText) {
+// // function L(key, altText) {
 //     return AD.lang.label.getLabel(key) || altText;
 // }
 
@@ -20473,7 +20855,7 @@ const ABPropertyComponentDefaults = {
    // are linkedPages with forms )
 };
 
-module.exports = class ABMobilePageCore extends ABMobileView {
+class ABMobilePageCore extends _platform_mobile_ABMobileView_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(values, application, parent, defaultValues) {
       super(values, application, parent, defaultValues || ABMobilePageDefaults);
 
@@ -20577,14 +20959,14 @@ module.exports = class ABMobilePageCore extends ABMobileView {
       // NOTE: only 1 Page in a Mobile App can have this setting = 1.
 
       this.settings.hideTitle = parseInt(
-         values.settings.hideTitle ?? DV.hideTitle
+         values.settings.hideTitle ?? DV.hideTitle,
       );
       // {bool} 1|0
       // By default an ABMobilePage will display it's this.label for a title
       // on the page.  Setting this to TRUE (1) will hide the title.
 
       this.settings.hideTabs = parseInt(
-         values.settings.hideTabs ?? DV.hideTabs
+         values.settings.hideTabs ?? DV.hideTabs,
       );
       // {bool} 1|0
       // By default, pages will show any Tab options on their display.  Set this
@@ -20605,7 +20987,7 @@ module.exports = class ABMobilePageCore extends ABMobileView {
                   appID: this.application.id,
                   pageID: this.id,
                   missingPageID: id,
-               }
+               },
             );
          }
       });
@@ -20693,7 +21075,7 @@ module.exports = class ABMobilePageCore extends ABMobileView {
    refreshInstance() {
       console.warn(
          "This version of ABMobilePage hasn't updated it's refreshInstance()",
-         this
+         this,
       );
       return this;
    }
@@ -20899,7 +21281,7 @@ module.exports = class ABMobilePageCore extends ABMobileView {
       // now continue with the default .copy()
       return super.copy(lookUpIds, parent, options);
    }
-};
+}
 
 
 /***/ },
@@ -20908,7 +21290,15 @@ module.exports = class ABMobilePageCore extends ABMobileView {
 /*!****************************************************!*\
   !*** ./AppBuilder/core/mobile/ABMobileViewCore.js ***!
   \****************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewCore)
+/* harmony export */ });
+/* harmony import */ var _platform_ABMLClass_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/ABMLClass.js */ 72982);
+
 
 /*
  * ABViewCore
@@ -20918,8 +21308,6 @@ module.exports = class ABMobilePageCore extends ABMobileView {
  * how it is related to the ABView classes.
  *
  */
-
-var ABMLClass = __webpack_require__(/*! ../../platform/ABMLClass */ 72982);
 
 const ABMobileViewDefaults = {
    key: "mobile-view", // {string} unique key for this view
@@ -20932,7 +21320,7 @@ const ABViewPropertyComponentDefaults = {
    label: "",
 };
 
-module.exports = class ABMobileViewCore extends ABMLClass {
+class ABMobileViewCore extends _platform_ABMLClass_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    /**
     * @param {obj} values  key=>value hash of ABView values
     * @param {ABApplication} application the application object this view is under
@@ -21341,7 +21729,7 @@ module.exports = class ABMobileViewCore extends ABMLClass {
             if (this.warningsSilent) return null;
 
             var errNoDCID = new Error(
-               `ABViewCore:get datacollection(): View[${this.key}] didn't define a dataviewID.`
+               `ABViewCore:get datacollection(): View[${this.key}] didn't define a dataviewID.`,
             );
             this.AB.notify.builder(errNoDCID, {
                view: this,
@@ -21359,7 +21747,7 @@ module.exports = class ABMobileViewCore extends ABMLClass {
                ].indexOf(this.key) == -1
             ) {
                console.warn(
-                  `TODO: figure out which ABView* require a .dataviewID: ${this.key}?`
+                  `TODO: figure out which ABView* require a .dataviewID: ${this.key}?`,
                );
             }
          }
@@ -21369,7 +21757,7 @@ module.exports = class ABMobileViewCore extends ABMLClass {
       var dc = this.AB.datacollectionByID(dataviewID);
       if (!dc) {
          var errNoDC = new Error(
-            `MobileView[${this.label}][${this.id}] is unable to find associated DataCollection`
+            `MobileView[${this.label}][${this.id}] is unable to find associated DataCollection`,
          );
          this.AB.notify.builder(errNoDC, {
             view: this,
@@ -21833,12 +22221,12 @@ module.exports = class ABMobileViewCore extends ABMLClass {
                            // remove the temp {id:} entry above:
                            this.application._pages =
                               this.application._pages.filter(
-                                 (p2) => p2.id != lookUpIds[p.id]
+                                 (p2) => p2.id != lookUpIds[p.id],
                               );
 
                            // now add the full copiedSubPage:
                            result._pages.push(copiedSubPage);
-                        })
+                        }),
                   );
                });
             }
@@ -21864,7 +22252,7 @@ module.exports = class ABMobileViewCore extends ABMLClass {
                         ) {
                            result._views.push(copiedView);
                         }
-                     })
+                     }),
                   );
                });
             }
@@ -21879,7 +22267,7 @@ module.exports = class ABMobileViewCore extends ABMLClass {
             return result;
          });
    }
-};
+}
 
 
 /***/ },
@@ -21888,9 +22276,15 @@ module.exports = class ABMobileViewCore extends ABMLClass {
 /*!**********************************************************!*\
   !*** ./AppBuilder/core/mobile/ABMobileViewCustomCore.js ***!
   \**********************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABMobileView = __webpack_require__(/*! ../../platform/mobile/ABMobileView */ 94463);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewCustomCore)
+/* harmony export */ });
+/* harmony import */ var _platform_mobile_ABMobileView_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileView.js */ 94463);
+
 
 const ABViewCustomPropertyComponentDefaults = {
    dataviewID: null,
@@ -21906,7 +22300,7 @@ const ABViewDefaults = {
    labelKey: "Custom", // {string} the multilingual label key for the class label
 };
 
-module.exports = class ABViewCustomCore extends ABMobileView {
+class ABViewCustomCore extends _platform_mobile_ABMobileView_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(values, application, parent, defaultValues) {
       super(values, application, parent, defaultValues || ABViewDefaults);
    }
@@ -21947,7 +22341,7 @@ module.exports = class ABViewCustomCore extends ABMobileView {
       // we do if we have a setting for linkPageAdd
       return this.settings.wantsAdd ?? false;
    }
-};
+}
 
 
 /***/ },
@@ -21956,9 +22350,15 @@ module.exports = class ABViewCustomCore extends ABMobileView {
 /*!**************************************************************!*\
   !*** ./AppBuilder/core/mobile/ABMobileViewFormButtonCore.js ***!
   \**************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABMobileView = __webpack_require__(/*! ../../platform/mobile/ABMobileView */ 94463);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormButtonCore)
+/* harmony export */ });
+/* harmony import */ var _platform_mobile_ABMobileView_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileView.js */ 94463);
+
 
 const ABViewFormButtonPropertyComponentDefaults = {
    includeSave: true,
@@ -21983,13 +22383,13 @@ const ABViewFormButtonDefaults = {
    // {string} the multilingual label key for the class label
 };
 
-module.exports = class ABMobileViewFormButtonCore extends ABMobileView {
+class ABMobileViewFormButtonCore extends _platform_mobile_ABMobileView_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(values, application, parent, defaultValues) {
       super(
          values,
          application,
          parent,
-         defaultValues || ABViewFormButtonDefaults
+         defaultValues || ABViewFormButtonDefaults,
       );
    }
 
@@ -22075,7 +22475,7 @@ module.exports = class ABMobileViewFormButtonCore extends ABMobileView {
       //       ABViewFormButtonPropertyComponentDefaults.isDefault
       // );
    }
-};
+}
 
 
 /***/ },
@@ -22084,9 +22484,15 @@ module.exports = class ABMobileViewFormButtonCore extends ABMobileView {
 /*!****************************************************************!*\
   !*** ./AppBuilder/core/mobile/ABMobileViewFormCheckboxCore.js ***!
   \****************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABMobileViewFormItem = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem */ 36646);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormCheckboxCore)
+/* harmony export */ });
+/* harmony import */ var _platform_mobile_ABMobileViewFormItem_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem.js */ 36646);
+
 
 const ABMobileViewFormCheckboxPropertyComponentDefaults = {};
 
@@ -22096,15 +22502,13 @@ const ABMobileViewFormCheckboxDefaults = {
    labelKey: "checkbox", // {string} the multilingual label key for the class label
 };
 
-module.exports = class ABMobileViewFormCheckboxCore extends (
-   ABMobileViewFormItem
-) {
+class ABMobileViewFormCheckboxCore extends _platform_mobile_ABMobileViewFormItem_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(values, application, parent, defaultValues) {
       super(
          values,
          application,
          parent,
-         defaultValues || ABMobileViewFormCheckboxDefaults
+         defaultValues || ABMobileViewFormCheckboxDefaults,
       );
    }
 
@@ -22115,7 +22519,7 @@ module.exports = class ABMobileViewFormCheckboxCore extends (
    static defaultValues() {
       return ABMobileViewFormCheckboxPropertyComponentDefaults;
    }
-};
+}
 
 
 /***/ },
@@ -22124,9 +22528,15 @@ module.exports = class ABMobileViewFormCheckboxCore extends (
 /*!***************************************************************!*\
   !*** ./AppBuilder/core/mobile/ABMobileViewFormConnectCore.js ***!
   \***************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABMobileViewFormItem = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem */ 36646);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormConnectCore)
+/* harmony export */ });
+/* harmony import */ var _platform_mobile_ABMobileViewFormItem_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem.js */ 36646);
+
 
 const ABMobileViewFormConnectPropertyComponentDefaults = {
    formView: "", // id of form to add new data
@@ -22145,15 +22555,13 @@ const ABMobileViewFormConnectDefaults = {
    labelKey: "Connect", // {string} the multilingual label key for the class label
 };
 
-module.exports = class ABMobileViewFormConnectCore extends (
-   ABMobileViewFormItem
-) {
+class ABMobileViewFormConnectCore extends _platform_mobile_ABMobileViewFormItem_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(values, application, parent, defaultValues) {
       super(
          values,
          application,
          parent,
-         defaultValues || ABMobileViewFormConnectDefaults
+         defaultValues || ABMobileViewFormConnectDefaults,
       );
    }
 
@@ -22182,7 +22590,7 @@ module.exports = class ABMobileViewFormConnectCore extends (
          this.settings.filterConditions ||
          ABMobileViewFormConnectPropertyComponentDefaults.filterConditions;
    }
-};
+}
 
 
 /***/ },
@@ -22191,12 +22599,19 @@ module.exports = class ABMobileViewFormConnectCore extends (
 /*!********************************************************!*\
   !*** ./AppBuilder/core/mobile/ABMobileViewFormCore.js ***!
   \********************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABMobileView = __webpack_require__(/*! ../../platform/mobile/ABMobileView */ 94463);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormCore)
+/* harmony export */ });
+/* harmony import */ var _platform_mobile_ABMobileView_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileView.js */ 94463);
+/* harmony import */ var _rules_ABViewRuleListFormRecordRules_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../rules/ABViewRuleListFormRecordRules.js */ 1148);
+/* harmony import */ var _rules_ABViewRuleListFormSubmitRules_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../rules/ABViewRuleListFormSubmitRules.js */ 41171);
 
-const ABRecordRule = __webpack_require__(/*! ../../rules/ABViewRuleListFormRecordRules */ 1148);
-const ABSubmitRule = __webpack_require__(/*! ../../rules/ABViewRuleListFormSubmitRules */ 41171);
+
+
 
 const ABViewFormDefaults = {
    key: "mobile-form", // unique key identifier for this ABMobileViewForm
@@ -22247,7 +22662,7 @@ const ABViewFormPropertyComponentDefaults = {
    submitRules: [],
 };
 
-module.exports = class ABMobileViewFormCore extends ABMobileView {
+class ABMobileViewFormCore extends _platform_mobile_ABMobileView_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(values, application, parent, defaultValues) {
       super(values, application, parent, defaultValues || ABViewFormDefaults);
    }
@@ -22281,29 +22696,29 @@ module.exports = class ABMobileViewFormCore extends ABMobileView {
       this.settings.showLabel = JSON.parse(
          this.settings.showLabel != null
             ? this.settings.showLabel
-            : ABViewFormPropertyComponentDefaults.showLabel
+            : ABViewFormPropertyComponentDefaults.showLabel,
       );
       this.settings.clearOnLoad = JSON.parse(
          this.settings.clearOnLoad != null
             ? this.settings.clearOnLoad
-            : ABViewFormPropertyComponentDefaults.clearOnLoad
+            : ABViewFormPropertyComponentDefaults.clearOnLoad,
       );
       this.settings.clearOnSave = JSON.parse(
          this.settings.clearOnSave != null
             ? this.settings.clearOnSave
-            : ABViewFormPropertyComponentDefaults.clearOnSave
+            : ABViewFormPropertyComponentDefaults.clearOnSave,
       );
 
       // convert from "0" => 0
       this.settings.labelWidth = parseInt(
          this.settings.labelWidth == null
             ? ABViewFormPropertyComponentDefaults.labelWidth
-            : this.settings.labelWidth
+            : this.settings.labelWidth,
       );
       this.settings.height = parseInt(
          this.settings.height == null
             ? ABViewFormPropertyComponentDefaults.height
-            : this.settings.height
+            : this.settings.height,
       );
    }
 
@@ -22400,7 +22815,7 @@ module.exports = class ABMobileViewFormCore extends ABMobileView {
       let object = this.datacollection.datasource;
 
       if (this._recordRule == null) {
-         this._recordRule = new ABRecordRule();
+         this._recordRule = new _rules_ABViewRuleListFormRecordRules_js__WEBPACK_IMPORTED_MODULE_1__["default"]();
       }
 
       this._recordRule.formLoad(this);
@@ -22442,14 +22857,14 @@ module.exports = class ABMobileViewFormCore extends ABMobileView {
    doSubmitRules(rowData) {
       var object = this.datacollection.datasource;
 
-      var SubmitRules = new ABSubmitRule();
+      var SubmitRules = new _rules_ABViewRuleListFormSubmitRules_js__WEBPACK_IMPORTED_MODULE_2__["default"]();
       SubmitRules.formLoad(this);
       SubmitRules.fromSettings(this.settings.submitRules);
       SubmitRules.objectLoad(object);
 
       return SubmitRules.process({ data: rowData, form: this });
    }
-};
+}
 
 
 /***/ },
@@ -22458,9 +22873,15 @@ module.exports = class ABMobileViewFormCore extends ABMobileView {
 /*!**************************************************************!*\
   !*** ./AppBuilder/core/mobile/ABMobileViewFormCustomCore.js ***!
   \**************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABMobileViewFormItem = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem */ 36646);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormCustomCore)
+/* harmony export */ });
+/* harmony import */ var _platform_mobile_ABMobileViewFormItem_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem.js */ 36646);
+
 
 const ABViewFormCustomPropertyComponentDefaults = {};
 
@@ -22473,13 +22894,13 @@ const ABViewFormCustomDefaults = {
    // {string} the multilingual label key for the class label
 };
 
-module.exports = class ABMobileViewFormCustomCore extends ABMobileViewFormItem {
+class ABMobileViewFormCustomCore extends _platform_mobile_ABMobileViewFormItem_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(values, application, parent, defaultValues) {
       super(
          values,
          application,
          parent,
-         defaultValues || ABViewFormCustomDefaults
+         defaultValues || ABViewFormCustomDefaults,
       );
    }
 
@@ -22490,7 +22911,7 @@ module.exports = class ABMobileViewFormCustomCore extends ABMobileViewFormItem {
    static defaultValues() {
       return ABViewFormCustomPropertyComponentDefaults;
    }
-};
+}
 
 
 /***/ },
@@ -22499,9 +22920,15 @@ module.exports = class ABMobileViewFormCustomCore extends ABMobileViewFormItem {
 /*!************************************************************!*\
   !*** ./AppBuilder/core/mobile/ABMobileViewFormDateCore.js ***!
   \************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABMobileViewFormItem = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem */ 36646);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormDatepickerCore)
+/* harmony export */ });
+/* harmony import */ var _platform_mobile_ABMobileViewFormItem_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem.js */ 36646);
+
 
 const ABMobileViewFormDatepickerPropertyComponentDefaults = {
    timepicker: false,
@@ -22513,15 +22940,13 @@ const ABMobileViewFormDatepickerDefaults = {
    labelKey: "datepicker", // {string} the multilingual label key for the class label
 };
 
-module.exports = class ABMobileViewFormDatepickerCore extends (
-   ABMobileViewFormItem
-) {
+class ABMobileViewFormDatepickerCore extends _platform_mobile_ABMobileViewFormItem_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(values, application, parent, defaultValues) {
       super(
          values,
          application,
          parent,
-         defaultValues || ABMobileViewFormDatepickerDefaults
+         defaultValues || ABMobileViewFormDatepickerDefaults,
       );
    }
 
@@ -22536,7 +22961,7 @@ module.exports = class ABMobileViewFormDatepickerCore extends (
    ///
    /// Instance Methods
    ///
-};
+}
 
 
 /***/ },
@@ -22545,9 +22970,15 @@ module.exports = class ABMobileViewFormDatepickerCore extends (
 /*!****************************************************************!*\
   !*** ./AppBuilder/core/mobile/ABMobileViewFormDatetimeCore.js ***!
   \****************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABMobileViewFormItem = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem */ 36646);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormDatetimeCore)
+/* harmony export */ });
+/* harmony import */ var _platform_mobile_ABMobileViewFormItem_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem.js */ 36646);
+
 
 const ABMobileViewFormDatetimePropertyComponentDefaults = {
    timepicker: false,
@@ -22559,15 +22990,13 @@ const ABMobileViewFormDatetimeDefaults = {
    labelKey: "Date and Time", // {string} the multilingual label key for the class label
 };
 
-module.exports = class ABMobileViewFormDatetimeCore extends (
-   ABMobileViewFormItem
-) {
+class ABMobileViewFormDatetimeCore extends _platform_mobile_ABMobileViewFormItem_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(values, application, parent, defaultValues) {
       super(
          values,
          application,
          parent,
-         defaultValues || ABMobileViewFormDatetimeDefaults
+         defaultValues || ABMobileViewFormDatetimeDefaults,
       );
    }
 
@@ -22582,7 +23011,7 @@ module.exports = class ABMobileViewFormDatetimeCore extends (
    ///
    /// Instance Methods
    ///
-};
+}
 
 
 /***/ },
@@ -22591,9 +23020,15 @@ module.exports = class ABMobileViewFormDatetimeCore extends (
 /*!*************************************************************!*\
   !*** ./AppBuilder/core/mobile/ABMobileViewFormEmailCore.js ***!
   \*************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABMobileViewFormItem = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem */ 36646);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormEmailCore)
+/* harmony export */ });
+/* harmony import */ var _platform_mobile_ABMobileViewFormItem_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem.js */ 36646);
+
 
 const ABMobileViewFormEmailPropertyComponentDefaults = {
    timepicker: false,
@@ -22605,13 +23040,13 @@ const ABMobileViewFormEmailDefaults = {
    labelKey: "Email", // {string} the multilingual label key for the class label
 };
 
-module.exports = class ABMobileViewFormEmailCore extends ABMobileViewFormItem {
+class ABMobileViewFormEmailCore extends _platform_mobile_ABMobileViewFormItem_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(values, application, parent, defaultValues) {
       super(
          values,
          application,
          parent,
-         defaultValues || ABMobileViewFormEmailDefaults
+         defaultValues || ABMobileViewFormEmailDefaults,
       );
    }
 
@@ -22626,7 +23061,7 @@ module.exports = class ABMobileViewFormEmailCore extends ABMobileViewFormItem {
    ///
    /// Instance Methods
    ///
-};
+}
 
 
 /***/ },
@@ -22635,9 +23070,15 @@ module.exports = class ABMobileViewFormEmailCore extends ABMobileViewFormItem {
 /*!************************************************************!*\
   !*** ./AppBuilder/core/mobile/ABMobileViewFormFileCore.js ***!
   \************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABMobileViewFormItem = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem */ 36646);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormFileCore)
+/* harmony export */ });
+/* harmony import */ var _platform_mobile_ABMobileViewFormItem_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem.js */ 36646);
+
 
 const ABViewFormFilePropertyComponentDefaults = {};
 
@@ -22650,13 +23091,13 @@ const ABViewFormFileDefaults = {
    // {string} the multilingual label key for the class label
 };
 
-module.exports = class ABMobileViewFormFileCore extends ABMobileViewFormItem {
+class ABMobileViewFormFileCore extends _platform_mobile_ABMobileViewFormItem_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(values, application, parent, defaultValues) {
       super(
          values,
          application,
          parent,
-         defaultValues || ABViewFormFileDefaults
+         defaultValues || ABViewFormFileDefaults,
       );
    }
 
@@ -22667,7 +23108,7 @@ module.exports = class ABMobileViewFormFileCore extends ABMobileViewFormItem {
    static defaultValues() {
       return ABViewFormFilePropertyComponentDefaults;
    }
-};
+}
 
 
 /***/ },
@@ -22676,9 +23117,15 @@ module.exports = class ABMobileViewFormFileCore extends ABMobileViewFormItem {
 /*!***************************************************************!*\
   !*** ./AppBuilder/core/mobile/ABMobileViewFormFormulaCore.js ***!
   \***************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABMobileViewFormItem = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem */ 36646);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormFormulaCore)
+/* harmony export */ });
+/* harmony import */ var _platform_mobile_ABMobileViewFormItem_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem.js */ 36646);
+
 
 const ABViewFormFormulaPropertyComponentDefaults = {};
 
@@ -22691,15 +23138,13 @@ const ABViewFormFormulaDefaults = {
    // {string} the multilingual label key for the class label
 };
 
-module.exports = class ABMobileViewFormFormulaCore extends (
-   ABMobileViewFormItem
-) {
+class ABMobileViewFormFormulaCore extends _platform_mobile_ABMobileViewFormItem_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(values, application, parent, defaultValues) {
       super(
          values,
          application,
          parent,
-         defaultValues || ABViewFormFormulaDefaults
+         defaultValues || ABViewFormFormulaDefaults,
       );
    }
 
@@ -22710,7 +23155,7 @@ module.exports = class ABMobileViewFormFormulaCore extends (
    static defaultValues() {
       return ABViewFormFormulaPropertyComponentDefaults;
    }
-};
+}
 
 
 /***/ },
@@ -22719,9 +23164,15 @@ module.exports = class ABMobileViewFormFormulaCore extends (
 /*!*************************************************************!*\
   !*** ./AppBuilder/core/mobile/ABMobileViewFormImageCore.js ***!
   \*************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABMobileViewFormFile = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormFile */ 52895);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormImageCore)
+/* harmony export */ });
+/* harmony import */ var _platform_mobile_ABMobileViewFormFile_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormFile.js */ 52895);
+
 
 const ABViewFormImagePropertyComponentDefaults = {};
 
@@ -22734,13 +23185,13 @@ const ABViewImageFileDefaults = {
    // {string} the multilingual label key for the class label
 };
 
-module.exports = class ABMobileViewFormImageCore extends ABMobileViewFormFile {
+class ABMobileViewFormImageCore extends _platform_mobile_ABMobileViewFormFile_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(values, application, parent, defaultValues) {
       super(
          values,
          application,
          parent,
-         defaultValues || ABViewImageFileDefaults
+         defaultValues || ABViewImageFileDefaults,
       );
    }
 
@@ -22751,7 +23202,7 @@ module.exports = class ABMobileViewFormImageCore extends ABMobileViewFormFile {
    static defaultValues() {
       return ABViewFormImagePropertyComponentDefaults;
    }
-};
+}
 
 
 /***/ },
@@ -22760,16 +23211,22 @@ module.exports = class ABMobileViewFormImageCore extends ABMobileViewFormFile {
 /*!************************************************************!*\
   !*** ./AppBuilder/core/mobile/ABMobileViewFormItemCore.js ***!
   \************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABMobileView = __webpack_require__(/*! ../../platform/mobile/ABMobileView */ 94463);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormItemCore)
+/* harmony export */ });
+/* harmony import */ var _platform_mobile_ABMobileView_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileView.js */ 94463);
+
 
 const ABViewFormFieldPropertyComponentDefaults = {
    required: 0,
    disable: 0,
 };
 
-module.exports = class ABMobileViewFormItemCore extends ABMobileView {
+class ABMobileViewFormItemCore extends _platform_mobile_ABMobileView_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    // constructor(values, application, parent, defaultValues) {
    //    super(values, application, parent, defaultValues);
    // }
@@ -22820,7 +23277,7 @@ module.exports = class ABMobileViewFormItemCore extends ABMobileView {
          return field;
       }
    }
-};
+}
 
 
 /***/ },
@@ -22829,9 +23286,15 @@ module.exports = class ABMobileViewFormItemCore extends ABMobileView {
 /*!**************************************************************!*\
   !*** ./AppBuilder/core/mobile/ABMobileViewFormNumberCore.js ***!
   \**************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABMobileViewFormItem = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem */ 36646);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormNumberCore)
+/* harmony export */ });
+/* harmony import */ var _platform_mobile_ABMobileViewFormItem_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem.js */ 36646);
+
 
 const ABMobileViewFormNumberPropertyComponentDefaults = {
    isStepper: 0,
@@ -22843,13 +23306,13 @@ const ABMobileViewFormNumberDefaults = {
    labelKey: "number", // {string} the multilingual label key for the class label
 };
 
-module.exports = class ABMobileViewFormNumberCore extends ABMobileViewFormItem {
+class ABMobileViewFormNumberCore extends _platform_mobile_ABMobileViewFormItem_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(values, application, parent, defaultValues) {
       super(
          values,
          application,
          parent,
-         defaultValues || ABMobileViewFormNumberDefaults
+         defaultValues || ABMobileViewFormNumberDefaults,
       );
    }
 
@@ -22898,7 +23361,7 @@ module.exports = class ABMobileViewFormNumberCore extends ABMobileViewFormItem {
       // convert from "0" => 0
       this.settings.isStepper = parseInt(this.settings.isStepper);
    }
-};
+}
 
 
 /***/ },
@@ -22907,9 +23370,15 @@ module.exports = class ABMobileViewFormNumberCore extends ABMobileViewFormItem {
 /*!****************************************************************!*\
   !*** ./AppBuilder/core/mobile/ABMobileViewFormReadonlyCore.js ***!
   \****************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABMobileViewFormCustom = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormCustom */ 66934);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormReadonly)
+/* harmony export */ });
+/* harmony import */ var _platform_mobile_ABMobileViewFormCustom_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormCustom.js */ 66934);
+
 
 const ABMobileViewFormReadonlyPropertyComponentDefaults = {};
 
@@ -22919,13 +23388,13 @@ const ABMobileViewFormReadonlyDefaults = {
    labelKey: "readonly", // {string} the multilingual label key for the class label
 };
 
-module.exports = class ABMobileViewFormReadonly extends ABMobileViewFormCustom {
+class ABMobileViewFormReadonly extends _platform_mobile_ABMobileViewFormCustom_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(values, application, parent, defaultValues) {
       super(
          values,
          application,
          parent,
-         defaultValues || ABMobileViewFormReadonlyDefaults
+         defaultValues || ABMobileViewFormReadonlyDefaults,
       );
    }
 
@@ -22936,7 +23405,7 @@ module.exports = class ABMobileViewFormReadonly extends ABMobileViewFormCustom {
    static defaultValues() {
       return ABMobileViewFormReadonlyPropertyComponentDefaults;
    }
-};
+}
 
 
 /***/ },
@@ -22945,9 +23414,15 @@ module.exports = class ABMobileViewFormReadonly extends ABMobileViewFormCustom {
 /*!**********************************************************************!*\
   !*** ./AppBuilder/core/mobile/ABMobileViewFormSelectMultipleCore.js ***!
   \**********************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABMobileViewFormSelectSingle = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormSelectSingle */ 86681);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormSelectMultipleCore)
+/* harmony export */ });
+/* harmony import */ var _platform_mobile_ABMobileViewFormSelectSingle_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormSelectSingle.js */ 86681);
+
 
 const ABMobileViewFormSelectMultiplePropertyComponentDefaults = {
    type: "richselect", // 'richselect' or 'radio'
@@ -22959,15 +23434,13 @@ const ABMobileViewFormSelectMultipleDefaults = {
    labelKey: "selectmultiple", // {string} the multilingual label key for the class label
 };
 
-module.exports = class ABMobileViewFormSelectMultipleCore extends (
-   ABMobileViewFormSelectSingle
-) {
+class ABMobileViewFormSelectMultipleCore extends _platform_mobile_ABMobileViewFormSelectSingle_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(values, application, parent, defaultValues) {
       super(
          values,
          application,
          parent,
-         defaultValues || ABMobileViewFormSelectMultipleDefaults
+         defaultValues || ABMobileViewFormSelectMultipleDefaults,
       );
    }
 
@@ -22978,7 +23451,7 @@ module.exports = class ABMobileViewFormSelectMultipleCore extends (
    static defaultValues() {
       return ABMobileViewFormSelectMultiplePropertyComponentDefaults;
    }
-};
+}
 
 
 /***/ },
@@ -22987,9 +23460,15 @@ module.exports = class ABMobileViewFormSelectMultipleCore extends (
 /*!********************************************************************!*\
   !*** ./AppBuilder/core/mobile/ABMobileViewFormSelectSingleCore.js ***!
   \********************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABMobileViewFormItem = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem */ 36646);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormSelectSingleCore)
+/* harmony export */ });
+/* harmony import */ var _platform_mobile_ABMobileViewFormItem_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem.js */ 36646);
+
 
 const ABMobileViewFormSelectSinglePropertyComponentDefaults = {
    type: "richselect", // 'richselect' or 'radio'
@@ -23001,15 +23480,13 @@ const ABMobileViewFormSelectSingleDefaults = {
    labelKey: "selectsingle", // {string} the multilingual label key for the class label
 };
 
-module.exports = class ABMobileViewFormSelectSingleCore extends (
-   ABMobileViewFormItem
-) {
+class ABMobileViewFormSelectSingleCore extends _platform_mobile_ABMobileViewFormItem_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(values, application, parent, defaultValues) {
       super(
          values,
          application,
          parent,
-         defaultValues || ABMobileViewFormSelectSingleDefaults
+         defaultValues || ABMobileViewFormSelectSingleDefaults,
       );
    }
 
@@ -23020,7 +23497,7 @@ module.exports = class ABMobileViewFormSelectSingleCore extends (
    static defaultValues() {
       return ABMobileViewFormSelectSinglePropertyComponentDefaults;
    }
-};
+}
 
 
 /***/ },
@@ -23029,9 +23506,15 @@ module.exports = class ABMobileViewFormSelectSingleCore extends (
 /*!***************************************************************!*\
   !*** ./AppBuilder/core/mobile/ABMobileViewFormTextboxCore.js ***!
   \***************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABMobileViewFormItem = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem */ 36646);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormTextboxCore)
+/* harmony export */ });
+/* harmony import */ var _platform_mobile_ABMobileViewFormItem_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem.js */ 36646);
+
 
 const ABViewFormTextboxPropertyComponentDefaults = {
    type: "single", // 'single', 'multiple' or 'rich'
@@ -23044,15 +23527,13 @@ const ABViewFormTextboxDefaults = {
    labelKey: "textbox", // {string} the multilingual label key for the class label
 };
 
-module.exports = class ABMobileViewFormTextboxCore extends (
-   ABMobileViewFormItem
-) {
+class ABMobileViewFormTextboxCore extends _platform_mobile_ABMobileViewFormItem_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(values, application, parent, defaultValues) {
       super(
          values,
          application,
          parent,
-         defaultValues || ABViewFormTextboxDefaults
+         defaultValues || ABViewFormTextboxDefaults,
       );
    }
 
@@ -23077,7 +23558,7 @@ module.exports = class ABMobileViewFormTextboxCore extends (
       // placeholder is a multilingual value:
       this.unTranslate(this.settings, this.settings, ["placeholder"]);
    }
-};
+}
 
 
 /***/ },
@@ -23086,9 +23567,15 @@ module.exports = class ABMobileViewFormTextboxCore extends (
 /*!*********************************************************!*\
   !*** ./AppBuilder/core/mobile/ABMobileViewLabelCore.js ***!
   \*********************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABMobileView = __webpack_require__(/*! ../../platform/mobile/ABMobileView */ 94463);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewLabelCore)
+/* harmony export */ });
+/* harmony import */ var _platform_mobile_ABMobileView_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileView.js */ 94463);
+
 
 const ABViewLabelPropertyComponentDefaults = {
    text: "",
@@ -23102,7 +23589,7 @@ const ABViewDefaults = {
    labelKey: "Label", // {string} the multilingual label key for the class label
 };
 
-module.exports = class ABMobileViewLabelCore extends ABMobileView {
+class ABMobileViewLabelCore extends _platform_mobile_ABMobileView_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    /**
     * @param {obj} values  key=>value hash of ABView values
     * @param {ABApplication} application the application object this view is under
@@ -23193,7 +23680,7 @@ module.exports = class ABMobileViewLabelCore extends ABMobileView {
    formatDescription() {
       this.settings.format = 2;
    }
-};
+}
 
 
 /***/ },
@@ -23202,9 +23689,15 @@ module.exports = class ABMobileViewLabelCore extends ABMobileView {
 /*!********************************************************!*\
   !*** ./AppBuilder/core/mobile/ABMobileViewListCore.js ***!
   \********************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABMobileView = __webpack_require__(/*! ../../platform/mobile/ABMobileView */ 94463);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewLabelCore)
+/* harmony export */ });
+/* harmony import */ var _platform_mobile_ABMobileView_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileView.js */ 94463);
+
 
 const ABViewListPropertyComponentDefaults = {
    dataviewID: null,
@@ -23220,7 +23713,7 @@ const ABViewDefaults = {
    labelKey: "List", // {string} the multilingual label key for the class label
 };
 
-module.exports = class ABViewLabelCore extends ABMobileView {
+class ABViewLabelCore extends _platform_mobile_ABMobileView_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(values, application, parent, defaultValues) {
       super(values, application, parent, defaultValues || ABViewDefaults);
    }
@@ -23261,7 +23754,7 @@ module.exports = class ABViewLabelCore extends ABMobileView {
       // we do if we have a setting for linkPageAdd
       return this.settings.linkPageAdd != "";
    }
-};
+}
 
 
 /***/ },
@@ -23270,9 +23763,15 @@ module.exports = class ABViewLabelCore extends ABMobileView {
 /*!************************************************************!*\
   !*** ./AppBuilder/core/mobile/ABMobileViewTimelineCore.js ***!
   \************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABMobileView = __webpack_require__(/*! ../../platform/mobile/ABMobileView */ 94463);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewTimelineCore)
+/* harmony export */ });
+/* harmony import */ var _platform_mobile_ABMobileView_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileView.js */ 94463);
+
 
 const ABViewTimelinePropertyComponentDefaults = {
    dataviewID: null,
@@ -23288,7 +23787,7 @@ const ABViewDefaults = {
    labelKey: "Timeline", // {string} the multilingual label key for the class label
 };
 
-module.exports = class ABViewTimelineCore extends ABMobileView {
+class ABViewTimelineCore extends _platform_mobile_ABMobileView_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(values, application, parent, defaultValues) {
       super(values, application, parent, defaultValues || ABViewDefaults);
    }
@@ -23329,7 +23828,7 @@ module.exports = class ABViewTimelineCore extends ABMobileView {
       // we do if we have a setting for linkPageAdd
       return this.settings.linkPageAdd != "";
    }
-};
+}
 
 
 /***/ },
@@ -23338,7 +23837,15 @@ module.exports = class ABViewTimelineCore extends ABMobileView {
 /*!******************************************************!*\
   !*** ./AppBuilder/core/process/ABProcessLaneCore.js ***!
   \******************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABProcessLaneCore)
+/* harmony export */ });
+/* harmony import */ var _platform_process_ABProcessParticipant_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/process/ABProcessParticipant.js */ 22945);
+
 
 /**
  * ABProcessLane
@@ -23346,8 +23853,6 @@ module.exports = class ABViewTimelineCore extends ABMobileView {
  *
  * Lanes manage users in the system, and provide a way to lookup a SiteUser.
  */
-const ABProcessParticipant = __webpack_require__(/*! ../../platform/process/ABProcessParticipant */ 22945);
-
 const ABProcessLaneDefaults = {
    type: "process.lane",
    // {string} .type
@@ -23358,7 +23863,7 @@ const ABProcessLaneDefaults = {
    // font-awesome icon reference.  (without the 'fa-').  so 'user'  to reference 'fa-user'
 };
 
-module.exports = class ABProcessLaneCore extends ABProcessParticipant {
+class ABProcessLaneCore extends _platform_process_ABProcessParticipant_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(attributes, process, AB) {
       super(attributes, process, AB);
 
@@ -23414,7 +23919,7 @@ module.exports = class ABProcessLaneCore extends ABProcessParticipant {
 
    //     return data;
    // }
-};
+}
 
 
 /***/ },
@@ -23423,7 +23928,15 @@ module.exports = class ABProcessLaneCore extends ABProcessParticipant {
 /*!*************************************************************!*\
   !*** ./AppBuilder/core/process/ABProcessParticipantCore.js ***!
   \*************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABProcessParticipantCore)
+/* harmony export */ });
+/* harmony import */ var _platform_ABMLClass_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/ABMLClass.js */ 72982);
+
 
 /**
  * ABProcessParticipant
@@ -23431,8 +23944,6 @@ module.exports = class ABProcessLaneCore extends ABProcessParticipant {
  *
  * Participants manage users in the system, and provide a way to lookup a SiteUser.
  */
-const ABMLClass = __webpack_require__(/*! ../../platform/ABMLClass */ 72982);
-
 const ABProcessParticipantDefaults = {
    type: "process.participant",
    // {string} .type
@@ -23441,7 +23952,7 @@ const ABProcessParticipantDefaults = {
    // icon: "key" // font-awesome icon reference.  (without the 'fa-').  so 'user'  to reference 'fa-user'
 };
 
-module.exports = class ABProcessParticipantCore extends ABMLClass {
+class ABProcessParticipantCore extends _platform_ABMLClass_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(attributes, process, AB) {
       super(["label"], AB);
 
@@ -23583,7 +24094,7 @@ module.exports = class ABProcessParticipantCore extends ABMLClass {
     * setup and ready.
     */
    onProcessReady() {}
-};
+}
 
 
 /***/ },
@@ -23592,7 +24103,55 @@ module.exports = class ABProcessParticipantCore extends ABMLClass {
 /*!*********************************************************!*\
   !*** ./AppBuilder/core/process/ABProcessTaskManager.js ***!
   \*********************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _platform_process_tasks_ABProcessEnd_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/process/tasks/ABProcessEnd.js */ 99814);
+/* harmony import */ var _platform_process_tasks_ABProcessGatewayExclusive_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../platform/process/tasks/ABProcessGatewayExclusive.js */ 7073);
+/* harmony import */ var _platform_process_tasks_ABProcessTaskEmail_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../platform/process/tasks/ABProcessTaskEmail.js */ 38252);
+/* harmony import */ var _platform_process_tasks_ABProcessTaskService_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../platform/process/tasks/ABProcessTaskService.js */ 91075);
+/* harmony import */ var _platform_process_tasks_ABProcessTaskServiceAccountingBatchProcessing_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../platform/process/tasks/ABProcessTaskServiceAccountingBatchProcessing.js */ 22327);
+/* harmony import */ var _platform_process_tasks_ABProcessTaskServiceAccountingFPClose_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../platform/process/tasks/ABProcessTaskServiceAccountingFPClose.js */ 4002);
+/* harmony import */ var _platform_process_tasks_ABProcessTaskServiceAccountingFPYearClose_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../platform/process/tasks/ABProcessTaskServiceAccountingFPYearClose.js */ 32893);
+/* harmony import */ var _platform_process_tasks_ABProcessTaskServiceAccountingJEArchive_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../platform/process/tasks/ABProcessTaskServiceAccountingJEArchive.js */ 67441);
+/* harmony import */ var _platform_process_tasks_ABProcessTaskServiceApi_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../platform/process/tasks/ABProcessTaskServiceApi.js */ 8691);
+/* harmony import */ var _platform_process_tasks_ABProcessTaskServiceCalculate_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../platform/process/tasks/ABProcessTaskServiceCalculate.js */ 36719);
+/* harmony import */ var _platform_process_tasks_ABProcessTaskServiceInsertRecord_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../platform/process/tasks/ABProcessTaskServiceInsertRecord.js */ 39895);
+/* harmony import */ var _platform_process_tasks_ABProcessTaskServiceQuery_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../platform/process/tasks/ABProcessTaskServiceQuery.js */ 78655);
+/* harmony import */ var _platform_process_tasks_ABProcessTaskServiceGetResetPasswordUrl_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../platform/process/tasks/ABProcessTaskServiceGetResetPasswordUrl.js */ 83532);
+/* harmony import */ var _platform_process_tasks_ABProcessTaskSubProcess_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../platform/process/tasks/ABProcessTaskSubProcess.js */ 58317);
+/* harmony import */ var _platform_process_tasks_ABProcessTaskUser_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../platform/process/tasks/ABProcessTaskUser.js */ 38205);
+/* harmony import */ var _platform_process_tasks_ABProcessTaskUserApproval_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../platform/process/tasks/ABProcessTaskUserApproval.js */ 2282);
+/* harmony import */ var _platform_process_tasks_ABProcessTaskUserExternal_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../../platform/process/tasks/ABProcessTaskUserExternal.js */ 66066);
+/* harmony import */ var _platform_process_tasks_ABProcessTaskUserForm_js__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../../platform/process/tasks/ABProcessTaskUserForm.js */ 5035);
+/* harmony import */ var _platform_process_tasks_ABProcessTrigger_js__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../../platform/process/tasks/ABProcessTrigger.js */ 46091);
+/* harmony import */ var _platform_process_tasks_ABProcessTriggerLifecycle_js__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../../platform/process/tasks/ABProcessTriggerLifecycle.js */ 73295);
+/* harmony import */ var _platform_process_tasks_ABProcessTriggerTimer_js__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../../platform/process/tasks/ABProcessTriggerTimer.js */ 12774);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*
  * ABProcessTaskManager
@@ -23619,27 +24178,27 @@ var Tasks = {};
 var DEFINITIONTYPES = {};
 
 var AllProcessElements = [
-   __webpack_require__(/*! ../../platform/process/tasks/ABProcessEnd */ 99814),
-   __webpack_require__(/*! ../../platform/process/tasks/ABProcessGatewayExclusive */ 7073),
-   __webpack_require__(/*! ../../platform/process/tasks/ABProcessTaskEmail */ 38252),
-   __webpack_require__(/*! ../../platform/process/tasks/ABProcessTaskService */ 91075),
-   __webpack_require__(/*! ../../platform/process/tasks/ABProcessTaskServiceAccountingBatchProcessing */ 22327),
-   __webpack_require__(/*! ../../platform/process/tasks/ABProcessTaskServiceAccountingFPClose */ 4002),
-   __webpack_require__(/*! ../../platform/process/tasks/ABProcessTaskServiceAccountingFPYearClose */ 32893),
-   __webpack_require__(/*! ../../platform/process/tasks/ABProcessTaskServiceAccountingJEArchive */ 67441),
-   __webpack_require__(/*! ../../platform/process/tasks/ABProcessTaskServiceApi */ 8691),
-   __webpack_require__(/*! ../../platform/process/tasks/ABProcessTaskServiceCalculate */ 36719),
-   __webpack_require__(/*! ../../platform/process/tasks/ABProcessTaskServiceInsertRecord */ 39895),
-   __webpack_require__(/*! ../../platform/process/tasks/ABProcessTaskServiceQuery */ 78655),
-   __webpack_require__(/*! ../../platform/process/tasks/ABProcessTaskServiceGetResetPasswordUrl */ 83532),
-   __webpack_require__(/*! ../../platform/process/tasks/ABProcessTaskSubProcess */ 58317),
-   __webpack_require__(/*! ../../platform/process/tasks/ABProcessTaskUser */ 38205),
-   __webpack_require__(/*! ../../platform/process/tasks/ABProcessTaskUserApproval */ 2282),
-   __webpack_require__(/*! ../../platform/process/tasks/ABProcessTaskUserExternal */ 66066),
-   __webpack_require__(/*! ../../platform/process/tasks/ABProcessTaskUserForm */ 5035),
-   __webpack_require__(/*! ../../platform/process/tasks/ABProcessTrigger */ 46091),
-   __webpack_require__(/*! ../../platform/process/tasks/ABProcessTriggerLifecycle */ 73295),
-   __webpack_require__(/*! ../../platform/process/tasks/ABProcessTriggerTimer */ 12774),
+   _platform_process_tasks_ABProcessEnd_js__WEBPACK_IMPORTED_MODULE_0__["default"],
+   _platform_process_tasks_ABProcessGatewayExclusive_js__WEBPACK_IMPORTED_MODULE_1__["default"],
+   _platform_process_tasks_ABProcessTaskEmail_js__WEBPACK_IMPORTED_MODULE_2__["default"],
+   _platform_process_tasks_ABProcessTaskService_js__WEBPACK_IMPORTED_MODULE_3__["default"],
+   _platform_process_tasks_ABProcessTaskServiceAccountingBatchProcessing_js__WEBPACK_IMPORTED_MODULE_4__["default"],
+   _platform_process_tasks_ABProcessTaskServiceAccountingFPClose_js__WEBPACK_IMPORTED_MODULE_5__["default"],
+   _platform_process_tasks_ABProcessTaskServiceAccountingFPYearClose_js__WEBPACK_IMPORTED_MODULE_6__["default"],
+   _platform_process_tasks_ABProcessTaskServiceAccountingJEArchive_js__WEBPACK_IMPORTED_MODULE_7__["default"],
+   _platform_process_tasks_ABProcessTaskServiceApi_js__WEBPACK_IMPORTED_MODULE_8__["default"],
+   _platform_process_tasks_ABProcessTaskServiceCalculate_js__WEBPACK_IMPORTED_MODULE_9__["default"],
+   _platform_process_tasks_ABProcessTaskServiceInsertRecord_js__WEBPACK_IMPORTED_MODULE_10__["default"],
+   _platform_process_tasks_ABProcessTaskServiceQuery_js__WEBPACK_IMPORTED_MODULE_11__["default"],
+   _platform_process_tasks_ABProcessTaskServiceGetResetPasswordUrl_js__WEBPACK_IMPORTED_MODULE_12__["default"],
+   _platform_process_tasks_ABProcessTaskSubProcess_js__WEBPACK_IMPORTED_MODULE_13__["default"],
+   _platform_process_tasks_ABProcessTaskUser_js__WEBPACK_IMPORTED_MODULE_14__["default"],
+   _platform_process_tasks_ABProcessTaskUserApproval_js__WEBPACK_IMPORTED_MODULE_15__["default"],
+   _platform_process_tasks_ABProcessTaskUserExternal_js__WEBPACK_IMPORTED_MODULE_16__["default"],
+   _platform_process_tasks_ABProcessTaskUserForm_js__WEBPACK_IMPORTED_MODULE_17__["default"],
+   _platform_process_tasks_ABProcessTrigger_js__WEBPACK_IMPORTED_MODULE_18__["default"],
+   _platform_process_tasks_ABProcessTriggerLifecycle_js__WEBPACK_IMPORTED_MODULE_19__["default"],
+   _platform_process_tasks_ABProcessTriggerTimer_js__WEBPACK_IMPORTED_MODULE_20__["default"],
 ];
 
 AllProcessElements.forEach((ELEMENT) => {
@@ -23660,7 +24219,7 @@ AllProcessElements.forEach((ELEMENT) => {
    }
 });
 
-module.exports = {
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
    /*
     * @function allTasks
     * return all the currently defined ABProcessTasks in an array.
@@ -23730,7 +24289,7 @@ module.exports = {
 
       return DEFINITIONTYPES[key];
    },
-};
+});
 
 
 /***/ },
@@ -23739,11 +24298,17 @@ module.exports = {
 /*!***************************************************************!*\
   !*** ./AppBuilder/core/process/tasks/ABProcessElementCore.js ***!
   \***************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-var ABMLClass = __webpack_require__(/*! ../../../platform/ABMLClass */ 72982);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABProcessTaskCore)
+/* harmony export */ });
+/* harmony import */ var _platform_ABMLClass_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/ABMLClass.js */ 72982);
 
-module.exports = class ABProcessTaskCore extends ABMLClass {
+
+class ABProcessTaskCore extends _platform_ABMLClass_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(attributes, process, AB, defaultValues) {
       super(["label"], AB);
 
@@ -23982,7 +24547,7 @@ module.exports = class ABProcessTaskCore extends ABMLClass {
       var myDiagramObj = instance.hashDiagramObjects[this.diagramID];
       if (!myDiagramObj) {
          let error = new Error(
-            `Configuration Error: Did not find my definition for dID[${this.diagramID}]`
+            `Configuration Error: Did not find my definition for dID[${this.diagramID}]`,
          );
          this.onError(instance, error);
          return null;
@@ -23999,7 +24564,7 @@ module.exports = class ABProcessTaskCore extends ABMLClass {
       var exitFlows = myDiagramObj["bpmn2:outgoing"];
       if (!exitFlows) {
          let error = new Error(
-            `Configuration Error: Did not find any outgoing flows for dID[${this.diagramID}]`
+            `Configuration Error: Did not find any outgoing flows for dID[${this.diagramID}]`,
          );
          this.AB.notify.builder(error, { task: this });
          this.onError(instance, error);
@@ -24032,7 +24597,7 @@ module.exports = class ABProcessTaskCore extends ABMLClass {
                }
             } else {
                let error = new Error(
-                  `Configuration Error: No ProcessTask instance for diagramID[${tid}]`
+                  `Configuration Error: No ProcessTask instance for diagramID[${tid}]`,
                );
                this.AB.notify.builder(error, { task: this });
                this.onError(instance, error);
@@ -24081,7 +24646,7 @@ module.exports = class ABProcessTaskCore extends ABMLClass {
     * @param {obj} instance
     * @return {mixed} | null
     */
-   processData(instance, key) {
+   processData(/* _instance, _key */) {
       return null;
    }
 
@@ -24186,7 +24751,7 @@ module.exports = class ABProcessTaskCore extends ABMLClass {
          // my state wasn't defined?
          console.warn(
             "ABProcessTaskCore:wantToDoSomething(): called without having initialized our state first.",
-            instance
+            instance,
          );
          // initialize our state and try again
          this.initState(instance.context);
@@ -24204,7 +24769,7 @@ module.exports = class ABProcessTaskCore extends ABMLClass {
       let startElems =
          this.process.elements(
             (elem) =>
-               elem && elem.defaults && elem.defaults.category === "start"
+               elem && elem.defaults && elem.defaults.category === "start",
          ) || [];
       return startElems;
    }
@@ -24237,7 +24802,7 @@ module.exports = class ABProcessTaskCore extends ABMLClass {
 
       return this.AB.objectByID(objectID);
    }
-};
+}
 
 
 /***/ },
@@ -24246,9 +24811,15 @@ module.exports = class ABProcessTaskCore extends ABMLClass {
 /*!***********************************************************!*\
   !*** ./AppBuilder/core/process/tasks/ABProcessEndCore.js ***!
   \***********************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABProcessElement = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 54919);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABProcessTaskEndCore)
+/* harmony export */ });
+/* harmony import */ var _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 54919);
+
 
 var ABProcessTaskEndDefaults = {
    category: "end",
@@ -24273,7 +24844,7 @@ var ABProcessTaskEndDefaults = {
    // unique key to reference this specific Task
 };
 
-module.exports = class ABProcessTaskEndCore extends ABProcessElement {
+class ABProcessTaskEndCore extends _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(attributes, process, AB) {
       attributes.type = attributes.type || "process.task.end";
       super(attributes, process, AB, ABProcessTaskEndDefaults);
@@ -24348,11 +24919,11 @@ module.exports = class ABProcessTaskEndCore extends ABProcessElement {
     * @return {Promise}
     *      resolve([])
     */
-   nextTasks(instance) {
+   nextTasks(/* _instance */) {
       // I'm an End Event.  There are no nextTasks()
       return [];
    }
-};
+}
 
 
 /***/ },
@@ -24361,9 +24932,15 @@ module.exports = class ABProcessTaskEndCore extends ABProcessElement {
 /*!************************************************************************!*\
   !*** ./AppBuilder/core/process/tasks/ABProcessGatewayExclusiveCore.js ***!
   \************************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABProcessElement = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 54919);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABProcessGatewayExclusiveCore)
+/* harmony export */ });
+/* harmony import */ var _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 54919);
+
 
 var ABProcessGatewayExclusiveDefaults = {
    category: "gateway",
@@ -24393,7 +24970,7 @@ var ABProcessGatewayExclusiveDefaults = {
    // values set by the platform .propertiesStash()
 };
 
-module.exports = class ABProcessGatewayExclusiveCore extends ABProcessElement {
+class ABProcessGatewayExclusiveCore extends _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(attributes, process, AB) {
       attributes.type = attributes.type || "process.gateway.exclusive";
       super(attributes, process, AB, ABProcessGatewayExclusiveDefaults);
@@ -24511,7 +25088,7 @@ module.exports = class ABProcessGatewayExclusiveCore extends ABProcessElement {
         return null;
     }
     */
-};
+}
 
 
 /***/ },
@@ -24520,11 +25097,15 @@ module.exports = class ABProcessGatewayExclusiveCore extends ABProcessElement {
 /*!*****************************************************************!*\
   !*** ./AppBuilder/core/process/tasks/ABProcessTaskEmailCore.js ***!
   \*****************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-// import ABApplication from "./ABApplication"
-// const ABApplication = require("./ABApplication"); // NOTE: change to require()
-const ABProcessElement = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 54919);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABProcessTaskEmailCore)
+/* harmony export */ });
+/* harmony import */ var _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 54919);
+
 
 var ABProcessTaskEmailDefaults = {
    category: "task",
@@ -24559,7 +25140,7 @@ var ABProcessTaskEmailDefaults = {
    // unique key to reference this specific Task
 };
 
-module.exports = class ABProcessTaskEmailCore extends ABProcessElement {
+class ABProcessTaskEmailCore extends _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(attributes, process, AB) {
       attributes.type = attributes.type || "process.task.email";
       super(attributes, process, AB, ABProcessTaskEmailDefaults);
@@ -24663,7 +25244,7 @@ module.exports = class ABProcessTaskEmailCore extends ABProcessElement {
 
       super.initState(context, myDefaults, val);
    }
-};
+}
 
 
 /***/ },
@@ -24672,9 +25253,15 @@ module.exports = class ABProcessTaskEmailCore extends ABProcessElement {
 /*!********************************************************************************************!*\
   !*** ./AppBuilder/core/process/tasks/ABProcessTaskServiceAccountingBatchProcessingCore.js ***!
   \********************************************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABProcessElement = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 54919);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ AccountingBatchProcessingCore)
+/* harmony export */ });
+/* harmony import */ var _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 54919);
+
 
 var AccountingBatchProcessingDefaults = {
    category: null,
@@ -24718,7 +25305,7 @@ var AccountingBatchProcessingDefaults = {
    // values set by the platform .propertiesStash()
 };
 
-module.exports = class AccountingBatchProcessingCore extends ABProcessElement {
+class AccountingBatchProcessingCore extends _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(attributes, process, AB) {
       attributes.type =
          attributes.type || "process.task.service.accounting.batchProcessing";
@@ -24834,7 +25421,7 @@ module.exports = class AccountingBatchProcessingCore extends ABProcessElement {
         return null;
     }
     */
-};
+}
 
 
 /***/ },
@@ -24843,9 +25430,15 @@ module.exports = class AccountingBatchProcessingCore extends ABProcessElement {
 /*!************************************************************************************!*\
   !*** ./AppBuilder/core/process/tasks/ABProcessTaskServiceAccountingFPCloseCore.js ***!
   \************************************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABProcessElement = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 54919);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ AccountingFPCloseCore)
+/* harmony export */ });
+/* harmony import */ var _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 54919);
+
 
 var AccountingFPCloseDefaults = {
    category: null,
@@ -24895,7 +25488,7 @@ var AccountingFPCloseDefaults = {
    // values set by the platform .propertiesStash()
 };
 
-module.exports = class AccountingFPCloseCore extends ABProcessElement {
+class AccountingFPCloseCore extends _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(attributes, process, AB) {
       attributes.type =
          attributes.type || "process.task.service.accounting.fpClose";
@@ -25011,7 +25604,7 @@ module.exports = class AccountingFPCloseCore extends ABProcessElement {
         return null;
     }
     */
-};
+}
 
 
 /***/ },
@@ -25020,9 +25613,15 @@ module.exports = class AccountingFPCloseCore extends ABProcessElement {
 /*!****************************************************************************************!*\
   !*** ./AppBuilder/core/process/tasks/ABProcessTaskServiceAccountingFPYearCloseCore.js ***!
   \****************************************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABProcessElement = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 54919);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ AccountingFPYearCloseCore)
+/* harmony export */ });
+/* harmony import */ var _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 54919);
+
 
 var AccountingFPYearCloseDefaults = {
    category: null,
@@ -25073,7 +25672,7 @@ var AccountingFPYearCloseDefaults = {
    // values set by the platform .propertiesStash()
 };
 
-module.exports = class AccountingFPYearCloseCore extends ABProcessElement {
+class AccountingFPYearCloseCore extends _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(attributes, process, AB) {
       attributes.type =
          attributes.type || "process.task.service.accounting.fpYearClose";
@@ -25189,7 +25788,7 @@ module.exports = class AccountingFPYearCloseCore extends ABProcessElement {
         return null;
     }
     */
-};
+}
 
 
 /***/ },
@@ -25198,9 +25797,15 @@ module.exports = class AccountingFPYearCloseCore extends ABProcessElement {
 /*!**************************************************************************************!*\
   !*** ./AppBuilder/core/process/tasks/ABProcessTaskServiceAccountingJEArchiveCore.js ***!
   \**************************************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABProcessElement = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 54919);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ AccountingJEArchiveCore)
+/* harmony export */ });
+/* harmony import */ var _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 54919);
+
 
 let AccountingJEArchiveDefaults = {
    category: null,
@@ -25244,7 +25849,7 @@ let AccountingJEArchiveDefaults = {
    // values set by the platform .propertiesStash()
 };
 
-module.exports = class AccountingJEArchiveCore extends ABProcessElement {
+class AccountingJEArchiveCore extends _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(attributes, process, AB) {
       attributes.type =
          attributes.type || "process.task.service.accounting.jeArchive";
@@ -25360,7 +25965,7 @@ module.exports = class AccountingJEArchiveCore extends ABProcessElement {
         return null;
     }
     */
-};
+}
 
 
 /***/ },
@@ -25369,9 +25974,15 @@ module.exports = class AccountingJEArchiveCore extends ABProcessElement {
 /*!**********************************************************************!*\
   !*** ./AppBuilder/core/process/tasks/ABProcessTaskServiceApiCore.js ***!
   \**********************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABProcessElement = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 54919);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ApiTaskCore)
+/* harmony export */ });
+/* harmony import */ var _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 54919);
+
 
 let ApiDefaults = {
    category: null,
@@ -25406,7 +26017,7 @@ let ApiDefaults = {
    headers: [],
 };
 
-module.exports = class ApiTaskCore extends ABProcessElement {
+class ApiTaskCore extends _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(attributes, process, AB) {
       attributes.type = attributes.type || "process.task.service.api";
       super(attributes, process, AB, ApiDefaults);
@@ -25446,7 +26057,7 @@ module.exports = class ApiTaskCore extends ABProcessElement {
          },
       ];
    }
-};
+}
 
 
 /***/ },
@@ -25455,9 +26066,15 @@ module.exports = class ApiTaskCore extends ABProcessElement {
 /*!****************************************************************************!*\
   !*** ./AppBuilder/core/process/tasks/ABProcessTaskServiceCalculateCore.js ***!
   \****************************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABProcessElement = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 54919);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ CalculateTaskCore)
+/* harmony export */ });
+/* harmony import */ var _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 54919);
+
 
 let CalculateDefaults = {
    category: null,
@@ -25483,7 +26100,7 @@ let CalculateDefaults = {
    settings: ["formulaText"],
 };
 
-module.exports = class CalculateTaskCore extends ABProcessElement {
+class CalculateTaskCore extends _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(attributes, process, AB) {
       attributes.type = attributes.type || "process.task.service.calculate";
       super(attributes, process, AB, CalculateDefaults);
@@ -25517,7 +26134,7 @@ module.exports = class CalculateTaskCore extends ABProcessElement {
          this._fakeObj = this.AB.objectNew({});
          this._fakeNum = this.AB.fieldNew(
             { key: "number", name: label, label },
-            this._fakeObj
+            this._fakeObj,
          );
       }
       return {
@@ -25526,7 +26143,7 @@ module.exports = class CalculateTaskCore extends ABProcessElement {
          field: this._fakeNum,
       };
    }
-};
+}
 
 
 /***/ },
@@ -25535,7 +26152,15 @@ module.exports = class CalculateTaskCore extends ABProcessElement {
 /*!*******************************************************************!*\
   !*** ./AppBuilder/core/process/tasks/ABProcessTaskServiceCore.js ***!
   \*******************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABProcessTaskServiceCore)
+/* harmony export */ });
+/* harmony import */ var _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 54919);
+
 
 /**
  * ABProcessTaskServiceCore
@@ -25548,8 +26173,6 @@ module.exports = class CalculateTaskCore extends ABProcessElement {
  *  - performing a query, looking up data, etc...
  *
  */
-const ABProcessElement = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 54919);
-
 var ABProcessTaskServiceDefaults = {
    category: "task",
    // category: {string} | null
@@ -25577,7 +26200,7 @@ var ABProcessTaskServiceDefaults = {
    // values set by the platform .propertiesStash()
 };
 
-module.exports = class ABProcessTaskServiceCore extends ABProcessElement {
+class ABProcessTaskServiceCore extends _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(attributes, process, AB) {
       attributes.type = attributes.type || "process.task.service";
       super(attributes, process, AB, ABProcessTaskServiceDefaults);
@@ -25699,7 +26322,7 @@ module.exports = class ABProcessTaskServiceCore extends ABProcessElement {
         return null;
     }
     */
-};
+}
 
 
 /***/ },
@@ -25708,11 +26331,15 @@ module.exports = class ABProcessTaskServiceCore extends ABProcessElement {
 /*!**************************************************************************************!*\
   !*** ./AppBuilder/core/process/tasks/ABProcessTaskServiceGetResetPasswordUrlCore.js ***!
   \**************************************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-// import ABApplication from "./ABApplication"
-// const ABApplication = require("./ABApplication"); // NOTE: change to require()
-const ABProcessElement = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 54919);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABProcessTaskGetResetPasswordUrlCore)
+/* harmony export */ });
+/* harmony import */ var _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 54919);
+
 
 const ABProcessTaskGetResetPasswordUrlDefaults = {
    category: null,
@@ -25741,9 +26368,7 @@ const ABProcessTaskGetResetPasswordUrlDefaults = {
    // values set by the platform .propertiesStash()
 };
 
-module.exports = class ABProcessTaskGetResetPasswordUrlCore extends (
-   ABProcessElement
-) {
+class ABProcessTaskGetResetPasswordUrlCore extends _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(attributes, process, AB) {
       attributes.type =
          attributes.type || "process.task.service.getResetPasswordUrl";
@@ -25775,7 +26400,7 @@ module.exports = class ABProcessTaskGetResetPasswordUrlCore extends (
          label: `${this.label}->URL`,
       };
    }
-};
+}
 
 
 /***/ },
@@ -25784,9 +26409,15 @@ module.exports = class ABProcessTaskGetResetPasswordUrlCore extends (
 /*!*******************************************************************************!*\
   !*** ./AppBuilder/core/process/tasks/ABProcessTaskServiceInsertRecordCore.js ***!
   \*******************************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABProcessElement = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 54919);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ InsertRecordCore)
+/* harmony export */ });
+/* harmony import */ var _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 54919);
+
 
 let InsertRecordDefaults = {
    category: null,
@@ -25818,7 +26449,7 @@ let InsertRecordDefaults = {
    ],
 };
 
-module.exports = class InsertRecordCore extends ABProcessElement {
+class InsertRecordCore extends _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(attributes, process, AB) {
       attributes.type = attributes.type || "process.task.service.insertRecord";
       super(attributes, process, AB, InsertRecordDefaults);
@@ -25850,7 +26481,7 @@ module.exports = class InsertRecordCore extends ABProcessElement {
       // Find the start (trigger) task
       while (!startElem && currProcess) {
          startElem = currProcess.elements(
-            (elem) => elem?.defaults?.category == "start"
+            (elem) => elem?.defaults?.category == "start",
          )[0];
 
          // If .currProcess is a sub task, then go to the parent process for get the start task
@@ -25947,7 +26578,7 @@ module.exports = class InsertRecordCore extends ABProcessElement {
    ////
    //// Process Instance Methods
    ////
-};
+}
 
 
 /***/ },
@@ -25956,11 +26587,17 @@ module.exports = class InsertRecordCore extends ABProcessElement {
 /*!************************************************************************!*\
   !*** ./AppBuilder/core/process/tasks/ABProcessTaskServiceQueryCore.js ***!
   \************************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABProcessElement = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 54919);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABProcessTaskServiceQueryCore)
+/* harmony export */ });
+/* harmony import */ var _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 54919);
+/* harmony import */ var _platform_ql_ABQLManager_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../platform/ql/ABQLManager.js */ 86113);
 
-const ABQLManager = __webpack_require__(/*! ../../../platform/ql/ABQLManager.js */ 86113);
+
 
 const ABProcessTaskServiceQueryDefaults = {
    category: null,
@@ -25989,7 +26626,7 @@ const ABProcessTaskServiceQueryDefaults = {
    // values set by the platform .propertiesStash()
 };
 
-module.exports = class ABProcessTaskServiceQueryCore extends ABProcessElement {
+class ABProcessTaskServiceQueryCore extends _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(attributes, process, AB) {
       attributes.type = attributes.type || "process.task.service.query";
       super(attributes, process, AB, ABProcessTaskServiceQueryDefaults);
@@ -26014,7 +26651,7 @@ module.exports = class ABProcessTaskServiceQueryCore extends ABProcessElement {
 
       // comvert our qlObj into an ABQLxxx instance.
       if (this.qlObj) {
-         this.qlObj = ABQLManager.fromAttributes(this.qlObj, this, this.AB);
+         this.qlObj = _platform_ql_ABQLManager_js__WEBPACK_IMPORTED_MODULE_1__["default"].fromAttributes(this.qlObj, this, this.AB);
       }
    }
 
@@ -26102,7 +26739,7 @@ module.exports = class ABProcessTaskServiceQueryCore extends ABProcessElement {
 
       return null;
    }
-};
+}
 
 
 /***/ },
@@ -26111,9 +26748,15 @@ module.exports = class ABProcessTaskServiceQueryCore extends ABProcessElement {
 /*!**********************************************************************!*\
   !*** ./AppBuilder/core/process/tasks/ABProcessTaskSubProcessCore.js ***!
   \**********************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABProcessElement = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 54919);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ SubProcessCore)
+/* harmony export */ });
+/* harmony import */ var _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 54919);
+
 
 let SubProcessDefaults = {
    category: "task",
@@ -26150,7 +26793,7 @@ const NOSPAM = {
 };
 // prevent sending the same message over and over.
 
-module.exports = class SubProcessCore extends ABProcessElement {
+class SubProcessCore extends _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(attributes, process, AB) {
       attributes.type = attributes.type || "process.task.service.subProcess";
       super(attributes, process, AB, SubProcessDefaults);
@@ -26254,12 +26897,12 @@ module.exports = class SubProcessCore extends ABProcessElement {
 
       // get the subtask data
       let dataFieldOpt = dataFieldsAll.filter(
-         (opt) => opt.key === this.parameterId
+         (opt) => opt.key === this.parameterId,
       )[0];
 
       // get data from insert tasks
       let dataFieldsAllInserted = dataFieldsAll.filter(
-         (opt) => (opt?.field?.key ?? opt?.field) === "InsertedRecord"
+         (opt) => (opt?.field?.key ?? opt?.field) === "InsertedRecord",
       );
 
       if (dataFieldOpt == null) return [];
@@ -26312,7 +26955,7 @@ module.exports = class SubProcessCore extends ABProcessElement {
       // Get any tasks that exist inside the subprocess
       let previousFields = this.process.processDataFields.call(
          this,
-         currElement
+         currElement,
       );
       if (previousFields && previousFields.length > 0) {
          result = result.concat(previousFields);
@@ -26354,7 +26997,7 @@ module.exports = class SubProcessCore extends ABProcessElement {
                      return item.uuid || item.id || item;
                   } else if (dataFieldOpt.field.datasourceLink) {
                      let returnField = dataFieldOpt.field.datasourceLink.fields(
-                        (f) => f.id == fieldId
+                        (f) => f.id == fieldId,
                      )[0];
                      if (returnField) return item[returnField.columnName];
                      else return item;
@@ -26383,14 +27026,14 @@ module.exports = class SubProcessCore extends ABProcessElement {
    allPreviousConnectionsForElement(...params) {
       return this.process.allPreviousConnectionsForElement.call(
          this,
-         ...params
+         ...params,
       );
    }
 
    allPreviousConnectionsForConnection(...params) {
       return this.process.allPreviousConnectionsForConnection.call(
          this,
-         ...params
+         ...params,
       );
    }
 
@@ -26549,7 +27192,7 @@ module.exports = class SubProcessCore extends ABProcessElement {
 
       this.process.elementRemove.call(this, def);
    }
-};
+}
 
 
 /***/ },
@@ -26558,11 +27201,17 @@ module.exports = class SubProcessCore extends ABProcessElement {
 /*!************************************************************************!*\
   !*** ./AppBuilder/core/process/tasks/ABProcessTaskUserApprovalCore.js ***!
   \************************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABProcessElement = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 54919);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABProcessTaskUserApprovalCore)
+/* harmony export */ });
+/* harmony import */ var _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 54919);
+/* harmony import */ var _platform_dataFields_ABFieldList_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../platform/dataFields/ABFieldList.js */ 75809);
 
-const ABFieldList = __webpack_require__(/*! ../../../platform/dataFields/ABFieldList.js */ 75809);
+
 
 var ABProcessTaskApprovalDefaults = {
    category: null,
@@ -26591,7 +27240,7 @@ var ABProcessTaskApprovalDefaults = {
    // values set by the platform .propertiesStash()
 };
 
-module.exports = class ABProcessTaskUserApprovalCore extends ABProcessElement {
+class ABProcessTaskUserApprovalCore extends _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(attributes, process, AB) {
       attributes.type = attributes.type || "process.task.user.approval";
       super(attributes, process, AB, ABProcessTaskApprovalDefaults);
@@ -26763,7 +27412,7 @@ module.exports = class ABProcessTaskUserApprovalCore extends ABProcessElement {
       // make sure the options follow what is currently defined for our
       // responses:
       var myObj = this.AB.objectNew({});
-      var listField = new ABFieldList(
+      var listField = new _platform_dataFields_ABFieldList_js__WEBPACK_IMPORTED_MODULE_1__["default"](
          {
             id: `${myID}.userFormResponse`,
             label: `${this.label}->Response`,
@@ -26772,7 +27421,7 @@ module.exports = class ABProcessTaskUserApprovalCore extends ABProcessElement {
                options: options,
             },
          },
-         myObj
+         myObj,
       );
 
       // NOTE: We are pretending our response is a type of ABFieldList. But our
@@ -26808,7 +27457,7 @@ module.exports = class ABProcessTaskUserApprovalCore extends ABProcessElement {
       }
       return null;
    }
-};
+}
 
 
 /***/ },
@@ -26817,7 +27466,15 @@ module.exports = class ABProcessTaskUserApprovalCore extends ABProcessElement {
 /*!****************************************************************!*\
   !*** ./AppBuilder/core/process/tasks/ABProcessTaskUserCore.js ***!
   \****************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABProcessTaskUserCore)
+/* harmony export */ });
+/* harmony import */ var _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 54919);
+
 
 /**
  * ABProcessTaskUserCore
@@ -26833,8 +27490,6 @@ module.exports = class ABProcessTaskUserApprovalCore extends ABProcessElement {
  *  - fill out a form
  *
  */
-
-const ABProcessElement = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 54919);
 
 var ABProcessTaskUserDefaults = {
    category: "task",
@@ -26863,7 +27518,7 @@ var ABProcessTaskUserDefaults = {
    // values set by the platform .propertiesStash()
 };
 
-module.exports = class ABProcessTaskUserCore extends ABProcessElement {
+class ABProcessTaskUserCore extends _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(attributes, process, AB) {
       attributes.type = attributes.type || "process.task.user";
       super(attributes, process, AB, ABProcessTaskUserDefaults);
@@ -26924,7 +27579,7 @@ module.exports = class ABProcessTaskUserCore extends ABProcessElement {
 
       super.initState(context, myDefaults, val);
    }
-};
+}
 
 
 /***/ },
@@ -26933,11 +27588,15 @@ module.exports = class ABProcessTaskUserCore extends ABProcessElement {
 /*!************************************************************************!*\
   !*** ./AppBuilder/core/process/tasks/ABProcessTaskUserExternalCore.js ***!
   \************************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-// import ABApplication from "./ABApplication"
-// const ABApplication = require("./ABApplication"); // NOTE: change to require()
-const ABProcessElement = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 54919);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABProcessTaskUserExternalCore)
+/* harmony export */ });
+/* harmony import */ var _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 54919);
+
 
 const ABProcessTaskUserExternalDefaults = {
    category: null,
@@ -26972,7 +27631,7 @@ const settings = {
    url: "",
 };
 
-module.exports = class ABProcessTaskUserExternalCore extends ABProcessElement {
+class ABProcessTaskUserExternalCore extends _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(attributes, process, AB) {
       for (const key in settings)
          attributes[key] = attributes[key] ?? settings[key];
@@ -26981,11 +27640,11 @@ module.exports = class ABProcessTaskUserExternalCore extends ABProcessElement {
             {
                type: "process.task.service.external",
             },
-            attributes
+            attributes,
          ),
          process,
          AB,
-         ABProcessTaskUserExternalDefaults
+         ABProcessTaskUserExternalDefaults,
       );
 
       // listen
@@ -27016,7 +27675,7 @@ module.exports = class ABProcessTaskUserExternalCore extends ABProcessElement {
          },
       ];
    }
-};
+}
 
 
 /***/ },
@@ -27025,9 +27684,15 @@ module.exports = class ABProcessTaskUserExternalCore extends ABProcessElement {
 /*!********************************************************************!*\
   !*** ./AppBuilder/core/process/tasks/ABProcessTaskUserFormCore.js ***!
   \********************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABProcessElement = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 54919);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABProcessTaskUserFormCore)
+/* harmony export */ });
+/* harmony import */ var _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 54919);
+
 
 const ABProcessTaskUserFormDefaults = {
    category: null,
@@ -27058,7 +27723,7 @@ const ABProcessTaskUserFormDefaults = {
 
 const settings = {};
 
-module.exports = class ABProcessTaskUserFormCore extends ABProcessElement {
+class ABProcessTaskUserFormCore extends _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(attributes, process, AB) {
       for (const key in settings)
          attributes[key] = attributes[key] ?? settings[key];
@@ -27067,11 +27732,11 @@ module.exports = class ABProcessTaskUserFormCore extends ABProcessElement {
             {
                type: "process.task.service.form",
             },
-            attributes
+            attributes,
          ),
          process,
          AB,
-         ABProcessTaskUserFormDefaults
+         ABProcessTaskUserFormDefaults,
       );
 
       // listen
@@ -27118,7 +27783,7 @@ module.exports = class ABProcessTaskUserFormCore extends ABProcessElement {
 
       return myState[key];
    }
-};
+}
 
 
 /***/ },
@@ -27127,9 +27792,15 @@ module.exports = class ABProcessTaskUserFormCore extends ABProcessElement {
 /*!***************************************************************!*\
   !*** ./AppBuilder/core/process/tasks/ABProcessTriggerCore.js ***!
   \***************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABProcessElement = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 54919);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABProcessTriggerCore)
+/* harmony export */ });
+/* harmony import */ var _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 54919);
+
 
 var ABProcessTriggerDefaults = {
    category: "start",
@@ -27153,7 +27824,7 @@ var ABProcessTriggerDefaults = {
    // unique key to reference this specific Task
 };
 
-module.exports = class ABProcessTriggerCore extends ABProcessElement {
+class ABProcessTriggerCore extends _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(attributes, process, AB) {
       attributes.type = attributes.type || "trigger";
       super(attributes, process, AB, ABProcessTriggerDefaults);
@@ -27204,7 +27875,7 @@ module.exports = class ABProcessTriggerCore extends ABProcessElement {
 
       return data;
    }
-};
+}
 
 
 /***/ },
@@ -27213,11 +27884,15 @@ module.exports = class ABProcessTriggerCore extends ABProcessElement {
 /*!************************************************************************!*\
   !*** ./AppBuilder/core/process/tasks/ABProcessTriggerLifecycleCore.js ***!
   \************************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-// import ABApplication from "./ABApplication"
-// const ABApplication = require("./ABApplication"); // NOTE: change to require()
-const ABProcessTrigger = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessTrigger.js */ 46091);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABProcessTriggerLifecycle)
+/* harmony export */ });
+/* harmony import */ var _platform_process_tasks_ABProcessTrigger_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessTrigger.js */ 46091);
+
 
 var ABProcessTaskTriggerLifecycleDefaults = {
    category: "start",
@@ -27244,7 +27919,7 @@ var ABProcessTaskTriggerLifecycleDefaults = {
    // unique key to reference this specific Task
 };
 
-module.exports = class ABProcessTriggerLifecycle extends ABProcessTrigger {
+class ABProcessTriggerLifecycle extends _platform_process_tasks_ABProcessTrigger_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(attributes, process, AB) {
       attributes.type = attributes.type || "trigger";
       super(attributes, process, AB, ABProcessTaskTriggerLifecycleDefaults);
@@ -27331,7 +28006,7 @@ module.exports = class ABProcessTriggerLifecycle extends ABProcessTrigger {
             // OK, so we have an this.objectID defined, but we can't find it.
             // that's something we need to alert:
             var error = new Error(
-               `ABProcessTriggerLifecycleCore.processDataFields():TaskID[${this.id}]: could not find referenced object by ID [${this.objectID}]`
+               `ABProcessTriggerLifecycleCore.processDataFields():TaskID[${this.id}]: could not find referenced object by ID [${this.objectID}]`,
             );
             this.AB.notify.builder(error, {
                task: this.id,
@@ -27421,7 +28096,7 @@ module.exports = class ABProcessTriggerLifecycle extends ABProcessTrigger {
       }
       return objects;
    }
-};
+}
 
 
 /***/ },
@@ -27430,9 +28105,15 @@ module.exports = class ABProcessTriggerLifecycle extends ABProcessTrigger {
 /*!********************************************************************!*\
   !*** ./AppBuilder/core/process/tasks/ABProcessTriggerTimerCore.js ***!
   \********************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABProcessTrigger = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessTrigger.js */ 46091);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABProcessTriggerTimer)
+/* harmony export */ });
+/* harmony import */ var _platform_process_tasks_ABProcessTrigger_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessTrigger.js */ 46091);
+
 
 var ABProcessTaskTriggerLifecycleDefaults = {
    category: "start",
@@ -27470,14 +28151,14 @@ var ABProcessTaskTriggerLifecycleDefaults = {
    isEnabled: true,
 };
 
-module.exports = class ABProcessTriggerTimer extends ABProcessTrigger {
+class ABProcessTriggerTimer extends _platform_process_tasks_ABProcessTrigger_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(attributes, process, application) {
       attributes.type = attributes.type || "trigger";
       super(
          attributes,
          process,
          application,
-         ABProcessTaskTriggerLifecycleDefaults
+         ABProcessTaskTriggerLifecycleDefaults,
       );
    }
 
@@ -27598,7 +28279,7 @@ module.exports = class ABProcessTriggerTimer extends ABProcessTrigger {
 
       return `${second} ${minute} ${hour} ${day} ${month} ${dayWeek} ${year}`;
    }
-};
+}
 
 
 /***/ },
@@ -27607,7 +28288,15 @@ module.exports = class ABProcessTriggerTimer extends ABProcessTrigger {
 /*!****************************************!*\
   !*** ./AppBuilder/core/ql/ABQLCore.js ***!
   \****************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _platform_ABEmitter_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/ABEmitter.js */ 89327);
+
 
 /*
  * ABQL
@@ -27618,8 +28307,7 @@ module.exports = class ABProcessTriggerTimer extends ABProcessTrigger {
  *
  *
  */
-var ABEmitter = __webpack_require__(/*! ../../platform/ABEmitter */ 89327);
-class ABQLCore extends ABEmitter {
+class ABQLCore extends _platform_ABEmitter_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(attributes, parameterDefinitions, prevOP, task, AB) {
       super();
 
@@ -27655,7 +28343,7 @@ class ABQLCore extends ABEmitter {
    ///
    /// Instance Methods
    ///
-   initObject(attributes) {}
+   initObject(/* _attributes */) {}
 
    fromAttributes(attributes) {
       /*
@@ -27687,12 +28375,12 @@ class ABQLCore extends ABEmitter {
       if (this.objectID && !this.object)
          this.AB.notify.developer(
             new Error(
-               `ABQLCore.fromAttributes(): unable to initialize ABObject [${this.objectID}]`
+               `ABQLCore.fromAttributes(): unable to initialize ABObject [${this.objectID}]`,
             ),
             {
                attributes,
                objectID: this.objectID,
-            }
+            },
          );
 
       if (attributes.next) {
@@ -27760,7 +28448,7 @@ class ABQLCore extends ABEmitter {
     *        the this.parameterDefinition entry of the parameter that was
     *        changed.
     */
-   paramChanged(pDef) {}
+   paramChanged(/* _pDef */) {}
 
    /**
     * @method toObj()
@@ -27786,7 +28474,7 @@ class ABQLCore extends ABEmitter {
    }
 }
 
-module.exports = ABQLCore;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ABQLCore);
 
 
 /***/ },
@@ -27795,7 +28483,17 @@ module.exports = ABQLCore;
 /*!********************************************!*\
   !*** ./AppBuilder/core/ql/ABQLFindCore.js ***!
   \********************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _platform_ql_ABQL_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/ql/ABQL.js */ 28388);
+/* harmony import */ var _ABQLSet_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ABQLSet.js */ 40002);
+
+
 
 /*
  * ABQLFindCore
@@ -27805,8 +28503,6 @@ module.exports = ABQLCore;
  *
  */
 
-const ABQL = __webpack_require__(/*! ../../platform/ql/ABQL.js */ 28388);
-const NextQLOps = __webpack_require__(/*! ./ABQLSet.js */ 40002);
 // {array} of {ABQLxxx} options
 // this is an array of what possible next Operations can come after an
 // ABQLFind task is complete.  In this case the {ABQLSet} operations come
@@ -27819,7 +28515,7 @@ const ParameterDefinitions = [
    },
 ];
 
-class ABQLFindCore extends ABQL {
+class ABQLFindCore extends _platform_ql_ABQL_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(attributes, prevOP, task, AB) {
       super(attributes, ParameterDefinitions, prevOP, task, AB);
    }
@@ -27831,9 +28527,9 @@ class ABQLFindCore extends ABQL {
 
 ABQLFindCore.key = "find";
 ABQLFindCore.label = "find";
-ABQLFindCore.NextQLOps = NextQLOps;
+ABQLFindCore.NextQLOps = _ABQLSet_js__WEBPACK_IMPORTED_MODULE_1__["default"];
 
-module.exports = ABQLFindCore;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ABQLFindCore);
 
 
 /***/ },
@@ -27842,7 +28538,15 @@ module.exports = ABQLFindCore;
 /*!***********************************************!*\
   !*** ./AppBuilder/core/ql/ABQLManagerCore.js ***!
   \***********************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _platform_ql_ABQLRootObject_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/ql/ABQLRootObject.js */ 4335);
+
 
 /*
  * ABQLManagerCore
@@ -27852,8 +28556,7 @@ module.exports = ABQLFindCore;
  *
  */
 
-const QLObject = __webpack_require__(/*! ../../platform/ql/ABQLRootObject.js */ 4335);
-const QLOps = [QLObject];
+const QLOps = [_platform_ql_ABQLRootObject_js__WEBPACK_IMPORTED_MODULE_0__["default"]];
 
 const ABQLManagerCore = {
    /**
@@ -27892,7 +28595,7 @@ const ABQLManagerCore = {
     */
    QLOps: QLOps,
 };
-module.exports = ABQLManagerCore;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ABQLManagerCore);
 
 
 /***/ },
@@ -27901,7 +28604,17 @@ module.exports = ABQLManagerCore;
 /*!**************************************************!*\
   !*** ./AppBuilder/core/ql/ABQLRootObjectCore.js ***!
   \**************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _platform_ql_ABQL_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/ql/ABQL.js */ 28388);
+/* harmony import */ var _platform_ql_ABQLFind_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../platform/ql/ABQLFind.js */ 93723);
+
+
 
 /*
  * ABQLRootObjectCore
@@ -27913,13 +28626,10 @@ module.exports = ABQLManagerCore;
  *
  */
 
-const ABQL = __webpack_require__(/*! ../../platform/ql/ABQL.js */ 28388);
-
 // Define the Operations that can be performed off of a RootObject.
 // Each Root Object might have a different set of Operations, so we
 // define them here.
-const QLFind = __webpack_require__(/*! ../../platform/ql/ABQLFind.js */ 93723);
-const NextQLOps = [QLFind];
+const NextQLOps = [_platform_ql_ABQLFind_js__WEBPACK_IMPORTED_MODULE_1__["default"]];
 
 const ParameterDefinitions = [
    {
@@ -27928,7 +28638,7 @@ const ParameterDefinitions = [
    },
 ];
 
-class ABQLObjectCore extends ABQL {
+class ABQLObjectCore extends _platform_ql_ABQL_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(attributes, task, AB) {
       // NOTE: keep this so we can insert the prevOp == null
       super(attributes, ParameterDefinitions, null, task, AB);
@@ -27978,7 +28688,7 @@ ABQLObjectCore.key = "object";
 ABQLObjectCore.label = "object";
 ABQLObjectCore.NextQLOps = NextQLOps;
 
-module.exports = ABQLObjectCore;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ABQLObjectCore);
 
 
 /***/ },
@@ -27987,7 +28697,19 @@ module.exports = ABQLObjectCore;
 /*!***************************************!*\
   !*** ./AppBuilder/core/ql/ABQLRow.js ***!
   \***************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _platform_ql_ABQLRowUpdate_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/ql/ABQLRowUpdate.js */ 89891);
+/* harmony import */ var _platform_ql_ABQLRowSave_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../platform/ql/ABQLRowSave.js */ 35823);
+/* harmony import */ var _platform_ql_ABQLRowPluck_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../platform/ql/ABQLRowPluck.js */ 2701);
+
+
+
 
 /*
  * ABQLRow
@@ -27997,11 +28719,7 @@ module.exports = ABQLObjectCore;
  *
  */
 
-const QLUpdate = __webpack_require__(/*! ../../platform/ql/ABQLRowUpdate.js */ 89891);
-const QLSave = __webpack_require__(/*! ../../platform/ql/ABQLRowSave */ 35823);
-const QLPluck = __webpack_require__(/*! ../../platform/ql/ABQLRowPluck */ 2701);
-
-module.exports = [QLUpdate, QLSave, QLPluck];
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ([_platform_ql_ABQLRowUpdate_js__WEBPACK_IMPORTED_MODULE_0__["default"], _platform_ql_ABQLRowSave_js__WEBPACK_IMPORTED_MODULE_1__["default"], _platform_ql_ABQLRowPluck_js__WEBPACK_IMPORTED_MODULE_2__["default"]]);
 
 
 /***/ },
@@ -28010,7 +28728,22 @@ module.exports = [QLUpdate, QLSave, QLPluck];
 /*!************************************************!*\
   !*** ./AppBuilder/core/ql/ABQLRowPluckCore.js ***!
   \************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _ABQLSet_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABQLSet.js */ 40002);
+/* harmony import */ var _platform_ql_ABQLSetPluck_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../platform/ql/ABQLSetPluck.js */ 8885);
+/* harmony import */ var _platform_ql_ABQLRowUpdate_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../platform/ql/ABQLRowUpdate.js */ 89891);
+/* harmony import */ var _platform_ql_ABQLRowSave_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../platform/ql/ABQLRowSave.js */ 35823);
+// import ABQLValue from "./ABQLValue.js";
+
+
+
+
 
 /*
 /*
@@ -28021,13 +28754,7 @@ module.exports = [QLUpdate, QLSave, QLPluck];
  *
  */
 
-// const ABQLValue = require("./ABQLValue.js");
-// const ABQLSet = require("./ABQLSet.js");
-const ABQLSetPluck = __webpack_require__(/*! ../../platform/ql/ABQLSetPluck.js */ 8885);
-const ABQLRowUpdate = __webpack_require__(/*! ../../platform/ql/ABQLRowUpdate.js */ 89891);
-const ABQLRowSave = __webpack_require__(/*! ../../platform/ql/ABQLRowSave.js */ 35823);
-
-class ABQLRowPluckCore extends ABQLSetPluck {
+class ABQLRowPluckCore extends _platform_ql_ABQLSetPluck_js__WEBPACK_IMPORTED_MODULE_1__["default"] {
    // Dynamic NextQLOps
    get NextQLOps() {
       let nextQLOps = [];
@@ -28039,10 +28766,8 @@ class ABQLRowPluckCore extends ABQLSetPluck {
          // M:1 M:N connect field, then set ABQLSet to next steps
          case "connectObject":
             if (field.settings.linkType === "many") {
-               // NOTE: Could not require("./ABQLSet.js") on the top. It returns an empty object. Why ><
-               const ABQLSet = __webpack_require__(/*! ./ABQLSet.js */ 40002);
-
-               nextQLOps = ABQLSet;
+               // NOTE: Could not ABQLSet on the top. It returns an empty object. Why ><
+               nextQLOps = _ABQLSet_js__WEBPACK_IMPORTED_MODULE_0__["default"];
 
                break;
             }
@@ -28051,7 +28776,7 @@ class ABQLRowPluckCore extends ABQLSetPluck {
             nextQLOps = this.prevOP.constructor.NextQLOps.filter(
                (NextQLOp) =>
                   NextQLOp.key === this.constructor.key ||
-                  NextQLOp.key === ABQLRowUpdate.key
+                  NextQLOp.key === _platform_ql_ABQLRowUpdate_js__WEBPACK_IMPORTED_MODULE_2__["default"].key,
             );
 
             break;
@@ -28062,10 +28787,8 @@ class ABQLRowPluckCore extends ABQLSetPluck {
                field.settings.linkType === "many" ||
                field.settings.isMultiple // may be unnessicary
             ) {
-               // NOTE: Could not require("./ABQLSet.js") on the top. It returns an empty object. Why ><
-               const ABQLSet = __webpack_require__(/*! ./ABQLSet.js */ 40002);
-
-               nextQLOps = ABQLSet;
+               // NOTE: Could not ABQLSet on the top. It returns an empty object. Why ><
+               nextQLOps = _ABQLSet_js__WEBPACK_IMPORTED_MODULE_0__["default"];
 
                break;
             }
@@ -28074,8 +28797,8 @@ class ABQLRowPluckCore extends ABQLSetPluck {
             nextQLOps = this.prevOP.constructor.NextQLOps.filter(
                (NextQLOp) =>
                   NextQLOp.key === this.constructor.key ||
-                  NextQLOp.key === ABQLRowUpdate.key ||
-                  NextQLOp.key === ABQLRowSave.key
+                  NextQLOp.key === _platform_ql_ABQLRowUpdate_js__WEBPACK_IMPORTED_MODULE_2__["default"].key ||
+                  NextQLOp.key === _platform_ql_ABQLRowSave_js__WEBPACK_IMPORTED_MODULE_3__["default"].key,
             );
 
             break;
@@ -28083,7 +28806,7 @@ class ABQLRowPluckCore extends ABQLSetPluck {
          default:
             // Normal field and _PK
             nextQLOps = this.prevOP.constructor.NextQLOps.filter(
-               (NextQLOp) => NextQLOp.key === ABQLRowSave.key
+               (NextQLOp) => NextQLOp.key === _platform_ql_ABQLRowSave_js__WEBPACK_IMPORTED_MODULE_3__["default"].key,
             );
 
             break;
@@ -28097,7 +28820,7 @@ ABQLRowPluckCore.key = "row_pluck";
 ABQLRowPluckCore.label = "Read the value from the field";
 ABQLRowPluckCore.NextQLOps = []; // Static NextQLOps
 
-module.exports = ABQLRowPluckCore;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ABQLRowPluckCore);
 
 
 /***/ },
@@ -28106,7 +28829,15 @@ module.exports = ABQLRowPluckCore;
 /*!***********************************************!*\
   !*** ./AppBuilder/core/ql/ABQLRowSaveCore.js ***!
   \***********************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _platform_ql_ABQLSetSave_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/ql/ABQLSetSave.js */ 38919);
+
 
 /*
 /*
@@ -28117,16 +28848,14 @@ module.exports = ABQLRowPluckCore;
  *
  */
 
-const ABQLSetSave = __webpack_require__(/*! ../../platform/ql/ABQLSetSave.js */ 38919);
-
-class ABQLRowSaveCore extends ABQLSetSave {}
+class ABQLRowSaveCore extends _platform_ql_ABQLSetSave_js__WEBPACK_IMPORTED_MODULE_0__["default"] {}
 
 ABQLRowSaveCore.key = "row_save";
 ABQLRowSaveCore.label = "Save the value as";
 ABQLRowSaveCore.NextQLOps = [];
 // NOTE: currently, this is an ending step. but it doesn't have to be...
 
-module.exports = ABQLRowSaveCore;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ABQLRowSaveCore);
 
 
 /***/ },
@@ -28135,7 +28864,16 @@ module.exports = ABQLRowSaveCore;
 /*!*************************************************!*\
   !*** ./AppBuilder/core/ql/ABQLRowUpdateCore.js ***!
   \*************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _platform_ql_ABQL_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/ql/ABQL.js */ 28388);
+
+// import ABQLRow from "./ABQLRow.js";
 
 /*
  * ABQLRowUpdateCore
@@ -28145,9 +28883,6 @@ module.exports = ABQLRowSaveCore;
  *
  */
 
-const ABQL = __webpack_require__(/*! ../../platform/ql/ABQL.js */ 28388);
-// const ABQLRow = require("./ABQLRow.js");
-
 const ParameterDefinitions = [
    {
       type: "objectValues",
@@ -28155,7 +28890,7 @@ const ParameterDefinitions = [
    },
 ];
 
-class ABQLRowUpdateCore extends ABQL {
+class ABQLRowUpdateCore extends _platform_ql_ABQL_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(attributes, prevOP, task, AB) {
       super(attributes, ParameterDefinitions, prevOP, task, AB);
 
@@ -28175,7 +28910,7 @@ ABQLRowUpdateCore.label = "Update this record";
 ABQLRowUpdateCore.NextQLOps = [];
 // NOTE: .NextQLOps => see the #Hack in the constructor
 
-module.exports = ABQLRowUpdateCore;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ABQLRowUpdateCore);
 
 
 /***/ },
@@ -28184,7 +28919,19 @@ module.exports = ABQLRowUpdateCore;
 /*!***************************************!*\
   !*** ./AppBuilder/core/ql/ABQLSet.js ***!
   \***************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _platform_ql_ABQLSetFirst_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/ql/ABQLSetFirst.js */ 33954);
+/* harmony import */ var _platform_ql_ABQLSetPluck_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../platform/ql/ABQLSetPluck.js */ 8885);
+/* harmony import */ var _platform_ql_ABQLSetSave_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../platform/ql/ABQLSetSave.js */ 38919);
+
+
+
 
 /*
  * ABQLSet
@@ -28194,11 +28941,7 @@ module.exports = ABQLRowUpdateCore;
  *
  */
 
-module.exports = [
-   __webpack_require__(/*! ../../platform/ql/ABQLSetFirst.js */ 33954),
-   __webpack_require__(/*! ../../platform/ql/ABQLSetPluck.js */ 8885),
-   __webpack_require__(/*! ../../platform/ql/ABQLSetSave.js */ 38919),
-];
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ([_platform_ql_ABQLSetFirst_js__WEBPACK_IMPORTED_MODULE_0__["default"], _platform_ql_ABQLSetPluck_js__WEBPACK_IMPORTED_MODULE_1__["default"], _platform_ql_ABQLSetSave_js__WEBPACK_IMPORTED_MODULE_2__["default"]]);
 
 
 /***/ },
@@ -28207,7 +28950,17 @@ module.exports = [
 /*!************************************************!*\
   !*** ./AppBuilder/core/ql/ABQLSetFirstCore.js ***!
   \************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _platform_ql_ABQL_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/ql/ABQL.js */ 28388);
+/* harmony import */ var _ABQLRow_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ABQLRow.js */ 5194);
+
+
 
 /*
 /*
@@ -28218,14 +28971,12 @@ module.exports = [
  *
  */
 
-const ABQL = __webpack_require__(/*! ../../platform/ql/ABQL.js */ 28388);
-const ABQLRow = __webpack_require__(/*! ./ABQLRow.js */ 5194);
 // {array} of {ABQLxxx} options
 // this is an array of what possible next Operations can come after an
 // ABQLSetFirst task is complete.  In this case the {ABQLRow} operations come
 // next.  {ABQLRow} operations work on a single row of data.
 
-class ABQLSetFirstCore extends ABQL {
+class ABQLSetFirstCore extends _platform_ql_ABQL_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(attributes, prevOP, task, AB) {
       super(attributes, [], prevOP, task, AB);
    }
@@ -28237,9 +28988,9 @@ class ABQLSetFirstCore extends ABQL {
 
 ABQLSetFirstCore.key = "first";
 ABQLSetFirstCore.label = "Select the first record";
-ABQLSetFirstCore.NextQLOps = ABQLRow;
+ABQLSetFirstCore.NextQLOps = _ABQLRow_js__WEBPACK_IMPORTED_MODULE_1__["default"];
 
-module.exports = ABQLSetFirstCore;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ABQLSetFirstCore);
 
 
 /***/ },
@@ -28248,7 +28999,16 @@ module.exports = ABQLSetFirstCore;
 /*!************************************************!*\
   !*** ./AppBuilder/core/ql/ABQLSetPluckCore.js ***!
   \************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _platform_ql_ABQL_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/ql/ABQL.js */ 28388);
+
+// import ABQLSet from "./ABQLSet.js";
 
 /*
 /*
@@ -28259,9 +29019,6 @@ module.exports = ABQLSetFirstCore;
  *
  */
 
-const ABQL = __webpack_require__(/*! ../../platform/ql/ABQL.js */ 28388);
-// const ABQLSet = require("./ABQLSet.js");
-
 const ParameterDefinitions = [
    {
       type: "objectFields",
@@ -28269,7 +29026,7 @@ const ParameterDefinitions = [
    },
 ];
 
-class ABQLSetPluckCore extends ABQL {
+class ABQLSetPluckCore extends _platform_ql_ABQL_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(attributes, prevOP, task, AB) {
       super(attributes, ParameterDefinitions, prevOP, task, AB);
    }
@@ -28335,7 +29092,7 @@ ABQLSetPluckCore.key = "set_pluck";
 ABQLSetPluckCore.label = "Read the value from the field";
 ABQLSetPluckCore.NextQLOps = [];
 
-module.exports = ABQLSetPluckCore;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ABQLSetPluckCore);
 
 
 /***/ },
@@ -28344,7 +29101,15 @@ module.exports = ABQLSetPluckCore;
 /*!***********************************************!*\
   !*** ./AppBuilder/core/ql/ABQLSetSaveCore.js ***!
   \***********************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _platform_ql_ABQL_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/ql/ABQL.js */ 28388);
+
 
 /*
 /*
@@ -28355,8 +29120,6 @@ module.exports = ABQLSetPluckCore;
  *
  */
 
-const ABQL = __webpack_require__(/*! ../../platform/ql/ABQL.js */ 28388);
-
 const ParameterDefinitions = [
    {
       type: "taskParam",
@@ -28364,7 +29127,7 @@ const ParameterDefinitions = [
    },
 ];
 
-class ABQLSetSaveCore extends ABQL {
+class ABQLSetSaveCore extends _platform_ql_ABQL_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(attributes, prevOP, task, AB) {
       super(attributes, ParameterDefinitions, prevOP, task, AB);
 
@@ -28431,7 +29194,7 @@ ABQLSetSaveCore.label = "Save the value as";
 ABQLSetSaveCore.NextQLOps = [];
 // NOTE: currently, this is an ending step. but it doesn't have to be...
 
-module.exports = ABQLSetSaveCore;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ABQLSetSaveCore);
 
 
 /***/ },
@@ -28440,9 +29203,15 @@ module.exports = ABQLSetSaveCore;
 /*!*****************************************************************!*\
   !*** ./AppBuilder/core/views/ABViewConditionalContainerCore.js ***!
   \*****************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABViewContainer = __webpack_require__(/*! ../../platform/views/ABViewContainer */ 76528);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewConditionalContainerCore)
+/* harmony export */ });
+/* harmony import */ var _platform_views_ABViewContainer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/views/ABViewContainer.js */ 76528);
+
 
 const ABViewPropertyDefaults = {
    dataviewID: null,
@@ -28455,27 +29224,27 @@ const ABViewDefaults = {
    labelKey: "Conditional Container", // {string} the multilingual label key for the class label
 };
 
-module.exports = class ABViewConditionalContainerCore extends ABViewContainer {
+class ABViewConditionalContainerCore extends _platform_views_ABViewContainer_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(values, application, parent, defaultValues) {
       super(values, application, parent, defaultValues || ABViewDefaults);
 
       const L = (...params) => this.AB.Multilingual.label(...params);
 
       // the conditional container always has 'If' and 'Else' panels
-      if (this.views((v) => v instanceof ABViewContainer).length < 2) {
+      if (this.views((v) => v instanceof _platform_views_ABViewContainer_js__WEBPACK_IMPORTED_MODULE_0__["default"]).length < 2) {
          this._views = [];
 
          // 'If' panel
          const ifPanel = application.viewNew(
             {
-               key: ABViewContainer.common().key,
+               key: _platform_views_ABViewContainer_js__WEBPACK_IMPORTED_MODULE_0__["default"].common().key,
                label: L("If"),
                name: "If",
                settings: {
                   removable: false,
                },
             },
-            this
+            this,
          );
 
          this._views.push(ifPanel);
@@ -28483,14 +29252,14 @@ module.exports = class ABViewConditionalContainerCore extends ABViewContainer {
          // 'Else' panel
          const elsePanel = application.viewNew(
             {
-               key: ABViewContainer.common().key,
+               key: _platform_views_ABViewContainer_js__WEBPACK_IMPORTED_MODULE_0__["default"].common().key,
                label: L("Else"),
                name: "Else",
                settings: {
                   removable: false,
                },
             },
-            this
+            this,
          );
 
          this._views.push(elsePanel);
@@ -28513,7 +29282,7 @@ module.exports = class ABViewConditionalContainerCore extends ABViewContainer {
    componentList() {
       return [];
    }
-};
+}
 
 
 /***/ },
@@ -28522,9 +29291,15 @@ module.exports = class ABViewConditionalContainerCore extends ABViewContainer {
 /*!**************************************************************!*\
   !*** ./AppBuilder/core/views/ABViewConnectDataFilterCore.js ***!
   \**************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABViewWidget = __webpack_require__(/*! ../../platform/views/ABViewWidget */ 87039);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewConnectDataFilterCore)
+/* harmony export */ });
+/* harmony import */ var _platform_views_ABViewWidget_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/views/ABViewWidget.js */ 87039);
+
 
 const ABViewConnectDataFilterPropertyComponentDefaults = {
    dataviewID: null, // uuid of ABDatacollection
@@ -28537,7 +29312,7 @@ const ABViewDefaults = {
    labelKey: "Connected Data Filter", // {string} the multilingual label key for the class label
 };
 
-module.exports = class ABViewConnectDataFilterCore extends ABViewWidget {
+class ABViewConnectDataFilterCore extends _platform_views_ABViewWidget_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(values, application, parent, defaultValues) {
       super(values, application, parent, defaultValues ?? ABViewDefaults);
    }
@@ -28561,7 +29336,7 @@ module.exports = class ABViewConnectDataFilterCore extends ABViewWidget {
    componentList() {
       return [];
    }
-};
+}
 
 
 /***/ },
@@ -28570,7 +29345,15 @@ module.exports = class ABViewConnectDataFilterCore extends ABViewWidget {
 /*!******************************************************!*\
   !*** ./AppBuilder/core/views/ABViewContainerCore.js ***!
   \******************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewContainerCore)
+/* harmony export */ });
+/* harmony import */ var _platform_views_ABView_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/views/ABView.js */ 30747);
+
 
 /*
  * ABViewContainerCore
@@ -28580,8 +29363,6 @@ module.exports = class ABViewConnectDataFilterCore extends ABViewWidget {
  * A container might have multiple columns of display info.
  *
  */
-
-const ABView = __webpack_require__(/*! ../../platform/views/ABView */ 30747);
 
 // function L(key, altText) {
 // 	return AD.lang.label.getLabel(key) || altText;
@@ -28600,7 +29381,7 @@ const ABPropertyComponentDefaults = {
    removable: true,
 };
 
-module.exports = class ABViewContainerCore extends ABView {
+class ABViewContainerCore extends _platform_views_ABView_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    /**
     * @param {obj} values  key=>value hash of ABView values
     * @param {ABApplication} application the application object this view is under
@@ -28630,7 +29411,7 @@ module.exports = class ABViewContainerCore extends ABView {
 
       // convert from "0" => 0
       this.settings.columns = parseInt(
-         this.settings.columns || ABPropertyComponentDefaults.columns
+         this.settings.columns || ABPropertyComponentDefaults.columns,
       );
 
       if (typeof this.settings.gravity != "undefined") {
@@ -28663,7 +29444,7 @@ module.exports = class ABViewContainerCore extends ABView {
    // saveReorder() {
    //    return this.application.viewReorder(this);
    // }
-};
+}
 
 
 /***/ },
@@ -28672,7 +29453,15 @@ module.exports = class ABViewContainerCore extends ABView {
 /*!*********************************************!*\
   !*** ./AppBuilder/core/views/ABViewCore.js ***!
   \*********************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewCore)
+/* harmony export */ });
+/* harmony import */ var _platform_ABMLClass_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/ABMLClass.js */ 72982);
+
 
 /*
  * ABViewCore
@@ -28682,8 +29471,6 @@ module.exports = class ABViewContainerCore extends ABView {
  * how it is related to the ABView classes.
  *
  */
-
-var ABMLClass = __webpack_require__(/*! ../../platform/ABMLClass */ 72982);
 
 const ABViewDefaults = {
    key: "view", // {string} unique key for this view
@@ -28696,7 +29483,7 @@ const ABViewPropertyComponentDefaults = {
    label: "",
 };
 
-module.exports = class ABViewCore extends ABMLClass {
+class ABViewCore extends _platform_ABMLClass_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    /**
     * @param {obj} values  key=>value hash of ABView values
     * @param {ABApplication} application the application object this view is under
@@ -28969,7 +29756,7 @@ module.exports = class ABViewCore extends ABMLClass {
             this.AB.Account.roles().forEach((role) => {
                if (
                   this.application.accessManagers.role.indexOf(
-                     role.id || role.uuid
+                     role.id || role.uuid,
                   ) > -1
                ) {
                   // if so set the access level to full access
@@ -28986,7 +29773,7 @@ module.exports = class ABViewCore extends ABMLClass {
             // check if the user's account matches the managers
             if (
                this.application.accessManagers.account.indexOf(
-                  this.AB.Account.uuid() + ""
+                  this.AB.Account.uuid() + "",
                ) > -1
             ) {
                // if so set the access level to full access
@@ -29119,7 +29906,7 @@ module.exports = class ABViewCore extends ABMLClass {
       if (!dataviewID) {
          if (
             ["form", "grid", "line", "area", "bar", "gantt", "kanban"].indexOf(
-               this.key
+               this.key,
             ) > -1
          ) {
             // NOTE: ignore kanban side forms where this is the case:
@@ -29128,7 +29915,7 @@ module.exports = class ABViewCore extends ABMLClass {
             if (this.warningsSilent) return null;
 
             var errNoDCID = new Error(
-               `ABViewCore:get datacollection(): View[${this.key}] didn't define a dataviewID.`
+               `ABViewCore:get datacollection(): View[${this.key}] didn't define a dataviewID.`,
             );
             this.AB.notify.builder(errNoDCID, {
                view: this,
@@ -29138,11 +29925,11 @@ module.exports = class ABViewCore extends ABMLClass {
             // These views shouldn't matter if they don't have a datacollection.
             if (
                ["button", "label", "page", "tab", "viewcontainer"].indexOf(
-                  this.key
+                  this.key,
                ) == -1
             ) {
                console.warn(
-                  `TODO: figure out which ABView* require a .dataviewID: ${this.key}?`
+                  `TODO: figure out which ABView* require a .dataviewID: ${this.key}?`,
                );
             }
          }
@@ -29152,7 +29939,7 @@ module.exports = class ABViewCore extends ABMLClass {
       var dc = this.AB.datacollectionByID(dataviewID);
       if (!dc) {
          var errNoDC = new Error(
-            `View[${this.label}][${this.id}] is unable to find associated DataCollection`
+            `View[${this.label}][${this.id}] is unable to find associated DataCollection`,
          );
          this.AB.notify.builder(errNoDC, {
             view: this,
@@ -29590,12 +30377,12 @@ module.exports = class ABViewCore extends ABMLClass {
                            // remove the temp {id:} entry above:
                            this.application._pages =
                               this.application._pages.filter(
-                                 (p2) => p2.id != lookUpIds[p.id]
+                                 (p2) => p2.id != lookUpIds[p.id],
                               );
 
                            // now add the full copiedSubPage:
                            result._pages.push(copiedSubPage);
-                        })
+                        }),
                   );
                });
             }
@@ -29621,7 +30408,7 @@ module.exports = class ABViewCore extends ABMLClass {
                         ) {
                            result._views.push(copiedView);
                         }
-                     })
+                     }),
                   );
                });
             }
@@ -29636,7 +30423,7 @@ module.exports = class ABViewCore extends ABMLClass {
             return result;
          });
    }
-};
+}
 
 
 /***/ },
@@ -29645,9 +30432,15 @@ module.exports = class ABViewCore extends ABMLClass {
 /*!*******************************************************!*\
   !*** ./AppBuilder/core/views/ABViewDataFilterCore.js ***!
   \*******************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABViewWidget = __webpack_require__(/*! ../../platform/views/ABViewWidget */ 87039);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewDataFilterCore)
+/* harmony export */ });
+/* harmony import */ var _platform_views_ABViewWidget_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/views/ABViewWidget.js */ 87039);
+
 
 const ABViewDataFilterPropertyComponentDefaults = {
    dataviewID: null, // uuid of ABDatacollection
@@ -29663,7 +30456,7 @@ const ABViewDefaults = {
    labelKey: "Data Filter", // {string} the multilingual label key for the class label
 };
 
-module.exports = class ABViewDataFilterCore extends ABViewWidget {
+class ABViewDataFilterCore extends _platform_views_ABViewWidget_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(values, application, parent, defaultValues) {
       super(values, application, parent, defaultValues ?? ABViewDefaults);
    }
@@ -29697,7 +30490,7 @@ module.exports = class ABViewDataFilterCore extends ABViewWidget {
    componentList() {
       return [];
    }
-};
+}
 
 
 /***/ },
@@ -29706,9 +30499,15 @@ module.exports = class ABViewDataFilterCore extends ABViewWidget {
 /*!*************************************************!*\
   !*** ./AppBuilder/core/views/ABViewMenuCore.js ***!
   \*************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABViewWidget = __webpack_require__(/*! ../../platform/views/ABViewWidget */ 87039);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewMenuCore)
+/* harmony export */ });
+/* harmony import */ var _platform_views_ABViewWidget_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/views/ABViewWidget.js */ 87039);
+
 
 const ABViewMenuPropertyComponentDefaults = {
    orientation: "x",
@@ -29741,7 +30540,7 @@ const ABMenuDefaults = {
    labelKey: "Menu", // {string} the multilingual label key for the class label
 };
 
-module.exports = class ABViewMenuCore extends ABViewWidget {
+class ABViewMenuCore extends _platform_views_ABViewWidget_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    /**
     * @param {obj} values  key=>value hash of ABView values
     * @param {ABApplication} application the application object this view is under
@@ -29857,7 +30656,7 @@ module.exports = class ABViewMenuCore extends ABViewWidget {
          if (displayPage.isChecked) {
             let existsPage = this.application.pages(
                (p) => p.id == displayPage.pageId,
-               true
+               true,
             )[0];
             if (!existsPage) return;
 
@@ -29867,7 +30666,7 @@ module.exports = class ABViewMenuCore extends ABViewWidget {
             if (displayPage.tabId) {
                let existsTab = this.application.views(
                   (v) => v.id == displayPage.tabId,
-                  true
+                  true,
                )[0];
                if (!existsTab) return;
 
@@ -29910,7 +30709,7 @@ module.exports = class ABViewMenuCore extends ABViewWidget {
                      ? "fa fa-fw fa-" + displayPage.icon
                      : "",
                },
-               displayPage.position ? parseInt(displayPage.position) : 0
+               displayPage.position ? parseInt(displayPage.position) : 0,
             );
          }
       });
@@ -29972,7 +30771,7 @@ module.exports = class ABViewMenuCore extends ABViewWidget {
             if (pageInfo.type == "tab" || pageInfo.key == "viewcontainer") {
                var tabView = page.views(
                   (v) => v.id == pageInfo.tabId || v.id == pageInfo.id,
-                  true
+                  true,
                )[0];
                if (tabView) {
                   label = tabView.label;
@@ -30014,7 +30813,7 @@ module.exports = class ABViewMenuCore extends ABViewWidget {
          });
       });
    }
-};
+}
 
 
 /***/ },
@@ -30023,7 +30822,16 @@ module.exports = class ABViewMenuCore extends ABViewWidget {
 /*!*************************************************!*\
   !*** ./AppBuilder/core/views/ABViewPageCore.js ***!
   \*************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewPageCore)
+/* harmony export */ });
+/* harmony import */ var _platform_views_ABViewContainer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/views/ABViewContainer.js */ 76528);
+
+// import ABViewManager from "../ABViewManager.js";
 
 /*
  * ABViewPage
@@ -30037,10 +30845,7 @@ module.exports = class ABViewMenuCore extends ABViewWidget {
  *
  */
 
-const ABViewContainer = __webpack_require__(/*! ../../platform/views/ABViewContainer */ 76528);
-// var ABViewManager = require("../ABViewManager");
-
-// function L(key, altText) {
+// // function L(key, altText) {
 //     return AD.lang.label.getLabel(key) || altText;
 // }
 
@@ -30058,7 +30863,7 @@ const ABPropertyComponentDefaults = {
    pageBackground: "ab-background-default",
 };
 
-module.exports = class ABViewPageCore extends ABViewContainer {
+class ABViewPageCore extends _platform_views_ABViewContainer_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(values, application, parent, defaultValues) {
       super(values, application, parent, defaultValues || ABViewDefaults);
 
@@ -30160,7 +30965,7 @@ module.exports = class ABViewPageCore extends ABViewContainer {
             pages.push(this.pageNew(def));
          } else {
             this.AB.error(
-               `App[${this.application.name}][${this.application.id}]->Page[${this.name}][${this.id}] referenced an unknown Page[${id}]`
+               `App[${this.application.name}][${this.application.id}]->Page[${this.name}][${this.id}] referenced an unknown Page[${id}]`,
             );
          }
       });
@@ -30264,7 +31069,7 @@ module.exports = class ABViewPageCore extends ABViewContainer {
    refreshInstance() {
       console.warn(
          "This version of ABViewPage hasn't updated it's refreshInstance()",
-         this
+         this,
       );
       return this;
    }
@@ -30495,7 +31300,7 @@ module.exports = class ABViewPageCore extends ABViewContainer {
       // now continue with the default .copy()
       return super.copy(lookUpIds, parent, options);
    }
-};
+}
 
 
 /***/ },
@@ -30504,9 +31309,15 @@ module.exports = class ABViewPageCore extends ABViewContainer {
 /*!***********************************************************!*\
   !*** ./AppBuilder/core/views/ABViewReportsManagerCore.js ***!
   \***********************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABViewWidget = __webpack_require__(/*! ../../platform/views/ABViewWidget */ 87039);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewReportsManagerCore)
+/* harmony export */ });
+/* harmony import */ var _platform_views_ABViewWidget_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/views/ABViewWidget.js */ 87039);
+
 
 const ABViewReportManagerPropertyComponentDefaults = {
    dataviewID: "",
@@ -30528,7 +31339,7 @@ const ABViewDefaults = {
    labelKey: "Reports Manager", // {string} the multilingual label key for the class label
 };
 
-module.exports = class ABViewReportsManagerCore extends ABViewWidget {
+class ABViewReportsManagerCore extends _platform_views_ABViewWidget_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(values, application, parent, defaultValues) {
       super(values, application, parent, defaultValues || ABViewDefaults);
    }
@@ -30562,13 +31373,13 @@ module.exports = class ABViewReportsManagerCore extends ABViewWidget {
                typeof ABViewReportManagerPropertyComponentDefaults[key1] ===
                   "object" &&
                !Array.isArray(
-                  ABViewReportManagerPropertyComponentDefaults[key1]
+                  ABViewReportManagerPropertyComponentDefaults[key1],
                )
             ) {
                parsedSettings[key1] = {};
 
                Object.keys(
-                  ABViewReportManagerPropertyComponentDefaults[key1]
+                  ABViewReportManagerPropertyComponentDefaults[key1],
                ).forEach((key2) => {
                   parsedSettings[key1][key2] =
                      this.settings[key1]?.[key2] ??
@@ -30581,7 +31392,7 @@ module.exports = class ABViewReportsManagerCore extends ABViewWidget {
             parsedSettings[key1] =
                this.settings[key1] ??
                ABViewReportManagerPropertyComponentDefaults[key1];
-         }
+         },
       );
 
       this.settings = parsedSettings;
@@ -30610,7 +31421,7 @@ module.exports = class ABViewReportsManagerCore extends ABViewWidget {
    componentList() {
       return [];
    }
-};
+}
 
 
 /***/ },
@@ -30619,9 +31430,15 @@ module.exports = class ABViewReportsManagerCore extends ABViewWidget {
 /*!******************************************************!*\
   !*** ./AppBuilder/core/views/ABViewSchedulerCore.js ***!
   \******************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABViewWidget = __webpack_require__(/*! ../../platform/views/ABViewWidget */ 87039);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewSchedulerCore)
+/* harmony export */ });
+/* harmony import */ var _platform_views_ABViewWidget_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/views/ABViewWidget.js */ 87039);
+
 
 const ABViewSchedulerPropertyComponentDefaults = {
    readonly: 0,
@@ -30677,7 +31494,7 @@ const ABViewDefaults = {
    // the multilingual label key for the class label
 };
 
-module.exports = class ABViewSchedulerCore extends ABViewWidget {
+class ABViewSchedulerCore extends _platform_views_ABViewWidget_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(values, application, parent, defaultValues) {
       super(values, application, parent, defaultValues || ABViewDefaults);
 
@@ -30745,7 +31562,7 @@ module.exports = class ABViewSchedulerCore extends ABViewWidget {
                   parsedSettings[key1][key2] =
                      this.settings[key1][key2] ??
                      ABViewSchedulerPropertyComponentDefaults[key1][key2];
-               }
+               },
             );
 
             return;
@@ -30774,7 +31591,7 @@ module.exports = class ABViewSchedulerCore extends ABViewWidget {
    componentList() {
       return [];
    }
-};
+}
 
 
 /***/ },
@@ -30783,9 +31600,15 @@ module.exports = class ABViewSchedulerCore extends ABViewWidget {
 /*!***************************************************!*\
   !*** ./AppBuilder/core/views/ABViewWidgetCore.js ***!
   \***************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABView = __webpack_require__(/*! ../../platform/views/ABView */ 30747);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewWidgetCore)
+/* harmony export */ });
+/* harmony import */ var _platform_views_ABView_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/views/ABView.js */ 30747);
+
 
 const ABViewDefaults = {
    key: "viewwidget", // {string} unique key for this view
@@ -30798,7 +31621,7 @@ const ABPropertyComponentDefaults = {
    rowSpan: 1,
 };
 
-module.exports = class ABViewWidgetCore extends ABView {
+class ABViewWidgetCore extends _platform_views_ABView_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    /**
     * @param {obj} values  key=>value hash of ABView values
     * @param {ABApplication} application the application object this view is under
@@ -30828,13 +31651,13 @@ module.exports = class ABViewWidgetCore extends ABView {
 
       // convert from "0" => 0
       this.settings.columnSpan = parseInt(
-         this.settings.columnSpan || ABPropertyComponentDefaults.columnSpan
+         this.settings.columnSpan || ABPropertyComponentDefaults.columnSpan,
       );
       this.settings.rowSpan = parseInt(
-         this.settings.rowSpan || ABPropertyComponentDefaults.rowSpan
+         this.settings.rowSpan || ABPropertyComponentDefaults.rowSpan,
       );
    }
-};
+}
 
 
 /***/ },
@@ -30843,17 +31666,25 @@ module.exports = class ABViewWidgetCore extends ABView {
 /*!**********************************************!*\
   !*** ./AppBuilder/platform/ABApplication.js ***!
   \**********************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const _ = __webpack_require__(/*! lodash */ 84529);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABClassApplication)
+/* harmony export */ });
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ 84529);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _core_ABApplicationCore_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../core/ABApplicationCore.js */ 43872);
+/* harmony import */ var _views_ABViewPage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./views/ABViewPage */ 44);
+
 
 // prettier-ignore
-const ABApplicationCore = __webpack_require__(/*! ../core/ABApplicationCore.js */ 43872);
 
-const ABViewPage = __webpack_require__(/*! ./views/ABViewPage */ 44);
-const ABViewManager = __webpack_require__(/*! ./ABViewManager */ 40765);
 
-module.exports = class ABClassApplication extends ABApplicationCore {
+
+
+class ABClassApplication extends _core_ABApplicationCore_js__WEBPACK_IMPORTED_MODULE_1__["default"] {
    constructor(attributes, AB) {
       super(attributes, AB);
 
@@ -31131,7 +31962,7 @@ module.exports = class ABClassApplication extends ABApplicationCore {
     * @return {ABViewPage}
     */
    pageNew(values) {
-      return new ABViewPage(values, this);
+      return new _views_ABViewPage__WEBPACK_IMPORTED_MODULE_2__["default"](values, this);
    }
 
    /**
@@ -31279,7 +32110,7 @@ module.exports = class ABClassApplication extends ABApplicationCore {
    // mobileAppNew(values) {
    //    return new ABMobileApp(values, this);
    // }
-};
+}
 
 
 /***/ },
@@ -31288,19 +32119,25 @@ module.exports = class ABClassApplication extends ABApplicationCore {
 /*!****************************************************!*\
   !*** ./AppBuilder/platform/ABApplicationMobile.js ***!
   \****************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const _ = __webpack_require__(/*! lodash */ 84529);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABClassApplicationMobile)
+/* harmony export */ });
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ 84529);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _core_ABApplicationMobileCore_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../core/ABApplicationMobileCore.js */ 25618);
+/* harmony import */ var _mobile_ABMobilePage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./mobile/ABMobilePage */ 38241);
+
 
 // prettier-ignore
-const ABApplicationMobileCore = __webpack_require__(/*! ../core/ABApplicationMobileCore.js */ 25618);
 
-const ABViewPageMobile = __webpack_require__(/*! ./mobile/ABMobilePage */ 38241);
-const ABViewManager = __webpack_require__(/*! ./ABViewManager */ 40765);
 
-module.exports = class ABClassApplicationMobile extends (
-   ABApplicationMobileCore
-) {
+
+
+class ABClassApplicationMobile extends _core_ABApplicationMobileCore_js__WEBPACK_IMPORTED_MODULE_1__["default"] {
    constructor(attributes, AB) {
       super(attributes, AB);
    }
@@ -31317,7 +32154,7 @@ module.exports = class ABClassApplicationMobile extends (
     * @return {ABViewPageMobile}
     */
    pageNew(values) {
-      const newPage = new ABViewPageMobile(values, this);
+      const newPage = new _mobile_ABMobilePage__WEBPACK_IMPORTED_MODULE_2__["default"](values, this);
       newPage.parent = this;
       return newPage;
    }
@@ -31334,7 +32171,7 @@ module.exports = class ABClassApplicationMobile extends (
          await this.save();
       }
    }
-};
+}
 
 
 /***/ },
@@ -31351,6 +32188,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   allObjectProperties: () => (/* binding */ allObjectProperties),
 /* harmony export */   createObject: () => (/* binding */ createObject),
 /* harmony export */   createPropertiesObject: () => (/* binding */ createPropertiesObject),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
 /* harmony export */   getPluginAPI: () => (/* binding */ getPluginAPI),
 /* harmony export */   pluginRegister: () => (/* binding */ pluginRegister),
 /* harmony export */   registerLocalPlugins: () => (/* binding */ registerLocalPlugins),
@@ -31362,19 +32200,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   viewPropertiesAll: () => (/* binding */ viewPropertiesAll)
 /* harmony export */ });
 /* harmony import */ var _dataFields_ABFieldImage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./dataFields/ABFieldImage */ 9932);
-/* harmony import */ var _dataFields_ABFieldImage__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_dataFields_ABFieldImage__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _plugins_ABModelPlugin_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./plugins/ABModelPlugin.js */ 84364);
 /* harmony import */ var _plugins_ABObjectPlugin_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./plugins/ABObjectPlugin.js */ 84788);
 /* harmony import */ var _plugins_ABPropertiesObjectPlugin__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./plugins/ABPropertiesObjectPlugin */ 56965);
 /* harmony import */ var _plugins_ABUIPlugin_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./plugins/ABUIPlugin.js */ 4341);
 /* harmony import */ var _plugins_ABViewComponentPlugin_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./plugins/ABViewComponentPlugin.js */ 7105);
 /* harmony import */ var _views_ABViewContainer_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./views/ABViewContainer.js */ 76528);
-/* harmony import */ var _views_ABViewContainer_js__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_views_ABViewContainer_js__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var _views_viewComponent_ABViewContainerComponent_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./views/viewComponent/ABViewContainerComponent.js */ 71980);
-/* harmony import */ var _views_viewComponent_ABViewContainerComponent_js__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_views_viewComponent_ABViewContainerComponent_js__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _plugins_ABViewEditorPlugin_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./plugins/ABViewEditorPlugin.js */ 98487);
 /* harmony import */ var _ABViewManager_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./ABViewManager.js */ 40765);
-/* harmony import */ var _ABViewManager_js__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_ABViewManager_js__WEBPACK_IMPORTED_MODULE_9__);
 /* harmony import */ var _plugins_ABViewPlugin_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./plugins/ABViewPlugin.js */ 65006);
 /* harmony import */ var _plugins_ABViewPropertiesPlugin_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./plugins/ABViewPropertiesPlugin.js */ 49243);
 /* harmony import */ var _views_viewProperties_ABViewPropertyAddPage__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./views/viewProperties/ABViewPropertyAddPage */ 64947);
@@ -31383,9 +32217,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _views_viewProperties_ABViewPropertyFilterData__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./views/viewProperties/ABViewPropertyFilterData */ 95889);
 /* harmony import */ var _views_viewProperties_ABViewPropertyLinkPage__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./views/viewProperties/ABViewPropertyLinkPage */ 42588);
 /* harmony import */ var _rules_ABViewRuleListFormRecordRules__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../rules/ABViewRuleListFormRecordRules */ 1148);
-/* harmony import */ var _rules_ABViewRuleListFormRecordRules__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(_rules_ABViewRuleListFormRecordRules__WEBPACK_IMPORTED_MODULE_17__);
 /* harmony import */ var _rules_ABViewRuleListFormSubmitRules__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../rules/ABViewRuleListFormSubmitRules */ 41171);
-/* harmony import */ var _rules_ABViewRuleListFormSubmitRules__WEBPACK_IMPORTED_MODULE_18___default = /*#__PURE__*/__webpack_require__.n(_rules_ABViewRuleListFormSubmitRules__WEBPACK_IMPORTED_MODULE_18__);
 /* harmony import */ var _plugins_ABViewWidgetPlugin_js__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./plugins/ABViewWidgetPlugin.js */ 76554);
 
 
@@ -31457,15 +32289,15 @@ function getPluginAPI() {
       ABViewComponentPlugin: _plugins_ABViewComponentPlugin_js__WEBPACK_IMPORTED_MODULE_5__["default"],
       ABViewPropertiesPlugin: _plugins_ABViewPropertiesPlugin_js__WEBPACK_IMPORTED_MODULE_11__["default"],
       ABViewEditorPlugin: _plugins_ABViewEditorPlugin_js__WEBPACK_IMPORTED_MODULE_8__["default"],
-      ABViewContainer: (_views_ABViewContainer_js__WEBPACK_IMPORTED_MODULE_6___default()),
-      ABViewContainerComponent: (_views_viewComponent_ABViewContainerComponent_js__WEBPACK_IMPORTED_MODULE_7___default()),
+      ABViewContainer: _views_ABViewContainer_js__WEBPACK_IMPORTED_MODULE_6__["default"],
+      ABViewContainerComponent: _views_viewComponent_ABViewContainerComponent_js__WEBPACK_IMPORTED_MODULE_7__["default"],
       ABViewPropertyFilterData: _views_viewProperties_ABViewPropertyFilterData__WEBPACK_IMPORTED_MODULE_15__["default"],
       ABViewPropertyLinkPage: _views_viewProperties_ABViewPropertyLinkPage__WEBPACK_IMPORTED_MODULE_16__["default"],
-      ABViewRuleListFormRecordRules: (_rules_ABViewRuleListFormRecordRules__WEBPACK_IMPORTED_MODULE_17___default()),
-      ABViewRuleListFormSubmitRules: (_rules_ABViewRuleListFormSubmitRules__WEBPACK_IMPORTED_MODULE_18___default()),
+      ABViewRuleListFormRecordRules: _rules_ABViewRuleListFormRecordRules__WEBPACK_IMPORTED_MODULE_17__["default"],
+      ABViewRuleListFormSubmitRules: _rules_ABViewRuleListFormSubmitRules__WEBPACK_IMPORTED_MODULE_18__["default"],
       ABViewPropertyAddPage: _views_viewProperties_ABViewPropertyAddPage__WEBPACK_IMPORTED_MODULE_12__["default"],
       ABViewPropertyEditPage: _views_viewProperties_ABViewPropertyEditPage__WEBPACK_IMPORTED_MODULE_13__["default"],
-      ABFieldImage: (_dataFields_ABFieldImage__WEBPACK_IMPORTED_MODULE_0___default()),
+      ABFieldImage: _dataFields_ABFieldImage__WEBPACK_IMPORTED_MODULE_0__["default"],
       ABViewPopupSortFields: _views_ABViewPopupSortFields_js__WEBPACK_IMPORTED_MODULE_14__["default"],
       //  ABFieldPlugin,
       //  ABViewPlugin,
@@ -31502,7 +32334,7 @@ function allObjectProperties() {
 function viewClass(type) {
    var ViewClass = classRegistry.ViewTypes.get(type);
    if (!ViewClass) {
-      ViewClass = _ABViewManager_js__WEBPACK_IMPORTED_MODULE_9___default().viewClass(type, false);
+      ViewClass = _ABViewManager_js__WEBPACK_IMPORTED_MODULE_9__["default"].viewClass(type, false);
       if (!ViewClass) {
          throw new Error(`Unknown View type: ${type}`);
       }
@@ -31575,15 +32407,23 @@ function registerLocalPlugins(API) {
    // registerObjectTypes(cObjectNSAPI.getPluginKey(), cObjectNSAPI);
 }
 
-// module.exports = {
-//    getPluginAPI,
-//    createPropertiesObject,
-//    // createField,
-//    // createObjectProperty,
-//    // createView,
-//    // classRegistry, // Expose the registry for testing or introspection
-//    registerLocalPlugins,
-// };
+/** Default namespace object for `import ABClassManager from "./ABClassManager.js"`. */
+const ABClassManager = {
+   getPluginAPI,
+   createObject,
+   createPropertiesObject,
+   allObjectProperties,
+   viewClass,
+   viewCreate,
+   viewAll,
+   viewPropertiesAll,
+   viewEditorCreate,
+   viewEditorAll,
+   pluginRegister,
+   registerLocalPlugins,
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ABClassManager);
 
 
 /***/ },
@@ -31592,15 +32432,21 @@ function registerLocalPlugins(API) {
 /*!********************************************!*\
   !*** ./AppBuilder/platform/ABComponent.js ***!
   \********************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABEmitter = __webpack_require__(/*! ./ABEmitter */ 89327);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABComponent)
+/* harmony export */ });
+/* harmony import */ var _ABEmitter__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABEmitter */ 89327);
+/* harmony import */ var _webix_custom_components_customComponentManager__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../webix_custom_components/customComponentManager */ 70667);
 
-const CustomComponentManager = __webpack_require__(/*! ../../webix_custom_components/customComponentManager */ 70667);
+
 
 let L = (...params) => AB.Multilingual.label(...params);
 
-module.exports = class ABComponent extends ABEmitter {
+class ABComponent extends _ABEmitter__WEBPACK_IMPORTED_MODULE_0__["default"] {
    /**
     * @param {object} App ?what is this?
     * @param {string} idBase Identifier for this component
@@ -31736,7 +32582,7 @@ module.exports = class ABComponent extends ABEmitter {
 
       if (!App.custom) {
          if (!this.AB.custom) {
-            var componentManager = new CustomComponentManager();
+            var componentManager = new _webix_custom_components_customComponentManager__WEBPACK_IMPORTED_MODULE_1__["default"]();
             componentManager.initComponents(App);
          } else {
             App.custom = this.AB.custom;
@@ -31776,12 +32622,19 @@ module.exports = class ABComponent extends ABEmitter {
 /*!*************************************************!*\
   !*** ./AppBuilder/platform/ABDataCollection.js ***!
   \*************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABObjectQuery = __webpack_require__(/*! ./ABObjectQuery */ 55532);
-const ABDataCollectionCore = __webpack_require__(/*! ../core/ABDataCollectionCore */ 59002);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABDataCollection)
+/* harmony export */ });
+/* harmony import */ var _ABObjectQuery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABObjectQuery */ 55532);
+/* harmony import */ var _core_ABDataCollectionCore__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../core/ABDataCollectionCore */ 59002);
 
-module.exports = class ABDataCollection extends ABDataCollectionCore {
+
+
+class ABDataCollection extends _core_ABDataCollectionCore__WEBPACK_IMPORTED_MODULE_1__["default"] {
    constructor(attributes, AB) {
       super(attributes, AB);
       this.setMaxListeners(0);
@@ -32262,7 +33115,7 @@ module.exports = class ABDataCollection extends ABDataCollectionCore {
 
    parseTreeCollection(data = {}) {
       if (
-         !(this.__datasource instanceof ABObjectQuery) ||
+         !(this.__datasource instanceof _ABObjectQuery__WEBPACK_IMPORTED_MODULE_0__["default"]) ||
          !this.__datasource.isGroup ||
          !this.__treeCollection
       )
@@ -32380,11 +33233,17 @@ module.exports = class ABDataCollection extends ABDataCollectionCore {
 /*!*********************************************!*\
   !*** ./AppBuilder/platform/ABDefinition.js ***!
   \*********************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-var ABDefinitionCore = __webpack_require__(/*! ../core/ABDefinitionCore */ 23211);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABDefinition)
+/* harmony export */ });
+/* harmony import */ var _core_ABDefinitionCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/ABDefinitionCore */ 23211);
 
-module.exports = class ABDefinition extends ABDefinitionCore {
+
+class ABDefinition extends _core_ABDefinitionCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
    // constructor(attributes, AB) {
    //    super(attributes, AB);
    // }
@@ -32397,8 +33256,15 @@ module.exports = class ABDefinition extends ABDefinitionCore {
 /*!******************************************!*\
   !*** ./AppBuilder/platform/ABEmitter.js ***!
   \******************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABEmitter)
+/* harmony export */ });
+/* harmony import */ var events__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! events */ 64785);
+/* harmony import */ var events__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(events__WEBPACK_IMPORTED_MODULE_0__);
 /**
  * ABEmitter
  *
@@ -32406,9 +33272,9 @@ module.exports = class ABDefinition extends ABDefinitionCore {
  *
  */
 
-var EventEmitter = (__webpack_require__(/*! events */ 64785).EventEmitter);
 
-module.exports = class ABEmitter extends EventEmitter {
+
+class ABEmitter extends events__WEBPACK_IMPORTED_MODULE_0__.EventEmitter {
    constructor() {
       super(/*{ maxListeners: 0 }*/);
    }
@@ -32421,13 +33287,19 @@ module.exports = class ABEmitter extends EventEmitter {
 /*!***************************************!*\
   !*** ./AppBuilder/platform/ABHint.js ***!
   \***************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABHintCore = __webpack_require__(/*! ../core/ABHintCore */ 16943);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABHint)
+/* harmony export */ });
+/* harmony import */ var _core_ABHintCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/ABHintCore */ 16943);
+
 
 let L = (...params) => AB.Multilingual.label(...params);
 
-module.exports = class ABHint extends ABHintCore {
+class ABHint extends _core_ABHintCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(attributes, AB) {
       super(attributes, AB);
 
@@ -32704,11 +33576,17 @@ module.exports = class ABHint extends ABHintCore {
 /*!****************************************!*\
   !*** ./AppBuilder/platform/ABIndex.js ***!
   \****************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABIndexCore = __webpack_require__(/*! ../core/ABIndexCore */ 17030);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABIndex)
+/* harmony export */ });
+/* harmony import */ var _core_ABIndexCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/ABIndexCore */ 17030);
 
-module.exports = class ABIndex extends ABIndexCore {
+
+class ABIndex extends _core_ABIndexCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
    // constructor(attributes, object) {
    //    super(attributes, object);
    // }
@@ -32799,8 +33677,14 @@ module.exports = class ABIndex extends ABIndexCore {
 /*!******************************************!*\
   !*** ./AppBuilder/platform/ABMLClass.js ***!
   \******************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMLClass)
+/* harmony export */ });
+/* harmony import */ var _core_ABMLClassCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/ABMLClassCore */ 45597);
 /**
  * ABMLClass
  * manage the multilingual information of an instance of a AB Defined Class.
@@ -32811,9 +33695,9 @@ module.exports = class ABIndex extends ABIndexCore {
  * This platform ABMLClass will define 2 methods that allow for the translation
  * untranslation of this data.
  */
-var ABMLClassCore = __webpack_require__(/*! ../core/ABMLClassCore */ 45597);
 
-module.exports = class ABMLClass extends ABMLClassCore {
+
+class ABMLClass extends _core_ABMLClassCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(fieldList, AB) {
       super(fieldList, AB);
 
@@ -32915,9 +33799,15 @@ module.exports = class ABMLClass extends ABMLClassCore {
 /*!****************************************!*\
   !*** ./AppBuilder/platform/ABModel.js ***!
   \****************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABModelCore = __webpack_require__(/*! ../core/ABModelCore */ 53903);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABModel)
+/* harmony export */ });
+/* harmony import */ var _core_ABModelCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/ABModelCore */ 53903);
+
 
 //
 // ABModel
@@ -32976,7 +33866,7 @@ function no_socket_trigger(model, key, data) {
    }
 }
 
-module.exports = class ABModel extends ABModelCore {
+class ABModel extends _core_ABModelCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(object) {
       super(object);
 
@@ -33560,16 +34450,22 @@ module.exports = class ABModel extends ABModelCore {
 /*!*******************************************!*\
   !*** ./AppBuilder/platform/ABModelApi.js ***!
   \*******************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABModelAPI)
+/* harmony export */ });
+/* harmony import */ var _ABModel__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABModel */ 90940);
 //
 // ABModelAPI
 //
 // Represents the Data interface for an ABObjectQuery data.
 
-const ABModel = __webpack_require__(/*! ./ABModel */ 90940);
 
-module.exports = class ABModelAPI extends ABModel {
+
+class ABModelAPI extends _ABModel__WEBPACK_IMPORTED_MODULE_0__["default"] {
    ///
    /// Instance Methods
    ///
@@ -33650,16 +34546,22 @@ module.exports = class ABModelAPI extends ABModel {
 /*!***************************************************!*\
   !*** ./AppBuilder/platform/ABModelApiNetsuite.js ***!
   \***************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABModelAPINetsuite)
+/* harmony export */ });
+/* harmony import */ var _ABModel__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABModel */ 90940);
 //
 // ABModelAPINetsuite
 //
 // Represents the Data interface for a connection to Netsuite.
 
-const ABModel = __webpack_require__(/*! ./ABModel */ 90940);
 
-module.exports = class ABModelAPINetsuite extends ABModel {
+
+class ABModelAPINetsuite extends _ABModel__WEBPACK_IMPORTED_MODULE_0__["default"] {
    ///
    /// Instance Methods
    ///
@@ -33720,16 +34622,22 @@ module.exports = class ABModelAPINetsuite extends ABModel {
 /*!*********************************************!*\
   !*** ./AppBuilder/platform/ABModelQuery.js ***!
   \*********************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABModelQuery)
+/* harmony export */ });
+/* harmony import */ var _ABModel__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABModel */ 90940);
 //
 // ABModelQuery
 //
 // Represents the Data interface for an ABObjectQuery data.
 
-const ABModel = __webpack_require__(/*! ./ABModel */ 90940);
 
-module.exports = class ABModelQuery extends ABModel {
+
+class ABModelQuery extends _ABModel__WEBPACK_IMPORTED_MODULE_0__["default"] {
    ///
    /// Instance Methods
    ///
@@ -33799,9 +34707,15 @@ module.exports = class ABModelQuery extends ABModel {
 /*!*****************************************!*\
   !*** ./AppBuilder/platform/ABObject.js ***!
   \*****************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABObjectCore = __webpack_require__(/*! ../core/ABObjectCore */ 82505);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABObject)
+/* harmony export */ });
+/* harmony import */ var _core_ABObjectCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/ABObjectCore */ 82505);
+
 
 let L = (...params) => AB.Multilingual.label(...params);
 
@@ -33822,7 +34736,7 @@ let L = (...params) => AB.Multilingual.label(...params);
 // io.socket.on("ab.object.delete", function (msg) {
 // });
 
-module.exports = class ABObject extends ABObjectCore {
+class ABObject extends _core_ABObjectCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(attributes, AB) {
       super(attributes, AB);
 
@@ -34603,12 +35517,20 @@ module.exports = class ABObject extends ABObjectCore {
 /*!********************************************!*\
   !*** ./AppBuilder/platform/ABObjectApi.js ***!
   \********************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const atomicjs = __webpack_require__(/*! atomicjs */ 33005);
-const ABObjectApiCore = __webpack_require__(/*! ../core/ABObjectApiCore */ 41227);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABObjectApi)
+/* harmony export */ });
+/* harmony import */ var atomicjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! atomicjs */ 33005);
+/* harmony import */ var atomicjs__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(atomicjs__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _core_ABObjectApiCore__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../core/ABObjectApiCore */ 41227);
 
-module.exports = class ABObjectApi extends ABObjectApiCore {
+
+
+class ABObjectApi extends _core_ABObjectApiCore__WEBPACK_IMPORTED_MODULE_1__["default"] {
    constructor(attributes, AB) {
       super(attributes, AB);
    }
@@ -34618,7 +35540,7 @@ module.exports = class ABObjectApi extends ABObjectApiCore {
 
       const headers = this.headers;
 
-      const response = await atomicjs(this.request.url, {
+      const response = await atomicjs__WEBPACK_IMPORTED_MODULE_0___default()(this.request.url, {
          method: this.request.verb,
          headers,
          data: {},
@@ -34693,11 +35615,17 @@ module.exports = class ABObjectApi extends ABObjectApiCore {
 /*!****************************************************!*\
   !*** ./AppBuilder/platform/ABObjectApiNetsuite.js ***!
   \****************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABObjectApiNetsuiteCore = __webpack_require__(/*! ../core/ABObjectApiNetsuiteCore */ 70074);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABObjectApiNetsuite)
+/* harmony export */ });
+/* harmony import */ var _core_ABObjectApiNetsuiteCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/ABObjectApiNetsuiteCore */ 70074);
 
-module.exports = class ABObjectApiNetsuite extends ABObjectApiNetsuiteCore {
+
+class ABObjectApiNetsuite extends _core_ABObjectApiNetsuiteCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(attributes, AB) {
       super(attributes, AB);
    }
@@ -34775,16 +35703,22 @@ module.exports = class ABObjectApiNetsuite extends ABObjectApiNetsuiteCore {
 /*!*************************************************!*\
   !*** ./AppBuilder/platform/ABObjectExternal.js ***!
   \*************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABObject = __webpack_require__(/*! ./ABObject */ 84154);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABObjectExternal)
+/* harmony export */ });
+/* harmony import */ var _ABObject__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABObject */ 84154);
+
 
 /**
  * ABObjectExternal
  * These are ABObjects that ... (might need to be refactored out?)
  * NOTE: on the web client, these should function just like ABObjects
  */
-module.exports = class ABObjectExternal extends ABObject {};
+class ABObjectExternal extends _ABObject__WEBPACK_IMPORTED_MODULE_0__["default"] {};
 
 
 /***/ },
@@ -34793,9 +35727,15 @@ module.exports = class ABObjectExternal extends ABObject {};
 /*!***********************************************!*\
   !*** ./AppBuilder/platform/ABObjectImport.js ***!
   \***********************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABObject = __webpack_require__(/*! ./ABObject */ 84154);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABObjectImport)
+/* harmony export */ });
+/* harmony import */ var _ABObject__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABObject */ 84154);
+
 
 /**
  * ABObjectImport
@@ -34804,7 +35744,7 @@ const ABObject = __webpack_require__(/*! ./ABObject */ 84154);
  *
  * NOTE: on the web client, these should function just like ABObjects
  */
-module.exports = class ABObjectImport extends ABObject {};
+class ABObjectImport extends _ABObject__WEBPACK_IMPORTED_MODULE_0__["default"] {};
 
 
 /***/ },
@@ -34813,8 +35753,14 @@ module.exports = class ABObjectImport extends ABObject {};
 /*!**********************************************!*\
   !*** ./AppBuilder/platform/ABObjectQuery.js ***!
   \**********************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABObjectQuery)
+/* harmony export */ });
+/* harmony import */ var _core_ABObjectQueryCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/ABObjectQueryCore */ 98143);
 //
 // ABObjectQuery
 //
@@ -34830,7 +35776,7 @@ module.exports = class ABObjectImport extends ABObject {};
 // A where statement is also part of the definition.
 //
 
-const ABObjectQueryCore = __webpack_require__(/*! ../core/ABObjectQueryCore */ 98143);
+
 
 var ABFactory = null;
 if (typeof io != "undefined") {
@@ -34854,7 +35800,7 @@ if (typeof io != "undefined") {
 // io.socket.on("ab.query.delete", function (msg) {
 // });
 
-module.exports = class ABObjectQuery extends ABObjectQueryCore {
+class ABObjectQuery extends _core_ABObjectQueryCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(attributes, AB) {
       super(attributes, AB);
 
@@ -35177,13 +36123,19 @@ module.exports = class ABObjectQuery extends ABObjectQueryCore {
 /*!******************************************!*\
   !*** ./AppBuilder/platform/ABProcess.js ***!
   \******************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABProcessCore = __webpack_require__(/*! ../core/ABProcessCore */ 68895);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABProcess)
+/* harmony export */ });
+/* harmony import */ var _core_ABProcessCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/ABProcessCore */ 68895);
+
 
 let L = (...params) => AB.Multilingual.label(...params);
 
-module.exports = class ABProcess extends ABProcessCore {
+class ABProcess extends _core_ABProcessCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(attributes, AB) {
       super(attributes, AB);
 
@@ -35450,13 +36402,19 @@ module.exports = class ABProcess extends ABProcessCore {
 /*!***************************************!*\
   !*** ./AppBuilder/platform/ABStep.js ***!
   \***************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABStepCore = __webpack_require__(/*! ../core/ABStepCore */ 72880);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABStep)
+/* harmony export */ });
+/* harmony import */ var _core_ABStepCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/ABStepCore */ 72880);
+
 
 // let L = (...params) => AB.Multilingual.label(...params);
 
-module.exports = class ABStep extends ABStepCore {
+class ABStep extends _core_ABStepCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(attributes, AB) {
       super(attributes, AB);
 
@@ -35651,12 +36609,19 @@ module.exports = class ABStep extends ABStepCore {
 /*!**********************************************!*\
   !*** ./AppBuilder/platform/ABViewManager.js ***!
   \**********************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABViewManagerCore = __webpack_require__(/*! ../core/ABViewManagerCore */ 74834);
-const ClassManager = __webpack_require__(/*! ./ABClassManager */ 56938);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewManager)
+/* harmony export */ });
+/* harmony import */ var _core_ABViewManagerCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/ABViewManagerCore */ 74834);
+/* harmony import */ var _ABClassManager__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ABClassManager */ 56938);
 
-module.exports = class ABViewManager extends ABViewManagerCore {
+
+
+class ABViewManager extends _core_ABViewManagerCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
    /**
     * @function newView
     * return an instance of an ABView based upon the values.key value.
@@ -35670,7 +36635,7 @@ module.exports = class ABViewManager extends ABViewManagerCore {
       let view = null;
 
       try {
-         view = ClassManager.viewCreate(key, values, application, parent);
+         view = _ABClassManager__WEBPACK_IMPORTED_MODULE_1__["default"].viewCreate(key, values, application, parent);
       } catch (error) {
          // console.error(`Error creating view ${key}:`, error);
          view = super.newView(values, application, parent);
@@ -35688,7 +36653,7 @@ module.exports = class ABViewManager extends ABViewManagerCore {
       }
 
       try {
-         viewClass = ClassManager.viewClass(key);
+         viewClass = _ABClassManager__WEBPACK_IMPORTED_MODULE_1__["default"].viewClass(key);
       } catch (error) {
          viewClass = super.viewClass(key);
       }
@@ -35703,11 +36668,16 @@ module.exports = class ABViewManager extends ABViewManagerCore {
 /*!****************************************************!*\
   !*** ./AppBuilder/platform/ABViewManagerMobile.js ***!
   \****************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABViewManagerMobileCore = __webpack_require__(/*! ../core/ABViewManagerMobileCore */ 31828);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewManagerMobile)
+/* harmony export */ });
+/* harmony import */ var _core_ABViewManagerMobileCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/ABViewManagerMobileCore */ 31828);
 
-module.exports = class ABViewManagerMobile extends ABViewManagerMobileCore {};
+class ABViewManagerMobile extends _core_ABViewManagerMobileCore__WEBPACK_IMPORTED_MODULE_0__["default"] {};
 
 
 /***/ },
@@ -35716,9 +36686,15 @@ module.exports = class ABViewManagerMobile extends ABViewManagerMobileCore {};
 /*!**********************************************!*\
   !*** ./AppBuilder/platform/FilterComplex.js ***!
   \**********************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const FilterComplexCore = __webpack_require__(/*! ../core/FilterComplexCore */ 70205);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FilterComplex)
+/* harmony export */ });
+/* harmony import */ var _core_FilterComplexCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/FilterComplexCore */ 70205);
+
 
 let L = (...params) => AB.Multilingual.label(...params);
 
@@ -35872,7 +36848,7 @@ function _uiFieldOptionId(fieldId) {
    return `byQueryField-field-option-${fieldId}`;
 }
 
-module.exports = class FilterComplex extends FilterComplexCore {
+class FilterComplex extends _core_FilterComplexCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(idBase, AB, options = {}) {
       idBase = idBase ?? "ab_filterComplex";
 
@@ -36877,13 +37853,19 @@ module.exports = class FilterComplex extends FilterComplexCore {
 /*!******************************************!*\
   !*** ./AppBuilder/platform/RowFilter.js ***!
   \******************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const RowFilterCore = __webpack_require__(/*! ../core/RowFilterCore */ 7605);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ RowFilter)
+/* harmony export */ });
+/* harmony import */ var _core_RowFilterCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/RowFilterCore */ 7605);
+
 
 let L = (...params) => AB.Multilingual.label(...params);
 
-module.exports = class RowFilter extends RowFilterCore {
+class RowFilter extends _core_RowFilterCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(App, idBase, AB) {
       super(App, idBase, AB);
 
@@ -38805,8 +39787,14 @@ class RowUpdater extends _ui_ClassUI__WEBPACK_IMPORTED_MODULE_0__["default"] {
 /*!***************************************************!*\
   !*** ./AppBuilder/platform/dataFields/ABField.js ***!
   \***************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABField)
+/* harmony export */ });
+/* harmony import */ var _core_dataFields_ABFieldCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/dataFields/ABFieldCore */ 79786);
 /*
  * ABField
  *
@@ -38814,11 +39802,11 @@ class RowUpdater extends _ui_ClassUI__WEBPACK_IMPORTED_MODULE_0__["default"] {
  *
  */
 
-const ABFieldCore = __webpack_require__(/*! ../../core/dataFields/ABFieldCore */ 79786);
+
 
 const L = (...params) => AB.Multilingual.label(...params);
 
-module.exports = class ABField extends ABFieldCore {
+class ABField extends _core_dataFields_ABFieldCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(values, object, fieldDefaults) {
       super(values, object, fieldDefaults);
 
@@ -39314,11 +40302,17 @@ module.exports = class ABField extends ABFieldCore {
 /*!************************************************************!*\
   !*** ./AppBuilder/platform/dataFields/ABFieldAutoIndex.js ***!
   \************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABFieldAutoIndexCore = __webpack_require__(/*! ../../core/dataFields/ABFieldAutoIndexCore */ 46027);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABFieldAutoIndex)
+/* harmony export */ });
+/* harmony import */ var _core_dataFields_ABFieldAutoIndexCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/dataFields/ABFieldAutoIndexCore */ 46027);
 
-module.exports = class ABFieldAutoIndex extends ABFieldAutoIndexCore {
+
+class ABFieldAutoIndex extends _core_dataFields_ABFieldAutoIndexCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
    // constructor(values, object) {
    //    super(values, object);
    // }
@@ -39394,11 +40388,17 @@ module.exports = class ABFieldAutoIndex extends ABFieldAutoIndexCore {
 /*!**********************************************************!*\
   !*** ./AppBuilder/platform/dataFields/ABFieldBoolean.js ***!
   \**********************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABFieldBooleanCore = __webpack_require__(/*! ../../core/dataFields/ABFieldBooleanCore */ 97026);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABFieldBoolean)
+/* harmony export */ });
+/* harmony import */ var _core_dataFields_ABFieldBooleanCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/dataFields/ABFieldBooleanCore */ 97026);
 
-module.exports = class ABFieldBoolean extends ABFieldBooleanCore {
+
+class ABFieldBoolean extends _core_dataFields_ABFieldBooleanCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(values, object) {
       super(values, object);
    }
@@ -39488,11 +40488,17 @@ module.exports = class ABFieldBoolean extends ABFieldBooleanCore {
 /*!************************************************************!*\
   !*** ./AppBuilder/platform/dataFields/ABFieldCalculate.js ***!
   \************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABFieldCalculateCore = __webpack_require__(/*! ../../core/dataFields/ABFieldCalculateCore */ 41442);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABFieldCalculate)
+/* harmony export */ });
+/* harmony import */ var _core_dataFields_ABFieldCalculateCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/dataFields/ABFieldCalculateCore */ 41442);
 
-module.exports = class ABFieldCalculate extends ABFieldCalculateCore {
+
+class ABFieldCalculate extends _core_dataFields_ABFieldCalculateCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(values, object) {
       super(values, object);
    }
@@ -39565,11 +40571,17 @@ module.exports = class ABFieldCalculate extends ABFieldCalculateCore {
 /*!**********************************************************!*\
   !*** ./AppBuilder/platform/dataFields/ABFieldCombine.js ***!
   \**********************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABFieldCombineCore = __webpack_require__(/*! ../../core/dataFields/ABFieldCombineCore */ 76215);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABFieldCombine)
+/* harmony export */ });
+/* harmony import */ var _core_dataFields_ABFieldCombineCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/dataFields/ABFieldCombineCore */ 76215);
 
-module.exports = class ABFieldCombine extends ABFieldCombineCore {
+
+class ABFieldCombine extends _core_dataFields_ABFieldCombineCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(values, object) {
       super(values, object);
    }
@@ -39659,13 +40671,19 @@ module.exports = class ABFieldCombine extends ABFieldCombineCore {
 /*!**********************************************************!*\
   !*** ./AppBuilder/platform/dataFields/ABFieldConnect.js ***!
   \**********************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABFieldConnectCore = __webpack_require__(/*! ../../core/dataFields/ABFieldConnectCore */ 83520);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABFieldConnect)
+/* harmony export */ });
+/* harmony import */ var _core_dataFields_ABFieldConnectCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/dataFields/ABFieldConnectCore */ 83520);
+
 
 const L = (...params) => AB.Multilingual.label(...params);
 
-module.exports = class ABFieldConnect extends ABFieldConnectCore {
+class ABFieldConnect extends _core_dataFields_ABFieldConnectCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(values, object, fieldDefaults) {
       super(values, object, fieldDefaults);
    }
@@ -40648,11 +41666,17 @@ module.exports = class ABFieldConnect extends ABFieldConnectCore {
 /*!*******************************************************!*\
   !*** ./AppBuilder/platform/dataFields/ABFieldDate.js ***!
   \*******************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABFieldDateCore = __webpack_require__(/*! ../../core/dataFields/ABFieldDateCore */ 33574);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABFieldDate)
+/* harmony export */ });
+/* harmony import */ var _core_dataFields_ABFieldDateCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/dataFields/ABFieldDateCore */ 33574);
 
-module.exports = class ABFieldDate extends ABFieldDateCore {
+
+class ABFieldDate extends _core_dataFields_ABFieldDateCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(values, object) {
       super(values, object);
    }
@@ -40822,11 +41846,17 @@ module.exports = class ABFieldDate extends ABFieldDateCore {
 /*!***********************************************************!*\
   !*** ./AppBuilder/platform/dataFields/ABFieldDateTime.js ***!
   \***********************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABFieldDateTimeCore = __webpack_require__(/*! ../../core/dataFields/ABFieldDateTimeCore */ 32127);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABFieldDateTime)
+/* harmony export */ });
+/* harmony import */ var _core_dataFields_ABFieldDateTimeCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/dataFields/ABFieldDateTimeCore */ 32127);
 
-module.exports = class ABFieldDateTime extends ABFieldDateTimeCore {
+
+class ABFieldDateTime extends _core_dataFields_ABFieldDateTimeCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(values, object) {
       super(values, object);
    }
@@ -40979,11 +42009,17 @@ module.exports = class ABFieldDateTime extends ABFieldDateTimeCore {
 /*!********************************************************!*\
   !*** ./AppBuilder/platform/dataFields/ABFieldEmail.js ***!
   \********************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABFieldEmailCore = __webpack_require__(/*! ../../core/dataFields/ABFieldEmailCore */ 5470);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABFieldEmail)
+/* harmony export */ });
+/* harmony import */ var _core_dataFields_ABFieldEmailCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/dataFields/ABFieldEmailCore */ 5470);
 
-module.exports = class ABFieldEmail extends ABFieldEmailCore {
+
+class ABFieldEmail extends _core_dataFields_ABFieldEmailCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
    // constructor(values, object) {
    //    super(values, object);
    // }
@@ -41076,13 +42112,19 @@ module.exports = class ABFieldEmail extends ABFieldEmailCore {
 /*!*******************************************************!*\
   !*** ./AppBuilder/platform/dataFields/ABFieldFile.js ***!
   \*******************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABFieldFileCore = __webpack_require__(/*! ../../core/dataFields/ABFieldFileCore */ 58588);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABFieldFile)
+/* harmony export */ });
+/* harmony import */ var _core_dataFields_ABFieldFileCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/dataFields/ABFieldFileCore */ 58588);
+
 
 const L = (...params) => AB.Multilingual.label(...params);
 
-module.exports = class ABFieldFile extends ABFieldFileCore {
+class ABFieldFile extends _core_dataFields_ABFieldFileCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(values, object) {
       super(values, object);
    }
@@ -41554,11 +42596,17 @@ module.exports = class ABFieldFile extends ABFieldFileCore {
 /*!**********************************************************!*\
   !*** ./AppBuilder/platform/dataFields/ABFieldFormula.js ***!
   \**********************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABFieldFormulaCore = __webpack_require__(/*! ../../core/dataFields/ABFieldFormulaCore */ 17980);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABFieldFormula)
+/* harmony export */ });
+/* harmony import */ var _core_dataFields_ABFieldFormulaCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/dataFields/ABFieldFormulaCore */ 17980);
 
-module.exports = class ABFieldFormula extends ABFieldFormulaCore {
+
+class ABFieldFormula extends _core_dataFields_ABFieldFormulaCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
    // constructor(values, object) {
    //    super(values, object);
    // }
@@ -41632,13 +42680,19 @@ module.exports = class ABFieldFormula extends ABFieldFormulaCore {
 /*!********************************************************!*\
   !*** ./AppBuilder/platform/dataFields/ABFieldImage.js ***!
   \********************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABFieldImageCore = __webpack_require__(/*! ../../core/dataFields/ABFieldImageCore */ 65351);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABFieldImage)
+/* harmony export */ });
+/* harmony import */ var _core_dataFields_ABFieldImageCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/dataFields/ABFieldImageCore */ 65351);
+
 
 const L = (...params) => AB.Multilingual.label(...params);
 
-module.exports = class ABFieldImage extends ABFieldImageCore {
+class ABFieldImage extends _core_dataFields_ABFieldImageCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(values, object) {
       super(values, object);
    }
@@ -42298,11 +43352,17 @@ module.exports = class ABFieldImage extends ABFieldImageCore {
 /*!*******************************************************!*\
   !*** ./AppBuilder/platform/dataFields/ABFieldJson.js ***!
   \*******************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABFieldJsonCore = __webpack_require__(/*! ../../core/dataFields/ABFieldJsonCore */ 46292);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABFieldJson)
+/* harmony export */ });
+/* harmony import */ var _core_dataFields_ABFieldJsonCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/dataFields/ABFieldJsonCore */ 46292);
 
-module.exports = class ABFieldJson extends ABFieldJsonCore {
+
+class ABFieldJson extends _core_dataFields_ABFieldJsonCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
    // constructor(values, object) {
    //    super(values, object);
    // }
@@ -42447,13 +43507,19 @@ module.exports = class ABFieldJson extends ABFieldJsonCore {
 /*!*******************************************************!*\
   !*** ./AppBuilder/platform/dataFields/ABFieldList.js ***!
   \*******************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABFieldListCore = __webpack_require__(/*! ../../core/dataFields/ABFieldListCore */ 33710);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABFieldList)
+/* harmony export */ });
+/* harmony import */ var _core_dataFields_ABFieldListCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/dataFields/ABFieldListCore */ 33710);
+
 
 const L = (...params) => AB.Multilingual.label(...params);
 
-module.exports = class ABFieldList extends ABFieldListCore {
+class ABFieldList extends _core_dataFields_ABFieldListCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(values, object) {
       super(values, object);
 
@@ -42923,9 +43989,10 @@ function _getSelectedOptions(field, rowData = {}) {
 
       // Pull text with current language
       if (field.settings) {
+         const resultArray = Array.isArray(result) ? result : [result];
          result = (field.settings.options || []).filter((opt) => {
             return (
-               (result || []).filter(
+               resultArray.filter(
                   (v) => opt && v && (opt.id || opt) == (v.id || v)
                ).length > 0
             );
@@ -42943,11 +44010,17 @@ function _getSelectedOptions(field, rowData = {}) {
 /*!***********************************************************!*\
   !*** ./AppBuilder/platform/dataFields/ABFieldLongText.js ***!
   \***********************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABFieldLongTextCore = __webpack_require__(/*! ../../core/dataFields/ABFieldLongTextCore */ 12387);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABFieldLongText)
+/* harmony export */ });
+/* harmony import */ var _core_dataFields_ABFieldLongTextCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/dataFields/ABFieldLongTextCore */ 12387);
 
-module.exports = class ABFieldLongText extends ABFieldLongTextCore {
+
+class ABFieldLongText extends _core_dataFields_ABFieldLongTextCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(values, object) {
       super(values, object);
 
@@ -43069,16 +44142,23 @@ module.exports = class ABFieldLongText extends ABFieldLongTextCore {
 /*!*********************************************************!*\
   !*** ./AppBuilder/platform/dataFields/ABFieldNumber.js ***!
   \*********************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABFieldNumberCore = __webpack_require__(/*! ../../core/dataFields/ABFieldNumberCore */ 18383);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABFieldNumber)
+/* harmony export */ });
+/* harmony import */ var _core_dataFields_ABFieldNumberCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/dataFields/ABFieldNumberCore */ 18383);
+
 
 let INIT_EDITOR = false;
+
 // {bool} INIT_EDITOR
 // Transition code between previous Framework and current.
 // we now need to wait until webix is declared or accessible globally.
 
-module.exports = class ABFieldNumber extends ABFieldNumberCore {
+class ABFieldNumber extends _core_dataFields_ABFieldNumberCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(values, object) {
       if (!INIT_EDITOR) {
          // NOTE: if you need a unique [edit_type] by your returned config.editor above:
@@ -43159,8 +44239,14 @@ module.exports = class ABFieldNumber extends ABFieldNumberCore {
 /*!**************************************************************!*\
   !*** ./AppBuilder/platform/dataFields/ABFieldSelectivity.js ***!
   \**************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABFieldSelectivity)
+/* harmony export */ });
+/* harmony import */ var _ABField__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABField */ 35709);
 /*
  * ABFieldSelectivity
  *
@@ -43168,7 +44254,7 @@ module.exports = class ABFieldNumber extends ABFieldNumberCore {
  *
  */
 
-const ABField = __webpack_require__(/*! ./ABField */ 35709);
+
 
 const defaultSettings = {
    allowClear: true,
@@ -43183,7 +44269,7 @@ const ABFieldSelectivityDefaults = {
    key: "selectivity",
 };
 
-module.exports = class ABFieldSelectivity extends ABField {
+class ABFieldSelectivity extends _ABField__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(values, object, fieldDefaults = ABFieldSelectivityDefaults) {
       super(values, object, fieldDefaults);
    }
@@ -43526,11 +44612,17 @@ module.exports = class ABFieldSelectivity extends ABField {
 /*!*********************************************************!*\
   !*** ./AppBuilder/platform/dataFields/ABFieldString.js ***!
   \*********************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABFieldStringCore = __webpack_require__(/*! ../../core/dataFields/ABFieldStringCore */ 70355);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABFieldString)
+/* harmony export */ });
+/* harmony import */ var _core_dataFields_ABFieldStringCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/dataFields/ABFieldStringCore */ 70355);
 
-module.exports = class ABFieldString extends ABFieldStringCore {
+
+class ABFieldString extends _core_dataFields_ABFieldStringCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
    // constructor(values, object) {
    //    super(values, object);
 
@@ -43692,11 +44784,17 @@ module.exports = class ABFieldString extends ABFieldStringCore {
 /*!**************************************************************!*\
   !*** ./AppBuilder/platform/dataFields/ABFieldTextFormula.js ***!
   \**************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABFieldTextFormulaCore = __webpack_require__(/*! ../../core/dataFields/ABFieldTextFormulaCore */ 30497);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABFieldTextFormula)
+/* harmony export */ });
+/* harmony import */ var _core_dataFields_ABFieldTextFormulaCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/dataFields/ABFieldTextFormulaCore */ 30497);
 
-module.exports = class ABFieldTextFormula extends ABFieldTextFormulaCore {
+
+class ABFieldTextFormula extends _core_dataFields_ABFieldTextFormulaCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
    // constructor(values, object) {
    //    super(values, object);
    // }
@@ -43783,16 +44881,22 @@ module.exports = class ABFieldTextFormula extends ABFieldTextFormulaCore {
 /*!*******************************************************!*\
   !*** ./AppBuilder/platform/dataFields/ABFieldTree.js ***!
   \*******************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABFieldTreeCore = __webpack_require__(/*! ../../core/dataFields/ABFieldTreeCore */ 66606);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABFieldTree)
+/* harmony export */ });
+/* harmony import */ var _core_dataFields_ABFieldTreeCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/dataFields/ABFieldTreeCore */ 66606);
+
 
 const L = (...params) => AB.Multilingual.label(...params);
 
 /** Hex colour used for selected-item tags */
 const TAG_COLOR = "#4CAF50";
 
-module.exports = class ABFieldTree extends ABFieldTreeCore {
+class ABFieldTree extends _core_dataFields_ABFieldTreeCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
    // constructor(values, object) {
    //    super(values, object);
    // }
@@ -44287,7 +45391,7 @@ module.exports = class ABFieldTree extends ABFieldTreeCore {
          item.resize();
       }, 200);
    }
-};
+}
 
 
 /***/ },
@@ -44296,12 +45400,19 @@ module.exports = class ABFieldTree extends ABFieldTreeCore {
 /*!*******************************************************!*\
   !*** ./AppBuilder/platform/dataFields/ABFieldUser.js ***!
   \*******************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABFieldConnectCore = __webpack_require__(/*! ../../core/dataFields/ABFieldConnectCore */ 83520);
-const ABFieldUserCore = __webpack_require__(/*! ../../core/dataFields/ABFieldUserCore */ 87901);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABFieldUser)
+/* harmony export */ });
+/* harmony import */ var _core_dataFields_ABFieldConnectCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/dataFields/ABFieldConnectCore */ 83520);
+/* harmony import */ var _core_dataFields_ABFieldUserCore__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../core/dataFields/ABFieldUserCore */ 87901);
 
-module.exports = class ABFieldUser extends ABFieldUserCore {
+
+
+class ABFieldUser extends _core_dataFields_ABFieldUserCore__WEBPACK_IMPORTED_MODULE_1__["default"] {
    constructor(values, object, fieldDefaults) {
       super(values, object, fieldDefaults);
    }
@@ -44314,7 +45425,7 @@ module.exports = class ABFieldUser extends ABFieldUserCore {
       // Add new
       if (this.id == null) {
          const SiteUser = this.AB.objectUser();
-         const Defaults = ABFieldUserCore.defaults();
+         const Defaults = _core_dataFields_ABFieldUserCore__WEBPACK_IMPORTED_MODULE_1__["default"].defaults();
 
          this.settings.linkObject = SiteUser.id;
          this.settings.isCustomFK = 1;
@@ -44337,7 +45448,7 @@ module.exports = class ABFieldUser extends ABFieldUserCore {
          //       However, the SiteUser will see the data as a ABFieldConnect
          //       connection
          const linkCol = SiteUser.fieldNew({
-            key: ABFieldConnectCore.defaults().key,
+            key: _core_dataFields_ABFieldConnectCore__WEBPACK_IMPORTED_MODULE_0__["default"].defaults().key,
             columnName: `${this.object.name}_${this.label}`,
             label: this.object.label,
             settings: {
@@ -44576,11 +45687,17 @@ module.exports = class ABFieldUser extends ABFieldUserCore {
 /*!****************************************************!*\
   !*** ./AppBuilder/platform/mobile/ABMobilePage.js ***!
   \****************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABMobilePageCore = __webpack_require__(/*! ../../core/mobile/ABMobilePageCore */ 41782);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobilePage)
+/* harmony export */ });
+/* harmony import */ var _core_mobile_ABMobilePageCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobilePageCore */ 41782);
 
-module.exports = class ABMobilePage extends ABMobilePageCore {
+
+class ABMobilePage extends _core_mobile_ABMobilePageCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(values, application, parent, defaultValues) {
       super(values, application, parent, defaultValues);
 
@@ -44667,11 +45784,17 @@ module.exports = class ABMobilePage extends ABMobilePageCore {
 /*!****************************************************!*\
   !*** ./AppBuilder/platform/mobile/ABMobileView.js ***!
   \****************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABMobileViewCore = __webpack_require__(/*! ../../core/mobile/ABMobileViewCore.js */ 49688);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileView)
+/* harmony export */ });
+/* harmony import */ var _core_mobile_ABMobileViewCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewCore.js */ 49688);
 
-module.exports = class ABMobileView extends ABMobileViewCore {
+
+class ABMobileView extends _core_mobile_ABMobileViewCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    // constructor(attributes, application, parent) {
    //    super(attributes, application, parent);
    // }
@@ -44782,11 +45905,17 @@ module.exports = class ABMobileView extends ABMobileViewCore {
 /*!**********************************************************!*\
   !*** ./AppBuilder/platform/mobile/ABMobileViewCustom.js ***!
   \**********************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABMobileViewCustomCore = __webpack_require__(/*! ../../core/mobile/ABMobileViewCustomCore */ 94411);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewCustom)
+/* harmony export */ });
+/* harmony import */ var _core_mobile_ABMobileViewCustomCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewCustomCore */ 94411);
 
-module.exports = class ABMobileViewCustom extends ABMobileViewCustomCore {
+
+class ABMobileViewCustom extends _core_mobile_ABMobileViewCustomCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
    // constructor(values, application, parent, defaultValues) {
    //    super(values, application, parent, defaultValues);
    // }
@@ -44805,13 +45934,19 @@ module.exports = class ABMobileViewCustom extends ABMobileViewCustomCore {
 /*!********************************************************!*\
   !*** ./AppBuilder/platform/mobile/ABMobileViewForm.js ***!
   \********************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABMobileViewFormCore = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormCore */ 85246);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewForm)
+/* harmony export */ });
+/* harmony import */ var _core_mobile_ABMobileViewFormCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormCore */ 85246);
+/* harmony import */ var _ABMobileViewFormButton__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ABMobileViewFormButton */ 49985);
 
-const ABMobileViewFormButton = __webpack_require__(/*! ./ABMobileViewFormButton */ 49985);
 
-module.exports = class ABMobileViewForm extends ABMobileViewFormCore {
+
+class ABMobileViewForm extends _core_mobile_ABMobileViewFormCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
    // constructor(values, application, parent, defaultValues) {
    //    super(values, application, parent, defaultValues);
    // }
@@ -44828,12 +45963,12 @@ module.exports = class ABMobileViewForm extends ABMobileViewFormCore {
    refreshDefaultButton(ids) {
       // If default button is not exists, then skip this
       let defaultButton = this.views(
-         (v) => v instanceof ABMobileViewFormButton && v.settings.isDefault
+         (v) => v instanceof _ABMobileViewFormButton__WEBPACK_IMPORTED_MODULE_1__["default"] && v.settings.isDefault
       )[0];
 
       // Add a default button
       if (defaultButton == null) {
-         defaultButton = ABMobileViewFormButton.newInstance(
+         defaultButton = _ABMobileViewFormButton__WEBPACK_IMPORTED_MODULE_1__["default"].newInstance(
             this.application,
             this
          );
@@ -44882,12 +46017,18 @@ module.exports = class ABMobileViewForm extends ABMobileViewFormCore {
 /*!**************************************************************!*\
   !*** ./AppBuilder/platform/mobile/ABMobileViewFormButton.js ***!
   \**************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABMobileViewFormButtonCore = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormButtonCore */ 32894);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormButton)
+/* harmony export */ });
+/* harmony import */ var _core_mobile_ABMobileViewFormButtonCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormButtonCore */ 32894);
 
-module.exports = class ABMobileViewFormButton extends (
-   ABMobileViewFormButtonCore
+
+class ABMobileViewFormButton extends (
+   _core_mobile_ABMobileViewFormButtonCore__WEBPACK_IMPORTED_MODULE_0__["default"]
 ) {};
 
 
@@ -44897,12 +46038,18 @@ module.exports = class ABMobileViewFormButton extends (
 /*!****************************************************************!*\
   !*** ./AppBuilder/platform/mobile/ABMobileViewFormCheckbox.js ***!
   \****************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABMobileViewFormCheckboxCore = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormCheckboxCore */ 62995);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormCheckbox)
+/* harmony export */ });
+/* harmony import */ var _core_mobile_ABMobileViewFormCheckboxCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormCheckboxCore */ 62995);
 
-module.exports = class ABMobileViewFormCheckbox extends (
-   ABMobileViewFormCheckboxCore
+
+class ABMobileViewFormCheckbox extends (
+   _core_mobile_ABMobileViewFormCheckboxCore__WEBPACK_IMPORTED_MODULE_0__["default"]
 ) {};
 
 
@@ -44912,9 +46059,15 @@ module.exports = class ABMobileViewFormCheckbox extends (
 /*!***************************************************************!*\
   !*** ./AppBuilder/platform/mobile/ABMobileViewFormConnect.js ***!
   \***************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABMobileViewFormConnectCore = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormConnectCore */ 92580);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormConnect)
+/* harmony export */ });
+/* harmony import */ var _core_mobile_ABMobileViewFormConnectCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormConnectCore */ 92580);
+
 
 // const ABViewPropertyAddPage =
 //    require("./viewProperties/ABViewPropertyAddPage").default;
@@ -44929,8 +46082,8 @@ const ABMobileViewFormConnectCore = __webpack_require__(/*! ../../core/mobile/AB
 // let FilterComponent = null;
 // let SortComponent = null;
 
-module.exports = class ABMobileViewFormConnect extends (
-   ABMobileViewFormConnectCore
+class ABMobileViewFormConnect extends (
+   _core_mobile_ABMobileViewFormConnectCore__WEBPACK_IMPORTED_MODULE_0__["default"]
 ) {
    /**
     * @param {obj} values  key=>value hash of ABView values
@@ -45015,12 +46168,18 @@ module.exports = class ABMobileViewFormConnect extends (
 /*!**************************************************************!*\
   !*** ./AppBuilder/platform/mobile/ABMobileViewFormCustom.js ***!
   \**************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABMobileViewFormCustomCore = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormCustomCore */ 53053);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormCustom)
+/* harmony export */ });
+/* harmony import */ var _core_mobile_ABMobileViewFormCustomCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormCustomCore */ 53053);
 
-module.exports = class ABMobileViewFormCustom extends (
-   ABMobileViewFormCustomCore
+
+class ABMobileViewFormCustom extends (
+   _core_mobile_ABMobileViewFormCustomCore__WEBPACK_IMPORTED_MODULE_0__["default"]
 ) {};
 
 
@@ -45030,11 +46189,16 @@ module.exports = class ABMobileViewFormCustom extends (
 /*!************************************************************!*\
   !*** ./AppBuilder/platform/mobile/ABMobileViewFormDate.js ***!
   \************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABMobileViewFormDateCore = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormDateCore */ 9810);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormDate)
+/* harmony export */ });
+/* harmony import */ var _core_mobile_ABMobileViewFormDateCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormDateCore */ 9810);
 
-module.exports = class ABMobileViewFormDate extends ABMobileViewFormDateCore {};
+class ABMobileViewFormDate extends _core_mobile_ABMobileViewFormDateCore__WEBPACK_IMPORTED_MODULE_0__["default"] {};
 
 
 /***/ },
@@ -45043,12 +46207,18 @@ module.exports = class ABMobileViewFormDate extends ABMobileViewFormDateCore {};
 /*!****************************************************************!*\
   !*** ./AppBuilder/platform/mobile/ABMobileViewFormDatetime.js ***!
   \****************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABMobileViewFormDatetimeCore = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormDatetimeCore */ 75123);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormDatetime)
+/* harmony export */ });
+/* harmony import */ var _core_mobile_ABMobileViewFormDatetimeCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormDatetimeCore */ 75123);
 
-module.exports = class ABMobileViewFormDatetime extends (
-   ABMobileViewFormDatetimeCore
+
+class ABMobileViewFormDatetime extends (
+   _core_mobile_ABMobileViewFormDatetimeCore__WEBPACK_IMPORTED_MODULE_0__["default"]
 ) {};
 
 
@@ -45058,12 +46228,18 @@ module.exports = class ABMobileViewFormDatetime extends (
 /*!*************************************************************!*\
   !*** ./AppBuilder/platform/mobile/ABMobileViewFormEmail.js ***!
   \*************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABMobileViewFormEmailCore = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormEmailCore */ 81138);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormEmail)
+/* harmony export */ });
+/* harmony import */ var _core_mobile_ABMobileViewFormEmailCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormEmailCore */ 81138);
 
-module.exports = class ABMobileViewFormEmail extends (
-   ABMobileViewFormEmailCore
+
+class ABMobileViewFormEmail extends (
+   _core_mobile_ABMobileViewFormEmailCore__WEBPACK_IMPORTED_MODULE_0__["default"]
 ) {};
 
 
@@ -45073,11 +46249,16 @@ module.exports = class ABMobileViewFormEmail extends (
 /*!************************************************************!*\
   !*** ./AppBuilder/platform/mobile/ABMobileViewFormFile.js ***!
   \************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABMobileViewFormFileCore = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormFileCore */ 77208);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormFile)
+/* harmony export */ });
+/* harmony import */ var _core_mobile_ABMobileViewFormFileCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormFileCore */ 77208);
 
-module.exports = class ABMobileViewFormFile extends ABMobileViewFormFileCore {};
+class ABMobileViewFormFile extends _core_mobile_ABMobileViewFormFileCore__WEBPACK_IMPORTED_MODULE_0__["default"] {};
 
 
 /***/ },
@@ -45086,12 +46267,18 @@ module.exports = class ABMobileViewFormFile extends ABMobileViewFormFileCore {};
 /*!***************************************************************!*\
   !*** ./AppBuilder/platform/mobile/ABMobileViewFormFormula.js ***!
   \***************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABMobileViewFormFormulaCore = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormFormulaCore */ 33696);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormFormula)
+/* harmony export */ });
+/* harmony import */ var _core_mobile_ABMobileViewFormFormulaCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormFormulaCore */ 33696);
 
-module.exports = class ABMobileViewFormFormula extends (
-   ABMobileViewFormFormulaCore
+
+class ABMobileViewFormFormula extends (
+   _core_mobile_ABMobileViewFormFormulaCore__WEBPACK_IMPORTED_MODULE_0__["default"]
 ) {};
 
 
@@ -45101,12 +46288,18 @@ module.exports = class ABMobileViewFormFormula extends (
 /*!*************************************************************!*\
   !*** ./AppBuilder/platform/mobile/ABMobileViewFormImage.js ***!
   \*************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABMobileViewFormImageCore = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormImageCore */ 35675);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormImage)
+/* harmony export */ });
+/* harmony import */ var _core_mobile_ABMobileViewFormImageCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormImageCore */ 35675);
 
-module.exports = class ABMobileViewFormImage extends (
-   ABMobileViewFormImageCore
+
+class ABMobileViewFormImage extends (
+   _core_mobile_ABMobileViewFormImageCore__WEBPACK_IMPORTED_MODULE_0__["default"]
 ) {};
 
 
@@ -45116,11 +46309,17 @@ module.exports = class ABMobileViewFormImage extends (
 /*!************************************************************!*\
   !*** ./AppBuilder/platform/mobile/ABMobileViewFormItem.js ***!
   \************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABMobileViewFormItemCore = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormItemCore */ 88117);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormItem)
+/* harmony export */ });
+/* harmony import */ var _core_mobile_ABMobileViewFormItemCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormItemCore */ 88117);
 
-module.exports = class ABMobileViewFormItem extends ABMobileViewFormItemCore {
+
+class ABMobileViewFormItem extends _core_mobile_ABMobileViewFormItemCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
    // constructor(values, application, parent, defaultValues) {
    //    super(values, application, parent, defaultValues);
    // }
@@ -45137,12 +46336,18 @@ module.exports = class ABMobileViewFormItem extends ABMobileViewFormItemCore {
 /*!**************************************************************!*\
   !*** ./AppBuilder/platform/mobile/ABMobileViewFormNumber.js ***!
   \**************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABMobileViewFormNumberCore = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormNumberCore */ 24979);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormNumber)
+/* harmony export */ });
+/* harmony import */ var _core_mobile_ABMobileViewFormNumberCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormNumberCore */ 24979);
 
-module.exports = class ABMobileViewFormNumber extends (
-   ABMobileViewFormNumberCore
+
+class ABMobileViewFormNumber extends (
+   _core_mobile_ABMobileViewFormNumberCore__WEBPACK_IMPORTED_MODULE_0__["default"]
 ) {};
 
 
@@ -45152,12 +46357,18 @@ module.exports = class ABMobileViewFormNumber extends (
 /*!****************************************************************!*\
   !*** ./AppBuilder/platform/mobile/ABMobileViewFormReadonly.js ***!
   \****************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABMobileViewFormReadonlyCore = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormReadonlyCore */ 28592);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormReadonly)
+/* harmony export */ });
+/* harmony import */ var _core_mobile_ABMobileViewFormReadonlyCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormReadonlyCore */ 28592);
 
-module.exports = class ABMobileViewFormReadonly extends (
-   ABMobileViewFormReadonlyCore
+
+class ABMobileViewFormReadonly extends (
+   _core_mobile_ABMobileViewFormReadonlyCore__WEBPACK_IMPORTED_MODULE_0__["default"]
 ) {};
 
 
@@ -45167,12 +46378,18 @@ module.exports = class ABMobileViewFormReadonly extends (
 /*!**********************************************************************!*\
   !*** ./AppBuilder/platform/mobile/ABMobileViewFormSelectMultiple.js ***!
   \**********************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABMobileViewFormSelectMultipleCore = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormSelectMultipleCore */ 1066);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormSelectMultiple)
+/* harmony export */ });
+/* harmony import */ var _core_mobile_ABMobileViewFormSelectMultipleCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormSelectMultipleCore */ 1066);
 
-module.exports = class ABMobileViewFormSelectMultiple extends (
-   ABMobileViewFormSelectMultipleCore
+
+class ABMobileViewFormSelectMultiple extends (
+   _core_mobile_ABMobileViewFormSelectMultipleCore__WEBPACK_IMPORTED_MODULE_0__["default"]
 ) {};
 
 
@@ -45182,12 +46399,18 @@ module.exports = class ABMobileViewFormSelectMultiple extends (
 /*!********************************************************************!*\
   !*** ./AppBuilder/platform/mobile/ABMobileViewFormSelectSingle.js ***!
   \********************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABMobileViewFormSelectSingleCore = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormSelectSingleCore */ 11310);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormSelectSingle)
+/* harmony export */ });
+/* harmony import */ var _core_mobile_ABMobileViewFormSelectSingleCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormSelectSingleCore */ 11310);
 
-module.exports = class ABMobileViewFormSelectSingle extends (
-   ABMobileViewFormSelectSingleCore
+
+class ABMobileViewFormSelectSingle extends (
+   _core_mobile_ABMobileViewFormSelectSingleCore__WEBPACK_IMPORTED_MODULE_0__["default"]
 ) {};
 
 
@@ -45197,12 +46420,18 @@ module.exports = class ABMobileViewFormSelectSingle extends (
 /*!***************************************************************!*\
   !*** ./AppBuilder/platform/mobile/ABMobileViewFormTextbox.js ***!
   \***************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABMobileViewFormTextboxCore = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormTextboxCore */ 36866);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewFormTextbox)
+/* harmony export */ });
+/* harmony import */ var _core_mobile_ABMobileViewFormTextboxCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormTextboxCore */ 36866);
 
-module.exports = class ABMobileViewFormTextbox extends (
-   ABMobileViewFormTextboxCore
+
+class ABMobileViewFormTextbox extends (
+   _core_mobile_ABMobileViewFormTextboxCore__WEBPACK_IMPORTED_MODULE_0__["default"]
 ) {
    // warningsEval() {
    //    super.warningsEval();
@@ -45217,12 +46446,19 @@ module.exports = class ABMobileViewFormTextbox extends (
 /*!*********************************************************!*\
   !*** ./AppBuilder/platform/mobile/ABMobileViewLabel.js ***!
   \*********************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABMobileViewLabelCore = __webpack_require__(/*! ../../core/mobile/ABMobileViewLabelCore */ 18118);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewLabel)
+/* harmony export */ });
+/* harmony import */ var _core_mobile_ABMobileViewLabelCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewLabelCore */ 18118);
+
+
 // const ABViewLabelComponent = require("./viewComponent/ABViewLabelComponent");
 
-module.exports = class ABMobileViewLabel extends ABMobileViewLabelCore {
+class ABMobileViewLabel extends _core_mobile_ABMobileViewLabelCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
    // constructor(values, application, parent, defaultValues) {
    //    super(values, application, parent, defaultValues);
    // }
@@ -45253,11 +46489,17 @@ module.exports = class ABMobileViewLabel extends ABMobileViewLabelCore {
 /*!********************************************************!*\
   !*** ./AppBuilder/platform/mobile/ABMobileViewList.js ***!
   \********************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABMobileViewListCore = __webpack_require__(/*! ../../core/mobile/ABMobileViewListCore */ 22448);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewList)
+/* harmony export */ });
+/* harmony import */ var _core_mobile_ABMobileViewListCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewListCore */ 22448);
 
-module.exports = class ABMobileViewList extends ABMobileViewListCore {
+
+class ABMobileViewList extends _core_mobile_ABMobileViewListCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
    // constructor(values, application, parent, defaultValues) {
    //    super(values, application, parent, defaultValues);
    // }
@@ -45282,11 +46524,17 @@ module.exports = class ABMobileViewList extends ABMobileViewListCore {
 /*!************************************************************!*\
   !*** ./AppBuilder/platform/mobile/ABMobileViewTimeline.js ***!
   \************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABMobileViewTimelineCore = __webpack_require__(/*! ../../core/mobile/ABMobileViewTimelineCore */ 12355);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABMobileViewTimeline)
+/* harmony export */ });
+/* harmony import */ var _core_mobile_ABMobileViewTimelineCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewTimelineCore */ 12355);
 
-module.exports = class ABMobileViewTimeline extends ABMobileViewTimelineCore {
+
+class ABMobileViewTimeline extends _core_mobile_ABMobileViewTimelineCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
    // constructor(values, application, parent, defaultValues) {
    //    super(values, application, parent, defaultValues);
    // }
@@ -45503,7 +46751,7 @@ class ABClassUIPlugin extends _ui_ClassUI_js__WEBPACK_IMPORTED_MODULE_0__["defau
    get CurrentView() {
       return this.CurrentApplication?.views(
          (v) => v.id == this.CurrentViewID
-      )[0];
+      )?.[0];
    }
 
    /**
@@ -45525,7 +46773,7 @@ class ABClassUIPlugin extends _ui_ClassUI_js__WEBPACK_IMPORTED_MODULE_0__["defau
     *         icon: {string} the icon to display
     */
    datacollectionsIncluded() {
-      return this.CurrentApplication?.datacollectionsIncluded()
+      return (this.CurrentApplication?.datacollectionsIncluded() || [])
          .filter((dc) => {
             const obj = dc.datasource;
             return (
@@ -45605,9 +46853,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABModelPlugin)
 /* harmony export */ });
-const ABModel = __webpack_require__(/*! ../ABModel */ 90940);
+/* harmony import */ var _ABModel__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ABModel */ 90940);
 
-class ABModelPlugin extends ABModel {}
+
+class ABModelPlugin extends _ABModel__WEBPACK_IMPORTED_MODULE_0__["default"] {}
 
 
 /***/ },
@@ -45624,10 +46873,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ ABObjectPlugin)
 /* harmony export */ });
 /* harmony import */ var _ABObject_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ABObject.js */ 84154);
-/* harmony import */ var _ABObject_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_ABObject_js__WEBPACK_IMPORTED_MODULE_0__);
 
 
-class ABObjectPlugin extends (_ABObject_js__WEBPACK_IMPORTED_MODULE_0___default()) {
+class ABObjectPlugin extends _ABObject_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    // constructor(...params) {
    //    super(...params);
 
@@ -46413,10 +47661,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ ABViewPlugin)
 /* harmony export */ });
 /* harmony import */ var _views_ABView_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../views/ABView.js */ 30747);
-/* harmony import */ var _views_ABView_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_views_ABView_js__WEBPACK_IMPORTED_MODULE_0__);
 
 
-class ABViewPlugin extends (_views_ABView_js__WEBPACK_IMPORTED_MODULE_0___default()) {
+class ABViewPlugin extends _views_ABView_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(...params) {
       super(...params);
    }
@@ -46723,10 +47970,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ ABViewWidgetPlugin)
 /* harmony export */ });
 /* harmony import */ var _views_ABViewWidget_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../views/ABViewWidget.js */ 87039);
-/* harmony import */ var _views_ABViewWidget_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_views_ABViewWidget_js__WEBPACK_IMPORTED_MODULE_0__);
 
 
-class ABViewWidgetPlugin extends (_views_ABViewWidget_js__WEBPACK_IMPORTED_MODULE_0___default()) {
+class ABViewWidgetPlugin extends _views_ABViewWidget_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(...params) {
       super(...params);
    }
@@ -46762,17 +48008,23 @@ class ABViewWidgetPlugin extends (_views_ABViewWidget_js__WEBPACK_IMPORTED_MODUL
 /*!******************************************************!*\
   !*** ./AppBuilder/platform/process/ABProcessLane.js ***!
   \******************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABProcessLane)
+/* harmony export */ });
+/* harmony import */ var _core_process_ABProcessLaneCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/process/ABProcessLaneCore */ 83735);
 /**
  * ABProcessLane
  * manages a lane in a Process Diagram.
  *
  * Lanes manage users in the system, and provide a way to lookup a SiteUser.
  */
-var ABProcessLaneCore = __webpack_require__(/*! ../../core/process/ABProcessLaneCore */ 83735);
 
-module.exports = class ABProcessLane extends ABProcessLaneCore {
+
+class ABProcessLane extends _core_process_ABProcessLaneCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
    // constructor(attributes, process, application) {
    //    super(attributes, process, application);
    // }
@@ -46917,8 +48169,14 @@ module.exports = class ABProcessLane extends ABProcessLaneCore {
 /*!*************************************************************!*\
   !*** ./AppBuilder/platform/process/ABProcessParticipant.js ***!
   \*************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABProcessParticipant)
+/* harmony export */ });
+/* harmony import */ var _core_process_ABProcessParticipantCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/process/ABProcessParticipantCore */ 12934);
 /**
  * ABProcessParticipant
  * manages the participant lanes in a Process Diagram.
@@ -46926,11 +48184,11 @@ module.exports = class ABProcessLane extends ABProcessLaneCore {
  * Participants manage users in the system (when there are no lanes defined)
  * and provide a way to lookup a SiteUser.
  */
-var ABProcessParticipantCore = __webpack_require__(/*! ../../core/process/ABProcessParticipantCore */ 12934);
+
 
 const L = (...params) => AB.Multilingual.label(...params);
 
-module.exports = class ABProcessParticipant extends ABProcessParticipantCore {
+class ABProcessParticipant extends _core_process_ABProcessParticipantCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
    // constructor(attributes, process, AB) {
    //    super(attributes, process, AB);
    // }
@@ -47036,11 +48294,17 @@ module.exports = class ABProcessParticipant extends ABProcessParticipantCore {
 /*!***************************************************************!*\
   !*** ./AppBuilder/platform/process/tasks/ABProcessElement.js ***!
   \***************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABProcessElementCore = __webpack_require__(/*! ../../../core/process/tasks/ABProcessElementCore.js */ 91832);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABProcessElement)
+/* harmony export */ });
+/* harmony import */ var _core_process_tasks_ABProcessElementCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessElementCore.js */ 91832);
 
-module.exports = class ABProcessElement extends ABProcessElementCore {
+
+class ABProcessElement extends _core_process_tasks_ABProcessElementCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    // constructor(attributes, process, AB, defaultValues) {
    //    super(attributes, process, AB, defaultValues);
 
@@ -47330,11 +48594,17 @@ module.exports = class ABProcessElement extends ABProcessElementCore {
 /*!***********************************************************!*\
   !*** ./AppBuilder/platform/process/tasks/ABProcessEnd.js ***!
   \***********************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABProcessEndCore = __webpack_require__(/*! ../../../core/process/tasks/ABProcessEndCore.js */ 15581);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABProcessEnd)
+/* harmony export */ });
+/* harmony import */ var _core_process_tasks_ABProcessEndCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessEndCore.js */ 15581);
 
-module.exports = class ABProcessEnd extends ABProcessEndCore {
+
+class ABProcessEnd extends _core_process_tasks_ABProcessEndCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    /**
     * do()
     * this method actually performs the action for this task.
@@ -47363,14 +48633,20 @@ module.exports = class ABProcessEnd extends ABProcessEndCore {
 /*!************************************************************************!*\
   !*** ./AppBuilder/platform/process/tasks/ABProcessGatewayExclusive.js ***!
   \************************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABProcessGatewayExclusiveCore = __webpack_require__(/*! ../../../core/process/tasks/ABProcessGatewayExclusiveCore.js */ 30286);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABProcessGatewayExclusive)
+/* harmony export */ });
+/* harmony import */ var _core_process_tasks_ABProcessGatewayExclusiveCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessGatewayExclusiveCore.js */ 30286);
+
 
 let L = (...params) => AB.Multilingual.label(...params);
 
-module.exports = class ABProcessGatewayExclusive extends (
-   ABProcessGatewayExclusiveCore
+class ABProcessGatewayExclusive extends (
+   _core_process_tasks_ABProcessGatewayExclusiveCore_js__WEBPACK_IMPORTED_MODULE_0__["default"]
 ) {
    ////
    //// Process Instance Methods
@@ -47448,13 +48724,19 @@ module.exports = class ABProcessGatewayExclusive extends (
 /*!*****************************************************************!*\
   !*** ./AppBuilder/platform/process/tasks/ABProcessTaskEmail.js ***!
   \*****************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABProcessTaskEmail)
+/* harmony export */ });
+/* harmony import */ var _core_process_tasks_ABProcessTaskEmailCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskEmailCore.js */ 24535);
 // import ABApplication from "./ABApplication"
 // const ABApplication = require("./ABApplication"); // NOTE: change to require()
-const ABProcessTaskEmailCore = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskEmailCore.js */ 24535);
 
-module.exports = class ABProcessTaskEmail extends ABProcessTaskEmailCore {
+
+class ABProcessTaskEmail extends _core_process_tasks_ABProcessTaskEmailCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    ////
    //// Process Instance Methods
    ////
@@ -47568,11 +48850,16 @@ module.exports = class ABProcessTaskEmail extends ABProcessTaskEmailCore {
 /*!*******************************************************************!*\
   !*** ./AppBuilder/platform/process/tasks/ABProcessTaskService.js ***!
   \*******************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABProcessTaskServiceCore = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskServiceCore.js */ 83164);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABProcessTaskService)
+/* harmony export */ });
+/* harmony import */ var _core_process_tasks_ABProcessTaskServiceCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskServiceCore.js */ 83164);
 
-module.exports = class ABProcessTaskService extends ABProcessTaskServiceCore {};
+class ABProcessTaskService extends _core_process_tasks_ABProcessTaskServiceCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {};
 
 
 /***/ },
@@ -47581,14 +48868,20 @@ module.exports = class ABProcessTaskService extends ABProcessTaskServiceCore {};
 /*!********************************************************************************************!*\
   !*** ./AppBuilder/platform/process/tasks/ABProcessTaskServiceAccountingBatchProcessing.js ***!
   \********************************************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const AccountingBatchProcessingCore = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskServiceAccountingBatchProcessingCore.js */ 56288);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ AccountingBatchProcessing)
+/* harmony export */ });
+/* harmony import */ var _core_process_tasks_ABProcessTaskServiceAccountingBatchProcessingCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskServiceAccountingBatchProcessingCore.js */ 56288);
+
 
 let L = (...params) => AB.Multilingual.label(...params);
 
-module.exports = class AccountingBatchProcessing extends (
-   AccountingBatchProcessingCore
+class AccountingBatchProcessing extends (
+   _core_process_tasks_ABProcessTaskServiceAccountingBatchProcessingCore_js__WEBPACK_IMPORTED_MODULE_0__["default"]
 ) {
    ////
    //// Process Instance Methods
@@ -47972,13 +49265,19 @@ module.exports = class AccountingBatchProcessing extends (
 /*!************************************************************************************!*\
   !*** ./AppBuilder/platform/process/tasks/ABProcessTaskServiceAccountingFPClose.js ***!
   \************************************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const AccountingFPCloseCore = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskServiceAccountingFPCloseCore.js */ 49081);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ AccountingFPClose)
+/* harmony export */ });
+/* harmony import */ var _core_process_tasks_ABProcessTaskServiceAccountingFPCloseCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskServiceAccountingFPCloseCore.js */ 49081);
+
 
 let L = (...params) => AB.Multilingual.label(...params);
 
-module.exports = class AccountingFPClose extends AccountingFPCloseCore {
+class AccountingFPClose extends _core_process_tasks_ABProcessTaskServiceAccountingFPCloseCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    ////
    //// Process Instance Methods
    ////
@@ -48402,13 +49701,19 @@ module.exports = class AccountingFPClose extends AccountingFPCloseCore {
 /*!****************************************************************************************!*\
   !*** ./AppBuilder/platform/process/tasks/ABProcessTaskServiceAccountingFPYearClose.js ***!
   \****************************************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const AccountingFPYearCloseCore = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskServiceAccountingFPYearCloseCore.js */ 73274);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ AccountingFPYearClose)
+/* harmony export */ });
+/* harmony import */ var _core_process_tasks_ABProcessTaskServiceAccountingFPYearCloseCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskServiceAccountingFPYearCloseCore.js */ 73274);
+
 
 let L = (...params) => AB.Multilingual.label(...params);
 
-module.exports = class AccountingFPYearClose extends AccountingFPYearCloseCore {
+class AccountingFPYearClose extends _core_process_tasks_ABProcessTaskServiceAccountingFPYearCloseCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    ////
    //// Process Instance Methods
    ////
@@ -48858,13 +50163,19 @@ module.exports = class AccountingFPYearClose extends AccountingFPYearCloseCore {
 /*!**************************************************************************************!*\
   !*** ./AppBuilder/platform/process/tasks/ABProcessTaskServiceAccountingJEArchive.js ***!
   \**************************************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const AccountingJEArchiveCore = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskServiceAccountingJEArchiveCore.js */ 75358);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ AccountingJEArchive)
+/* harmony export */ });
+/* harmony import */ var _core_process_tasks_ABProcessTaskServiceAccountingJEArchiveCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskServiceAccountingJEArchiveCore.js */ 75358);
+
 
 let L = (...params) => AB.Multilingual.label(...params);
 
-module.exports = class AccountingJEArchive extends AccountingJEArchiveCore {
+class AccountingJEArchive extends _core_process_tasks_ABProcessTaskServiceAccountingJEArchiveCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    ////
    //// Process Instance Methods
    ////
@@ -49210,13 +50521,19 @@ module.exports = class AccountingJEArchive extends AccountingJEArchiveCore {
 /*!**********************************************************************!*\
   !*** ./AppBuilder/platform/process/tasks/ABProcessTaskServiceApi.js ***!
   \**********************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ApiTaskCore = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskServiceApiCore.js */ 11204);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ApiTask)
+/* harmony export */ });
+/* harmony import */ var _core_process_tasks_ABProcessTaskServiceApiCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskServiceApiCore.js */ 11204);
+
 
 // let L = (...params) => AB.Multilingual.label(...params);
 
-module.exports = class ApiTask extends ApiTaskCore {
+class ApiTask extends _core_process_tasks_ABProcessTaskServiceApiCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    static defaults() {
       return { key: "Api" };
    }
@@ -49300,13 +50617,19 @@ module.exports = class ApiTask extends ApiTaskCore {
 /*!****************************************************************************!*\
   !*** ./AppBuilder/platform/process/tasks/ABProcessTaskServiceCalculate.js ***!
   \****************************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const CalculateTaskCore = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskServiceCalculateCore.js */ 92328);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ CalculateTask)
+/* harmony export */ });
+/* harmony import */ var _core_process_tasks_ABProcessTaskServiceCalculateCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskServiceCalculateCore.js */ 92328);
+
 
 let L = (...params) => AB.Multilingual.label(...params);
 
-module.exports = class CalculateTask extends CalculateTaskCore {
+class CalculateTask extends _core_process_tasks_ABProcessTaskServiceCalculateCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    ////
    //// Process Instance Methods
    ////
@@ -49345,14 +50668,20 @@ module.exports = class CalculateTask extends CalculateTaskCore {
 /*!**************************************************************************************!*\
   !*** ./AppBuilder/platform/process/tasks/ABProcessTaskServiceGetResetPasswordUrl.js ***!
   \**************************************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABProcessTaskServiceGetResetPasswordUrl)
+/* harmony export */ });
+/* harmony import */ var _core_process_tasks_ABProcessTaskServiceGetResetPasswordUrlCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskServiceGetResetPasswordUrlCore.js */ 74119);
 // import ABApplication from "./ABApplication"
 // const ABApplication = require("./ABApplication"); // NOTE: change to require()
-const ABProcessTaskServiceGetResetPasswordUrlCore = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskServiceGetResetPasswordUrlCore.js */ 74119);
 
-module.exports = class ABProcessTaskServiceGetResetPasswordUrl extends (
-   ABProcessTaskServiceGetResetPasswordUrlCore
+
+class ABProcessTaskServiceGetResetPasswordUrl extends (
+   _core_process_tasks_ABProcessTaskServiceGetResetPasswordUrlCore_js__WEBPACK_IMPORTED_MODULE_0__["default"]
 ) {
    warningsEval() {
       super.warningsEval();
@@ -49383,11 +50712,17 @@ module.exports = class ABProcessTaskServiceGetResetPasswordUrl extends (
 /*!*******************************************************************************!*\
   !*** ./AppBuilder/platform/process/tasks/ABProcessTaskServiceInsertRecord.js ***!
   \*******************************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const InsertRecordTaskCore = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskServiceInsertRecordCore.js */ 38640);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ InsertRecordTask)
+/* harmony export */ });
+/* harmony import */ var _core_process_tasks_ABProcessTaskServiceInsertRecordCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskServiceInsertRecordCore.js */ 38640);
 
-module.exports = class InsertRecordTask extends InsertRecordTaskCore {
+
+class InsertRecordTask extends _core_process_tasks_ABProcessTaskServiceInsertRecordCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    warningsEval() {
       super.warningsEval();
 
@@ -49422,14 +50757,20 @@ module.exports = class InsertRecordTask extends InsertRecordTaskCore {
 /*!************************************************************************!*\
   !*** ./AppBuilder/platform/process/tasks/ABProcessTaskServiceQuery.js ***!
   \************************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABProcessTaskServiceQueryCore = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskServiceQueryCore.js */ 89024);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABProcessTaskServiceQuery)
+/* harmony export */ });
+/* harmony import */ var _core_process_tasks_ABProcessTaskServiceQueryCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskServiceQueryCore.js */ 89024);
+/* harmony import */ var _ql_ABQLManager_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../ql/ABQLManager.js */ 86113);
 
-const ABQLManager = __webpack_require__(/*! ../../ql/ABQLManager.js */ 86113);
 
-module.exports = class ABProcessTaskServiceQuery extends (
-   ABProcessTaskServiceQueryCore
+
+class ABProcessTaskServiceQuery extends (
+   _core_process_tasks_ABProcessTaskServiceQueryCore_js__WEBPACK_IMPORTED_MODULE_0__["default"]
 ) {
    constructor(attributes, process, AB) {
       super(attributes, process, AB);
@@ -49438,7 +50779,7 @@ module.exports = class ABProcessTaskServiceQuery extends (
    }
 
    ABQLManager() {
-      return ABQLManager;
+      return _ql_ABQLManager_js__WEBPACK_IMPORTED_MODULE_1__["default"];
    }
 
    warnings() {
@@ -49494,13 +50835,19 @@ module.exports = class ABProcessTaskServiceQuery extends (
 /*!**********************************************************************!*\
   !*** ./AppBuilder/platform/process/tasks/ABProcessTaskSubProcess.js ***!
   \**********************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const SubProcessCore = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskSubProcessCore.js */ 89874);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ SubProcess)
+/* harmony export */ });
+/* harmony import */ var _core_process_tasks_ABProcessTaskSubProcessCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskSubProcessCore.js */ 89874);
+
 
 let L = (...params) => AB.Multilingual.label(...params);
 
-module.exports = class SubProcess extends SubProcessCore {
+class SubProcess extends _core_process_tasks_ABProcessTaskSubProcessCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    ////
    //// Process Instance Methods
    ////
@@ -49694,11 +51041,16 @@ module.exports = class SubProcess extends SubProcessCore {
 /*!****************************************************************!*\
   !*** ./AppBuilder/platform/process/tasks/ABProcessTaskUser.js ***!
   \****************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABProcessTaskUserCore = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskUserCore.js */ 85722);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABProcessTaskUser)
+/* harmony export */ });
+/* harmony import */ var _core_process_tasks_ABProcessTaskUserCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskUserCore.js */ 85722);
 
-module.exports = class ABProcessTaskUser extends ABProcessTaskUserCore {};
+class ABProcessTaskUser extends _core_process_tasks_ABProcessTaskUserCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {};
 
 
 /***/ },
@@ -49707,12 +51059,18 @@ module.exports = class ABProcessTaskUser extends ABProcessTaskUserCore {};
 /*!************************************************************************!*\
   !*** ./AppBuilder/platform/process/tasks/ABProcessTaskUserApproval.js ***!
   \************************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABProcessTaskUserApprovalCore = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskUserApprovalCore.js */ 79425);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABProcessTaskUserApproval)
+/* harmony export */ });
+/* harmony import */ var _core_process_tasks_ABProcessTaskUserApprovalCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskUserApprovalCore.js */ 79425);
 
-module.exports = class ABProcessTaskUserApproval extends (
-   ABProcessTaskUserApprovalCore
+
+class ABProcessTaskUserApproval extends (
+   _core_process_tasks_ABProcessTaskUserApprovalCore_js__WEBPACK_IMPORTED_MODULE_0__["default"]
 ) {};
 
 
@@ -49722,14 +51080,20 @@ module.exports = class ABProcessTaskUserApproval extends (
 /*!************************************************************************!*\
   !*** ./AppBuilder/platform/process/tasks/ABProcessTaskUserExternal.js ***!
   \************************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABProcessTaskUserExternal)
+/* harmony export */ });
+/* harmony import */ var _core_process_tasks_ABProcessTaskUserExternalCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskUserExternalCore.js */ 2057);
 // import ABApplication from "./ABApplication"
 // const ABApplication = require("./ABApplication"); // NOTE: change to require()
-const ABProcessTaskUserExternalCore = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskUserExternalCore.js */ 2057);
 
-module.exports = class ABProcessTaskUserExternal extends (
-   ABProcessTaskUserExternalCore
+
+class ABProcessTaskUserExternal extends (
+   _core_process_tasks_ABProcessTaskUserExternalCore_js__WEBPACK_IMPORTED_MODULE_0__["default"]
 ) {};
 
 
@@ -49739,12 +51103,18 @@ module.exports = class ABProcessTaskUserExternal extends (
 /*!********************************************************************!*\
   !*** ./AppBuilder/platform/process/tasks/ABProcessTaskUserForm.js ***!
   \********************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABProcessTaskUserFormCore = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskUserFormCore.js */ 88828);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABProcessTaskUserForm)
+/* harmony export */ });
+/* harmony import */ var _core_process_tasks_ABProcessTaskUserFormCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskUserFormCore.js */ 88828);
 
-module.exports = class ABProcessTaskUserForm extends (
-   ABProcessTaskUserFormCore
+
+class ABProcessTaskUserForm extends (
+   _core_process_tasks_ABProcessTaskUserFormCore_js__WEBPACK_IMPORTED_MODULE_0__["default"]
 ) {};
 
 
@@ -49754,15 +51124,21 @@ module.exports = class ABProcessTaskUserForm extends (
 /*!***************************************************************!*\
   !*** ./AppBuilder/platform/process/tasks/ABProcessTrigger.js ***!
   \***************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABProcessTrigger)
+/* harmony export */ });
+/* harmony import */ var _core_process_tasks_ABProcessTriggerCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTriggerCore.js */ 88580);
 // import ABApplication from "./ABApplication"
 // const ABApplication = require("./ABApplication"); // NOTE: change to require()
-const ABProcessTriggerCore = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTriggerCore.js */ 88580);
+
 
 let L = (...params) => AB.Multilingual.label(...params);
 
-module.exports = class ABProcessTrigger extends ABProcessTriggerCore {};
+class ABProcessTrigger extends _core_process_tasks_ABProcessTriggerCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {};
 
 
 /***/ },
@@ -49771,12 +51147,18 @@ module.exports = class ABProcessTrigger extends ABProcessTriggerCore {};
 /*!************************************************************************!*\
   !*** ./AppBuilder/platform/process/tasks/ABProcessTriggerLifecycle.js ***!
   \************************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABProcessTriggerLifecycleCore = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTriggerLifecycleCore.js */ 27208);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABProcessTriggerLifecycle)
+/* harmony export */ });
+/* harmony import */ var _core_process_tasks_ABProcessTriggerLifecycleCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTriggerLifecycleCore.js */ 27208);
 
-module.exports = class ABProcessTriggerLifecycle extends (
-   ABProcessTriggerLifecycleCore
+
+class ABProcessTriggerLifecycle extends (
+   _core_process_tasks_ABProcessTriggerLifecycleCore_js__WEBPACK_IMPORTED_MODULE_0__["default"]
 ) {};
 
 
@@ -49786,16 +51168,22 @@ module.exports = class ABProcessTriggerLifecycle extends (
 /*!********************************************************************!*\
   !*** ./AppBuilder/platform/process/tasks/ABProcessTriggerTimer.js ***!
   \********************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABProcessTriggerTimerCore = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTriggerTimerCore.js */ 26837);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABProcessTriggerTimer)
+/* harmony export */ });
+/* harmony import */ var _core_process_tasks_ABProcessTriggerTimerCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTriggerTimerCore.js */ 26837);
+
 
 const START_URL = "/process/timer/#id#/start";
 const STOP_URL = "/process/timer/#id#/stop";
 
 let L = (...params) => AB.Multilingual.label(...params);
 
-module.exports = class ABProcessTriggerTimer extends ABProcessTriggerTimerCore {
+class ABProcessTriggerTimer extends _core_process_tasks_ABProcessTriggerTimerCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    /**
     * @method save()
     * persist this instance of ABObject with it's parent ABApplication
@@ -49825,8 +51213,15 @@ module.exports = class ABProcessTriggerTimer extends ABProcessTriggerTimerCore {
 /*!****************************************!*\
   !*** ./AppBuilder/platform/ql/ABQL.js ***!
   \****************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _core_ql_ABQLCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/ql/ABQLCore.js */ 3111);
+/* harmony import */ var _RowUpdater_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../RowUpdater.js */ 18815);
 /*
  * ABQL
  *
@@ -49836,12 +51231,13 @@ module.exports = class ABProcessTriggerTimer extends ABProcessTriggerTimerCore {
  *
  *
  */
-const ABQLCore = __webpack_require__(/*! ../../core/ql/ABQLCore.js */ 3111);
-const RowUpdater = (__webpack_require__(/*! ../RowUpdater.js */ 18815)["default"]);
+
+
+
 
 const L = (...params) => AB.Multilingual.label(...params);
 
-class ABQL extends ABQLCore {
+class ABQL extends _core_ql_ABQLCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(attributes, parameterDefinitions, prevOP, task, AB) {
       super(attributes, parameterDefinitions, prevOP, task, AB);
 
@@ -50447,7 +51843,7 @@ class ABQL extends ABQLCore {
             // the current object.
 
             initialValue = "";
-            Updater = new RowUpdater(myID, this.AB);
+            Updater = new _RowUpdater_js__WEBPACK_IMPORTED_MODULE_1__["default"](myID, this.AB);
 
             if (this.object) Updater.objectLoad(this.object);
 
@@ -50669,7 +52065,7 @@ class ABQL extends ABQLCore {
    ////
 }
 
-module.exports = ABQL;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ABQL);
 
 
 /***/ },
@@ -50678,8 +52074,14 @@ module.exports = ABQL;
 /*!********************************************!*\
   !*** ./AppBuilder/platform/ql/ABQLFind.js ***!
   \********************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _core_ql_ABQLFindCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/ql/ABQLFindCore.js */ 71268);
 /*
  * ABQLFind
  *
@@ -50687,9 +52089,9 @@ module.exports = ABQL;
  * and can perform a DB query based upon that BASE object.
  *
  */
-const ABQLFindCore = __webpack_require__(/*! ../../core/ql/ABQLFindCore.js */ 71268);
 
-class ABQLFind extends ABQLFindCore {
+
+class ABQLFind extends _core_ql_ABQLFindCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    // constructor(attributes, prevOP, task, application) {
    //     super(attributes, ParameterDefinitions, prevOP, task, application);
    // }
@@ -50698,7 +52100,7 @@ class ABQLFind extends ABQLFindCore {
    ///
 }
 
-module.exports = ABQLFind;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ABQLFind);
 
 
 /***/ },
@@ -50707,8 +52109,15 @@ module.exports = ABQLFind;
 /*!***********************************************!*\
   !*** ./AppBuilder/platform/ql/ABQLManager.js ***!
   \***********************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _core_ql_ABQLManagerCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/ql/ABQLManagerCore.js */ 71678);
+/* harmony import */ var _ABQLRootObject_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ABQLRootObject.js */ 4335);
 /*
  * ABQLManager
  *
@@ -50717,8 +52126,9 @@ module.exports = ABQLFind;
  *
  */
 
-const ABQLManagerCore = __webpack_require__(/*! ../../core/ql/ABQLManagerCore.js */ 71678);
-const ABQLRootObject = __webpack_require__(/*! ./ABQLRootObject.js */ 4335);
+
+
+
 
 const ABQLManager = {
    /**
@@ -50733,7 +52143,7 @@ const ABQLManager = {
     *		  the current {ABFactory} active for this interface.
     * @return {ABQL} | null
     */
-   fromAttributes: ABQLManagerCore.fromAttributes,
+   fromAttributes: _core_ql_ABQLManagerCore_js__WEBPACK_IMPORTED_MODULE_0__["default"].fromAttributes,
 
    /**
     * @method ids()
@@ -50770,7 +52180,7 @@ const ABQLManager = {
 
       return {
          ui: (id) => {
-            rootOP = rootOP ?? new ABQLRootObject({}, task, AB);
+            rootOP = rootOP ?? new _ABQLRootObject_js__WEBPACK_IMPORTED_MODULE_1__["default"]({}, task, AB);
 
             const ids = ABQLManager.ids(id);
             const ui = {
@@ -50834,7 +52244,7 @@ const ABQLManager = {
 
          // figure out the QLOP object
          const OP = options.find((o) => {
-            return o.key === value || o.key === ABQLRootObject.key;
+            return o.key === value || o.key === _ABQLRootObject_js__WEBPACK_IMPORTED_MODULE_1__["default"].key;
          });
 
          if (OP) {
@@ -50867,13 +52277,13 @@ const ABQLManager = {
          return null;
       };
 
-      const operation = parseCurrent(rows, ABQLManagerCore.QLOps, null);
+      const operation = parseCurrent(rows, _core_ql_ABQLManagerCore_js__WEBPACK_IMPORTED_MODULE_0__["default"].QLOps, null);
 
       return operation;
    },
 };
 
-module.exports = ABQLManager;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ABQLManager);
 
 
 /***/ },
@@ -50882,8 +52292,14 @@ module.exports = ABQLManager;
 /*!**************************************************!*\
   !*** ./AppBuilder/platform/ql/ABQLRootObject.js ***!
   \**************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _core_ql_ABQLRootObjectCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/ql/ABQLRootObjectCore.js */ 13360);
 /*
  * ABQLRootObject
  *
@@ -50894,9 +52310,9 @@ module.exports = ABQLManager;
  *
  */
 
-const ABQLRootObjectCore = __webpack_require__(/*! ../../core/ql/ABQLRootObjectCore.js */ 13360);
 
-class ABQLObject extends ABQLRootObjectCore {
+
+class ABQLObject extends _core_ql_ABQLRootObjectCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    // constructor(attributes, task, application) {
    //     // NOTE: keep this so we can insert the prevOp === null
    //     super(attributes, ParameterDefinitions, null, task, application);
@@ -50962,7 +52378,7 @@ class ABQLObject extends ABQLRootObjectCore {
    }
 }
 
-module.exports = ABQLObject;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ABQLObject);
 
 
 /***/ },
@@ -50971,11 +52387,17 @@ module.exports = ABQLObject;
 /*!************************************************!*\
   !*** ./AppBuilder/platform/ql/ABQLRowPluck.js ***!
   \************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABQLRowPluckCore = __webpack_require__(/*! ../../core/ql/ABQLRowPluckCore.js */ 56146);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _core_ql_ABQLRowPluckCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/ql/ABQLRowPluckCore.js */ 56146);
 
-class ABQLRowPluck extends ABQLRowPluckCore {
+
+class ABQLRowPluck extends _core_ql_ABQLRowPluckCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    /*
     * @method paramChanged()
     * respond to an update to the given parameter.
@@ -50992,7 +52414,7 @@ class ABQLRowPluck extends ABQLRowPluckCore {
    }
 }
 
-module.exports = ABQLRowPluck;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ABQLRowPluck);
 
 
 /***/ },
@@ -51001,8 +52423,14 @@ module.exports = ABQLRowPluck;
 /*!***********************************************!*\
   !*** ./AppBuilder/platform/ql/ABQLRowSave.js ***!
   \***********************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _core_ql_ABQLRowSaveCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/ql/ABQLRowSaveCore.js */ 44728);
 /*
  * ABQLRowSave
  *
@@ -51011,15 +52439,15 @@ module.exports = ABQLRowPluck;
  *
  */
 
-const ABQLRowSaveCore = __webpack_require__(/*! ../../core/ql/ABQLRowSaveCore.js */ 44728);
 
-class ABQLRowSave extends ABQLRowSaveCore {
+
+class ABQLRowSave extends _core_ql_ABQLRowSaveCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    paramChanged(pDef, id) {
       super.paramChanged(pDef);
    }
 }
 
-module.exports = ABQLRowSave;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ABQLRowSave);
 
 
 /***/ },
@@ -51028,8 +52456,14 @@ module.exports = ABQLRowSave;
 /*!*************************************************!*\
   !*** ./AppBuilder/platform/ql/ABQLRowUpdate.js ***!
   \*************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _core_ql_ABQLRowUpdateCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/ql/ABQLRowUpdateCore.js */ 15692);
 /*
  * ABQLRowUpdate
  *
@@ -51038,9 +52472,9 @@ module.exports = ABQLRowSave;
  *
  */
 
-const ABQLRowUpdateCore = __webpack_require__(/*! ../../core/ql/ABQLRowUpdateCore.js */ 15692);
 
-class ABQLRowUpdate extends ABQLRowUpdateCore {
+
+class ABQLRowUpdate extends _core_ql_ABQLRowUpdateCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    // constructor(attributes, prevOP, task, application) {
    //     super(attributes, ParameterDefinitions, prevOP, task, application);
    //     // #Hack! : when an Operation provides the same .NextQlOps that it
@@ -51053,7 +52487,7 @@ class ABQLRowUpdate extends ABQLRowUpdateCore {
    ///
 }
 
-module.exports = ABQLRowUpdate;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ABQLRowUpdate);
 
 
 /***/ },
@@ -51062,8 +52496,14 @@ module.exports = ABQLRowUpdate;
 /*!************************************************!*\
   !*** ./AppBuilder/platform/ql/ABQLSetFirst.js ***!
   \************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _core_ql_ABQLSetFirstCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/ql/ABQLSetFirstCore.js */ 80953);
 /*
  * ABQLSetFirst
  *
@@ -51072,9 +52512,9 @@ module.exports = ABQLRowUpdate;
  *
  */
 
-const ABQLSetFirstCore = __webpack_require__(/*! ../../core/ql/ABQLSetFirstCore.js */ 80953);
 
-class ABQLSetFirst extends ABQLSetFirstCore {
+
+class ABQLSetFirst extends _core_ql_ABQLSetFirstCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    // constructor(attributes, prevOP, task, application) {
    //     super(attributes, [], prevOP, task, application);
    // }
@@ -51083,7 +52523,7 @@ class ABQLSetFirst extends ABQLSetFirstCore {
    ///
 }
 
-module.exports = ABQLSetFirst;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ABQLSetFirst);
 
 
 /***/ },
@@ -51092,8 +52532,14 @@ module.exports = ABQLSetFirst;
 /*!************************************************!*\
   !*** ./AppBuilder/platform/ql/ABQLSetPluck.js ***!
   \************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _core_ql_ABQLSetPluckCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/ql/ABQLSetPluckCore.js */ 58410);
 /*
  * ABQLSetPluck
  *
@@ -51137,9 +52583,9 @@ pluck("relationships"):
  *
  */
 
-const ABQLSetPluckCore = __webpack_require__(/*! ../../core/ql/ABQLSetPluckCore.js */ 58410);
 
-class ABQLSetPluck extends ABQLSetPluckCore {
+
+class ABQLSetPluck extends _core_ql_ABQLSetPluckCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    // constructor(attributes, prevOP, task, application) {
    //     super(attributes, [], prevOP, task, application);
    // }
@@ -51224,7 +52670,7 @@ class ABQLSetPluck extends ABQLSetPluckCore {
    }
 }
 
-module.exports = ABQLSetPluck;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ABQLSetPluck);
 
 
 /***/ },
@@ -51233,8 +52679,14 @@ module.exports = ABQLSetPluck;
 /*!***********************************************!*\
   !*** ./AppBuilder/platform/ql/ABQLSetSave.js ***!
   \***********************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _core_ql_ABQLSetSaveCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/ql/ABQLSetSaveCore.js */ 42720);
 /*
  * ABQLSetSave
  *
@@ -51243,9 +52695,9 @@ module.exports = ABQLSetPluck;
  *
  */
 
-const ABQLSetSaveCore = __webpack_require__(/*! ../../core/ql/ABQLSetSaveCore.js */ 42720);
 
-class ABQLSetSave extends ABQLSetSaveCore {
+
+class ABQLSetSave extends _core_ql_ABQLSetSaveCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    // constructor(attributes, prevOP, task, application) {
    //     super(attributes, [], prevOP, task, application);
    // }
@@ -51286,7 +52738,7 @@ class ABQLSetSave extends ABQLSetSaveCore {
    }
 }
 
-module.exports = ABQLSetSave;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ABQLSetSave);
 
 
 /***/ },
@@ -51295,12 +52747,19 @@ module.exports = ABQLSetSave;
 /*!*********************************************!*\
   !*** ./AppBuilder/platform/views/ABView.js ***!
   \*********************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABViewCore = __webpack_require__(/*! ../../core/views/ABViewCore.js */ 83156);
-const ABViewComponent = (__webpack_require__(/*! ./viewComponent/ABViewComponent */ 23687)["default"]);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABView)
+/* harmony export */ });
+/* harmony import */ var _core_views_ABViewCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/views/ABViewCore.js */ 83156);
+/* harmony import */ var _viewComponent_ABViewComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./viewComponent/ABViewComponent */ 23687);
 
-module.exports = class ABView extends ABViewCore {
+
+
+class ABView extends _core_views_ABViewCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    // constructor(attributes, application, parent) {
    //    super(attributes, application, parent);
    // }
@@ -51311,7 +52770,7 @@ module.exports = class ABView extends ABViewCore {
     * @return {obj} UI component
     */
    component() {
-      return new ABViewComponent(this);
+      return new _viewComponent_ABViewComponent__WEBPACK_IMPORTED_MODULE_1__["default"](this);
    }
 
    /*
@@ -51421,13 +52880,20 @@ module.exports = class ABView extends ABViewCore {
 /*!*****************************************************************!*\
   !*** ./AppBuilder/platform/views/ABViewConditionalContainer.js ***!
   \*****************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABViewConditionalContainerCore = __webpack_require__(/*! ../../core/views/ABViewConditionalContainerCore */ 42939);
-const ABViewConditionalContainerComponent = __webpack_require__(/*! ./viewComponent/ABViewConditionalContainerComponent */ 53382);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewConditionalContainer)
+/* harmony export */ });
+/* harmony import */ var _core_views_ABViewConditionalContainerCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/views/ABViewConditionalContainerCore */ 42939);
+/* harmony import */ var _viewComponent_ABViewConditionalContainerComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./viewComponent/ABViewConditionalContainerComponent */ 53382);
 
-module.exports = class ABViewConditionalContainer extends (
-   ABViewConditionalContainerCore
+
+
+class ABViewConditionalContainer extends (
+   _core_views_ABViewConditionalContainerCore__WEBPACK_IMPORTED_MODULE_0__["default"]
 ) {
    /**
     * @function component()
@@ -51435,7 +52901,7 @@ module.exports = class ABViewConditionalContainer extends (
     * @return {obj} UI component
     */
    component() {
-      return new ABViewConditionalContainerComponent(this);
+      return new _viewComponent_ABViewConditionalContainerComponent__WEBPACK_IMPORTED_MODULE_1__["default"](this);
    }
 
    async save() {
@@ -51486,12 +52952,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ ABViewConnectDataFilter)
 /* harmony export */ });
 /* harmony import */ var _core_views_ABViewConnectDataFilterCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/views/ABViewConnectDataFilterCore */ 39508);
-/* harmony import */ var _core_views_ABViewConnectDataFilterCore__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_core_views_ABViewConnectDataFilterCore__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _viewComponent_ABViewConnectDataFilterComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./viewComponent/ABViewConnectDataFilterComponent */ 77577);
 
 
 
-class ABViewConnectDataFilter extends (_core_views_ABViewConnectDataFilterCore__WEBPACK_IMPORTED_MODULE_0___default()) {
+class ABViewConnectDataFilter extends _core_views_ABViewConnectDataFilterCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
    /**
     * @method component()
     * return a UI component based upon this view.
@@ -51509,12 +52974,19 @@ class ABViewConnectDataFilter extends (_core_views_ABViewConnectDataFilterCore__
 /*!******************************************************!*\
   !*** ./AppBuilder/platform/views/ABViewContainer.js ***!
   \******************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABViewContainerCore = __webpack_require__(/*! ../../core/views/ABViewContainerCore */ 68091);
-const ABViewContainerComponent = __webpack_require__(/*! ./viewComponent/ABViewContainerComponent */ 71980);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewContainer)
+/* harmony export */ });
+/* harmony import */ var _core_views_ABViewContainerCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/views/ABViewContainerCore */ 68091);
+/* harmony import */ var _viewComponent_ABViewContainerComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./viewComponent/ABViewContainerComponent */ 71980);
 
-module.exports = class ABViewContainer extends ABViewContainerCore {
+
+
+class ABViewContainer extends _core_views_ABViewContainerCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
    // constructor(values, application, parent, defaultValues) {
    //    super(values, application, parent, defaultValues);
    // }
@@ -51525,7 +52997,7 @@ module.exports = class ABViewContainer extends ABViewContainerCore {
     * @return {obj} UI component
     */
    component() {
-      return new ABViewContainerComponent(this);
+      return new _viewComponent_ABViewContainerComponent__WEBPACK_IMPORTED_MODULE_1__["default"](this);
    }
 
    warningsEval() {
@@ -51559,12 +53031,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ ABViewDataFilter)
 /* harmony export */ });
 /* harmony import */ var _core_views_ABViewDataFilterCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/views/ABViewDataFilterCore */ 79382);
-/* harmony import */ var _core_views_ABViewDataFilterCore__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_core_views_ABViewDataFilterCore__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _viewComponent_ABViewDataFilterComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./viewComponent/ABViewDataFilterComponent */ 56397);
 
 
 
-class ABViewDataFilter extends (_core_views_ABViewDataFilterCore__WEBPACK_IMPORTED_MODULE_0___default()) {
+class ABViewDataFilter extends _core_views_ABViewDataFilterCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
    /**
     * @method component()
     * return a UI component based upon this view.
@@ -51604,19 +53075,26 @@ class ABViewDataFilter extends (_core_views_ABViewDataFilterCore__WEBPACK_IMPORT
 /*!*************************************************!*\
   !*** ./AppBuilder/platform/views/ABViewMenu.js ***!
   \*************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABViewMenuCore = __webpack_require__(/*! ../../core/views/ABViewMenuCore */ 65419);
-const ABViewMenuComponent = __webpack_require__(/*! ./viewComponent/ABViewMenuComponent */ 75210);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewMenu)
+/* harmony export */ });
+/* harmony import */ var _core_views_ABViewMenuCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/views/ABViewMenuCore */ 65419);
+/* harmony import */ var _viewComponent_ABViewMenuComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./viewComponent/ABViewMenuComponent */ 75210);
 
-module.exports = class ABViewMenu extends ABViewMenuCore {
+
+
+class ABViewMenu extends _core_views_ABViewMenuCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
    /**
     * @function component()
     * return a UI component based upon this view.
     * @return {obj} UI component
     */
    component() {
-      return new ABViewMenuComponent(this);
+      return new _viewComponent_ABViewMenuComponent__WEBPACK_IMPORTED_MODULE_1__["default"](this);
    }
 };
 
@@ -51627,13 +53105,19 @@ module.exports = class ABViewMenu extends ABViewMenuCore {
 /*!*************************************************!*\
   !*** ./AppBuilder/platform/views/ABViewPage.js ***!
   \*************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABViewPageCore = __webpack_require__(/*! ../../core/views/ABViewPageCore */ 36183);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewPage)
+/* harmony export */ });
+/* harmony import */ var _core_views_ABViewPageCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/views/ABViewPageCore */ 36183);
 
-const ABPropertyComponentDefaults = ABViewPageCore.defaultValues();
 
-module.exports = class ABViewPage extends ABViewPageCore {
+const ABPropertyComponentDefaults = _core_views_ABViewPageCore__WEBPACK_IMPORTED_MODULE_0__["default"].defaultValues();
+
+class ABViewPage extends _core_views_ABViewPageCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
    // constructor(values, application, parent, defaultValues) {
    //    super(values, application, parent, defaultValues);
    // }
@@ -52300,12 +53784,19 @@ class ABViewPopupSortFields extends _ui_ClassUI__WEBPACK_IMPORTED_MODULE_0__["de
 /*!***********************************************************!*\
   !*** ./AppBuilder/platform/views/ABViewReportsManager.js ***!
   \***********************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABViewReportsManagerCore = __webpack_require__(/*! ../../core/views/ABViewReportsManagerCore */ 74238);
-const ABViewReportsManagerComponent = __webpack_require__(/*! ./viewComponent/ABViewReportsManagerComponent */ 24965);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewReportsManager)
+/* harmony export */ });
+/* harmony import */ var _core_views_ABViewReportsManagerCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/views/ABViewReportsManagerCore */ 74238);
+/* harmony import */ var _viewComponent_ABViewReportsManagerComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./viewComponent/ABViewReportsManagerComponent */ 24965);
 
-module.exports = class ABViewReportsManager extends ABViewReportsManagerCore {
+
+
+class ABViewReportsManager extends _core_views_ABViewReportsManagerCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
    // constructor(values, application, parent, defaultValues) {
    //    super(values, application, parent, defaultValues);
    // }
@@ -52320,7 +53811,7 @@ module.exports = class ABViewReportsManager extends ABViewReportsManagerCore {
     * @return {obj} UI component
     */
    component() {
-      return new ABViewReportsManagerComponent(this);
+      return new _viewComponent_ABViewReportsManagerComponent__WEBPACK_IMPORTED_MODULE_1__["default"](this);
    }
 };
 
@@ -52331,12 +53822,19 @@ module.exports = class ABViewReportsManager extends ABViewReportsManagerCore {
 /*!******************************************************!*\
   !*** ./AppBuilder/platform/views/ABViewScheduler.js ***!
   \******************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABViewSchedulerCore = __webpack_require__(/*! ../../core/views/ABViewSchedulerCore */ 74441);
-const ABViewSchedulerComponent = __webpack_require__(/*! ./viewComponent/ABViewSchedulerComponent */ 37514);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewScheduler)
+/* harmony export */ });
+/* harmony import */ var _core_views_ABViewSchedulerCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/views/ABViewSchedulerCore */ 74441);
+/* harmony import */ var _viewComponent_ABViewSchedulerComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./viewComponent/ABViewSchedulerComponent */ 37514);
 
-module.exports = class ABViewScheduler extends ABViewSchedulerCore {
+
+
+class ABViewScheduler extends _core_views_ABViewSchedulerCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
    // constructor(values, application, parent, defaultValues) {
    //    super(values, application, parent, defaultValues);
    // }
@@ -52347,7 +53845,7 @@ module.exports = class ABViewScheduler extends ABViewSchedulerCore {
     * @return {obj} UI component
     */
    component() {
-      return new ABViewSchedulerComponent(this);
+      return new _viewComponent_ABViewSchedulerComponent__WEBPACK_IMPORTED_MODULE_1__["default"](this);
    }
 
    warningsEval() {
@@ -52362,15 +53860,21 @@ module.exports = class ABViewScheduler extends ABViewSchedulerCore {
 /*!***************************************************!*\
   !*** ./AppBuilder/platform/views/ABViewWidget.js ***!
   \***************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABViewWidgetCore = __webpack_require__(/*! ../../core/views/ABViewWidgetCore */ 65472);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewWidget)
+/* harmony export */ });
+/* harmony import */ var _core_views_ABViewWidgetCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/views/ABViewWidgetCore */ 65472);
 
-const ABPropertyComponentDefaults = ABViewWidgetCore.defaultValues();
+
+const ABPropertyComponentDefaults = _core_views_ABViewWidgetCore__WEBPACK_IMPORTED_MODULE_0__["default"].defaultValues();
 
 let L = (...params) => AB.Multilingual.label(...params);
 
-module.exports = class ABViewWidget extends ABViewWidgetCore {
+class ABViewWidget extends _core_views_ABViewWidgetCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
    // constructor(values, application, parent, defaultValues) {
    //    super(values, application, parent, defaultValues);
    // }
@@ -52616,12 +54120,18 @@ class ABViewComponent extends _ui_ClassUI__WEBPACK_IMPORTED_MODULE_0__["default"
 /*!****************************************************************************************!*\
   !*** ./AppBuilder/platform/views/viewComponent/ABViewConditionalContainerComponent.js ***!
   \****************************************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABViewContainerComponent = __webpack_require__(/*! ./ABViewContainerComponent */ 71980);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewConditionalContainerComponent)
+/* harmony export */ });
+/* harmony import */ var _ABViewContainerComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABViewContainerComponent */ 71980);
 
-module.exports = class ABViewConditionalContainerComponent extends (
-   ABViewContainerComponent
+
+class ABViewConditionalContainerComponent extends (
+   _ABViewContainerComponent__WEBPACK_IMPORTED_MODULE_0__["default"]
 ) {
    constructor(baseView, idBase, ids) {
       super(
@@ -52949,11 +54459,17 @@ class ABViewConnectDataFilterComponent extends _ABViewComponent__WEBPACK_IMPORTE
 /*!*****************************************************************************!*\
   !*** ./AppBuilder/platform/views/viewComponent/ABViewContainerComponent.js ***!
   \*****************************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABViewComponent = (__webpack_require__(/*! ./ABViewComponent */ 23687)["default"]);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewContainerComponent)
+/* harmony export */ });
+/* harmony import */ var _ABViewComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABViewComponent */ 23687);
 
-module.exports = class ABViewContainerComponent extends ABViewComponent {
+
+class ABViewContainerComponent extends _ABViewComponent__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(baseView, idBase, ids) {
       super(baseView, idBase || `ABViewContainer_${baseView.id}`, ids);
 
@@ -53596,11 +55112,17 @@ class ABViewDataFilterComponent extends _ABViewComponent__WEBPACK_IMPORTED_MODUL
 /*!************************************************************************!*\
   !*** ./AppBuilder/platform/views/viewComponent/ABViewMenuComponent.js ***!
   \************************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABViewComponent = (__webpack_require__(/*! ./ABViewComponent */ 23687)["default"]);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewMenuComponent)
+/* harmony export */ });
+/* harmony import */ var _ABViewComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABViewComponent */ 23687);
 
-module.exports = class ABViewMenuComponent extends ABViewComponent {
+
+class ABViewMenuComponent extends _ABViewComponent__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(baseView, idBase, ids) {
       super(
          baseView,
@@ -53858,11 +55380,17 @@ module.exports = class ABViewMenuComponent extends ABViewComponent {
 /*!**********************************************************************************!*\
   !*** ./AppBuilder/platform/views/viewComponent/ABViewReportsManagerComponent.js ***!
   \**********************************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABViewComponent = (__webpack_require__(/*! ./ABViewComponent */ 23687)["default"]);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewReportsManagerComponent)
+/* harmony export */ });
+/* harmony import */ var _ABViewComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABViewComponent */ 23687);
 
-module.exports = class ABViewReportsManagerComponent extends ABViewComponent {
+
+class ABViewReportsManagerComponent extends _ABViewComponent__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(baseView, idBase, ids) {
       super(
          baseView,
@@ -54859,11 +56387,17 @@ module.exports = class ABViewReportsManagerComponent extends ABViewComponent {
 /*!*****************************************************************************!*\
   !*** ./AppBuilder/platform/views/viewComponent/ABViewSchedulerComponent.js ***!
   \*****************************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-const ABViewComponent = (__webpack_require__(/*! ./ABViewComponent */ 23687)["default"]);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewSchedulerComponent)
+/* harmony export */ });
+/* harmony import */ var _ABViewComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABViewComponent */ 23687);
 
-module.exports = class ABViewSchedulerComponent extends ABViewComponent {
+
+class ABViewSchedulerComponent extends _ABViewComponent__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(baseView, idBase, ids) {
       super(
          baseView,
@@ -55914,8 +57448,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABViewPropertyFilterData)
 /* harmony export */ });
-/* harmony import */ var _ABViewProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABViewProperty */ 3419);
-/* harmony import */ var _viewComponent_ABViewComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../viewComponent/ABViewComponent */ 23687);
+/* harmony import */ var _ABMLClass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../ABMLClass */ 72982);
+/* harmony import */ var _ABViewProperty__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ABViewProperty */ 3419);
+/* harmony import */ var _viewComponent_ABViewComponent__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../viewComponent/ABViewComponent */ 23687);
 /*
  * ABViewPropertyFilterData
  * This is a displayable ui component that will manage displaying a
@@ -55932,7 +57467,8 @@ __webpack_require__.r(__webpack_exports__);
  *                (this is used for the parent component to indicate how
  *                many rules are currently applied to the data being displayed)
  */
-const ABMLClass = __webpack_require__(/*! ../../ABMLClass */ 72982);
+
+
 
 
 
@@ -55940,7 +57476,7 @@ const ABMLClass = __webpack_require__(/*! ../../ABMLClass */ 72982);
 
 let L = (...params) => AB.Multilingual.label(...params);
 
-class FilterRuleSettings extends ABMLClass {
+class FilterRuleSettings extends _ABMLClass__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor() {
       super(["label"], AB);
    }
@@ -55957,14 +57493,14 @@ class FilterRuleSettings extends ABMLClass {
    }
 }
 
-class ABViewPropertyFilterDataComponent extends _viewComponent_ABViewComponent__WEBPACK_IMPORTED_MODULE_1__["default"] {
+class ABViewPropertyFilterDataComponent extends _viewComponent_ABViewComponent__WEBPACK_IMPORTED_MODULE_2__["default"] {
    constructor(viewPropertyFilterData, idBase) {
       var base = idBase || viewPropertyFilterData.idBase;
       super(base, {});
    }
 }
 
-class ABViewPropertyFilterData extends _ABViewProperty__WEBPACK_IMPORTED_MODULE_0__["default"] {
+class ABViewPropertyFilterData extends _ABViewProperty__WEBPACK_IMPORTED_MODULE_1__["default"] {
    constructor(AB, idBase) {
       super(idBase, {
          buttonAddfilter: "",
@@ -56553,8 +58089,13 @@ class ABViewPropertyLinkPage extends _ABViewProperty__WEBPACK_IMPORTED_MODULE_0_
 /*!*********************************************************************!*\
   !*** ./AppBuilder/rules/ABViewQueryBuilderObjectFieldConditions.js ***!
   \*********************************************************************/
-(module) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewQueryBuilderObjectFieldConditions)
+/* harmony export */ });
 //
 // ABViewQueryBuilderObjectFieldConditions
 //
@@ -56564,7 +58105,7 @@ class ABViewPropertyLinkPage extends _ABViewProperty__WEBPACK_IMPORTED_MODULE_0_
 // This object is also responsible for saving it's state to a settings value,
 // and generating the settings value to be saved.
 
-module.exports = class ABViewQueryBuilderObjectFieldConditions {
+class ABViewQueryBuilderObjectFieldConditions {
    /**
     * @param {object} App
     *      The shared App object that is created in OP.Component
@@ -56929,8 +58470,14 @@ module.exports = class ABViewQueryBuilderObjectFieldConditions {
 /*!****************************************!*\
   !*** ./AppBuilder/rules/ABViewRule.js ***!
   \****************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewRule)
+/* harmony export */ });
+/* harmony import */ var _ABViewQueryBuilderObjectFieldConditions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABViewQueryBuilderObjectFieldConditions */ 69902);
 //
 // ABViewRule
 //
@@ -56953,11 +58500,11 @@ module.exports = class ABViewQueryBuilderObjectFieldConditions {
 // A Rule needs to save it's current state to an objects settings, and to
 // initialize itself from those settings.
 //
-const ObjectQueryBuilder = __webpack_require__(/*! ./ABViewQueryBuilderObjectFieldConditions */ 69902);
+
 
 let L = (...params) => AB.Multilingual.label(...params);
 
-module.exports = class ABViewRule {
+class ABViewRule {
    /**
     * @param {object} App
     *      The shared App object that is created in OP.Component
@@ -57206,7 +58753,7 @@ module.exports = class ABViewRule {
 
       var label = L("When");
 
-      this.objectQB = new ObjectQueryBuilder(label);
+      this.objectQB = new _ABViewQueryBuilderObjectFieldConditions__WEBPACK_IMPORTED_MODULE_0__["default"](label);
       this.objectQB.objectLoad(object);
 
       // regenerate our UI when a new object is loaded.
@@ -57414,8 +58961,13 @@ module.exports = class ABViewRule {
 /*!**********************************************!*\
   !*** ./AppBuilder/rules/ABViewRuleAction.js ***!
   \**********************************************/
-(module) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewRuleAction)
+/* harmony export */ });
 //
 // ABViewRuleAction
 //
@@ -57439,7 +58991,7 @@ module.exports = class ABViewRule {
 
 let L = (...params) => AB.Multilingual.label(...params);
 
-module.exports = class ABViewRuleAction {
+class ABViewRuleAction {
    /**
     * @param {object} App
     *      The shared App object that is created in OP.Component
@@ -57687,8 +59239,13 @@ module.exports = class ABViewRuleAction {
 /*!********************************************!*\
   !*** ./AppBuilder/rules/ABViewRuleList.js ***!
   \********************************************/
-(module) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewRuleList)
+/* harmony export */ });
 //
 // ABViewRuleList
 //
@@ -57724,7 +59281,7 @@ module.exports = class ABViewRuleAction {
 
 let L = (...params) => AB.Multilingual.label(...params);
 
-module.exports = class ABViewRuleList {
+class ABViewRuleList {
    /**
     * @param {object} App
     *      The shared App object that is created in OP.Component
@@ -58102,23 +59659,34 @@ module.exports = class ABViewRuleList {
 /*!***********************************************************!*\
   !*** ./AppBuilder/rules/ABViewRuleListFormRecordRules.js ***!
   \***********************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewRuleListFormRecordRules)
+/* harmony export */ });
+/* harmony import */ var _ABViewRuleList__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABViewRuleList */ 61376);
+/* harmony import */ var _ABViewRule__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ABViewRule */ 7704);
+/* harmony import */ var _ruleActions_ABViewRuleActionFormRecordRuleUpdate__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ruleActions/ABViewRuleActionFormRecordRuleUpdate */ 77436);
+/* harmony import */ var _ruleActions_ABViewRuleActionFormRecordRuleInsertConnected__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ruleActions/ABViewRuleActionFormRecordRuleInsertConnected */ 75589);
+/* harmony import */ var _ruleActions_ABViewRuleActionFormRecordRuleUpdateConnected__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ruleActions/ABViewRuleActionFormRecordRuleUpdateConnected */ 95109);
+/* harmony import */ var _ruleActions_ABViewRuleActionFormRecordRuleRemoveConnected__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ruleActions/ABViewRuleActionFormRecordRuleRemoveConnected */ 39090);
 //
 // ABViewRuleListFormRecordRules
 //
 // A component that is responsible for displaying the specific list of Record
 // Rules for a form.
 //
-const ABViewRuleList = __webpack_require__(/*! ./ABViewRuleList */ 61376);
-const ABViewRule = __webpack_require__(/*! ./ABViewRule */ 7704);
 
-const RoleUpdateExisting = __webpack_require__(/*! ./ruleActions/ABViewRuleActionFormRecordRuleUpdate */ 77436);
-const RoleInsertConnected = __webpack_require__(/*! ./ruleActions/ABViewRuleActionFormRecordRuleInsertConnected */ 75589);
-const RoleUpdateConnected = __webpack_require__(/*! ./ruleActions/ABViewRuleActionFormRecordRuleUpdateConnected */ 95109);
-const RoleRemoveConnected = __webpack_require__(/*! ./ruleActions/ABViewRuleActionFormRecordRuleRemoveConnected */ 39090);
 
-module.exports = class ABViewRuleListFormRecordRules extends ABViewRuleList {
+
+
+
+
+
+
+class ABViewRuleListFormRecordRules extends _ABViewRuleList__WEBPACK_IMPORTED_MODULE_0__["default"] {
    /**
     * @param {object} App
     *      ?what is this?
@@ -58138,29 +59706,29 @@ module.exports = class ABViewRuleListFormRecordRules extends ABViewRuleList {
    // must return the actual Rule object.
    getRule() {
       var listActions = [
-         new RoleUpdateExisting(
+         new _ruleActions_ABViewRuleActionFormRecordRuleUpdate__WEBPACK_IMPORTED_MODULE_2__["default"](
             this.App,
             `${this.idBase}_ruleActionUpdate`,
             this.currentForm
          ),
-         new RoleInsertConnected(
+         new _ruleActions_ABViewRuleActionFormRecordRuleInsertConnected__WEBPACK_IMPORTED_MODULE_3__["default"](
             this.App,
             `${this.idBase}_ruleActionInsert`,
             this.currentForm
          ),
-         new RoleUpdateConnected(
+         new _ruleActions_ABViewRuleActionFormRecordRuleUpdateConnected__WEBPACK_IMPORTED_MODULE_4__["default"](
             this.App,
             `${this.idBase}_ruleActionUpdateConnected`,
             this.currentForm
          ),
-         new RoleRemoveConnected(
+         new _ruleActions_ABViewRuleActionFormRecordRuleRemoveConnected__WEBPACK_IMPORTED_MODULE_5__["default"](
             this.App,
             `${this.idBase}_ruleActionRemoveConnected`,
             this.currentForm
          ),
       ];
 
-      var Rule = new ABViewRule(listActions);
+      var Rule = new _ABViewRule__WEBPACK_IMPORTED_MODULE_1__["default"](listActions);
       if (this.currentObject) {
          Rule.objectLoad(this.currentObject);
       }
@@ -58186,25 +59754,38 @@ module.exports = class ABViewRuleListFormRecordRules extends ABViewRuleList {
 /*!***********************************************************!*\
   !*** ./AppBuilder/rules/ABViewRuleListFormSubmitRules.js ***!
   \***********************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewRuleListFormSubmitRules)
+/* harmony export */ });
+/* harmony import */ var _ABViewRuleList__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABViewRuleList */ 61376);
+/* harmony import */ var _ABViewRule__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ABViewRule */ 7704);
+/* harmony import */ var _ruleActions_ABViewRuleActionFormSubmitRuleConfirmMessage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ruleActions/ABViewRuleActionFormSubmitRuleConfirmMessage */ 76471);
+/* harmony import */ var _ruleActions_ABViewRuleActionFormSubmitRuleExistPage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ruleActions/ABViewRuleActionFormSubmitRuleExistPage */ 19134);
+/* harmony import */ var _ruleActions_ABViewRuleActionFormSubmitRuleParentPage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ruleActions/ABViewRuleActionFormSubmitRuleParentPage */ 92635);
+/* harmony import */ var _ruleActions_ABViewRuleActionFormSubmitRuleClosePopup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ruleActions/ABViewRuleActionFormSubmitRuleClosePopup */ 22398);
+/* harmony import */ var _ruleActions_ABViewRuleActionFormSubmitRuleWebsite__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ruleActions/ABViewRuleActionFormSubmitRuleWebsite */ 1963);
+/* harmony import */ var _ruleActions_ABViewRuleActionFormSubmitRuleEmail__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./ruleActions/ABViewRuleActionFormSubmitRuleEmail */ 5798);
 //
 // ABViewRuleListFormSubmitRules
 //
 // A component that is responsible for displaying the specific list of Submit
 // Rules for a form.
 //
-const ABViewRuleList = __webpack_require__(/*! ./ABViewRuleList */ 61376);
-const ABViewRule = __webpack_require__(/*! ./ABViewRule */ 7704);
 
-const RoleConfirmMessage = __webpack_require__(/*! ./ruleActions/ABViewRuleActionFormSubmitRuleConfirmMessage */ 76471);
-const RuleExistPage = __webpack_require__(/*! ./ruleActions/ABViewRuleActionFormSubmitRuleExistPage */ 19134);
-const RuleParentPage = __webpack_require__(/*! ./ruleActions/ABViewRuleActionFormSubmitRuleParentPage */ 92635);
-const RuleClosePopup = __webpack_require__(/*! ./ruleActions/ABViewRuleActionFormSubmitRuleClosePopup */ 22398);
-const RuleWebsite = __webpack_require__(/*! ./ruleActions/ABViewRuleActionFormSubmitRuleWebsite */ 1963);
-const RuleEmail = __webpack_require__(/*! ./ruleActions/ABViewRuleActionFormSubmitRuleEmail */ 5798);
 
-module.exports = class ABViewRuleListFormSubmitRules extends ABViewRuleList {
+
+
+
+
+
+
+
+
+class ABViewRuleListFormSubmitRules extends _ABViewRuleList__WEBPACK_IMPORTED_MODULE_0__["default"] {
    /**
     * @param {object} App
     *      ?what is this?
@@ -58224,18 +59805,18 @@ module.exports = class ABViewRuleListFormSubmitRules extends ABViewRuleList {
    // must return the actual Rule object.
    getRule() {
       var listActions = [
-         new RoleConfirmMessage(
+         new _ruleActions_ABViewRuleActionFormSubmitRuleConfirmMessage__WEBPACK_IMPORTED_MODULE_2__["default"](
             this.App,
             `${this.idBase}_ruleActionConfirmMessage`
          ),
-         new RuleExistPage(this.App, `${this.idBase}_ruleActionExistPage`),
-         new RuleParentPage(this.App, `${this.idBase}_ruleActionParentPage`),
-         new RuleClosePopup(this.App, `${this.idBase}_ruleActionClosePopup`),
-         new RuleWebsite(this.App, `${this.idBase}_ruleActionWebsite`),
-         new RuleEmail(this.App, `${this.idBase}_ruleActionEmail`),
+         new _ruleActions_ABViewRuleActionFormSubmitRuleExistPage__WEBPACK_IMPORTED_MODULE_3__["default"](this.App, `${this.idBase}_ruleActionExistPage`),
+         new _ruleActions_ABViewRuleActionFormSubmitRuleParentPage__WEBPACK_IMPORTED_MODULE_4__["default"](this.App, `${this.idBase}_ruleActionParentPage`),
+         new _ruleActions_ABViewRuleActionFormSubmitRuleClosePopup__WEBPACK_IMPORTED_MODULE_5__["default"](this.App, `${this.idBase}_ruleActionClosePopup`),
+         new _ruleActions_ABViewRuleActionFormSubmitRuleWebsite__WEBPACK_IMPORTED_MODULE_6__["default"](this.App, `${this.idBase}_ruleActionWebsite`),
+         new _ruleActions_ABViewRuleActionFormSubmitRuleEmail__WEBPACK_IMPORTED_MODULE_7__["default"](this.App, `${this.idBase}_ruleActionEmail`),
       ];
 
-      var Rule = new ABViewRule(listActions);
+      var Rule = new _ABViewRule__WEBPACK_IMPORTED_MODULE_1__["default"](listActions);
       Rule.objectLoad(this.currentObject);
       Rule.formLoad(this.currentForm);
       return Rule;
@@ -58249,8 +59830,14 @@ module.exports = class ABViewRuleListFormSubmitRules extends ABViewRuleList {
 /*!***************************************************************************************!*\
   !*** ./AppBuilder/rules/ruleActions/ABViewRuleActionFormRecordRuleInsertConnected.js ***!
   \***************************************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewRuleActionFormRecordRuleInsertConnected)
+/* harmony export */ });
+/* harmony import */ var _ABViewRuleActionFormRecordRuleUpdateConnected__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABViewRuleActionFormRecordRuleUpdateConnected */ 95109);
 //
 // ABViewRuleActionFormRecordRuleInsertConnected
 //
@@ -58260,12 +59847,12 @@ module.exports = class ABViewRuleListFormSubmitRules extends ABViewRuleList {
 // modify it to only Insert data.
 //
 //
-const UpdateConnected = __webpack_require__(/*! ./ABViewRuleActionFormRecordRuleUpdateConnected */ 95109);
+
 
 let L = (...params) => AB.Multilingual.label(...params);
 
-module.exports = class ABViewRuleActionFormRecordRuleInsertConnected extends (
-   UpdateConnected
+class ABViewRuleActionFormRecordRuleInsertConnected extends (
+   _ABViewRuleActionFormRecordRuleUpdateConnected__WEBPACK_IMPORTED_MODULE_0__["default"]
 ) {
    /**
     * @param {object} App
@@ -58390,8 +59977,14 @@ module.exports = class ABViewRuleActionFormRecordRuleInsertConnected extends (
 /*!***************************************************************************************!*\
   !*** ./AppBuilder/rules/ruleActions/ABViewRuleActionFormRecordRuleRemoveConnected.js ***!
   \***************************************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewRuleActionFormRecordRuleRemoveConnected)
+/* harmony export */ });
+/* harmony import */ var _ABViewRuleActionFormRecordRuleUpdateConnected__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABViewRuleActionFormRecordRuleUpdateConnected */ 95109);
 //
 // ABViewRuleActionFormRecordRuleRemoveConnected
 //
@@ -58399,12 +59992,12 @@ module.exports = class ABViewRuleActionFormRecordRuleInsertConnected extends (
 // the current object we just Added/Updated
 //
 //
-const ABViewRuleActionFormRecordRuleUpdateConnected = __webpack_require__(/*! ./ABViewRuleActionFormRecordRuleUpdateConnected */ 95109);
+
 
 let L = (...params) => AB.Multilingual.label(...params);
 
-module.exports = class ABViewRuleActionFormRecordRuleRemoveConnected extends (
-   ABViewRuleActionFormRecordRuleUpdateConnected
+class ABViewRuleActionFormRecordRuleRemoveConnected extends (
+   _ABViewRuleActionFormRecordRuleUpdateConnected__WEBPACK_IMPORTED_MODULE_0__["default"]
 ) {
    constructor(App, idBase, currentForm) {
       super(App, idBase, currentForm);
@@ -58460,8 +60053,14 @@ module.exports = class ABViewRuleActionFormRecordRuleRemoveConnected extends (
 /*!******************************************************************************!*\
   !*** ./AppBuilder/rules/ruleActions/ABViewRuleActionFormRecordRuleUpdate.js ***!
   \******************************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewRuleActionFormRecordRuleUpdate)
+/* harmony export */ });
+/* harmony import */ var _ABViewRuleActionObjectUpdater__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABViewRuleActionObjectUpdater */ 13370);
 //
 // ABViewRuleActionFormRecordRuleUpdate
 //
@@ -58469,12 +60068,12 @@ module.exports = class ABViewRuleActionFormRecordRuleRemoveConnected extends (
 // Added/Updated.
 //
 //
-const ABViewRuleActionObjectUpdater = __webpack_require__(/*! ./ABViewRuleActionObjectUpdater */ 13370);
+
 
 let L = (...params) => AB.Multilingual.label(...params);
 
-module.exports = class ABViewRuleActionFormRecordRuleUpdate extends (
-   ABViewRuleActionObjectUpdater
+class ABViewRuleActionFormRecordRuleUpdate extends (
+   _ABViewRuleActionObjectUpdater__WEBPACK_IMPORTED_MODULE_0__["default"]
 ) {
    /**
     * @param {object} App
@@ -58501,8 +60100,16 @@ module.exports = class ABViewRuleActionFormRecordRuleUpdate extends (
 /*!***************************************************************************************!*\
   !*** ./AppBuilder/rules/ruleActions/ABViewRuleActionFormRecordRuleUpdateConnected.js ***!
   \***************************************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewRuleActionFormRecordRuleUpdateConnected)
+/* harmony export */ });
+/* harmony import */ var _ABViewRuleActionObjectUpdater__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABViewRuleActionObjectUpdater */ 13370);
+/* harmony import */ var _platform_dataFields_ABFieldConnect__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../platform/dataFields/ABFieldConnect */ 95399);
+/* harmony import */ var _ABViewQueryBuilderObjectFieldConditions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../ABViewQueryBuilderObjectFieldConditions */ 69902);
 //
 // ABViewRuleActionFormRecordRuleUpdateConnected
 //
@@ -58510,14 +60117,15 @@ module.exports = class ABViewRuleActionFormRecordRuleUpdate extends (
 // the current object we just Added/Updated
 //
 //
-const ABViewRuleActionObjectUpdater = __webpack_require__(/*! ./ABViewRuleActionObjectUpdater */ 13370);
-const ABFieldConnect = __webpack_require__(/*! ../../platform/dataFields/ABFieldConnect */ 95399);
-const ObjectQueryBuilder = __webpack_require__(/*! ../ABViewQueryBuilderObjectFieldConditions */ 69902);
+
+
+
+
 
 let L = (...params) => AB.Multilingual.label(...params);
 
-module.exports = class ABViewRuleActionFormRecordRuleUpdateConnected extends (
-   ABViewRuleActionObjectUpdater
+class ABViewRuleActionFormRecordRuleUpdateConnected extends (
+   _ABViewRuleActionObjectUpdater__WEBPACK_IMPORTED_MODULE_0__["default"]
 ) {
    constructor(App, idBase, currentForm) {
       super(App, idBase, currentForm);
@@ -58571,7 +60179,7 @@ module.exports = class ABViewRuleActionFormRecordRuleUpdateConnected extends (
     * @return {array} of {ABField}
     */
    connectedFieldList() {
-      var connectKey = ABFieldConnect.defaults().key;
+      var connectKey = _platform_dataFields_ABFieldConnect__WEBPACK_IMPORTED_MODULE_1__["default"].defaults().key;
       if (this.baseObject && this.baseObject.fields) {
          return this.baseObject.fields((f) => {
             return f.key == connectKey;
@@ -58810,7 +60418,7 @@ module.exports = class ABViewRuleActionFormRecordRuleUpdateConnected extends (
     */
    queryBuilderDisplay() {
       if (!this.objectQB) {
-         this.objectQB = new ObjectQueryBuilder(
+         this.objectQB = new _ABViewQueryBuilderObjectFieldConditions__WEBPACK_IMPORTED_MODULE_2__["default"](
             L("How to choose which object:")
          );
 
@@ -59048,19 +60656,25 @@ module.exports = class ABViewRuleActionFormRecordRuleUpdateConnected extends (
 /*!**********************************************************************************!*\
   !*** ./AppBuilder/rules/ruleActions/ABViewRuleActionFormSubmitRuleClosePopup.js ***!
   \**********************************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewRuleActionFormSubmitRuleClosePopup)
+/* harmony export */ });
+/* harmony import */ var _ABViewRuleAction__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ABViewRuleAction */ 92866);
 //
 // ABViewRuleActionFormSubmitRuleClosePopup
 //
 //
 //
-const ABViewRuleAction = __webpack_require__(/*! ../ABViewRuleAction */ 92866);
+
 
 let L = (...params) => AB.Multilingual.label(...params);
 
-module.exports = class ABViewRuleActionFormSubmitRuleClosePopup extends (
-   ABViewRuleAction
+class ABViewRuleActionFormSubmitRuleClosePopup extends (
+   _ABViewRuleAction__WEBPACK_IMPORTED_MODULE_0__["default"]
 ) {
    /**
     * @param {object} App
@@ -59162,19 +60776,25 @@ module.exports = class ABViewRuleActionFormSubmitRuleClosePopup extends (
 /*!**************************************************************************************!*\
   !*** ./AppBuilder/rules/ruleActions/ABViewRuleActionFormSubmitRuleConfirmMessage.js ***!
   \**************************************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewRuleActionFormSubmitRuleConfirmMessage)
+/* harmony export */ });
+/* harmony import */ var _ABViewRuleAction__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ABViewRuleAction */ 92866);
 //
 // ABViewRuleActionFormSubmitRuleConfirmMessage
 //
 //
 //
-const ABViewRuleAction = __webpack_require__(/*! ../ABViewRuleAction */ 92866);
+
 
 let L = (...params) => AB.Multilingual.label(...params);
 
-module.exports = class ABViewRuleActionFormSubmitRuleConfirmMessage extends (
-   ABViewRuleAction
+class ABViewRuleActionFormSubmitRuleConfirmMessage extends (
+   _ABViewRuleAction__WEBPACK_IMPORTED_MODULE_0__["default"]
 ) {
    /**
     * @param {object} App
@@ -59327,21 +60947,30 @@ module.exports = class ABViewRuleActionFormSubmitRuleConfirmMessage extends (
 /*!*****************************************************************************!*\
   !*** ./AppBuilder/rules/ruleActions/ABViewRuleActionFormSubmitRuleEmail.js ***!
   \*****************************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewRuleActionFormSubmitRuleEmail)
+/* harmony export */ });
+/* harmony import */ var _ABViewRuleAction__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ABViewRuleAction */ 92866);
+/* harmony import */ var _platform_dataFields_ABFieldConnect__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../platform/dataFields/ABFieldConnect */ 95399);
+/* harmony import */ var _platform_dataFields_ABFieldEmail__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../platform/dataFields/ABFieldEmail */ 41633);
 //
 // ABViewRuleActionFormSubmitRuleWebsite
 //
 //
 //
-const ABViewRuleAction = __webpack_require__(/*! ../ABViewRuleAction */ 92866);
-const ABFieldConnect = __webpack_require__(/*! ../../platform/dataFields/ABFieldConnect */ 95399);
-const ABFieldEmail = __webpack_require__(/*! ../../platform/dataFields/ABFieldEmail */ 41633);
+
+
+
+
 
 let L = (...params) => AB.Multilingual.label(...params);
 
-module.exports = class ABViewRuleActionFormSubmitRuleEmail extends (
-   ABViewRuleAction
+class ABViewRuleActionFormSubmitRuleEmail extends (
+   _ABViewRuleAction__WEBPACK_IMPORTED_MODULE_0__["default"]
 ) {
    /**
     * @param {object} App
@@ -59789,7 +61418,7 @@ module.exports = class ABViewRuleActionFormSubmitRuleEmail extends (
 
             var fnAddOptions = (currObj, fLink) => {
                var emailFields = currObj
-                  .fields((f) => f instanceof ABFieldEmail)
+                  .fields((f) => f instanceof _platform_dataFields_ABFieldEmail__WEBPACK_IMPORTED_MODULE_2__["default"])
                   .map((f) => {
                      var optId = "",
                         optLabel = "";
@@ -59935,7 +61564,7 @@ module.exports = class ABViewRuleActionFormSubmitRuleEmail extends (
                                  let linkFieldId = rec.value.split("|")[0];
                                  let linkFields = this.queryObject.fields(
                                     (f) =>
-                                       f instanceof ABFieldConnect &&
+                                       f instanceof _platform_dataFields_ABFieldConnect__WEBPACK_IMPORTED_MODULE_1__["default"] &&
                                        f.id == linkFieldId
                                  );
                                  linkFields.forEach((f) => {
@@ -60081,19 +61710,25 @@ module.exports = class ABViewRuleActionFormSubmitRuleEmail extends (
 /*!*********************************************************************************!*\
   !*** ./AppBuilder/rules/ruleActions/ABViewRuleActionFormSubmitRuleExistPage.js ***!
   \*********************************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewRuleActionFormSubmitRuleExistPage)
+/* harmony export */ });
+/* harmony import */ var _ABViewRuleAction__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ABViewRuleAction */ 92866);
 //
 // ABViewRuleActionFormSubmitRuleExistPage
 //
 //
 //
-const ABViewRuleAction = __webpack_require__(/*! ../ABViewRuleAction */ 92866);
+
 
 let L = (...params) => AB.Multilingual.label(...params);
 
-module.exports = class ABViewRuleActionFormSubmitRuleExistPage extends (
-   ABViewRuleAction
+class ABViewRuleActionFormSubmitRuleExistPage extends (
+   _ABViewRuleAction__WEBPACK_IMPORTED_MODULE_0__["default"]
 ) {
    /**
     * @param {object} App
@@ -60356,19 +61991,25 @@ module.exports = class ABViewRuleActionFormSubmitRuleExistPage extends (
 /*!**********************************************************************************!*\
   !*** ./AppBuilder/rules/ruleActions/ABViewRuleActionFormSubmitRuleParentPage.js ***!
   \**********************************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewRuleActionFormSubmitRuleParentPage)
+/* harmony export */ });
+/* harmony import */ var _ABViewRuleAction__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ABViewRuleAction */ 92866);
 //
 // ABViewRuleActionFormSubmitRuleParentPage
 //
 //
 //
-const ABViewRuleAction = __webpack_require__(/*! ../ABViewRuleAction */ 92866);
+
 
 let L = (...params) => AB.Multilingual.label(...params);
 
-module.exports = class ABViewRuleActionFormSubmitRuleParentPage extends (
-   ABViewRuleAction
+class ABViewRuleActionFormSubmitRuleParentPage extends (
+   _ABViewRuleAction__WEBPACK_IMPORTED_MODULE_0__["default"]
 ) {
    /**
     * @param {object} App
@@ -60462,19 +62103,25 @@ module.exports = class ABViewRuleActionFormSubmitRuleParentPage extends (
 /*!*******************************************************************************!*\
   !*** ./AppBuilder/rules/ruleActions/ABViewRuleActionFormSubmitRuleWebsite.js ***!
   \*******************************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewRuleActionFormSubmitRuleWebsite)
+/* harmony export */ });
+/* harmony import */ var _ABViewRuleAction__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ABViewRuleAction */ 92866);
 //
 // ABViewRuleActionFormSubmitRuleWebsite
 //
 //
 //
-const ABViewRuleAction = __webpack_require__(/*! ../ABViewRuleAction */ 92866);
+
 
 let L = (...params) => AB.Multilingual.label(...params);
 
-module.exports = class ABViewRuleActionFormSubmitRuleWebsite extends (
-   ABViewRuleAction
+class ABViewRuleActionFormSubmitRuleWebsite extends (
+   _ABViewRuleAction__WEBPACK_IMPORTED_MODULE_0__["default"]
 ) {
    /**
     * @param {object} App
@@ -60624,14 +62271,20 @@ module.exports = class ABViewRuleActionFormSubmitRuleWebsite extends (
 /*!***********************************************************************!*\
   !*** ./AppBuilder/rules/ruleActions/ABViewRuleActionObjectUpdater.js ***!
   \***********************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABViewRuleActionObjectUpdater)
+/* harmony export */ });
+/* harmony import */ var _ABViewRuleAction__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ABViewRuleAction */ 92866);
 // ABViewRuleActionObjectUpdater
 //
 // An action that allows you to update fields on an object.
 //
 //
-const ABViewRuleAction = __webpack_require__(/*! ../ABViewRuleAction */ 92866);
+
 
 let L = (...params) => AB.Multilingual.label(...params);
 
@@ -60643,7 +62296,7 @@ var ABViewRuleActionObjectUpdaterDefaults = {
    },
 };
 
-module.exports = class ABViewRuleActionObjectUpdater extends ABViewRuleAction {
+class ABViewRuleActionObjectUpdater extends _ABViewRuleAction__WEBPACK_IMPORTED_MODULE_0__["default"] {
    /**
     * @param {object} App
     *      The shared App object that is created in OP.Component
@@ -62980,9 +64633,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-var EventEmitter = (__webpack_require__(/*! events */ 64785).EventEmitter);
+/* harmony import */ var events__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! events */ 64785);
+/* harmony import */ var events__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(events__WEBPACK_IMPORTED_MODULE_0__);
 
-class Account extends EventEmitter {
+
+class Account extends events__WEBPACK_IMPORTED_MODULE_0__.EventEmitter {
    constructor() {
       super();
 
@@ -63117,14 +64772,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _AppBuilder_platform_ABMLClass_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../AppBuilder/platform/ABMLClass.js */ 72982);
 /*
  * Multilingual
  * manage our multilingual Translations/Labels/etc.
  */
 
-var MLClass = __webpack_require__(/*! ../AppBuilder/platform/ABMLClass */ 72982);
 
-class Multilingual extends MLClass {
+
+class Multilingual extends _AppBuilder_platform_ABMLClass_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor() {
       super([], {});
       // super()
@@ -63344,21 +65000,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _utils_performance__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/performance */ 76431);
-/* harmony import */ var _NetworkRest__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./NetworkRest */ 82637);
-/* harmony import */ var _NetworkRestSocket__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./NetworkRestSocket */ 39072);
+/* harmony import */ var events__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! events */ 64785);
+/* harmony import */ var events__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(events__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _utils_performance__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/performance */ 76431);
+/* harmony import */ var _NetworkRest__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./NetworkRest */ 82637);
+/* harmony import */ var _NetworkRestSocket__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./NetworkRestSocket */ 39072);
 /*
  * Network.js
  * A network manager for interfacing with our AppBuilder server.
  */
 /* global Connection */
-var EventEmitter = (__webpack_require__(/*! events */ 64785).EventEmitter);
+
 
 
 
 // import NetworkRelay from "./NetworkRelay";
 
-class Network extends EventEmitter {
+class Network extends events__WEBPACK_IMPORTED_MODULE_0__.EventEmitter {
    constructor() {
       super();
 
@@ -63404,12 +65062,12 @@ class Network extends EventEmitter {
                break;
 
             case "socket":
-               this._network = new _NetworkRestSocket__WEBPACK_IMPORTED_MODULE_2__["default"](this);
+               this._network = new _NetworkRestSocket__WEBPACK_IMPORTED_MODULE_3__["default"](this);
                break;
 
             case "rest":
             default:
-               this._network = new _NetworkRest__WEBPACK_IMPORTED_MODULE_1__["default"](this);
+               this._network = new _NetworkRest__WEBPACK_IMPORTED_MODULE_2__["default"](this);
                break;
          }
 
@@ -63568,7 +65226,7 @@ class Network extends EventEmitter {
             this._networkSlow = data;
             this.emit("networkslow", this._networkSlow);
             // Tell sentry our network speed changed
-            _utils_performance__WEBPACK_IMPORTED_MODULE_0__["default"].setContext("breadcrumb", {
+            _utils_performance__WEBPACK_IMPORTED_MODULE_1__["default"].setContext("breadcrumb", {
                category: "network",
                message: this._networkSlow
                   ? "Slow network detected"
@@ -63897,6 +65555,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var events__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! events */ 64785);
+/* harmony import */ var events__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(events__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var atomicjs_dist_atomic_min_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! atomicjs/dist/atomic.min.js */ 3447);
+/* harmony import */ var atomicjs_dist_atomic_min_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(atomicjs_dist_atomic_min_js__WEBPACK_IMPORTED_MODULE_1__);
 /*
  * NetworkRest.js
  * The base Networking class.  This class is responsible for job submissions
@@ -63907,7 +65569,7 @@ __webpack_require__.r(__webpack_exports__);
 // import Account from "./Account";
 // import analytics from "./Analytics";
 // import EventEmitter from "eventemitter2";
-var EventEmitter = (__webpack_require__(/*! events */ 64785).EventEmitter);
+
 // import Lock from "./Lock";
 
 // import { storage } from "./Storage";
@@ -63918,14 +65580,14 @@ var EventEmitter = (__webpack_require__(/*! events */ 64785).EventEmitter);
 
 // End Temp
 
-const Atomic = __webpack_require__(/*! atomicjs/dist/atomic.min.js */ 3447);
+
 // Atomic : a small $.ajax() replacement
 
 var Config = null;
 // {} Config
 // the site specific configuration information
 
-class NetworkRest extends EventEmitter {
+class NetworkRest extends events__WEBPACK_IMPORTED_MODULE_0__.EventEmitter {
    constructor(parent) {
       // {Network} parent
 
@@ -64076,7 +65738,7 @@ class NetworkRest extends EventEmitter {
    }
 
    salSend(params) {
-      return Atomic(params.url, params).then((packet) => {
+      return atomicjs_dist_atomic_min_js__WEBPACK_IMPORTED_MODULE_1___default()(params.url, params).then((packet) => {
          // {json} packet
          // the response from Atomic is in format:
          // {data: {…}, xhr: XMLHttpRequest}
@@ -64650,12 +66312,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _StorageLocal_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./StorageLocal.js */ 72261);
-var EventEmitter = (__webpack_require__(/*! events */ 64785).EventEmitter);
+/* harmony import */ var events__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! events */ 64785);
+/* harmony import */ var events__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(events__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _StorageLocal_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./StorageLocal.js */ 72261);
 
 
 
-class Storage extends EventEmitter {
+class Storage extends events__WEBPACK_IMPORTED_MODULE_0__.EventEmitter {
    constructor() {
       super();
 
@@ -64673,9 +66336,9 @@ class Storage extends EventEmitter {
          if (config.storage && config.storage.encrypted) {
             console.error("TODO: Implement Encrypted Storage");
             // this._storage = StorageEncrypted;
-            this._storage = _StorageLocal_js__WEBPACK_IMPORTED_MODULE_0__["default"];
+            this._storage = _StorageLocal_js__WEBPACK_IMPORTED_MODULE_1__["default"];
          } else {
-            this._storage = _StorageLocal_js__WEBPACK_IMPORTED_MODULE_0__["default"];
+            this._storage = _StorageLocal_js__WEBPACK_IMPORTED_MODULE_1__["default"];
          }
 
          return this._storage.init(AB);
@@ -64719,6 +66382,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var events__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! events */ 64785);
+/* harmony import */ var events__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(events__WEBPACK_IMPORTED_MODULE_0__);
 /*
  * StorageLocal
  *
@@ -64730,9 +66395,9 @@ __webpack_require__.r(__webpack_exports__);
  *
  */
 
-var EventEmitter = (__webpack_require__(/*! events */ 64785).EventEmitter);
 
-class StorageLocal extends EventEmitter {
+
+class StorageLocal extends events__WEBPACK_IMPORTED_MODULE_0__.EventEmitter {
    constructor() {
       super();
 
@@ -64804,12 +66469,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _config_Config_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../config/Config.js */ 97970);
-var EventEmitter = (__webpack_require__(/*! events */ 64785).EventEmitter);
+/* harmony import */ var events__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! events */ 64785);
+/* harmony import */ var events__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(events__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _config_Config_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../config/Config.js */ 97970);
 
 
 
-class Tenant extends EventEmitter {
+class Tenant extends events__WEBPACK_IMPORTED_MODULE_0__.EventEmitter {
    constructor() {
       super();
 
@@ -64819,7 +66485,7 @@ class Tenant extends EventEmitter {
    }
 
    init() {
-      var config = _config_Config_js__WEBPACK_IMPORTED_MODULE_0__["default"].tenantConfig();
+      var config = _config_Config_js__WEBPACK_IMPORTED_MODULE_1__["default"].tenantConfig();
       if (config) {
          // check if we have options that are stored as a string
          if (
@@ -65000,8 +66666,40 @@ module.exports = class ABCountFooter {
 /*!***********************************************************!*\
   !*** ./webix_custom_components/customComponentManager.js ***!
   \***********************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABCustomComponentManager)
+/* harmony export */ });
+/* harmony import */ var _activelist_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./activelist.js */ 24468);
+/* harmony import */ var _activelist_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_activelist_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _countfooter_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./countfooter.js */ 47876);
+/* harmony import */ var _countfooter_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_countfooter_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _datetimepicker_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./datetimepicker.js */ 90149);
+/* harmony import */ var _datetimepicker_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_datetimepicker_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _editlist_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./editlist.js */ 24334);
+/* harmony import */ var _editlist_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_editlist_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _edittree_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./edittree.js */ 89162);
+/* harmony import */ var _edittree_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_edittree_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _editunitlist_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./editunitlist.js */ 14656);
+/* harmony import */ var _editunitlist_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_editunitlist_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _focusableTemplate_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./focusableTemplate.js */ 14038);
+/* harmony import */ var _focusableTemplate_js__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_focusableTemplate_js__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _formioPreview_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./formioPreview.js */ 20978);
+/* harmony import */ var _formioBuilder_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./formioBuilder.js */ 98817);
+/* harmony import */ var _numbertext_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./numbertext.js */ 90212);
+/* harmony import */ var _numbertext_js__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_numbertext_js__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _thaicalendar_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./thaicalendar.js */ 80354);
+/* harmony import */ var _thaicalendar_js__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_thaicalendar_js__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _timepicker_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./timepicker.js */ 83425);
+/* harmony import */ var _timepicker_js__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_timepicker_js__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _tinyMce_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./tinyMce.js */ 97541);
+/* harmony import */ var _totalfooter_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./totalfooter.js */ 50789);
+/* harmony import */ var _totalfooter_js__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_totalfooter_js__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var _treesuggest_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./treesuggest.js */ 55846);
+/* harmony import */ var _treesuggest_js__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(_treesuggest_js__WEBPACK_IMPORTED_MODULE_14__);
 /*
  * Custom Component Manager
  * Make sure our {ABComponent}s are initialized with our custom
@@ -65009,26 +66707,42 @@ module.exports = class ABCountFooter {
  */
 
 // Import our Custom Components here:
-var componentList = [
-   __webpack_require__(/*! ./activelist */ 24468),
-   __webpack_require__(/*! ./countfooter */ 47876),
-   __webpack_require__(/*! ./datetimepicker */ 90149),
-   __webpack_require__(/*! ./editlist */ 24334),
-   __webpack_require__(/*! ./edittree */ 89162),
-   __webpack_require__(/*! ./editunitlist */ 14656),
-   __webpack_require__(/*! ./focusableTemplate */ 14038),
-   __webpack_require__(/*! ./formioPreview */ 20978),
-   (__webpack_require__(/*! ./formioBuilder */ 98817)["default"]),
-   __webpack_require__(/*! ./numbertext */ 90212),
-   __webpack_require__(/*! ./thaicalendar */ 80354),
-   __webpack_require__(/*! ./timepicker */ 83425),
-   (__webpack_require__(/*! ./tinyMce */ 97541)["default"]),
-   __webpack_require__(/*! ./totalfooter */ 50789),
-   __webpack_require__(/*! ./treesuggest */ 55846),
-   // require('./savablelayout')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import './savablelayout'
+
+const componentList = [
+   (_activelist_js__WEBPACK_IMPORTED_MODULE_0___default()),
+   (_countfooter_js__WEBPACK_IMPORTED_MODULE_1___default()),
+   (_datetimepicker_js__WEBPACK_IMPORTED_MODULE_2___default()),
+   (_editlist_js__WEBPACK_IMPORTED_MODULE_3___default()),
+   (_edittree_js__WEBPACK_IMPORTED_MODULE_4___default()),
+   (_editunitlist_js__WEBPACK_IMPORTED_MODULE_5___default()),
+   (_focusableTemplate_js__WEBPACK_IMPORTED_MODULE_6___default()),
+   _formioPreview_js__WEBPACK_IMPORTED_MODULE_7__["default"],
+   _formioBuilder_js__WEBPACK_IMPORTED_MODULE_8__["default"],
+   (_numbertext_js__WEBPACK_IMPORTED_MODULE_9___default()),
+   (_thaicalendar_js__WEBPACK_IMPORTED_MODULE_10___default()),
+   (_timepicker_js__WEBPACK_IMPORTED_MODULE_11___default()),
+   _tinyMce_js__WEBPACK_IMPORTED_MODULE_12__["default"],
+   (_totalfooter_js__WEBPACK_IMPORTED_MODULE_13___default()),
+   (_treesuggest_js__WEBPACK_IMPORTED_MODULE_14___default()),
 ];
 
-module.exports = class ABCustomComponentManager {
+class ABCustomComponentManager {
    constructor() {}
 
    initComponents(App) {
@@ -65042,7 +66756,7 @@ module.exports = class ABCustomComponentManager {
       // Transition to v2:
       App.AB.custom = App.custom;
    }
-};
+}
 
 
 /***/ },
@@ -65363,7 +67077,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ ABCustomFormBuilderBuilder)
 /* harmony export */ });
 /* harmony import */ var _lazyComponent_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lazyComponent.js */ 80621);
-/* harmony import */ var _lazyComponent_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_lazyComponent_js__WEBPACK_IMPORTED_MODULE_0__);
 /*
  * formioBuilder
  *
@@ -65376,7 +67089,7 @@ __webpack_require__.r(__webpack_exports__);
  * Note: This component is lazy loaded and requires calling .init() before using
  */
 
-class ABCustomFormBuilderBuilder extends (_lazyComponent_js__WEBPACK_IMPORTED_MODULE_0___default()) {
+class ABCustomFormBuilderBuilder extends _lazyComponent_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    get key() {
       return "formiobuilder";
    }
@@ -65709,8 +67422,14 @@ class ABCustomFormBuilderBuilder extends (_lazyComponent_js__WEBPACK_IMPORTED_MO
 /*!**************************************************!*\
   !*** ./webix_custom_components/formioPreview.js ***!
   \**************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABCustomFormIOPreview)
+/* harmony export */ });
+/* harmony import */ var _lazyComponent_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lazyComponent.js */ 80621);
 /*
  * formioBuilder
  *
@@ -65719,8 +67438,8 @@ class ABCustomFormBuilderBuilder extends (_lazyComponent_js__WEBPACK_IMPORTED_MO
  * Note: This component is lazy loaded and requires calling .init() before using
  *
  */
-const ABLazyCustomComponent = __webpack_require__(/*! ./lazyComponent.js */ 80621);
-module.exports = class ABCustomFormIOPreview extends ABLazyCustomComponent {
+
+class ABCustomFormIOPreview extends _lazyComponent_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    get key() {
       return "formiopreview";
    }
@@ -65805,14 +67524,20 @@ module.exports = class ABCustomFormIOPreview extends ABLazyCustomComponent {
 /*!**************************************************!*\
   !*** ./webix_custom_components/lazyComponent.js ***!
   \**************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ABLazyCustomComponent)
+/* harmony export */ });
+/* harmony import */ var _AppBuilder_platform_ABEmitter_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../AppBuilder/platform/ABEmitter.js */ 89327);
 /**
  * Base class for any custom webix component that we want to initalize lazily,
  * usually to reduce the dependency size required on load.
  */
-var ABEmitter = __webpack_require__(/*! ../AppBuilder/platform/ABEmitter.js */ 89327);
-module.exports = class ABLazyCustomComponent extends ABEmitter {
+
+class ABLazyCustomComponent extends _AppBuilder_platform_ABEmitter_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor({ AB }) {
       super();
       this.initialized = false;
@@ -66127,7 +67852,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ ABCustomTinyMCE)
 /* harmony export */ });
 /* harmony import */ var _lazyComponent_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lazyComponent.js */ 80621);
-/* harmony import */ var _lazyComponent_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_lazyComponent_js__WEBPACK_IMPORTED_MODULE_0__);
 /*
  * tinyMce
  *
@@ -66136,7 +67860,7 @@ __webpack_require__.r(__webpack_exports__);
  * Note: This component is lazy loaded and requires calling .init() before using
  */
 
-class ABCustomTinyMCE extends (_lazyComponent_js__WEBPACK_IMPORTED_MODULE_0___default()) {
+class ABCustomTinyMCE extends _lazyComponent_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    get key() {
       return "tinymce-editor";
    }
@@ -66305,4 +68029,4 @@ module.exports = class ABCustomEditList {
 /***/ }
 
 }]);
-//# sourceMappingURL=AB.371d18383de05158dffc.js.map
+//# sourceMappingURL=AB.f4cde851a08ce3874b3d.js.map
