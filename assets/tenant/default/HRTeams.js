@@ -67,12 +67,20 @@ const PROGRESS_STATUS_DELAY = 500;
 const PROGRESS_STATUS_KEY_COMMON = "common";
 const PROGRESS_STATUS_KEY_PRINCIPAL = "principal";
 const PROGRESS_STATUS_KEY_TEAM = "team";
+const PROGRESS_STATUS_KEY_APPROVAL = "approval";
 const PROGRESS_STATUS_VALUE_COMMON_INIT_PAGE = "Initializing page";
 const PROGRESS_STATUS_VALUE_COMMON_INIT_DCs = "Initializing DCs";
 const PROGRESS_STATUS_VALUE_COMMON_CHANGE_ENTITY = "Changing to a new entity";
 const PROGRESS_STATUS_VALUE_COMMON_REFRESHING = "Refreshing";
 const PROGRESS_STATUS_VALUE_TEAM_CREATING = "Creating a team";
 const PROGRESS_STATUS_VALUE_TEAM_UPDATING = "Updating a team";
+const PROGRESS_STATUS_VALUE_WAIT_TITLE = "Please wait";
+const PROGRESS_STATUS_VALUE_DO_NOT_CLOSE = "Please do not close this window";
+const PROGRESS_STATUS_VALUE_ANOTHER_ENTITY =
+   "The user you are modifying belongs to another entity";
+const PROGRESS_STATUS_VALUE_REASON_NEXT =
+   "Please enter the reason for changing the Principal Team Assignment in the window that appears next";
+const PROGRESS_STATUS_VALUE_ESTIMATE = "This may take up to 15 seconds";
 const TIMEOUT_RETRY_PAGEDATA = 15000;
 
 //TODO (Guy): These should be ABDesigner settings.
@@ -1072,6 +1080,13 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
 
                      // TODO (Guy): Trigger process update.
                      if (customProcessTasks.needApproval) {
+                        // Only announce the reason form when one is actually
+                        // coming -- needApproval is what decides whether the
+                        // user form below is raised.
+                        self._addProgressStatusQueue(
+                           PROGRESS_STATUS_KEY_APPROVAL,
+                           customProcessTasks.employeeValueEmail
+                        );
                         await Promise.all([
                            new Promise((resolve) => {
                               self._addUserFormQueue(newFormData, {
@@ -1124,6 +1139,11 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                            [dataID]: (!isEnded && newFormData) || null,
                         });
                      }
+                     if (customProcessTasks.needApproval)
+                        self._removeProgressStatusQueue(
+                           PROGRESS_STATUS_KEY_APPROVAL,
+                           customProcessTasks.employeeValueEmail
+                        );
                      if (isChangedToPrincipal)
                         self._removeProgressStatusQueue(
                            PROGRESS_STATUS_KEY_PRINCIPAL,
@@ -2372,6 +2392,16 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
          const objPK = dc.datasource.PK();
          const oldValue = dc.getData((e) => e[objPK] == newValue[objPK])[0];
 
+         // getData() only searches the rows the datacollection has actually
+         // loaded, and these are paged -- content holds a few dozen of several
+         // hundred assignments. So the record being saved is not guaranteed to
+         // be present: a brand new record has no PK yet, and one created by an
+         // earlier save in this session may sit outside the loaded page. With
+         // no baseline to diff against we cannot prove the value is unchanged,
+         // so report it as changed and let the save proceed. Without this the
+         // loop below dereferences undefined and the Save handler throws.
+         if (oldValue == null) return true;
+
          // TODO (Guy): Check array in the future.
          const fields = dc.datasource.fields();
          for (const field of fields) {
@@ -2809,16 +2839,44 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
          );
       }
 
+      // Builds the progress status card: the spinner, plus an optional message
+      // block hung underneath it. Keep the spinner as the first <i> in the
+      // markup -- _refreshProgressStatus() swaps it for a tick on completion.
+      _uiProgressStatusTemplate(messages = []) {
+         const spinner = '<i class="fa fa-refresh progress-status-spin"></i>';
+         if (messages.length === 0)
+            return `<div class="progress-status">${spinner}</div>`;
+
+         return [
+            '<div class="progress-status">',
+            spinner,
+            '<div class="progress-status-messages">',
+            `<div class="progress-status-title">${this.label(
+               PROGRESS_STATUS_VALUE_WAIT_TITLE
+            )}</div>`,
+            ...messages.map(
+               (message) =>
+                  `<div class="progress-status-message">${message}</div>`
+            ),
+            "</div>",
+            "</div>",
+         ].join("");
+      }
+
       _refreshProgressStatus() {
          const $progressStatus = $$(this.ids.progressStatus);
          if (this._progressStatusQueues.length > 0) {
             this.busy();
             const commonQueues = [];
             const principalQueues = [];
+            const approvalQueues = [];
             for (const { key, value } of this._progressStatusQueues) {
                switch (key) {
-                  case "principal":
+                  case PROGRESS_STATUS_KEY_PRINCIPAL:
                      principalQueues.push(value);
+                     break;
+                  case PROGRESS_STATUS_KEY_APPROVAL:
+                     approvalQueues.push(value);
                      break;
                   default:
                      commonQueues.push(value);
@@ -2854,9 +2912,35 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
             $progressStatus.define("tooltip", {
                template: templateElements.join(""),
             });
+
+            // The spinner alone gives no indication of how long this will take.
+            // A principal change is completed by a server side process, and the
+            // reason form it raises can take ~15s to arrive, so show the same
+            // information as the tooltip without requiring a hover.
+            const messages = commonQueues.map((e) => this.label(e));
+            if (approvalQueues.length > 0)
+               messages.push(
+                  this.label(PROGRESS_STATUS_VALUE_ANOTHER_ENTITY),
+                  this.label(PROGRESS_STATUS_VALUE_REASON_NEXT)
+               );
+            if (principalQueues.length > 0)
+               messages.push(
+                  this.label(PROGRESS_STATUS_VALUE_DO_NOT_CLOSE),
+                  this.label(PROGRESS_STATUS_VALUE_ESTIMATE)
+               );
+            $progressStatus.define(
+               "template",
+               this._uiProgressStatusTemplate(messages)
+            );
             $progressStatus.refresh();
             !$progressStatus.isVisible() && $progressStatus.show();
          } else if ($progressStatus.isVisible()) {
+            // Drop the wait messages before swapping in the tick, otherwise the
+            // card reads "Please wait" under a completed icon.
+            $progressStatus.$view
+               .getElementsByClassName("progress-status-messages")
+               .item(0)
+               ?.remove();
             $progressStatus.$view
                .getElementsByClassName("progress-status")
                .item(0)
@@ -3350,6 +3434,10 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                   {
                      responsive: true,
                      view: "toolbar",
+                     // The progress status card hangs its message block below
+                     // the spinner, past this toolbar's 50px. Webix toolbars
+                     // are overflow:hidden, which clipped it away entirely.
+                     css: "orgchart-teams-toolbar",
                      height: 50,
                      type: "clean",
                      cols: [
@@ -3373,6 +3461,7 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                         {
                            view: "template",
                            id: this.ids.progressStatus,
+                           css: "progress-status-cell",
                            width: PROGRESS_STATUS_WIDTH,
                            hidden: true,
                            template: `<div class="progress-status">
@@ -7959,7 +8048,7 @@ __webpack_require__.r(__webpack_exports__);
 
 const plugin = {
    /* global VERSION -- injected by webpack define plugin */
-   version: "1.0.18",
+   version: "1.0.19",
    key: "HRTeams",
    apply: function (AB) {
       const ABView = AB.Class.ABViewManager.viewClass("view");
