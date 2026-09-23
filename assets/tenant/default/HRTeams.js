@@ -95,7 +95,11 @@ const DATAPANEL_SUPERVISOR_COLUMNNAME = "custentity_ccc_supervisor";
 const EXTERNAL_SUPPORT_COLUMNNAME = "custrecord_whq_team_is_external_support";
 const RESPONSIBILITY_ASSIGNMENT_COLUMNNAME =
    "custrecord_ccc_team_resp_assignment_id";
-const ORG_SENT_STATUSES = ["9", "12", "15"];
+// The Org Relationship values (customlist_ccc_org_relation: 1 Home, 2 Sent,
+// 3 Received) that mean the employee is sent to another entity. These used to
+// be the "(SENT)" Org Status IDs, until NetSuite moved that meaning into its own
+// field.
+const ORG_SENT_STATUSES = ["2"];
 /* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__(ABViewComponent) {
    return class ABViewOrgChartTeamsComponent extends ABViewComponent {
       constructor(baseView, idBase, ids) {
@@ -8047,7 +8051,7 @@ __webpack_require__.r(__webpack_exports__);
 
 const plugin = {
    /* global VERSION -- injected by webpack define plugin */
-   version: "1.0.20",
+   version: "1.0.21",
    key: "HRTeams",
    apply: function (AB) {
       const ABView = AB.Class.ABViewManager.viewClass("view");
