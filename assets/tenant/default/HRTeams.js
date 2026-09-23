@@ -75,12 +75,12 @@ const PROGRESS_STATUS_VALUE_COMMON_REFRESHING = "Refreshing";
 const PROGRESS_STATUS_VALUE_TEAM_CREATING = "Creating a team";
 const PROGRESS_STATUS_VALUE_TEAM_UPDATING = "Updating a team";
 const PROGRESS_STATUS_VALUE_WAIT_TITLE = "Please wait";
-const PROGRESS_STATUS_VALUE_DO_NOT_CLOSE = "Please do not close this window";
 const PROGRESS_STATUS_VALUE_ANOTHER_ENTITY =
-   "The user you are modifying belongs to another entity";
+   "This user has a Principal Team Assignment in another entity.";
 const PROGRESS_STATUS_VALUE_REASON_NEXT =
-   "Please enter the reason for changing the Principal Team Assignment in the window that appears next";
-const PROGRESS_STATUS_VALUE_ESTIMATE = "This may take up to 15 seconds";
+   "You'll be asked to enter a reason for the change.";
+const PROGRESS_STATUS_VALUE_DO_NOT_CLOSE =
+   "Please don't close this window while it loads (around 15 seconds)";
 const TIMEOUT_RETRY_PAGEDATA = 15000;
 
 //TODO (Guy): These should be ABDesigner settings.
@@ -2854,10 +2854,12 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
             `<div class="progress-status-title">${this.label(
                PROGRESS_STATUS_VALUE_WAIT_TITLE
             )}</div>`,
+            '<div class="progress-status-card">',
             ...messages.map(
                (message) =>
                   `<div class="progress-status-message">${message}</div>`
             ),
+            "</div>",
             "</div>",
             "</div>",
          ].join("");
@@ -2924,10 +2926,7 @@ const ORG_SENT_STATUSES = ["9", "12", "15"];
                   this.label(PROGRESS_STATUS_VALUE_REASON_NEXT)
                );
             if (principalQueues.length > 0)
-               messages.push(
-                  this.label(PROGRESS_STATUS_VALUE_DO_NOT_CLOSE),
-                  this.label(PROGRESS_STATUS_VALUE_ESTIMATE)
-               );
+               messages.push(this.label(PROGRESS_STATUS_VALUE_DO_NOT_CLOSE));
             $progressStatus.define(
                "template",
                this._uiProgressStatusTemplate(messages)
@@ -8048,7 +8047,7 @@ __webpack_require__.r(__webpack_exports__);
 
 const plugin = {
    /* global VERSION -- injected by webpack define plugin */
-   version: "1.0.19",
+   version: "1.0.20",
    key: "HRTeams",
    apply: function (AB) {
       const ABView = AB.Class.ABViewManager.viewClass("view");
