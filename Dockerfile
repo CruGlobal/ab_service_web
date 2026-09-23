@@ -9,6 +9,9 @@
 ## $ docker build -t digiserve/ab-web:master .
 ## $ docker push digiserve/ab-web:master
 ##
+## Multi-platform / supply chain: use buildx with --provenance=true --sbom=true when pushing to a registry.
+## Or use: $ DOCKER_ARGS="-t digiserve/ab-web:master --push" ./build.sh
+##
 
 FROM nginx:stable-alpine
 
