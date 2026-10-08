@@ -23,6 +23,7 @@ LABEL com.datadoghq.ad.logs='[{"source": "nginx"}]'
 HEALTHCHECK --interval=10s --timeout=5s CMD curl -f http://127.0.0.1:81/health-check || exit 1
 
 ENV NGINX_ENTRYPOINT_QUIET_LOGS=1
+ENV NGINX_ENTRYPOINT_LOCAL_RESOLVERS=1
 
 # Nginx listening on port 80
 EXPOSE 80
