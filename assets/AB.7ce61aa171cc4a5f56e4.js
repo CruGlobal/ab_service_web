@@ -29577,8 +29577,13 @@ class ABViewCore extends _platform_ABMLClass_js__WEBPACK_IMPORTED_MODULE_0__["de
       };
 
       // encode our child view references
-      result.viewIDs = (this._views || []).map((v) => v.id).filter((id) => id);
-      result.viewIDs = result.viewIDs.concat(this.__missingViews);
+      // result.viewIDs = (this._views || []).map((v) => v.id).filter((id) => id);
+      // result.viewIDs = result.viewIDs.concat(this.__missingViews);
+      const allViewIDs = (this._views || [])
+         .map((v) => v.id)
+         .filter((id) => id)
+         .concat(this.__missingViews || []);
+      result.viewIDs = Array.from(new Set(allViewIDs));
 
       if (this.position) result.position = this.position;
 
@@ -29756,7 +29761,7 @@ class ABViewCore extends _platform_ABMLClass_js__WEBPACK_IMPORTED_MODULE_0__["de
             this.AB.Account.roles().forEach((role) => {
                if (
                   this.application.accessManagers.role.indexOf(
-                     role.id || role.uuid,
+                     role.id || role.uuid
                   ) > -1
                ) {
                   // if so set the access level to full access
@@ -29773,7 +29778,7 @@ class ABViewCore extends _platform_ABMLClass_js__WEBPACK_IMPORTED_MODULE_0__["de
             // check if the user's account matches the managers
             if (
                this.application.accessManagers.account.indexOf(
-                  this.AB.Account.uuid() + "",
+                  this.AB.Account.uuid() + ""
                ) > -1
             ) {
                // if so set the access level to full access
@@ -29906,7 +29911,7 @@ class ABViewCore extends _platform_ABMLClass_js__WEBPACK_IMPORTED_MODULE_0__["de
       if (!dataviewID) {
          if (
             ["form", "grid", "line", "area", "bar", "gantt", "kanban"].indexOf(
-               this.key,
+               this.key
             ) > -1
          ) {
             // NOTE: ignore kanban side forms where this is the case:
@@ -29915,7 +29920,7 @@ class ABViewCore extends _platform_ABMLClass_js__WEBPACK_IMPORTED_MODULE_0__["de
             if (this.warningsSilent) return null;
 
             var errNoDCID = new Error(
-               `ABViewCore:get datacollection(): View[${this.key}] didn't define a dataviewID.`,
+               `ABViewCore:get datacollection(): View[${this.key}] didn't define a dataviewID.`
             );
             this.AB.notify.builder(errNoDCID, {
                view: this,
@@ -29925,11 +29930,11 @@ class ABViewCore extends _platform_ABMLClass_js__WEBPACK_IMPORTED_MODULE_0__["de
             // These views shouldn't matter if they don't have a datacollection.
             if (
                ["button", "label", "page", "tab", "viewcontainer"].indexOf(
-                  this.key,
+                  this.key
                ) == -1
             ) {
                console.warn(
-                  `TODO: figure out which ABView* require a .dataviewID: ${this.key}?`,
+                  `TODO: figure out which ABView* require a .dataviewID: ${this.key}?`
                );
             }
          }
@@ -29939,7 +29944,7 @@ class ABViewCore extends _platform_ABMLClass_js__WEBPACK_IMPORTED_MODULE_0__["de
       var dc = this.AB.datacollectionByID(dataviewID);
       if (!dc) {
          var errNoDC = new Error(
-            `View[${this.label}][${this.id}] is unable to find associated DataCollection`,
+            `View[${this.label}][${this.id}] is unable to find associated DataCollection`
          );
          this.AB.notify.builder(errNoDC, {
             view: this,
@@ -30377,12 +30382,12 @@ class ABViewCore extends _platform_ABMLClass_js__WEBPACK_IMPORTED_MODULE_0__["de
                            // remove the temp {id:} entry above:
                            this.application._pages =
                               this.application._pages.filter(
-                                 (p2) => p2.id != lookUpIds[p.id],
+                                 (p2) => p2.id != lookUpIds[p.id]
                               );
 
                            // now add the full copiedSubPage:
                            result._pages.push(copiedSubPage);
-                        }),
+                        })
                   );
                });
             }
@@ -30408,7 +30413,7 @@ class ABViewCore extends _platform_ABMLClass_js__WEBPACK_IMPORTED_MODULE_0__["de
                         ) {
                            result._views.push(copiedView);
                         }
-                     }),
+                     })
                   );
                });
             }
@@ -68029,4 +68034,4 @@ module.exports = class ABCustomEditList {
 /***/ }
 
 }]);
-//# sourceMappingURL=AB.f4cde851a08ce3874b3d.js.map
+//# sourceMappingURL=AB.7ce61aa171cc4a5f56e4.js.map
