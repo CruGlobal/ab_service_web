@@ -3769,70 +3769,67 @@ const ORG_SENT_STATUSES = ["2"];
             PROGRESS_STATUS_KEY_COMMON,
             PROGRESS_STATUS_VALUE_COMMON_REFRESHING
          );
+         try {
+            this.switchDataPanel(this._selectedDataPanel);
 
-         this.switchDataPanel(this._selectedDataPanel);
+            const ids = this.ids;
+            $$(ids.teamFormPopup)?.destructor();
+            $$(ids.contentForm)?.destructor();
 
-         const ids = this.ids;
-         $$(ids.teamFormPopup)?.destructor();
-         $$(ids.contentForm)?.destructor();
+            let tasks = [];
 
-         let tasks = [];
+            // Load data of the Team Object
+            await this._fetchAllData(this.datacollection);
+            this._refreshOrgChart();
 
-         // Load data of the Team Object
-         await this._fetchAllData(this.datacollection);
-         this._refreshOrgChart();
+            // Render RC section
+            tasks.push(
+               (async () => {
+                  await this._utils.waitDOM();
 
-         // Render RC section
-         tasks.push(
-            new Promise(async (next) => {
-               await this._utils.waitDOM();
+                  this._refreshRcView();
+               })()
+            );
 
-               this._refreshRcView();
-               next();
-            })
-         );
-
-         let loadDcs = [
-            _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.content,
-            ..._components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.contentDisplays,
-         ];
-         // Remove duplicate DCs
-         loadDcs = loadDcs.filter(function (dc, pos) {
-            return loadDcs.findIndex((dc2) => dc.id == dc2.id) == pos;
-         });
-
-         tasks = tasks.concat([
-            ...loadDcs.map(
-               (dc) =>
-                  new Promise(async (next) => {
-                     await this._fetchAllData(dc);
-                     next();
-                  })
-            ),
-         ]);
-
-         await Promise.all(tasks);
-
-         this._refreshContentView();
-         // this._refreshDataPanel();
-
-         const topTeamColumnName = this.AB.definitionByID(
-            this.settings.topTeam
-         ).columnName;
-
-         if (
-            this.datacollection.getData((e) => e[topTeamColumnName] == 1)
-               .length === 0
-         )
-            this.AB.Webix.alert({
-               title: `${this.label("Warning")}: ${this.label("No Team")}`,
-               ok: this.label("OK"),
-               text: this.label("No team is assigned to this entity"),
+            let loadDcs = [
+               _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.content,
+               ..._components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.contentDisplays,
+            ];
+            // Remove duplicate DCs
+            loadDcs = loadDcs.filter(function (dc, pos) {
+               return loadDcs.findIndex((dc2) => dc.id == dc2.id) == pos;
             });
-         this._removeProgressStatusQueue(
-            PROGRESS_STATUS_KEY_COMMON,
-            PROGRESS_STATUS_VALUE_COMMON_REFRESHING
-         );
+
+            tasks = tasks.concat(loadDcs.map((dc) => this._fetchAllData(dc)));
+
+            await Promise.all(tasks);
+
+            this._refreshContentView();
+            // this._refreshDataPanel();
+
+            const topTeamColumnName = this.AB.definitionByID(
+               this.settings.topTeam
+            ).columnName;
+
+            if (
+               this.datacollection.getData((e) => e[topTeamColumnName] == 1)
+                  .length === 0
+            )
+               this.AB.Webix.alert({
+                  title: `${this.label("Warning")}: ${this.label("No Team")}`,
+                  ok: this.label("OK"),
+                  text: this.label("No team is assigned to this entity"),
+               });
+         } catch (err) {
+            // TODO (Guy): The update data error.
+            console.error(err);
+         } finally {
+            // Always take "Refreshing" off: a failed step used to leave it up.
+            this._removeProgressStatusQueue(
+               PROGRESS_STATUS_KEY_COMMON,
+               PROGRESS_STATUS_VALUE_COMMON_REFRESHING
+            );
+         }
       }
 
       async updateData(dc, value) {
@@ -6490,6 +6487,9 @@ class RcDataPanel extends _DataPanel_js__WEBPACK_IMPORTED_MODULE_1__["default"] 
       _dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.responsibilityCenter = this.AB.datacollectionByID(
          _constants_js__WEBPACK_IMPORTED_MODULE_0__["default"].RESPONSIBILITY_CENTRE_DC_ID
       );
+      // refresh() loads it before Utils.initDC() would guard it.
+      if (_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.responsibilityCenter)
+         _utils_js__WEBPACK_IMPORTED_MODULE_3__["default"].guardDC(_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.responsibilityCenter);
       // DcContainer.list.responsibilityCenter.init();
       // Utils.initDC(DcContainer.list.responsibilityCenter);
 
@@ -7222,6 +7222,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _constants_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./constants.js */ "./components/constants.js");
 
 
+// How many times retryFailedLoads() tries a DC load before giving up.
+const LOAD_ATTEMPTS = 3;
+
 class OrgChartUtils {
    constructor(AB) {
       this.AB = AB;
@@ -7295,15 +7298,110 @@ class OrgChartUtils {
    }
 
    static initDC(dc) {
+      OrgChartUtils.guardDC(dc);
       dc.init();
-      if (dc.dataStatus === dc.dataStatusFlag.notInitial) dc.loadData();
+      if (dc.dataStatus === dc.dataStatusFlag.notInitial)
+         dc.loadData().catch((err) => console.error(err));
+   }
+
+   /**
+    * Keep a DC's loads from hanging the chart (see the two methods below).
+    * @param {ABDataCollection} dc
+    */
+   static guardDC(dc) {
+      OrgChartUtils.settleDroppedReplies(dc);
+      OrgChartUtils.retryFailedLoads(dc);
+   }
+
+   /**
+    * WORKAROUND: a load that fails leaves the platform's DC "initializing"
+    * for good, so .waitDCReady() waited on it forever ("Initializing DCs"
+    * after NetSuite answered one read with a 503). Try a failed load again,
+    * and if it keeps failing, note it so .waitDCReady() goes on without it.
+    * @param {ABDataCollection} dc
+    */
+   static retryFailedLoads(dc) {
+      if (dc.__retryFailedLoads) return;
+      dc.__retryFailedLoads = true;
+
+      const loadData = dc.loadData.bind(dc);
+      dc.loadData = async (...params) => {
+         for (let attempt = 1; ; attempt++) {
+            try {
+               const result = await loadData(...params);
+               delete dc.__loadError;
+               return result;
+            } catch (err) {
+               if (attempt >= LOAD_ATTEMPTS) {
+                  dc.__loadError = err;
+                  throw err;
+               }
+               console.warn(
+                  `HRTeams: loading "${dc.datasource?.label}" failed, trying again`,
+                  err
+               );
+               await new Promise((resolve) =>
+                  setTimeout(resolve, attempt * _constants_js__WEBPACK_IMPORTED_MODULE_0__["default"].ONE_SECOND)
+               );
+            }
+         }
+      };
+   }
+
+   /**
+    * WORKAROUND: the platform's DC.processIncomingData() parses only the last
+    * reply that reaches a DC within 100 ms, and settles only that reply's
+    * .loadData(). The jobs of the replies it dropped stay pending for good,
+    * and so does a .reloadPromise waiting on one, which kept the chart on
+    * "Refreshing". Settle them once the reply that replaced them is parsed.
+    * @param {ABDataCollection} dc
+    */
+   static settleDroppedReplies(dc) {
+      if (dc.__settleDroppedReplies) return;
+      dc.__settleDroppedReplies = true;
+
+      const processIncomingData = dc.processIncomingData.bind(dc);
+      // The jobs whose replies wait in the platform's 100 ms throttle.
+      let waitingJobIDs = [];
+      dc.processIncomingData = (data) => {
+         const pending = dc._pendingLoadDataResolves;
+         const jobID = data?.jobID;
+         if (jobID && pending[jobID]) {
+            const droppedJobIDs = waitingJobIDs.filter(
+               (id) => id !== jobID && pending[id]
+            );
+            waitingJobIDs = [jobID];
+            if (droppedJobIDs.length > 0) {
+               const lastJob = pending[jobID];
+               const resolveLastJob = lastJob.resolve;
+               lastJob.resolve = (...params) => {
+                  droppedJobIDs.forEach((id) => {
+                     dc._pendingLoadDataResolves[id]?.resolve();
+                     delete dc._pendingLoadDataResolves[id];
+                  });
+                  console.warn(
+                     `HRTeams: settled ${droppedJobIDs.length} dropped load(s) of "${dc.datasource?.label}"`
+                  );
+                  return resolveLastJob(...params);
+               };
+            }
+         }
+         return processIncomingData(data);
+      };
    }
 
    // TODO (Guy): Some DC.waitReady() won't be resolved.
    async waitDCReady(dc) {
       // Wait for the next event loop
       await Promise.resolve();
-      if (dc.reloadPromise != null) await dc.reloadPromise;
+      if (dc.reloadPromise != null) {
+         try {
+            await dc.reloadPromise;
+         } catch (err) {
+            // It failed even after retryFailedLoads(): go on without it.
+            console.error(err);
+         }
+      }
 
       switch (dc.dataStatus) {
          case dc.dataStatusFlag.initialized:
@@ -7315,6 +7413,11 @@ class OrgChartUtils {
                const forceDCReady = () => {
                   if (dc.dataStatus === dc.dataStatusFlag.initialized) {
                      dc.emit("initializedData");
+                     return;
+                  }
+                  // Its first load failed for good (retryFailedLoads()).
+                  if (dc.__loadError) {
+                     resolve();
                      return;
                   }
                   timeoutID = setTimeout(forceDCReady, _constants_js__WEBPACK_IMPORTED_MODULE_0__["default"].ONE_SECOND);
@@ -8051,7 +8154,7 @@ __webpack_require__.r(__webpack_exports__);
 
 const plugin = {
    /* global VERSION -- injected by webpack define plugin */
-   version: "1.0.21",
+   version: "1.0.22",
    key: "HRTeams",
    apply: function (AB) {
       const ABView = AB.Class.ABViewManager.viewClass("view");
