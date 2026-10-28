@@ -14166,7 +14166,10 @@ function FNAbviewformCustomComponent({
                         if (dv) rowData = dv.getCursor() || {};
                      }
 
-                     let node = $$(trg).getParentView().$view;
+                     const node =
+                        $$(this.ids.formItem)?.$view ||
+                        $$(trg)?.getParentView?.()?.$view ||
+                        trg;
                      field?.customEdit(rowData, node, this.ids.formItem, evt);
                   },
                },
@@ -24118,4 +24121,4 @@ function FNAbviewtextComponent({
 /***/ }
 
 }]);
-//# sourceMappingURL=AppBuilder_platform_plugins_included_index_js.003229f6aad0700a3086.js.map
+//# sourceMappingURL=AppBuilder_platform_plugins_included_index_js.60a0320a57ddbb421173.js.map

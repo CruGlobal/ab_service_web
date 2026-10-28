@@ -42400,6 +42400,16 @@ class ABFieldFile extends _core_dataFields_ABFieldFileCore__WEBPACK_IMPORTED_MOD
     * @param {HtmlDOM} node  the HTML Dom object for this field's display.
     */
    customEdit(row, App, node) {
+      // Normalise arguments: (row, node) when App is not an App instance
+      if (
+         App &&
+         (App.dataset ||
+            App.nodeType ||
+            (typeof App === "object" && typeof App.unique !== "function"))
+      ) {
+         node = App;
+      }
+
       if (this.deleteFile == true) {
          // remove the property because it is only needed to prevent the file dialog from showing
          delete this.deleteFile;
@@ -42424,8 +42434,8 @@ class ABFieldFile extends _core_dataFields_ABFieldFileCore__WEBPACK_IMPORTED_MOD
                         if ($$(node) && $$(node).updateItem)
                            $$(node).updateItem(row.id, values);
                      } catch (err) {
-                        node.classList.add("webix_invalid");
-                        node.classList.add("webix_invalid_cell");
+                        node?.classList?.add("webix_invalid");
+                        node?.classList?.add("webix_invalid_cell");
 
                         this.AB.notify.developer(err, {
                            message:
@@ -42445,8 +42455,16 @@ class ABFieldFile extends _core_dataFields_ABFieldFileCore__WEBPACK_IMPORTED_MOD
       } else {
          const rowData = this.dataValue(row);
          if (!rowData || !rowData.uuid) {
-            const uploaderId = node.dataset["uploaderId"],
-               uploader = $$(uploaderId);
+            const domNode =
+               node?.dataset != null
+                  ? node
+                  : $$(node)?.$view ||
+                    (typeof node === "string"
+                       ? document.getElementById(node)
+                       : null) ||
+                    node;
+            const uploaderId = domNode?.dataset?.["uploaderId"],
+               uploader = uploaderId ? $$(uploaderId) : null;
 
             if (uploader && uploader.fileDialog)
                uploader.fileDialog({ rowid: row.id });
@@ -42592,7 +42610,7 @@ class ABFieldFile extends _core_dataFields_ABFieldFileCore__WEBPACK_IMPORTED_MOD
    urlFile(id) {
       return `/file/${id}`;
    }
-};
+}
 
 
 /***/ },
@@ -43066,8 +43084,23 @@ class ABFieldImage extends _core_dataFields_ABFieldImageCore__WEBPACK_IMPORTED_M
     * @param {HtmlDOM} node  the HTML Dom object for this field's display.
     */
    customEdit(row, App, node, id, evt) {
+      // Normalise arguments: (row, node, id, evt) when App is a DOM node / not an App instance
       if (
-         (evt && evt.target.className.indexOf("delete-image") > -1) ||
+         App &&
+         (App.dataset ||
+            App.nodeType ||
+            (typeof App === "object" && typeof App.unique !== "function"))
+      ) {
+         evt = id;
+         id = node;
+         node = App;
+      }
+
+      if (
+         (evt &&
+            evt.target &&
+            evt.target.className &&
+            evt.target.className.indexOf("delete-image") > -1) ||
          this.deleteImage
       ) {
          delete this.deleteImage;
@@ -43090,14 +43123,14 @@ class ABFieldImage extends _core_dataFields_ABFieldImageCore__WEBPACK_IMPORTED_M
                      await this.object.model().update(row.id, values);
 
                      // update the client side data object as well so other data changes won't cause this save to be reverted
-                     if ($$(node) && $$(node).updateItem)
-                        $$(node).updateItem(row.id, values);
+                     const ui = $$(id) || $$(node);
+                     if (ui && ui.updateItem) ui.updateItem(row.id, values);
 
                      // update value in the form component
-                     this.setValue($$(node), values);
+                     this.setValue(ui, values);
                   } catch (err) {
-                     node.classList.add("webix_invalid");
-                     node.classList.add("webix_invalid_cell");
+                     node?.classList?.add("webix_invalid");
+                     node?.classList?.add("webix_invalid_cell");
 
                      this.AB.notify.developer(err, {
                         context:
@@ -43111,8 +43144,17 @@ class ABFieldImage extends _core_dataFields_ABFieldImageCore__WEBPACK_IMPORTED_M
             },
          });
       } else {
-         const uploaderId = node.dataset["uploaderId"],
-            uploader = $$(uploaderId);
+         const domNode =
+            node?.dataset != null
+               ? node
+               : $$(id)?.$view ||
+                 $$(node)?.$view ||
+                 (typeof node === "string"
+                    ? document.getElementById(node)
+                    : null) ||
+                 node;
+         const uploaderId = domNode?.dataset?.["uploaderId"],
+            uploader = uploaderId ? $$(uploaderId) : null;
 
          if (uploader && uploader.fileDialog)
             uploader.fileDialog({ rowid: row.id });
@@ -43348,7 +43390,7 @@ class ABFieldImage extends _core_dataFields_ABFieldImageCore__WEBPACK_IMPORTED_M
          url: `/image/rotate/${imgFile}?direction=right`,
       });
    }
-};
+}
 
 
 /***/ },
@@ -68034,4 +68076,4 @@ module.exports = class ABCustomEditList {
 /***/ }
 
 }]);
-//# sourceMappingURL=AB.7ce61aa171cc4a5f56e4.js.map
+//# sourceMappingURL=AB.d0923552eb1e23547d4a.js.map
