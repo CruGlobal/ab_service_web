@@ -61,6 +61,34 @@ jobs:
       webpack_path: plugins/ABDesigner
       webpack_command: ${{ matrix.webpack }}
       build_meta_prefix: d
+  call-update-default-web:
+    if: ${{ github.event.client_payload.repo == 'ab_plugin_default_web' }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - branch: master
+            webpack: update
+          - branch: develop
+            webpack: update
+            pre_release: dev
+    name: Update Service Web ${{ matrix.branch }} (DefaultWeb)
+    uses: ./.github/workflows/update-build-release.yml
+    secrets:
+      app_secret: ${{ secrets.GS_DEV_APP_PK }}
+      DOCKER_USERNAME: ${{ vars.DOCKER_USERNAME }}
+      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+    with:
+      app_id: ${{ vars.GS_DEV_APP_ID }}
+      version: ${{ github.event.client_payload.version }}
+      type: ${{ github.event.client_payload.type }}
+      pre_release: ${{ matrix.pre_release }}
+      branch: ${{ matrix.branch }}
+      webpack_repo: ab_plugin_default_web
+      webpack_repo_short: default_web
+      webpack_path: plugins/ab_plugin_default_web
+      webpack_command: ${{ matrix.webpack }}
+      build_meta_prefix: w
   call-update-platform_pwa:
     if: ${{ github.event.client_payload.repo == 'appbuilder_platform_pwa' }}
     strategy:
