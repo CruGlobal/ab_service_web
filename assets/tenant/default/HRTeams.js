@@ -80,8 +80,16 @@ const PROGRESS_STATUS_VALUE_ANOTHER_ENTITY =
 const PROGRESS_STATUS_VALUE_REASON_NEXT =
    "You'll be asked to enter a reason for the change.";
 const PROGRESS_STATUS_VALUE_DO_NOT_CLOSE =
-   "Please don't close this window while it loads (around 15 seconds)";
+   "Please don't close this window while it loads (it can take a minute or two)";
 const TIMEOUT_RETRY_PAGEDATA = 15000;
+// The reason form comes from the process "Updated Assignments", often a
+// minute or more after Save. Stop waiting for it after this long; it still
+// opens when it arrives.
+const TIMEOUT_REASON_FORM = 120000;
+const REASON_FORM_LATE =
+   "The form to enter the reason has not arrived yet. It will open when it does, so please keep this page open.";
+// The portal shows every process form in this one window.
+const USER_FORM_POPUP_ID = "portal_work_task_user_form";
 
 //TODO (Guy): These should be ABDesigner settings.
 const CONTENT_JOB_TITLE_COLUMNNAME = "custrecord_team_assign_job_title";
@@ -1070,6 +1078,7 @@ const ORG_SENT_STATUSES = ["2"];
                   const contentNodes = [];
                   try {
                      if (isChangedToPrincipal) {
+                        await customProcessTasks.load();
                         self._addProgressStatusQueue(
                            PROGRESS_STATUS_KEY_PRINCIPAL,
                            customProcessTasks.employeeValueEmail
@@ -1091,25 +1100,31 @@ const ORG_SENT_STATUSES = ["2"];
                            PROGRESS_STATUS_KEY_APPROVAL,
                            customProcessTasks.employeeValueEmail
                         );
-                        await Promise.all([
-                           new Promise((resolve) => {
-                              self._addUserFormQueue(newFormData, {
-                                 needUserForm: customProcessTasks.needApproval,
-                                 callback: resolve,
-                              });
-                           }),
-                           (async () => {
-                              await _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.content.model.update(
-                                 dataID,
-                                 {
-                                    [contentPrincipleColumnName]: "1",
-                                 }
-                              );
-                              _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.content.model.update(dataID, {
-                                 [contentPrincipleColumnName]: "0",
-                              });
-                           })(),
+                        const reasonForm = new Promise((resolve) => {
+                           self._addUserFormQueue(newFormData, {
+                              needUserForm: customProcessTasks.needApproval,
+                              callback: () => resolve(true),
+                              email: customProcessTasks.employeeValueEmail,
+                           });
+                        });
+                        await _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.content.model.update(dataID, {
+                           [contentPrincipleColumnName]: "1",
+                        });
+                        _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.content.model.update(dataID, {
+                           [contentPrincipleColumnName]: "0",
+                        });
+                        const isReasonFormShown = await Promise.race([
+                           reasonForm,
+                           self._utils
+                              .timeout(TIMEOUT_REASON_FORM)
+                              .then(() => false),
                         ]);
+                        if (!isReasonFormShown)
+                           self.AB.Webix.message({
+                              type: "info",
+                              expire: 20000,
+                              text: self.label(REASON_FORM_LATE),
+                           });
                      } else {
                         if (isCreated) {
                            const oldData = {};
@@ -1137,12 +1152,20 @@ const ORG_SENT_STATUSES = ["2"];
                               }
                            );
                            if (newFormData[contentPrincipleColumnName] == 1)
-                              self._addUserFormQueue(newFormData);
+                              self._addUserFormQueue(newFormData, {
+                                 email: customProcessTasks.employeeValueEmail,
+                              });
                         }
                         contentNodes.push({
                            [dataID]: (!isEnded && newFormData) || null,
                         });
                      }
+                  } catch (err) {
+                     // TODO (Guy): The update data error.
+                     console.error(err);
+                  } finally {
+                     // Always take the progress card down: a failed step used to
+                     // leave it up.
                      if (customProcessTasks.needApproval)
                         self._removeProgressStatusQueue(
                            PROGRESS_STATUS_KEY_APPROVAL,
@@ -1153,9 +1176,6 @@ const ORG_SENT_STATUSES = ["2"];
                            PROGRESS_STATUS_KEY_PRINCIPAL,
                            customProcessTasks.employeeValueEmail
                         );
-                  } catch (err) {
-                     // TODO (Guy): The update data error.
-                     console.error(err);
                   }
                   for (const contentNode of contentNodes) {
                      const key = Object.keys(contentNode)[0];
@@ -1566,6 +1586,7 @@ const ORG_SENT_STATUSES = ["2"];
          const processFormDataKey =
             "491956b4-c33c-49d7-b4fe-5ccd0911d62d.EmployeeEmail";
          this._userFormQueues = [];
+         this._userFormsToShow = [];
          this._fnUserFormListener = this.AB._events["ab.task.userform"];
          this.AB.off("ab.task.userform", this._fnUserFormListener);
          this.AB.on("ab.task.userform", async (data) => {
@@ -1581,14 +1602,15 @@ const ORG_SENT_STATUSES = ["2"];
             if (this._userFormQueues.length === 0) return;
             const userFormQueueIndex = this._userFormQueues.findIndex(
                (e) =>
-                  e.dataPanelRecord.email === data.formData[processFormDataKey]
+                  e.email != null &&
+                  e.email === data.formData[processFormDataKey]
             );
             if (userFormQueueIndex > -1) {
                const userFormQueue = this._userFormQueues.splice(
                   userFormQueueIndex,
                   1
                )[0];
-               if (userFormQueue.needUserForm) this._fnUserFormListener(data);
+               if (userFormQueue.needUserForm) this._showUserForm(data);
                if (userFormQueue.callback) {
                   const result = userFormQueue.callback();
                   if (result instanceof Promise) {
@@ -2494,23 +2516,54 @@ const ORG_SENT_STATUSES = ["2"];
       // TODO (Guy): Hardcode to hide the reason popup to prevent to continue the next process task
       _addUserFormQueue(
          contentValue,
-         { callback, needUserForm } = { callback: null, needUserForm: false }
+         { callback = null, needUserForm = false, email = null } = {}
       ) {
-         const dataPanelDC = _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.contentDisplays.find(
-            (contentDisplayDC) =>
-               contentDisplayDC.datasource ===
-               _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.dataPanels[0].datasource
-         );
-         const dataPanelPK = dataPanelDC.datasource.PK();
+         if (email == null) {
+            const dataPanelDC = _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.contentDisplays.find(
+               (contentDisplayDC) =>
+                  contentDisplayDC.datasource ===
+                  _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.dataPanels[0].datasource
+            );
+            const dataPanelPK = dataPanelDC.datasource.PK();
+
+            // The row is missing while the data collection reloads after a
+            // save. Such an entry never matches a form, but it must not stop
+            // the forms of the other entries.
+            email =
+               dataPanelDC.getData(
+                  (e) =>
+                     e[dataPanelPK] ==
+                     contentValue[CONTENT_LINK_DATAPANEL_COLUMNNAME]
+               )[0]?.email ?? null;
+         }
          this._userFormQueues.push({
-            dataPanelRecord: dataPanelDC.getData(
-               (e) =>
-                  e[dataPanelPK] ==
-                  contentValue[CONTENT_LINK_DATAPANEL_COLUMNNAME]
-            )[0],
+            email,
             callback,
             needUserForm,
          });
+      }
+
+      // A second form in the portal's form window replaces the first, which
+      // then can never be answered. Show this chart's forms one by one.
+      _showUserForm(data) {
+         const $popup = $$(USER_FORM_POPUP_ID);
+         if ($popup == null) {
+            this._fnUserFormListener(data);
+            return;
+         }
+         if (!this._isUserFormPopupHooked) {
+            this._isUserFormPopupHooked = true;
+            $popup.attachEvent("onHide", () => {
+               const nextData = this._userFormsToShow.shift();
+               if (nextData)
+                  setTimeout(() => this._fnUserFormListener(nextData), 0);
+            });
+         }
+         if ($popup.isVisible()) {
+            this._userFormsToShow.push(data);
+            return;
+         }
+         this._fnUserFormListener(data);
       }
 
       _isLessThanDay(date) {
@@ -7546,15 +7599,48 @@ class CustomProcessTasks {
       this._employeeValuePK = parseInt(
          this._input[this._assignmentLinkingEmployeeColumnName]
       );
+      // Both rows can be missing here: the data collections empty themselves
+      // while they reload after a save. load() reads them from the server.
       this._employeeValue = this._employeeDC.getData(
          (e) => e[this._employeePK] == this._employeeValuePK
       )[0];
-      this._employeeValueEmail = this._employeeValue[EMPLOYEE_EMAIL_COLUMNNAME];
+      this._employeeValueEmail =
+         this._employeeValue?.[EMPLOYEE_EMAIL_COLUMNNAME];
+      this._teamValue = this._findDCRecordByPK(
+         this._teamDC,
+         this._input[this._assignmentLinkingTeamColumnName]
+      );
 
       // Cached states;
-      this._isExternalSupport = null;
       this._needApproval = false;
       this._updatedPrincipals = [];
+   }
+
+   async _findRecordByPK(obj, valuePK) {
+      return (
+         await obj.model().findAll({
+            where: {
+               glue: "and",
+               rules: [{ key: obj.PK(), rule: "equals", value: valuePK }],
+            },
+         })
+      ).data[0];
+   }
+
+   async load() {
+      if (this._employeeValue == null) {
+         this._employeeValue = await this._findRecordByPK(
+            this._employeeOBJ,
+            this._employeeValuePK
+         );
+         this._employeeValueEmail =
+            this._employeeValue?.[EMPLOYEE_EMAIL_COLUMNNAME];
+      }
+      if (this._teamValue == null)
+         this._teamValue = await this._findRecordByPK(
+            this._teamDC.datasource,
+            this._input[this._assignmentLinkingTeamColumnName]
+         );
    }
 
    _findDCRecordByPK(dc, valuePK) {
@@ -7684,6 +7770,7 @@ class CustomProcessTasks {
    }
 
    async run({ isChanging } = { isChanging: false }) {
+      await this.load();
       if (
          this.isExternalSupport() ||
          this._instance.ORG_SENT_STATUSES.indexOf(
@@ -7781,14 +7868,7 @@ class CustomProcessTasks {
    }
 
    isExternalSupport() {
-      return (
-         this._isExternalSupport ??
-         (this._isExternalSupport =
-            this._findDCRecordByPK(
-               this._teamDC,
-               this._input[this._assignmentLinkingTeamColumnName]
-            )[EXTERNAL_SUPPORT_COLUMNNAME] == 1)
-      );
+      return this._teamValue?.[EXTERNAL_SUPPORT_COLUMNNAME] == 1;
    }
 
    get needApproval() {
@@ -8154,7 +8234,7 @@ __webpack_require__.r(__webpack_exports__);
 
 const plugin = {
    /* global VERSION -- injected by webpack define plugin */
-   version: "1.0.22",
+   version: "1.0.23",
    key: "HRTeams",
    apply: function (AB) {
       const ABView = AB.Class.ABViewManager.viewClass("view");
