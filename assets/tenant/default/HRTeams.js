@@ -162,11 +162,17 @@ const ORG_SENT_STATUSES = ["2"];
          this._promisePageData = null;
          this._isPageDataTerminated = false;
          this._progressStatusQueues = [];
+         // Employees with changes still saving: employee id -> number of
+         // saves. Their cards can't be edited or moved until all are done.
+         this._savingEmployees = {};
          this._chartData = null;
          this._strategyCodeOpts = [];
          this._strategyOpts = [];
-         this._fnContentDragEnd = (event) => {
+         this._fnContentDragEnd = () => {
             // event.target.style.opacity = "1";
+            // A later drag from the Staff Assignment panel must not take this
+            // card for the dragged one.
+            this._$eventTarget = null;
          };
          this._fnContentDragOver = (event) => {
             event.preventDefault();
@@ -340,6 +346,14 @@ const ORG_SENT_STATUSES = ["2"];
             let updatedValue = parsedDataTransfer.source;
             const { dataPK, contentLinkedFieldID } =
                this._dataPanels.staff.extractDragData(parsedDataTransfer);
+            const employeeID = updatedValue
+               ? this._employeeIDOf(JSON.parse(updatedValue))
+               : `${dataPK ?? ""}`;
+            if (!this._canEditEmployee(employeeID, true)) {
+               this._fnReadyRecord($teamRecord);
+               return;
+            }
+            this._startEmployeeSave(employeeID);
             const draggedNodes = [];
             let isRefreshed = true;
             try {
@@ -451,7 +465,7 @@ const ORG_SENT_STATUSES = ["2"];
                            ))()
                      );
                   }
-                  updatedValue = (await Promise.all(pendingPromises))[
+                  updatedValue = (await this._settleAll(pendingPromises))[
                      pendingPromises.length - 1
                   ];
                } else {
@@ -676,7 +690,7 @@ const ORG_SENT_STATUSES = ["2"];
                               await customProcessTasks.run()
                            ))()
                      );
-                     updatedValue = (await Promise.all(pendingPromises))[
+                     updatedValue = (await this._settleAll(pendingPromises))[
                         pendingPromises.length - 1
                      ];
                   }
@@ -695,6 +709,8 @@ const ORG_SENT_STATUSES = ["2"];
             } catch (err) {
                // TODO (Guy): The update data error.
                console.error(err);
+            } finally {
+               this._endEmployeeSave(employeeID);
             }
             this._fnReadyRecord($teamRecord);
          };
@@ -887,6 +903,16 @@ const ORG_SENT_STATUSES = ["2"];
                event.currentTarget.dataset.source ||
                   event.currentTarget.parentElement.dataset.source
             );
+            const employeeID = self._employeeIDOf(contentValue);
+            if (!self._canEditEmployee(employeeID)) return;
+            // One edit form at a time: the forms share one Webix id, so the
+            // Save of one used to read the values of the other.
+            const $openForm = $$(self.ids.contentForm);
+            if ($openForm) {
+               // The form of this record is open already.
+               if ($openForm.config.recordID == contentValue.id) return;
+               self._closeContentForm();
+            }
             for (const fieldID of self.settings.setEditableContentFields) {
                const field =
                   _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.content.datasource.fieldByID(fieldID);
@@ -957,10 +983,7 @@ const ORG_SENT_STATUSES = ["2"];
                         $contentFormData.getValues()
                      )
                   );
-                  const $contentForm = $$(self.ids.contentForm);
-                  $contentForm.blockEvent();
-                  $contentForm.$view.remove();
-                  $contentForm.destructor();
+                  self._closeContentForm();
                   if (
                      !self._checkIfDataChanged(
                         _components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.content,
@@ -988,6 +1011,7 @@ const ORG_SENT_STATUSES = ["2"];
                         newFormData[contentPrincipleColumnName] &&
                      newFormData[contentPrincipleColumnName] == 1;
                   const $progressStatus = $$(self.ids.progressStatus);
+                  self._startEmployeeSave(employeeID);
                   try {
                      if (isCreated) {
                         isCreated = false;
@@ -1079,6 +1103,7 @@ const ORG_SENT_STATUSES = ["2"];
                               .fail(reject);
                         });
                   } catch {
+                     self._endEmployeeSave(employeeID);
                      return;
                   }
                   self._fnBusyRecord($teamRecord);
@@ -1136,7 +1161,7 @@ const ORG_SENT_STATUSES = ["2"];
                         if (isCreated) {
                            const oldData = {};
                            oldData[contentDateEndColumnName] = new Date();
-                           await Promise.all([
+                           await self._settleAll([
                               self.updateData(_components_dcContainer_js__WEBPACK_IMPORTED_MODULE_2__["default"].list.content, {
                                  ...oldData,
                                  id: dataID,
@@ -1190,6 +1215,7 @@ const ORG_SENT_STATUSES = ["2"];
                      contentNode[key] &&
                         self._addContentRecordToGroup(contentNode[key]);
                   }
+                  self._endEmployeeSave(employeeID);
                   self._fnReadyRecord($teamRecord);
                   self._refreshDataPanel();
                },
@@ -1197,6 +1223,9 @@ const ORG_SENT_STATUSES = ["2"];
             self.AB.Webix.ui({
                view: "window",
                id: self.ids.contentForm,
+               // Read by the checks above and in _canEditEmployee().
+               recordID: contentValue.id,
+               employeeID,
                close: true,
                move: true,
                position: "center",
@@ -1219,10 +1248,7 @@ const ORG_SENT_STATUSES = ["2"];
                         align: "right",
                         width: 60,
                         click() {
-                           const $contentForm = $$(self.ids.contentForm);
-                           $contentForm.blockEvent();
-                           $contentForm.$view.remove();
-                           $contentForm.destructor();
+                           self._closeContentForm();
                         },
                      },
                   ],
@@ -1560,6 +1586,9 @@ const ORG_SENT_STATUSES = ["2"];
          };
          this._fnReadyRecord = ($record) => {
             if ($record == null) return;
+            // Its team member still has changes saving (_endEmployeeSave()
+            // makes it ready).
+            if (this._isEmployeeSaving($record.dataset.employeeId)) return;
 
             $record.setAttribute("draggable", "true");
 
@@ -1896,10 +1925,113 @@ const ORG_SENT_STATUSES = ["2"];
          return value;
       }
 
+      /**
+       * @param {object} contentValue an assignment record
+       * @returns {string} the id of its team member, or "" if it has none
+       */
+      _employeeIDOf(contentValue) {
+         return `${contentValue?.[CONTENT_LINK_DATAPANEL_COLUMNNAME] ?? ""}`;
+      }
+
+      /**
+       * @param {string} employeeID
+       * @returns {boolean} whether changes of this team member are still saving
+       */
+      _isEmployeeSaving(employeeID) {
+         return !!employeeID && this._savingEmployees[employeeID] > 0;
+      }
+
+      /**
+       * Whether the records of this team member can be changed now. If not,
+       * tell the user why.
+       * @param {string} employeeID
+       * @param {boolean} [isFormChecked] also refuse while the edit form of
+       *        one of their records is open, which would save old values
+       * @returns {boolean}
+       */
+      _canEditEmployee(employeeID, isFormChecked = false) {
+         let text = null;
+         if (this._isEmployeeSaving(employeeID))
+            text =
+               "This team member has changes that are still saving. Please wait until they're done.";
+         else if (
+            isFormChecked &&
+            employeeID &&
+            $$(this.ids.contentForm)?.config.employeeID === employeeID
+         )
+            text =
+               "Please save or close the edit form of this team member first.";
+         if (text == null) return true;
+         this.AB.Webix.message({ type: "info", text: this.label(text) });
+         return false;
+      }
+
+      /**
+       * Note that a save of this team member's records starts. Until every
+       * save of theirs ends, their cards show a spinner and can't be edited
+       * or moved, also when the chart draws them again.
+       * @param {string} employeeID
+       */
+      _startEmployeeSave(employeeID) {
+         if (!employeeID) return;
+         this._savingEmployees[employeeID] =
+            (this._savingEmployees[employeeID] ?? 0) + 1;
+         this._refreshEmployeeRecords(employeeID);
+      }
+
+      /**
+       * Note that a save from _startEmployeeSave() ended.
+       * @param {string} employeeID
+       */
+      _endEmployeeSave(employeeID) {
+         if (!this._isEmployeeSaving(employeeID)) return;
+         if (--this._savingEmployees[employeeID] === 0)
+            delete this._savingEmployees[employeeID];
+         this._refreshEmployeeRecords(employeeID);
+      }
+
+      /**
+       * Show the cards of this team member as busy or ready.
+       * @param {string} employeeID
+       */
+      _refreshEmployeeRecords(employeeID) {
+         const isSaving = this._isEmployeeSaving(employeeID);
+         this.__orgchart
+            ?.querySelectorAll(".team-group-record")
+            .forEach(($record) => {
+               if ($record.dataset.employeeId !== employeeID) return;
+               if (isSaving) this._fnBusyRecord($record);
+               else this._fnReadyRecord($record);
+            });
+      }
+
+      /**
+       * Like Promise.all(), but when one fails, wait until the others end
+       * before throwing: the save of a team member counts as running until
+       * every write of it ends.
+       * @param {Promise[]} promises
+       * @returns {Promise<Array>} their values
+       */
+      async _settleAll(promises) {
+         const results = await Promise.allSettled(promises);
+         const failed = results.find((result) => result.status === "rejected");
+         if (failed) throw failed.reason;
+         return results.map((result) => result.value);
+      }
+
+      _closeContentForm() {
+         const $contentForm = $$(this.ids.contentForm);
+         if ($contentForm == null) return;
+         $contentForm.blockEvent();
+         $contentForm.$view.remove();
+         $contentForm.destructor();
+      }
+
       async _createUIContentRecord(data, color) {
          const $ui = element("div", "team-group-record");
          $ui.setAttribute("id", this.contentNodeID(data.id));
          $ui.setAttribute("data-source", JSON.stringify(data));
+         $ui.dataset.employeeId = this._employeeIDOf(data);
          $ui.style.borderColor = color;
          $ui.addEventListener("dblclick", this._fnShowContentForm);
          if (
@@ -2198,6 +2330,10 @@ const ORG_SENT_STATUSES = ["2"];
             $ui.appendChild($editIcon);
             $ui.appendChild($loadingIcon);
          }
+
+         // A card drawn again while its team member's changes are saving.
+         if (this._isEmployeeSaving($ui.dataset.employeeId))
+            this._fnBusyRecord($ui);
 
          return $ui;
       }
@@ -8262,7 +8398,7 @@ __webpack_require__.r(__webpack_exports__);
 
 const plugin = {
    /* global VERSION -- injected by webpack define plugin */
-   version: "1.0.24",
+   version: "1.0.25",
    key: "HRTeams",
    apply: function (AB) {
       const ABView = AB.Class.ABViewManager.viewClass("view");
