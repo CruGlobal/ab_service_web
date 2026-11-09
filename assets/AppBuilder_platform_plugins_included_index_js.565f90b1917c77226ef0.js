@@ -331,6 +331,18 @@ function FNAbviewcarouselComponent({
             // this.datacollection?.reloadData();
          };
 
+         this._handler_doLinkCursor = (cursor) => {
+            // The DC we follow has our images connected to its cursor row.
+            // When that same row is set again (ex: it was saved with a new
+            // image) the images can have changed, so load them again.
+            const id = cursor?.id;
+            const isSameRow = id != null && id == this._linkCursorId;
+            this._linkCursorId = id;
+
+            const dv = this.datacollection;
+            if (isSameRow && dv && !dv.settings?.loadAll) dv.reloadData();
+         };
+
          this._handler_doFilter = (fnFilter, filterRules) => {
             // NOTE: fnFilter is depreciated and will be removed.
 
@@ -446,6 +458,13 @@ function FNAbviewcarouselComponent({
          dv.removeListener("create", this._handler_doReload);
          dv.on("create", this._handler_doReload);
 
+         const dvLink = dv.datacollectionLink;
+         if (dvLink) {
+            this._linkCursorId = dvLink.getCursor()?.id;
+            dvLink.removeListener("changeCursor", this._handler_doLinkCursor);
+            dvLink.on("changeCursor", this._handler_doLinkCursor);
+         }
+
          dv.removeListener("initializingData", this._handler_busy);
          dv.on("initializingData", this._handler_busy);
 
@@ -519,6 +538,11 @@ function FNAbviewcarouselComponent({
             dv.removeListener("delete", this._handler_doReload);
             dv.removeListener("create", this._handler_doReload);
          }
+
+         dv.datacollectionLink?.removeListener(
+            "changeCursor",
+            this._handler_doLinkCursor
+         );
 
          dv.removeListener("initializingData", this._handler_busy);
 
@@ -24121,4 +24145,4 @@ function FNAbviewtextComponent({
 /***/ }
 
 }]);
-//# sourceMappingURL=AppBuilder_platform_plugins_included_index_js.60a0320a57ddbb421173.js.map
+//# sourceMappingURL=AppBuilder_platform_plugins_included_index_js.565f90b1917c77226ef0.js.map

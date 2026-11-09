@@ -13483,7 +13483,9 @@ class FilterComplexCore extends _platform_ABComponent_js__WEBPACK_IMPORTED_MODUL
    queryFieldValid(rowData, rule, compareValue) {
       let result = false;
 
-      if (!compareValue) return result;
+      // compareValue should be a "queryId:fieldId" string. Other rule types
+      // (ex: dates, lists) can fall through to here with a Date or an array.
+      if (!compareValue || typeof compareValue != "string") return result;
 
       // queryId:fieldId
       const queryId = compareValue.split(":")[0],
@@ -68076,4 +68078,4 @@ module.exports = class ABCustomEditList {
 /***/ }
 
 }]);
-//# sourceMappingURL=AB.d0923552eb1e23547d4a.js.map
+//# sourceMappingURL=AB.1194319b3142eb365666.js.map
