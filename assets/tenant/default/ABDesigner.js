@@ -84817,6 +84817,7 @@ var PropertyMgr = null;
          __webpack_require__(/*! ./process/ABProcessTaskServiceGetResetPasswordUrl.js */ "./src/rootPages/Designer/properties/process/ABProcessTaskServiceGetResetPasswordUrl.js"),
          __webpack_require__(/*! ./process/ABProcessTaskServiceInsertRecord.js */ "./src/rootPages/Designer/properties/process/ABProcessTaskServiceInsertRecord.js"),
          __webpack_require__(/*! ./process/ABProcessTaskServiceQuery.js */ "./src/rootPages/Designer/properties/process/ABProcessTaskServiceQuery.js"),
+         __webpack_require__(/*! ./process/ABProcessTaskServiceTLReportsEmail.js */ "./src/rootPages/Designer/properties/process/ABProcessTaskServiceTLReportsEmail.js"),
          __webpack_require__(/*! ./process/ABProcessTaskSubProcess.js */ "./src/rootPages/Designer/properties/process/ABProcessTaskSubProcess.js"),
          __webpack_require__(/*! ./process/ABProcessTaskUser.js */ "./src/rootPages/Designer/properties/process/ABProcessTaskUser.js"),
          __webpack_require__(/*! ./process/ABProcessTaskUserApproval.js */ "./src/rootPages/Designer/properties/process/ABProcessTaskUserApproval.js"),
@@ -98693,6 +98694,13 @@ __webpack_require__.r(__webpack_exports__);
                      },
                      {
                         view: "button",
+                        label: L("Accounting: Email Team Leader Reports"),
+                        click: () => {
+                           this.switchTo("TLReportsEmail");
+                        },
+                     },
+                     {
+                        view: "button",
                         label: L("Api Request"),
                         click: () => this.switchTo("Api"),
                      },
@@ -101780,6 +101788,144 @@ __webpack_require__.r(__webpack_exports__);
    }
 
    return UIProcessServiceQuery;
+}
+
+
+/***/ }),
+
+/***/ "./src/rootPages/Designer/properties/process/ABProcessTaskServiceTLReportsEmail.js":
+/*!*****************************************************************************************!*\
+  !*** ./src/rootPages/Designer/properties/process/ABProcessTaskServiceTLReportsEmail.js ***!
+  \*****************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* export default binding */ __WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _ABProcessTaskServiceAccounting__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./_ABProcessTaskServiceAccounting */ "./src/rootPages/Designer/properties/process/_ABProcessTaskServiceAccounting.js");
+/*
+ * UIProcessTaskServiceTLReportsEmail
+ *
+ * Display the form for entering the properties of a
+ * "Team Leader Reports Email" task: email every Team Leader the RC Balances
+ * and Budget vs. Actual reports of a fiscal period.
+ *
+ * @return {ClassUI} The Class Definition for this UI widget.
+ */
+
+
+/* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__(AB) {
+   const ProcessAccounting = (0,_ABProcessTaskServiceAccounting__WEBPACK_IMPORTED_MODULE_0__["default"])(AB);
+   const L = ProcessAccounting.L();
+   const uiConfig = AB.Config.uiSettings();
+
+   class ABProcessTaskServiceTLReportsEmail extends ProcessAccounting {
+      constructor() {
+         super("properties_process_service_tl_reports_email", {
+            form: "",
+
+            label: "",
+            processFPValue: "",
+            objectFP: "",
+            sendTo: "",
+            from: "",
+         });
+
+         this.element = null;
+      }
+
+      static get key() {
+         return "TLReportsEmail";
+      }
+
+      ui() {
+         const ids = this.ids;
+
+         return {
+            id: ids.form,
+            view: "form",
+            elementsConfig: {
+               labelWidth: uiConfig.labelWidthXXLarge,
+            },
+            elements: [
+               {
+                  id: ids.label,
+                  view: "text",
+                  label: L("Name"),
+                  name: "label",
+               },
+               {
+                  id: ids.processFPValue,
+                  view: "select",
+                  label: L("Process Fiscal Period Value"),
+                  name: "processFPValue",
+                  options: [],
+               },
+               {
+                  id: ids.objectFP,
+                  view: "select",
+                  label: L("FP Object"),
+                  name: "objectFP",
+                  options: [],
+               },
+               {
+                  id: ids.sendTo,
+                  view: "text",
+                  label: L("Send all emails to (testing)"),
+                  placeholder: L("leave empty to email each Team Leader"),
+                  name: "sendTo",
+               },
+               {
+                  id: ids.from,
+                  view: "text",
+                  label: L("From"),
+                  placeholder: "noreply@l2d.biz",
+                  name: "from",
+               },
+            ],
+         };
+      }
+
+      populate(element) {
+         const ids = this.ids;
+
+         const processValues = (
+            element?.process?.processDataFields(element) ?? []
+         ).map((item) => {
+            return {
+               id: item.key,
+               value: item.label,
+            };
+         });
+         processValues.unshift({ value: L("Select a Process Value") });
+
+         const objectList = (
+            this.CurrentApplication?.objectsIncluded() ?? []
+         ).map((o) => {
+            return { id: o.id, value: o.label || o.name };
+         });
+         objectList.unshift({ value: L("Select an Object") });
+
+         this._updateFieldOptions([ids.processFPValue], processValues);
+         this._updateFieldOptions([ids.objectFP], objectList);
+
+         // Set values
+         $$(ids.label).setValue(element.label);
+         element.defaults.settings.forEach((setting) => {
+            const val = element[setting] == 0 ? "" : element[setting];
+            $$(ids[setting]).setValue(val ?? "");
+         });
+      }
+
+      values() {
+         const ids = this.ids;
+         return $$(ids.form).getValues();
+      }
+   }
+
+   return ABProcessTaskServiceTLReportsEmail;
 }
 
 
