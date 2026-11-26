@@ -24125,14 +24125,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _platform_process_tasks_ABProcessTaskServiceInsertRecord_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../platform/process/tasks/ABProcessTaskServiceInsertRecord.js */ 39895);
 /* harmony import */ var _platform_process_tasks_ABProcessTaskServiceQuery_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../platform/process/tasks/ABProcessTaskServiceQuery.js */ 78655);
 /* harmony import */ var _platform_process_tasks_ABProcessTaskServiceGetResetPasswordUrl_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../platform/process/tasks/ABProcessTaskServiceGetResetPasswordUrl.js */ 83532);
-/* harmony import */ var _platform_process_tasks_ABProcessTaskSubProcess_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../platform/process/tasks/ABProcessTaskSubProcess.js */ 58317);
-/* harmony import */ var _platform_process_tasks_ABProcessTaskUser_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../platform/process/tasks/ABProcessTaskUser.js */ 38205);
-/* harmony import */ var _platform_process_tasks_ABProcessTaskUserApproval_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../platform/process/tasks/ABProcessTaskUserApproval.js */ 2282);
-/* harmony import */ var _platform_process_tasks_ABProcessTaskUserExternal_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../../platform/process/tasks/ABProcessTaskUserExternal.js */ 66066);
-/* harmony import */ var _platform_process_tasks_ABProcessTaskUserForm_js__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../../platform/process/tasks/ABProcessTaskUserForm.js */ 5035);
-/* harmony import */ var _platform_process_tasks_ABProcessTrigger_js__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../../platform/process/tasks/ABProcessTrigger.js */ 46091);
-/* harmony import */ var _platform_process_tasks_ABProcessTriggerLifecycle_js__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../../platform/process/tasks/ABProcessTriggerLifecycle.js */ 73295);
-/* harmony import */ var _platform_process_tasks_ABProcessTriggerTimer_js__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../../platform/process/tasks/ABProcessTriggerTimer.js */ 12774);
+/* harmony import */ var _platform_process_tasks_ABProcessTaskServiceTLReportsEmail_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../platform/process/tasks/ABProcessTaskServiceTLReportsEmail.js */ 37078);
+/* harmony import */ var _platform_process_tasks_ABProcessTaskSubProcess_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../platform/process/tasks/ABProcessTaskSubProcess.js */ 58317);
+/* harmony import */ var _platform_process_tasks_ABProcessTaskUser_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../platform/process/tasks/ABProcessTaskUser.js */ 38205);
+/* harmony import */ var _platform_process_tasks_ABProcessTaskUserApproval_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../../platform/process/tasks/ABProcessTaskUserApproval.js */ 2282);
+/* harmony import */ var _platform_process_tasks_ABProcessTaskUserExternal_js__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../../platform/process/tasks/ABProcessTaskUserExternal.js */ 66066);
+/* harmony import */ var _platform_process_tasks_ABProcessTaskUserForm_js__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../../platform/process/tasks/ABProcessTaskUserForm.js */ 5035);
+/* harmony import */ var _platform_process_tasks_ABProcessTrigger_js__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../../platform/process/tasks/ABProcessTrigger.js */ 46091);
+/* harmony import */ var _platform_process_tasks_ABProcessTriggerLifecycle_js__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../../platform/process/tasks/ABProcessTriggerLifecycle.js */ 73295);
+/* harmony import */ var _platform_process_tasks_ABProcessTriggerTimer_js__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../../platform/process/tasks/ABProcessTriggerTimer.js */ 12774);
+
 
 
 
@@ -24193,14 +24195,15 @@ var AllProcessElements = [
    _platform_process_tasks_ABProcessTaskServiceInsertRecord_js__WEBPACK_IMPORTED_MODULE_10__["default"],
    _platform_process_tasks_ABProcessTaskServiceQuery_js__WEBPACK_IMPORTED_MODULE_11__["default"],
    _platform_process_tasks_ABProcessTaskServiceGetResetPasswordUrl_js__WEBPACK_IMPORTED_MODULE_12__["default"],
-   _platform_process_tasks_ABProcessTaskSubProcess_js__WEBPACK_IMPORTED_MODULE_13__["default"],
-   _platform_process_tasks_ABProcessTaskUser_js__WEBPACK_IMPORTED_MODULE_14__["default"],
-   _platform_process_tasks_ABProcessTaskUserApproval_js__WEBPACK_IMPORTED_MODULE_15__["default"],
-   _platform_process_tasks_ABProcessTaskUserExternal_js__WEBPACK_IMPORTED_MODULE_16__["default"],
-   _platform_process_tasks_ABProcessTaskUserForm_js__WEBPACK_IMPORTED_MODULE_17__["default"],
-   _platform_process_tasks_ABProcessTrigger_js__WEBPACK_IMPORTED_MODULE_18__["default"],
-   _platform_process_tasks_ABProcessTriggerLifecycle_js__WEBPACK_IMPORTED_MODULE_19__["default"],
-   _platform_process_tasks_ABProcessTriggerTimer_js__WEBPACK_IMPORTED_MODULE_20__["default"],
+   _platform_process_tasks_ABProcessTaskServiceTLReportsEmail_js__WEBPACK_IMPORTED_MODULE_13__["default"],
+   _platform_process_tasks_ABProcessTaskSubProcess_js__WEBPACK_IMPORTED_MODULE_14__["default"],
+   _platform_process_tasks_ABProcessTaskUser_js__WEBPACK_IMPORTED_MODULE_15__["default"],
+   _platform_process_tasks_ABProcessTaskUserApproval_js__WEBPACK_IMPORTED_MODULE_16__["default"],
+   _platform_process_tasks_ABProcessTaskUserExternal_js__WEBPACK_IMPORTED_MODULE_17__["default"],
+   _platform_process_tasks_ABProcessTaskUserForm_js__WEBPACK_IMPORTED_MODULE_18__["default"],
+   _platform_process_tasks_ABProcessTrigger_js__WEBPACK_IMPORTED_MODULE_19__["default"],
+   _platform_process_tasks_ABProcessTriggerLifecycle_js__WEBPACK_IMPORTED_MODULE_20__["default"],
+   _platform_process_tasks_ABProcessTriggerTimer_js__WEBPACK_IMPORTED_MODULE_21__["default"],
 ];
 
 AllProcessElements.forEach((ELEMENT) => {
@@ -26739,6 +26742,79 @@ class ABProcessTaskServiceQueryCore extends _platform_process_tasks_ABProcessEle
          return myState[parts[1]];
       }
 
+      return null;
+   }
+}
+
+
+/***/ },
+
+/***/ 99301
+/*!*********************************************************************************!*\
+  !*** ./AppBuilder/core/process/tasks/ABProcessTaskServiceTLReportsEmailCore.js ***!
+  \*********************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ TLReportsEmailCore)
+/* harmony export */ });
+/* harmony import */ var _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 54919);
+/**
+ * ABProcessTaskServiceTLReportsEmailCore
+ * A service task that emails every Team Leader the "RC Balances" and
+ * "Budget vs. Actual" reports (as PDF attachments) of a fiscal period.
+ *
+ * The work is done by the custom_reports service
+ * (custom_reports.tl-reports-email-all); the server side task only sends it
+ * the fiscal period, the same way the Email task hands its work to
+ * notification_email.
+ */
+
+
+const TLReportsEmailDefaults = {
+   category: null,
+   // category: {string} | null
+   // if this Element should show up on one of the popup replace menus, then
+   // specify one of the categories of elements it should be an option for.
+   // Available choices: [ "start", "gateway", "task", "end" ].
+   //
+   // if it shouldn't show up under the popup menu, then leave this null
+
+   icon: "envelope", // font-awesome icon reference.  (without the 'fa-').  so 'user'  to reference 'fa-user'
+
+   instanceValues: [],
+   // instanceValues: {array}
+   // a list of values this element tracks as it is operating in a process.
+
+   key: "TLReportsEmail",
+   // key: {string}
+   // unique key to reference this specific Task
+
+   settings: ["processFPValue", "objectFP", "sendTo", "from"],
+   // settings: {array}
+   // a list of internal setting values this Element tracks. These are the
+   // values set by the platform .propertiesStash()
+   //    processFPValue: the process data key of the Fiscal Period (row uuid)
+   //    objectFP: the Fiscal Period object
+   //    sendTo: (optional) send every email to this address instead (testing)
+   //    from: (optional) the From address
+};
+
+class TLReportsEmailCore extends _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
+   constructor(attributes, process, AB) {
+      attributes.type =
+         attributes.type || "process.task.service.tlReportsEmail";
+      super(attributes, process, AB, TLReportsEmailDefaults);
+   }
+
+   // return the default values for this DataField
+   static defaults() {
+      return TLReportsEmailDefaults;
+   }
+
+   static DiagramReplace() {
       return null;
    }
 }
@@ -50880,6 +50956,27 @@ class ABProcessTaskServiceQuery extends (
 
 /***/ },
 
+/***/ 37078
+/*!*********************************************************************************!*\
+  !*** ./AppBuilder/platform/process/tasks/ABProcessTaskServiceTLReportsEmail.js ***!
+  \*********************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ TLReportsEmail)
+/* harmony export */ });
+/* harmony import */ var _core_process_tasks_ABProcessTaskServiceTLReportsEmailCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskServiceTLReportsEmailCore.js */ 99301);
+
+
+// The task runs on the server (process_manager). The web platform only needs
+// the class so processes that use it can be loaded and edited in ABDesigner.
+class TLReportsEmail extends _core_process_tasks_ABProcessTaskServiceTLReportsEmailCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {}
+
+
+/***/ },
+
 /***/ 58317
 /*!**********************************************************************!*\
   !*** ./AppBuilder/platform/process/tasks/ABProcessTaskSubProcess.js ***!
@@ -68078,4 +68175,4 @@ module.exports = class ABCustomEditList {
 /***/ }
 
 }]);
-//# sourceMappingURL=AB.1194319b3142eb365666.js.map
+//# sourceMappingURL=AB.61b6253bf8c7b0bd7cdd.js.map
