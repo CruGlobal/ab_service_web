@@ -1,26 +1,26 @@
 (globalThis["webpackChunkappbuilder_pwa"] = globalThis["webpackChunkappbuilder_pwa"] || []).push([["app"],{
 
-/***/ 48644:
+/***/ 75703
 /*!**********************************!*\
   !*** ./src/js/views/form.f7.jsx ***!
   \**********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ F7ViewForm)
 /* harmony export */ });
-/* harmony import */ var framework7__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! framework7 */ 73449);
-/* harmony import */ var _formButton_f7_jsx__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./formButton.f7.jsx */ 32864);
-/* harmony import */ var _formCheckbox_f7_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./formCheckbox.f7.jsx */ 91298);
-/* harmony import */ var _formConnect_f7_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./formConnect.f7.jsx */ 15210);
-/* harmony import */ var _formDatepicker_f7_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./formDatepicker.f7.jsx */ 11487);
-/* harmony import */ var _formJSON_f7_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./formJSON.f7.jsx */ 959);
-/* harmony import */ var _formNumber_f7_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./formNumber.f7.jsx */ 67670);
-/* harmony import */ var _formSelectMultiple_f7_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./formSelectMultiple.f7.jsx */ 72124);
-/* harmony import */ var _formSelectSingle_f7_jsx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./formSelectSingle.f7.jsx */ 68220);
-/* harmony import */ var _formTextbox_f7_jsx__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./formTextbox.f7.jsx */ 14377);
+/* harmony import */ var framework7__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! framework7 */ 95142);
+/* harmony import */ var _formButton_f7_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./formButton.f7.jsx */ 90915);
+/* harmony import */ var _formCheckbox_f7_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./formCheckbox.f7.jsx */ 88274);
+/* harmony import */ var _formConnect_f7_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./formConnect.f7.jsx */ 51979);
+/* harmony import */ var _formDatepicker_f7_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./formDatepicker.f7.jsx */ 23781);
+/* harmony import */ var _formJSON_f7_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./formJSON.f7.jsx */ 40909);
+/* harmony import */ var _formNumber_f7_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./formNumber.f7.jsx */ 93914);
+/* harmony import */ var _formSelectMultiple_f7_jsx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./formSelectMultiple.f7.jsx */ 99979);
+/* harmony import */ var _formSelectSingle_f7_jsx__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./formSelectSingle.f7.jsx */ 61875);
+/* harmony import */ var _formTextbox_f7_jsx__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./formTextbox.f7.jsx */ 70485);
 /** @jsx $jsx */
 
 
@@ -56,28 +56,27 @@ class F7ViewForm {
       label: "Save"
       // placeholder: null,
     });
-
     this.views = definitions.map(definition => {
       if (definition.settings) definition.settings.required = 1;
       switch (definition.key) {
         case "button":
-          return new _formButton_f7_jsx__WEBPACK_IMPORTED_MODULE_0__["default"](AB, this, definition);
+          return new _formButton_f7_jsx__WEBPACK_IMPORTED_MODULE_1__["default"](AB, this, definition);
         case "checkbox":
-          return new _formCheckbox_f7_jsx__WEBPACK_IMPORTED_MODULE_1__["default"](AB, this, definition);
+          return new _formCheckbox_f7_jsx__WEBPACK_IMPORTED_MODULE_2__["default"](AB, this, definition);
         case "connect":
-          return new _formConnect_f7_jsx__WEBPACK_IMPORTED_MODULE_2__["default"](AB, this, definition);
+          return new _formConnect_f7_jsx__WEBPACK_IMPORTED_MODULE_3__["default"](AB, this, definition);
         case "datepicker":
-          return new _formDatepicker_f7_jsx__WEBPACK_IMPORTED_MODULE_3__["default"](AB, this, definition);
+          return new _formDatepicker_f7_jsx__WEBPACK_IMPORTED_MODULE_4__["default"](AB, this, definition);
         case "json":
-          return new _formJSON_f7_jsx__WEBPACK_IMPORTED_MODULE_4__["default"](AB, this, definition);
+          return new _formJSON_f7_jsx__WEBPACK_IMPORTED_MODULE_5__["default"](AB, this, definition);
         case "numberbox":
-          return new _formNumber_f7_jsx__WEBPACK_IMPORTED_MODULE_5__["default"](AB, this, definition);
+          return new _formNumber_f7_jsx__WEBPACK_IMPORTED_MODULE_6__["default"](AB, this, definition);
         case "selectmultiple":
-          return new _formSelectMultiple_f7_jsx__WEBPACK_IMPORTED_MODULE_6__["default"](AB, this, definition);
+          return new _formSelectMultiple_f7_jsx__WEBPACK_IMPORTED_MODULE_7__["default"](AB, this, definition);
         case "selectsingle":
-          return new _formSelectSingle_f7_jsx__WEBPACK_IMPORTED_MODULE_7__["default"](AB, this, definition);
+          return new _formSelectSingle_f7_jsx__WEBPACK_IMPORTED_MODULE_8__["default"](AB, this, definition);
         default:
-          return new _formTextbox_f7_jsx__WEBPACK_IMPORTED_MODULE_8__["default"](AB, this, definition);
+          return new _formTextbox_f7_jsx__WEBPACK_IMPORTED_MODULE_9__["default"](AB, this, definition);
       }
     });
   }
@@ -197,7 +196,7 @@ class F7ViewForm {
     //convert boolean for toggle UI
     const parsedRecord = {};
     this.views.forEach(view => {
-      if (view.definition.fieldType == null || view instanceof _formButton_f7_jsx__WEBPACK_IMPORTED_MODULE_0__["default"]) return;
+      if (view.definition.fieldType == null || view instanceof _formButton_f7_jsx__WEBPACK_IMPORTED_MODULE_1__["default"]) return;
       switch (view.definition.fieldType) {
         case "boolean":
           parsedRecord[view.definition.field] = record[view.definition.field] === 1 ? ["on"] : [];
@@ -246,15 +245,14 @@ class F7ViewForm {
     //    });
     // }
   }
-
   viewHTML() {
     const allResults = [];
     let fields = [];
     this.views.forEach(view => {
       if (view.definition.fieldType == null) {
-        if (view instanceof _formButton_f7_jsx__WEBPACK_IMPORTED_MODULE_0__["default"]) {
+        if (view instanceof _formButton_f7_jsx__WEBPACK_IMPORTED_MODULE_1__["default"]) {
           const renderedFieldElements = [...fields];
-          if (fields.length > 0) allResults.push(() => (0,framework7__WEBPACK_IMPORTED_MODULE_9__["default"])("ul", null, renderedFieldElements));
+          if (fields.length > 0) allResults.push(() => (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("ul", null, renderedFieldElements));
           allResults.push(view.html());
           fields = [];
         }
@@ -262,46 +260,45 @@ class F7ViewForm {
       }
       switch (view.definition.fieldType) {
         case "LongText":
-          fields.push((0,framework7__WEBPACK_IMPORTED_MODULE_9__["default"])("li", {
+          fields.push((0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("li", {
             class: "align-top"
           }, view.html()()));
           break;
         default:
-          fields.push((0,framework7__WEBPACK_IMPORTED_MODULE_9__["default"])("li", null, view.html()()));
+          fields.push((0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("li", null, view.html()()));
           break;
       }
     });
-    if (fields.length > 0) allResults.push(() => (0,framework7__WEBPACK_IMPORTED_MODULE_9__["default"])("ul", null, fields.map(r => r())));
+    if (fields.length > 0) allResults.push(() => (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("ul", null, fields.map(r => r())));
     return allResults.map(r => r()); // render each jsx template
   }
-
   html() {
-    return () => (0,framework7__WEBPACK_IMPORTED_MODULE_9__["default"])("form", {
+    return () => (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("form", {
       class: "list list-inset list-strong-ios list-dividers-ios list-outline-ios",
       id: this.id
     }, this.viewHTML());
   }
 }
 
-/***/ }),
+/***/ },
 
-/***/ 32864:
+/***/ 90915
 /*!****************************************!*\
   !*** ./src/js/views/formButton.f7.jsx ***!
   \****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ F7ViewFormButton)
 /* harmony export */ });
-/* harmony import */ var framework7__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! framework7 */ 73449);
-/* harmony import */ var _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./formItem.f7.jsx */ 66382);
+/* harmony import */ var framework7__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! framework7 */ 95142);
+/* harmony import */ var _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./formItem.f7.jsx */ 50848);
 /** @jsx $jsx */
 
 
-class F7ViewFormButton extends _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_0__["default"] {
+class F7ViewFormButton extends _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_1__["default"] {
   #AB;
   #form;
   constructor(AB, form, definition) {
@@ -364,38 +361,38 @@ class F7ViewFormButton extends _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_0__["de
   }
   html() {
     const definition = this.definition;
-    return () => (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    return () => (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "block"
-    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("a", {
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("a", {
       onClick: () => this.#save(),
       id: definition.id,
       class: "button button-large button-fill button-preloader",
       href: "#"
-    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("span", {
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("span", {
       class: "preloader"
-    }), (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("span", null, definition.label)));
+    }), (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("span", null, definition.label)));
   }
 }
 
-/***/ }),
+/***/ },
 
-/***/ 91298:
+/***/ 88274
 /*!******************************************!*\
   !*** ./src/js/views/formCheckbox.f7.jsx ***!
   \******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ F7ViewFormCheckbox)
 /* harmony export */ });
-/* harmony import */ var framework7__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! framework7 */ 73449);
-/* harmony import */ var _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./formItem.f7.jsx */ 66382);
+/* harmony import */ var framework7__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! framework7 */ 95142);
+/* harmony import */ var _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./formItem.f7.jsx */ 50848);
 /** @jsx $jsx */
 
 
-class F7ViewFormCheckbox extends _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_0__["default"] {
+class F7ViewFormCheckbox extends _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_1__["default"] {
   #AB;
   #form;
   constructor(AB, form, definition) {
@@ -408,41 +405,41 @@ class F7ViewFormCheckbox extends _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_0__["
   }
   html() {
     const definition = this.definition;
-    return () => (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    return () => (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "item-content"
-    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "item-inner"
-    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "item-title"
-    }, definition.label), (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    }, definition.label), (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "item-after"
-    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("label", {
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("label", {
       class: "toggle toggle-init"
-    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("input", {
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("input", {
       name: definition.field,
       type: "checkbox"
-    }), (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("i", {
+    }), (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("i", {
       class: "toggle-icon"
     })))));
   }
 }
 
-/***/ }),
+/***/ },
 
-/***/ 15210:
+/***/ 51979
 /*!*****************************************!*\
   !*** ./src/js/views/formConnect.f7.jsx ***!
   \*****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ F7ViewFormConnect)
 /* harmony export */ });
-/* harmony import */ var _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./formItem.f7.jsx */ 66382);
-/* harmony import */ var _formSelectMultiple_f7_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./formSelectMultiple.f7.jsx */ 72124);
-/* harmony import */ var _formSelectSingle_f7_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./formSelectSingle.f7.jsx */ 68220);
+/* harmony import */ var _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./formItem.f7.jsx */ 50848);
+/* harmony import */ var _formSelectMultiple_f7_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./formSelectMultiple.f7.jsx */ 99979);
+/* harmony import */ var _formSelectSingle_f7_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./formSelectSingle.f7.jsx */ 61875);
 /** @jsx $jsx */
 
 
@@ -472,25 +469,25 @@ class F7ViewFormConnect extends _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_0__["d
   }
 }
 
-/***/ }),
+/***/ },
 
-/***/ 11487:
+/***/ 23781
 /*!********************************************!*\
   !*** ./src/js/views/formDatepicker.f7.jsx ***!
   \********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ F7ViewFormDatepicker)
 /* harmony export */ });
-/* harmony import */ var framework7__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! framework7 */ 73449);
-/* harmony import */ var _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./formItem.f7.jsx */ 66382);
+/* harmony import */ var framework7__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! framework7 */ 95142);
+/* harmony import */ var _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./formItem.f7.jsx */ 50848);
 /** @jsx $jsx */
 
 
-class F7ViewFormDatepicker extends _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_0__["default"] {
+class F7ViewFormDatepicker extends _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_1__["default"] {
   #AB;
   #form;
   constructor(AB, form, definition) {
@@ -506,7 +503,7 @@ class F7ViewFormDatepicker extends _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_0__
     const definition = this.definition;
     switch (definition.fieldType) {
       case "datetime":
-        return definition.settings.required === 1 ? (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("input", {
+        return definition.settings.required === 1 ? (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("input", {
           type: "text",
           name: definition.field,
           class: "form-datepicker-datetime",
@@ -514,7 +511,7 @@ class F7ViewFormDatepicker extends _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_0__
           readonly: "readonly",
           required: true,
           validate: true
-        }) : (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("input", {
+        }) : (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("input", {
           type: "text",
           name: definition.field,
           class: "form-datepicker-datetime",
@@ -522,7 +519,7 @@ class F7ViewFormDatepicker extends _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_0__
           readonly: "readonly"
         });
       default:
-        return definition.settings.required === 1 ? (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("input", {
+        return definition.settings.required === 1 ? (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("input", {
           type: "text",
           name: definition.field,
           class: "form-datepicker-date",
@@ -530,7 +527,7 @@ class F7ViewFormDatepicker extends _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_0__
           readonly: "readonly",
           required: true,
           validate: true
-        }) : (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("input", {
+        }) : (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("input", {
           type: "text",
           name: definition.field,
           class: "form-datepicker-date",
@@ -540,25 +537,25 @@ class F7ViewFormDatepicker extends _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_0__
     }
   }
   html() {
-    return () => (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    return () => (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "item-content item-input"
-    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "item-inner"
-    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "item-title item-label"
-    }, this.definition.label), (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    }, this.definition.label), (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "item-input-wrap"
     }, this.viewHTML())));
   }
 }
 
-/***/ }),
+/***/ },
 
-/***/ 66382:
+/***/ 50848
 /*!**************************************!*\
   !*** ./src/js/views/formItem.f7.jsx ***!
   \**************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -591,25 +588,25 @@ class F7ViewFormItem {
   }
 }
 
-/***/ }),
+/***/ },
 
-/***/ 959:
+/***/ 40909
 /*!**************************************!*\
   !*** ./src/js/views/formJSON.f7.jsx ***!
   \**************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ F7ViewFormJSON)
 /* harmony export */ });
-/* harmony import */ var framework7__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! framework7 */ 73449);
-/* harmony import */ var _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./formItem.f7.jsx */ 66382);
+/* harmony import */ var framework7__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! framework7 */ 95142);
+/* harmony import */ var _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./formItem.f7.jsx */ 50848);
 /** @jsx $jsx */
 
 
-class F7ViewFormJSON extends _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_0__["default"] {
+class F7ViewFormJSON extends _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_1__["default"] {
   #AB;
   #form;
   constructor(AB, form, definition) {
@@ -631,21 +628,21 @@ class F7ViewFormJSON extends _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_0__["defa
   }
   html() {
     const definition = this.definition;
-    return () => (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    return () => (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "item-content item-input"
-    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "item-inner"
-    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "item-title item-label"
-    }, definition.label), (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    }, definition.label), (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "item-input-wrap"
-    }, definition.settings.required === 1 ? (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("textarea", {
+    }, definition.settings.required === 1 ? (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("textarea", {
       name: definition.field,
       placeholder: definition.placeholder,
       class: "resizable",
       required: true,
       validate: true
-    }) : (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("textarea", {
+    }) : (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("textarea", {
       name: definition.field,
       placeholder: definition.placeholder,
       class: "resizable"
@@ -653,25 +650,25 @@ class F7ViewFormJSON extends _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_0__["defa
   }
 }
 
-/***/ }),
+/***/ },
 
-/***/ 67670:
+/***/ 93914
 /*!****************************************!*\
   !*** ./src/js/views/formNumber.f7.jsx ***!
   \****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ F7ViewFormNumber)
 /* harmony export */ });
-/* harmony import */ var framework7__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! framework7 */ 73449);
-/* harmony import */ var _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./formItem.f7.jsx */ 66382);
+/* harmony import */ var framework7__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! framework7 */ 95142);
+/* harmony import */ var _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./formItem.f7.jsx */ 50848);
 /** @jsx $jsx */
 
 
-class F7ViewFormNumber extends _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_0__["default"] {
+class F7ViewFormNumber extends _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_1__["default"] {
   #AB;
   #form;
   constructor(AB, form, definition) {
@@ -685,18 +682,18 @@ class F7ViewFormNumber extends _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_0__["de
   html() {
     const definition = this.definition;
     const errorMessage = this.#AB.Label()("Only numbers please!");
-    return () => (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    return () => (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "item-content item-input"
-    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "item-inner"
-    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "item-title item-label"
-    }, definition.label), (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    }, definition.label), (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "item-input-wrap"
-    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "range-slider range-slider-init",
       "data-label": "true"
-    }, definition.settings.required === 1 ? (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("input", {
+    }, definition.settings.required === 1 ? (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("input", {
       name: definition.field,
       type: "range",
       value: "50",
@@ -707,7 +704,7 @@ class F7ViewFormNumber extends _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_0__["de
       validate: true,
       pattern: "[0-9]*",
       "data-error-message": errorMessage
-    }) : (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("input", {
+    }) : (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("input", {
       name: definition.field,
       type: "range",
       value: "50",
@@ -720,25 +717,25 @@ class F7ViewFormNumber extends _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_0__["de
   }
 }
 
-/***/ }),
+/***/ },
 
-/***/ 72124:
+/***/ 99979
 /*!************************************************!*\
   !*** ./src/js/views/formSelectMultiple.f7.jsx ***!
   \************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ F7ViewFormSelectMultiple)
 /* harmony export */ });
-/* harmony import */ var framework7__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! framework7 */ 73449);
-/* harmony import */ var _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./formItem.f7.jsx */ 66382);
+/* harmony import */ var framework7__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! framework7 */ 95142);
+/* harmony import */ var _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./formItem.f7.jsx */ 50848);
 /** @jsx $jsx */
 
 
-class F7ViewFormSelectMultiple extends _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_0__["default"] {
+class F7ViewFormSelectMultiple extends _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_1__["default"] {
   #AB;
   #form;
   constructor(AB, form, definition) {
@@ -751,46 +748,46 @@ class F7ViewFormSelectMultiple extends _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE
   }
   html() {
     const definition = this.definition;
-    return () => (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("a", {
+    return () => (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("a", {
       href: "#",
       class: "item-link smart-select smart-select-init"
-    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("select", {
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("select", {
       name: definition.name,
       placeholder: definition.placeholder,
       multiple: true
-    }, definition.settings.options.map(item => (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("option", {
+    }, definition.settings.options.map(item => (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("option", {
       value: item.id
-    }, item.text))), (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    }, item.text))), (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "item-content"
-    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "item-inner"
-    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "item-title"
-    }, definition.label), (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    }, definition.label), (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "item-after"
     }))));
   }
 }
 
-/***/ }),
+/***/ },
 
-/***/ 68220:
+/***/ 61875
 /*!**********************************************!*\
   !*** ./src/js/views/formSelectSingle.f7.jsx ***!
   \**********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ F7ViewFormSelectSingle)
 /* harmony export */ });
-/* harmony import */ var framework7__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! framework7 */ 73449);
-/* harmony import */ var _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./formItem.f7.jsx */ 66382);
+/* harmony import */ var framework7__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! framework7 */ 95142);
+/* harmony import */ var _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./formItem.f7.jsx */ 50848);
 /** @jsx $jsx */
 
 
-class F7ViewFormSelectSingle extends _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_0__["default"] {
+class F7ViewFormSelectSingle extends _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_1__["default"] {
   #AB;
   #form;
   constructor(AB, form, definition) {
@@ -800,41 +797,41 @@ class F7ViewFormSelectSingle extends _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_0
   }
   html() {
     const definition = this.definition;
-    return () => (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    return () => (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "item-content item-input"
-    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "item-inner"
-    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "item-title item-label"
-    }, definition.label), (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    }, definition.label), (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "item-input-wrap"
-    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("select", {
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("select", {
       name: definition.field
-    }, definition.settings.options.map(item => (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("option", {
+    }, definition.settings.options.map(item => (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("option", {
       value: item.id
     }, item.text))))));
   }
 }
 
-/***/ }),
+/***/ },
 
-/***/ 14377:
+/***/ 70485
 /*!*****************************************!*\
   !*** ./src/js/views/formTextbox.f7.jsx ***!
   \*****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ F7ViewFormTextbox)
 /* harmony export */ });
-/* harmony import */ var framework7__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! framework7 */ 73449);
-/* harmony import */ var _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./formItem.f7.jsx */ 66382);
+/* harmony import */ var framework7__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! framework7 */ 95142);
+/* harmony import */ var _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./formItem.f7.jsx */ 50848);
 /** @jsx $jsx */
 
 
-class F7ViewFormTextbox extends _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_0__["default"] {
+class F7ViewFormTextbox extends _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_1__["default"] {
   #AB;
   #form;
   constructor(AB, form, definition) {
@@ -847,26 +844,26 @@ class F7ViewFormTextbox extends _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_0__["d
     let $inputElement = "";
     switch (definition.fieldType) {
       case "LongText":
-        $inputElement = definition.settings.required === 1 ? (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("textarea", {
+        $inputElement = definition.settings.required === 1 ? (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("textarea", {
           name: definition.field,
           placeholder: definition.placeholder,
           class: "resizable",
           required: true,
           validate: true
-        }) : (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("textarea", {
+        }) : (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("textarea", {
           name: definition.field,
           placeholder: definition.placeholder,
           class: "resizable"
         });
         break;
       case "email":
-        $inputElement = definition.settings.required === 1 ? (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("input", {
+        $inputElement = definition.settings.required === 1 ? (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("input", {
           type: "email",
           name: definition.field,
           placeholder: definition.placeholder,
           required: true,
           validate: true
-        }) : (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("input", {
+        }) : (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("input", {
           type: "email",
           name: definition.field,
           placeholder: definition.placeholder,
@@ -875,45 +872,45 @@ class F7ViewFormTextbox extends _formItem_f7_jsx__WEBPACK_IMPORTED_MODULE_0__["d
         });
         break;
       default:
-        $inputElement = definition.settings.required === 1 ? (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("input", {
+        $inputElement = definition.settings.required === 1 ? (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("input", {
           name: definition.field,
           type: "text",
           placeholder: definition.placeholder,
           required: true,
           validate: true
-        }) : (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("input", {
+        }) : (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("input", {
           name: definition.field,
           type: "text",
           placeholder: definition.placeholder
         });
         break;
     }
-    return () => (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    return () => (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "item-content item-input"
-    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "item-inner"
-    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "item-title item-label"
-    }, definition.label), (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    }, definition.label), (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "item-input-wrap"
     }, $inputElement)));
   }
 }
 
-/***/ }),
+/***/ },
 
-/***/ 83186:
+/***/ 5585
 /*!**********************************!*\
   !*** ./src/js/views/list.f7.jsx ***!
   \**********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ F7ViewList)
 /* harmony export */ });
-/* harmony import */ var framework7__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! framework7 */ 73449);
+/* harmony import */ var framework7__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! framework7 */ 95142);
 /** @jsx $jsx */
 
 class F7ViewList {
@@ -1009,20 +1006,20 @@ class F7ViewList {
   }
 }
 
-/***/ }),
+/***/ },
 
-/***/ 22167:
+/***/ 95309
 /*!******************************!*\
   !*** ./src/pages/404.f7.jsx ***!
   \******************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var framework7__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! framework7 */ 73449);
+/* harmony import */ var framework7__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! framework7 */ 95142);
 /** @jsx $jsx */
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AB => {
@@ -1055,20 +1052,20 @@ __webpack_require__.r(__webpack_exports__);
   };
 });
 
-/***/ }),
+/***/ },
 
-/***/ 18388:
+/***/ 61810
 /*!******************************!*\
   !*** ./src/pages/app.f7.jsx ***!
   \******************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var framework7__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! framework7 */ 73449);
+/* harmony import */ var framework7__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! framework7 */ 95142);
 /** @jsx $jsx */
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AB => {
@@ -1134,7 +1131,6 @@ __webpack_require__.r(__webpack_exports__);
       //     $f7.preloader.hide();
       //   });
     };
-
     const authenticate = async () => {
       $(".button-preloader").addClass("button-loading");
       let tempUser = $("#username").value();
@@ -1267,18 +1263,7 @@ __webpack_require__.r(__webpack_exports__);
       class: "sidebar_logo"
     }), (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("p", null)), (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "list list-outline list-strong list-dividers list-translucent"
-    }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("ul", null, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("li", null, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("a", {
-      href: "/list",
-      class: "item-link item-content panel-close"
-    }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
-      class: "item-media"
-    }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("i", {
-      class: "material-icons"
-    }, L("contacts"))), (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
-      class: "item-inner"
-    }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
-      class: "item-title"
-    }, L("List of People"))))), pagesMenu.map(p => {
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("ul", null, pagesMenu.map(p => {
       return (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("li", null, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("a", {
         href: `/${p.route}`,
         class: "item-link item-content panel-close"
@@ -1447,21 +1432,21 @@ __webpack_require__.r(__webpack_exports__);
   };
 });
 
-/***/ }),
+/***/ },
 
-/***/ 84723:
+/***/ 17789
 /*!*******************************!*\
   !*** ./src/pages/form.f7.jsx ***!
   \*******************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var framework7__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! framework7 */ 73449);
-/* harmony import */ var _js_views_form_f7_jsx__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../js/views/form.f7.jsx */ 48644);
+/* harmony import */ var framework7__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! framework7 */ 95142);
+/* harmony import */ var _js_views_form_f7_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../js/views/form.f7.jsx */ 75703);
 /** @jsx $jsx */
 
 
@@ -1510,7 +1495,7 @@ __webpack_require__.r(__webpack_exports__);
       switch (view.key) {
         case "form":
           {
-            let form = new _js_views_form_f7_jsx__WEBPACK_IMPORTED_MODULE_0__["default"](AB, view);
+            let form = new _js_views_form_f7_jsx__WEBPACK_IMPORTED_MODULE_1__["default"](AB, view);
             /* new Form(
                view.dcID,
                allDCs,
@@ -1526,7 +1511,6 @@ __webpack_require__.r(__webpack_exports__);
         // code block
       }
     });
-
     let formDatepickerDate = null;
     let formDatepickerDatetime = null;
     $on("pageInit", async (e, page) => {
@@ -1580,47 +1564,46 @@ __webpack_require__.r(__webpack_exports__);
       });
       return allHTML.map(r => r()); // render each jsx template
     }
-
-    return () => (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    return () => (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "page",
       "data-name": "form"
-    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "navbar"
-    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "navbar-bg"
-    }), (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    }), (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "navbar-inner sliding"
-    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "left"
-    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("a", {
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("a", {
       href: "#",
       class: "link back"
-    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("i", {
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("i", {
       class: "icon icon-back"
-    }), (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("span", {
+    }), (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("span", {
       class: "if-not-md"
-    }, L("Back")))), (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    }, L("Back")))), (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "title"
-    }, title))), (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    }, title))), (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "page-content"
     }, viewHTML()));
   };
 });
 
-/***/ }),
+/***/ },
 
-/***/ 59289:
+/***/ 8660
 /*!*******************************!*\
   !*** ./src/pages/home.f7.jsx ***!
   \*******************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var framework7__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! framework7 */ 73449);
+/* harmony import */ var framework7__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! framework7 */ 95142);
 /** @jsx $jsx */
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AB => {
@@ -1638,7 +1621,6 @@ __webpack_require__.r(__webpack_exports__);
         if (!DefaultPage) {
           DefaultPage = Application.pages()[0]; // just pick 1st one:
         }
-
         DefaultPage.show();
       } catch (e) {
         // NOTE: this will catch errors OTHER than the "Reauth" notification
@@ -1675,21 +1657,21 @@ __webpack_require__.r(__webpack_exports__);
   };
 });
 
-/***/ }),
+/***/ },
 
-/***/ 48800:
+/***/ 38049
 /*!********************************!*\
   !*** ./src/pages/inbox.f7.jsx ***!
   \********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var framework7__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! framework7 */ 73449);
-/* harmony import */ var _componants_FormioToF7_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./componants/FormioToF7.js */ 7882);
+/* harmony import */ var framework7__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! framework7 */ 95142);
+/* harmony import */ var _componants_FormioToF7_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./componants/FormioToF7.js */ 54566);
 /** @jsx $jsx */
 
 // import { Formio } from "formiojs";
@@ -1726,7 +1708,6 @@ __webpack_require__.r(__webpack_exports__);
       // $jsx.instance.$update();
     }
   }
-
   async function openFormioPopup(itemsInProcess, startIndex, $f7) {
     const popup = document.getElementById("formio-popup");
     $f7.popup.open(popup);
@@ -1777,7 +1758,7 @@ __webpack_require__.r(__webpack_exports__);
             // target.dataset.loaded = "true";
 
             // Render Formio form using FormioToF7
-            const form = new _componants_FormioToF7_js__WEBPACK_IMPORTED_MODULE_0__.FormioToF7(schema, data);
+            const form = new _componants_FormioToF7_js__WEBPACK_IMPORTED_MODULE_1__.FormioToF7(schema, data);
             const formEl = form.render();
             target.appendChild(formEl);
           } catch (e) {
@@ -1816,112 +1797,112 @@ __webpack_require__.r(__webpack_exports__);
   }) => {
     // const inboxId = $f7route?.params?.id;
     // console.log("Route param ID:", inboxId);
-    return () => (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    return () => (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "page"
-    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "navbar"
-    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "navbar-bg"
-    }), (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    }), (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "navbar-inner sliding"
-    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "left"
-    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("a", {
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("a", {
       href: "#",
       class: "link back"
-    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("i", {
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("i", {
       class: "icon icon-back"
-    }), (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("span", {
+    }), (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("span", {
       class: "if-not-md"
-    }, L("Back")))), (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    }, L("Back")))), (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "title"
-    }, L("Inbox")))), (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    }, L("Inbox")))), (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "page-content"
-    }, isLoading ? (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    }, isLoading ? (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "block text-align-center"
-    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("p", null, "Loading inbox...")) : inboxMeta.length > 0 ? (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("p", null, "Loading inbox...")) : inboxMeta.length > 0 ? (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "list list-strong accordion-list"
-    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("ul", null, inboxMeta.map(meta => (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("li", {
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("ul", null, inboxMeta.map(meta => (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("li", {
       class: "accordion-item accordion-item-opened",
       key: meta.id
-    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("a", {
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("a", {
       class: "item-link item-content"
-    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "item-inner"
-    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "item-title"
-    }, meta.translations.find(t => t.language_code === "en")?.label || meta.label))), (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    }, meta.translations.find(t => t.language_code === "en")?.label || meta.label))), (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "accordion-item-content"
-    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "block"
-    }, meta.processes.map(process => (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    }, meta.processes.map(process => (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       key: process.id
-    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("h3", null, process.translations.find(t => t.language_code === "en")?.label || process.label), (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("h3", null, process.translations.find(t => t.language_code === "en")?.label || process.label), (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "list"
-    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("ul", null, (() => {
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("ul", null, (() => {
       const itemsInProcess = inboxItems[meta.id]?.[process.id] || [];
       const badgeCount = itemsInProcess.length;
       if (badgeCount === 0) return null;
       const ItemName = itemsInProcess[0].name;
-      return (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("li", {
+      return (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("li", {
         key: process.id
-      }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("a", {
+      }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("a", {
         class: "item-link",
         href: "#",
         onClick: () => openFormioPopup(itemsInProcess, 0, $f7)
-      }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+      }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
         class: "item-content"
-      }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+      }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
         class: "item-inner"
-      }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+      }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
         class: "item-title"
-      }, ItemName), (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+      }, ItemName), (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
         class: "item-after"
-      }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("span", {
+      }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("span", {
         class: "badge color-red"
       }, badgeCount))))));
-    })())))))))))) : (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    })())))))))))) : (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "block text-align-center"
-    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("p", null, "No inbox available."))), (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("p", null, "No inbox available."))), (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "popup tablet-fullscreen",
       id: "formio-popup"
-    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "page"
-    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "navbar"
-    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "navbar-inner"
-    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "title"
-    }, "Inbox item"), (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    }, "Inbox item"), (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "right"
-    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("a", {
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("a", {
       href: "#",
       class: "link popup-close"
-    }, "Close")))), (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    }, "Close")))), (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "page-content"
-    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       id: "formio-form-container",
       style: "padding: 10px; height:100%"
     })))));
   };
 });
 
-/***/ }),
+/***/ },
 
-/***/ 42767:
+/***/ 85815
 /*!*******************************!*\
   !*** ./src/pages/list.f7.jsx ***!
   \*******************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var framework7__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! framework7 */ 73449);
-/* harmony import */ var _js_views_list_f7_jsx__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../js/views/list.f7.jsx */ 83186);
+/* harmony import */ var framework7__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! framework7 */ 95142);
+/* harmony import */ var _js_views_list_f7_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../js/views/list.f7.jsx */ 5585);
 /** @jsx $jsx */
 
 
@@ -1999,7 +1980,7 @@ __webpack_require__.r(__webpack_exports__);
       views.forEach(view => {
         switch (view.key) {
           case "list":
-            var list = new _js_views_list_f7_jsx__WEBPACK_IMPORTED_MODULE_0__["default"](AB, view);
+            var list = new _js_views_list_f7_jsx__WEBPACK_IMPORTED_MODULE_1__["default"](AB, view);
             allResults.push(list.html());
             allViews.push(list);
             break;
@@ -2007,10 +1988,8 @@ __webpack_require__.r(__webpack_exports__);
           // code block
         }
       });
-
       return allResults.map(r => r()); // render each jsx template
     }
-
     async function delItem(id) {
       let dc = allViews[0].datacollection;
       let item = id ? dc.$dc.getItem(id) : dc.getCursor();
@@ -2026,31 +2005,31 @@ __webpack_require__.r(__webpack_exports__);
     }
 
     //
-    return () => (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    return () => (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "page"
-    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "navbar"
-    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "navbar-bg"
-    }), (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    }), (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "navbar-inner"
-    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "left"
-    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("a", {
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("a", {
       href: "#",
       "data-panel": ".panel-left",
       class: "link icon-only panel-open"
-    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("i", {
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("i", {
       class: "icon material-icons"
-    }, "menu"))), (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    }, "menu"))), (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "title"
-    }, title), (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    }, title), (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "title-large"
-    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "title-large-text"
-    }, title)), (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("div", {
+    }, title)), (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("div", {
       class: "right"
-    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("a", {
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("a", {
       class: "link icon-only",
       href: "#",
       onclick: () => {
@@ -2061,57 +2040,57 @@ __webpack_require__.r(__webpack_exports__);
           ignoreCache: true
         });
       }
-    }, (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("i", {
+    }, (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("i", {
       class: "icon f7-icons if-not-md"
-    }, "plus"), (0,framework7__WEBPACK_IMPORTED_MODULE_1__["default"])("i", {
+    }, "plus"), (0,framework7__WEBPACK_IMPORTED_MODULE_0__["default"])("i", {
       class: "icon material-icons md-only"
     }, "add"))))), viewHTML());
   };
 });
 
-/***/ }),
+/***/ },
 
-/***/ 40453:
+/***/ 9295
 /*!*******************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/less-loader/dist/cjs.js!./src/css/app.less ***!
   \*******************************************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/cssWithMappingToString.js */ 94015);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/cssWithMappingToString.js */ 54991);
 /* harmony import */ var _node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ 23645);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ 76314);
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
 // Imports
 
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "/* Your app custom styles here */\n/* login */\n.md .item-input-focused .item-label,\n.md .item-input-focused .item-floating-label {\n  color: inherit;\n}\n.version {\n  font-family: roboto mono, source code pro, Menlo, Monaco, Consolas,\n\t\tcourier new, monospace;\n  font-size: 10px;\n}\n.list-translucent {\n  background-color: rgba(var(--f7-navbar-bg-color-rgb, var(--f7-bars-bg-color-rgb)), var(--f7-bars-translucent-opacity)) !important;\n  -webkit-backdrop-filter: saturate(180%) blur(var(--f7-bars-translucent-blur)) !important;\n  backdrop-filter: saturate(180%) blur(var(--f7-bars-translucent-blur)) !important;\n}\n.list-translucent ul {\n  background-color: transparent !important;\n}\n/* Change Autocomplete styles in Chrome*/\ninput:autofill,\ninput:-webkit-autofill-strong-password,\ninput:-webkit-autofill-strong-password-viewable,\ninput:-webkit-autofill-and-obscured,\ninput:-webkit-autofill,\ninput:-webkit-autofill:hover,\ninput:-webkit-autofill:focus,\ntextarea:-webkit-autofill,\ntextarea:-webkit-autofill:hover,\ntextarea:-webkit-autofill:focus,\nselect:-webkit-autofill,\nselect:-webkit-autofill:hover,\nselect:-webkit-autofill:focus {\n  border: 0;\n  -webkit-text-fill-color: #f0582b;\n  -webkit-box-shadow: 0 0 0px 1000px #366889 inset;\n  -webkit-transition: background-color 5000s ease-in-out 0s;\n  transition: background-color 5000s ease-in-out 0s;\n}\n.vertical-container {\n  position: relative;\n  height: 100vh;\n}\n.vertical-center {\n  margin: 0;\n  position: absolute;\n  top: 50%;\n  -ms-transform: translateY(-50%);\n  transform: translateY(-50%);\n}\n/*ABMobileViewFormFile File Upload*/\n.fileUpload {\n  position: relative;\n  overflow: hidden;\n}\n.fileUpload input.upload {\n  position: absolute;\n  top: 0;\n  right: 0;\n  margin: 0;\n  padding: 0;\n  font-size: 20px;\n  cursor: pointer;\n  opacity: 0;\n  filter: alpha(opacity=0);\n}\n.ico_upload {\n  padding-left: 8px;\n  font-size: 25px;\n}\n", "",{"version":3,"sources":["webpack://./src/css/app.less"],"names":[],"mappings":"AAAA,gCAAgC;AAChC,UAAU;AACV;;EAEC,cAAA;AACD;AACA;EACC;wBAAA;EAEA,eAAA;AACD;AACA;EACC,iIAAA;EAIA,wFAAA;EAEA,gFAAA;AAHD;AAKA;EACC,wCAAA;AAHD;AACA,wCAAwC;AAKxC;;;;;;;;;;;;;EAaC,SAAA;EACA,gCAAA;EACA,gDAAA;EACA,yDAAA;EACA,iDAAA;AAHD;AAKA;EACC,kBAAA;EACA,aAAA;AAHD;AAKA;EACC,SAAA;EACA,kBAAA;EACA,QAAA;EACA,+BAAA;EACA,2BAAA;AAHD;AACA,mCAAmC;AAOnC;EAEI,kBAAA;EACA,gBAAA;AANJ;AASA;EAEI,kBAAA;EACA,MAAA;EACA,QAAA;EACA,SAAA;EACA,UAAA;EACA,eAAA;EACA,eAAA;EACA,UAAA;EACA,wBAAA;AARJ;AAWA;EAEE,iBAAA;EAAmB,eAAA;AATrB","sourcesContent":["/* Your app custom styles here */\n/* login */\n.md .item-input-focused .item-label,\n.md .item-input-focused .item-floating-label {\n\tcolor: inherit;\n}\n.version {\n\tfont-family: roboto mono, source code pro, Menlo, Monaco, Consolas,\n\t\tcourier new, monospace;\n\tfont-size: 10px;\n}\n.list-translucent {\n\tbackground-color: rgba(\n\t\tvar(--f7-navbar-bg-color-rgb, var(--f7-bars-bg-color-rgb)),\n\t\tvar(--f7-bars-translucent-opacity)\n\t) !important;\n\t-webkit-backdrop-filter: saturate(180%)\n\t\tblur(var(--f7-bars-translucent-blur)) !important;\n\tbackdrop-filter: saturate(180%) blur(var(--f7-bars-translucent-blur)) !important;\n}\n.list-translucent ul {\n\tbackground-color: transparent !important;\n}\n/* Change Autocomplete styles in Chrome*/\ninput:autofill,\ninput:-webkit-autofill-strong-password,\ninput:-webkit-autofill-strong-password-viewable,\ninput:-webkit-autofill-and-obscured,\ninput:-webkit-autofill,\ninput:-webkit-autofill:hover,\ninput:-webkit-autofill:focus,\ntextarea:-webkit-autofill,\ntextarea:-webkit-autofill:hover,\ntextarea:-webkit-autofill:focus,\nselect:-webkit-autofill,\nselect:-webkit-autofill:hover,\nselect:-webkit-autofill:focus {\n\tborder: 0;\n\t-webkit-text-fill-color: #f0582b;\n\t-webkit-box-shadow: 0 0 0px 1000px #366889 inset;\n\t-webkit-transition: background-color 5000s ease-in-out 0s;\n\ttransition: background-color 5000s ease-in-out 0s;\n}\n.vertical-container {\n\tposition: relative;\n\theight: 100vh;\n}\n.vertical-center {\n\tmargin: 0;\n\tposition: absolute;\n\ttop: 50%;\n\t-ms-transform: translateY(-50%);\n\ttransform: translateY(-50%);\n}\n\n\n /*ABMobileViewFormFile File Upload*/\n.fileUpload \n{\n    position: relative;\n    overflow: hidden;           \n}\n\n.fileUpload input.upload \n{\n    position: absolute;\n    top: 0;\n    right: 0;\n    margin: 0;\n    padding: 0;\n    font-size: 20px;\n    cursor: pointer;\n    opacity: 0;\n    filter: alpha(opacity=0);\n}\n\n.ico_upload\n{\n  padding-left: 8px; font-size:25px\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "/* Your app custom styles here */\n/* login */\n.md .item-input-focused .item-label,\n.md .item-input-focused .item-floating-label {\n  color: inherit;\n}\n.version {\n  font-family: roboto mono, source code pro, Menlo, Monaco, Consolas,\n\t\tcourier new, monospace;\n  font-size: 10px;\n}\n.list-translucent {\n  background-color: rgba(var(--f7-navbar-bg-color-rgb, var(--f7-bars-bg-color-rgb)), var(--f7-bars-translucent-opacity)) !important;\n  -webkit-backdrop-filter: saturate(180%) blur(var(--f7-bars-translucent-blur)) !important;\n  backdrop-filter: saturate(180%) blur(var(--f7-bars-translucent-blur)) !important;\n}\n.list-translucent ul {\n  background-color: transparent !important;\n}\n/* Change Autocomplete styles in Chrome*/\ninput:autofill,\ninput:-webkit-autofill-strong-password,\ninput:-webkit-autofill-strong-password-viewable,\ninput:-webkit-autofill-and-obscured,\ninput:-webkit-autofill,\ninput:-webkit-autofill:hover,\ninput:-webkit-autofill:focus,\ntextarea:-webkit-autofill,\ntextarea:-webkit-autofill:hover,\ntextarea:-webkit-autofill:focus,\nselect:-webkit-autofill,\nselect:-webkit-autofill:hover,\nselect:-webkit-autofill:focus {\n  border: 0;\n  -webkit-text-fill-color: #f0582b;\n  -webkit-box-shadow: 0 0 0px 1000px #366889 inset;\n  -webkit-transition: background-color 5000s ease-in-out 0s;\n  transition: background-color 5000s ease-in-out 0s;\n}\n.vertical-container {\n  position: relative;\n  height: 100vh;\n}\n.vertical-center {\n  margin: 0;\n  position: absolute;\n  top: 50%;\n  -ms-transform: translateY(-50%);\n  transform: translateY(-50%);\n}\n/*ABMobileViewFormFile File Upload*/\n.fileUpload {\n  position: relative;\n  overflow: hidden;\n}\n.fileUpload input.upload {\n  position: absolute;\n  top: 0;\n  right: 0;\n  margin: 0;\n  padding: 0;\n  font-size: 20px;\n  cursor: pointer;\n  opacity: 0;\n  filter: alpha(opacity=0);\n}\n.ico_upload {\n  padding-left: 8px;\n  font-size: 25px;\n}\n/*# sourceMappingURL=app.css.map */", "",{"version":3,"sources":["webpack://./src/css/app.less","webpack://./app.less"],"names":[],"mappings":"AAAA,gCAAgC;AAChC,UAAU;ACCV;;EAEC,cAAA;ADCD;ACCA;EACC;wBAAA;EAEA,eAAA;ADCD;ACCA;EACC,iIAAA;EAIA,wFAAA;EAEA,gFAAA;ADHD;ACKA;EACC,wCAAA;ADHD;AACA,wCAAwC;ACKxC;;;;;;;;;;;;;EAaC,SAAA;EACA,gCAAA;EACA,gDAAA;EACA,yDAAA;EACA,iDAAA;ADHD;ACKA;EACC,kBAAA;EACA,aAAA;ADHD;ACKA;EACC,SAAA;EACA,kBAAA;EACA,QAAA;EACA,+BAAA;EACA,2BAAA;ADHD;AACA,mCAAmC;ACOnC;EAEI,kBAAA;EACA,gBAAA;ADNJ;ACSA;EAEI,kBAAA;EACA,MAAA;EACA,QAAA;EACA,SAAA;EACA,UAAA;EACA,eAAA;EACA,eAAA;EACA,UAAA;EACA,wBAAA;ADRJ;ACWA;EAEE,iBAAA;EAAmB,eAAA;ADTrB;AACA,kCAAkC","sourcesContent":["/* Your app custom styles here */\n/* login */\n.md .item-input-focused .item-label,\n.md .item-input-focused .item-floating-label {\n  color: inherit;\n}\n.version {\n  font-family: roboto mono, source code pro, Menlo, Monaco, Consolas,\n\t\tcourier new, monospace;\n  font-size: 10px;\n}\n.list-translucent {\n  background-color: rgba(var(--f7-navbar-bg-color-rgb, var(--f7-bars-bg-color-rgb)), var(--f7-bars-translucent-opacity)) !important;\n  -webkit-backdrop-filter: saturate(180%) blur(var(--f7-bars-translucent-blur)) !important;\n  backdrop-filter: saturate(180%) blur(var(--f7-bars-translucent-blur)) !important;\n}\n.list-translucent ul {\n  background-color: transparent !important;\n}\n/* Change Autocomplete styles in Chrome*/\ninput:autofill,\ninput:-webkit-autofill-strong-password,\ninput:-webkit-autofill-strong-password-viewable,\ninput:-webkit-autofill-and-obscured,\ninput:-webkit-autofill,\ninput:-webkit-autofill:hover,\ninput:-webkit-autofill:focus,\ntextarea:-webkit-autofill,\ntextarea:-webkit-autofill:hover,\ntextarea:-webkit-autofill:focus,\nselect:-webkit-autofill,\nselect:-webkit-autofill:hover,\nselect:-webkit-autofill:focus {\n  border: 0;\n  -webkit-text-fill-color: #f0582b;\n  -webkit-box-shadow: 0 0 0px 1000px #366889 inset;\n  -webkit-transition: background-color 5000s ease-in-out 0s;\n  transition: background-color 5000s ease-in-out 0s;\n}\n.vertical-container {\n  position: relative;\n  height: 100vh;\n}\n.vertical-center {\n  margin: 0;\n  position: absolute;\n  top: 50%;\n  -ms-transform: translateY(-50%);\n  transform: translateY(-50%);\n}\n/*ABMobileViewFormFile File Upload*/\n.fileUpload {\n  position: relative;\n  overflow: hidden;\n}\n.fileUpload input.upload {\n  position: absolute;\n  top: 0;\n  right: 0;\n  margin: 0;\n  padding: 0;\n  font-size: 20px;\n  cursor: pointer;\n  opacity: 0;\n  filter: alpha(opacity=0);\n}\n.ico_upload {\n  padding-left: 8px;\n  font-size: 25px;\n}\n/*# sourceMappingURL=app.css.map */","/* Your app custom styles here */\n/* login */\n.md .item-input-focused .item-label,\n.md .item-input-focused .item-floating-label {\n\tcolor: inherit;\n}\n.version {\n\tfont-family: roboto mono, source code pro, Menlo, Monaco, Consolas,\n\t\tcourier new, monospace;\n\tfont-size: 10px;\n}\n.list-translucent {\n\tbackground-color: rgba(\n\t\tvar(--f7-navbar-bg-color-rgb, var(--f7-bars-bg-color-rgb)),\n\t\tvar(--f7-bars-translucent-opacity)\n\t) !important;\n\t-webkit-backdrop-filter: saturate(180%)\n\t\tblur(var(--f7-bars-translucent-blur)) !important;\n\tbackdrop-filter: saturate(180%) blur(var(--f7-bars-translucent-blur)) !important;\n}\n.list-translucent ul {\n\tbackground-color: transparent !important;\n}\n/* Change Autocomplete styles in Chrome*/\ninput:autofill,\ninput:-webkit-autofill-strong-password,\ninput:-webkit-autofill-strong-password-viewable,\ninput:-webkit-autofill-and-obscured,\ninput:-webkit-autofill,\ninput:-webkit-autofill:hover,\ninput:-webkit-autofill:focus,\ntextarea:-webkit-autofill,\ntextarea:-webkit-autofill:hover,\ntextarea:-webkit-autofill:focus,\nselect:-webkit-autofill,\nselect:-webkit-autofill:hover,\nselect:-webkit-autofill:focus {\n\tborder: 0;\n\t-webkit-text-fill-color: #f0582b;\n\t-webkit-box-shadow: 0 0 0px 1000px #366889 inset;\n\t-webkit-transition: background-color 5000s ease-in-out 0s;\n\ttransition: background-color 5000s ease-in-out 0s;\n}\n.vertical-container {\n\tposition: relative;\n\theight: 100vh;\n}\n.vertical-center {\n\tmargin: 0;\n\tposition: absolute;\n\ttop: 50%;\n\t-ms-transform: translateY(-50%);\n\ttransform: translateY(-50%);\n}\n\n\n /*ABMobileViewFormFile File Upload*/\n.fileUpload \n{\n    position: relative;\n    overflow: hidden;           \n}\n\n.fileUpload input.upload \n{\n    position: absolute;\n    top: 0;\n    right: 0;\n    margin: 0;\n    padding: 0;\n    font-size: 20px;\n    cursor: pointer;\n    opacity: 0;\n    filter: alpha(opacity=0);\n}\n\n.ico_upload\n{\n  padding-left: 8px; font-size:25px\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
 
-/***/ }),
+/***/ },
 
-/***/ 22373:
+/***/ 1425
 /*!***************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js?url=false!./src/css/icons.css ***!
   \***************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/cssWithMappingToString.js */ 94015);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/cssWithMappingToString.js */ 54991);
 /* harmony import */ var _node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ 23645);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ 76314);
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
 // Imports
 
@@ -2123,285 +2102,289 @@ ___CSS_LOADER_EXPORT___.push([module.id, "/* Material Icons Font (for MD theme) 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
 
-/***/ }),
+/***/ },
 
-/***/ 46700:
+/***/ 35358
 /*!***************************************************!*\
   !*** ./node_modules/moment/locale/ sync ^\.\/.*$ ***!
   \***************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 var map = {
-	"./af": 42786,
-	"./af.js": 42786,
-	"./ar": 30867,
-	"./ar-dz": 14130,
-	"./ar-dz.js": 14130,
-	"./ar-kw": 96135,
-	"./ar-kw.js": 96135,
-	"./ar-ly": 56440,
-	"./ar-ly.js": 56440,
-	"./ar-ma": 47702,
-	"./ar-ma.js": 47702,
-	"./ar-sa": 16040,
-	"./ar-sa.js": 16040,
-	"./ar-tn": 37100,
-	"./ar-tn.js": 37100,
-	"./ar.js": 30867,
-	"./az": 31083,
-	"./az.js": 31083,
-	"./be": 9808,
-	"./be.js": 9808,
-	"./bg": 68338,
-	"./bg.js": 68338,
-	"./bm": 67438,
-	"./bm.js": 67438,
-	"./bn": 8905,
-	"./bn-bd": 76225,
-	"./bn-bd.js": 76225,
-	"./bn.js": 8905,
-	"./bo": 11560,
-	"./bo.js": 11560,
-	"./br": 1278,
-	"./br.js": 1278,
-	"./bs": 80622,
-	"./bs.js": 80622,
-	"./ca": 2468,
-	"./ca.js": 2468,
-	"./cs": 5822,
-	"./cs.js": 5822,
-	"./cv": 50877,
-	"./cv.js": 50877,
-	"./cy": 47373,
-	"./cy.js": 47373,
-	"./da": 24780,
-	"./da.js": 24780,
-	"./de": 59740,
-	"./de-at": 60217,
-	"./de-at.js": 60217,
-	"./de-ch": 60894,
-	"./de-ch.js": 60894,
-	"./de.js": 59740,
-	"./dv": 5300,
-	"./dv.js": 5300,
-	"./el": 50837,
-	"./el.js": 50837,
-	"./en-au": 78348,
-	"./en-au.js": 78348,
-	"./en-ca": 77925,
-	"./en-ca.js": 77925,
-	"./en-gb": 22243,
-	"./en-gb.js": 22243,
-	"./en-ie": 46436,
-	"./en-ie.js": 46436,
-	"./en-il": 47207,
-	"./en-il.js": 47207,
-	"./en-in": 44175,
-	"./en-in.js": 44175,
-	"./en-nz": 76319,
-	"./en-nz.js": 76319,
-	"./en-sg": 31662,
-	"./en-sg.js": 31662,
-	"./eo": 92915,
-	"./eo.js": 92915,
-	"./es": 55655,
-	"./es-do": 55251,
-	"./es-do.js": 55251,
-	"./es-mx": 96112,
-	"./es-mx.js": 96112,
-	"./es-us": 71146,
-	"./es-us.js": 71146,
-	"./es.js": 55655,
-	"./et": 5603,
-	"./et.js": 5603,
-	"./eu": 77763,
-	"./eu.js": 77763,
-	"./fa": 76959,
-	"./fa.js": 76959,
-	"./fi": 11897,
-	"./fi.js": 11897,
-	"./fil": 42549,
-	"./fil.js": 42549,
-	"./fo": 94694,
-	"./fo.js": 94694,
-	"./fr": 94470,
-	"./fr-ca": 63049,
-	"./fr-ca.js": 63049,
-	"./fr-ch": 52330,
-	"./fr-ch.js": 52330,
-	"./fr.js": 94470,
-	"./fy": 5044,
-	"./fy.js": 5044,
-	"./ga": 29295,
-	"./ga.js": 29295,
-	"./gd": 2101,
-	"./gd.js": 2101,
-	"./gl": 38794,
-	"./gl.js": 38794,
-	"./gom-deva": 27884,
-	"./gom-deva.js": 27884,
-	"./gom-latn": 23168,
-	"./gom-latn.js": 23168,
-	"./gu": 95349,
-	"./gu.js": 95349,
-	"./he": 24206,
-	"./he.js": 24206,
-	"./hi": 30094,
-	"./hi.js": 30094,
-	"./hr": 30316,
-	"./hr.js": 30316,
-	"./hu": 22138,
-	"./hu.js": 22138,
-	"./hy-am": 11423,
-	"./hy-am.js": 11423,
-	"./id": 29218,
-	"./id.js": 29218,
-	"./is": 90135,
-	"./is.js": 90135,
-	"./it": 90626,
-	"./it-ch": 10150,
-	"./it-ch.js": 10150,
-	"./it.js": 90626,
-	"./ja": 39183,
-	"./ja.js": 39183,
-	"./jv": 24286,
-	"./jv.js": 24286,
-	"./ka": 12105,
-	"./ka.js": 12105,
-	"./kk": 47772,
-	"./kk.js": 47772,
-	"./km": 18758,
-	"./km.js": 18758,
-	"./kn": 79282,
-	"./kn.js": 79282,
-	"./ko": 33730,
-	"./ko.js": 33730,
-	"./ku": 1408,
-	"./ku.js": 1408,
-	"./ky": 33291,
-	"./ky.js": 33291,
-	"./lb": 36841,
-	"./lb.js": 36841,
-	"./lo": 55466,
-	"./lo.js": 55466,
-	"./lt": 57010,
-	"./lt.js": 57010,
-	"./lv": 37595,
-	"./lv.js": 37595,
-	"./me": 39861,
-	"./me.js": 39861,
-	"./mi": 35493,
-	"./mi.js": 35493,
-	"./mk": 95966,
-	"./mk.js": 95966,
-	"./ml": 87341,
-	"./ml.js": 87341,
-	"./mn": 5115,
-	"./mn.js": 5115,
-	"./mr": 10370,
-	"./mr.js": 10370,
-	"./ms": 9847,
-	"./ms-my": 41237,
-	"./ms-my.js": 41237,
-	"./ms.js": 9847,
-	"./mt": 72126,
-	"./mt.js": 72126,
-	"./my": 56165,
-	"./my.js": 56165,
-	"./nb": 64924,
-	"./nb.js": 64924,
-	"./ne": 16744,
-	"./ne.js": 16744,
-	"./nl": 93901,
-	"./nl-be": 59814,
-	"./nl-be.js": 59814,
-	"./nl.js": 93901,
-	"./nn": 83877,
-	"./nn.js": 83877,
-	"./oc-lnc": 92135,
-	"./oc-lnc.js": 92135,
-	"./pa-in": 15858,
-	"./pa-in.js": 15858,
-	"./pl": 64495,
-	"./pl.js": 64495,
-	"./pt": 89520,
-	"./pt-br": 57971,
-	"./pt-br.js": 57971,
-	"./pt.js": 89520,
-	"./ro": 96459,
-	"./ro.js": 96459,
-	"./ru": 21793,
-	"./ru.js": 21793,
-	"./sd": 40950,
-	"./sd.js": 40950,
-	"./se": 10490,
-	"./se.js": 10490,
-	"./si": 90124,
-	"./si.js": 90124,
-	"./sk": 64249,
-	"./sk.js": 64249,
-	"./sl": 14985,
-	"./sl.js": 14985,
-	"./sq": 51104,
-	"./sq.js": 51104,
-	"./sr": 49131,
-	"./sr-cyrl": 79915,
-	"./sr-cyrl.js": 79915,
-	"./sr.js": 49131,
-	"./ss": 85893,
-	"./ss.js": 85893,
-	"./sv": 98760,
-	"./sv.js": 98760,
-	"./sw": 91172,
-	"./sw.js": 91172,
-	"./ta": 27333,
-	"./ta.js": 27333,
-	"./te": 23110,
-	"./te.js": 23110,
-	"./tet": 52095,
-	"./tet.js": 52095,
-	"./tg": 27321,
-	"./tg.js": 27321,
-	"./th": 9041,
-	"./th.js": 9041,
-	"./tk": 19005,
-	"./tk.js": 19005,
-	"./tl-ph": 75768,
-	"./tl-ph.js": 75768,
-	"./tlh": 89444,
-	"./tlh.js": 89444,
-	"./tr": 72397,
-	"./tr.js": 72397,
-	"./tzl": 28254,
-	"./tzl.js": 28254,
-	"./tzm": 51106,
-	"./tzm-latn": 30699,
-	"./tzm-latn.js": 30699,
-	"./tzm.js": 51106,
-	"./ug-cn": 9288,
-	"./ug-cn.js": 9288,
-	"./uk": 67691,
-	"./uk.js": 67691,
-	"./ur": 13795,
-	"./ur.js": 13795,
-	"./uz": 6791,
-	"./uz-latn": 60588,
-	"./uz-latn.js": 60588,
-	"./uz.js": 6791,
-	"./vi": 65666,
-	"./vi.js": 65666,
-	"./x-pseudo": 14378,
-	"./x-pseudo.js": 14378,
-	"./yo": 75805,
-	"./yo.js": 75805,
-	"./zh-cn": 83839,
-	"./zh-cn.js": 83839,
-	"./zh-hk": 55726,
-	"./zh-hk.js": 55726,
-	"./zh-mo": 99807,
-	"./zh-mo.js": 99807,
-	"./zh-tw": 74152,
-	"./zh-tw.js": 74152
+	"./af": 25177,
+	"./af.js": 25177,
+	"./ar": 61509,
+	"./ar-dz": 41488,
+	"./ar-dz.js": 41488,
+	"./ar-kw": 58676,
+	"./ar-kw.js": 58676,
+	"./ar-ly": 42353,
+	"./ar-ly.js": 42353,
+	"./ar-ma": 24496,
+	"./ar-ma.js": 24496,
+	"./ar-ps": 6947,
+	"./ar-ps.js": 6947,
+	"./ar-sa": 82682,
+	"./ar-sa.js": 82682,
+	"./ar-tn": 89756,
+	"./ar-tn.js": 89756,
+	"./ar.js": 61509,
+	"./az": 95533,
+	"./az.js": 95533,
+	"./be": 28959,
+	"./be.js": 28959,
+	"./bg": 47777,
+	"./bg.js": 47777,
+	"./bm": 54903,
+	"./bm.js": 54903,
+	"./bn": 61290,
+	"./bn-bd": 17357,
+	"./bn-bd.js": 17357,
+	"./bn.js": 61290,
+	"./bo": 31545,
+	"./bo.js": 31545,
+	"./br": 11470,
+	"./br.js": 11470,
+	"./bs": 44429,
+	"./bs.js": 44429,
+	"./ca": 7306,
+	"./ca.js": 7306,
+	"./cs": 56464,
+	"./cs.js": 56464,
+	"./cv": 73635,
+	"./cv.js": 73635,
+	"./cy": 64226,
+	"./cy.js": 64226,
+	"./da": 93601,
+	"./da.js": 93601,
+	"./de": 77853,
+	"./de-at": 26111,
+	"./de-at.js": 26111,
+	"./de-ch": 54697,
+	"./de-ch.js": 54697,
+	"./de.js": 77853,
+	"./dv": 60708,
+	"./dv.js": 60708,
+	"./el": 54691,
+	"./el.js": 54691,
+	"./en-au": 53872,
+	"./en-au.js": 53872,
+	"./en-ca": 28298,
+	"./en-ca.js": 28298,
+	"./en-gb": 56195,
+	"./en-gb.js": 56195,
+	"./en-ie": 66584,
+	"./en-ie.js": 66584,
+	"./en-il": 65543,
+	"./en-il.js": 65543,
+	"./en-in": 9033,
+	"./en-in.js": 9033,
+	"./en-nz": 79402,
+	"./en-nz.js": 79402,
+	"./en-sg": 43004,
+	"./en-sg.js": 43004,
+	"./eo": 32934,
+	"./eo.js": 32934,
+	"./es": 97650,
+	"./es-do": 20838,
+	"./es-do.js": 20838,
+	"./es-mx": 17730,
+	"./es-mx.js": 17730,
+	"./es-us": 56575,
+	"./es-us.js": 56575,
+	"./es.js": 97650,
+	"./et": 3035,
+	"./et.js": 3035,
+	"./eu": 3508,
+	"./eu.js": 3508,
+	"./fa": 119,
+	"./fa.js": 119,
+	"./fi": 90527,
+	"./fi.js": 90527,
+	"./fil": 95995,
+	"./fil.js": 95995,
+	"./fo": 52477,
+	"./fo.js": 52477,
+	"./fr": 85498,
+	"./fr-ca": 26435,
+	"./fr-ca.js": 26435,
+	"./fr-ch": 37892,
+	"./fr-ch.js": 37892,
+	"./fr.js": 85498,
+	"./fy": 37071,
+	"./fy.js": 37071,
+	"./ga": 41734,
+	"./ga.js": 41734,
+	"./gd": 70217,
+	"./gd.js": 70217,
+	"./gl": 77329,
+	"./gl.js": 77329,
+	"./gom-deva": 32124,
+	"./gom-deva.js": 32124,
+	"./gom-latn": 93383,
+	"./gom-latn.js": 93383,
+	"./gu": 95050,
+	"./gu.js": 95050,
+	"./he": 11713,
+	"./he.js": 11713,
+	"./hi": 43861,
+	"./hi.js": 43861,
+	"./hr": 26308,
+	"./hr.js": 26308,
+	"./hu": 90609,
+	"./hu.js": 90609,
+	"./hy-am": 17160,
+	"./hy-am.js": 17160,
+	"./id": 74063,
+	"./id.js": 74063,
+	"./is": 89374,
+	"./is.js": 89374,
+	"./it": 88383,
+	"./it-ch": 21827,
+	"./it-ch.js": 21827,
+	"./it.js": 88383,
+	"./ja": 23827,
+	"./ja.js": 23827,
+	"./jv": 89722,
+	"./jv.js": 89722,
+	"./ka": 41794,
+	"./ka.js": 41794,
+	"./kk": 27088,
+	"./kk.js": 27088,
+	"./km": 96870,
+	"./km.js": 96870,
+	"./kn": 84451,
+	"./kn.js": 84451,
+	"./ko": 63164,
+	"./ko.js": 63164,
+	"./ku": 98174,
+	"./ku-kmr": 6181,
+	"./ku-kmr.js": 6181,
+	"./ku.js": 98174,
+	"./ky": 78474,
+	"./ky.js": 78474,
+	"./lb": 79680,
+	"./lb.js": 79680,
+	"./lo": 15867,
+	"./lo.js": 15867,
+	"./lt": 45766,
+	"./lt.js": 45766,
+	"./lv": 69532,
+	"./lv.js": 69532,
+	"./me": 58076,
+	"./me.js": 58076,
+	"./mi": 41848,
+	"./mi.js": 41848,
+	"./mk": 30306,
+	"./mk.js": 30306,
+	"./ml": 73739,
+	"./ml.js": 73739,
+	"./mn": 99053,
+	"./mn.js": 99053,
+	"./mr": 86169,
+	"./mr.js": 86169,
+	"./ms": 73386,
+	"./ms-my": 92297,
+	"./ms-my.js": 92297,
+	"./ms.js": 73386,
+	"./mt": 77075,
+	"./mt.js": 77075,
+	"./my": 72264,
+	"./my.js": 72264,
+	"./nb": 22274,
+	"./nb.js": 22274,
+	"./ne": 8235,
+	"./ne.js": 8235,
+	"./nl": 92572,
+	"./nl-be": 43784,
+	"./nl-be.js": 43784,
+	"./nl.js": 92572,
+	"./nn": 32185,
+	"./nn.js": 32185,
+	"./oc-lnc": 69330,
+	"./oc-lnc.js": 69330,
+	"./pa-in": 29849,
+	"./pa-in.js": 29849,
+	"./pl": 94418,
+	"./pl.js": 94418,
+	"./pt": 79834,
+	"./pt-br": 48303,
+	"./pt-br.js": 48303,
+	"./pt.js": 79834,
+	"./ro": 24457,
+	"./ro.js": 24457,
+	"./ru": 82271,
+	"./ru.js": 82271,
+	"./sd": 1221,
+	"./sd.js": 1221,
+	"./se": 33478,
+	"./se.js": 33478,
+	"./si": 17538,
+	"./si.js": 17538,
+	"./sk": 5784,
+	"./sk.js": 5784,
+	"./sl": 46637,
+	"./sl.js": 46637,
+	"./sq": 86794,
+	"./sq.js": 86794,
+	"./sr": 45719,
+	"./sr-cyrl": 3322,
+	"./sr-cyrl.js": 3322,
+	"./sr.js": 45719,
+	"./ss": 56000,
+	"./ss.js": 56000,
+	"./sv": 41011,
+	"./sv.js": 41011,
+	"./sw": 40748,
+	"./sw.js": 40748,
+	"./ta": 11025,
+	"./ta.js": 11025,
+	"./te": 11885,
+	"./te.js": 11885,
+	"./tet": 28861,
+	"./tet.js": 28861,
+	"./tg": 86571,
+	"./tg.js": 86571,
+	"./th": 55802,
+	"./th.js": 55802,
+	"./tk": 59527,
+	"./tk.js": 59527,
+	"./tl-ph": 29231,
+	"./tl-ph.js": 29231,
+	"./tlh": 31052,
+	"./tlh.js": 31052,
+	"./tr": 85096,
+	"./tr.js": 85096,
+	"./tzl": 79846,
+	"./tzl.js": 79846,
+	"./tzm": 81765,
+	"./tzm-latn": 97711,
+	"./tzm-latn.js": 97711,
+	"./tzm.js": 81765,
+	"./ug-cn": 48414,
+	"./ug-cn.js": 48414,
+	"./uk": 16618,
+	"./uk.js": 16618,
+	"./ur": 57777,
+	"./ur.js": 57777,
+	"./uz": 57609,
+	"./uz-latn": 72475,
+	"./uz-latn.js": 72475,
+	"./uz.js": 57609,
+	"./vi": 21135,
+	"./vi.js": 21135,
+	"./x-pseudo": 64051,
+	"./x-pseudo.js": 64051,
+	"./yo": 82218,
+	"./yo.js": 82218,
+	"./zh-cn": 52648,
+	"./zh-cn.js": 52648,
+	"./zh-hk": 1632,
+	"./zh-hk.js": 1632,
+	"./zh-mo": 31541,
+	"./zh-mo.js": 31541,
+	"./zh-tw": 50304,
+	"./zh-tw.js": 50304
 };
 
 
@@ -2422,24 +2405,24 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 46700;
+webpackContext.id = 35358;
 
-/***/ }),
+/***/ },
 
-/***/ 6120:
+/***/ 45048
 /*!**************************!*\
   !*** ./src/css/app.less ***!
   \**************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ 93379);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ 85072);
 /* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_node_modules_less_loader_dist_cjs_js_app_less__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../node_modules/css-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!./app.less */ 40453);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_node_modules_less_loader_dist_cjs_js_app_less__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../node_modules/css-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!./app.less */ 9295);
 
             
 
@@ -2454,22 +2437,22 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_node_modules_less_loader_dist_cjs_js_app_less__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
-/***/ }),
+/***/ },
 
-/***/ 22254:
+/***/ 54186
 /*!***************************!*\
   !*** ./src/css/icons.css ***!
   \***************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ 93379);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ 85072);
 /* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_url_false_icons_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../node_modules/css-loader/dist/cjs.js?url=false!./icons.css */ 22373);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_url_false_icons_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../node_modules/css-loader/dist/cjs.js?url=false!./icons.css */ 1425);
 
             
 
@@ -2484,13 +2467,13 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_url_false_icons_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
-/***/ }),
+/***/ },
 
-/***/ 63133:
+/***/ 57218
 /*!****************************************!*\
   !*** ./src/js/AppBuilder/ABFactory.js ***!
   \****************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
@@ -2498,27 +2481,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _core_ABFactoryCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./core/ABFactoryCore */ 45800);
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ 96486);
+/* harmony import */ var _core_ABFactoryCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./core/ABFactoryCore */ 76409);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ 2543);
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! moment */ 30381);
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! moment */ 95093);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var nanoid__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! nanoid */ 53416);
-/* harmony import */ var papaparse__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! papaparse */ 57460);
-/* harmony import */ var papaparse__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(papaparse__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! uuid */ 55877);
-/* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(uuid__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _platform_FilterComplex__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./platform/FilterComplex */ 10758);
-/* harmony import */ var _definitions_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../definitions.js */ 49670);
-/* harmony import */ var _resources_Config_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../resources/Config.js */ 77269);
-/* harmony import */ var _resources_Account_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../resources/Account.js */ 12968);
-/* harmony import */ var _resources_Multilingual_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../resources/Multilingual.js */ 28917);
-/* harmony import */ var _resources_Network_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../resources/Network.js */ 93360);
-/* harmony import */ var _resources_Storage_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../resources/Storage.js */ 35397);
-/* harmony import */ var _core_ABViewManagerCore__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./core/ABViewManagerCore */ 85642);
-/* harmony import */ var _resources_Tenant_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../resources/Tenant.js */ 75342);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_core_ABFactoryCore__WEBPACK_IMPORTED_MODULE_0__, _core_ABViewManagerCore__WEBPACK_IMPORTED_MODULE_12__]);
-([_core_ABFactoryCore__WEBPACK_IMPORTED_MODULE_0__, _core_ABViewManagerCore__WEBPACK_IMPORTED_MODULE_12__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
+/* harmony import */ var nanoid__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! nanoid */ 44329);
+/* harmony import */ var papaparse__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! papaparse */ 44809);
+/* harmony import */ var papaparse__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(papaparse__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! uuid */ 44296);
+/* harmony import */ var _platform_FilterComplex__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./platform/FilterComplex */ 21487);
+/* harmony import */ var _definitions_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../definitions.js */ 34004);
+/* harmony import */ var _resources_Config_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../resources/Config.js */ 41696);
+/* harmony import */ var _resources_Account_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../resources/Account.js */ 42175);
+/* harmony import */ var _resources_Multilingual_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../resources/Multilingual.js */ 15359);
+/* harmony import */ var _resources_Network_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../resources/Network.js */ 66786);
+/* harmony import */ var _resources_Storage_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../resources/Storage.js */ 18221);
+/* harmony import */ var _core_ABViewManagerCore__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./core/ABViewManagerCore */ 95355);
+/* harmony import */ var _resources_Tenant_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../resources/Tenant.js */ 15458);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_core_ABFactoryCore__WEBPACK_IMPORTED_MODULE_0__, _core_ABViewManagerCore__WEBPACK_IMPORTED_MODULE_13__]);
+([_core_ABFactoryCore__WEBPACK_IMPORTED_MODULE_0__, _core_ABViewManagerCore__WEBPACK_IMPORTED_MODULE_13__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
 // const ABFactoryCore = require("./core/ABFactoryCore");
 
 
@@ -2625,28 +2607,31 @@ class ABFactory extends _core_ABFactoryCore__WEBPACK_IMPORTED_MODULE_0__["defaul
    constructor(definitions) {
       super(definitions);
 
+      // PLUGIN code now expects a this.platform
+      this.platform = "pwa";
+
       // Common Reference to Configuration Values
-      this.Config = _resources_Config_js__WEBPACK_IMPORTED_MODULE_7__["default"];
+      this.Config = _resources_Config_js__WEBPACK_IMPORTED_MODULE_8__["default"];
       let appDiv = document.querySelector("#app");
       this.Config.settingsFromDiv(appDiv);
 
       //
       // Resources
       //
-      this.Account = _resources_Account_js__WEBPACK_IMPORTED_MODULE_8__["default"];
+      this.Account = _resources_Account_js__WEBPACK_IMPORTED_MODULE_9__["default"];
       // this.Dialog = Dialog;
-      this.Multilingual = _resources_Multilingual_js__WEBPACK_IMPORTED_MODULE_9__["default"];
-      this.Network = _resources_Network_js__WEBPACK_IMPORTED_MODULE_10__["default"];
-      this.Storage = _resources_Storage_js__WEBPACK_IMPORTED_MODULE_11__["default"];
-      this.Tenant = _resources_Tenant_js__WEBPACK_IMPORTED_MODULE_13__["default"];
+      this.Multilingual = _resources_Multilingual_js__WEBPACK_IMPORTED_MODULE_10__["default"];
+      this.Network = _resources_Network_js__WEBPACK_IMPORTED_MODULE_11__["default"];
+      this.Storage = _resources_Storage_js__WEBPACK_IMPORTED_MODULE_12__["default"];
+      this.Tenant = _resources_Tenant_js__WEBPACK_IMPORTED_MODULE_14__["default"];
       // this.Webix = Webix;
 
       // Plugin Classes
       // this.ClassUI = ClassUI;
 
       // additional Class definitions
-      this.Class.FilterComplex = _platform_FilterComplex__WEBPACK_IMPORTED_MODULE_5__["default"];
-      this.Class.ABViewManager = _core_ABViewManagerCore__WEBPACK_IMPORTED_MODULE_12__["default"];
+      this.Class.FilterComplex = _platform_FilterComplex__WEBPACK_IMPORTED_MODULE_6__["default"];
+      this.Class.ABViewManager = _core_ABViewManagerCore__WEBPACK_IMPORTED_MODULE_13__["default"];
 
       // Temp placeholders until Resources are implemented:
       this.Analytics = {
@@ -3425,7 +3410,7 @@ class ABFactory extends _core_ABFactoryCore__WEBPACK_IMPORTED_MODULE_0__["defaul
    }
 
    jobID() {
-      return (0,nanoid__WEBPACK_IMPORTED_MODULE_14__.nanoid)();
+      return (0,nanoid__WEBPACK_IMPORTED_MODULE_3__.nanoid)();
    }
 
    Label() {
@@ -3508,7 +3493,7 @@ class ABFactory extends _core_ABFactoryCore__WEBPACK_IMPORTED_MODULE_0__["defaul
    }
 
    uuid() {
-      return (0,uuid__WEBPACK_IMPORTED_MODULE_4__.v4)();
+      return (0,uuid__WEBPACK_IMPORTED_MODULE_5__["default"])();
    }
 
    warn(message, ...rest) {
@@ -3523,14 +3508,14 @@ class ABFactory extends _core_ABFactoryCore__WEBPACK_IMPORTED_MODULE_0__["defaul
    }
 
    csvToJson(csvData) {
-      return papaparse__WEBPACK_IMPORTED_MODULE_3___default().parse(csvData, {
+      return papaparse__WEBPACK_IMPORTED_MODULE_4___default().parse(csvData, {
          header: true,
          skipEmptyLines: true,
       });
    }
 
    jsonToCsv(jsonData) {
-      return papaparse__WEBPACK_IMPORTED_MODULE_3___default().unparse(jsonData);
+      return papaparse__WEBPACK_IMPORTED_MODULE_4___default().unparse(jsonData);
    }
 }
 await window.__AB_preload;
@@ -3543,13 +3528,13 @@ await AB.init();
 __webpack_async_result__();
 } catch(e) { __webpack_async_result__(e); } }, 1);
 
-/***/ }),
+/***/ },
 
-/***/ 71750:
+/***/ 34169
 /*!*****************************************************!*\
   !*** ./src/js/AppBuilder/core/ABApplicationCore.js ***!
   \*****************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
@@ -3557,10 +3542,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABApplicationCore)
 /* harmony export */ });
-/* harmony import */ var _platform_ABViewManager__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../platform/ABViewManager */ 67348);
-/* harmony import */ var _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../platform/ABMLClass */ 46148);
+/* harmony import */ var _platform_ABViewManager__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../platform/ABViewManager */ 46032);
+/* harmony import */ var _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../platform/ABMLClass */ 18135);
 var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_platform_ABViewManager__WEBPACK_IMPORTED_MODULE_0__]);
-_platform_ABViewManager__WEBPACK_IMPORTED_MODULE_0__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
+var __webpack_async_dependencies_result__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
+_platform_ABViewManager__WEBPACK_IMPORTED_MODULE_0__ = __webpack_async_dependencies_result__[0];
 /**
  * ABApplicationCore
  *
@@ -4593,13 +4579,13 @@ class ABApplicationCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_1__
 __webpack_async_result__();
 } catch(e) { __webpack_async_result__(e); } });
 
-/***/ }),
+/***/ },
 
-/***/ 39807:
+/***/ 36547
 /*!***********************************************************!*\
   !*** ./src/js/AppBuilder/core/ABApplicationMobileCore.js ***!
   \***********************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
@@ -4607,10 +4593,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABApplicationMobileCore)
 /* harmony export */ });
-/* harmony import */ var _platform_ABViewManagerMobile__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../platform/ABViewManagerMobile */ 15656);
-/* harmony import */ var _platform_ABApplication__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../platform/ABApplication */ 10285);
+/* harmony import */ var _platform_ABViewManagerMobile__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../platform/ABViewManagerMobile */ 15102);
+/* harmony import */ var _platform_ABApplication__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../platform/ABApplication */ 70578);
 var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_platform_ABApplication__WEBPACK_IMPORTED_MODULE_1__]);
-_platform_ABApplication__WEBPACK_IMPORTED_MODULE_1__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
+var __webpack_async_dependencies_result__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
+_platform_ABApplication__WEBPACK_IMPORTED_MODULE_1__ = __webpack_async_dependencies_result__[0];
 /**
  * ABApplicationMobileCore
  *
@@ -4679,20 +4666,20 @@ class ABApplicationMobileCore extends _platform_ABApplication__WEBPACK_IMPORTED_
 __webpack_async_result__();
 } catch(e) { __webpack_async_result__(e); } });
 
-/***/ }),
+/***/ },
 
-/***/ 47621:
+/***/ 69581
 /*!********************************************************!*\
   !*** ./src/js/AppBuilder/core/ABDataCollectionCore.js ***!
   \********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABDataCollectionCore)
 /* harmony export */ });
-/* harmony import */ var _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../platform/ABMLClass */ 46148);
+/* harmony import */ var _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../platform/ABMLClass */ 18135);
 /*
  * ABDataCollection
  * Defines a set of data that other parts of the Application can work with.
@@ -8204,13 +8191,13 @@ class ABDataCollectionCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 17953:
+/***/ 20044
 /*!****************************************************!*\
   !*** ./src/js/AppBuilder/core/ABDefinitionCore.js ***!
   \****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -8309,13 +8296,13 @@ class ABDefinitionCore {
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 45800:
+/***/ 76409
 /*!*************************************************!*\
   !*** ./src/js/AppBuilder/core/ABFactoryCore.js ***!
   \*************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
@@ -8323,32 +8310,32 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _platform_ABApplication__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../platform/ABApplication */ 10285);
-/* harmony import */ var _platform_ABApplicationMobile__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../platform/ABApplicationMobile */ 38094);
-/* harmony import */ var _platform_ABDefinition__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../platform/ABDefinition */ 34802);
-/* harmony import */ var _platform_ABComponent__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../platform/ABComponent */ 64971);
-/* harmony import */ var _ABFieldManager__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ABFieldManager */ 96408);
-/* harmony import */ var _platform_ABIndex__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../platform/ABIndex */ 32711);
-/* harmony import */ var _platform_ABObject__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../platform/ABObject */ 83311);
-/* harmony import */ var _platform_ABObjectExternal__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../platform/ABObjectExternal */ 18700);
-/* harmony import */ var _platform_ABObjectImport__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../platform/ABObjectImport */ 94910);
-/* harmony import */ var _platform_ABObjectApi__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../platform/ABObjectApi */ 9611);
-/* harmony import */ var _platform_ABObjectApiNetsuite__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../platform/ABObjectApiNetsuite */ 65506);
-/* harmony import */ var _platform_ABDataCollection__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../platform/ABDataCollection */ 98383);
-/* harmony import */ var _platform_ABObjectQuery__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../platform/ABObjectQuery */ 59545);
-/* harmony import */ var _platform_ABHint__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../platform/ABHint */ 5701);
-/* harmony import */ var _platform_ABProcess__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../platform/ABProcess */ 33046);
-/* harmony import */ var _platform_process_ABProcessParticipant__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../platform/process/ABProcessParticipant */ 74843);
-/* harmony import */ var _platform_process_ABProcessLane__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../platform/process/ABProcessLane */ 23479);
-/* harmony import */ var _process_ABProcessTaskManager__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./process/ABProcessTaskManager */ 83316);
-/* harmony import */ var _platform_ABStep__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../platform/ABStep */ 81410);
-/* harmony import */ var _platform_views_ABViewDetailItem__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../platform/views/ABViewDetailItem */ 48172);
-/* harmony import */ var _platform_views_ABViewFormItem__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../platform/views/ABViewFormItem */ 9247);
-/* harmony import */ var _platform_mobile_ABMobileViewFormItem__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../platform/mobile/ABMobileViewFormItem */ 3199);
-/* harmony import */ var _platform_RowFilter__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ../platform/RowFilter */ 84470);
-/* harmony import */ var _platform_FilterComplex__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ../platform/FilterComplex */ 10758);
-/* harmony import */ var _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ../platform/ABMLClass */ 46148);
-/* harmony import */ var _platform_ABEmitter__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ../platform/ABEmitter */ 4025);
+/* harmony import */ var _platform_ABApplication__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../platform/ABApplication */ 70578);
+/* harmony import */ var _platform_ABApplicationMobile__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../platform/ABApplicationMobile */ 47520);
+/* harmony import */ var _platform_ABDefinition__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../platform/ABDefinition */ 66811);
+/* harmony import */ var _platform_ABComponent__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../platform/ABComponent */ 83483);
+/* harmony import */ var _ABFieldManager__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ABFieldManager */ 92673);
+/* harmony import */ var _platform_ABIndex__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../platform/ABIndex */ 18316);
+/* harmony import */ var _platform_ABObject__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../platform/ABObject */ 9801);
+/* harmony import */ var _platform_ABObjectExternal__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../platform/ABObjectExternal */ 51926);
+/* harmony import */ var _platform_ABObjectImport__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../platform/ABObjectImport */ 2992);
+/* harmony import */ var _platform_ABObjectApi__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../platform/ABObjectApi */ 14389);
+/* harmony import */ var _platform_ABObjectApiNetsuite__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../platform/ABObjectApiNetsuite */ 27276);
+/* harmony import */ var _platform_ABDataCollection__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../platform/ABDataCollection */ 5910);
+/* harmony import */ var _platform_ABObjectQuery__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../platform/ABObjectQuery */ 72253);
+/* harmony import */ var _platform_ABHint__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../platform/ABHint */ 18387);
+/* harmony import */ var _platform_ABProcess__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../platform/ABProcess */ 55113);
+/* harmony import */ var _platform_process_ABProcessParticipant__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../platform/process/ABProcessParticipant */ 31470);
+/* harmony import */ var _platform_process_ABProcessLane__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../platform/process/ABProcessLane */ 99165);
+/* harmony import */ var _process_ABProcessTaskManager__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./process/ABProcessTaskManager */ 91439);
+/* harmony import */ var _platform_ABStep__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../platform/ABStep */ 51736);
+/* harmony import */ var _platform_views_ABViewDetailItem__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../platform/views/ABViewDetailItem */ 61866);
+/* harmony import */ var _platform_views_ABViewFormItem__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../platform/views/ABViewFormItem */ 37117);
+/* harmony import */ var _platform_mobile_ABMobileViewFormItem__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../platform/mobile/ABMobileViewFormItem */ 62155);
+/* harmony import */ var _platform_RowFilter__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ../platform/RowFilter */ 74567);
+/* harmony import */ var _platform_FilterComplex__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ../platform/FilterComplex */ 21487);
+/* harmony import */ var _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ../platform/ABMLClass */ 18135);
+/* harmony import */ var _platform_ABEmitter__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ../platform/ABEmitter */ 73914);
 var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_platform_ABApplication__WEBPACK_IMPORTED_MODULE_0__, _platform_ABApplicationMobile__WEBPACK_IMPORTED_MODULE_1__, _ABFieldManager__WEBPACK_IMPORTED_MODULE_4__, _process_ABProcessTaskManager__WEBPACK_IMPORTED_MODULE_17__]);
 ([_platform_ABApplication__WEBPACK_IMPORTED_MODULE_0__, _platform_ABApplicationMobile__WEBPACK_IMPORTED_MODULE_1__, _ABFieldManager__WEBPACK_IMPORTED_MODULE_4__, _process_ABProcessTaskManager__WEBPACK_IMPORTED_MODULE_17__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
 /*
@@ -9524,13 +9511,13 @@ class ABFactory extends _platform_ABEmitter__WEBPACK_IMPORTED_MODULE_25__["defau
 __webpack_async_result__();
 } catch(e) { __webpack_async_result__(e); } });
 
-/***/ }),
+/***/ },
 
-/***/ 96408:
+/***/ 92673
 /*!**************************************************!*\
   !*** ./src/js/AppBuilder/core/ABFieldManager.js ***!
   \**************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
@@ -9552,26 +9539,26 @@ __webpack_require__.r(__webpack_exports__);
 var Fields = {};
 
 var AllFieldClasses = [
-   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldString */ 56675)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldLongText */ 33482)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldNumber */ 66242)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldDate */ 42405)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldDateTime */ 68246)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldBoolean */ 23126)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldList */ 23122)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldTree */ 32001)),
-   await Promise.resolve(/*! import() */).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldEmail */ 19387)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldFile */ 5833)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldImage */ 34688)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldUser */ 21391)),
-   await Promise.resolve(/*! import() */).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldConnect */ 30289)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldCalculate */ 15308)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldTextFormula */ 62817)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldFormula */ 54953)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldAutoIndex */ 99341)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldJson */ 7101)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldCombine */ 71331)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldSelectivity */ 55522)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldString */ 22215)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldLongText */ 33323)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldNumber */ 9271)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldDate */ 97826)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldDateTime */ 28135)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldBoolean */ 85220)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldList */ 67666)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldTree */ 22742)),
+   await Promise.resolve(/*! import() */).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldEmail */ 16460)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldFile */ 84360)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldImage */ 62549)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldUser */ 3869)),
+   await Promise.resolve(/*! import() */).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldConnect */ 95578)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldCalculate */ 63300)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldTextFormula */ 12783)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldFormula */ 70614)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldAutoIndex */ 81533)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldJson */ 22320)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldCombine */ 25981)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/dataFields/ABFieldSelectivity */ 82905)),
 ];
 
 AllFieldClasses.forEach((FIELD) => {
@@ -9637,20 +9624,20 @@ class ABFieldManager {
 __webpack_async_result__();
 } catch(e) { __webpack_async_result__(e); } }, 1);
 
-/***/ }),
+/***/ },
 
-/***/ 36717:
+/***/ 34524
 /*!**********************************************!*\
   !*** ./src/js/AppBuilder/core/ABHintCore.js ***!
   \**********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABHintCore)
 /* harmony export */ });
-/* harmony import */ var _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../platform/ABMLClass */ 46148);
+/* harmony import */ var _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../platform/ABMLClass */ 18135);
 // import ABApplication from "./ABApplication"
 
 
@@ -9796,20 +9783,20 @@ class ABHintCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_0__["defau
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 59815:
+/***/ 76567
 /*!***********************************************!*\
   !*** ./src/js/AppBuilder/core/ABIndexCore.js ***!
   \***********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABIndexCore)
 /* harmony export */ });
-/* harmony import */ var _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../platform/ABMLClass */ 46148);
+/* harmony import */ var _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../platform/ABMLClass */ 18135);
 
 
 class ABIndexCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_0__["default"] {
@@ -9929,20 +9916,20 @@ class ABIndexCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_0__["defa
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 90477:
+/***/ 24064
 /*!*************************************************!*\
   !*** ./src/js/AppBuilder/core/ABMLClassCore.js ***!
   \*************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABMLClassCore)
 /* harmony export */ });
-/* harmony import */ var _platform_ABEmitter__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../platform/ABEmitter */ 4025);
+/* harmony import */ var _platform_ABEmitter__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../platform/ABEmitter */ 73914);
 /**
  * ABMLClassCore
  * manage the multilingual information of an instance of a AB Defined Class.
@@ -10189,13 +10176,13 @@ class ABMLClassCore extends _platform_ABEmitter__WEBPACK_IMPORTED_MODULE_0__["de
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 312:
+/***/ 82214
 /*!***********************************************!*\
   !*** ./src/js/AppBuilder/core/ABModelCore.js ***!
   \***********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -11636,21 +11623,21 @@ class ABModelCore {
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 31549:
+/***/ 12626
 /*!***************************************************!*\
   !*** ./src/js/AppBuilder/core/ABObjectApiCore.js ***!
   \***************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABObjectApiCore)
 /* harmony export */ });
-/* harmony import */ var _platform_ABObject__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../platform/ABObject */ 83311);
-/* harmony import */ var _platform_ABModelApi__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../platform/ABModelApi */ 70558);
+/* harmony import */ var _platform_ABObject__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../platform/ABObject */ 9801);
+/* harmony import */ var _platform_ABModelApi__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../platform/ABModelApi */ 39573);
 
 
 
@@ -11781,21 +11768,21 @@ class ABObjectApiCore extends _platform_ABObject__WEBPACK_IMPORTED_MODULE_0__["d
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 55336:
+/***/ 16359
 /*!***********************************************************!*\
   !*** ./src/js/AppBuilder/core/ABObjectApiNetsuiteCore.js ***!
   \***********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABObjectApiNetsuiteCore)
 /* harmony export */ });
-/* harmony import */ var _platform_ABObjectApi__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../platform/ABObjectApi */ 9611);
-/* harmony import */ var _platform_ABModelApiNetsuite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../platform/ABModelApiNetsuite */ 19901);
+/* harmony import */ var _platform_ABObjectApi__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../platform/ABObjectApi */ 14389);
+/* harmony import */ var _platform_ABModelApiNetsuite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../platform/ABModelApiNetsuite */ 69420);
 
 
 
@@ -11919,21 +11906,21 @@ class ABObjectApiNetsuiteCore extends _platform_ABObjectApi__WEBPACK_IMPORTED_MO
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 92741:
+/***/ 79710
 /*!************************************************!*\
   !*** ./src/js/AppBuilder/core/ABObjectCore.js ***!
   \************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABObjectCore)
 /* harmony export */ });
-/* harmony import */ var _platform_ABModel__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../platform/ABModel */ 41637);
-/* harmony import */ var _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../platform/ABMLClass */ 46148);
+/* harmony import */ var _platform_ABModel__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../platform/ABModel */ 15241);
+/* harmony import */ var _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../platform/ABMLClass */ 18135);
 /**
  * ABObjectCore
  *
@@ -13019,21 +13006,21 @@ class ABObjectCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_1__["def
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 20391:
+/***/ 66874
 /*!*****************************************************!*\
   !*** ./src/js/AppBuilder/core/ABObjectQueryCore.js ***!
   \*****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABObjectQueryCore)
 /* harmony export */ });
-/* harmony import */ var _platform_ABObject__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../platform/ABObject */ 83311);
-/* harmony import */ var _platform_ABModelQuery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../platform/ABModelQuery */ 56972);
+/* harmony import */ var _platform_ABObject__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../platform/ABObject */ 9801);
+/* harmony import */ var _platform_ABModelQuery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../platform/ABModelQuery */ 10557);
 //
 // ABObjectQuery
 //
@@ -13720,23 +13707,23 @@ class ABObjectQueryCore extends _platform_ABObject__WEBPACK_IMPORTED_MODULE_0__[
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 44166:
+/***/ 61134
 /*!*************************************************!*\
   !*** ./src/js/AppBuilder/core/ABProcessCore.js ***!
   \*************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABProcessCore)
 /* harmony export */ });
-/* harmony import */ var _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../platform/ABMLClass */ 46148);
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ 96486);
+/* harmony import */ var _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../platform/ABMLClass */ 18135);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ 2543);
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _platform_process_tasks_ABProcessTaskSubProcess__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../platform/process/tasks/ABProcessTaskSubProcess */ 75175);
+/* harmony import */ var _platform_process_tasks_ABProcessTaskSubProcess__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../platform/process/tasks/ABProcessTaskSubProcess */ 79512);
 // import ABApplication from "./ABApplication"
 
 
@@ -14377,20 +14364,20 @@ var queryPreviousTasks = (
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 53618:
+/***/ 46867
 /*!**********************************************!*\
   !*** ./src/js/AppBuilder/core/ABStepCore.js ***!
   \**********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABStepCore)
 /* harmony export */ });
-/* harmony import */ var _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../platform/ABMLClass */ 46148);
+/* harmony import */ var _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../platform/ABMLClass */ 18135);
 // import ABApplication from "./ABApplication"
 
 
@@ -14512,13 +14499,13 @@ class ABStepCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_0__["defau
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 85642:
+/***/ 95355
 /*!*****************************************************!*\
   !*** ./src/js/AppBuilder/core/ABViewManagerCore.js ***!
   \*****************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
@@ -14535,7 +14522,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var AllViews = [
    // require("../platform/views/ABView"),
-   await Promise.resolve(/*! import() */).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/views/ABView */ 69459)),
+   await Promise.resolve(/*! import() */).then(__webpack_require__.bind(__webpack_require__, /*! ../platform/views/ABView */ 33384)),
    // require("../platform/views/ABViewCarousel"),
    // require("../platform/views/ABViewChart"),
    // require("../platform/views/ABViewChartArea"),
@@ -14693,13 +14680,13 @@ function isPlugin(key) {
 __webpack_async_result__();
 } catch(e) { __webpack_async_result__(e); } }, 1);
 
-/***/ }),
+/***/ },
 
-/***/ 40080:
+/***/ 43997
 /*!***********************************************************!*\
   !*** ./src/js/AppBuilder/core/ABViewManagerMobileCore.js ***!
   \***********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+(module, __unused_webpack_exports, __webpack_require__) {
 
 /*
  * ABViewManagerMobile
@@ -14714,27 +14701,27 @@ __webpack_async_result__();
  */
 var Views = {};
 [
-   __webpack_require__(/*! ../platform/mobile/ABMobilePage */ 77831),
-   __webpack_require__(/*! ../platform/mobile/ABMobileView */ 53349),
-   __webpack_require__(/*! ../platform/mobile/ABMobileViewCustom */ 95609),
-   __webpack_require__(/*! ../platform/mobile/ABMobileViewForm */ 55805),
-   __webpack_require__(/*! ../platform/mobile/ABMobileViewFormButton */ 50037),
-   __webpack_require__(/*! ../platform/mobile/ABMobileViewFormCheckbox */ 92092),
-   __webpack_require__(/*! ../platform/mobile/ABMobileViewFormConnect */ 2493),
-   __webpack_require__(/*! ../platform/mobile/ABMobileViewFormDate */ 37272),
-   __webpack_require__(/*! ../platform/mobile/ABMobileViewFormDatetime */ 43717),
-   __webpack_require__(/*! ../platform/mobile/ABMobileViewFormEmail */ 46722),
-   __webpack_require__(/*! ../platform/mobile/ABMobileViewFormFile */ 94298),
-   __webpack_require__(/*! ../platform/mobile/ABMobileViewFormFormula */ 92696),
-   __webpack_require__(/*! ../platform/mobile/ABMobileViewFormImage */ 14241),
-   __webpack_require__(/*! ../platform/mobile/ABMobileViewFormNumber */ 95729),
-   __webpack_require__(/*! ../platform/mobile/ABMobileViewFormReadonly */ 95620),
-   __webpack_require__(/*! ../platform/mobile/ABMobileViewFormSelectMultiple */ 77614),
-   __webpack_require__(/*! ../platform/mobile/ABMobileViewFormSelectSingle */ 88001),
-   __webpack_require__(/*! ../platform/mobile/ABMobileViewFormTextbox */ 36959),
-   __webpack_require__(/*! ../platform/mobile/ABMobileViewLabel */ 84205),
-   __webpack_require__(/*! ../platform/mobile/ABMobileViewList */ 78261),
-   __webpack_require__(/*! ../platform/mobile/ABMobileViewTimeline */ 15103),
+   __webpack_require__(/*! ../platform/mobile/ABMobilePage */ 41264),
+   __webpack_require__(/*! ../platform/mobile/ABMobileView */ 99618),
+   __webpack_require__(/*! ../platform/mobile/ABMobileViewCustom */ 6229),
+   __webpack_require__(/*! ../platform/mobile/ABMobileViewForm */ 32992),
+   __webpack_require__(/*! ../platform/mobile/ABMobileViewFormButton */ 67856),
+   __webpack_require__(/*! ../platform/mobile/ABMobileViewFormCheckbox */ 41805),
+   __webpack_require__(/*! ../platform/mobile/ABMobileViewFormConnect */ 40220),
+   __webpack_require__(/*! ../platform/mobile/ABMobileViewFormDate */ 87508),
+   __webpack_require__(/*! ../platform/mobile/ABMobileViewFormDatetime */ 72025),
+   __webpack_require__(/*! ../platform/mobile/ABMobileViewFormEmail */ 5042),
+   __webpack_require__(/*! ../platform/mobile/ABMobileViewFormFile */ 46702),
+   __webpack_require__(/*! ../platform/mobile/ABMobileViewFormFormula */ 92848),
+   __webpack_require__(/*! ../platform/mobile/ABMobileViewFormImage */ 86175),
+   __webpack_require__(/*! ../platform/mobile/ABMobileViewFormNumber */ 64589),
+   __webpack_require__(/*! ../platform/mobile/ABMobileViewFormReadonly */ 9122),
+   __webpack_require__(/*! ../platform/mobile/ABMobileViewFormSelectMultiple */ 46516),
+   __webpack_require__(/*! ../platform/mobile/ABMobileViewFormSelectSingle */ 53800),
+   __webpack_require__(/*! ../platform/mobile/ABMobileViewFormTextbox */ 92414),
+   __webpack_require__(/*! ../platform/mobile/ABMobileViewLabel */ 12826),
+   __webpack_require__(/*! ../platform/mobile/ABMobileViewList */ 78614),
+   __webpack_require__(/*! ../platform/mobile/ABMobileViewTimeline */ 7197),
 ].forEach((v) => {
    if (v.default?.common) {
       v = v.default;
@@ -14805,20 +14792,20 @@ module.exports = class ABViewManagerCore {
 };
 
 
-/***/ }),
+/***/ },
 
-/***/ 89391:
+/***/ 17056
 /*!*****************************************************!*\
   !*** ./src/js/AppBuilder/core/FilterComplexCore.js ***!
   \*****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ FilterComplexCore)
 /* harmony export */ });
-/* harmony import */ var _platform_ABComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../platform/ABComponent */ 64971);
+/* harmony import */ var _platform_ABComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../platform/ABComponent */ 83483);
 
 // const ABObjectQuery = require("../platform/ABObjectQuery");
 
@@ -16325,20 +16312,20 @@ class FilterComplexCore extends _platform_ABComponent__WEBPACK_IMPORTED_MODULE_0
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 51509:
+/***/ 30472
 /*!*************************************************!*\
   !*** ./src/js/AppBuilder/core/RowFilterCore.js ***!
   \*************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ RowFilterCore)
 /* harmony export */ });
-/* harmony import */ var _platform_ABComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../platform/ABComponent */ 64971);
+/* harmony import */ var _platform_ABComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../platform/ABComponent */ 83483);
 
 
 /**
@@ -17153,20 +17140,20 @@ class RowFilterCore extends _platform_ABComponent__WEBPACK_IMPORTED_MODULE_0__["
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 97177:
+/***/ 41450
 /*!*******************************************************************!*\
   !*** ./src/js/AppBuilder/core/dataFields/ABFieldAutoIndexCore.js ***!
   \*******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABFieldAutoIndexCore)
 /* harmony export */ });
-/* harmony import */ var _platform_dataFields_ABField__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/dataFields/ABField */ 38817);
+/* harmony import */ var _platform_dataFields_ABField__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/dataFields/ABField */ 88958);
 /*
  * ABFieldAutoIndex
  *
@@ -17317,20 +17304,20 @@ class ABFieldAutoIndexCore extends _platform_dataFields_ABField__WEBPACK_IMPORTE
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 96108:
+/***/ 36343
 /*!*****************************************************************!*\
   !*** ./src/js/AppBuilder/core/dataFields/ABFieldBooleanCore.js ***!
   \*****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABFieldBooleanCore)
 /* harmony export */ });
-/* harmony import */ var _platform_dataFields_ABField__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/dataFields/ABField */ 38817);
+/* harmony import */ var _platform_dataFields_ABField__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/dataFields/ABField */ 88958);
 /*
  * ABFieldBoolean
  *
@@ -17442,20 +17429,20 @@ class ABFieldBooleanCore extends _platform_dataFields_ABField__WEBPACK_IMPORTED_
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 69813:
+/***/ 26183
 /*!*******************************************************************!*\
   !*** ./src/js/AppBuilder/core/dataFields/ABFieldCalculateCore.js ***!
   \*******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABFieldCalculateCore)
 /* harmony export */ });
-/* harmony import */ var _platform_dataFields_ABField__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/dataFields/ABField */ 38817);
+/* harmony import */ var _platform_dataFields_ABField__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/dataFields/ABField */ 88958);
 /*
  * ABFieldCalculate
  *
@@ -17795,20 +17782,20 @@ class ABFieldCalculateCore extends _platform_dataFields_ABField__WEBPACK_IMPORTE
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 84898:
+/***/ 46426
 /*!*****************************************************************!*\
   !*** ./src/js/AppBuilder/core/dataFields/ABFieldCombineCore.js ***!
   \*****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABFieldCombineCore)
 /* harmony export */ });
-/* harmony import */ var _platform_dataFields_ABField__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/dataFields/ABField */ 38817);
+/* harmony import */ var _platform_dataFields_ABField__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/dataFields/ABField */ 88958);
 /*
  * ABFieldCombine
  *
@@ -17967,20 +17954,20 @@ class ABFieldCombineCore extends _platform_dataFields_ABField__WEBPACK_IMPORTED_
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 65129:
+/***/ 92465
 /*!*****************************************************************!*\
   !*** ./src/js/AppBuilder/core/dataFields/ABFieldConnectCore.js ***!
   \*****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABFieldConnectCore)
 /* harmony export */ });
-/* harmony import */ var _platform_dataFields_ABField__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/dataFields/ABField */ 38817);
+/* harmony import */ var _platform_dataFields_ABField__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/dataFields/ABField */ 88958);
 /*
  * ABFieldConnect
  *
@@ -18441,20 +18428,20 @@ class ABFieldConnectCore extends _platform_dataFields_ABField__WEBPACK_IMPORTED_
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 81314:
+/***/ 28405
 /*!**********************************************************!*\
   !*** ./src/js/AppBuilder/core/dataFields/ABFieldCore.js ***!
   \**********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABFieldCore)
 /* harmony export */ });
-/* harmony import */ var _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/ABMLClass */ 46148);
+/* harmony import */ var _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/ABMLClass */ 18135);
 /*
  * ABFieldCore
  *
@@ -18814,13 +18801,13 @@ class ABFieldCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_0__["defa
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 60437:
+/***/ 67249
 /*!**************************************************************!*\
   !*** ./src/js/AppBuilder/core/dataFields/ABFieldDateCore.js ***!
   \**************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -18828,7 +18815,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   RegEx: () => (/* binding */ RegEx),
 /* harmony export */   "default": () => (/* binding */ ABFieldDateCore)
 /* harmony export */ });
-/* harmony import */ var _platform_dataFields_ABField__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/dataFields/ABField */ 38817);
+/* harmony import */ var _platform_dataFields_ABField__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/dataFields/ABField */ 88958);
 /*
  * ABFieldDate
  *
@@ -19280,13 +19267,13 @@ const RegEx = "^[0-9]{4}-[0-9]{2}-[0-9]{2}$";
 
 
 
-/***/ }),
+/***/ },
 
-/***/ 81973:
+/***/ 19976
 /*!******************************************************************!*\
   !*** ./src/js/AppBuilder/core/dataFields/ABFieldDateTimeCore.js ***!
   \******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -19294,7 +19281,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   RegEx: () => (/* binding */ RegEx),
 /* harmony export */   "default": () => (/* binding */ ABFieldDateTimeCore)
 /* harmony export */ });
-/* harmony import */ var _ABFieldDateCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABFieldDateCore */ 60437);
+/* harmony import */ var _ABFieldDateCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABFieldDateCore */ 67249);
 /*
  * ABFieldDateTime
  *
@@ -19515,20 +19502,20 @@ const RegEx = "^[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}$";
 
 
 
-/***/ }),
+/***/ },
 
-/***/ 79009:
+/***/ 75983
 /*!***************************************************************!*\
   !*** ./src/js/AppBuilder/core/dataFields/ABFieldEmailCore.js ***!
   \***************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABFieldEmailCore)
 /* harmony export */ });
-/* harmony import */ var _platform_dataFields_ABField__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/dataFields/ABField */ 38817);
+/* harmony import */ var _platform_dataFields_ABField__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/dataFields/ABField */ 88958);
 /*
  * ABFieldEmail
  *
@@ -19663,20 +19650,20 @@ class ABFieldEmailCore extends _platform_dataFields_ABField__WEBPACK_IMPORTED_MO
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 27007:
+/***/ 76323
 /*!**************************************************************!*\
   !*** ./src/js/AppBuilder/core/dataFields/ABFieldFileCore.js ***!
   \**************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABFieldFileCore)
 /* harmony export */ });
-/* harmony import */ var _platform_dataFields_ABField__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/dataFields/ABField */ 38817);
+/* harmony import */ var _platform_dataFields_ABField__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/dataFields/ABField */ 88958);
 /*
  * ABFieldFile
  *
@@ -19864,20 +19851,20 @@ class ABFieldFileCore extends _platform_dataFields_ABField__WEBPACK_IMPORTED_MOD
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 25174:
+/***/ 35485
 /*!*****************************************************************!*\
   !*** ./src/js/AppBuilder/core/dataFields/ABFieldFormulaCore.js ***!
   \*****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABFieldFormulaCore)
 /* harmony export */ });
-/* harmony import */ var _platform_dataFields_ABField__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/dataFields/ABField */ 38817);
+/* harmony import */ var _platform_dataFields_ABField__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/dataFields/ABField */ 88958);
 /*
  * ABFieldFormula
  *
@@ -20166,20 +20153,20 @@ class ABFieldFormulaCore extends _platform_dataFields_ABField__WEBPACK_IMPORTED_
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 33693:
+/***/ 12938
 /*!***************************************************************!*\
   !*** ./src/js/AppBuilder/core/dataFields/ABFieldImageCore.js ***!
   \***************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABFieldImageCore)
 /* harmony export */ });
-/* harmony import */ var _platform_dataFields_ABField__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/dataFields/ABField */ 38817);
+/* harmony import */ var _platform_dataFields_ABField__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/dataFields/ABField */ 88958);
 /*
  * ABFieldImageCore
  *
@@ -20320,20 +20307,20 @@ class ABFieldImageCore extends _platform_dataFields_ABField__WEBPACK_IMPORTED_MO
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 23158:
+/***/ 67459
 /*!**************************************************************!*\
   !*** ./src/js/AppBuilder/core/dataFields/ABFieldJsonCore.js ***!
   \**************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABFieldJsonCore)
 /* harmony export */ });
-/* harmony import */ var _platform_dataFields_ABField__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/dataFields/ABField */ 38817);
+/* harmony import */ var _platform_dataFields_ABField__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/dataFields/ABField */ 88958);
 /*
  * ABFieldJson
  *
@@ -20426,20 +20413,20 @@ class ABFieldJsonCore extends _platform_dataFields_ABField__WEBPACK_IMPORTED_MOD
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 75124:
+/***/ 2793
 /*!**************************************************************!*\
   !*** ./src/js/AppBuilder/core/dataFields/ABFieldListCore.js ***!
   \**************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABFieldListCore)
 /* harmony export */ });
-/* harmony import */ var _platform_dataFields_ABField__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/dataFields/ABField */ 38817);
+/* harmony import */ var _platform_dataFields_ABField__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/dataFields/ABField */ 88958);
 /*
  * ABFieldListCore
  *
@@ -20706,20 +20693,20 @@ class ABFieldListCore extends _platform_dataFields_ABField__WEBPACK_IMPORTED_MOD
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 78557:
+/***/ 3876
 /*!******************************************************************!*\
   !*** ./src/js/AppBuilder/core/dataFields/ABFieldLongTextCore.js ***!
   \******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABFieldLongText)
 /* harmony export */ });
-/* harmony import */ var _platform_dataFields_ABField__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/dataFields/ABField */ 38817);
+/* harmony import */ var _platform_dataFields_ABField__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/dataFields/ABField */ 88958);
 /*
  * ABFieldLongText
  *
@@ -20924,20 +20911,20 @@ class ABFieldLongText extends _platform_dataFields_ABField__WEBPACK_IMPORTED_MOD
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 76410:
+/***/ 23800
 /*!****************************************************************!*\
   !*** ./src/js/AppBuilder/core/dataFields/ABFieldNumberCore.js ***!
   \****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABFieldNumberCore)
 /* harmony export */ });
-/* harmony import */ var _platform_dataFields_ABField__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/dataFields/ABField */ 38817);
+/* harmony import */ var _platform_dataFields_ABField__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/dataFields/ABField */ 88958);
 /*
  * ABFieldNumber
  *
@@ -21331,20 +21318,20 @@ class ABFieldNumberCore extends _platform_dataFields_ABField__WEBPACK_IMPORTED_M
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 44955:
+/***/ 55808
 /*!****************************************************************!*\
   !*** ./src/js/AppBuilder/core/dataFields/ABFieldStringCore.js ***!
   \****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABFieldStringCore)
 /* harmony export */ });
-/* harmony import */ var _platform_dataFields_ABField__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/dataFields/ABField */ 38817);
+/* harmony import */ var _platform_dataFields_ABField__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/dataFields/ABField */ 88958);
 /*
  * ABFieldString
  *
@@ -21546,20 +21533,20 @@ class ABFieldStringCore extends _platform_dataFields_ABField__WEBPACK_IMPORTED_M
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 82361:
+/***/ 31528
 /*!*********************************************************************!*\
   !*** ./src/js/AppBuilder/core/dataFields/ABFieldTextFormulaCore.js ***!
   \*********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABFieldTextFormulaCore)
 /* harmony export */ });
-/* harmony import */ var _platform_dataFields_ABField__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/dataFields/ABField */ 38817);
+/* harmony import */ var _platform_dataFields_ABField__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/dataFields/ABField */ 88958);
 /*
  * ABFieldTextFormula
  *
@@ -22291,20 +22278,20 @@ class ABFieldTextFormulaCore extends _platform_dataFields_ABField__WEBPACK_IMPOR
 // }
 
 
-/***/ }),
+/***/ },
 
-/***/ 13299:
+/***/ 41349
 /*!**************************************************************!*\
   !*** ./src/js/AppBuilder/core/dataFields/ABFieldTreeCore.js ***!
   \**************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABFieldTreeCore)
 /* harmony export */ });
-/* harmony import */ var _platform_dataFields_ABFieldSelectivity__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/dataFields/ABFieldSelectivity */ 55522);
+/* harmony import */ var _platform_dataFields_ABFieldSelectivity__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/dataFields/ABFieldSelectivity */ 82905);
 /*
  * ABFieldTreeCore
  *
@@ -22457,20 +22444,20 @@ class ABFieldTreeCore extends _platform_dataFields_ABFieldSelectivity__WEBPACK_I
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 75498:
+/***/ 81490
 /*!**************************************************************!*\
   !*** ./src/js/AppBuilder/core/dataFields/ABFieldUserCore.js ***!
   \**************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABFieldUserCore)
 /* harmony export */ });
-/* harmony import */ var _platform_dataFields_ABFieldConnect__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/dataFields/ABFieldConnect */ 30289);
+/* harmony import */ var _platform_dataFields_ABFieldConnect__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/dataFields/ABFieldConnect */ 95578);
 /*
  * ABFieldUser
  *
@@ -22604,20 +22591,20 @@ class ABFieldUserCore extends _platform_dataFields_ABFieldConnect__WEBPACK_IMPOR
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 30654:
+/***/ 94523
 /*!***********************************************************!*\
   !*** ./src/js/AppBuilder/core/mobile/ABMobilePageCore.js ***!
   \***********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABMobilePageCore)
 /* harmony export */ });
-/* harmony import */ var _platform_mobile_ABMobileView__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileView */ 53349);
+/* harmony import */ var _platform_mobile_ABMobileView__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileView */ 99618);
 /*
  * ABMobilePageCore
  *
@@ -23094,20 +23081,20 @@ class ABMobilePageCore extends _platform_mobile_ABMobileView__WEBPACK_IMPORTED_M
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 69999:
+/***/ 23993
 /*!***********************************************************!*\
   !*** ./src/js/AppBuilder/core/mobile/ABMobileViewCore.js ***!
   \***********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABMobileViewCore)
 /* harmony export */ });
-/* harmony import */ var _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/ABMLClass */ 46148);
+/* harmony import */ var _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/ABMLClass */ 18135);
 /*
  * ABViewCore
  *
@@ -24088,20 +24075,20 @@ class ABMobileViewCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_0__[
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 25538:
+/***/ 34362
 /*!*****************************************************************!*\
   !*** ./src/js/AppBuilder/core/mobile/ABMobileViewCustomCore.js ***!
   \*****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABViewCustomCore)
 /* harmony export */ });
-/* harmony import */ var _platform_mobile_ABMobileView__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileView */ 53349);
+/* harmony import */ var _platform_mobile_ABMobileView__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileView */ 99618);
 
 
 const ABViewCustomPropertyComponentDefaults = {
@@ -24162,20 +24149,20 @@ class ABViewCustomCore extends _platform_mobile_ABMobileView__WEBPACK_IMPORTED_M
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 74455:
+/***/ 77155
 /*!*********************************************************************!*\
   !*** ./src/js/AppBuilder/core/mobile/ABMobileViewFormButtonCore.js ***!
   \*********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABMobileViewFormButtonCore)
 /* harmony export */ });
-/* harmony import */ var _platform_mobile_ABMobileView__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileView */ 53349);
+/* harmony import */ var _platform_mobile_ABMobileView__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileView */ 99618);
 
 
 const ABViewFormButtonPropertyComponentDefaults = {
@@ -24296,20 +24283,20 @@ class ABMobileViewFormButtonCore extends _platform_mobile_ABMobileView__WEBPACK_
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 52670:
+/***/ 3898
 /*!***********************************************************************!*\
   !*** ./src/js/AppBuilder/core/mobile/ABMobileViewFormCheckboxCore.js ***!
   \***********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABMobileViewFormCheckboxCore)
 /* harmony export */ });
-/* harmony import */ var _platform_mobile_ABMobileViewFormItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem */ 3199);
+/* harmony import */ var _platform_mobile_ABMobileViewFormItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem */ 62155);
 
 
 const ABMobileViewFormCheckboxPropertyComponentDefaults = {};
@@ -24340,20 +24327,20 @@ class ABMobileViewFormCheckboxCore extends _platform_mobile_ABMobileViewFormItem
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 55866:
+/***/ 77735
 /*!**********************************************************************!*\
   !*** ./src/js/AppBuilder/core/mobile/ABMobileViewFormConnectCore.js ***!
   \**********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABMobileViewFormConnectCore)
 /* harmony export */ });
-/* harmony import */ var _platform_mobile_ABMobileViewFormItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem */ 3199);
+/* harmony import */ var _platform_mobile_ABMobileViewFormItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem */ 62155);
 
 
 const ABMobileViewFormConnectPropertyComponentDefaults = {
@@ -24411,22 +24398,22 @@ class ABMobileViewFormConnectCore extends _platform_mobile_ABMobileViewFormItem_
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 97835:
+/***/ 53835
 /*!***************************************************************!*\
   !*** ./src/js/AppBuilder/core/mobile/ABMobileViewFormCore.js ***!
   \***************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABMobileViewFormCore)
 /* harmony export */ });
-/* harmony import */ var _platform_mobile_ABMobileView__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileView */ 53349);
-/* harmony import */ var _rules_ABViewRuleListFormRecordRules__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../rules/ABViewRuleListFormRecordRules */ 35924);
-/* harmony import */ var _rules_ABViewRuleListFormSubmitRules__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../rules/ABViewRuleListFormSubmitRules */ 48828);
+/* harmony import */ var _platform_mobile_ABMobileView__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileView */ 99618);
+/* harmony import */ var _rules_ABViewRuleListFormRecordRules__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../rules/ABViewRuleListFormRecordRules */ 59243);
+/* harmony import */ var _rules_ABViewRuleListFormSubmitRules__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../rules/ABViewRuleListFormSubmitRules */ 98440);
 
 // const ABMobileViewFormItem = require("../../platform/mobile/ABMobileViewFormItem");
 
@@ -24687,20 +24674,20 @@ class ABMobileViewFormCore extends _platform_mobile_ABMobileView__WEBPACK_IMPORT
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 37089:
+/***/ 75664
 /*!*********************************************************************!*\
   !*** ./src/js/AppBuilder/core/mobile/ABMobileViewFormCustomCore.js ***!
   \*********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABMobileViewFormCustomCore)
 /* harmony export */ });
-/* harmony import */ var _platform_mobile_ABMobileViewFormItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem */ 3199);
+/* harmony import */ var _platform_mobile_ABMobileViewFormItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem */ 62155);
 
 
 const ABViewFormCustomPropertyComponentDefaults = {};
@@ -24734,20 +24721,20 @@ class ABMobileViewFormCustomCore extends _platform_mobile_ABMobileViewFormItem__
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 30483:
+/***/ 37607
 /*!*******************************************************************!*\
   !*** ./src/js/AppBuilder/core/mobile/ABMobileViewFormDateCore.js ***!
   \*******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABMobileViewFormDatepickerCore)
 /* harmony export */ });
-/* harmony import */ var _platform_mobile_ABMobileViewFormItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem */ 3199);
+/* harmony import */ var _platform_mobile_ABMobileViewFormItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem */ 62155);
 
 
 const ABMobileViewFormDatepickerPropertyComponentDefaults = {
@@ -24784,20 +24771,20 @@ class ABMobileViewFormDatepickerCore extends _platform_mobile_ABMobileViewFormIt
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 41098:
+/***/ 52838
 /*!***********************************************************************!*\
   !*** ./src/js/AppBuilder/core/mobile/ABMobileViewFormDatetimeCore.js ***!
   \***********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABMobileViewFormDatetimeCore)
 /* harmony export */ });
-/* harmony import */ var _platform_mobile_ABMobileViewFormItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem */ 3199);
+/* harmony import */ var _platform_mobile_ABMobileViewFormItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem */ 62155);
 
 
 const ABMobileViewFormDatetimePropertyComponentDefaults = {
@@ -24834,20 +24821,20 @@ class ABMobileViewFormDatetimeCore extends _platform_mobile_ABMobileViewFormItem
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 31508:
+/***/ 94033
 /*!********************************************************************!*\
   !*** ./src/js/AppBuilder/core/mobile/ABMobileViewFormEmailCore.js ***!
   \********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABMobileViewFormEmailCore)
 /* harmony export */ });
-/* harmony import */ var _platform_mobile_ABMobileViewFormItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem */ 3199);
+/* harmony import */ var _platform_mobile_ABMobileViewFormItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem */ 62155);
 
 
 const ABMobileViewFormEmailPropertyComponentDefaults = {
@@ -24884,20 +24871,20 @@ class ABMobileViewFormEmailCore extends _platform_mobile_ABMobileViewFormItem__W
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 37206:
+/***/ 57925
 /*!*******************************************************************!*\
   !*** ./src/js/AppBuilder/core/mobile/ABMobileViewFormFileCore.js ***!
   \*******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABMobileViewFormFileCore)
 /* harmony export */ });
-/* harmony import */ var _platform_mobile_ABMobileViewFormItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem */ 3199);
+/* harmony import */ var _platform_mobile_ABMobileViewFormItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem */ 62155);
 
 
 const ABViewFormFilePropertyComponentDefaults = {};
@@ -24931,20 +24918,20 @@ class ABMobileViewFormFileCore extends _platform_mobile_ABMobileViewFormItem__WE
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 9462:
+/***/ 16027
 /*!**********************************************************************!*\
   !*** ./src/js/AppBuilder/core/mobile/ABMobileViewFormFormulaCore.js ***!
   \**********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABMobileViewFormFormulaCore)
 /* harmony export */ });
-/* harmony import */ var _platform_mobile_ABMobileViewFormItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem */ 3199);
+/* harmony import */ var _platform_mobile_ABMobileViewFormItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem */ 62155);
 
 
 const ABViewFormFormulaPropertyComponentDefaults = {};
@@ -24978,20 +24965,20 @@ class ABMobileViewFormFormulaCore extends _platform_mobile_ABMobileViewFormItem_
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 37238:
+/***/ 75032
 /*!********************************************************************!*\
   !*** ./src/js/AppBuilder/core/mobile/ABMobileViewFormImageCore.js ***!
   \********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABMobileViewFormImageCore)
 /* harmony export */ });
-/* harmony import */ var _platform_mobile_ABMobileViewFormFile__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormFile */ 94298);
+/* harmony import */ var _platform_mobile_ABMobileViewFormFile__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormFile */ 46702);
 
 
 const ABViewFormImagePropertyComponentDefaults = {};
@@ -25025,20 +25012,20 @@ class ABMobileViewFormImageCore extends _platform_mobile_ABMobileViewFormFile__W
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 95927:
+/***/ 84348
 /*!*******************************************************************!*\
   !*** ./src/js/AppBuilder/core/mobile/ABMobileViewFormItemCore.js ***!
   \*******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABMobileViewFormItemCore)
 /* harmony export */ });
-/* harmony import */ var _platform_mobile_ABMobileView__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileView */ 53349);
+/* harmony import */ var _platform_mobile_ABMobileView__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileView */ 99618);
 
 
 const ABViewFormFieldPropertyComponentDefaults = {
@@ -25100,20 +25087,20 @@ class ABMobileViewFormItemCore extends _platform_mobile_ABMobileView__WEBPACK_IM
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 75410:
+/***/ 1514
 /*!*********************************************************************!*\
   !*** ./src/js/AppBuilder/core/mobile/ABMobileViewFormNumberCore.js ***!
   \*********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABMobileViewFormNumberCore)
 /* harmony export */ });
-/* harmony import */ var _platform_mobile_ABMobileViewFormItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem */ 3199);
+/* harmony import */ var _platform_mobile_ABMobileViewFormItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem */ 62155);
 
 
 const ABMobileViewFormNumberPropertyComponentDefaults = {
@@ -25184,20 +25171,20 @@ class ABMobileViewFormNumberCore extends _platform_mobile_ABMobileViewFormItem__
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 43002:
+/***/ 93529
 /*!***********************************************************************!*\
   !*** ./src/js/AppBuilder/core/mobile/ABMobileViewFormReadonlyCore.js ***!
   \***********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABMobileViewFormReadonly)
 /* harmony export */ });
-/* harmony import */ var _platform_mobile_ABMobileViewFormCustom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormCustom */ 88358);
+/* harmony import */ var _platform_mobile_ABMobileViewFormCustom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormCustom */ 47447);
 
 
 const ABMobileViewFormReadonlyPropertyComponentDefaults = {};
@@ -25228,20 +25215,20 @@ class ABMobileViewFormReadonly extends _platform_mobile_ABMobileViewFormCustom__
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 18061:
+/***/ 96783
 /*!*****************************************************************************!*\
   !*** ./src/js/AppBuilder/core/mobile/ABMobileViewFormSelectMultipleCore.js ***!
   \*****************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABMobileViewFormSelectMultipleCore)
 /* harmony export */ });
-/* harmony import */ var _platform_mobile_ABMobileViewFormSelectSingle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormSelectSingle */ 88001);
+/* harmony import */ var _platform_mobile_ABMobileViewFormSelectSingle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormSelectSingle */ 53800);
 
 
 const ABMobileViewFormSelectMultiplePropertyComponentDefaults = {
@@ -25274,20 +25261,20 @@ class ABMobileViewFormSelectMultipleCore extends _platform_mobile_ABMobileViewFo
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 10807:
+/***/ 44451
 /*!***************************************************************************!*\
   !*** ./src/js/AppBuilder/core/mobile/ABMobileViewFormSelectSingleCore.js ***!
   \***************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABMobileViewFormSelectSingleCore)
 /* harmony export */ });
-/* harmony import */ var _platform_mobile_ABMobileViewFormItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem */ 3199);
+/* harmony import */ var _platform_mobile_ABMobileViewFormItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem */ 62155);
 
 
 const ABMobileViewFormSelectSinglePropertyComponentDefaults = {
@@ -25320,20 +25307,20 @@ class ABMobileViewFormSelectSingleCore extends _platform_mobile_ABMobileViewForm
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 10048:
+/***/ 1301
 /*!**********************************************************************!*\
   !*** ./src/js/AppBuilder/core/mobile/ABMobileViewFormTextboxCore.js ***!
   \**********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABMobileViewFormTextboxCore)
 /* harmony export */ });
-/* harmony import */ var _platform_mobile_ABMobileViewFormItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem */ 3199);
+/* harmony import */ var _platform_mobile_ABMobileViewFormItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileViewFormItem */ 62155);
 
 
 const ABViewFormTextboxPropertyComponentDefaults = {
@@ -25381,20 +25368,20 @@ class ABMobileViewFormTextboxCore extends _platform_mobile_ABMobileViewFormItem_
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 35272:
+/***/ 52945
 /*!****************************************************************!*\
   !*** ./src/js/AppBuilder/core/mobile/ABMobileViewLabelCore.js ***!
   \****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABMobileViewLabelCore)
 /* harmony export */ });
-/* harmony import */ var _platform_mobile_ABMobileView__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileView */ 53349);
+/* harmony import */ var _platform_mobile_ABMobileView__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileView */ 99618);
 
 
 const ABViewLabelPropertyComponentDefaults = {
@@ -25503,20 +25490,20 @@ class ABMobileViewLabelCore extends _platform_mobile_ABMobileView__WEBPACK_IMPOR
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 26218:
+/***/ 44157
 /*!***************************************************************!*\
   !*** ./src/js/AppBuilder/core/mobile/ABMobileViewListCore.js ***!
   \***************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABViewListCore)
 /* harmony export */ });
-/* harmony import */ var _platform_mobile_ABMobileView__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileView */ 53349);
+/* harmony import */ var _platform_mobile_ABMobileView__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileView */ 99618);
 
 
 const ABViewListPropertyComponentDefaults = {
@@ -25577,20 +25564,20 @@ class ABViewListCore extends _platform_mobile_ABMobileView__WEBPACK_IMPORTED_MOD
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 63445:
+/***/ 46418
 /*!*******************************************************************!*\
   !*** ./src/js/AppBuilder/core/mobile/ABMobileViewTimelineCore.js ***!
   \*******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABViewTimelineCore)
 /* harmony export */ });
-/* harmony import */ var _platform_mobile_ABMobileView__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileView */ 53349);
+/* harmony import */ var _platform_mobile_ABMobileView__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/mobile/ABMobileView */ 99618);
 
 
 const ABViewTimelinePropertyComponentDefaults = {
@@ -25651,20 +25638,20 @@ class ABViewTimelineCore extends _platform_mobile_ABMobileView__WEBPACK_IMPORTED
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 46446:
+/***/ 6994
 /*!*************************************************************!*\
   !*** ./src/js/AppBuilder/core/process/ABProcessLaneCore.js ***!
   \*************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABProcessLaneCore)
 /* harmony export */ });
-/* harmony import */ var _platform_process_ABProcessParticipant__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/process/ABProcessParticipant */ 74843);
+/* harmony import */ var _platform_process_ABProcessParticipant__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/process/ABProcessParticipant */ 31470);
 /**
  * ABProcessLane
  * manages the lanes in a Process Diagram.
@@ -25742,20 +25729,20 @@ class ABProcessLaneCore extends _platform_process_ABProcessParticipant__WEBPACK_
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 71206:
+/***/ 22141
 /*!********************************************************************!*\
   !*** ./src/js/AppBuilder/core/process/ABProcessParticipantCore.js ***!
   \********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABProcessParticipantCore)
 /* harmony export */ });
-/* harmony import */ var _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/ABMLClass */ 46148);
+/* harmony import */ var _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/ABMLClass */ 18135);
 /**
  * ABProcessParticipant
  * manages the participant lanes in a Process Diagram.
@@ -25917,13 +25904,13 @@ class ABProcessParticipantCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MOD
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 83316:
+/***/ 91439
 /*!****************************************************************!*\
   !*** ./src/js/AppBuilder/core/process/ABProcessTaskManager.js ***!
   \****************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
@@ -25956,27 +25943,27 @@ var Tasks = {};
 var DEFINITIONTYPES = {};
 
 var AllProcessElements = [
-   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessEnd */ 76975)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessGatewayExclusive */ 33401)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskEmail */ 21297)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskService */ 66859)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskServiceAccountingBatchProcessing */ 55048)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskServiceAccountingFPClose */ 29084)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskServiceAccountingFPYearClose */ 26575)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskServiceAccountingJEArchive */ 87512)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskServiceApi */ 29604)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskServiceCalculate */ 77855)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskServiceInsertRecord */ 22641)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskServiceQuery */ 76061)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskServiceGetResetPasswordUrl */ 47995)),
-   await Promise.resolve(/*! import() */).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskSubProcess */ 75175)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskUser */ 67429)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskUserApproval */ 70852)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskUserExternal */ 82659)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskUserForm */ 89476)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTrigger */ 50135)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTriggerLifecycle */ 82712)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTriggerTimer */ 63807)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessEnd */ 60973)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessGatewayExclusive */ 88500)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskEmail */ 41891)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskService */ 23892)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskServiceAccountingBatchProcessing */ 31754)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskServiceAccountingFPClose */ 96587)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskServiceAccountingFPYearClose */ 55484)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskServiceAccountingJEArchive */ 19816)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskServiceApi */ 57062)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskServiceCalculate */ 97870)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskServiceInsertRecord */ 79600)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskServiceQuery */ 22950)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskServiceGetResetPasswordUrl */ 88897)),
+   await Promise.resolve(/*! import() */).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskSubProcess */ 79512)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskUser */ 4580)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskUserApproval */ 62691)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskUserExternal */ 13019)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTaskUserForm */ 93174)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTrigger */ 65856)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTriggerLifecycle */ 50734)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/process/tasks/ABProcessTriggerTimer */ 96175)),
 ];
 
 AllProcessElements.forEach((ELEMENT) => {
@@ -26073,20 +26060,20 @@ AllProcessElements.forEach((ELEMENT) => {
 __webpack_async_result__();
 } catch(e) { __webpack_async_result__(e); } }, 1);
 
-/***/ }),
+/***/ },
 
-/***/ 72935:
+/***/ 71343
 /*!**********************************************************************!*\
   !*** ./src/js/AppBuilder/core/process/tasks/ABProcessElementCore.js ***!
   \**********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABProcessTaskCore)
 /* harmony export */ });
-/* harmony import */ var _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/ABMLClass */ 46148);
+/* harmony import */ var _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/ABMLClass */ 18135);
 
 
 class ABProcessTaskCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_0__["default"] {
@@ -26586,20 +26573,20 @@ class ABProcessTaskCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_0__
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 15728:
+/***/ 54570
 /*!******************************************************************!*\
   !*** ./src/js/AppBuilder/core/process/tasks/ABProcessEndCore.js ***!
   \******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABProcessTaskEndCore)
 /* harmony export */ });
-/* harmony import */ var _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 50138);
+/* harmony import */ var _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 84980);
 
 
 var ABProcessTaskEndDefaults = {
@@ -26707,20 +26694,20 @@ class ABProcessTaskEndCore extends _platform_process_tasks_ABProcessElement_js__
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 89670:
+/***/ 40887
 /*!*******************************************************************************!*\
   !*** ./src/js/AppBuilder/core/process/tasks/ABProcessGatewayExclusiveCore.js ***!
   \*******************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABProcessGatewayExclusiveCore)
 /* harmony export */ });
-/* harmony import */ var _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 50138);
+/* harmony import */ var _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 84980);
 
 
 var ABProcessGatewayExclusiveDefaults = {
@@ -26872,20 +26859,20 @@ class ABProcessGatewayExclusiveCore extends _platform_process_tasks_ABProcessEle
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 95316:
+/***/ 69028
 /*!************************************************************************!*\
   !*** ./src/js/AppBuilder/core/process/tasks/ABProcessTaskEmailCore.js ***!
   \************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABProcessTaskEmailCore)
 /* harmony export */ });
-/* harmony import */ var _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 50138);
+/* harmony import */ var _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 84980);
 // import ABApplication from "./ABApplication"
 // const ABApplication = require("./ABApplication"); // NOTE: change to require()
 
@@ -27030,20 +27017,20 @@ class ABProcessTaskEmailCore extends _platform_process_tasks_ABProcessElement_js
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 80281:
+/***/ 82321
 /*!***************************************************************************************************!*\
   !*** ./src/js/AppBuilder/core/process/tasks/ABProcessTaskServiceAccountingBatchProcessingCore.js ***!
   \***************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ AccountingBatchProcessingCore)
 /* harmony export */ });
-/* harmony import */ var _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 50138);
+/* harmony import */ var _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 84980);
 
 
 var AccountingBatchProcessingDefaults = {
@@ -27207,20 +27194,20 @@ class AccountingBatchProcessingCore extends _platform_process_tasks_ABProcessEle
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 35137:
+/***/ 96484
 /*!*******************************************************************************************!*\
   !*** ./src/js/AppBuilder/core/process/tasks/ABProcessTaskServiceAccountingFPCloseCore.js ***!
   \*******************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ AccountingFPCloseCore)
 /* harmony export */ });
-/* harmony import */ var _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 50138);
+/* harmony import */ var _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 84980);
 
 
 var AccountingFPCloseDefaults = {
@@ -27390,20 +27377,20 @@ class AccountingFPCloseCore extends _platform_process_tasks_ABProcessElement_js_
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 41211:
+/***/ 34687
 /*!***********************************************************************************************!*\
   !*** ./src/js/AppBuilder/core/process/tasks/ABProcessTaskServiceAccountingFPYearCloseCore.js ***!
   \***********************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ AccountingFPYearCloseCore)
 /* harmony export */ });
-/* harmony import */ var _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 50138);
+/* harmony import */ var _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 84980);
 
 
 var AccountingFPYearCloseDefaults = {
@@ -27574,20 +27561,20 @@ class AccountingFPYearCloseCore extends _platform_process_tasks_ABProcessElement
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 96974:
+/***/ 65659
 /*!*********************************************************************************************!*\
   !*** ./src/js/AppBuilder/core/process/tasks/ABProcessTaskServiceAccountingJEArchiveCore.js ***!
   \*********************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ AccountingJEArchiveCore)
 /* harmony export */ });
-/* harmony import */ var _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 50138);
+/* harmony import */ var _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 84980);
 
 
 let AccountingJEArchiveDefaults = {
@@ -27751,20 +27738,20 @@ class AccountingJEArchiveCore extends _platform_process_tasks_ABProcessElement_j
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 76918:
+/***/ 61429
 /*!*****************************************************************************!*\
   !*** ./src/js/AppBuilder/core/process/tasks/ABProcessTaskServiceApiCore.js ***!
   \*****************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ApiTaskCore)
 /* harmony export */ });
-/* harmony import */ var _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 50138);
+/* harmony import */ var _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 84980);
 
 
 let ApiDefaults = {
@@ -27843,20 +27830,20 @@ class ApiTaskCore extends _platform_process_tasks_ABProcessElement_js__WEBPACK_I
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 97286:
+/***/ 13637
 /*!***********************************************************************************!*\
   !*** ./src/js/AppBuilder/core/process/tasks/ABProcessTaskServiceCalculateCore.js ***!
   \***********************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ CalculateTaskCore)
 /* harmony export */ });
-/* harmony import */ var _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 50138);
+/* harmony import */ var _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 84980);
 
 
 let CalculateDefaults = {
@@ -27929,20 +27916,20 @@ class CalculateTaskCore extends _platform_process_tasks_ABProcessElement_js__WEB
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 74351:
+/***/ 55239
 /*!**************************************************************************!*\
   !*** ./src/js/AppBuilder/core/process/tasks/ABProcessTaskServiceCore.js ***!
   \**************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABProcessTaskServiceCore)
 /* harmony export */ });
-/* harmony import */ var _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 50138);
+/* harmony import */ var _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 84980);
 /**
  * ABProcessTaskServiceCore
  *
@@ -28108,20 +28095,20 @@ class ABProcessTaskServiceCore extends _platform_process_tasks_ABProcessElement_
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 25418:
+/***/ 26662
 /*!*********************************************************************************************!*\
   !*** ./src/js/AppBuilder/core/process/tasks/ABProcessTaskServiceGetResetPasswordUrlCore.js ***!
   \*********************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABProcessTaskGetResetPasswordUrlCore)
 /* harmony export */ });
-/* harmony import */ var _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 50138);
+/* harmony import */ var _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 84980);
 // import ABApplication from "./ABApplication"
 // const ABApplication = require("./ABApplication"); // NOTE: change to require()
 
@@ -28188,20 +28175,20 @@ class ABProcessTaskGetResetPasswordUrlCore extends _platform_process_tasks_ABPro
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 45136:
+/***/ 579
 /*!**************************************************************************************!*\
   !*** ./src/js/AppBuilder/core/process/tasks/ABProcessTaskServiceInsertRecordCore.js ***!
   \**************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ InsertRecordCore)
 /* harmony export */ });
-/* harmony import */ var _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 50138);
+/* harmony import */ var _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 84980);
 
 
 let InsertRecordDefaults = {
@@ -28366,13 +28353,13 @@ class InsertRecordCore extends _platform_process_tasks_ABProcessElement_js__WEBP
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 79078:
+/***/ 62757
 /*!*******************************************************************************!*\
   !*** ./src/js/AppBuilder/core/process/tasks/ABProcessTaskServiceQueryCore.js ***!
   \*******************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
@@ -28380,10 +28367,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABProcessTaskServiceQueryCore)
 /* harmony export */ });
-/* harmony import */ var _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 50138);
-/* harmony import */ var _platform_ql_ABQLManager_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../platform/ql/ABQLManager.js */ 66586);
+/* harmony import */ var _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 84980);
+/* harmony import */ var _platform_ql_ABQLManager_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../platform/ql/ABQLManager.js */ 69998);
 var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_platform_ql_ABQLManager_js__WEBPACK_IMPORTED_MODULE_1__]);
-_platform_ql_ABQLManager_js__WEBPACK_IMPORTED_MODULE_1__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
+var __webpack_async_dependencies_result__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
+_platform_ql_ABQLManager_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_async_dependencies_result__[0];
 
 
 
@@ -28533,20 +28521,20 @@ class ABProcessTaskServiceQueryCore extends _platform_process_tasks_ABProcessEle
 __webpack_async_result__();
 } catch(e) { __webpack_async_result__(e); } });
 
-/***/ }),
+/***/ },
 
-/***/ 76987:
+/***/ 87043
 /*!*****************************************************************************!*\
   !*** ./src/js/AppBuilder/core/process/tasks/ABProcessTaskSubProcessCore.js ***!
   \*****************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ SubProcessCore)
 /* harmony export */ });
-/* harmony import */ var _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 50138);
+/* harmony import */ var _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 84980);
 
 
 let SubProcessDefaults = {
@@ -28986,21 +28974,21 @@ class SubProcessCore extends _platform_process_tasks_ABProcessElement_js__WEBPAC
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 45383:
+/***/ 36540
 /*!*******************************************************************************!*\
   !*** ./src/js/AppBuilder/core/process/tasks/ABProcessTaskUserApprovalCore.js ***!
   \*******************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABProcessTaskUserApprovalCore)
 /* harmony export */ });
-/* harmony import */ var _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 50138);
-/* harmony import */ var _platform_dataFields_ABFieldList_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../platform/dataFields/ABFieldList.js */ 23122);
+/* harmony import */ var _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 84980);
+/* harmony import */ var _platform_dataFields_ABFieldList_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../platform/dataFields/ABFieldList.js */ 67666);
 
 
 
@@ -29252,20 +29240,20 @@ class ABProcessTaskUserApprovalCore extends _platform_process_tasks_ABProcessEle
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 29564:
+/***/ 19127
 /*!***********************************************************************!*\
   !*** ./src/js/AppBuilder/core/process/tasks/ABProcessTaskUserCore.js ***!
   \***********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABProcessTaskUserCore)
 /* harmony export */ });
-/* harmony import */ var _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 50138);
+/* harmony import */ var _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 84980);
 /**
  * ABProcessTaskUserCore
  *
@@ -29374,20 +29362,20 @@ class ABProcessTaskUserCore extends _platform_process_tasks_ABProcessElement_js_
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 9879:
+/***/ 55348
 /*!*******************************************************************************!*\
   !*** ./src/js/AppBuilder/core/process/tasks/ABProcessTaskUserExternalCore.js ***!
   \*******************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABProcessTaskUserExternalCore)
 /* harmony export */ });
-/* harmony import */ var _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 50138);
+/* harmony import */ var _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 84980);
 // import ABApplication from "./ABApplication"
 // const ABApplication = require("./ABApplication"); // NOTE: change to require()
 
@@ -29472,20 +29460,20 @@ class ABProcessTaskUserExternalCore extends _platform_process_tasks_ABProcessEle
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 53205:
+/***/ 46389
 /*!***************************************************************************!*\
   !*** ./src/js/AppBuilder/core/process/tasks/ABProcessTaskUserFormCore.js ***!
   \***************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABProcessTaskUserFormCore)
 /* harmony export */ });
-/* harmony import */ var _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 50138);
+/* harmony import */ var _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 84980);
 
 
 const ABProcessTaskUserFormDefaults = {
@@ -29580,20 +29568,20 @@ class ABProcessTaskUserFormCore extends _platform_process_tasks_ABProcessElement
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 63438:
+/***/ 25939
 /*!**********************************************************************!*\
   !*** ./src/js/AppBuilder/core/process/tasks/ABProcessTriggerCore.js ***!
   \**********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABProcessTriggerCore)
 /* harmony export */ });
-/* harmony import */ var _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 50138);
+/* harmony import */ var _platform_process_tasks_ABProcessElement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessElement.js */ 84980);
 
 
 var ABProcessTriggerDefaults = {
@@ -29672,20 +29660,20 @@ class ABProcessTriggerCore extends _platform_process_tasks_ABProcessElement_js__
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 58448:
+/***/ 60581
 /*!*******************************************************************************!*\
   !*** ./src/js/AppBuilder/core/process/tasks/ABProcessTriggerLifecycleCore.js ***!
   \*******************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABProcessTriggerLifecycle)
 /* harmony export */ });
-/* harmony import */ var _platform_process_tasks_ABProcessTrigger_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessTrigger.js */ 50135);
+/* harmony import */ var _platform_process_tasks_ABProcessTrigger_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessTrigger.js */ 65856);
 // import ABApplication from "./ABApplication"
 // const ABApplication = require("./ABApplication"); // NOTE: change to require()
 
@@ -29895,20 +29883,20 @@ class ABProcessTriggerLifecycle extends _platform_process_tasks_ABProcessTrigger
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 14570:
+/***/ 13744
 /*!***************************************************************************!*\
   !*** ./src/js/AppBuilder/core/process/tasks/ABProcessTriggerTimerCore.js ***!
   \***************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABProcessTriggerTimer)
 /* harmony export */ });
-/* harmony import */ var _platform_process_tasks_ABProcessTrigger_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessTrigger.js */ 50135);
+/* harmony import */ var _platform_process_tasks_ABProcessTrigger_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../platform/process/tasks/ABProcessTrigger.js */ 65856);
 
 
 var ABProcessTaskTriggerLifecycleDefaults = {
@@ -30078,20 +30066,20 @@ class ABProcessTriggerTimer extends _platform_process_tasks_ABProcessTrigger_js_
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 95223:
+/***/ 41054
 /*!***********************************************!*\
   !*** ./src/js/AppBuilder/core/ql/ABQLCore.js ***!
   \***********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _platform_ABEmitter__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/ABEmitter */ 4025);
+/* harmony import */ var _platform_ABEmitter__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/ABEmitter */ 73914);
 /*
  * ABQL
  *
@@ -30272,13 +30260,13 @@ class ABQLCore extends _platform_ABEmitter__WEBPACK_IMPORTED_MODULE_0__["default
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ABQLCore);
 
 
-/***/ }),
+/***/ },
 
-/***/ 83854:
+/***/ 86857
 /*!***************************************************!*\
   !*** ./src/js/AppBuilder/core/ql/ABQLFindCore.js ***!
   \***************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
@@ -30286,10 +30274,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _platform_ql_ABQL_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/ql/ABQL.js */ 33262);
-/* harmony import */ var _ABQLSet_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ABQLSet.js */ 71598);
+/* harmony import */ var _platform_ql_ABQL_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/ql/ABQL.js */ 21345);
+/* harmony import */ var _ABQLSet_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ABQLSet.js */ 52501);
 var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_ABQLSet_js__WEBPACK_IMPORTED_MODULE_1__]);
-_ABQLSet_js__WEBPACK_IMPORTED_MODULE_1__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
+var __webpack_async_dependencies_result__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
+_ABQLSet_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_async_dependencies_result__[0];
 /*
  * ABQLFindCore
  *
@@ -30331,13 +30320,13 @@ ABQLFindCore.NextQLOps = _ABQLSet_js__WEBPACK_IMPORTED_MODULE_1__["default"];
 __webpack_async_result__();
 } catch(e) { __webpack_async_result__(e); } });
 
-/***/ }),
+/***/ },
 
-/***/ 43455:
+/***/ 37205
 /*!******************************************************!*\
   !*** ./src/js/AppBuilder/core/ql/ABQLManagerCore.js ***!
   \******************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
@@ -30345,9 +30334,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _platform_ql_ABQLRootObject_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/ql/ABQLRootObject.js */ 93556);
+/* harmony import */ var _platform_ql_ABQLRootObject_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/ql/ABQLRootObject.js */ 10482);
 var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_platform_ql_ABQLRootObject_js__WEBPACK_IMPORTED_MODULE_0__]);
-_platform_ql_ABQLRootObject_js__WEBPACK_IMPORTED_MODULE_0__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
+var __webpack_async_dependencies_result__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
+_platform_ql_ABQLRootObject_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_async_dependencies_result__[0];
 /*
  * ABQLManagerCore
  *
@@ -30401,13 +30391,13 @@ const ABQLManagerCore = {
 __webpack_async_result__();
 } catch(e) { __webpack_async_result__(e); } });
 
-/***/ }),
+/***/ },
 
-/***/ 24325:
+/***/ 38273
 /*!*********************************************************!*\
   !*** ./src/js/AppBuilder/core/ql/ABQLRootObjectCore.js ***!
   \*********************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
@@ -30415,10 +30405,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _platform_ql_ABQL_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/ql/ABQL.js */ 33262);
-/* harmony import */ var _platform_ql_ABQLFind_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../platform/ql/ABQLFind.js */ 88794);
+/* harmony import */ var _platform_ql_ABQL_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/ql/ABQL.js */ 21345);
+/* harmony import */ var _platform_ql_ABQLFind_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../platform/ql/ABQLFind.js */ 9954);
 var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_platform_ql_ABQLFind_js__WEBPACK_IMPORTED_MODULE_1__]);
-_platform_ql_ABQLFind_js__WEBPACK_IMPORTED_MODULE_1__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
+var __webpack_async_dependencies_result__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
+_platform_ql_ABQLFind_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_async_dependencies_result__[0];
 /*
  * ABQLRootObjectCore
  *
@@ -30498,22 +30489,22 @@ ABQLObjectCore.NextQLOps = NextQLOps;
 __webpack_async_result__();
 } catch(e) { __webpack_async_result__(e); } });
 
-/***/ }),
+/***/ },
 
-/***/ 50051:
+/***/ 52745
 /*!**********************************************!*\
   !*** ./src/js/AppBuilder/core/ql/ABQLRow.js ***!
   \**********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _platform_ql_ABQLRowUpdate_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/ql/ABQLRowUpdate.js */ 35011);
-/* harmony import */ var _platform_ql_ABQLRowSave__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../platform/ql/ABQLRowSave */ 83937);
-/* harmony import */ var _platform_ql_ABQLRowPluck__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../platform/ql/ABQLRowPluck */ 87215);
+/* harmony import */ var _platform_ql_ABQLRowUpdate_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/ql/ABQLRowUpdate.js */ 3024);
+/* harmony import */ var _platform_ql_ABQLRowSave__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../platform/ql/ABQLRowSave */ 41180);
+/* harmony import */ var _platform_ql_ABQLRowPluck__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../platform/ql/ABQLRowPluck */ 45244);
 /*
  * ABQLRow
  *
@@ -30529,22 +30520,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ([_platform_ql_ABQLRowUpdate_js__WEBPACK_IMPORTED_MODULE_0__["default"], _platform_ql_ABQLRowSave__WEBPACK_IMPORTED_MODULE_1__["default"], _platform_ql_ABQLRowPluck__WEBPACK_IMPORTED_MODULE_2__["default"]]);
 
 
-/***/ }),
+/***/ },
 
-/***/ 95285:
+/***/ 84471
 /*!*******************************************************!*\
   !*** ./src/js/AppBuilder/core/ql/ABQLRowPluckCore.js ***!
   \*******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _platform_ql_ABQLSetPluck_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/ql/ABQLSetPluck.js */ 66966);
-/* harmony import */ var _platform_ql_ABQLRowUpdate_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../platform/ql/ABQLRowUpdate.js */ 35011);
-/* harmony import */ var _platform_ql_ABQLRowSave_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../platform/ql/ABQLRowSave.js */ 83937);
+/* harmony import */ var _platform_ql_ABQLSetPluck_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/ql/ABQLSetPluck.js */ 96512);
+/* harmony import */ var _platform_ql_ABQLRowUpdate_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../platform/ql/ABQLRowUpdate.js */ 3024);
+/* harmony import */ var _platform_ql_ABQLRowSave_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../platform/ql/ABQLRowSave.js */ 41180);
 /*
 /*
  * ABQLRowPluckCore
@@ -30574,7 +30565,7 @@ class ABQLRowPluckCore extends _platform_ql_ABQLSetPluck_js__WEBPACK_IMPORTED_MO
          case "connectObject":
             if (field.settings.linkType === "many") {
                // NOTE: Could not require("./ABQLSet.js") on the top. It returns an empty object. Why ><
-               const ABQLSet = __webpack_require__(/*! ./ABQLSet.js */ 71598);
+               const ABQLSet = __webpack_require__(/*! ./ABQLSet.js */ 52501);
 
                nextQLOps = ABQLSet;
 
@@ -30597,7 +30588,7 @@ class ABQLRowPluckCore extends _platform_ql_ABQLSetPluck_js__WEBPACK_IMPORTED_MO
                field.settings.isMultiple // may be unnessicary
             ) {
                // NOTE: Could not require("./ABQLSet.js") on the top. It returns an empty object. Why ><
-               const ABQLSet = __webpack_require__(/*! ./ABQLSet.js */ 71598);
+               const ABQLSet = __webpack_require__(/*! ./ABQLSet.js */ 52501);
 
                nextQLOps = ABQLSet;
 
@@ -30634,20 +30625,20 @@ ABQLRowPluckCore.NextQLOps = []; // Static NextQLOps
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ABQLRowPluckCore);
 
 
-/***/ }),
+/***/ },
 
-/***/ 18844:
+/***/ 28335
 /*!******************************************************!*\
   !*** ./src/js/AppBuilder/core/ql/ABQLRowSaveCore.js ***!
   \******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _platform_ql_ABQLSetSave_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/ql/ABQLSetSave.js */ 68879);
+/* harmony import */ var _platform_ql_ABQLSetSave_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/ql/ABQLSetSave.js */ 37368);
 /*
 /*
  * ABQLRowSaveCore
@@ -30669,20 +30660,20 @@ ABQLRowSaveCore.NextQLOps = [];
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ABQLRowSaveCore);
 
 
-/***/ }),
+/***/ },
 
-/***/ 58910:
+/***/ 71347
 /*!********************************************************!*\
   !*** ./src/js/AppBuilder/core/ql/ABQLRowUpdateCore.js ***!
   \********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _platform_ql_ABQL_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/ql/ABQL.js */ 33262);
+/* harmony import */ var _platform_ql_ABQL_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/ql/ABQL.js */ 21345);
 /*
  * ABQLRowUpdateCore
  *
@@ -30724,13 +30715,13 @@ ABQLRowUpdateCore.NextQLOps = [];
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ABQLRowUpdateCore);
 
 
-/***/ }),
+/***/ },
 
-/***/ 71598:
+/***/ 52501
 /*!**********************************************!*\
   !*** ./src/js/AppBuilder/core/ql/ABQLSet.js ***!
   \**********************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
@@ -30747,29 +30738,29 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ([
-   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/ql/ABQLSetFirst.js */ 1454)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/ql/ABQLSetPluck.js */ 66966)),
-   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/ql/ABQLSetSave.js */ 68879)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/ql/ABQLSetFirst.js */ 45104)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/ql/ABQLSetPluck.js */ 96512)),
+   await Promise.all(/*! import() */[__webpack_require__.e("vendors"), __webpack_require__.e("app")]).then(__webpack_require__.bind(__webpack_require__, /*! ../../platform/ql/ABQLSetSave.js */ 37368)),
 ]);
 
 __webpack_async_result__();
 } catch(e) { __webpack_async_result__(e); } }, 1);
 
-/***/ }),
+/***/ },
 
-/***/ 31663:
+/***/ 5276
 /*!*******************************************************!*\
   !*** ./src/js/AppBuilder/core/ql/ABQLSetFirstCore.js ***!
   \*******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _platform_ql_ABQL_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/ql/ABQL.js */ 33262);
-/* harmony import */ var _ABQLRow_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ABQLRow.js */ 50051);
+/* harmony import */ var _platform_ql_ABQL_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/ql/ABQL.js */ 21345);
+/* harmony import */ var _ABQLRow_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ABQLRow.js */ 52745);
 /*
 /*
  * ABQLSetFirstCore
@@ -30803,20 +30794,20 @@ ABQLSetFirstCore.NextQLOps = _ABQLRow_js__WEBPACK_IMPORTED_MODULE_1__["default"]
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ABQLSetFirstCore);
 
 
-/***/ }),
+/***/ },
 
-/***/ 14154:
+/***/ 70667
 /*!*******************************************************!*\
   !*** ./src/js/AppBuilder/core/ql/ABQLSetPluckCore.js ***!
   \*******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _platform_ql_ABQL_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/ql/ABQL.js */ 33262);
+/* harmony import */ var _platform_ql_ABQL_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/ql/ABQL.js */ 21345);
 /*
 /*
  * ABQLSetPluckCore
@@ -30905,20 +30896,20 @@ ABQLSetPluckCore.NextQLOps = [];
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ABQLSetPluckCore);
 
 
-/***/ }),
+/***/ },
 
-/***/ 83044:
+/***/ 35627
 /*!******************************************************!*\
   !*** ./src/js/AppBuilder/core/ql/ABQLSetSaveCore.js ***!
   \******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _platform_ql_ABQL_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/ql/ABQL.js */ 33262);
+/* harmony import */ var _platform_ql_ABQL_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/ql/ABQL.js */ 21345);
 /*
 /*
  * ABQLSetSaveCore
@@ -31007,20 +30998,20 @@ ABQLSetSaveCore.NextQLOps = [];
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ABQLSetSaveCore);
 
 
-/***/ }),
+/***/ },
 
-/***/ 93997:
+/***/ 67150
 /*!*************************************************************!*\
   !*** ./src/js/AppBuilder/core/views/ABViewContainerCore.js ***!
   \*************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABViewContainerCore)
 /* harmony export */ });
-/* harmony import */ var _platform_views_ABView__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/views/ABView */ 69459);
+/* harmony import */ var _platform_views_ABView__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/views/ABView */ 33384);
 /*
  * ABViewContainerCore
  *
@@ -31115,20 +31106,20 @@ class ABViewContainerCore extends _platform_views_ABView__WEBPACK_IMPORTED_MODUL
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 7852:
+/***/ 72267
 /*!****************************************************!*\
   !*** ./src/js/AppBuilder/core/views/ABViewCore.js ***!
   \****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABViewCore)
 /* harmony export */ });
-/* harmony import */ var _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/ABMLClass */ 46148);
+/* harmony import */ var _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/ABMLClass */ 18135);
 /*
  * ABViewCore
  *
@@ -32103,20 +32094,20 @@ class ABViewCore extends _platform_ABMLClass__WEBPACK_IMPORTED_MODULE_0__["defau
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 63255:
+/***/ 38345
 /*!**************************************************************!*\
   !*** ./src/js/AppBuilder/core/views/ABViewDetailItemCore.js ***!
   \**************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABViewDetailItemCore)
 /* harmony export */ });
-/* harmony import */ var _platform_views_ABViewWidget__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/views/ABViewWidget */ 79562);
+/* harmony import */ var _platform_views_ABViewWidget__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/views/ABViewWidget */ 96224);
 
 
 class ABViewDetailItemCore extends _platform_views_ABViewWidget__WEBPACK_IMPORTED_MODULE_0__["default"] {
@@ -32200,20 +32191,20 @@ class ABViewDetailItemCore extends _platform_views_ABViewWidget__WEBPACK_IMPORTE
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 95484:
+/***/ 28002
 /*!************************************************************!*\
   !*** ./src/js/AppBuilder/core/views/ABViewFormItemCore.js ***!
   \************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABViewFormComponentCore)
 /* harmony export */ });
-/* harmony import */ var _platform_views_ABView__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/views/ABView */ 69459);
+/* harmony import */ var _platform_views_ABView__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/views/ABView */ 33384);
 
 
 const ABViewFormFieldPropertyComponentDefaults = {
@@ -32275,20 +32266,20 @@ class ABViewFormComponentCore extends _platform_views_ABView__WEBPACK_IMPORTED_M
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 16605:
+/***/ 98920
 /*!********************************************************!*\
   !*** ./src/js/AppBuilder/core/views/ABViewPageCore.js ***!
   \********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABViewPageCore)
 /* harmony export */ });
-/* harmony import */ var _platform_views_ABViewContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/views/ABViewContainer */ 90669);
+/* harmony import */ var _platform_views_ABViewContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/views/ABViewContainer */ 83657);
 /*
  * ABViewPage
  *
@@ -32762,20 +32753,20 @@ class ABViewPageCore extends _platform_views_ABViewContainer__WEBPACK_IMPORTED_M
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 82218:
+/***/ 45339
 /*!**********************************************************!*\
   !*** ./src/js/AppBuilder/core/views/ABViewWidgetCore.js ***!
   \**********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABViewWidgetCore)
 /* harmony export */ });
-/* harmony import */ var _platform_views_ABView__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/views/ABView */ 69459);
+/* harmony import */ var _platform_views_ABView__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../platform/views/ABView */ 33384);
 
 
 const ABViewDefaults = {
@@ -32828,13 +32819,13 @@ class ABViewWidgetCore extends _platform_views_ABView__WEBPACK_IMPORTED_MODULE_0
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 10285:
+/***/ 70578
 /*!*****************************************************!*\
   !*** ./src/js/AppBuilder/platform/ABApplication.js ***!
   \*****************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
@@ -32842,10 +32833,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABClassApplication)
 /* harmony export */ });
-/* harmony import */ var _core_ABApplicationCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/ABApplicationCore.js */ 71750);
-/* harmony import */ var _views_ABViewPage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./views/ABViewPage */ 22305);
+/* harmony import */ var _core_ABApplicationCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/ABApplicationCore.js */ 34169);
+/* harmony import */ var _views_ABViewPage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./views/ABViewPage */ 85623);
 var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_core_ABApplicationCore_js__WEBPACK_IMPORTED_MODULE_0__]);
-_core_ABApplicationCore_js__WEBPACK_IMPORTED_MODULE_0__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
+var __webpack_async_dependencies_result__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
+_core_ABApplicationCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_async_dependencies_result__[0];
 // const _ = require("lodash");
 
 // prettier-ignore
@@ -33259,13 +33251,13 @@ class ABClassApplication extends _core_ABApplicationCore_js__WEBPACK_IMPORTED_MO
 __webpack_async_result__();
 } catch(e) { __webpack_async_result__(e); } });
 
-/***/ }),
+/***/ },
 
-/***/ 38094:
+/***/ 47520
 /*!***********************************************************!*\
   !*** ./src/js/AppBuilder/platform/ABApplicationMobile.js ***!
   \***********************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
@@ -33273,17 +33265,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABClassApplicationMobile)
 /* harmony export */ });
-/* harmony import */ var _core_ABApplicationMobileCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/ABApplicationMobileCore.js */ 39807);
-/* harmony import */ var _mobile_ABMobilePage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./mobile/ABMobilePage */ 77831);
+/* harmony import */ var _core_ABApplicationMobileCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/ABApplicationMobileCore.js */ 36547);
+/* harmony import */ var _mobile_ABMobilePage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./mobile/ABMobilePage */ 41264);
 var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_core_ABApplicationMobileCore_js__WEBPACK_IMPORTED_MODULE_0__]);
-_core_ABApplicationMobileCore_js__WEBPACK_IMPORTED_MODULE_0__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
-const _ = __webpack_require__(/*! lodash */ 96486);
+var __webpack_async_dependencies_result__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
+_core_ABApplicationMobileCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_async_dependencies_result__[0];
+const _ = __webpack_require__(/*! lodash */ 2543);
 
 // prettier-ignore
 
 
 
-const ABViewManager = __webpack_require__(/*! ./ABViewManager */ 67348);
+const ABViewManager = __webpack_require__(/*! ./ABViewManager */ 46032);
 
 class ABClassApplicationMobile extends _core_ABApplicationMobileCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
    constructor(attributes, AB) {
@@ -33309,20 +33302,20 @@ class ABClassApplicationMobile extends _core_ABApplicationMobileCore_js__WEBPACK
 __webpack_async_result__();
 } catch(e) { __webpack_async_result__(e); } });
 
-/***/ }),
+/***/ },
 
-/***/ 64971:
+/***/ 83483
 /*!***************************************************!*\
   !*** ./src/js/AppBuilder/platform/ABComponent.js ***!
   \***************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABComponent)
 /* harmony export */ });
-/* harmony import */ var _ABEmitter__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABEmitter */ 4025);
+/* harmony import */ var _ABEmitter__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABEmitter */ 73914);
 
 
 // const CustomComponentManager = require("../../webix_custom_components/customComponentManager");
@@ -33489,23 +33482,23 @@ class ABComponent extends _ABEmitter__WEBPACK_IMPORTED_MODULE_0__["default"] {
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 98383:
+/***/ 5910
 /*!********************************************************!*\
   !*** ./src/js/AppBuilder/platform/ABDataCollection.js ***!
   \********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABDataCollection)
 /* harmony export */ });
-/* harmony import */ var _ABObjectQuery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABObjectQuery */ 59545);
-/* harmony import */ var _core_ABDataCollectionCore__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../core/ABDataCollectionCore */ 47621);
-/* harmony import */ var _ABEmitter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ABEmitter */ 4025);
-/* harmony import */ var _ABMobileDC__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ABMobileDC */ 79464);
+/* harmony import */ var _ABObjectQuery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABObjectQuery */ 72253);
+/* harmony import */ var _core_ABDataCollectionCore__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../core/ABDataCollectionCore */ 69581);
+/* harmony import */ var _ABEmitter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ABEmitter */ 73914);
+/* harmony import */ var _ABMobileDC__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ABMobileDC */ 51925);
 
 
 
@@ -34133,20 +34126,20 @@ class ABDataCollection extends _core_ABDataCollectionCore__WEBPACK_IMPORTED_MODU
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 34802:
+/***/ 66811
 /*!****************************************************!*\
   !*** ./src/js/AppBuilder/platform/ABDefinition.js ***!
   \****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABDefinition)
 /* harmony export */ });
-/* harmony import */ var _core_ABDefinitionCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/ABDefinitionCore */ 17953);
+/* harmony import */ var _core_ABDefinitionCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/ABDefinitionCore */ 20044);
 
 
 class ABDefinition extends _core_ABDefinitionCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
@@ -34156,20 +34149,20 @@ class ABDefinition extends _core_ABDefinitionCore__WEBPACK_IMPORTED_MODULE_0__["
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 4025:
+/***/ 73914
 /*!*************************************************!*\
   !*** ./src/js/AppBuilder/platform/ABEmitter.js ***!
   \*************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABEmitter)
 /* harmony export */ });
-/* harmony import */ var eventemitter2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! eventemitter2 */ 56387);
+/* harmony import */ var eventemitter2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! eventemitter2 */ 53011);
 /* harmony import */ var eventemitter2__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(eventemitter2__WEBPACK_IMPORTED_MODULE_0__);
 /**
  * ABEmitter
@@ -34187,20 +34180,20 @@ class ABEmitter extends (eventemitter2__WEBPACK_IMPORTED_MODULE_0___default()) {
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 5701:
+/***/ 18387
 /*!**********************************************!*\
   !*** ./src/js/AppBuilder/platform/ABHint.js ***!
   \**********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABHint)
 /* harmony export */ });
-/* harmony import */ var _core_ABHintCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/ABHintCore */ 36717);
+/* harmony import */ var _core_ABHintCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/ABHintCore */ 34524);
 
 
 class ABHint extends _core_ABHintCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
@@ -34467,20 +34460,20 @@ class ABHint extends _core_ABHintCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 32711:
+/***/ 18316
 /*!***********************************************!*\
   !*** ./src/js/AppBuilder/platform/ABIndex.js ***!
   \***********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABIndex)
 /* harmony export */ });
-/* harmony import */ var _core_ABIndexCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/ABIndexCore */ 59815);
+/* harmony import */ var _core_ABIndexCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/ABIndexCore */ 76567);
 
 
 class ABIndex extends _core_ABIndexCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
@@ -34568,20 +34561,20 @@ class ABIndex extends _core_ABIndexCore__WEBPACK_IMPORTED_MODULE_0__["default"] 
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 46148:
+/***/ 18135
 /*!*************************************************!*\
   !*** ./src/js/AppBuilder/platform/ABMLClass.js ***!
   \*************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABMLClass)
 /* harmony export */ });
-/* harmony import */ var _core_ABMLClassCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/ABMLClassCore */ 90477);
+/* harmony import */ var _core_ABMLClassCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/ABMLClassCore */ 24064);
 /**
  * ABMLClass
  * manage the multilingual information of an instance of a AB Defined Class.
@@ -34691,20 +34684,20 @@ class ABMLClass extends _core_ABMLClassCore__WEBPACK_IMPORTED_MODULE_0__["defaul
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 79464:
+/***/ 51925
 /*!**************************************************!*\
   !*** ./src/js/AppBuilder/platform/ABMobileDC.js ***!
   \**************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABMobileDC)
 /* harmony export */ });
-/* harmony import */ var _ABEmitter__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABEmitter */ 4025);
+/* harmony import */ var _ABEmitter__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABEmitter */ 73914);
 /**
  * ABMobileDC
  *
@@ -35003,20 +34996,20 @@ dc.define("dataFeed", (value, params) => {
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 41637:
+/***/ 15241
 /*!***********************************************!*\
   !*** ./src/js/AppBuilder/platform/ABModel.js ***!
   \***********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABModel)
 /* harmony export */ });
-/* harmony import */ var _core_ABModelCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/ABModelCore */ 312);
+/* harmony import */ var _core_ABModelCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/ABModelCore */ 82214);
 
 
 //
@@ -35627,20 +35620,20 @@ class ABModel extends _core_ABModelCore__WEBPACK_IMPORTED_MODULE_0__["default"] 
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 70558:
+/***/ 39573
 /*!**************************************************!*\
   !*** ./src/js/AppBuilder/platform/ABModelApi.js ***!
   \**************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABModelAPI)
 /* harmony export */ });
-/* harmony import */ var _ABModel__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABModel */ 41637);
+/* harmony import */ var _ABModel__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABModel */ 15241);
 //
 // ABModelAPI
 //
@@ -35723,20 +35716,20 @@ class ABModelAPI extends _ABModel__WEBPACK_IMPORTED_MODULE_0__["default"] {
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 19901:
+/***/ 69420
 /*!**********************************************************!*\
   !*** ./src/js/AppBuilder/platform/ABModelApiNetsuite.js ***!
   \**********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABModelAPINetsuite)
 /* harmony export */ });
-/* harmony import */ var _ABModel__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABModel */ 41637);
+/* harmony import */ var _ABModel__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABModel */ 15241);
 //
 // ABModelAPINetsuite
 //
@@ -35799,20 +35792,20 @@ class ABModelAPINetsuite extends _ABModel__WEBPACK_IMPORTED_MODULE_0__["default"
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 56972:
+/***/ 10557
 /*!****************************************************!*\
   !*** ./src/js/AppBuilder/platform/ABModelQuery.js ***!
   \****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABModelQuery)
 /* harmony export */ });
-/* harmony import */ var _ABModel__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABModel */ 41637);
+/* harmony import */ var _ABModel__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABModel */ 15241);
 //
 // ABModelQuery
 //
@@ -35884,20 +35877,20 @@ class ABModelQuery extends _ABModel__WEBPACK_IMPORTED_MODULE_0__["default"] {
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 83311:
+/***/ 9801
 /*!************************************************!*\
   !*** ./src/js/AppBuilder/platform/ABObject.js ***!
   \************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABObject)
 /* harmony export */ });
-/* harmony import */ var _core_ABObjectCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/ABObjectCore */ 92741);
+/* harmony import */ var _core_ABObjectCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/ABObjectCore */ 79710);
 
 // import ABObjectWorkspaceViewCollection from "./workspaceViews/ABObjectWorkspaceViewCollection";
 
@@ -36680,20 +36673,20 @@ class ABObject extends _core_ABObjectCore__WEBPACK_IMPORTED_MODULE_0__["default"
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 9611:
+/***/ 14389
 /*!***************************************************!*\
   !*** ./src/js/AppBuilder/platform/ABObjectApi.js ***!
   \***************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABObjectApi)
 /* harmony export */ });
-/* harmony import */ var _core_ABObjectApiCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/ABObjectApiCore */ 31549);
+/* harmony import */ var _core_ABObjectApiCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/ABObjectApiCore */ 12626);
 
 
 /**
@@ -36706,20 +36699,20 @@ __webpack_require__.r(__webpack_exports__);
 class ABObjectApi extends _core_ABObjectApiCore__WEBPACK_IMPORTED_MODULE_0__["default"] {}
 
 
-/***/ }),
+/***/ },
 
-/***/ 65506:
+/***/ 27276
 /*!***********************************************************!*\
   !*** ./src/js/AppBuilder/platform/ABObjectApiNetsuite.js ***!
   \***********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABObjectApiNetsuite)
 /* harmony export */ });
-/* harmony import */ var _core_ABObjectApiNetsuiteCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/ABObjectApiNetsuiteCore */ 55336);
+/* harmony import */ var _core_ABObjectApiNetsuiteCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/ABObjectApiNetsuiteCore */ 16359);
 
 
 /**
@@ -36732,20 +36725,20 @@ __webpack_require__.r(__webpack_exports__);
 class ABObjectApiNetsuite extends _core_ABObjectApiNetsuiteCore__WEBPACK_IMPORTED_MODULE_0__["default"] {}
 
 
-/***/ }),
+/***/ },
 
-/***/ 18700:
+/***/ 51926
 /*!********************************************************!*\
   !*** ./src/js/AppBuilder/platform/ABObjectExternal.js ***!
   \********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABObjectExternal)
 /* harmony export */ });
-/* harmony import */ var _ABObject__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABObject */ 83311);
+/* harmony import */ var _ABObject__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABObject */ 9801);
 
 
 /**
@@ -36756,20 +36749,20 @@ __webpack_require__.r(__webpack_exports__);
 class ABObjectExternal extends _ABObject__WEBPACK_IMPORTED_MODULE_0__["default"] {}
 
 
-/***/ }),
+/***/ },
 
-/***/ 94910:
+/***/ 2992
 /*!******************************************************!*\
   !*** ./src/js/AppBuilder/platform/ABObjectImport.js ***!
   \******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABObjectImport)
 /* harmony export */ });
-/* harmony import */ var _ABObject__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABObject */ 83311);
+/* harmony import */ var _ABObject__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABObject */ 9801);
 
 
 /**
@@ -36782,20 +36775,20 @@ __webpack_require__.r(__webpack_exports__);
 class ABObjectImport extends _ABObject__WEBPACK_IMPORTED_MODULE_0__["default"] {}
 
 
-/***/ }),
+/***/ },
 
-/***/ 59545:
+/***/ 72253
 /*!*****************************************************!*\
   !*** ./src/js/AppBuilder/platform/ABObjectQuery.js ***!
   \*****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABObjectQuery)
 /* harmony export */ });
-/* harmony import */ var _core_ABObjectQueryCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/ABObjectQueryCore */ 20391);
+/* harmony import */ var _core_ABObjectQueryCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/ABObjectQueryCore */ 66874);
 //
 // ABObjectQuery
 //
@@ -37152,20 +37145,20 @@ class ABObjectQuery extends _core_ABObjectQueryCore__WEBPACK_IMPORTED_MODULE_0__
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 33046:
+/***/ 55113
 /*!*************************************************!*\
   !*** ./src/js/AppBuilder/platform/ABProcess.js ***!
   \*************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABProcess)
 /* harmony export */ });
-/* harmony import */ var _core_ABProcessCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/ABProcessCore */ 44166);
+/* harmony import */ var _core_ABProcessCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/ABProcessCore */ 61134);
 
 
 class ABProcess extends _core_ABProcessCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
@@ -37428,20 +37421,20 @@ class ABProcess extends _core_ABProcessCore__WEBPACK_IMPORTED_MODULE_0__["defaul
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 81410:
+/***/ 51736
 /*!**********************************************!*\
   !*** ./src/js/AppBuilder/platform/ABStep.js ***!
   \**********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABStep)
 /* harmony export */ });
-/* harmony import */ var _core_ABStepCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/ABStepCore */ 53618);
+/* harmony import */ var _core_ABStepCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/ABStepCore */ 46867);
 
 
 // let L = (...params) => AB.Multilingual.label(...params);
@@ -37635,13 +37628,13 @@ class ABStep extends _core_ABStepCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 67348:
+/***/ 46032
 /*!*****************************************************!*\
   !*** ./src/js/AppBuilder/platform/ABViewManager.js ***!
   \*****************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
@@ -37649,9 +37642,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABViewManager)
 /* harmony export */ });
-/* harmony import */ var _core_ABViewManagerCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/ABViewManagerCore */ 85642);
+/* harmony import */ var _core_ABViewManagerCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/ABViewManagerCore */ 95355);
 var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_core_ABViewManagerCore__WEBPACK_IMPORTED_MODULE_0__]);
-_core_ABViewManagerCore__WEBPACK_IMPORTED_MODULE_0__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
+var __webpack_async_dependencies_result__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
+_core_ABViewManagerCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_async_dependencies_result__[0];
 
 
 class ABViewManager extends _core_ABViewManagerCore__WEBPACK_IMPORTED_MODULE_0__["default"] {}
@@ -37659,40 +37653,40 @@ class ABViewManager extends _core_ABViewManagerCore__WEBPACK_IMPORTED_MODULE_0__
 __webpack_async_result__();
 } catch(e) { __webpack_async_result__(e); } });
 
-/***/ }),
+/***/ },
 
-/***/ 15656:
+/***/ 15102
 /*!***********************************************************!*\
   !*** ./src/js/AppBuilder/platform/ABViewManagerMobile.js ***!
   \***********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABViewManagerMobile)
 /* harmony export */ });
-/* harmony import */ var _core_ABViewManagerMobileCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/ABViewManagerMobileCore */ 40080);
+/* harmony import */ var _core_ABViewManagerMobileCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/ABViewManagerMobileCore */ 43997);
 /* harmony import */ var _core_ABViewManagerMobileCore__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_core_ABViewManagerMobileCore__WEBPACK_IMPORTED_MODULE_0__);
 
 
 class ABViewManagerMobile extends (_core_ABViewManagerMobileCore__WEBPACK_IMPORTED_MODULE_0___default()) {}
 
 
-/***/ }),
+/***/ },
 
-/***/ 10758:
+/***/ 21487
 /*!*****************************************************!*\
   !*** ./src/js/AppBuilder/platform/FilterComplex.js ***!
   \*****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ FilterComplex)
 /* harmony export */ });
-/* harmony import */ var _core_FilterComplexCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/FilterComplexCore */ 89391);
+/* harmony import */ var _core_FilterComplexCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/FilterComplexCore */ 17056);
 
 
 /**
@@ -38616,20 +38610,20 @@ class FilterComplex extends _core_FilterComplexCore__WEBPACK_IMPORTED_MODULE_0__
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 84470:
+/***/ 74567
 /*!*************************************************!*\
   !*** ./src/js/AppBuilder/platform/RowFilter.js ***!
   \*************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ RowFilter)
 /* harmony export */ });
-/* harmony import */ var _core_RowFilterCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/RowFilterCore */ 51509);
+/* harmony import */ var _core_RowFilterCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/RowFilterCore */ 30472);
 
 
 class RowFilter extends _core_RowFilterCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
@@ -39916,20 +39910,20 @@ class RowFilter extends _core_RowFilterCore__WEBPACK_IMPORTED_MODULE_0__["defaul
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 38817:
+/***/ 88958
 /*!**********************************************************!*\
   !*** ./src/js/AppBuilder/platform/dataFields/ABField.js ***!
   \**********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABField)
 /* harmony export */ });
-/* harmony import */ var _core_dataFields_ABFieldCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/dataFields/ABFieldCore */ 81314);
+/* harmony import */ var _core_dataFields_ABFieldCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/dataFields/ABFieldCore */ 28405);
 /*
  * ABField
  *
@@ -40414,20 +40408,20 @@ class ABField extends _core_dataFields_ABFieldCore__WEBPACK_IMPORTED_MODULE_0__[
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 99341:
+/***/ 81533
 /*!*******************************************************************!*\
   !*** ./src/js/AppBuilder/platform/dataFields/ABFieldAutoIndex.js ***!
   \*******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABFieldAutoIndex)
 /* harmony export */ });
-/* harmony import */ var _core_dataFields_ABFieldAutoIndexCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/dataFields/ABFieldAutoIndexCore */ 97177);
+/* harmony import */ var _core_dataFields_ABFieldAutoIndexCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/dataFields/ABFieldAutoIndexCore */ 41450);
 
 
 class ABFieldAutoIndex extends _core_dataFields_ABFieldAutoIndexCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
@@ -40496,20 +40490,20 @@ class ABFieldAutoIndex extends _core_dataFields_ABFieldAutoIndexCore__WEBPACK_IM
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 23126:
+/***/ 85220
 /*!*****************************************************************!*\
   !*** ./src/js/AppBuilder/platform/dataFields/ABFieldBoolean.js ***!
   \*****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABFieldBoolean)
 /* harmony export */ });
-/* harmony import */ var _core_dataFields_ABFieldBooleanCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/dataFields/ABFieldBooleanCore */ 96108);
+/* harmony import */ var _core_dataFields_ABFieldBooleanCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/dataFields/ABFieldBooleanCore */ 36343);
 
 
 class ABFieldBoolean extends _core_dataFields_ABFieldBooleanCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
@@ -40592,20 +40586,20 @@ class ABFieldBoolean extends _core_dataFields_ABFieldBooleanCore__WEBPACK_IMPORT
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 15308:
+/***/ 63300
 /*!*******************************************************************!*\
   !*** ./src/js/AppBuilder/platform/dataFields/ABFieldCalculate.js ***!
   \*******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABFieldCalculate)
 /* harmony export */ });
-/* harmony import */ var _core_dataFields_ABFieldCalculateCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/dataFields/ABFieldCalculateCore */ 69813);
+/* harmony import */ var _core_dataFields_ABFieldCalculateCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/dataFields/ABFieldCalculateCore */ 26183);
 
 
 class ABFieldCalculate extends _core_dataFields_ABFieldCalculateCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
@@ -40671,20 +40665,20 @@ class ABFieldCalculate extends _core_dataFields_ABFieldCalculateCore__WEBPACK_IM
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 71331:
+/***/ 25981
 /*!*****************************************************************!*\
   !*** ./src/js/AppBuilder/platform/dataFields/ABFieldCombine.js ***!
   \*****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABFieldCombine)
 /* harmony export */ });
-/* harmony import */ var _core_dataFields_ABFieldCombineCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/dataFields/ABFieldCombineCore */ 84898);
+/* harmony import */ var _core_dataFields_ABFieldCombineCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/dataFields/ABFieldCombineCore */ 46426);
 
 
 class ABFieldCombine extends _core_dataFields_ABFieldCombineCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
@@ -40767,20 +40761,20 @@ class ABFieldCombine extends _core_dataFields_ABFieldCombineCore__WEBPACK_IMPORT
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 30289:
+/***/ 95578
 /*!*****************************************************************!*\
   !*** ./src/js/AppBuilder/platform/dataFields/ABFieldConnect.js ***!
   \*****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABFieldConnect)
 /* harmony export */ });
-/* harmony import */ var _core_dataFields_ABFieldConnectCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/dataFields/ABFieldConnectCore */ 65129);
+/* harmony import */ var _core_dataFields_ABFieldConnectCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/dataFields/ABFieldConnectCore */ 92465);
 
 
 class ABFieldConnect extends _core_dataFields_ABFieldConnectCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
@@ -41136,11 +41130,8 @@ class ABFieldConnect extends _core_dataFields_ABFieldConnectCore__WEBPACK_IMPORT
                // new, updated or deleted records that should or should not appear
                return false;
                // Get Local Storage unless xxx->one connected field
-               if (this?.settings?.linkViaType != "one") {
-                  // We store the .findAll() results locally and return that for a
-                  // quick response:
-                  return await this.AB.Storage.get(storageID);
-               }
+               // removed by dead control flow
+
             })
             .then(async (storedOptions) => {
                if (storedOptions) {
@@ -41591,20 +41582,20 @@ class ABFieldConnect extends _core_dataFields_ABFieldConnectCore__WEBPACK_IMPORT
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 42405:
+/***/ 97826
 /*!**************************************************************!*\
   !*** ./src/js/AppBuilder/platform/dataFields/ABFieldDate.js ***!
   \**************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABFieldDate)
 /* harmony export */ });
-/* harmony import */ var _core_dataFields_ABFieldDateCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/dataFields/ABFieldDateCore */ 60437);
+/* harmony import */ var _core_dataFields_ABFieldDateCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/dataFields/ABFieldDateCore */ 67249);
 
 
 class ABFieldDate extends _core_dataFields_ABFieldDateCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
@@ -41738,20 +41729,20 @@ class ABFieldDate extends _core_dataFields_ABFieldDateCore__WEBPACK_IMPORTED_MOD
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 68246:
+/***/ 28135
 /*!******************************************************************!*\
   !*** ./src/js/AppBuilder/platform/dataFields/ABFieldDateTime.js ***!
   \******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABFieldDateTime)
 /* harmony export */ });
-/* harmony import */ var _core_dataFields_ABFieldDateTimeCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/dataFields/ABFieldDateTimeCore */ 81973);
+/* harmony import */ var _core_dataFields_ABFieldDateTimeCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/dataFields/ABFieldDateTimeCore */ 19976);
 
 
 class ABFieldDateTime extends _core_dataFields_ABFieldDateTimeCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
@@ -41883,20 +41874,20 @@ class ABFieldDateTime extends _core_dataFields_ABFieldDateTimeCore__WEBPACK_IMPO
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 19387:
+/***/ 16460
 /*!***************************************************************!*\
   !*** ./src/js/AppBuilder/platform/dataFields/ABFieldEmail.js ***!
   \***************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABFieldEmail)
 /* harmony export */ });
-/* harmony import */ var _core_dataFields_ABFieldEmailCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/dataFields/ABFieldEmailCore */ 79009);
+/* harmony import */ var _core_dataFields_ABFieldEmailCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/dataFields/ABFieldEmailCore */ 75983);
 
 
 class ABFieldEmail extends _core_dataFields_ABFieldEmailCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
@@ -41970,20 +41961,20 @@ class ABFieldEmail extends _core_dataFields_ABFieldEmailCore__WEBPACK_IMPORTED_M
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 5833:
+/***/ 84360
 /*!**************************************************************!*\
   !*** ./src/js/AppBuilder/platform/dataFields/ABFieldFile.js ***!
   \**************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABFieldFile)
 /* harmony export */ });
-/* harmony import */ var _core_dataFields_ABFieldFileCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/dataFields/ABFieldFileCore */ 27007);
+/* harmony import */ var _core_dataFields_ABFieldFileCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/dataFields/ABFieldFileCore */ 76323);
 
 
 class ABFieldFile extends _core_dataFields_ABFieldFileCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
@@ -42449,20 +42440,20 @@ class ABFieldFile extends _core_dataFields_ABFieldFileCore__WEBPACK_IMPORTED_MOD
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 54953:
+/***/ 70614
 /*!*****************************************************************!*\
   !*** ./src/js/AppBuilder/platform/dataFields/ABFieldFormula.js ***!
   \*****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABFieldFormula)
 /* harmony export */ });
-/* harmony import */ var _core_dataFields_ABFieldFormulaCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/dataFields/ABFieldFormulaCore */ 25174);
+/* harmony import */ var _core_dataFields_ABFieldFormulaCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/dataFields/ABFieldFormulaCore */ 35485);
 
 
 class ABFieldFormula extends _core_dataFields_ABFieldFormulaCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
@@ -42529,20 +42520,20 @@ class ABFieldFormula extends _core_dataFields_ABFieldFormulaCore__WEBPACK_IMPORT
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 34688:
+/***/ 62549
 /*!***************************************************************!*\
   !*** ./src/js/AppBuilder/platform/dataFields/ABFieldImage.js ***!
   \***************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABFieldImage)
 /* harmony export */ });
-/* harmony import */ var _core_dataFields_ABFieldImageCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/dataFields/ABFieldImageCore */ 33693);
+/* harmony import */ var _core_dataFields_ABFieldImageCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/dataFields/ABFieldImageCore */ 12938);
 
 
 class ABFieldImage extends _core_dataFields_ABFieldImageCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
@@ -43160,20 +43151,20 @@ class ABFieldImage extends _core_dataFields_ABFieldImageCore__WEBPACK_IMPORTED_M
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 7101:
+/***/ 22320
 /*!**************************************************************!*\
   !*** ./src/js/AppBuilder/platform/dataFields/ABFieldJson.js ***!
   \**************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABFieldJson)
 /* harmony export */ });
-/* harmony import */ var _core_dataFields_ABFieldJsonCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/dataFields/ABFieldJsonCore */ 23158);
+/* harmony import */ var _core_dataFields_ABFieldJsonCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/dataFields/ABFieldJsonCore */ 67459);
 
 
 class ABFieldJson extends _core_dataFields_ABFieldJsonCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
@@ -43245,20 +43236,20 @@ class ABFieldJson extends _core_dataFields_ABFieldJsonCore__WEBPACK_IMPORTED_MOD
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 23122:
+/***/ 67666
 /*!**************************************************************!*\
   !*** ./src/js/AppBuilder/platform/dataFields/ABFieldList.js ***!
   \**************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABFieldList)
 /* harmony export */ });
-/* harmony import */ var _core_dataFields_ABFieldListCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/dataFields/ABFieldListCore */ 75124);
+/* harmony import */ var _core_dataFields_ABFieldListCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/dataFields/ABFieldListCore */ 2793);
 
 
 class ABFieldList extends _core_dataFields_ABFieldListCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
@@ -43707,20 +43698,20 @@ function _getSelectedOptions(field, rowData = {}) {
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 33482:
+/***/ 33323
 /*!******************************************************************!*\
   !*** ./src/js/AppBuilder/platform/dataFields/ABFieldLongText.js ***!
   \******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABFieldLongText)
 /* harmony export */ });
-/* harmony import */ var _core_dataFields_ABFieldLongTextCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/dataFields/ABFieldLongTextCore */ 78557);
+/* harmony import */ var _core_dataFields_ABFieldLongTextCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/dataFields/ABFieldLongTextCore */ 3876);
 
 
 class ABFieldLongText extends _core_dataFields_ABFieldLongTextCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
@@ -43821,20 +43812,20 @@ class ABFieldLongText extends _core_dataFields_ABFieldLongTextCore__WEBPACK_IMPO
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 66242:
+/***/ 9271
 /*!****************************************************************!*\
   !*** ./src/js/AppBuilder/platform/dataFields/ABFieldNumber.js ***!
   \****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABFieldNumber)
 /* harmony export */ });
-/* harmony import */ var _core_dataFields_ABFieldNumberCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/dataFields/ABFieldNumberCore */ 76410);
+/* harmony import */ var _core_dataFields_ABFieldNumberCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/dataFields/ABFieldNumberCore */ 23800);
 
 
 let INIT_EDITOR = false;
@@ -43913,20 +43904,20 @@ class ABFieldNumber extends _core_dataFields_ABFieldNumberCore__WEBPACK_IMPORTED
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 55522:
+/***/ 82905
 /*!*********************************************************************!*\
   !*** ./src/js/AppBuilder/platform/dataFields/ABFieldSelectivity.js ***!
   \*********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABFieldSelectivity)
 /* harmony export */ });
-/* harmony import */ var _ABField__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABField */ 38817);
+/* harmony import */ var _ABField__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABField */ 88958);
 /*
  * ABFieldSelectivity
  *
@@ -44286,20 +44277,20 @@ class ABFieldSelectivity extends _ABField__WEBPACK_IMPORTED_MODULE_0__["default"
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 56675:
+/***/ 22215
 /*!****************************************************************!*\
   !*** ./src/js/AppBuilder/platform/dataFields/ABFieldString.js ***!
   \****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABFieldString)
 /* harmony export */ });
-/* harmony import */ var _core_dataFields_ABFieldStringCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/dataFields/ABFieldStringCore */ 44955);
+/* harmony import */ var _core_dataFields_ABFieldStringCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/dataFields/ABFieldStringCore */ 55808);
 
 
 class ABFieldString extends _core_dataFields_ABFieldStringCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
@@ -44422,20 +44413,20 @@ class ABFieldString extends _core_dataFields_ABFieldStringCore__WEBPACK_IMPORTED
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 62817:
+/***/ 12783
 /*!*********************************************************************!*\
   !*** ./src/js/AppBuilder/platform/dataFields/ABFieldTextFormula.js ***!
   \*********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABFieldTextFormula)
 /* harmony export */ });
-/* harmony import */ var _core_dataFields_ABFieldTextFormulaCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/dataFields/ABFieldTextFormulaCore */ 82361);
+/* harmony import */ var _core_dataFields_ABFieldTextFormulaCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/dataFields/ABFieldTextFormulaCore */ 31528);
 
 
 class ABFieldTextFormula extends _core_dataFields_ABFieldTextFormulaCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
@@ -44515,20 +44506,20 @@ class ABFieldTextFormula extends _core_dataFields_ABFieldTextFormulaCore__WEBPAC
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 32001:
+/***/ 22742
 /*!**************************************************************!*\
   !*** ./src/js/AppBuilder/platform/dataFields/ABFieldTree.js ***!
   \**************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABFieldTree)
 /* harmony export */ });
-/* harmony import */ var _core_dataFields_ABFieldTreeCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/dataFields/ABFieldTreeCore */ 13299);
+/* harmony import */ var _core_dataFields_ABFieldTreeCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/dataFields/ABFieldTreeCore */ 41349);
 
 
 class ABFieldTree extends _core_dataFields_ABFieldTreeCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
@@ -44991,21 +44982,21 @@ class ABFieldTree extends _core_dataFields_ABFieldTreeCore__WEBPACK_IMPORTED_MOD
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 21391:
+/***/ 3869
 /*!**************************************************************!*\
   !*** ./src/js/AppBuilder/platform/dataFields/ABFieldUser.js ***!
   \**************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABFieldUser)
 /* harmony export */ });
-/* harmony import */ var _core_dataFields_ABFieldConnectCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/dataFields/ABFieldConnectCore */ 65129);
-/* harmony import */ var _core_dataFields_ABFieldUserCore__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../core/dataFields/ABFieldUserCore */ 75498);
+/* harmony import */ var _core_dataFields_ABFieldConnectCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/dataFields/ABFieldConnectCore */ 92465);
+/* harmony import */ var _core_dataFields_ABFieldUserCore__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../core/dataFields/ABFieldUserCore */ 81490);
 
 
 
@@ -45221,20 +45212,20 @@ class ABFieldUser extends _core_dataFields_ABFieldUserCore__WEBPACK_IMPORTED_MOD
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 77831:
+/***/ 41264
 /*!***********************************************************!*\
   !*** ./src/js/AppBuilder/platform/mobile/ABMobilePage.js ***!
   \***********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABMobilePage)
 /* harmony export */ });
-/* harmony import */ var _core_mobile_ABMobilePageCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobilePageCore */ 30654);
+/* harmony import */ var _core_mobile_ABMobilePageCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobilePageCore */ 94523);
 
 
 class ABMobilePage extends _core_mobile_ABMobilePageCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
@@ -45498,20 +45489,20 @@ class ABMobilePage extends _core_mobile_ABMobilePageCore__WEBPACK_IMPORTED_MODUL
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 53349:
+/***/ 99618
 /*!***********************************************************!*\
   !*** ./src/js/AppBuilder/platform/mobile/ABMobileView.js ***!
   \***********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABMobileView)
 /* harmony export */ });
-/* harmony import */ var _core_mobile_ABMobileViewCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewCore.js */ 69999);
+/* harmony import */ var _core_mobile_ABMobileViewCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewCore.js */ 23993);
 
 
 class ABMobileView extends _core_mobile_ABMobileViewCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
@@ -45633,20 +45624,20 @@ class ABMobileView extends _core_mobile_ABMobileViewCore_js__WEBPACK_IMPORTED_MO
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 95609:
+/***/ 6229
 /*!*****************************************************************!*\
   !*** ./src/js/AppBuilder/platform/mobile/ABMobileViewCustom.js ***!
   \*****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABMobileViewCustom)
 /* harmony export */ });
-/* harmony import */ var _core_mobile_ABMobileViewCustomCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewCustomCore.js */ 25538);
+/* harmony import */ var _core_mobile_ABMobileViewCustomCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewCustomCore.js */ 34362);
 /**
  * ABMobileViewCustom
  * This view allows a developer to create a custom view for their mobile app.
@@ -45730,20 +45721,20 @@ class ABMobileViewCustom extends _core_mobile_ABMobileViewCustomCore_js__WEBPACK
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 55805:
+/***/ 32992
 /*!***************************************************************!*\
   !*** ./src/js/AppBuilder/platform/mobile/ABMobileViewForm.js ***!
   \***************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABMobileViewForm)
 /* harmony export */ });
-/* harmony import */ var _core_mobile_ABMobileViewFormCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormCore.js */ 97835);
+/* harmony import */ var _core_mobile_ABMobileViewFormCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormCore.js */ 53835);
 /**
  * ABMobileViewForm
  * The view that displays a form on the screen.
@@ -46312,20 +46303,20 @@ class ABMobileViewForm extends _core_mobile_ABMobileViewFormCore_js__WEBPACK_IMP
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 50037:
+/***/ 67856
 /*!*********************************************************************!*\
   !*** ./src/js/AppBuilder/platform/mobile/ABMobileViewFormButton.js ***!
   \*********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABMobileViewFormButton)
 /* harmony export */ });
-/* harmony import */ var _core_mobile_ABMobileViewFormButtonCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormButtonCore.js */ 74455);
+/* harmony import */ var _core_mobile_ABMobileViewFormButtonCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormButtonCore.js */ 77155);
 /**
  * ABMobileViewFormButton
  * The view that displays a row of form buttons.
@@ -46451,20 +46442,20 @@ class ABMobileViewFormButton extends _core_mobile_ABMobileViewFormButtonCore_js_
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 92092:
+/***/ 41805
 /*!***********************************************************************!*\
   !*** ./src/js/AppBuilder/platform/mobile/ABMobileViewFormCheckbox.js ***!
   \***********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABMobileViewFormCheckbox)
 /* harmony export */ });
-/* harmony import */ var _core_mobile_ABMobileViewFormCheckboxCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormCheckboxCore */ 52670);
+/* harmony import */ var _core_mobile_ABMobileViewFormCheckboxCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormCheckboxCore */ 3898);
 
 
 class ABMobileViewFormCheckbox extends _core_mobile_ABMobileViewFormCheckboxCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
@@ -46528,22 +46519,22 @@ class ABMobileViewFormCheckbox extends _core_mobile_ABMobileViewFormCheckboxCore
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 2493:
+/***/ 40220
 /*!**********************************************************************!*\
   !*** ./src/js/AppBuilder/platform/mobile/ABMobileViewFormConnect.js ***!
   \**********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABMobileViewFormConnect)
 /* harmony export */ });
-/* harmony import */ var _core_mobile_ABMobileViewFormConnectCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormConnectCore.js */ 55866);
-/* harmony import */ var _ViewFormSelectMultiple_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ViewFormSelectMultiple.js */ 53691);
-/* harmony import */ var _ViewFormSelectSingle_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ViewFormSelectSingle.js */ 61554);
+/* harmony import */ var _core_mobile_ABMobileViewFormConnectCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormConnectCore.js */ 77735);
+/* harmony import */ var _ViewFormSelectMultiple_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ViewFormSelectMultiple.js */ 8769);
+/* harmony import */ var _ViewFormSelectSingle_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ViewFormSelectSingle.js */ 76789);
 /**
  * ABMobileViewFormConnect
  * The view that displays a form textbox on the screen.
@@ -46572,20 +46563,20 @@ class ABMobileViewFormConnect extends _core_mobile_ABMobileViewFormConnectCore_j
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 88358:
+/***/ 47447
 /*!*********************************************************************!*\
   !*** ./src/js/AppBuilder/platform/mobile/ABMobileViewFormCustom.js ***!
   \*********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABMobileViewFormCustom)
 /* harmony export */ });
-/* harmony import */ var _core_mobile_ABMobileViewFormCustomCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormCustomCore */ 37089);
+/* harmony import */ var _core_mobile_ABMobileViewFormCustomCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormCustomCore */ 75664);
 
 class ABMobileViewFormCustom extends _core_mobile_ABMobileViewFormCustomCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
    // html($h) {
@@ -46594,20 +46585,20 @@ class ABMobileViewFormCustom extends _core_mobile_ABMobileViewFormCustomCore__WE
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 37272:
+/***/ 87508
 /*!*******************************************************************!*\
   !*** ./src/js/AppBuilder/platform/mobile/ABMobileViewFormDate.js ***!
   \*******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABMobileViewFormDate)
 /* harmony export */ });
-/* harmony import */ var _core_mobile_ABMobileViewFormDateCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormDateCore.js */ 30483);
+/* harmony import */ var _core_mobile_ABMobileViewFormDateCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormDateCore.js */ 37607);
 /**
  * ABMobileViewFormTextbox
  * The view that displays a form textbox on the screen.
@@ -46652,20 +46643,20 @@ class ABMobileViewFormDate extends _core_mobile_ABMobileViewFormDateCore_js__WEB
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 43717:
+/***/ 72025
 /*!***********************************************************************!*\
   !*** ./src/js/AppBuilder/platform/mobile/ABMobileViewFormDatetime.js ***!
   \***********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABMobileViewFormDatetime)
 /* harmony export */ });
-/* harmony import */ var _core_mobile_ABMobileViewFormDatetimeCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormDatetimeCore.js */ 41098);
+/* harmony import */ var _core_mobile_ABMobileViewFormDatetimeCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormDatetimeCore.js */ 52838);
 /**
  * ABMobileViewFormDatetime
  * The view that displays a form textbox on the screen.
@@ -46721,20 +46712,20 @@ class ABMobileViewFormDatetime extends _core_mobile_ABMobileViewFormDatetimeCore
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 46722:
+/***/ 5042
 /*!********************************************************************!*\
   !*** ./src/js/AppBuilder/platform/mobile/ABMobileViewFormEmail.js ***!
   \********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABMobileViewFormEmail)
 /* harmony export */ });
-/* harmony import */ var _core_mobile_ABMobileViewFormEmailCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormEmailCore.js */ 31508);
+/* harmony import */ var _core_mobile_ABMobileViewFormEmailCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormEmailCore.js */ 94033);
 /**
  * ABMobileViewFormEmail
  * The view that displays a form textbox on the screen.
@@ -46768,20 +46759,20 @@ class ABMobileViewFormEmail extends _core_mobile_ABMobileViewFormEmailCore_js__W
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 94298:
+/***/ 46702
 /*!*******************************************************************!*\
   !*** ./src/js/AppBuilder/platform/mobile/ABMobileViewFormFile.js ***!
   \*******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABMobileViewFormFile)
 /* harmony export */ });
-/* harmony import */ var _core_mobile_ABMobileViewFormFileCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormFileCore.js */ 37206);
+/* harmony import */ var _core_mobile_ABMobileViewFormFileCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormFileCore.js */ 57925);
 /**
  * ABMobileViewFormFile
  * The view that displays a form textbox on the screen.
@@ -46981,20 +46972,20 @@ class ABMobileViewFormFile extends _core_mobile_ABMobileViewFormFileCore_js__WEB
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 92696:
+/***/ 92848
 /*!**********************************************************************!*\
   !*** ./src/js/AppBuilder/platform/mobile/ABMobileViewFormFormula.js ***!
   \**********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABMobileViewFormFormula)
 /* harmony export */ });
-/* harmony import */ var _core_mobile_ABMobileViewFormFormulaCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormFormulaCore.js */ 9462);
+/* harmony import */ var _core_mobile_ABMobileViewFormFormulaCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormFormulaCore.js */ 16027);
 /**
  * ABMobileViewFormFormula
  * The view that displays a form textbox on the screen.
@@ -47034,20 +47025,20 @@ class ABMobileViewFormFormula extends _core_mobile_ABMobileViewFormFormulaCore_j
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 14241:
+/***/ 86175
 /*!********************************************************************!*\
   !*** ./src/js/AppBuilder/platform/mobile/ABMobileViewFormImage.js ***!
   \********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABMobileViewFormImage)
 /* harmony export */ });
-/* harmony import */ var _core_mobile_ABMobileViewFormImageCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormImageCore.js */ 37238);
+/* harmony import */ var _core_mobile_ABMobileViewFormImageCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormImageCore.js */ 75032);
 /**
  * ABMobileViewFormImage
  * The view that displays a form textbox on the screen.
@@ -47121,20 +47112,20 @@ class ABMobileViewFormImage extends _core_mobile_ABMobileViewFormImageCore_js__W
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 3199:
+/***/ 62155
 /*!*******************************************************************!*\
   !*** ./src/js/AppBuilder/platform/mobile/ABMobileViewFormItem.js ***!
   \*******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABMobileViewFormItem)
 /* harmony export */ });
-/* harmony import */ var _core_mobile_ABMobileViewFormItemCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormItemCore */ 95927);
+/* harmony import */ var _core_mobile_ABMobileViewFormItemCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormItemCore */ 84348);
 
 
 class ABMobileViewFormItem extends _core_mobile_ABMobileViewFormItemCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
@@ -47230,20 +47221,20 @@ class ABMobileViewFormItem extends _core_mobile_ABMobileViewFormItemCore__WEBPAC
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 95729:
+/***/ 64589
 /*!*********************************************************************!*\
   !*** ./src/js/AppBuilder/platform/mobile/ABMobileViewFormNumber.js ***!
   \*********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABMobileViewFormNumber)
 /* harmony export */ });
-/* harmony import */ var _core_mobile_ABMobileViewFormNumberCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormNumberCore.js */ 75410);
+/* harmony import */ var _core_mobile_ABMobileViewFormNumberCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormNumberCore.js */ 1514);
 /**
  * ABMobileViewFormTextbox
  * The view that displays a form textbox on the screen.
@@ -47289,20 +47280,20 @@ class ABMobileViewFormNumber extends _core_mobile_ABMobileViewFormNumberCore_js_
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 95620:
+/***/ 9122
 /*!***********************************************************************!*\
   !*** ./src/js/AppBuilder/platform/mobile/ABMobileViewFormReadonly.js ***!
   \***********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABMobileViewFormReadonly)
 /* harmony export */ });
-/* harmony import */ var _core_mobile_ABMobileViewFormReadonlyCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormReadonlyCore */ 43002);
+/* harmony import */ var _core_mobile_ABMobileViewFormReadonlyCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormReadonlyCore */ 93529);
 
 
 class ABMobileViewFormReadonly extends _core_mobile_ABMobileViewFormReadonlyCore__WEBPACK_IMPORTED_MODULE_0__["default"] {
@@ -47327,20 +47318,20 @@ class ABMobileViewFormReadonly extends _core_mobile_ABMobileViewFormReadonlyCore
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 77614:
+/***/ 46516
 /*!*****************************************************************************!*\
   !*** ./src/js/AppBuilder/platform/mobile/ABMobileViewFormSelectMultiple.js ***!
   \*****************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABMobileViewFormSelectMultiple)
 /* harmony export */ });
-/* harmony import */ var _core_mobile_ABMobileViewFormSelectMultipleCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormSelectMultipleCore.js */ 18061);
+/* harmony import */ var _core_mobile_ABMobileViewFormSelectMultipleCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormSelectMultipleCore.js */ 96783);
 /**
  * ABMobileViewFormSelectMultiple
  * The view that displays a list that can only have 1 selection.
@@ -47417,20 +47408,20 @@ class ABMobileViewFormSelectMultiple extends _core_mobile_ABMobileViewFormSelect
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 88001:
+/***/ 53800
 /*!***************************************************************************!*\
   !*** ./src/js/AppBuilder/platform/mobile/ABMobileViewFormSelectSingle.js ***!
   \***************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABMobileViewFormSelectSingle)
 /* harmony export */ });
-/* harmony import */ var _core_mobile_ABMobileViewFormSelectSingleCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormSelectSingleCore.js */ 10807);
+/* harmony import */ var _core_mobile_ABMobileViewFormSelectSingleCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormSelectSingleCore.js */ 44451);
 /**
  * ABMobileViewFormSelectSingle
  * The view that displays a list that can only have 1 selection.
@@ -47560,20 +47551,20 @@ class ABMobileViewFormSelectSingle extends _core_mobile_ABMobileViewFormSelectSi
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 36959:
+/***/ 92414
 /*!**********************************************************************!*\
   !*** ./src/js/AppBuilder/platform/mobile/ABMobileViewFormTextbox.js ***!
   \**********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABMobileViewFormTextbox)
 /* harmony export */ });
-/* harmony import */ var _core_mobile_ABMobileViewFormTextboxCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormTextboxCore.js */ 10048);
+/* harmony import */ var _core_mobile_ABMobileViewFormTextboxCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewFormTextboxCore.js */ 1301);
 /**
  * ABMobileViewFormTextbox
  * The view that displays a form textbox on the screen.
@@ -47648,20 +47639,20 @@ class ABMobileViewFormTextbox extends _core_mobile_ABMobileViewFormTextboxCore_j
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 84205:
+/***/ 12826
 /*!****************************************************************!*\
   !*** ./src/js/AppBuilder/platform/mobile/ABMobileViewLabel.js ***!
   \****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABMobileViewLabel)
 /* harmony export */ });
-/* harmony import */ var _core_mobile_ABMobileViewLabelCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewLabelCore.js */ 35272);
+/* harmony import */ var _core_mobile_ABMobileViewLabelCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewLabelCore.js */ 52945);
 /**
  * ABMobileViewLabel
  * The view that displays a label on the screen.
@@ -47722,20 +47713,20 @@ class ABMobileViewLabel extends _core_mobile_ABMobileViewLabelCore_js__WEBPACK_I
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 78261:
+/***/ 78614
 /*!***************************************************************!*\
   !*** ./src/js/AppBuilder/platform/mobile/ABMobileViewList.js ***!
   \***************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABMobileViewList)
 /* harmony export */ });
-/* harmony import */ var _core_mobile_ABMobileViewListCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewListCore.js */ 26218);
+/* harmony import */ var _core_mobile_ABMobileViewListCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewListCore.js */ 44157);
 /**
  * ABMobileViewList
  * The view that displays a list on the screen.
@@ -47783,8 +47774,10 @@ class ABMobileViewList extends _core_mobile_ABMobileViewListCore_js__WEBPACK_IMP
 
       setTimeout(() => {
          let dc = this.datacollection;
-         let allVals = dc.$state[dc.id];
-         dc.$state[dc.id] = allVals;
+         if (dc) {
+            let allVals = dc.$state[dc.id];
+            dc.$state[dc.id] = allVals;
+         }
       }, 30);
 
       // let dc = this.datacollection;
@@ -47810,7 +47803,7 @@ class ABMobileViewList extends _core_mobile_ABMobileViewListCore_js__WEBPACK_IMP
             let L = this.AB.Label();
             this.AB.$f7.dialog.alert(
                L("No rows were effected.  This does not seem right."),
-               L("Error")
+               L("Error"),
             );
             return false;
          }
@@ -47839,7 +47832,7 @@ class ABMobileViewList extends _core_mobile_ABMobileViewListCore_js__WEBPACK_IMP
       // if there is a detailPage set, then transition there:
       if (this.settings.linkPageDetail) {
          const DetailPage = this.application.pageByID(
-            this.settings.linkPageDetail
+            this.settings.linkPageDetail,
          );
 
          DetailPage.show(true);
@@ -47914,7 +47907,7 @@ class ABMobileViewList extends _core_mobile_ABMobileViewListCore_js__WEBPACK_IMP
                   ${L("Delete")}
                </a>
             </div>
-         </li>`
+         </li>`,
       );
    }
 
@@ -47986,7 +47979,7 @@ class ABMobileViewList extends _core_mobile_ABMobileViewListCore_js__WEBPACK_IMP
                         (/* x, i */) => $h`
                         <li>
                            <a href="#">Skeleton text will go here</a>
-                        </li>`
+                        </li>`,
                      )}
                   </ul>
                </div>
@@ -48010,20 +48003,20 @@ class ABMobileViewList extends _core_mobile_ABMobileViewListCore_js__WEBPACK_IMP
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 15103:
+/***/ 7197
 /*!*******************************************************************!*\
   !*** ./src/js/AppBuilder/platform/mobile/ABMobileViewTimeline.js ***!
   \*******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABMobileViewTimeline)
 /* harmony export */ });
-/* harmony import */ var _core_mobile_ABMobileViewTimelineCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewTimelineCore.js */ 63445);
+/* harmony import */ var _core_mobile_ABMobileViewTimelineCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/mobile/ABMobileViewTimelineCore.js */ 46418);
 /**
  * ABMobileViewTimeline
  * The view that displays a timeline on the screen.
@@ -48347,20 +48340,20 @@ class ABMobileViewTimeline extends _core_mobile_ABMobileViewTimelineCore_js__WEB
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 53691:
+/***/ 8769
 /*!*********************************************************************!*\
   !*** ./src/js/AppBuilder/platform/mobile/ViewFormSelectMultiple.js ***!
   \*********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ViewFormSelectMultiple)
 /* harmony export */ });
-/* harmony import */ var _ViewFormSelectSingle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ViewFormSelectSingle */ 61554);
+/* harmony import */ var _ViewFormSelectSingle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ViewFormSelectSingle */ 76789);
 
 
 class ViewFormSelectMultiple extends _ViewFormSelectSingle__WEBPACK_IMPORTED_MODULE_0__["default"] {
@@ -48386,13 +48379,13 @@ class ViewFormSelectMultiple extends _ViewFormSelectSingle__WEBPACK_IMPORTED_MOD
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 61554:
+/***/ 76789
 /*!*******************************************************************!*\
   !*** ./src/js/AppBuilder/platform/mobile/ViewFormSelectSingle.js ***!
   \*******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -48450,20 +48443,20 @@ class ViewFormSelectSingle {
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 23479:
+/***/ 99165
 /*!*************************************************************!*\
   !*** ./src/js/AppBuilder/platform/process/ABProcessLane.js ***!
   \*************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABProcessLane)
 /* harmony export */ });
-/* harmony import */ var _core_process_ABProcessLaneCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/process/ABProcessLaneCore */ 46446);
+/* harmony import */ var _core_process_ABProcessLaneCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/process/ABProcessLaneCore */ 6994);
 /**
  * ABProcessLane
  * manages a lane in a Process Diagram.
@@ -48611,20 +48604,20 @@ class ABProcessLane extends _core_process_ABProcessLaneCore__WEBPACK_IMPORTED_MO
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 74843:
+/***/ 31470
 /*!********************************************************************!*\
   !*** ./src/js/AppBuilder/platform/process/ABProcessParticipant.js ***!
   \********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABProcessParticipant)
 /* harmony export */ });
-/* harmony import */ var _core_process_ABProcessParticipantCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/process/ABProcessParticipantCore */ 71206);
+/* harmony import */ var _core_process_ABProcessParticipantCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/process/ABProcessParticipantCore */ 22141);
 /**
  * ABProcessParticipant
  * manages the participant lanes in a Process Diagram.
@@ -48734,20 +48727,20 @@ class ABProcessParticipant extends _core_process_ABProcessParticipantCore__WEBPA
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 50138:
+/***/ 84980
 /*!**********************************************************************!*\
   !*** ./src/js/AppBuilder/platform/process/tasks/ABProcessElement.js ***!
   \**********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABProcessElement)
 /* harmony export */ });
-/* harmony import */ var _core_process_tasks_ABProcessElementCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessElementCore.js */ 72935);
+/* harmony import */ var _core_process_tasks_ABProcessElementCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessElementCore.js */ 71343);
 
 
 class ABProcessElement extends _core_process_tasks_ABProcessElementCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
@@ -49035,20 +49028,20 @@ class ABProcessElement extends _core_process_tasks_ABProcessElementCore_js__WEBP
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 76975:
+/***/ 60973
 /*!******************************************************************!*\
   !*** ./src/js/AppBuilder/platform/process/tasks/ABProcessEnd.js ***!
   \******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABProcessEnd)
 /* harmony export */ });
-/* harmony import */ var _core_process_tasks_ABProcessEndCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessEndCore.js */ 15728);
+/* harmony import */ var _core_process_tasks_ABProcessEndCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessEndCore.js */ 54570);
 
 
 class ABProcessEnd extends _core_process_tasks_ABProcessEndCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
@@ -49074,20 +49067,20 @@ class ABProcessEnd extends _core_process_tasks_ABProcessEndCore_js__WEBPACK_IMPO
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 33401:
+/***/ 88500
 /*!*******************************************************************************!*\
   !*** ./src/js/AppBuilder/platform/process/tasks/ABProcessGatewayExclusive.js ***!
   \*******************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABProcessGatewayExclusive)
 /* harmony export */ });
-/* harmony import */ var _core_process_tasks_ABProcessGatewayExclusiveCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessGatewayExclusiveCore.js */ 89670);
+/* harmony import */ var _core_process_tasks_ABProcessGatewayExclusiveCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessGatewayExclusiveCore.js */ 40887);
 
 
 class ABProcessGatewayExclusive extends _core_process_tasks_ABProcessGatewayExclusiveCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
@@ -49158,20 +49151,20 @@ class ABProcessGatewayExclusive extends _core_process_tasks_ABProcessGatewayExcl
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 21297:
+/***/ 41891
 /*!************************************************************************!*\
   !*** ./src/js/AppBuilder/platform/process/tasks/ABProcessTaskEmail.js ***!
   \************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABProcessTaskEmail)
 /* harmony export */ });
-/* harmony import */ var _core_process_tasks_ABProcessTaskEmailCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskEmailCore.js */ 95316);
+/* harmony import */ var _core_process_tasks_ABProcessTaskEmailCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskEmailCore.js */ 69028);
 // import ABApplication from "./ABApplication"
 // const ABApplication = require("./ABApplication"); // NOTE: change to require()
 
@@ -49284,39 +49277,39 @@ class ABProcessTaskEmail extends _core_process_tasks_ABProcessTaskEmailCore_js__
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 66859:
+/***/ 23892
 /*!**************************************************************************!*\
   !*** ./src/js/AppBuilder/platform/process/tasks/ABProcessTaskService.js ***!
   \**************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABProcessTaskService)
 /* harmony export */ });
-/* harmony import */ var _core_process_tasks_ABProcessTaskServiceCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskServiceCore.js */ 74351);
+/* harmony import */ var _core_process_tasks_ABProcessTaskServiceCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskServiceCore.js */ 55239);
 
 
 class ABProcessTaskService extends _core_process_tasks_ABProcessTaskServiceCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {}
 
 
-/***/ }),
+/***/ },
 
-/***/ 55048:
+/***/ 31754
 /*!***************************************************************************************************!*\
   !*** ./src/js/AppBuilder/platform/process/tasks/ABProcessTaskServiceAccountingBatchProcessing.js ***!
   \***************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ AccountingBatchProcessing)
 /* harmony export */ });
-/* harmony import */ var _core_process_tasks_ABProcessTaskServiceAccountingBatchProcessingCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskServiceAccountingBatchProcessingCore.js */ 80281);
+/* harmony import */ var _core_process_tasks_ABProcessTaskServiceAccountingBatchProcessingCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskServiceAccountingBatchProcessingCore.js */ 82321);
 
 
 class AccountingBatchProcessing extends _core_process_tasks_ABProcessTaskServiceAccountingBatchProcessingCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
@@ -49697,20 +49690,20 @@ class AccountingBatchProcessing extends _core_process_tasks_ABProcessTaskService
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 29084:
+/***/ 96587
 /*!*******************************************************************************************!*\
   !*** ./src/js/AppBuilder/platform/process/tasks/ABProcessTaskServiceAccountingFPClose.js ***!
   \*******************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ AccountingFPClose)
 /* harmony export */ });
-/* harmony import */ var _core_process_tasks_ABProcessTaskServiceAccountingFPCloseCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskServiceAccountingFPCloseCore.js */ 35137);
+/* harmony import */ var _core_process_tasks_ABProcessTaskServiceAccountingFPCloseCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskServiceAccountingFPCloseCore.js */ 96484);
 
 
 class AccountingFPClose extends _core_process_tasks_ABProcessTaskServiceAccountingFPCloseCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
@@ -50132,20 +50125,20 @@ class AccountingFPClose extends _core_process_tasks_ABProcessTaskServiceAccounti
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 26575:
+/***/ 55484
 /*!***********************************************************************************************!*\
   !*** ./src/js/AppBuilder/platform/process/tasks/ABProcessTaskServiceAccountingFPYearClose.js ***!
   \***********************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ AccountingFPYearClose)
 /* harmony export */ });
-/* harmony import */ var _core_process_tasks_ABProcessTaskServiceAccountingFPYearCloseCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskServiceAccountingFPYearCloseCore.js */ 41211);
+/* harmony import */ var _core_process_tasks_ABProcessTaskServiceAccountingFPYearCloseCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskServiceAccountingFPYearCloseCore.js */ 34687);
 
 
 class AccountingFPYearClose extends _core_process_tasks_ABProcessTaskServiceAccountingFPYearCloseCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
@@ -50593,20 +50586,20 @@ class AccountingFPYearClose extends _core_process_tasks_ABProcessTaskServiceAcco
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 87512:
+/***/ 19816
 /*!*********************************************************************************************!*\
   !*** ./src/js/AppBuilder/platform/process/tasks/ABProcessTaskServiceAccountingJEArchive.js ***!
   \*********************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ AccountingJEArchive)
 /* harmony export */ });
-/* harmony import */ var _core_process_tasks_ABProcessTaskServiceAccountingJEArchiveCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskServiceAccountingJEArchiveCore.js */ 96974);
+/* harmony import */ var _core_process_tasks_ABProcessTaskServiceAccountingJEArchiveCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskServiceAccountingJEArchiveCore.js */ 65659);
 
 
 class AccountingJEArchive extends _core_process_tasks_ABProcessTaskServiceAccountingJEArchiveCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
@@ -50950,20 +50943,20 @@ class AccountingJEArchive extends _core_process_tasks_ABProcessTaskServiceAccoun
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 29604:
+/***/ 57062
 /*!*****************************************************************************!*\
   !*** ./src/js/AppBuilder/platform/process/tasks/ABProcessTaskServiceApi.js ***!
   \*****************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABProcessTaskServiceAPI)
 /* harmony export */ });
-/* harmony import */ var _core_process_tasks_ABProcessTaskServiceApiCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskServiceApiCore.js */ 76918);
+/* harmony import */ var _core_process_tasks_ABProcessTaskServiceApiCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskServiceApiCore.js */ 61429);
 
 
 class ABProcessTaskServiceAPI extends _core_process_tasks_ABProcessTaskServiceApiCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
@@ -50998,20 +50991,20 @@ class ABProcessTaskServiceAPI extends _core_process_tasks_ABProcessTaskServiceAp
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 77855:
+/***/ 97870
 /*!***********************************************************************************!*\
   !*** ./src/js/AppBuilder/platform/process/tasks/ABProcessTaskServiceCalculate.js ***!
   \***********************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ CalculateTask)
 /* harmony export */ });
-/* harmony import */ var _core_process_tasks_ABProcessTaskServiceCalculateCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskServiceCalculateCore.js */ 97286);
+/* harmony import */ var _core_process_tasks_ABProcessTaskServiceCalculateCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskServiceCalculateCore.js */ 13637);
 
 
 class CalculateTask extends _core_process_tasks_ABProcessTaskServiceCalculateCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
@@ -51046,20 +51039,20 @@ class CalculateTask extends _core_process_tasks_ABProcessTaskServiceCalculateCor
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 47995:
+/***/ 88897
 /*!*********************************************************************************************!*\
   !*** ./src/js/AppBuilder/platform/process/tasks/ABProcessTaskServiceGetResetPasswordUrl.js ***!
   \*********************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABProcessTaskServiceGetResetPasswordUrl)
 /* harmony export */ });
-/* harmony import */ var _core_process_tasks_ABProcessTaskServiceGetResetPasswordUrlCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskServiceGetResetPasswordUrlCore.js */ 25418);
+/* harmony import */ var _core_process_tasks_ABProcessTaskServiceGetResetPasswordUrlCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskServiceGetResetPasswordUrlCore.js */ 26662);
 // import ABApplication from "./ABApplication"
 // const ABApplication = require("./ABApplication"); // NOTE: change to require()
 
@@ -51088,20 +51081,20 @@ class ABProcessTaskServiceGetResetPasswordUrl extends _core_process_tasks_ABProc
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 22641:
+/***/ 79600
 /*!**************************************************************************************!*\
   !*** ./src/js/AppBuilder/platform/process/tasks/ABProcessTaskServiceInsertRecord.js ***!
   \**************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ InsertRecordTask)
 /* harmony export */ });
-/* harmony import */ var _core_process_tasks_ABProcessTaskServiceInsertRecordCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskServiceInsertRecordCore.js */ 45136);
+/* harmony import */ var _core_process_tasks_ABProcessTaskServiceInsertRecordCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskServiceInsertRecordCore.js */ 579);
 
 
 class InsertRecordTask extends _core_process_tasks_ABProcessTaskServiceInsertRecordCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
@@ -51133,13 +51126,13 @@ class InsertRecordTask extends _core_process_tasks_ABProcessTaskServiceInsertRec
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 76061:
+/***/ 22950
 /*!*******************************************************************************!*\
   !*** ./src/js/AppBuilder/platform/process/tasks/ABProcessTaskServiceQuery.js ***!
   \*******************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
@@ -51147,8 +51140,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABProcessTaskServiceQuery)
 /* harmony export */ });
-/* harmony import */ var _core_process_tasks_ABProcessTaskServiceQueryCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskServiceQueryCore.js */ 79078);
-/* harmony import */ var _ql_ABQLManager_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../ql/ABQLManager.js */ 66586);
+/* harmony import */ var _core_process_tasks_ABProcessTaskServiceQueryCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskServiceQueryCore.js */ 62757);
+/* harmony import */ var _ql_ABQLManager_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../ql/ABQLManager.js */ 69998);
 var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_core_process_tasks_ABProcessTaskServiceQueryCore_js__WEBPACK_IMPORTED_MODULE_0__, _ql_ABQLManager_js__WEBPACK_IMPORTED_MODULE_1__]);
 ([_core_process_tasks_ABProcessTaskServiceQueryCore_js__WEBPACK_IMPORTED_MODULE_0__, _ql_ABQLManager_js__WEBPACK_IMPORTED_MODULE_1__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
 
@@ -51215,20 +51208,20 @@ class ABProcessTaskServiceQuery extends _core_process_tasks_ABProcessTaskService
 __webpack_async_result__();
 } catch(e) { __webpack_async_result__(e); } });
 
-/***/ }),
+/***/ },
 
-/***/ 75175:
+/***/ 79512
 /*!*****************************************************************************!*\
   !*** ./src/js/AppBuilder/platform/process/tasks/ABProcessTaskSubProcess.js ***!
   \*****************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ SubProcess)
 /* harmony export */ });
-/* harmony import */ var _core_process_tasks_ABProcessTaskSubProcessCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskSubProcessCore.js */ 76987);
+/* harmony import */ var _core_process_tasks_ABProcessTaskSubProcessCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskSubProcessCore.js */ 87043);
 
 
 class SubProcess extends _core_process_tasks_ABProcessTaskSubProcessCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
@@ -51419,58 +51412,58 @@ class SubProcess extends _core_process_tasks_ABProcessTaskSubProcessCore_js__WEB
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 67429:
+/***/ 4580
 /*!***********************************************************************!*\
   !*** ./src/js/AppBuilder/platform/process/tasks/ABProcessTaskUser.js ***!
   \***********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABProcessTaskUser)
 /* harmony export */ });
-/* harmony import */ var _core_process_tasks_ABProcessTaskUserCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskUserCore.js */ 29564);
+/* harmony import */ var _core_process_tasks_ABProcessTaskUserCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskUserCore.js */ 19127);
 
 
 class ABProcessTaskUser extends _core_process_tasks_ABProcessTaskUserCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {}
 
 
-/***/ }),
+/***/ },
 
-/***/ 70852:
+/***/ 62691
 /*!*******************************************************************************!*\
   !*** ./src/js/AppBuilder/platform/process/tasks/ABProcessTaskUserApproval.js ***!
   \*******************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABProcessTaskUserApproval)
 /* harmony export */ });
-/* harmony import */ var _core_process_tasks_ABProcessTaskUserApprovalCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskUserApprovalCore.js */ 45383);
+/* harmony import */ var _core_process_tasks_ABProcessTaskUserApprovalCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskUserApprovalCore.js */ 36540);
 
 
 class ABProcessTaskUserApproval extends _core_process_tasks_ABProcessTaskUserApprovalCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {}
 
 
-/***/ }),
+/***/ },
 
-/***/ 82659:
+/***/ 13019
 /*!*******************************************************************************!*\
   !*** ./src/js/AppBuilder/platform/process/tasks/ABProcessTaskUserExternal.js ***!
   \*******************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABProcessTaskUserExternal)
 /* harmony export */ });
-/* harmony import */ var _core_process_tasks_ABProcessTaskUserExternalCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskUserExternalCore.js */ 9879);
+/* harmony import */ var _core_process_tasks_ABProcessTaskUserExternalCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskUserExternalCore.js */ 55348);
 // import ABApplication from "./ABApplication"
 // const ABApplication = require("./ABApplication"); // NOTE: change to require()
 
@@ -51478,39 +51471,39 @@ __webpack_require__.r(__webpack_exports__);
 class ABProcessTaskUserExternal extends _core_process_tasks_ABProcessTaskUserExternalCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {}
 
 
-/***/ }),
+/***/ },
 
-/***/ 89476:
+/***/ 93174
 /*!***************************************************************************!*\
   !*** ./src/js/AppBuilder/platform/process/tasks/ABProcessTaskUserForm.js ***!
   \***************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABProcessTaskUserForm)
 /* harmony export */ });
-/* harmony import */ var _core_process_tasks_ABProcessTaskUserFormCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskUserFormCore.js */ 53205);
+/* harmony import */ var _core_process_tasks_ABProcessTaskUserFormCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTaskUserFormCore.js */ 46389);
 
 
 class ABProcessTaskUserForm extends _core_process_tasks_ABProcessTaskUserFormCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {}
 
 
-/***/ }),
+/***/ },
 
-/***/ 50135:
+/***/ 65856
 /*!**********************************************************************!*\
   !*** ./src/js/AppBuilder/platform/process/tasks/ABProcessTrigger.js ***!
   \**********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABProcessTrigger)
 /* harmony export */ });
-/* harmony import */ var _core_process_tasks_ABProcessTriggerCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTriggerCore.js */ 63438);
+/* harmony import */ var _core_process_tasks_ABProcessTriggerCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTriggerCore.js */ 25939);
 // import ABApplication from "./ABApplication"
 // const ABApplication = require("./ABApplication"); // NOTE: change to require()
 
@@ -51518,39 +51511,39 @@ __webpack_require__.r(__webpack_exports__);
 class ABProcessTrigger extends _core_process_tasks_ABProcessTriggerCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {}
 
 
-/***/ }),
+/***/ },
 
-/***/ 82712:
+/***/ 50734
 /*!*******************************************************************************!*\
   !*** ./src/js/AppBuilder/platform/process/tasks/ABProcessTriggerLifecycle.js ***!
   \*******************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABProcessTriggerLifecycle)
 /* harmony export */ });
-/* harmony import */ var _core_process_tasks_ABProcessTriggerLifecycleCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTriggerLifecycleCore.js */ 58448);
+/* harmony import */ var _core_process_tasks_ABProcessTriggerLifecycleCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTriggerLifecycleCore.js */ 60581);
 
 
 class ABProcessTriggerLifecycle extends _core_process_tasks_ABProcessTriggerLifecycleCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {}
 
 
-/***/ }),
+/***/ },
 
-/***/ 63807:
+/***/ 96175
 /*!***************************************************************************!*\
   !*** ./src/js/AppBuilder/platform/process/tasks/ABProcessTriggerTimer.js ***!
   \***************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABProcessTriggerTimer)
 /* harmony export */ });
-/* harmony import */ var _core_process_tasks_ABProcessTriggerTimerCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTriggerTimerCore.js */ 14570);
+/* harmony import */ var _core_process_tasks_ABProcessTriggerTimerCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../core/process/tasks/ABProcessTriggerTimerCore.js */ 13744);
 
 
 const START_URL = "/process/timer/#id#/start";
@@ -51580,20 +51573,20 @@ class ABProcessTriggerTimer extends _core_process_tasks_ABProcessTriggerTimerCor
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 33262:
+/***/ 21345
 /*!***********************************************!*\
   !*** ./src/js/AppBuilder/platform/ql/ABQL.js ***!
   \***********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _core_ql_ABQLCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/ql/ABQLCore.js */ 95223);
+/* harmony import */ var _core_ql_ABQLCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/ql/ABQLCore.js */ 41054);
 /*
  * ABQL
  *
@@ -52436,13 +52429,13 @@ class ABQL extends _core_ql_ABQLCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ABQL);
 
 
-/***/ }),
+/***/ },
 
-/***/ 88794:
+/***/ 9954
 /*!***************************************************!*\
   !*** ./src/js/AppBuilder/platform/ql/ABQLFind.js ***!
   \***************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
@@ -52450,9 +52443,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _core_ql_ABQLFindCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/ql/ABQLFindCore.js */ 83854);
+/* harmony import */ var _core_ql_ABQLFindCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/ql/ABQLFindCore.js */ 86857);
 var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_core_ql_ABQLFindCore_js__WEBPACK_IMPORTED_MODULE_0__]);
-_core_ql_ABQLFindCore_js__WEBPACK_IMPORTED_MODULE_0__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
+var __webpack_async_dependencies_result__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
+_core_ql_ABQLFindCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_async_dependencies_result__[0];
 /*
  * ABQLFind
  *
@@ -52476,13 +52470,13 @@ class ABQLFind extends _core_ql_ABQLFindCore_js__WEBPACK_IMPORTED_MODULE_0__["de
 __webpack_async_result__();
 } catch(e) { __webpack_async_result__(e); } });
 
-/***/ }),
+/***/ },
 
-/***/ 66586:
+/***/ 69998
 /*!******************************************************!*\
   !*** ./src/js/AppBuilder/platform/ql/ABQLManager.js ***!
   \******************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
@@ -52490,8 +52484,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _core_ql_ABQLManagerCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/ql/ABQLManagerCore.js */ 43455);
-/* harmony import */ var _ABQLRootObject_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ABQLRootObject.js */ 93556);
+/* harmony import */ var _core_ql_ABQLManagerCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/ql/ABQLManagerCore.js */ 37205);
+/* harmony import */ var _ABQLRootObject_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ABQLRootObject.js */ 10482);
 var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_core_ql_ABQLManagerCore_js__WEBPACK_IMPORTED_MODULE_0__, _ABQLRootObject_js__WEBPACK_IMPORTED_MODULE_1__]);
 ([_core_ql_ABQLManagerCore_js__WEBPACK_IMPORTED_MODULE_0__, _ABQLRootObject_js__WEBPACK_IMPORTED_MODULE_1__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
 /*
@@ -52663,13 +52657,13 @@ const ABQLManager = {
 __webpack_async_result__();
 } catch(e) { __webpack_async_result__(e); } });
 
-/***/ }),
+/***/ },
 
-/***/ 93556:
+/***/ 10482
 /*!*********************************************************!*\
   !*** ./src/js/AppBuilder/platform/ql/ABQLRootObject.js ***!
   \*********************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
@@ -52677,9 +52671,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _core_ql_ABQLRootObjectCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/ql/ABQLRootObjectCore.js */ 24325);
+/* harmony import */ var _core_ql_ABQLRootObjectCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/ql/ABQLRootObjectCore.js */ 38273);
 var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_core_ql_ABQLRootObjectCore_js__WEBPACK_IMPORTED_MODULE_0__]);
-_core_ql_ABQLRootObjectCore_js__WEBPACK_IMPORTED_MODULE_0__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
+var __webpack_async_dependencies_result__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
+_core_ql_ABQLRootObjectCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_async_dependencies_result__[0];
 /*
  * ABQLRootObject
  *
@@ -52763,20 +52758,20 @@ class ABQLObject extends _core_ql_ABQLRootObjectCore_js__WEBPACK_IMPORTED_MODULE
 __webpack_async_result__();
 } catch(e) { __webpack_async_result__(e); } });
 
-/***/ }),
+/***/ },
 
-/***/ 87215:
+/***/ 45244
 /*!*******************************************************!*\
   !*** ./src/js/AppBuilder/platform/ql/ABQLRowPluck.js ***!
   \*******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _core_ql_ABQLRowPluckCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/ql/ABQLRowPluckCore.js */ 95285);
+/* harmony import */ var _core_ql_ABQLRowPluckCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/ql/ABQLRowPluckCore.js */ 84471);
 
 
 class ABQLRowPluck extends _core_ql_ABQLRowPluckCore_js__WEBPACK_IMPORTED_MODULE_0__["default"] {
@@ -52799,20 +52794,20 @@ class ABQLRowPluck extends _core_ql_ABQLRowPluckCore_js__WEBPACK_IMPORTED_MODULE
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ABQLRowPluck);
 
 
-/***/ }),
+/***/ },
 
-/***/ 83937:
+/***/ 41180
 /*!******************************************************!*\
   !*** ./src/js/AppBuilder/platform/ql/ABQLRowSave.js ***!
   \******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _core_ql_ABQLRowSaveCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/ql/ABQLRowSaveCore.js */ 18844);
+/* harmony import */ var _core_ql_ABQLRowSaveCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/ql/ABQLRowSaveCore.js */ 28335);
 /*
  * ABQLRowSave
  *
@@ -52832,20 +52827,20 @@ class ABQLRowSave extends _core_ql_ABQLRowSaveCore_js__WEBPACK_IMPORTED_MODULE_0
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ABQLRowSave);
 
 
-/***/ }),
+/***/ },
 
-/***/ 35011:
+/***/ 3024
 /*!********************************************************!*\
   !*** ./src/js/AppBuilder/platform/ql/ABQLRowUpdate.js ***!
   \********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _core_ql_ABQLRowUpdateCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/ql/ABQLRowUpdateCore.js */ 58910);
+/* harmony import */ var _core_ql_ABQLRowUpdateCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/ql/ABQLRowUpdateCore.js */ 71347);
 /*
  * ABQLRowUpdate
  *
@@ -52872,20 +52867,20 @@ class ABQLRowUpdate extends _core_ql_ABQLRowUpdateCore_js__WEBPACK_IMPORTED_MODU
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ABQLRowUpdate);
 
 
-/***/ }),
+/***/ },
 
-/***/ 1454:
+/***/ 45104
 /*!*******************************************************!*\
   !*** ./src/js/AppBuilder/platform/ql/ABQLSetFirst.js ***!
   \*******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _core_ql_ABQLSetFirstCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/ql/ABQLSetFirstCore.js */ 31663);
+/* harmony import */ var _core_ql_ABQLSetFirstCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/ql/ABQLSetFirstCore.js */ 5276);
 /*
  * ABQLSetFirst
  *
@@ -52908,20 +52903,20 @@ class ABQLSetFirst extends _core_ql_ABQLSetFirstCore_js__WEBPACK_IMPORTED_MODULE
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ABQLSetFirst);
 
 
-/***/ }),
+/***/ },
 
-/***/ 66966:
+/***/ 96512
 /*!*******************************************************!*\
   !*** ./src/js/AppBuilder/platform/ql/ABQLSetPluck.js ***!
   \*******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _core_ql_ABQLSetPluckCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/ql/ABQLSetPluckCore.js */ 14154);
+/* harmony import */ var _core_ql_ABQLSetPluckCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/ql/ABQLSetPluckCore.js */ 70667);
 /*
  * ABQLSetPluck
  *
@@ -53055,20 +53050,20 @@ class ABQLSetPluck extends _core_ql_ABQLSetPluckCore_js__WEBPACK_IMPORTED_MODULE
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ABQLSetPluck);
 
 
-/***/ }),
+/***/ },
 
-/***/ 68879:
+/***/ 37368
 /*!******************************************************!*\
   !*** ./src/js/AppBuilder/platform/ql/ABQLSetSave.js ***!
   \******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _core_ql_ABQLSetSaveCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/ql/ABQLSetSaveCore.js */ 83044);
+/* harmony import */ var _core_ql_ABQLSetSaveCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/ql/ABQLSetSaveCore.js */ 35627);
 /*
  * ABQLSetSave
  *
@@ -53123,21 +53118,21 @@ class ABQLSetSave extends _core_ql_ABQLSetSaveCore_js__WEBPACK_IMPORTED_MODULE_0
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ABQLSetSave);
 
 
-/***/ }),
+/***/ },
 
-/***/ 69459:
+/***/ 33384
 /*!****************************************************!*\
   !*** ./src/js/AppBuilder/platform/views/ABView.js ***!
   \****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABView)
 /* harmony export */ });
-/* harmony import */ var _core_views_ABViewCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/views/ABViewCore.js */ 7852);
-/* harmony import */ var _viewComponent_ABViewComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./viewComponent/ABViewComponent */ 9162);
+/* harmony import */ var _core_views_ABViewCore_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/views/ABViewCore.js */ 72267);
+/* harmony import */ var _viewComponent_ABViewComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./viewComponent/ABViewComponent */ 69446);
 
 
 
@@ -53256,21 +53251,21 @@ class ABView extends _core_views_ABViewCore_js__WEBPACK_IMPORTED_MODULE_0__["def
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 90669:
+/***/ 83657
 /*!*************************************************************!*\
   !*** ./src/js/AppBuilder/platform/views/ABViewContainer.js ***!
   \*************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABViewContainer)
 /* harmony export */ });
-/* harmony import */ var _core_views_ABViewContainerCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/views/ABViewContainerCore */ 93997);
-/* harmony import */ var _viewComponent_ABViewContainerComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./viewComponent/ABViewContainerComponent */ 77191);
+/* harmony import */ var _core_views_ABViewContainerCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/views/ABViewContainerCore */ 67150);
+/* harmony import */ var _viewComponent_ABViewContainerComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./viewComponent/ABViewContainerComponent */ 58735);
 
 
 
@@ -53305,20 +53300,20 @@ class ABViewContainer extends _core_views_ABViewContainerCore__WEBPACK_IMPORTED_
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 48172:
+/***/ 61866
 /*!**************************************************************!*\
   !*** ./src/js/AppBuilder/platform/views/ABViewDetailItem.js ***!
   \**************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABViewDetailItem)
 /* harmony export */ });
-/* harmony import */ var _core_views_ABViewDetailItemCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/views/ABViewDetailItemCore */ 63255);
+/* harmony import */ var _core_views_ABViewDetailItemCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/views/ABViewDetailItemCore */ 38345);
 
 // const ABViewDetailItemComponent = require("./viewComponent/ABViewDetailItemComponent");
 
@@ -53342,20 +53337,20 @@ class ABViewDetailItem extends _core_views_ABViewDetailItemCore__WEBPACK_IMPORTE
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 9247:
+/***/ 37117
 /*!************************************************************!*\
   !*** ./src/js/AppBuilder/platform/views/ABViewFormItem.js ***!
   \************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABViewFormItem)
 /* harmony export */ });
-/* harmony import */ var _core_views_ABViewFormItemCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/views/ABViewFormItemCore */ 95484);
+/* harmony import */ var _core_views_ABViewFormItemCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/views/ABViewFormItemCore */ 28002);
 
 // const ABViewFormItemComponent = require("./viewComponent/ABViewFormItemComponent");
 
@@ -53410,20 +53405,20 @@ class ABViewFormItem extends _core_views_ABViewFormItemCore__WEBPACK_IMPORTED_MO
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 22305:
+/***/ 85623
 /*!********************************************************!*\
   !*** ./src/js/AppBuilder/platform/views/ABViewPage.js ***!
   \********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABViewPage)
 /* harmony export */ });
-/* harmony import */ var _core_views_ABViewPageCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/views/ABViewPageCore */ 16605);
+/* harmony import */ var _core_views_ABViewPageCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/views/ABViewPageCore */ 98920);
 
 
 const ABPropertyComponentDefaults = _core_views_ABViewPageCore__WEBPACK_IMPORTED_MODULE_0__["default"].defaultValues();
@@ -53490,20 +53485,20 @@ class ABViewPage extends _core_views_ABViewPageCore__WEBPACK_IMPORTED_MODULE_0__
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 79562:
+/***/ 96224
 /*!**********************************************************!*\
   !*** ./src/js/AppBuilder/platform/views/ABViewWidget.js ***!
   \**********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABViewWidget)
 /* harmony export */ });
-/* harmony import */ var _core_views_ABViewWidgetCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/views/ABViewWidgetCore */ 82218);
+/* harmony import */ var _core_views_ABViewWidgetCore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/views/ABViewWidgetCore */ 45339);
 
 
 const ABPropertyComponentDefaults = _core_views_ABViewWidgetCore__WEBPACK_IMPORTED_MODULE_0__["default"].defaultValues();
@@ -53535,13 +53530,13 @@ class ABViewWidget extends _core_views_ABViewWidgetCore__WEBPACK_IMPORTED_MODULE
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 9162:
+/***/ 69446
 /*!***************************************************************************!*\
   !*** ./src/js/AppBuilder/platform/views/viewComponent/ABViewComponent.js ***!
   \***************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -53706,20 +53701,20 @@ class ABViewComponent /* extends ClassUI */ {
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 77191:
+/***/ 58735
 /*!************************************************************************************!*\
   !*** ./src/js/AppBuilder/platform/views/viewComponent/ABViewContainerComponent.js ***!
   \************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABViewContainerComponent)
 /* harmony export */ });
-/* harmony import */ var _ABViewComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABViewComponent */ 9162);
+/* harmony import */ var _ABViewComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABViewComponent */ 69446);
 
 
 class ABViewContainerComponent extends _ABViewComponent__WEBPACK_IMPORTED_MODULE_0__["default"] {
@@ -53908,13 +53903,13 @@ class ABViewContainerComponent extends _ABViewComponent__WEBPACK_IMPORTED_MODULE
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 26778:
+/***/ 22873
 /*!***********************************************!*\
   !*** ./src/js/AppBuilder/rules/ABViewRule.js ***!
   \***********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -54393,13 +54388,13 @@ class ABViewRule {
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 40804:
+/***/ 80035
 /*!*****************************************************!*\
   !*** ./src/js/AppBuilder/rules/ABViewRuleAction.js ***!
   \*****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -54664,13 +54659,13 @@ class ABViewRuleAction {
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 55795:
+/***/ 24061
 /*!***************************************************!*\
   !*** ./src/js/AppBuilder/rules/ABViewRuleList.js ***!
   \***************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -55067,25 +55062,25 @@ class ABViewRuleList {
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 35924:
+/***/ 59243
 /*!******************************************************************!*\
   !*** ./src/js/AppBuilder/rules/ABViewRuleListFormRecordRules.js ***!
   \******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABViewRuleListFormRecordRules)
 /* harmony export */ });
-/* harmony import */ var _ABViewRuleList__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABViewRuleList */ 55795);
-/* harmony import */ var _ABViewRule__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ABViewRule */ 26778);
-/* harmony import */ var _ruleActions_ABViewRuleActionFormRecordRuleUpdate__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ruleActions/ABViewRuleActionFormRecordRuleUpdate */ 39218);
-/* harmony import */ var _ruleActions_ABViewRuleActionFormRecordRuleInsertConnected__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ruleActions/ABViewRuleActionFormRecordRuleInsertConnected */ 41294);
-/* harmony import */ var _ruleActions_ABViewRuleActionFormRecordRuleUpdateConnected__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ruleActions/ABViewRuleActionFormRecordRuleUpdateConnected */ 71820);
-/* harmony import */ var _ruleActions_ABViewRuleActionFormRecordRuleRemoveConnected__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ruleActions/ABViewRuleActionFormRecordRuleRemoveConnected */ 27645);
+/* harmony import */ var _ABViewRuleList__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABViewRuleList */ 24061);
+/* harmony import */ var _ABViewRule__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ABViewRule */ 22873);
+/* harmony import */ var _ruleActions_ABViewRuleActionFormRecordRuleUpdate__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ruleActions/ABViewRuleActionFormRecordRuleUpdate */ 34141);
+/* harmony import */ var _ruleActions_ABViewRuleActionFormRecordRuleInsertConnected__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ruleActions/ABViewRuleActionFormRecordRuleInsertConnected */ 78970);
+/* harmony import */ var _ruleActions_ABViewRuleActionFormRecordRuleUpdateConnected__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ruleActions/ABViewRuleActionFormRecordRuleUpdateConnected */ 94962);
+/* harmony import */ var _ruleActions_ABViewRuleActionFormRecordRuleRemoveConnected__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ruleActions/ABViewRuleActionFormRecordRuleRemoveConnected */ 30277);
 /**
  * @Class ABViewRuleListFormRecordRules
  * On the ab_platform_service platform, the ABRecordRule is just
@@ -55167,27 +55162,27 @@ class ABViewRuleListFormRecordRules extends _ABViewRuleList__WEBPACK_IMPORTED_MO
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 48828:
+/***/ 98440
 /*!******************************************************************!*\
   !*** ./src/js/AppBuilder/rules/ABViewRuleListFormSubmitRules.js ***!
   \******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABViewRuleListFormSubmitRules)
 /* harmony export */ });
-/* harmony import */ var _ABViewRuleList__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABViewRuleList */ 55795);
-/* harmony import */ var _ABViewRule__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ABViewRule */ 26778);
-/* harmony import */ var _ruleActions_ABViewRuleActionFormSubmitRuleConfirmMessage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ruleActions/ABViewRuleActionFormSubmitRuleConfirmMessage */ 91538);
-/* harmony import */ var _ruleActions_ABViewRuleActionFormSubmitRuleExistPage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ruleActions/ABViewRuleActionFormSubmitRuleExistPage */ 90786);
-/* harmony import */ var _ruleActions_ABViewRuleActionFormSubmitRuleParentPage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ruleActions/ABViewRuleActionFormSubmitRuleParentPage */ 57973);
-/* harmony import */ var _ruleActions_ABViewRuleActionFormSubmitRuleClosePopup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ruleActions/ABViewRuleActionFormSubmitRuleClosePopup */ 98674);
-/* harmony import */ var _ruleActions_ABViewRuleActionFormSubmitRuleWebsite__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ruleActions/ABViewRuleActionFormSubmitRuleWebsite */ 19679);
-/* harmony import */ var _ruleActions_ABViewRuleActionFormSubmitRuleEmail__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./ruleActions/ABViewRuleActionFormSubmitRuleEmail */ 87278);
+/* harmony import */ var _ABViewRuleList__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABViewRuleList */ 24061);
+/* harmony import */ var _ABViewRule__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ABViewRule */ 22873);
+/* harmony import */ var _ruleActions_ABViewRuleActionFormSubmitRuleConfirmMessage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ruleActions/ABViewRuleActionFormSubmitRuleConfirmMessage */ 67486);
+/* harmony import */ var _ruleActions_ABViewRuleActionFormSubmitRuleExistPage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ruleActions/ABViewRuleActionFormSubmitRuleExistPage */ 47981);
+/* harmony import */ var _ruleActions_ABViewRuleActionFormSubmitRuleParentPage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ruleActions/ABViewRuleActionFormSubmitRuleParentPage */ 14638);
+/* harmony import */ var _ruleActions_ABViewRuleActionFormSubmitRuleClosePopup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ruleActions/ABViewRuleActionFormSubmitRuleClosePopup */ 73115);
+/* harmony import */ var _ruleActions_ABViewRuleActionFormSubmitRuleWebsite__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ruleActions/ABViewRuleActionFormSubmitRuleWebsite */ 85680);
+/* harmony import */ var _ruleActions_ABViewRuleActionFormSubmitRuleEmail__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./ruleActions/ABViewRuleActionFormSubmitRuleEmail */ 55485);
 /**
  * @Class ABViewRuleListFormSubmitRules
  * On the ab_platform_service platform, the ABRecordRule is just
@@ -55239,20 +55234,20 @@ class ABViewRuleListFormSubmitRules extends _ABViewRuleList__WEBPACK_IMPORTED_MO
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 41294:
+/***/ 78970
 /*!**********************************************************************************************!*\
   !*** ./src/js/AppBuilder/rules/ruleActions/ABViewRuleActionFormRecordRuleInsertConnected.js ***!
   \**********************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABViewRuleActionFormRecordRuleInsertConnected)
 /* harmony export */ });
-/* harmony import */ var _ABViewRuleActionFormRecordRuleUpdateConnected__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABViewRuleActionFormRecordRuleUpdateConnected */ 71820);
+/* harmony import */ var _ABViewRuleActionFormRecordRuleUpdateConnected__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABViewRuleActionFormRecordRuleUpdateConnected */ 94962);
 //
 // ABViewRuleActionFormRecordRuleInsertConnected
 //
@@ -55382,20 +55377,20 @@ class ABViewRuleActionFormRecordRuleInsertConnected extends _ABViewRuleActionFor
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 27645:
+/***/ 30277
 /*!**********************************************************************************************!*\
   !*** ./src/js/AppBuilder/rules/ruleActions/ABViewRuleActionFormRecordRuleRemoveConnected.js ***!
   \**********************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABViewRuleActionFormRecordRuleRemoveConnected)
 /* harmony export */ });
-/* harmony import */ var _ABViewRuleActionFormRecordRuleUpdateConnected__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABViewRuleActionFormRecordRuleUpdateConnected */ 71820);
+/* harmony import */ var _ABViewRuleActionFormRecordRuleUpdateConnected__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABViewRuleActionFormRecordRuleUpdateConnected */ 94962);
 //
 // ABViewRuleActionFormRecordRuleRemoveConnected
 //
@@ -55454,20 +55449,20 @@ class ABViewRuleActionFormRecordRuleRemoveConnected extends _ABViewRuleActionFor
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 39218:
+/***/ 34141
 /*!*************************************************************************************!*\
   !*** ./src/js/AppBuilder/rules/ruleActions/ABViewRuleActionFormRecordRuleUpdate.js ***!
   \*************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABViewRuleActionFormRecordRuleUpdate)
 /* harmony export */ });
-/* harmony import */ var _ABViewRuleActionObjectUpdater__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABViewRuleActionObjectUpdater */ 94109);
+/* harmony import */ var _ABViewRuleActionObjectUpdater__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABViewRuleActionObjectUpdater */ 98197);
 //
 // ABViewRuleActionFormRecordRuleUpdate
 //
@@ -55497,21 +55492,21 @@ class ABViewRuleActionFormRecordRuleUpdate extends _ABViewRuleActionObjectUpdate
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 71820:
+/***/ 94962
 /*!**********************************************************************************************!*\
   !*** ./src/js/AppBuilder/rules/ruleActions/ABViewRuleActionFormRecordRuleUpdateConnected.js ***!
   \**********************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABViewRuleActionFormRecordRuleUpdateConnected)
 /* harmony export */ });
-/* harmony import */ var _ABViewRuleActionObjectUpdater__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABViewRuleActionObjectUpdater */ 94109);
-/* harmony import */ var _platform_dataFields_ABFieldConnect__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../platform/dataFields/ABFieldConnect */ 30289);
+/* harmony import */ var _ABViewRuleActionObjectUpdater__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ABViewRuleActionObjectUpdater */ 98197);
+/* harmony import */ var _platform_dataFields_ABFieldConnect__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../platform/dataFields/ABFieldConnect */ 95578);
 //
 // ABViewRuleActionFormRecordRuleUpdateConnected
 //
@@ -56047,20 +56042,20 @@ class ABViewRuleActionFormRecordRuleUpdateConnected extends _ABViewRuleActionObj
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 98674:
+/***/ 73115
 /*!*****************************************************************************************!*\
   !*** ./src/js/AppBuilder/rules/ruleActions/ABViewRuleActionFormSubmitRuleClosePopup.js ***!
   \*****************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABViewRuleActionFormSubmitRuleClosePopup)
 /* harmony export */ });
-/* harmony import */ var _ABViewRuleAction__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ABViewRuleAction */ 40804);
+/* harmony import */ var _ABViewRuleAction__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ABViewRuleAction */ 80035);
 //
 // ABViewRuleActionFormSubmitRuleClosePopup
 //
@@ -56162,20 +56157,20 @@ class ABViewRuleActionFormSubmitRuleClosePopup extends _ABViewRuleAction__WEBPAC
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 91538:
+/***/ 67486
 /*!*********************************************************************************************!*\
   !*** ./src/js/AppBuilder/rules/ruleActions/ABViewRuleActionFormSubmitRuleConfirmMessage.js ***!
   \*********************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABViewRuleActionFormSubmitRuleConfirmMessage)
 /* harmony export */ });
-/* harmony import */ var _ABViewRuleAction__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ABViewRuleAction */ 40804);
+/* harmony import */ var _ABViewRuleAction__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ABViewRuleAction */ 80035);
 //
 // ABViewRuleActionFormSubmitRuleConfirmMessage
 //
@@ -56331,22 +56326,22 @@ class ABViewRuleActionFormSubmitRuleConfirmMessage extends _ABViewRuleAction__WE
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 87278:
+/***/ 55485
 /*!************************************************************************************!*\
   !*** ./src/js/AppBuilder/rules/ruleActions/ABViewRuleActionFormSubmitRuleEmail.js ***!
   \************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABViewRuleActionFormSubmitRuleEmail)
 /* harmony export */ });
-/* harmony import */ var _ABViewRuleAction__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ABViewRuleAction */ 40804);
-/* harmony import */ var _platform_dataFields_ABFieldConnect__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../platform/dataFields/ABFieldConnect */ 30289);
-/* harmony import */ var _platform_dataFields_ABFieldEmail__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../platform/dataFields/ABFieldEmail */ 19387);
+/* harmony import */ var _ABViewRuleAction__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ABViewRuleAction */ 80035);
+/* harmony import */ var _platform_dataFields_ABFieldConnect__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../platform/dataFields/ABFieldConnect */ 95578);
+/* harmony import */ var _platform_dataFields_ABFieldEmail__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../platform/dataFields/ABFieldEmail */ 16460);
 //
 // ABViewRuleActionFormSubmitRuleWebsite
 //
@@ -56597,20 +56592,20 @@ class ABViewRuleActionFormSubmitRuleEmail extends _ABViewRuleAction__WEBPACK_IMP
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 90786:
+/***/ 47981
 /*!****************************************************************************************!*\
   !*** ./src/js/AppBuilder/rules/ruleActions/ABViewRuleActionFormSubmitRuleExistPage.js ***!
   \****************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABViewRuleActionFormSubmitRuleExistPage)
 /* harmony export */ });
-/* harmony import */ var _ABViewRuleAction__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ABViewRuleAction */ 40804);
+/* harmony import */ var _ABViewRuleAction__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ABViewRuleAction */ 80035);
 //
 // ABViewRuleActionFormSubmitRuleExistPage
 //
@@ -56878,20 +56873,20 @@ class ABViewRuleActionFormSubmitRuleExistPage extends _ABViewRuleAction__WEBPACK
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 57973:
+/***/ 14638
 /*!*****************************************************************************************!*\
   !*** ./src/js/AppBuilder/rules/ruleActions/ABViewRuleActionFormSubmitRuleParentPage.js ***!
   \*****************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABViewRuleActionFormSubmitRuleParentPage)
 /* harmony export */ });
-/* harmony import */ var _ABViewRuleAction__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ABViewRuleAction */ 40804);
+/* harmony import */ var _ABViewRuleAction__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ABViewRuleAction */ 80035);
 //
 // ABViewRuleActionFormSubmitRuleParentPage
 //
@@ -56987,20 +56982,20 @@ class ABViewRuleActionFormSubmitRuleParentPage extends _ABViewRuleAction__WEBPAC
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 19679:
+/***/ 85680
 /*!**************************************************************************************!*\
   !*** ./src/js/AppBuilder/rules/ruleActions/ABViewRuleActionFormSubmitRuleWebsite.js ***!
   \**************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABViewRuleActionFormSubmitRuleWebsite)
 /* harmony export */ });
-/* harmony import */ var _ABViewRuleAction__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ABViewRuleAction */ 40804);
+/* harmony import */ var _ABViewRuleAction__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ABViewRuleAction */ 80035);
 //
 // ABViewRuleActionFormSubmitRuleWebsite
 //
@@ -57151,20 +57146,20 @@ class ABViewRuleActionFormSubmitRuleWebsite extends _ABViewRuleAction__WEBPACK_I
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 94109:
+/***/ 98197
 /*!******************************************************************************!*\
   !*** ./src/js/AppBuilder/rules/ruleActions/ABViewRuleActionObjectUpdater.js ***!
   \******************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ ABViewRuleActionObjectUpdater)
 /* harmony export */ });
-/* harmony import */ var _ABViewRuleAction__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ABViewRuleAction */ 40804);
+/* harmony import */ var _ABViewRuleAction__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ABViewRuleAction */ 80035);
 // ABViewRuleActionObjectUpdater
 //
 // An action that allows you to update fields on an object.
@@ -58523,35 +58518,36 @@ class ABViewRuleActionObjectUpdater extends _ABViewRuleAction__WEBPACK_IMPORTED_
 }
 
 
-/***/ }),
+/***/ },
 
-/***/ 62107:
+/***/ 10393
 /*!***********************!*\
   !*** ./src/js/app.js ***!
   \***********************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var framework7_bundle__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! framework7/bundle */ 17942);
-/* harmony import */ var framework7_css_bundle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! framework7/css/bundle */ 81565);
-/* harmony import */ var _css_icons_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../css/icons.css */ 22254);
-/* harmony import */ var _css_app_less__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../css/app.less */ 6120);
-/* harmony import */ var _routes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./routes.js */ 43183);
-/* harmony import */ var _store_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./store.js */ 40659);
-/* harmony import */ var _pages_app_f7_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../pages/app.f7.jsx */ 18388);
-/* harmony import */ var _AppBuilder_ABFactory__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./AppBuilder/ABFactory */ 63133);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_AppBuilder_ABFactory__WEBPACK_IMPORTED_MODULE_6__]);
-_AppBuilder_ABFactory__WEBPACK_IMPORTED_MODULE_6__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
+/* harmony import */ var framework7_bundle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! framework7/bundle */ 49136);
+/* harmony import */ var framework7_css_bundle__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! framework7/css/bundle */ 25500);
+/* harmony import */ var _css_icons_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../css/icons.css */ 54186);
+/* harmony import */ var _css_app_less__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../css/app.less */ 45048);
+/* harmony import */ var _routes_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./routes.js */ 82754);
+/* harmony import */ var _store_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./store.js */ 93235);
+/* harmony import */ var _pages_app_f7_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../pages/app.f7.jsx */ 61810);
+/* harmony import */ var _AppBuilder_ABFactory__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./AppBuilder/ABFactory */ 57218);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_AppBuilder_ABFactory__WEBPACK_IMPORTED_MODULE_7__]);
+var __webpack_async_dependencies_result__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
+_AppBuilder_ABFactory__WEBPACK_IMPORTED_MODULE_7__ = __webpack_async_dependencies_result__[0];
 
 
 
 // Import Global Resources
 // import "./atomic.polyfills.min.js";
-var atomic = __webpack_require__(/*! ./atomic.js */ 21935);
+var atomic = __webpack_require__(/*! ./atomic.js */ 537);
 // var atomic = require("./atomic.polyfills.min.js");
-var sails = __webpack_require__(/*! ./sails.io.js */ 55730);
+var sails = __webpack_require__(/*! ./sails.io.js */ 47664);
 Window.atomic = atomic;
 
 // Import F7 Styles
@@ -58574,7 +58570,7 @@ Window.atomic = atomic;
 
 let version = "0.0.9";
 
-var app = new framework7_bundle__WEBPACK_IMPORTED_MODULE_7__["default"]({
+var app = new framework7_bundle__WEBPACK_IMPORTED_MODULE_0__["default"]({
    name: "AppBuilder PWA", // App name
    theme: "auto", // Automatic theme detection
    darkMode: "auto",
@@ -58583,11 +58579,11 @@ var app = new framework7_bundle__WEBPACK_IMPORTED_MODULE_7__["default"]({
    },
 
    el: "#app", // App root element
-   component: (0,_pages_app_f7_jsx__WEBPACK_IMPORTED_MODULE_5__["default"])(_AppBuilder_ABFactory__WEBPACK_IMPORTED_MODULE_6__["default"]), // App main component
+   component: (0,_pages_app_f7_jsx__WEBPACK_IMPORTED_MODULE_6__["default"])(_AppBuilder_ABFactory__WEBPACK_IMPORTED_MODULE_7__["default"]), // App main component
    // App store
-   store: (0,_store_js__WEBPACK_IMPORTED_MODULE_4__["default"])(_AppBuilder_ABFactory__WEBPACK_IMPORTED_MODULE_6__["default"]),
+   store: (0,_store_js__WEBPACK_IMPORTED_MODULE_5__["default"])(_AppBuilder_ABFactory__WEBPACK_IMPORTED_MODULE_7__["default"], version),
    // App routes
-   routes: (0,_routes_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_AppBuilder_ABFactory__WEBPACK_IMPORTED_MODULE_6__["default"]),
+   routes: (0,_routes_js__WEBPACK_IMPORTED_MODULE_4__["default"])(_AppBuilder_ABFactory__WEBPACK_IMPORTED_MODULE_7__["default"]),
    version: version,
 
    // Register service worker (only on production build)
@@ -58600,13 +58596,13 @@ var app = new framework7_bundle__WEBPACK_IMPORTED_MODULE_7__["default"]({
 __webpack_async_result__();
 } catch(e) { __webpack_async_result__(e); } });
 
-/***/ }),
+/***/ },
 
-/***/ 21935:
+/***/ 537
 /*!**************************!*\
   !*** ./src/js/atomic.js ***!
   \**************************/
-/***/ (function(module, exports, __webpack_require__) {
+(module, exports) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (root, factory) {
 	if (true) {
@@ -58614,8 +58610,9 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (root,
 			return factory(root);
 		}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
 		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-	} else {}
-})(typeof __webpack_require__.g !== 'undefined' ? __webpack_require__.g : typeof window !== 'undefined' ? window : this, function (window) {
+	} else // removed by dead control flow
+{}
+})(typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : this, function (window) {
 
 	'use strict';
 
@@ -58845,13 +58842,13 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (root,
 });
 
 
-/***/ }),
+/***/ },
 
-/***/ 49670:
+/***/ 34004
 /*!*******************************!*\
   !*** ./src/js/definitions.js ***!
   \*******************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -59295,20 +59292,20 @@ __webpack_require__.r(__webpack_exports__);
 });
 
 
-/***/ }),
+/***/ },
 
-/***/ 12968:
+/***/ 42175
 /*!*************************************!*\
   !*** ./src/js/resources/Account.js ***!
   \*************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _AppBuilder_platform_ABEmitter__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../AppBuilder/platform/ABEmitter */ 4025);
+/* harmony import */ var _AppBuilder_platform_ABEmitter__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../AppBuilder/platform/ABEmitter */ 73914);
 // var EventEmitter = require("events").EventEmitter;
 // import { EventEmitter } from "events";
 
@@ -59453,20 +59450,20 @@ class Account extends _AppBuilder_platform_ABEmitter__WEBPACK_IMPORTED_MODULE_0_
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new Account());
 
 
-/***/ }),
+/***/ },
 
-/***/ 77269:
+/***/ 41696
 /*!************************************!*\
   !*** ./src/js/resources/Config.js ***!
   \************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ 96486);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ 2543);
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
 // import ConfigDesktop from "./configDesktop";
 // import ConfigMobile from "./configMobile";
@@ -59709,20 +59706,20 @@ class Config {
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new Config());
 
 
-/***/ }),
+/***/ },
 
-/***/ 28917:
+/***/ 15359
 /*!******************************************!*\
   !*** ./src/js/resources/Multilingual.js ***!
   \******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _AppBuilder_platform_ABMLClass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../AppBuilder/platform/ABMLClass */ 46148);
+/* harmony import */ var _AppBuilder_platform_ABMLClass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../AppBuilder/platform/ABMLClass */ 18135);
 /*
  * Multilingual
  * manage our multilingual Translations/Labels/etc.
@@ -59921,22 +59918,22 @@ class Multilingual extends _AppBuilder_platform_ABMLClass__WEBPACK_IMPORTED_MODU
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new Multilingual());
 
 
-/***/ }),
+/***/ },
 
-/***/ 93360:
+/***/ 66786
 /*!*************************************!*\
   !*** ./src/js/resources/Network.js ***!
   \*************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _AppBuilder_platform_ABEmitter__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../AppBuilder/platform/ABEmitter */ 4025);
-/* harmony import */ var _NetworkRest__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./NetworkRest */ 84292);
-/* harmony import */ var _NetworkRestSocket__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./NetworkRestSocket */ 27299);
+/* harmony import */ var _AppBuilder_platform_ABEmitter__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../AppBuilder/platform/ABEmitter */ 73914);
+/* harmony import */ var _NetworkRest__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./NetworkRest */ 83856);
+/* harmony import */ var _NetworkRestSocket__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./NetworkRestSocket */ 50645);
 /*
  * Network.js
  * A network manager for interfacing with our AppBuilder server.
@@ -60417,20 +60414,20 @@ class Network extends _AppBuilder_platform_ABEmitter__WEBPACK_IMPORTED_MODULE_0_
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new Network());
 
 
-/***/ }),
+/***/ },
 
-/***/ 84292:
+/***/ 83856
 /*!*****************************************!*\
   !*** ./src/js/resources/NetworkRest.js ***!
   \*****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _AppBuilder_platform_ABEmitter__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../AppBuilder/platform/ABEmitter */ 4025);
+/* harmony import */ var _AppBuilder_platform_ABEmitter__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../AppBuilder/platform/ABEmitter */ 73914);
 /*
  * NetworkRest.js
  * The base Networking class.  This class is responsible for job submissions
@@ -60839,20 +60836,20 @@ class NetworkRest extends _AppBuilder_platform_ABEmitter__WEBPACK_IMPORTED_MODUL
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (NetworkRest);
 
 
-/***/ }),
+/***/ },
 
-/***/ 27299:
+/***/ 50645
 /*!***********************************************!*\
   !*** ./src/js/resources/NetworkRestSocket.js ***!
   \***********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _NetworkRest__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NetworkRest */ 84292);
+/* harmony import */ var _NetworkRest__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NetworkRest */ 83856);
 /*
  * NetworkRest.js
  * The base Networking class.  This class is responsible for job submissions
@@ -61019,21 +61016,21 @@ class NetworkRestSocket extends _NetworkRest__WEBPACK_IMPORTED_MODULE_0__["defau
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (NetworkRestSocket);
 
 
-/***/ }),
+/***/ },
 
-/***/ 35397:
+/***/ 18221
 /*!*************************************!*\
   !*** ./src/js/resources/Storage.js ***!
   \*************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _AppBuilder_platform_ABEmitter__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../AppBuilder/platform/ABEmitter */ 4025);
-/* harmony import */ var _StorageLocal_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./StorageLocal.js */ 20813);
+/* harmony import */ var _AppBuilder_platform_ABEmitter__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../AppBuilder/platform/ABEmitter */ 73914);
+/* harmony import */ var _StorageLocal_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./StorageLocal.js */ 10058);
 
 
 
@@ -61089,20 +61086,20 @@ class Storage extends _AppBuilder_platform_ABEmitter__WEBPACK_IMPORTED_MODULE_0_
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new Storage());
 
 
-/***/ }),
+/***/ },
 
-/***/ 20813:
+/***/ 10058
 /*!******************************************!*\
   !*** ./src/js/resources/StorageLocal.js ***!
   \******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _AppBuilder_platform_ABEmitter__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../AppBuilder/platform/ABEmitter */ 4025);
+/* harmony import */ var _AppBuilder_platform_ABEmitter__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../AppBuilder/platform/ABEmitter */ 73914);
 /*
  * StorageLocal
  *
@@ -61183,21 +61180,21 @@ class StorageLocal extends _AppBuilder_platform_ABEmitter__WEBPACK_IMPORTED_MODU
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new StorageLocal());
 
 
-/***/ }),
+/***/ },
 
-/***/ 75342:
+/***/ 15458
 /*!************************************!*\
   !*** ./src/js/resources/Tenant.js ***!
   \************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _AppBuilder_platform_ABEmitter__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../AppBuilder/platform/ABEmitter */ 4025);
-/* harmony import */ var _Config_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Config.js */ 77269);
+/* harmony import */ var _AppBuilder_platform_ABEmitter__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../AppBuilder/platform/ABEmitter */ 73914);
+/* harmony import */ var _Config_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Config.js */ 41696);
 
 
 
@@ -61254,24 +61251,24 @@ class Tenant extends _AppBuilder_platform_ABEmitter__WEBPACK_IMPORTED_MODULE_0__
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new Tenant());
 
 
-/***/ }),
+/***/ },
 
-/***/ 43183:
+/***/ 82754
 /*!**************************!*\
   !*** ./src/js/routes.js ***!
   \**************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _pages_404_f7_jsx__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../pages/404.f7.jsx */ 22167);
-/* harmony import */ var _pages_form_f7_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../pages/form.f7.jsx */ 84723);
-/* harmony import */ var _pages_home_f7_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../pages/home.f7.jsx */ 59289);
-/* harmony import */ var _pages_list_f7_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../pages/list.f7.jsx */ 42767);
-/* harmony import */ var _pages_inbox_f7_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../pages/inbox.f7.jsx */ 48800);
+/* harmony import */ var _pages_404_f7_jsx__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../pages/404.f7.jsx */ 95309);
+/* harmony import */ var _pages_form_f7_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../pages/form.f7.jsx */ 17789);
+/* harmony import */ var _pages_home_f7_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../pages/home.f7.jsx */ 8660);
+/* harmony import */ var _pages_list_f7_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../pages/list.f7.jsx */ 85815);
+/* harmony import */ var _pages_inbox_f7_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../pages/inbox.f7.jsx */ 38049);
 
 
 
@@ -61388,13 +61385,13 @@ __webpack_require__.r(__webpack_exports__);
 });
 
 
-/***/ }),
+/***/ },
 
-/***/ 55730:
+/***/ 47664
 /*!****************************!*\
   !*** ./src/js/sails.io.js ***!
   \****************************/
-/***/ (function(module, exports) {
+(module, exports) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* eslint-disable */
 
@@ -66569,29 +66566,30 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* eslint-disabl
       return SailsIOClient;
     }).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
 		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-  } else {}
+  } else // removed by dead control flow
+{}
 })();
 
 /* eslint-enable */
 
 
-/***/ }),
+/***/ },
 
-/***/ 40659:
+/***/ 93235
 /*!*************************!*\
   !*** ./src/js/store.js ***!
   \*************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var framework7__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! framework7 */ 31223);
+/* harmony import */ var framework7__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! framework7 */ 37057);
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((AB) => {
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((AB, appVersion = "") => {
    const allDCs = AB.datacollections();
 
    const configStore = {
@@ -66640,7 +66638,7 @@ __webpack_require__.r(__webpack_exports__);
             };
          },
          getVersion({ state }) {
-            state.version = app.f7.params.version;
+            state.version = appVersion;
          },
       },
    };
@@ -66655,13 +66653,13 @@ __webpack_require__.r(__webpack_exports__);
 });
 
 
-/***/ }),
+/***/ },
 
-/***/ 7882:
+/***/ 54566
 /*!********************************************!*\
   !*** ./src/pages/componants/FormioToF7.js ***!
   \********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -66864,12 +66862,12 @@ class FormioToF7 {
 }
 
 
-/***/ })
+/***/ }
 
 },
 /******/ __webpack_require__ => { // webpackRuntimeModules
 /******/ var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-/******/ __webpack_require__.O(0, ["vendors"], () => (__webpack_exec__(62107)));
+/******/ __webpack_require__.O(0, ["vendors"], () => (__webpack_exec__(10393)));
 /******/ var __webpack_exports__ = __webpack_require__.O();
 /******/ }
 ]);
